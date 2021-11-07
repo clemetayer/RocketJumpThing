@@ -6,15 +6,27 @@ class_name Player
 Notes : 
 - air :
 	- si ni gauche, ni droite pressé (ou somme des 2 = 0):
-		- Velocity prend la direction de wishdir en gardant sa norme
+		- Si dir dans le même sens que velocity (Différence d'angle > PI/2):
+			- Velocity prend la direction de wishdir en gardant sa norme
+		- Sinon:
+			- On ralentit d'un certain facteur
 	- sinon :
 		- si à la fois avant/arrière + gauche/droite:
-			- Strafe jump 
+			- Si velocity dans le même sens que wishdir (différence d'angle > PI/2)
+				- Strafe jump 
+			- Sinon:
+				- On ralentit d'un certain facteur en allant vers la direction souhaitée (légèrement, à peu près la même chose que pour le strafe) vers la direction souhaitée 
 		- sinon :
 			- Mouvement gauche/droite normal
-	- si rien d'appuyé, on garde exactement la même vélocité
+	- si rien d'appuyé, on diminue légèrement la vélocité (note : touche pour conserver la vélocité dans ce cas ? Shift peut-être ?)
 - sol :
-	- bah on bouge normal quoi
+	- slide:
+		- plus ou moins pareil qu'en l'air, mais au sol, mais avec le strafe plus... brutal
+		- boost si on saute pendant un slide
+	- sinon:
+		- on bouge normal quoi
+TODO :
+	- Ralentir en allant quand on presse la touche pour aller en dans l'autre sens
 """
 
 ##### SIGNALS #####
@@ -27,14 +39,15 @@ Notes :
 #---- CONSTANTS -----
 const GRAVITY := -24.8
 const MAX_SPEED := 20
-const MAX_ADD_SPEED := 50
+const MAX_ADD_SPEED := 200
 const JUMP_SPEED := 18
 const ACCEL := 4.5
-const DEACCEL = 16
+const ROCKET_DELAY := 1.0  # time before you can shoot another rocket
 const MAX_SLOPE_ANGLE = 40
 
+const ROCKET_SCENE_PATH = "res://Game/Common/MovementUtils/Rocket/Rocket.tscn"
+
 #---- EXPORTS -----
-export (bool) var DEBUG = false
 export (Dictionary) var PATHS = {"camera": NodePath("."), "rotation_helper": NodePath(".")}
 
 #---- STANDARD -----
@@ -49,7 +62,7 @@ var camera
 var rotation_helper
 
 #==== PRIVATE ====
-# var _private_var # Optionnal comment
+var _add_move_vector_queue := []
 
 #==== ONREADY ====
 # onready var onready_var # Optionnal comment
@@ -65,12 +78,26 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame. Remove the "_" to use it.
 func _physics_process(delta):
-	if DEBUG:
-		DebugDraw.set_text("current_speed", current_speed)
-		DebugDraw.draw_line_3d(self.translation, self.translation + dir, Color(0, 1, 1))
-		DebugDraw.draw_line_3d(
-			self.translation, self.translation + Vector3(vel.x, 0, vel.z), Color(0, 1, 0)
-		)
+	DebugDraw.set_text("current_speed", current_speed)
+	DebugDraw.draw_line_3d(self.transform.origin, self.translation + dir, Color(0, 1, 1))
+	DebugDraw.draw_line_3d(
+		self.translation, self.transform.origin + Vector3(vel.x, 0, vel.z), Color(0, 1, 0)
+	)
+	DebugDraw.draw_line_3d(
+		self.transform.origin,
+		self.transform.origin + camera.get_global_transform().basis.x,
+		Color(1, 0, 0)
+	)
+	DebugDraw.draw_line_3d(
+		self.transform.origin,
+		self.transform.origin + camera.get_global_transform().basis.y,
+		Color(0, 1, 0)
+	)
+	DebugDraw.draw_line_3d(
+		self.transform.origin,
+		self.transform.origin + camera.get_global_transform().basis.z,
+		Color(0, 0, 1)
+	)
 	_process_input(delta)
 	_process_movement(delta)
 	_process_states()
@@ -87,13 +114,13 @@ func _input(event):
 
 
 ##### PUBLIC METHODS #####
-# Methods that are intended to be "visible" to other nodes or scripts
-# func public_method(arg : int) -> void:
-#     pass
+# Adds some vector to move the player (to be queued)
+func add_movement_vector(vector: Vector3):
+	_add_move_vector_queue.append(vector)
 
 
 ##### PROTECTED METHODS #####
-func _process_input(delta):
+func _process_input(_delta):
 	# ----------------------------------
 	# Walking
 	dir = Vector3()
@@ -125,6 +152,20 @@ func _process_input(delta):
 	# ----------------------------------
 
 	# ----------------------------------
+	# Shooting
+	if Input.is_action_pressed("action_shoot") and not states.has("shooting"):
+		states.append("shooting")
+		var rocket = load(ROCKET_SCENE_PATH).instance()
+		rocket.START_POS = transform.origin
+		rocket.DIRECTION = -cam_xform.basis.z
+		rocket.UP_VECTOR = Vector3(0, 1, 0)
+		get_parent().add_child(rocket)
+		var _err = get_tree().create_timer(ROCKET_DELAY).connect(
+			"timeout", self, "remove_shooting_state"
+		)
+	# ----------------------------------
+
+	# ----------------------------------
 	# Capturing/Freeing the cursor
 	if Input.is_action_just_pressed("ui_cancel"):
 		if Input.get_mouse_mode() == Input.MOUSE_MODE_VISIBLE:
@@ -146,54 +187,56 @@ func _process_movement(delta):
 
 # updates the states
 func _process_states():
-	if DEBUG:
-		DebugDraw.set_text("states", states)
+	DebugDraw.set_text("states", states)
 	if is_on_floor() and not states.has("in_air"):
 		states.append("in_air")
-	if current_speed != 0:
+	if current_speed != 0 and not states.has("moving"):
 		states.append("moving")
 
 
 # computes the horizontal velocity
-func _compute_hvel(vel: Vector2, delta: float) -> Vector2:
+func _compute_hvel(p_vel: Vector2, delta: float) -> Vector2:
 	if is_on_floor():
-		return _compute_ground_hvel(vel, delta)
+		return _compute_ground_hvel(p_vel, delta)
 	else:
-		return _compute_air_hvel(vel, delta)
+		return _compute_air_hvel(p_vel, delta)
 
 
 # computes the horizontal velocity when in air
-func _compute_air_hvel(vel: Vector2, delta: float) -> Vector2:
+func _compute_air_hvel(p_vel: Vector2, delta: float) -> Vector2:
 	var ret_vel = Vector2()  # return vector
 	if input_movement_vector.x == 0:  # no left/right input
 		if input_movement_vector.y != 0:  # forward/backward input
-			ret_vel = Vector2(dir.x, dir.z) * vel.length()  # keeps the same speed, but goes instantly toward what the player is aiming
+			ret_vel = Vector2(dir.x, dir.z) * p_vel.length()  # keeps the same speed, but goes instantly toward what the player is aiming
 		else:  # just keeps the same vector (no horizontal movement input)
-			ret_vel = vel
+			ret_vel = p_vel
 	else:  # left/right input
 		if input_movement_vector.y != 0:  # this is where you should gain a lot of speed, by "snaking" or strafing
 			var add_speed = (
-				clamp(abs(vel.angle_to(Vector2(dir.x, dir.z)) / PI), 0, 1)
+				clamp(abs(p_vel.angle_to(Vector2(dir.x, dir.z)) / PI), 0, 1)
 				* MAX_ADD_SPEED
 			)
-			ret_vel = vel + Vector2(dir.x, dir.z) * add_speed * delta
+			ret_vel = p_vel + Vector2(dir.x, dir.z) * add_speed * delta
 		else:  # should move to the left/right without modifying the speed (and also goes towards the mouse vector)
-			ret_vel = vel.rotated(
+			ret_vel = p_vel.rotated(
 				(
 					(PI / 2)
 					* -input_movement_vector.x
 					* delta
 					* (1 / 2)
-					* clamp(vel.angle_to(Vector2(dir.x, dir.z)) / PI, 0, 1)
+					* clamp(p_vel.angle_to(Vector2(dir.x, dir.z)) / PI, 0, 1)
 				)
 			)  # FIXME : velocity stops ???
 	return ret_vel
 
 
 # computes the horizontal velocity when on ground
-func _compute_ground_hvel(vel: Vector2, delta: float) -> Vector2:
-	current_speed = dir.dot(Vector3(vel.x, 0, vel.y))
-	return vel.linear_interpolate(Vector2(dir.x, dir.z) * MAX_SPEED, ACCEL * delta)
+func _compute_ground_hvel(p_vel: Vector2, delta: float) -> Vector2:
+	current_speed = dir.dot(Vector3(p_vel.x, 0, p_vel.y))
+	return p_vel.linear_interpolate(Vector2(dir.x, dir.z) * MAX_SPEED, ACCEL * delta)
+
 
 ##### SIGNAL MANAGEMENT #####
-# Functions that should be triggered when a specific signal is received
+func remove_shooting_state():
+	if states.has("shooting"):
+		states.erase("shooting")

@@ -13,9 +13,15 @@ _global_script_classes=[ {
 "class": "Player",
 "language": "GDScript",
 "path": "res://Game/Common/Characters/MainCharacters/player.gd"
+}, {
+"base": "Spatial",
+"class": "Rocket",
+"language": "GDScript",
+"path": "res://Game/Common/MovementUtils/Rocket/Rocket.gd"
 } ]
 _global_script_class_icons={
-"Player": ""
+"Player": "",
+"Rocket": ""
 }
 
 [application]
@@ -59,11 +65,17 @@ movement_slide={
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777237,"unicode":0,"echo":false,"script":null)
  ]
 }
+action_shoot={
+"deadzone": 0.5,
+"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":1,"pressed":false,"doubleclick":false,"script":null)
+ ]
+}
 
 [layer_names]
 
 3d_physics/layer_1="player"
 3d_physics/layer_2="static_env"
+3d_physics/layer_3="explosive"
 
 [physics]
 
