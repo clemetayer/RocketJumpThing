@@ -50,6 +50,7 @@ func _process(delta):
 
 
 ##### PROTECTED METHODS #####
+# checks the raycast distance from the closest "floor", to explode if needed
 func _check_raycast_distance() -> void:
 	var raycast = $RayCast
 	raycast.cast_to = Vector3(0, 0, 1) * RAYCAST_DISTANCE
