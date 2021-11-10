@@ -13,7 +13,7 @@ Notes :
 			- On ralentit d'un certain facteur
 	- sinon :
 		- si à la fois avant/arrière + gauche/droite:
-			- Si velocity dans le même sens que wishdir (différence d'angle > PI/2)
+			- Si velocity dans le même sens que wishdir (différence d'angle < PI/2)
 				- Strafe jump 
 			- Sinon:
 				- On ralentit d'un certain facteur en allant vers la direction souhaitée (légèrement, à peu près la même chose que pour le strafe) vers la direction souhaitée 
@@ -51,6 +51,7 @@ const AIR_ADD_STRAFE_SPEED := 100  # Speed that is added during a strafe
 const AIR_BACK_DECCELERATE := 0.98  # Speed decceleration when pressing an opposite direction to the velocity
 const AIR_STANDARD_DECCELERATE := 0.985  # Speed decceleration when not pressing anything
 const AIR_ACCELERATION := 1.5  # Acceleration in air to get to the AIR_TARGET_SPEED
+const AIR_STEER_STRAFE_BONUS_ANGLE := PI / 10  # "Stiffness" of the turn when air strafing
 
 #==== GROUND =====
 const GROUND_TARGET_SPEED := 50  # Ground target speed
@@ -92,7 +93,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame. Remove the "_" to use it.
 func _physics_process(delta):
-#	DebugDraw.set_text("current_speed", current_speed)
+	DebugDraw.set_text("current_speed", current_speed)
 #	DebugDraw.draw_line_3d(self.transform.origin, self.translation + dir, Color(0, 1, 1))
 #	DebugDraw.draw_line_3d(
 #		self.translation, self.transform.origin + Vector3(vel.x, 0, vel.z), Color(0, 1, 0)
@@ -207,7 +208,7 @@ func _process_states():
 
 # computes the horizontal velocity
 func _compute_hvel(p_vel: Vector2, delta: float) -> Vector2:
-	current_speed = dir.dot(Vector3(p_vel.x, 0, p_vel.y))
+	current_speed = p_vel.length()
 	if is_on_floor():
 		return _compute_ground_hvel(p_vel, delta)
 	else:
@@ -227,21 +228,19 @@ func _compute_air_hvel(p_vel: Vector2, delta: float) -> Vector2:
 		else:  # just keeps the same vector (no horizontal movement input)
 			ret_vel = p_vel * AIR_STANDARD_DECCELERATE
 	else:  # left/right input
-		if input_movement_vector.y != 0:
-			if abs(dir_2D.angle_to(p_vel)) <= PI / 2:  # this is where you should gain a lot of speed, by "snaking" or strafing
-				var add_speed = clamp(abs(p_vel.angle_to(dir_2D) / (PI/2)), 0, 1) * AIR_ADD_STRAFE_SPEED
-				ret_vel = p_vel + dir_2D * add_speed * delta
-			else:
-				ret_vel = p_vel * AIR_BACK_DECCELERATE
-				ret_vel.rotated(
-					(
-						(PI / 2)
-						* -input_movement_vector.x
-						* delta
-						* (1 / 2)
-						* clamp(p_vel.angle_to(dir_2D) / PI, 0, 1)
-					)
+		if input_movement_vector.y != 0:  # this is where you should gain a lot of speed, by "snaking" or strafing
+			var add_speed = (
+				clamp(abs(p_vel.angle_to(dir_2D) / (PI / 2)), 0, 1)
+				* AIR_ADD_STRAFE_SPEED
+			)
+			ret_vel = (
+				p_vel
+				+ (
+					dir_2D.rotated(input_movement_vector.x * AIR_STEER_STRAFE_BONUS_ANGLE)
+					* add_speed
+					* delta
 				)
+			)
 		else:  # should move to the left/right without modifying the speed (and also goes towards the mouse vector)
 			ret_vel = p_vel.rotated(
 				(
