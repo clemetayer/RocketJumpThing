@@ -46,12 +46,12 @@ const FLOOR_POWER := -1  # Standard gravity power applied to the player when is 
 const MAX_SLOPE_ANGLE = 45  # Max slope angle where you stop sliding
 
 #==== AIR =====
-const AIR_TARGET_SPEED := 75  # Target acceleration when just pressing forward in the air
-const AIR_ADD_STRAFE_SPEED := 100  # Speed that is added during a strafe
+const AIR_TARGET_SPEED := 150  # Target acceleration when just pressing forward in the air
+const AIR_ADD_STRAFE_SPEED := 50  # Speed that is added during a strafe
 const AIR_BACK_DECCELERATE := 0.98  # Speed decceleration when pressing an opposite direction to the velocity
 const AIR_STANDARD_DECCELERATE := 0.985  # Speed decceleration when not pressing anything
-const AIR_ACCELERATION := 1.5  # Acceleration in air to get to the AIR_TARGET_SPEED
-const AIR_STEER_STRAFE_BONUS_ANGLE := PI / 10  # "Stiffness" of the turn when air strafing
+const AIR_ACCELERATION := 1.0  # Acceleration in air to get to the AIR_TARGET_SPEED
+const AIR_STRAFE_STEER_POWER := 50.0  # Power of the turn when air strafing
 
 #==== GROUND =====
 const GROUND_TARGET_SPEED := 50  # Ground target speed
@@ -77,7 +77,7 @@ var rotation_helper  # rotation helper node
 
 #==== PRIVATE ====
 var _add_velocity_vector_queue := []  # queue to add the vector to the velocity on the next process (used to make external elements interact with the player velocity)
-var _old_velocity := Vector3(0, 0, 0)  # keep in memory the old velocity, for the left-right only input for instance
+var _target_velocity_vector: Vector3  # keep in memory the old velocity, for swaying for instance
 
 #==== ONREADY ====
 # onready var onready_var # Optionnal comment
@@ -94,10 +94,10 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame. Remove the "_" to use it.
 func _physics_process(delta):
 	DebugDraw.set_text("current_speed", current_speed)
-#	DebugDraw.draw_line_3d(self.transform.origin, self.translation + dir, Color(0, 1, 1))
-#	DebugDraw.draw_line_3d(
-#		self.translation, self.transform.origin + Vector3(vel.x, 0, vel.z), Color(0, 1, 0)
-#	)
+	# DebugDraw.draw_line_3d(self.transform.origin, self.translation + dir, Color(0, 1, 1))
+	# DebugDraw.draw_line_3d(
+	# 	self.translation, self.transform.origin + Vector3(vel.x, 0, vel.z), Color(0, 1, 0)
+	# )
 #	DebugDraw.draw_line_3d(
 #		self.transform.origin,
 #		self.transform.origin + camera.get_global_transform().basis.x,
@@ -217,41 +217,67 @@ func _compute_hvel(p_vel: Vector2, delta: float) -> Vector2:
 
 # computes the horizontal velocity when in air
 func _compute_air_hvel(p_vel: Vector2, delta: float) -> Vector2:
-	var ret_vel = Vector2()  # return vector
 	var dir_2D = Vector2(dir.x, dir.z)
 	if input_movement_vector.x == 0:  # no left/right input
 		if input_movement_vector.y != 0:  # forward/backward input
-			if abs(dir_2D.angle_to(p_vel)) <= PI / 2:  # keeps the same speed, but goes instantly toward what the player is aiming
-				ret_vel = dir_2D * p_vel.length()
-			else:  # goes toward where the player is aiming, but deccelerates 
-				ret_vel = -dir_2D * p_vel.length() * AIR_BACK_DECCELERATE
-		else:  # just keeps the same vector (no horizontal movement input)
-			ret_vel = p_vel * AIR_STANDARD_DECCELERATE
+			return _mvt_air_fw(p_vel, delta, dir_2D)
+		else:  # just keeps the same vector (no horizontal movement input) and deccelerate slightly (NOTE : Maybe cancel the decceleration with shift ?)
+			return _mvt_air_bw(p_vel)
 	else:  # left/right input
 		if input_movement_vector.y != 0:  # this is where you should gain a lot of speed, by "snaking" or strafing
-			var add_speed = (
-				clamp(abs(p_vel.angle_to(dir_2D) / (PI / 2)), 0, 1)
-				* AIR_ADD_STRAFE_SPEED
+			return _mvt_air_strafe(p_vel, dir_2D, delta)
+		else:  # should sway left/right without modifying the speed (and also goes towards the mouse vector)
+			return _mvt_air_sway(dir_2D, p_vel, delta)
+
+
+# Movement when in air when going straight forward
+func _mvt_air_fw(p_vel: Vector2, delta: float, dir_2D: Vector2) -> Vector2:
+	if abs(dir_2D.angle_to(p_vel)) <= PI / 2:  # keeps the same speed, but goes instantly toward what the player is aiming
+		var air_accel_bonus = 0.0
+		if current_speed < AIR_TARGET_SPEED:  # adds a bonus to get to the target speed, computed as y=(atan(x * AIR_ACCELERATION)/(PI/2)) * TARGET_SPEED
+			var x = tan((current_speed / AIR_TARGET_SPEED) * (PI / 2)) / AIR_ACCELERATION  # current x value for the function above
+			air_accel_bonus = (
+				((atan((x + delta) * AIR_ACCELERATION) / (PI / 2)) * AIR_TARGET_SPEED)  # new speed should be the next delta x in the function above
+				- current_speed
 			)
-			ret_vel = (
-				p_vel
-				+ (
-					dir_2D.rotated(input_movement_vector.x * AIR_STEER_STRAFE_BONUS_ANGLE)
-					* add_speed
-					* delta
-				)
+		return dir_2D * (p_vel.length() + air_accel_bonus)
+	else:  # goes toward where the player is aiming, but deccelerates 
+		return -dir_2D * p_vel.length() * AIR_BACK_DECCELERATE
+
+
+# Movement when in air when going straight back
+func _mvt_air_bw(p_vel: Vector2) -> Vector2:
+	return p_vel * AIR_STANDARD_DECCELERATE
+
+
+# Movement when in air and strafing
+func _mvt_air_strafe(p_vel: Vector2, dir_2D: Vector2, delta: float) -> Vector2:
+	var add_speed = 0.0
+	if abs(p_vel.angle_to(dir_2D)) <= PI / 2:  # should accelerate
+		add_speed = abs(p_vel.angle_to(dir_2D)) * AIR_ADD_STRAFE_SPEED
+		if current_speed + add_speed * delta < AIR_TARGET_SPEED:  # adds a bonus to get to the target speed, computed as y=(atan(x * AIR_ACCELERATION)/(PI/2)) * TARGET_SPEED
+			var x = tan((current_speed / AIR_TARGET_SPEED) * (PI / 2)) / AIR_ACCELERATION  # current x value for the function above
+			add_speed += (
+				((atan((x + delta) * AIR_ACCELERATION) / (PI / 2)) * AIR_TARGET_SPEED)  # new speed should be the next delta x in the function above
+				- current_speed
 			)
-		else:  # should move to the left/right without modifying the speed (and also goes towards the mouse vector)
-			ret_vel = p_vel.rotated(
-				(
-					(PI / 2)
-					* -input_movement_vector.x
-					* delta
-					* (1 / 2)
-					* clamp(p_vel.angle_to(dir_2D) / PI, 0, 1)
-				)
-			)  # FIXME : velocity stops ???
-	return ret_vel
+	else:  # should deccelerate
+		add_speed = -(abs(p_vel.angle_to(dir_2D)) - (PI / 2)) * AIR_ADD_STRAFE_SPEED
+	var ret_vel = p_vel + p_vel.normalized() * add_speed * delta  # gets faster/slower
+	return ret_vel.move_toward(dir_2D * ret_vel.length(), delta * AIR_STRAFE_STEER_POWER)
+
+
+# Movement when in air and swaying straight left/right
+func _mvt_air_sway(dir_2D: Vector2, p_vel: Vector2, delta: float) -> Vector2:
+	return p_vel.rotated(
+		(
+			(PI / 2)
+			* -input_movement_vector.x
+			* delta
+			* (1 / 2)
+			* clamp(p_vel.angle_to(dir_2D) / PI, 0, 1)
+		)
+	)  # FIXME : velocity stops ???
 
 
 # computes the horizontal velocity when on ground
