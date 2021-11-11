@@ -52,6 +52,8 @@ const AIR_BACK_DECCELERATE := 0.98  # Speed decceleration when pressing an oppos
 const AIR_STANDARD_DECCELERATE := 0.985  # Speed decceleration when not pressing anything
 const AIR_ACCELERATION := 1.0  # Acceleration in air to get to the AIR_TARGET_SPEED
 const AIR_STRAFE_STEER_POWER := 50.0  # Power of the turn when air strafing
+const AIR_SWAY_ANGLE_MINUS_ANGLE := PI / 4  # Angle to retract from the wished direction (target direction when swaying)
+const AIR_SWAY_SPEED := 100  # Speed for the velocity to get to the desired sway angle
 
 #==== GROUND =====
 const GROUND_TARGET_SPEED := 50  # Ground target speed
@@ -77,8 +79,6 @@ var rotation_helper  # rotation helper node
 
 #==== PRIVATE ====
 var _add_velocity_vector_queue := []  # queue to add the vector to the velocity on the next process (used to make external elements interact with the player velocity)
-var _target_velocity_vector: Vector3  # keep in memory the old velocity, for swaying for instance
-
 #==== ONREADY ====
 # onready var onready_var # Optionnal comment
 
@@ -269,15 +269,10 @@ func _mvt_air_strafe(p_vel: Vector2, dir_2D: Vector2, delta: float) -> Vector2:
 
 # Movement when in air and swaying straight left/right
 func _mvt_air_sway(dir_2D: Vector2, p_vel: Vector2, delta: float) -> Vector2:
-	return p_vel.rotated(
-		(
-			(PI / 2)
-			* -input_movement_vector.x
-			* delta
-			* (1 / 2)
-			* clamp(p_vel.angle_to(dir_2D) / PI, 0, 1)
-		)
-	)  # FIXME : velocity stops ???
+	return p_vel.move_toward(
+		dir_2D.rotated(AIR_SWAY_ANGLE_MINUS_ANGLE * -input_movement_vector.x) * p_vel.length(),
+		delta * AIR_SWAY_SPEED
+	)
 
 
 # computes the horizontal velocity when on ground
