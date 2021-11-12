@@ -10,10 +10,12 @@ class_name Rocket
 
 ##### VARIABLES #####
 #---- CONSTANTS -----
-const SPEED := 10.0  # travel speed of the rocket
-const EXPLOSION_RADIUS := 5.0
-const EXPLOSION_DECAY := 0.25
-const RAYCAST_DISTANCE := 200
+const SPEED := 200.0  # travel speed of the rocket
+const EXPLOSION_RADIUS := 10.0  # explosion radius
+const EXPLOSION_DECAY := 0.25  # how much time the explosion remains
+const EXPLOSION_POWER := 0.5  # power of the explosion
+const RAYCAST_DISTANCE := 200  # maximum distance to detect a floor
+const RAYCAST_PLAN_EXPLODE_DISTANCE := 5 # Distance from a floor where the explosion should be planned (since it's imminent), to be sure that is will explode (high speed makes collision weird)
 
 #---- EXPORTS -----
 export (Vector3) var START_POS = Vector3(0, 0, 0)
@@ -26,6 +28,7 @@ export (Vector3) var UP_VECTOR = Vector3(0, 1, 0)  # up vector
 
 #==== PRIVATE ====
 var _translate := false
+var _expl_planned := false # if the explosion has been already planned
 
 #==== ONREADY ====
 # onready var onready_var # Optionnal comment
@@ -54,12 +57,11 @@ func _process(delta):
 func _check_raycast_distance() -> void:
 	var raycast = $RayCast
 	raycast.cast_to = Vector3(0, 0, 1) * RAYCAST_DISTANCE
-	DebugDraw.set_text("Raycast colliding", raycast.is_colliding())
 	if raycast.is_colliding():
 		var distance = _get_distance_to_collision(raycast)
-		DebugDraw.set_text("distance", distance)
-		if distance <= 0.5:
-			_explode()
+		print("distance = %f" % distance)
+		if distance <= RAYCAST_PLAN_EXPLODE_DISTANCE and not _expl_planned:
+			_plan_explosion(distance)
 
 
 # returns the distance from the rocket position to the collision point (using the normal)
@@ -79,11 +81,19 @@ func _get_distance_to_collision(raycast: RayCast) -> float:
 	)
 	return normal_vect.length()
 
+# plans an explosion, since the rocket is close to the floor (to make sure it explodes)
+func _plan_explosion(distance : float) -> void:
+	_expl_planned = true
+	yield(get_tree().create_timer(distance/SPEED), "timeout")
+	_explode()
 
+# Explosion of the rocket
+# FIXME : Not exploding sometimes, the collision probably doesn't operate well...
 func _explode() -> void:
 	_translate = false
 	$RayCast.enabled = false
-	$MeshInstance.queue_free()
+	if get_node_or_null("MeshInstance") != null and is_instance_valid($MeshInstance):
+		$MeshInstance.queue_free()
 	var area := Area.new()
 	area.collision_layer = int(pow(2, 3))  # layer mask set to "explosive"
 	area.collision_mask = int(pow(2, 0))  # can collide with player
@@ -93,5 +103,18 @@ func _explode() -> void:
 	collision.shape = shape
 	area.add_child(collision)
 	add_child(area)
+	var _err = area.connect("body_entered", self, "interact_with_body", [area])
 	yield(get_tree().create_timer(EXPLOSION_DECAY), "timeout")
 	queue_free()
+
+
+##### SIGNAL MANAGEMENT #####
+func interact_with_body(body, area):
+	if body.is_in_group("player"):
+		var vector = (body.transform.origin - area.transform.origin) * EXPLOSION_POWER
+		body.add_velocity_vector(vector)
+
+
+func _on_Rocket_body_entered(body): # OPTIMIZE : Might be a bit overkill (and dangerous ?)
+	if not body.is_in_group("player"):
+		_explode()

@@ -61,6 +61,7 @@ const GROUND_ACCELERATION := 4.5  # Acceleration on the ground to get to GROUND_
 
 #~~~~~ PROJECTILES ~~~~~ 
 const ROCKET_DELAY := 1.0  # Time before you can shoot another rocket
+const ROCKET_START_OFFSET := Vector3(0, 1, 0)  # offest position from the player to throw the rocket
 const ROCKET_SCENE_PATH := "res://Game/Common/MovementUtils/Rocket/Rocket.tscn"  # Path to the rocket scene
 
 #---- EXPORTS -----
@@ -167,7 +168,7 @@ func _process_input(_delta):
 	if Input.is_action_pressed("action_shoot") and not states.has("shooting"):
 		states.append("shooting")
 		var rocket = load(ROCKET_SCENE_PATH).instance()
-		rocket.START_POS = transform.origin
+		rocket.START_POS = transform.origin + ROCKET_START_OFFSET
 		rocket.DIRECTION = -cam_xform.basis.z
 		rocket.UP_VECTOR = Vector3(0, 1, 0)
 		get_parent().add_child(rocket)
