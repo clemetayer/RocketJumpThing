@@ -10,10 +10,10 @@ class_name Rocket
 
 ##### VARIABLES #####
 #---- CONSTANTS -----
-const SPEED := 200.0  # travel speed of the rocket
-const EXPLOSION_RADIUS := 10.0  # explosion radius
-const EXPLOSION_DECAY := 0.25  # how much time the explosion remains
-const EXPLOSION_POWER := 0.5  # power of the explosion
+const SPEED := 150.0  # travel speed of the rocket
+const EXPLOSION_RADIUS := 5.0  # explosion radius
+const EXPLOSION_DECAY := 0.1  # how much time the explosion remains
+const EXPLOSION_POWER := 10  # power of the explosion
 const RAYCAST_DISTANCE := 200  # maximum distance to detect a floor
 const RAYCAST_PLAN_EXPLODE_DISTANCE := 5 # Distance from a floor where the explosion should be planned (since it's imminent), to be sure that is will explode (high speed makes collision weird)
 
@@ -111,10 +111,5 @@ func _explode() -> void:
 ##### SIGNAL MANAGEMENT #####
 func interact_with_body(body, area):
 	if body.is_in_group("player"):
-		var vector = (body.transform.origin - area.transform.origin) * EXPLOSION_POWER
+		var vector = (body.global_transform.origin - area.global_transform.origin) * EXPLOSION_POWER
 		body.add_velocity_vector(vector)
-
-
-func _on_Rocket_body_entered(body): # OPTIMIZE : Might be a bit overkill (and dangerous ?)
-	if not body.is_in_group("player"):
-		_explode()

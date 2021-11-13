@@ -40,8 +40,8 @@ TODO :
 #---- CONSTANTS -----
 #~~~~ MOVEMENT ~~~~~
 #==== GLOBAL =====
-const GRAVITY := -24.8  # Gravity applied to the player
-const JUMP_POWER := 18  # Power applied when jumping
+const GRAVITY := -80  # Gravity applied to the player
+const JUMP_POWER := 30  # Power applied when jumping
 const FLOOR_POWER := -1  # Standard gravity power applied to the player when is on floor (to avoid gravity to keep decreasing on floor)
 const MAX_SLOPE_ANGLE = 45  # Max slope angle where you stop sliding
 
