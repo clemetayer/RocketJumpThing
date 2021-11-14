@@ -13,9 +13,9 @@ class_name Rocket
 const SPEED := 150.0  # travel speed of the rocket
 const EXPLOSION_RADIUS := 5.0  # explosion radius
 const EXPLOSION_DECAY := 0.1  # how much time the explosion remains
-const EXPLOSION_POWER := 10  # power of the explosion
+const EXPLOSION_POWER := 13  # power of the explosion
 const RAYCAST_DISTANCE := 200  # maximum distance to detect a floor
-const RAYCAST_PLAN_EXPLODE_DISTANCE := 5 # Distance from a floor where the explosion should be planned (since it's imminent), to be sure that is will explode (high speed makes collision weird)
+const RAYCAST_PLAN_EXPLODE_DISTANCE := 5  # Distance from a floor where the explosion should be planned (since it's imminent), to be sure that is will explode (high speed makes collision weird)
 
 #---- EXPORTS -----
 export (Vector3) var START_POS = Vector3(0, 0, 0)
@@ -28,7 +28,7 @@ export (Vector3) var UP_VECTOR = Vector3(0, 1, 0)  # up vector
 
 #==== PRIVATE ====
 var _translate := false
-var _expl_planned := false # if the explosion has been already planned
+var _expl_planned := false  # if the explosion has been already planned
 
 #==== ONREADY ====
 # onready var onready_var # Optionnal comment
@@ -81,11 +81,13 @@ func _get_distance_to_collision(raycast: RayCast) -> float:
 	)
 	return normal_vect.length()
 
+
 # plans an explosion, since the rocket is close to the floor (to make sure it explodes)
-func _plan_explosion(distance : float) -> void:
+func _plan_explosion(distance: float) -> void:
 	_expl_planned = true
-	yield(get_tree().create_timer(distance/SPEED), "timeout")
+	yield(get_tree().create_timer(distance / SPEED), "timeout")
 	_explode()
+
 
 # Explosion of the rocket
 # FIXME : Not exploding sometimes, the collision probably doesn't operate well...

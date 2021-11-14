@@ -1,12 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Game/Common/Characters/MainCharacters/player.gd" type="Script" id=1]
 
 [sub_resource type="CapsuleMesh" id=1]
 mid_height = 2.0
-
-[sub_resource type="CubeMesh" id=2]
-size = Vector3( 0.1, 0.1, 2 )
 
 [sub_resource type="CapsuleShape" id=3]
 height = 2.0
@@ -26,13 +23,7 @@ PATHS = {
 
 [node name="Body" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
-visible = false
 mesh = SubResource( 1 )
-material/0 = null
-
-[node name="DirectionIndicator" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.94303, 1.0048 )
-mesh = SubResource( 2 )
 material/0 = null
 
 [node name="PlayerCollision" type="CollisionShape" parent="."]
@@ -47,10 +38,10 @@ shape = SubResource( 4 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.950078, 1.06945 )
 
 [node name="Camera" type="Camera" parent="RotationHelper"]
-transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0.595191, -0.143766 )
+transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0.5, -0.75 )
+current = true
 far = 500.0
 
 [node name="ThirdPersonCamera" type="Camera" parent="RotationHelper"]
 transform = Transform( -1, -2.99003e-08, 8.21506e-08, 0, 0.939693, 0.34202, -8.74228e-08, 0.34202, -0.939693, 0, 3.62379, -6.16924 )
-current = true
 far = 500.0

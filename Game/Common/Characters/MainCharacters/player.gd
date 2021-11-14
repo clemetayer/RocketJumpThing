@@ -3,31 +3,8 @@ class_name Player
 # Script for the player
 
 """
-Notes : 
-- Si on va vers l'avant avec une vitesse faible, on va doucement vers une vitesse max
-- air :
-	- si ni gauche, ni droite pressé (ou somme des 2 = 0):
-		- Si dir dans le même sens que velocity (Différence d'angle > PI/2):
-			- Velocity prend la direction de wishdir en gardant sa norme
-		- Sinon:
-			- On ralentit d'un certain facteur
-	- sinon :
-		- si à la fois avant/arrière + gauche/droite:
-			- Si velocity dans le même sens que wishdir (différence d'angle < PI/2)
-				- Strafe jump 
-			- Sinon:
-				- On ralentit d'un certain facteur en allant vers la direction souhaitée (légèrement, à peu près la même chose que pour le strafe) vers la direction souhaitée 
-		- sinon :
-			- Mouvement gauche/droite normal
-	- si rien d'appuyé, on diminue légèrement la vélocité (note : touche pour conserver la vélocité dans ce cas ? Shift peut-être ?)
-- sol :
-	- slide:
-		- plus ou moins pareil qu'en l'air, mais au sol, mais avec le strafe plus... brutal
-		- boost si on saute pendant un slide
-	- sinon:
-		- on bouge normal quoi
-TODO :
-	- Ralentir en allant quand on presse la touche pour aller en dans l'autre sens
+- TODO : Make strafe acceleration logarithmic
+- TODO : Maybe crouch sliding for a warframe/slash movement mix ?
 """
 
 ##### SIGNALS #####
@@ -40,8 +17,8 @@ TODO :
 #---- CONSTANTS -----
 #~~~~ MOVEMENT ~~~~~
 #==== GLOBAL =====
-const GRAVITY := -80  # Gravity applied to the player
-const JUMP_POWER := 30  # Power applied when jumping
+const GRAVITY := -70  # Gravity applied to the player
+const JUMP_POWER := 28  # Power applied when jumping
 const FLOOR_POWER := -1  # Standard gravity power applied to the player when is on floor (to avoid gravity to keep decreasing on floor)
 const MAX_SLOPE_ANGLE = 45  # Max slope angle where you stop sliding
 
@@ -61,7 +38,7 @@ const GROUND_ACCELERATION := 4.5  # Acceleration on the ground to get to GROUND_
 
 #~~~~~ PROJECTILES ~~~~~ 
 const ROCKET_DELAY := 1.0  # Time before you can shoot another rocket
-const ROCKET_START_OFFSET := Vector3(0, 1, 0)  # offest position from the player to throw the rocket
+const ROCKET_START_OFFSET := Vector3(0, 1, -1)  # offest position from the player to throw the rocket
 const ROCKET_SCENE_PATH := "res://Game/Common/MovementUtils/Rocket/Rocket.tscn"  # Path to the rocket scene
 
 #---- EXPORTS -----
@@ -95,7 +72,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame. Remove the "_" to use it.
 func _physics_process(delta):
 	DebugDraw.set_text("current_speed", current_speed)
-	# DebugDraw.draw_line_3d(self.transform.origin, self.translation + dir, Color(0, 1, 1))
+	# DebugDraw.draw_line_3d(self.transform.origin, self.transform.origin + dir, Color(0, 1, 1))
 	# DebugDraw.draw_line_3d(
 	# 	self.translation, self.transform.origin + Vector3(vel.x, 0, vel.z), Color(0, 1, 0)
 	# )
@@ -168,7 +145,7 @@ func _process_input(_delta):
 	if Input.is_action_pressed("action_shoot") and not states.has("shooting"):
 		states.append("shooting")
 		var rocket = load(ROCKET_SCENE_PATH).instance()
-		rocket.START_POS = transform.origin + ROCKET_START_OFFSET
+		rocket.START_POS = transform.origin + transform.basis * ROCKET_START_OFFSET
 		rocket.DIRECTION = -cam_xform.basis.z
 		rocket.UP_VECTOR = Vector3(0, 1, 0)
 		get_parent().add_child(rocket)

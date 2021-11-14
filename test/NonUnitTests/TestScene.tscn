@@ -1,7 +1,31 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Game/Common/Characters/MainCharacters/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
+
+[sub_resource type="SpatialMaterial" id=19]
+albedo_color = Color( 0, 1, 0.858824, 1 )
+albedo_texture = ExtResource( 2 )
+uv1_scale = Vector3( 50, 50, 1 )
+
+[sub_resource type="CubeMesh" id=18]
+material = SubResource( 19 )
+size = Vector3( 200, 2, 200 )
+
+[sub_resource type="BoxShape" id=20]
+extents = Vector3( 100, 1, 100 )
+
+[sub_resource type="BoxShape" id=16]
+extents = Vector3( 1, 17.5, 100 )
+
+[sub_resource type="SpatialMaterial" id=17]
+albedo_color = Color( 0.219608, 0.988235, 0.0745098, 1 )
+albedo_texture = ExtResource( 2 )
+uv1_scale = Vector3( 32, 10, 32 )
+
+[sub_resource type="CubeMesh" id=15]
+material = SubResource( 17 )
+size = Vector3( 2, 35, 200 )
 
 [sub_resource type="SpatialMaterial" id=1]
 albedo_color = Color( 0.34902, 0.34902, 0.34902, 1 )
@@ -61,47 +85,72 @@ height = 0.2
 [node name="TestScene" type="Spatial"]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0 )
 PATHS = {
 "camera": NodePath("RotationHelper/Camera"),
 "rotation_helper": NodePath("RotationHelper")
 }
 
-[node name="Floor" type="StaticBody" parent="."]
+[node name="Map" type="Spatial" parent="."]
+
+[node name="Floor1" type="StaticBody" parent="Map"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 35, 110, 210 )
 collision_layer = 2
 
-[node name="Mesh" type="MeshInstance" parent="Floor"]
+[node name="MeshInstance" type="MeshInstance" parent="Map/Floor1"]
+mesh = SubResource( 18 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Map/Floor1"]
+shape = SubResource( 20 )
+
+[node name="Wall1" type="StaticBody" parent="Map"]
+transform = Transform( 1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, -64, 60, 50 )
+collision_layer = 2
+
+[node name="CollisionShape" type="CollisionShape" parent="Map/Wall1"]
+shape = SubResource( 16 )
+
+[node name="Mesh" type="MeshInstance" parent="Map/Wall1"]
+mesh = SubResource( 15 )
+material/0 = null
+
+[node name="Floor" type="StaticBody" parent="Map"]
+collision_layer = 2
+
+[node name="Mesh" type="MeshInstance" parent="Map/Floor"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0513153, -0.0396366, 0.274563 )
 mesh = SubResource( 2 )
 material/0 = null
 
-[node name="Collision" type="CollisionShape" parent="Floor"]
+[node name="Collision" type="CollisionShape" parent="Map/Floor"]
 shape = SubResource( 3 )
 
-[node name="XYZ" type="Spatial" parent="."]
+[node name="XYZ" type="Spatial" parent="Map"]
 
-[node name="origin" type="MeshInstance" parent="XYZ"]
+[node name="origin" type="MeshInstance" parent="Map/XYZ"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0 )
 mesh = SubResource( 4 )
 material/0 = null
 
-[node name="X" type="MeshInstance" parent="XYZ"]
+[node name="X" type="MeshInstance" parent="Map/XYZ"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 100, 5, 0 )
 mesh = SubResource( 6 )
 material/0 = null
 
-[node name="Z" type="MeshInstance" parent="XYZ"]
+[node name="Z" type="MeshInstance" parent="Map/XYZ"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 100 )
 mesh = SubResource( 8 )
 material/0 = null
 
-[node name="Y" type="MeshInstance" parent="XYZ"]
+[node name="Y" type="MeshInstance" parent="Map/XYZ"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 95, 0 )
 mesh = SubResource( 10 )
 material/0 = null
 
-[node name="RandomElements" type="Spatial" parent="."]
+[node name="RandomElements" type="Spatial" parent="Map"]
 
-[node name="Particles" type="Particles" parent="RandomElements"]
+[node name="Particles" type="Particles" parent="Map/RandomElements"]
 emitting = false
 amount = 10000
 visibility_aabb = AABB( -500, -4, -500, 1000, 50, 1000 )
