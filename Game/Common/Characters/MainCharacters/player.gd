@@ -35,6 +35,9 @@ const AIR_SWAY_SPEED := 100  # Speed for the velocity to get to the desired sway
 #==== GROUND =====
 const GROUND_TARGET_SPEED := 50  # Ground target speed
 const GROUND_ACCELERATION := 4.5  # Acceleration on the ground to get to GROUND_TARGET_SPEED
+const SLIDE_SPEED_BONUS_GROUND := 50  # Speed added when starting the slide
+const SLIDE_SPEED_BONUS_JUMP := 50  # Speed added when jumping after a slide
+const SLIDE_STEER_POWER := 100  # How much the player can steer when sliding
 
 #~~~~~ PROJECTILES ~~~~~ 
 const ROCKET_DELAY := 1.0  # Time before you can shoot another rocket
@@ -47,7 +50,7 @@ export (Dictionary) var PATHS = {"camera": NodePath("."), "rotation_helper": Nod
 #---- STANDARD -----
 #==== PUBLIC ====
 var mouse_sensitivity = 0.05  # mouse sensitivity
-var states = []  # player current states
+var states = []  # player current states # OPTIMIZATION : Use a bitmask for states, with an enum and everything
 var input_movement_vector = Vector2()  # vector for the movement 
 var vel := Vector3()  # velocity vector
 var dir := Vector3()  # wished direction by the player
@@ -57,6 +60,8 @@ var rotation_helper  # rotation helper node
 
 #==== PRIVATE ====
 var _add_velocity_vector_queue := []  # queue to add the vector to the velocity on the next process (used to make external elements interact with the player velocity)
+var _slide := false  # used to buffer a slide when in air
+
 #==== ONREADY ====
 # onready var onready_var # Optionnal comment
 
@@ -76,21 +81,15 @@ func _physics_process(delta):
 	# DebugDraw.draw_line_3d(
 	# 	self.translation, self.transform.origin + Vector3(vel.x, 0, vel.z), Color(0, 1, 0)
 	# )
-#	DebugDraw.draw_line_3d(
-#		self.transform.origin,
-#		self.transform.origin + camera.get_global_transform().basis.x,
-#		Color(1, 0, 0)
-#	)
-#	DebugDraw.draw_line_3d(
-#		self.transform.origin,
-#		self.transform.origin + camera.get_global_transform().basis.y,
-#		Color(0, 1, 0)
-#	)
-#	DebugDraw.draw_line_3d(
-#		self.transform.origin,
-#		self.transform.origin + camera.get_global_transform().basis.z,
-#		Color(0, 0, 1)
-#	)
+	DebugDraw.draw_line_3d(
+		self.transform.origin, self.transform.origin + self.transform.basis.x, Color(1, 0, 0)
+	)
+	DebugDraw.draw_line_3d(
+		self.transform.origin, self.transform.origin + self.transform.basis.y, Color(0, 1, 0)
+	)
+	DebugDraw.draw_line_3d(
+		self.transform.origin, self.transform.origin + self.transform.basis.z, Color(0, 0, 1)
+	)
 	_process_input(delta)
 	_process_movement(delta)
 	_process_states()
@@ -137,6 +136,12 @@ func _process_input(_delta):
 	# Jumping
 	if is_on_floor():
 		if Input.is_action_pressed("movement_jump"):
+			if states.has("sliding"):
+				vel += Vector3(vel.x, 0, vel.z).normalized() * SLIDE_SPEED_BONUS_JUMP
+				_slide = false
+				rotate_object_local(Vector3(1, 0, 0), PI / 4)
+				rotation_helper.rotate_object_local(Vector3(1, 0, 0), -PI / 4)
+				states.erase("sliding")
 			vel.y += JUMP_POWER
 		else:
 			vel.y = FLOOR_POWER
@@ -152,6 +157,12 @@ func _process_input(_delta):
 		var _err = get_tree().create_timer(ROCKET_DELAY).connect(
 			"timeout", self, "remove_shooting_state"
 		)
+
+	# Slide
+	if Input.is_action_just_pressed("movement_slide"):
+		_slide = true
+	elif Input.is_action_just_released("movement_slide"):
+		_slide = false
 
 	# Capturing/Freeing the cursor
 	if Input.is_action_just_pressed("ui_cancel"):
@@ -177,11 +188,16 @@ func _process_movement(delta):
 
 # updates the states
 func _process_states():
+	DebugDraw.set_text("is_on_floor", is_on_floor())
 	DebugDraw.set_text("states", states)
 	if is_on_floor() and not states.has("in_air"):
 		states.append("in_air")
 	if current_speed != 0 and not states.has("moving"):
 		states.append("moving")
+	if states.has("sliding") and (not Input.is_action_pressed("movement_slide")):
+		rotate_object_local(Vector3(1, 0, 0), PI / 4)
+		rotation_helper.rotate_object_local(Vector3(1, 0, 0), -PI / 4)
+		states.erase("sliding")
 
 
 # computes the horizontal velocity
@@ -189,6 +205,8 @@ func _compute_hvel(p_vel: Vector2, delta: float) -> Vector2:
 	current_speed = p_vel.length()
 	if is_on_floor():
 		return _compute_ground_hvel(p_vel, delta)
+	elif is_on_wall() and _slide:
+		return _compute_wall_ride(p_vel, delta)
 	else:
 		return _compute_air_hvel(p_vel, delta)
 
@@ -253,11 +271,24 @@ func _mvt_air_sway(dir_2D: Vector2, p_vel: Vector2, delta: float) -> Vector2:
 	)
 
 
+# Movement when wall riding
+func _compute_wall_ride(p_vel: Vector2, delta: float) -> Vector2:
+	return Vector2(0, 0)
+
+
 # computes the horizontal velocity when on ground
 func _compute_ground_hvel(p_vel: Vector2, delta: float) -> Vector2:
-	return p_vel.linear_interpolate(
-		Vector2(dir.x, dir.z) * GROUND_TARGET_SPEED, GROUND_ACCELERATION * delta
-	)
+	if _slide:
+		if not states.has("sliding"):
+			self.rotate_object_local(Vector3(1, 0, 0), -PI / 4)
+			rotation_helper.rotate_object_local(Vector3(1, 0, 0), PI / 4)
+			# p_vel += p_vel.normalized() * SLIDE_SPEED_BONUS_GROUND
+			states.append("sliding")
+		return p_vel.move_toward(Vector2(dir.x, dir.z) * p_vel.length(), delta * SLIDE_STEER_POWER)
+	else:
+		return p_vel.linear_interpolate(
+			Vector2(dir.x, dir.z) * GROUND_TARGET_SPEED, GROUND_ACCELERATION * delta
+		)
 
 
 ##### SIGNAL MANAGEMENT #####

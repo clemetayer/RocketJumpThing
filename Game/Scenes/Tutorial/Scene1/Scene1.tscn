@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Game/Common/Characters/MainCharacters/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Game/Scenes/Tutorial/Scene1/Map.tscn" type="PackedScene" id=2]
+
+[sub_resource type="Environment" id=2]
+
+[node name="Spatial" type="Spatial"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 2 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+PATHS = {
+"camera": NodePath("RotationHelper/Camera"),
+"rotation_helper": NodePath("RotationHelper")
+}
+
+[node name="Map" parent="." instance=ExtResource( 2 )]
