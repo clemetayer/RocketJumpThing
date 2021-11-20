@@ -3,8 +3,7 @@ class_name Player
 # Script for the player
 
 """
-- TODO : Make strafe acceleration logarithmic
-- TODO : Maybe crouch sliding for a warframe/slash movement mix ?
+- TODO : Make strafe acceleration logarithmic - Actually, no.
 """
 
 ##### SIGNALS #####
@@ -20,7 +19,9 @@ class_name Player
 const GRAVITY := -70  # Gravity applied to the player
 const JUMP_POWER := 28  # Power applied when jumping
 const FLOOR_POWER := -1  # Standard gravity power applied to the player when is on floor (to avoid gravity to keep decreasing on floor)
-const MAX_SLOPE_ANGLE = 45  # Max slope angle where you stop sliding
+const MAX_SLOPE_ANGLE := 45  # Max slope angle where you stop sliding
+const PLAYER_HEIGHT := 2  # Player height
+const PLAYER_WIDTH := 1 # Player width
 
 #==== AIR =====
 const AIR_TARGET_SPEED := 150  # Target acceleration when just pressing forward in the air
@@ -31,6 +32,10 @@ const AIR_ACCELERATION := 1.0  # Acceleration in air to get to the AIR_TARGET_SP
 const AIR_STRAFE_STEER_POWER := 50.0  # Power of the turn when air strafing
 const AIR_SWAY_ANGLE_MINUS_ANGLE := PI / 4  # Angle to retract from the wished direction (target direction when swaying)
 const AIR_SWAY_SPEED := 100  # Speed for the velocity to get to the desired sway angle
+
+#==== WALL RIDE =====
+const WALL_RIDE_Z_ANGLE := PI / 2  # Angle from the wall on the z axis when wall riding
+const WALL_RIDE_ASCEND_AMOUNT := 10.0  # How much the player ascend during a wall ride
 
 #==== GROUND =====
 const GROUND_TARGET_SPEED := 50  # Ground target speed
@@ -61,6 +66,7 @@ var rotation_helper  # rotation helper node
 #==== PRIVATE ====
 var _add_velocity_vector_queue := []  # queue to add the vector to the velocity on the next process (used to make external elements interact with the player velocity)
 var _slide := false  # used to buffer a slide when in air
+var _RC_wall_direction := 0  # 1 if the raycasts aims for the right wall, -1 if the raycast aims for the left wall, 0 if not aiming for any wall
 
 #==== ONREADY ====
 # onready var onready_var # Optionnal comment
@@ -81,15 +87,15 @@ func _physics_process(delta):
 	# DebugDraw.draw_line_3d(
 	# 	self.translation, self.transform.origin + Vector3(vel.x, 0, vel.z), Color(0, 1, 0)
 	# )
-	DebugDraw.draw_line_3d(
-		self.transform.origin, self.transform.origin + self.transform.basis.x, Color(1, 0, 0)
-	)
-	DebugDraw.draw_line_3d(
-		self.transform.origin, self.transform.origin + self.transform.basis.y, Color(0, 1, 0)
-	)
-	DebugDraw.draw_line_3d(
-		self.transform.origin, self.transform.origin + self.transform.basis.z, Color(0, 0, 1)
-	)
+#	DebugDraw.draw_line_3d(
+#		self.transform.origin, self.transform.origin + self.transform.basis.x, Color(1, 0, 0)
+#	)
+#	DebugDraw.draw_line_3d(
+#		self.transform.origin, self.transform.origin + self.transform.basis.y, Color(0, 1, 0)
+#	)
+#	DebugDraw.draw_line_3d(
+#		self.transform.origin, self.transform.origin + self.transform.basis.z, Color(0, 0, 1)
+#	)
 	_process_input(delta)
 	_process_movement(delta)
 	_process_states()
@@ -174,16 +180,34 @@ func _process_input(_delta):
 
 # process for the movement
 func _process_movement(delta):
-	dir.y = 0
-	dir = dir.normalized()
-	vel.y += delta * GRAVITY
-	var hvel := _compute_hvel(Vector2(vel.x, vel.z), delta)
-	vel.x = hvel.x
-	vel.z = hvel.y
-	for vect in _add_velocity_vector_queue:
-		vel += vect
-	_add_velocity_vector_queue = []
-	vel = move_and_slide(vel, Vector3(0, 1, 0), 0.05, 4, deg2rad(MAX_SLOPE_ANGLE))
+	_debug_process_movement(delta)
+	# Wall ride wall check
+	if _RC_wall_direction == 0:  # First contact with wall
+		if $RayCasts/RayCastWallMinus.is_colliding():
+			_RC_wall_direction = -1
+		elif $RayCasts/RayCastWallPlus.is_colliding():
+			_RC_wall_direction = 1
+	# Movement process
+	if not is_on_floor() and (is_on_wall() or states.has("wall_riding")) and _slide and _RC_wall_direction != 0:
+		var rc: RayCast = (
+			$RayCasts/RayCastWallPlus
+			if _RC_wall_direction == 1
+			else $RayCasts/RayCastWallMinus if _RC_wall_direction == -1 else null
+		)
+		if rc != null and rc.is_colliding():  # if on an "acceptable" wall 
+			if not states.has("wall_riding"):
+				states.append("wall_riding")
+			var wall_normal = rc.get_collision_normal().normalized() # normal of the wall, should be the aligned with the player x axis
+			var wall_up = Vector3(0,1,0) # Up direction from the wall (always that direction)
+			var wall_fw = (wall_normal.cross(wall_up) * -_RC_wall_direction).normalized() # Forward direction, where the player should translate to (perpendicular to wall_normal and wall_up)
+			var vel_dir = Vector3(wall_fw.x,WALL_RIDE_ASCEND_AMOUNT * delta,wall_fw.z).normalized()
+			vel = vel_dir * vel.length()
+			DebugDraw.draw_line_3d(transform.origin, transform.origin + vel, Color(0,1,1))
+			vel = move_and_slide(vel, wall_up, 0.05, 4, deg2rad(MAX_SLOPE_ANGLE))
+		else: 
+			_RC_wall_direction = 0
+	else:
+		_process_hvel(delta)
 
 
 # updates the states
@@ -198,6 +222,28 @@ func _process_states():
 		rotate_object_local(Vector3(1, 0, 0), PI / 4)
 		rotation_helper.rotate_object_local(Vector3(1, 0, 0), -PI / 4)
 		states.erase("sliding")
+	if states.has("wall_riding") and (not Input.is_action_pressed("movement_slide") or is_on_floor() or _RC_wall_direction == 0):
+		states.erase("wall_riding")
+
+
+# processes the horizontal velocity when not wall riding
+func _process_hvel(delta: float) -> void:
+	dir.y = 0
+	dir = dir.normalized()
+	vel.y += delta * GRAVITY
+	var hvel := _compute_hvel(Vector2(vel.x, vel.z), delta)
+	vel.x = hvel.x
+	vel.z = hvel.y
+	for vect in _add_velocity_vector_queue:
+		vel += vect
+	_add_velocity_vector_queue = []
+	vel = move_and_slide(vel, Vector3(0, 1, 0), 0.05, 4, deg2rad(MAX_SLOPE_ANGLE))
+
+
+# checks the wall raycasts : -1 if the left RC is colliding, 1 if it's the right wall, 0 otherwise
+func _check_wall_raycasts() -> int:
+	# TODO
+	return 0
 
 
 # computes the horizontal velocity
@@ -205,8 +251,6 @@ func _compute_hvel(p_vel: Vector2, delta: float) -> Vector2:
 	current_speed = p_vel.length()
 	if is_on_floor():
 		return _compute_ground_hvel(p_vel, delta)
-	elif is_on_wall() and _slide:
-		return _compute_wall_ride(p_vel, delta)
 	else:
 		return _compute_air_hvel(p_vel, delta)
 
@@ -295,3 +339,27 @@ func _compute_ground_hvel(p_vel: Vector2, delta: float) -> Vector2:
 func remove_shooting_state():
 	if states.has("shooting"):
 		states.erase("shooting")
+
+#### DEBUG #####
+func _debug_process_movement(_delta : float):
+	var rc : RayCast
+	var rc_dir := 0
+	if $RayCasts/RayCastWallMinus.is_colliding():
+		rc = $RayCasts/RayCastWallMinus
+		rc_dir = -1
+	elif $RayCasts/RayCastWallPlus.is_colliding():
+		rc = $RayCasts/RayCastWallPlus
+		rc_dir = 1
+	if rc != null:
+		var wall_normal = rc.get_collision_normal().normalized() # normal of the wall, should be the aligned with the player x axis
+		var wall_up = Vector3(0,1,0) # Up direction from the wall (always that direction)
+		var wall_fw = (wall_normal.cross(wall_up) * -rc_dir).normalized() # Forward direction, where the player should translate to (perpendicular to wall_normal and wall_up)
+		# Note : wall_normal, wall_up, wall_fw should give a (kind of) orthogonal basis
+		DebugDraw.set_text("Wall direction : ", _RC_wall_direction)
+		DebugDraw.set_text("is colliding : ", rc.is_colliding())
+		DebugDraw.draw_line_3d(rc.get_collision_point(), rc.get_collision_point() + wall_normal, Color(1,0,0))
+		DebugDraw.set_text("wall normal", wall_normal)
+		DebugDraw.draw_line_3d(rc.get_collision_point(), rc.get_collision_point() + wall_up, Color(0,1,0))
+		DebugDraw.set_text("wall up", wall_up)
+		DebugDraw.draw_line_3d(rc.get_collision_point(), rc.get_collision_point() + wall_fw, Color(0,0,1))
+		DebugDraw.set_text("wall fw", wall_fw)

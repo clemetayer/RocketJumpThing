@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Game/Common/Characters/MainCharacters/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
@@ -28,57 +28,69 @@ material = SubResource( 5 )
 size = Vector3( 2, 35, 200 )
 
 [sub_resource type="SpatialMaterial" id=7]
+albedo_color = Color( 1, 0, 0, 1 )
+albedo_texture = ExtResource( 2 )
+uv1_scale = Vector3( 100, 15, 1 )
+
+[sub_resource type="CubeMesh" id=8]
+material = SubResource( 7 )
+size = Vector3( 2, 30, 200 )
+
+[sub_resource type="BoxShape" id=9]
+extents = Vector3( 1, 15, 100 )
+
+[sub_resource type="SpatialMaterial" id=10]
 albedo_color = Color( 0.34902, 0.34902, 0.34902, 1 )
 albedo_texture = ExtResource( 2 )
 uv1_scale = Vector3( 125, 125, 125 )
 
-[sub_resource type="PlaneMesh" id=8]
-material = SubResource( 7 )
+[sub_resource type="PlaneMesh" id=11]
+material = SubResource( 10 )
 size = Vector2( 1000, 1000 )
 
-[sub_resource type="BoxShape" id=9]
+[sub_resource type="BoxShape" id=12]
 extents = Vector3( 1000, 0.1, 1000 )
 
-[sub_resource type="CubeMesh" id=10]
+[sub_resource type="CubeMesh" id=13]
 size = Vector3( 2, 10, 2 )
 
-[sub_resource type="SpatialMaterial" id=11]
+[sub_resource type="SpatialMaterial" id=14]
 albedo_color = Color( 1, 0, 0, 1 )
 
-[sub_resource type="CubeMesh" id=12]
-material = SubResource( 11 )
+[sub_resource type="CubeMesh" id=15]
+material = SubResource( 14 )
 size = Vector3( 2, 10, 2 )
 
-[sub_resource type="SpatialMaterial" id=13]
+[sub_resource type="SpatialMaterial" id=16]
 albedo_color = Color( 0, 0.376471, 1, 1 )
 
-[sub_resource type="CubeMesh" id=14]
-material = SubResource( 13 )
+[sub_resource type="CubeMesh" id=17]
+material = SubResource( 16 )
 size = Vector3( 2, 10, 2 )
 
-[sub_resource type="SpatialMaterial" id=15]
+[sub_resource type="SpatialMaterial" id=18]
 albedo_color = Color( 0.498039, 1, 0.482353, 1 )
 
-[sub_resource type="CubeMesh" id=16]
-material = SubResource( 15 )
+[sub_resource type="CubeMesh" id=19]
+material = SubResource( 18 )
 size = Vector3( 2, 10, 2 )
 
-[sub_resource type="Gradient" id=17]
+[sub_resource type="Gradient" id=20]
 colors = PoolColorArray( 0, 0.027451, 1, 1, 1, 0, 0, 1 )
 
-[sub_resource type="GradientTexture" id=18]
-gradient = SubResource( 17 )
+[sub_resource type="GradientTexture" id=21]
+gradient = SubResource( 20 )
 
-[sub_resource type="ParticlesMaterial" id=19]
+[sub_resource type="ParticlesMaterial" id=22]
 emission_shape = 2
 emission_box_extents = Vector3( 1000, 50, 1000 )
 scale = 5.0
 scale_random = 1.0
-color_ramp = SubResource( 18 )
+color_ramp = SubResource( 21 )
 hue_variation = 1.0
 hue_variation_random = 1.0
 
-[sub_resource type="SphereMesh" id=20]
+[sub_resource type="SphereMesh" id=23]
 radius = 0.2
 height = 0.2
 
@@ -115,37 +127,80 @@ shape = SubResource( 4 )
 mesh = SubResource( 6 )
 material/0 = null
 
+[node name="Wall2" type="StaticBody" parent="Map"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 53.1212, 127.58, 24.5387 )
+collision_layer = 2
+
+[node name="CollisionShape" type="CollisionShape" parent="Map/Wall2"]
+shape = SubResource( 4 )
+
+[node name="Mesh" type="MeshInstance" parent="Map/Wall2"]
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="InclinedWall" type="StaticBody" parent="Map"]
+transform = Transform( 0.866025, -0.5, 0, 0.5, 0.866025, 0, 0, 0, 1, 0, 122.291, 398.422 )
+collision_layer = 2
+collision_mask = 5
+
+[node name="MeshInstance" type="MeshInstance" parent="Map/InclinedWall"]
+mesh = SubResource( 8 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Map/InclinedWall"]
+shape = SubResource( 9 )
+
+[node name="CircleWall" type="CSGCombiner" parent="Map"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 126.713, 120.026, 139.735 )
+operation = 1
+use_collision = true
+collision_layer = 2
+collision_mask = 5
+
+[node name="CSGCylinder" type="CSGCylinder" parent="Map/CircleWall"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 110, 7, -40 )
+radius = 120.0
+height = 30.0
+sides = 30
+
+[node name="CSGCylinder2" type="CSGCylinder" parent="Map/CircleWall"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 110, 7, -10.8666 )
+operation = 2
+radius = 120.0
+height = 30.0
+sides = 30
+
 [node name="Floor" type="StaticBody" parent="Map"]
 collision_layer = 2
 
 [node name="Mesh" type="MeshInstance" parent="Map/Floor"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0513153, -0.0396366, 0.274563 )
-mesh = SubResource( 8 )
+mesh = SubResource( 11 )
 material/0 = null
 
 [node name="Collision" type="CollisionShape" parent="Map/Floor"]
-shape = SubResource( 9 )
+shape = SubResource( 12 )
 
 [node name="XYZ" type="Spatial" parent="Map"]
 
 [node name="origin" type="MeshInstance" parent="Map/XYZ"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0 )
-mesh = SubResource( 10 )
+mesh = SubResource( 13 )
 material/0 = null
 
 [node name="X" type="MeshInstance" parent="Map/XYZ"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 100, 5, 0 )
-mesh = SubResource( 12 )
+mesh = SubResource( 15 )
 material/0 = null
 
 [node name="Z" type="MeshInstance" parent="Map/XYZ"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 100 )
-mesh = SubResource( 14 )
+mesh = SubResource( 17 )
 material/0 = null
 
 [node name="Y" type="MeshInstance" parent="Map/XYZ"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 95, 0 )
-mesh = SubResource( 16 )
+mesh = SubResource( 19 )
 material/0 = null
 
 [node name="RandomElements" type="Spatial" parent="Map"]
@@ -154,5 +209,5 @@ material/0 = null
 emitting = false
 amount = 10000
 visibility_aabb = AABB( -500, -4, -500, 1000, 50, 1000 )
-process_material = SubResource( 19 )
-draw_pass_1 = SubResource( 20 )
+process_material = SubResource( 22 )
+draw_pass_1 = SubResource( 23 )
