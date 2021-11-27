@@ -1,0 +1,37 @@
+// Game: RocketJumpThing
+// Format: Standard
+// entity 0
+{
+"classname" "worldspawn"
+"_tb_def" "builtin:RocketJumpThing_fgd.fgd"
+}
+// entity 1
+{
+"classname" "player"
+"origin" "-222.572 903.054 62.6528"
+"angle" "0"
+}
+// entity 2
+{
+"classname" "func_group"
+"_tb_type" "_tb_layer"
+"_tb_name" "Spawn"
+"_tb_id" "1"
+"_tb_layer_sort_index" "0"
+}
+// entity 3
+{
+"classname" "func_group"
+"_tb_type" "_tb_layer"
+"_tb_name" "FirstCorridor"
+"_tb_id" "3"
+"_tb_layer_sort_index" "1"
+}
+// entity 4
+{
+"classname" "func_group"
+"_tb_type" "_tb_layer"
+"_tb_name" "StrafeCorridor"
+"_tb_id" "5"
+"_tb_layer_sort_index" "2"
+}

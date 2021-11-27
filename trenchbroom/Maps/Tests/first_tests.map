@@ -1,0 +1,23 @@
+// Game: RocketJumpThing
+// Format: Standard
+// entity 0
+{
+"classname" "worldspawn"
+"_tb_textures" "textures/test"
+"_tb_def" "builtin:RocketJumpThing_fgd.fgd"
+"_tb_mod" "Entities"
+// brush 0
+{
+( -480 -64 -16 ) ( -480 -63 -16 ) ( -480 -64 -15 ) test/icon_test 0 0 0 1 1
+( -64 -560 -16 ) ( -64 -560 -15 ) ( -63 -560 -16 ) test/icon_test 0 0 0 1 1
+( -64 -64 -16 ) ( -63 -64 -16 ) ( -64 -63 -16 ) test/icon_test 0 0 0 1 1
+( 64 64 16 ) ( 64 65 16 ) ( 65 64 16 ) test/icon_test 0 0 0 1 1
+( 64 512 16 ) ( 65 512 16 ) ( 64 512 17 ) test/icon_test 0 0 0 1 1
+( 416 64 16 ) ( 416 64 17 ) ( 416 65 16 ) test/icon_test 0 0 0 1 1
+}
+}
+// entity 1
+{
+"classname" "player"
+"origin" "-104 8 24"
+}

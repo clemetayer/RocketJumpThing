@@ -4,6 +4,9 @@ class_name Player
 
 """
 - TODO : Make strafe acceleration logarithmic - Actually, no.
+- TODO : Use a rigid body instead ? Shifty’s Manifesto is a bit spooky...
+- TODO : improve BHop
+- TODO : For air strafing, actually, only go to the direction of the mouse (not PI/4 to the right or left)
 """
 
 ##### SIGNALS #####
@@ -16,19 +19,19 @@ class_name Player
 #---- CONSTANTS -----
 #~~~~ MOVEMENT ~~~~~
 #==== GLOBAL =====
-const GRAVITY := -70  # Gravity applied to the player
-const JUMP_POWER := 28  # Power applied when jumping
+const GRAVITY := -80  # Gravity applied to the player
+const JUMP_POWER := 33  # Power applied when jumping
 const FLOOR_POWER := -1  # Standard gravity power applied to the player when is on floor (to avoid gravity to keep decreasing on floor)
 const MAX_SLOPE_ANGLE := 45  # Max slope angle where you stop sliding
 const PLAYER_HEIGHT := 2  # Player height
 const PLAYER_WIDTH := 1 # Player width
 
 #==== AIR =====
-const AIR_TARGET_SPEED := 150  # Target acceleration when just pressing forward in the air
-const AIR_ADD_STRAFE_SPEED := 50  # Speed that is added during a strafe
+const AIR_TARGET_SPEED := 130  # Target acceleration when just pressing forward in the air
+const AIR_ADD_STRAFE_SPEED := 80  # Speed that is added during a strafe
 const AIR_BACK_DECCELERATE := 0.98  # Speed decceleration when pressing an opposite direction to the velocity
 const AIR_STANDARD_DECCELERATE := 0.985  # Speed decceleration when not pressing anything
-const AIR_ACCELERATION := 1.0  # Acceleration in air to get to the AIR_TARGET_SPEED
+const AIR_ACCELERATION := 1.0  # Accel	eration in air to get to the AIR_TARGET_SPEED
 const AIR_STRAFE_STEER_POWER := 50.0  # Power of the turn when air strafing
 const AIR_SWAY_ANGLE_MINUS_ANGLE := PI / 4  # Angle to retract from the wished direction (target direction when swaying)
 const AIR_SWAY_SPEED := 100  # Speed for the velocity to get to the desired sway angle
@@ -96,6 +99,7 @@ func _physics_process(delta):
 #	DebugDraw.draw_line_3d(
 #		self.transform.origin, self.transform.origin + self.transform.basis.z, Color(0, 0, 1)
 #	)
+	_process_collision()
 	_process_input(delta)
 	_process_movement(delta)
 	_process_states()
@@ -118,6 +122,10 @@ func add_velocity_vector(vector: Vector3):
 
 
 ##### PROTECTED METHODS #####
+func _process_collision():
+	$PlayerCollision.disabled = states.has("sliding")
+	$SlideCollision.disabled = not states.has("sliding")
+
 func _process_input(_delta):
 	# Camera
 	dir = Vector3()
@@ -295,7 +303,7 @@ func _mvt_air_strafe(p_vel: Vector2, dir_2D: Vector2, delta: float) -> Vector2:
 	var add_speed = 0.0
 	if abs(p_vel.angle_to(dir_2D)) <= PI / 2:  # should accelerate
 		add_speed = abs(p_vel.angle_to(dir_2D)) * AIR_ADD_STRAFE_SPEED
-		if current_speed + add_speed * delta < AIR_TARGET_SPEED:  # adds a bonus to get to the target speed, computed as y=(atan(x * AIR_ACCELERATION)/(PI/2)) * TARGET_SPEED
+		if current_speed + add_speed * delta < AIR_TARGET_SPEED :  # adds a bonus to get to the target speed, computed as y=(atan(x * AIR_ACCELERATION)/(PI/2)) * TARGET_SPEED
 			var x = tan((current_speed / AIR_TARGET_SPEED) * (PI / 2)) / AIR_ACCELERATION  # current x value for the function above
 			add_speed += (
 				((atan((x + delta) * AIR_ACCELERATION) / (PI / 2)) * AIR_TARGET_SPEED)  # new speed should be the next delta x in the function above
