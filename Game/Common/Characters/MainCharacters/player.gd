@@ -3,11 +3,8 @@ class_name Player
 # Script for the player
 
 """
-- TODO : Make strafe acceleration logarithmic - Actually, no.
 - TODO : Use a rigid body instead ? Shifty’s Manifesto is a bit spooky...
 - TODO : improve BHop
-- TODO : Actually, air strafing feels... weird...
-- TODO : When wall riding and jumping, add a boost to exit the wall
 - FIXME : Rocket not exploding when too close to a wall
 - FIXME : Make rocket explode at the raycast collision point
 """
@@ -42,6 +39,7 @@ const AIR_SWAY_SPEED := 100  # Speed for the velocity to get to the desired sway
 #==== WALL RIDE =====
 const WALL_RIDE_Z_ANGLE := PI / 2  # Angle from the wall on the z axis when wall riding
 const WALL_RIDE_ASCEND_AMOUNT := 10.0  # How much the player ascend during a wall ride
+const WALL_RIDE_BOOST := 65.0  # How much speed is given to the player when jumping while wall riding
 
 #==== GROUND =====
 const GROUND_TARGET_SPEED := 50  # Ground target speed
@@ -212,14 +210,19 @@ func _process_movement(delta):
 			if _RC_wall_direction == 1
 			else $RayCasts/RayCastWallMinus if _RC_wall_direction == -1 else null
 		)
-		if rc != null and rc.is_colliding():  # if on an "acceptable" wall 
-			if not states.has("wall_riding"):
-				states.append("wall_riding")
+		if rc != null and rc.is_colliding():  # if on an "acceptable" wall
 			var wall_normal = rc.get_collision_normal().normalized()  # normal of the wall, should be the aligned with the player x axis
 			var wall_up = Vector3(0, 1, 0)  # Up direction from the wall (always that direction)
 			var wall_fw = (wall_normal.cross(wall_up) * -_RC_wall_direction).normalized()  # Forward direction, where the player should translate to (perpendicular to wall_normal and wall_up)
-			var vel_dir = Vector3(wall_fw.x, WALL_RIDE_ASCEND_AMOUNT * delta, wall_fw.z).normalized()
-			vel = vel_dir * vel.length()
+			if Input.is_action_pressed("movement_jump"):
+				if states.has("wall_riding"):
+					states.remove("wall_riding")
+				vel += wall_normal * WALL_RIDE_BOOST
+			else:
+				if not states.has("wall_riding"):
+					states.append("wall_riding")
+				var vel_dir = Vector3(wall_fw.x, WALL_RIDE_ASCEND_AMOUNT * delta, wall_fw.z).normalized()
+				vel = vel_dir * vel.length()
 			DebugDraw.draw_line_3d(transform.origin, transform.origin + vel, Color(0, 1, 1))
 			vel = move_and_slide(vel, wall_up, 0.05, 4, deg2rad(MAX_SLOPE_ANGLE))
 		else:
@@ -230,7 +233,6 @@ func _process_movement(delta):
 
 # updates the states
 func _process_states():
-	DebugDraw.set_text("is_on_floor", is_on_floor())
 	DebugDraw.set_text("states", states)
 	if is_on_floor() and not states.has("in_air"):
 		states.append("in_air")
