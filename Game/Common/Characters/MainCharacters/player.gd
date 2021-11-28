@@ -6,7 +6,10 @@ class_name Player
 - TODO : Make strafe acceleration logarithmic - Actually, no.
 - TODO : Use a rigid body instead ? Shifty’s Manifesto is a bit spooky...
 - TODO : improve BHop
-- TODO : For air strafing, actually, only go to the direction of the mouse (not PI/4 to the right or left)
+- TODO : Actually, air strafing feels... weird...
+- TODO : When wall riding and jumping, add a boost to exit the wall
+- FIXME : Rocket not exploding when too close to a wall
+- FIXME : Make rocket explode at the raycast collision point
 """
 
 ##### SIGNALS #####
@@ -24,11 +27,11 @@ const JUMP_POWER := 33  # Power applied when jumping
 const FLOOR_POWER := -1  # Standard gravity power applied to the player when is on floor (to avoid gravity to keep decreasing on floor)
 const MAX_SLOPE_ANGLE := 45  # Max slope angle where you stop sliding
 const PLAYER_HEIGHT := 2  # Player height
-const PLAYER_WIDTH := 1 # Player width
+const PLAYER_WIDTH := 1  # Player width
 
 #==== AIR =====
 const AIR_TARGET_SPEED := 130  # Target acceleration when just pressing forward in the air
-const AIR_ADD_STRAFE_SPEED := 80  # Speed that is added during a strafe
+const AIR_ADD_STRAFE_SPEED := .75  # Speed that is added during a strafe
 const AIR_BACK_DECCELERATE := 0.98  # Speed decceleration when pressing an opposite direction to the velocity
 const AIR_STANDARD_DECCELERATE := 0.985  # Speed decceleration when not pressing anything
 const AIR_ACCELERATION := 1.0  # Accel	eration in air to get to the AIR_TARGET_SPEED
@@ -122,9 +125,11 @@ func add_velocity_vector(vector: Vector3):
 
 
 ##### PROTECTED METHODS #####
+# Enables/disables some collisions depending on the states
 func _process_collision():
 	$PlayerCollision.disabled = states.has("sliding")
 	$SlideCollision.disabled = not states.has("sliding")
+
 
 func _process_input(_delta):
 	# Camera
@@ -196,7 +201,12 @@ func _process_movement(delta):
 		elif $RayCasts/RayCastWallPlus.is_colliding():
 			_RC_wall_direction = 1
 	# Movement process
-	if not is_on_floor() and (is_on_wall() or states.has("wall_riding")) and _slide and _RC_wall_direction != 0:
+	if (
+		not is_on_floor()
+		and (is_on_wall() or states.has("wall_riding"))
+		and _slide
+		and _RC_wall_direction != 0
+	):
 		var rc: RayCast = (
 			$RayCasts/RayCastWallPlus
 			if _RC_wall_direction == 1
@@ -205,14 +215,14 @@ func _process_movement(delta):
 		if rc != null and rc.is_colliding():  # if on an "acceptable" wall 
 			if not states.has("wall_riding"):
 				states.append("wall_riding")
-			var wall_normal = rc.get_collision_normal().normalized() # normal of the wall, should be the aligned with the player x axis
-			var wall_up = Vector3(0,1,0) # Up direction from the wall (always that direction)
-			var wall_fw = (wall_normal.cross(wall_up) * -_RC_wall_direction).normalized() # Forward direction, where the player should translate to (perpendicular to wall_normal and wall_up)
-			var vel_dir = Vector3(wall_fw.x,WALL_RIDE_ASCEND_AMOUNT * delta,wall_fw.z).normalized()
+			var wall_normal = rc.get_collision_normal().normalized()  # normal of the wall, should be the aligned with the player x axis
+			var wall_up = Vector3(0, 1, 0)  # Up direction from the wall (always that direction)
+			var wall_fw = (wall_normal.cross(wall_up) * -_RC_wall_direction).normalized()  # Forward direction, where the player should translate to (perpendicular to wall_normal and wall_up)
+			var vel_dir = Vector3(wall_fw.x, WALL_RIDE_ASCEND_AMOUNT * delta, wall_fw.z).normalized()
 			vel = vel_dir * vel.length()
-			DebugDraw.draw_line_3d(transform.origin, transform.origin + vel, Color(0,1,1))
+			DebugDraw.draw_line_3d(transform.origin, transform.origin + vel, Color(0, 1, 1))
 			vel = move_and_slide(vel, wall_up, 0.05, 4, deg2rad(MAX_SLOPE_ANGLE))
-		else: 
+		else:
 			_RC_wall_direction = 0
 	else:
 		_process_hvel(delta)
@@ -230,7 +240,14 @@ func _process_states():
 		rotate_object_local(Vector3(1, 0, 0), PI / 4)
 		rotation_helper.rotate_object_local(Vector3(1, 0, 0), -PI / 4)
 		states.erase("sliding")
-	if states.has("wall_riding") and (not Input.is_action_pressed("movement_slide") or is_on_floor() or _RC_wall_direction == 0):
+	if (
+		states.has("wall_riding")
+		and (
+			not Input.is_action_pressed("movement_slide")
+			or is_on_floor()
+			or _RC_wall_direction == 0
+		)
+	):
 		states.erase("wall_riding")
 
 
@@ -246,12 +263,6 @@ func _process_hvel(delta: float) -> void:
 		vel += vect
 	_add_velocity_vector_queue = []
 	vel = move_and_slide(vel, Vector3(0, 1, 0), 0.05, 4, deg2rad(MAX_SLOPE_ANGLE))
-
-
-# checks the wall raycasts : -1 if the left RC is colliding, 1 if it's the right wall, 0 otherwise
-func _check_wall_raycasts() -> int:
-	# TODO
-	return 0
 
 
 # computes the horizontal velocity
@@ -299,20 +310,39 @@ func _mvt_air_bw(p_vel: Vector2) -> Vector2:
 
 
 # Movement when in air and strafing
+# FIXME : It works, but the vector values are a bit weird...
 func _mvt_air_strafe(p_vel: Vector2, dir_2D: Vector2, delta: float) -> Vector2:
-	var add_speed = 0.0
-	if abs(p_vel.angle_to(dir_2D)) <= PI / 2:  # should accelerate
-		add_speed = abs(p_vel.angle_to(dir_2D)) * AIR_ADD_STRAFE_SPEED
-		if current_speed + add_speed * delta < AIR_TARGET_SPEED :  # adds a bonus to get to the target speed, computed as y=(atan(x * AIR_ACCELERATION)/(PI/2)) * TARGET_SPEED
-			var x = tan((current_speed / AIR_TARGET_SPEED) * (PI / 2)) / AIR_ACCELERATION  # current x value for the function above
-			add_speed += (
-				((atan((x + delta) * AIR_ACCELERATION) / (PI / 2)) * AIR_TARGET_SPEED)  # new speed should be the next delta x in the function above
-				- current_speed
-			)
-	else:  # should deccelerate
-		add_speed = -(abs(p_vel.angle_to(dir_2D)) - (PI / 2)) * AIR_ADD_STRAFE_SPEED
-	var ret_vel = p_vel + p_vel.normalized() * add_speed * delta  # gets faster/slower
-	return ret_vel.move_toward(dir_2D * ret_vel.length(), delta * AIR_STRAFE_STEER_POWER)
+	if abs(p_vel.angle_to(dir_2D)) < PI / 1.5:  # No backward movement, Don't ask questions about the 1.5. By visualising the vectors, it stops at PI/4 for some reason...
+		var r_dir_2D = dir_2D.rotated(-input_movement_vector.x * PI / 4)  # rotates the dir_2D by PI/4, to give a vector that is "on the side" of the character, where the velocity will be projected to compute add_speed
+		var add_speed_vector = p_vel.project(r_dir_2D)
+		return p_vel + add_speed_vector * delta * AIR_ADD_STRAFE_SPEED
+	else:  # go backward like in _mvt_air_fw 
+		var r_dir_2D = dir_2D.rotated(input_movement_vector.x * PI / 3)  # rotates the dir_2D by PI/4, to give a vector that is "in front" of the character, where the velocity will be projected to compute add_speed. I don't know either with then PI/3, it just works better that way
+		return -r_dir_2D * p_vel.length() * AIR_BACK_DECCELERATE
+
+
+# # Movement when in air and strafing
+# func _mvt_air_strafe(p_vel: Vector2, dir_2D: Vector2, delta: float) -> Vector2:
+# 	var add_speed = 0.0
+# 	DebugDraw.draw_line_3d(
+# 		transform.origin, transform.origin + Vector3(dir_2D.x, 0, dir_2D.y) * 100, Color(0, 1, 1)
+# 	)
+# 	var aim_dir = dir_2D.rotated(-input_movement_vector.x * PI / 8)
+# 	DebugDraw.draw_line_3d(
+# 		transform.origin, transform.origin + Vector3(aim_dir.x, 0, aim_dir.y) * 100, Color(1, 0, 1)
+# 	)
+# 	if abs(p_vel.angle_to(dir_2D)) <= PI / 2:  # should accelerate
+# 		add_speed = abs(p_vel.angle_to(dir_2D)) * AIR_ADD_STRAFE_SPEED
+# 		if current_speed + add_speed * delta < AIR_TARGET_SPEED:  # adds a bonus to get to the target speed, computed as y=(atan(x * AIR_ACCELERATION)/(PI/2)) * TARGET_SPEED
+# 			var x = tan((current_speed / AIR_TARGET_SPEED) * (PI / 2)) / AIR_ACCELERATION  # current x value for the function above
+# 			add_speed += (
+# 				((atan((x + delta) * AIR_ACCELERATION) / (PI / 2)) * AIR_TARGET_SPEED)  # new speed should be the next delta x in the function above
+# 				- current_speed
+# 			)
+# 	else:  # should deccelerate
+# 		add_speed = -(abs(p_vel.angle_to(dir_2D)) - (PI / 2)) * AIR_ADD_STRAFE_SPEED
+# 	var ret_vel = p_vel + p_vel.normalized() * add_speed * delta  # gets faster/slower
+# 	return ret_vel.move_toward(dir_2D * ret_vel.length(), delta * AIR_STRAFE_STEER_POWER)
 
 
 # Movement when in air and swaying straight left/right
@@ -321,11 +351,6 @@ func _mvt_air_sway(dir_2D: Vector2, p_vel: Vector2, delta: float) -> Vector2:
 		dir_2D.rotated(AIR_SWAY_ANGLE_MINUS_ANGLE * -input_movement_vector.x) * p_vel.length(),
 		delta * AIR_SWAY_SPEED
 	)
-
-
-# Movement when wall riding
-func _compute_wall_ride(p_vel: Vector2, delta: float) -> Vector2:
-	return Vector2(0, 0)
 
 
 # computes the horizontal velocity when on ground
@@ -348,9 +373,10 @@ func remove_shooting_state():
 	if states.has("shooting"):
 		states.erase("shooting")
 
+
 #### DEBUG #####
-func _debug_process_movement(_delta : float):
-	var rc : RayCast
+func _debug_process_movement(_delta: float):
+	var rc: RayCast
 	var rc_dir := 0
 	if $RayCasts/RayCastWallMinus.is_colliding():
 		rc = $RayCasts/RayCastWallMinus
@@ -359,15 +385,21 @@ func _debug_process_movement(_delta : float):
 		rc = $RayCasts/RayCastWallPlus
 		rc_dir = 1
 	if rc != null:
-		var wall_normal = rc.get_collision_normal().normalized() # normal of the wall, should be the aligned with the player x axis
-		var wall_up = Vector3(0,1,0) # Up direction from the wall (always that direction)
-		var wall_fw = (wall_normal.cross(wall_up) * -rc_dir).normalized() # Forward direction, where the player should translate to (perpendicular to wall_normal and wall_up)
+		var wall_normal = rc.get_collision_normal().normalized()  # normal of the wall, should be the aligned with the player x axis
+		var wall_up = Vector3(0, 1, 0)  # Up direction from the wall (always that direction)
+		var wall_fw = (wall_normal.cross(wall_up) * -rc_dir).normalized()  # Forward direction, where the player should translate to (perpendicular to wall_normal and wall_up)
 		# Note : wall_normal, wall_up, wall_fw should give a (kind of) orthogonal basis
 		DebugDraw.set_text("Wall direction : ", _RC_wall_direction)
 		DebugDraw.set_text("is colliding : ", rc.is_colliding())
-		DebugDraw.draw_line_3d(rc.get_collision_point(), rc.get_collision_point() + wall_normal, Color(1,0,0))
+		DebugDraw.draw_line_3d(
+			rc.get_collision_point(), rc.get_collision_point() + wall_normal, Color(1, 0, 0)
+		)
 		DebugDraw.set_text("wall normal", wall_normal)
-		DebugDraw.draw_line_3d(rc.get_collision_point(), rc.get_collision_point() + wall_up, Color(0,1,0))
+		DebugDraw.draw_line_3d(
+			rc.get_collision_point(), rc.get_collision_point() + wall_up, Color(0, 1, 0)
+		)
 		DebugDraw.set_text("wall up", wall_up)
-		DebugDraw.draw_line_3d(rc.get_collision_point(), rc.get_collision_point() + wall_fw, Color(0,0,1))
+		DebugDraw.draw_line_3d(
+			rc.get_collision_point(), rc.get_collision_point() + wall_fw, Color(0, 0, 1)
+		)
 		DebugDraw.set_text("wall fw", wall_fw)
