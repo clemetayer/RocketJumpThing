@@ -321,30 +321,6 @@ func _mvt_air_strafe(p_vel: Vector2, dir_2D: Vector2, delta: float) -> Vector2:
 		return -r_dir_2D * p_vel.length() * AIR_BACK_DECCELERATE
 
 
-# # Movement when in air and strafing
-# func _mvt_air_strafe(p_vel: Vector2, dir_2D: Vector2, delta: float) -> Vector2:
-# 	var add_speed = 0.0
-# 	DebugDraw.draw_line_3d(
-# 		transform.origin, transform.origin + Vector3(dir_2D.x, 0, dir_2D.y) * 100, Color(0, 1, 1)
-# 	)
-# 	var aim_dir = dir_2D.rotated(-input_movement_vector.x * PI / 8)
-# 	DebugDraw.draw_line_3d(
-# 		transform.origin, transform.origin + Vector3(aim_dir.x, 0, aim_dir.y) * 100, Color(1, 0, 1)
-# 	)
-# 	if abs(p_vel.angle_to(dir_2D)) <= PI / 2:  # should accelerate
-# 		add_speed = abs(p_vel.angle_to(dir_2D)) * AIR_ADD_STRAFE_SPEED
-# 		if current_speed + add_speed * delta < AIR_TARGET_SPEED:  # adds a bonus to get to the target speed, computed as y=(atan(x * AIR_ACCELERATION)/(PI/2)) * TARGET_SPEED
-# 			var x = tan((current_speed / AIR_TARGET_SPEED) * (PI / 2)) / AIR_ACCELERATION  # current x value for the function above
-# 			add_speed += (
-# 				((atan((x + delta) * AIR_ACCELERATION) / (PI / 2)) * AIR_TARGET_SPEED)  # new speed should be the next delta x in the function above
-# 				- current_speed
-# 			)
-# 	else:  # should deccelerate
-# 		add_speed = -(abs(p_vel.angle_to(dir_2D)) - (PI / 2)) * AIR_ADD_STRAFE_SPEED
-# 	var ret_vel = p_vel + p_vel.normalized() * add_speed * delta  # gets faster/slower
-# 	return ret_vel.move_toward(dir_2D * ret_vel.length(), delta * AIR_STRAFE_STEER_POWER)
-
-
 # Movement when in air and swaying straight left/right
 func _mvt_air_sway(dir_2D: Vector2, p_vel: Vector2, delta: float) -> Vector2:
 	return p_vel.move_toward(
