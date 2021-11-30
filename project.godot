@@ -9,6 +9,21 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Area",
+"class": "Checkpoint",
+"language": "GDScript",
+"path": "res://Game/Common/MapElements/Checkpoint/Checkpoint.gd"
+}, {
+"base": "QodotEntity",
+"class": "CheckpointEntity",
+"language": "GDScript",
+"path": "res://Game/Common/MapElements/Checkpoint/CheckpointEntity.gd"
+}, {
+"base": "Area",
+"class": "DeathGrid",
+"language": "GDScript",
+"path": "res://Game/Common/MapElements/DeathGrid/DeathGrid.gd"
+}, {
 "base": "LiquidLayer",
 "class": "LavaLayer",
 "language": "GDScript",
@@ -155,6 +170,16 @@ _global_script_classes=[ {
 "path": "res://addons/qodot/game_definitions/worldspawn_layers/liquid/slime.gd"
 }, {
 "base": "Node",
+"class": "StandardScene",
+"language": "GDScript",
+"path": "res://Game/Common/Utils/Templates/Scene/StandardScene.gd"
+}, {
+"base": "Checkpoint",
+"class": "StartPoint",
+"language": "GDScript",
+"path": "res://Game/Common/MapElements/Checkpoint/StartPoint.gd"
+}, {
+"base": "Node",
 "class": "TrenchAutoComplete",
 "language": "GDScript",
 "path": "res://Game/Common/Utils/Trenchbroom/TrenchAutoComplete.gd"
@@ -185,6 +210,9 @@ _global_script_classes=[ {
 "path": "res://addons/qodot/game_definitions/worldspawn_layers/liquid/water.gd"
 } ]
 _global_script_class_icons={
+"Checkpoint": "",
+"CheckpointEntity": "",
+"DeathGrid": "",
 "LavaLayer": "",
 "LiquidLayer": "",
 "OrbitArm": "",
@@ -214,6 +242,8 @@ _global_script_class_icons={
 "QuakeWadImportPlugin": "",
 "Rocket": "",
 "SlimeLayer": "",
+"StandardScene": "",
+"StartPoint": "",
 "TrenchAutoComplete": "",
 "TrenchBroomFaceAttrib": "",
 "TrenchBroomGameConfigFile": "",
@@ -230,6 +260,7 @@ config/icon="res://icon.png"
 [autoload]
 
 DebugDraw="*res://addons/zylann_debug_draw/debug_draw.gd"
+SignalManager="*res://Game/Common/Utils/Managers/SignalManager.gd"
 
 [debug]
 

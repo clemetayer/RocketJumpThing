@@ -5,6 +5,8 @@ class_name Player
 """
 - TODO : Use a rigid body instead ? Shifty’s Manifesto is a bit spooky...
 - TODO : improve BHop
+- TODO : For the wall boost, add a up vector too
+- TODO : Choose the speed of the rocket depending on how long the player has pressed the shoot action 
 - FIXME : Rocket not exploding when too close to a wall
 - FIXME : Make rocket explode at the raycast collision point
 """

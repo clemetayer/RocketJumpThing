@@ -1,0 +1,47 @@
+[gd_resource type="Resource" load_steps=5 format=2]
+
+[ext_resource path="res://addons/qodot/src/resources/game-definitions/fgd/qodot_fgd_base_class.gd" type="Script" id=1]
+[ext_resource path="res://addons/qodot/src/resources/game-definitions/fgd/qodot_fgd_point_class.gd" type="Script" id=2]
+[ext_resource path="res://Game/Common/MapElements/Checkpoint/StartPoint.tscn" type="PackedScene" id=3]
+
+[sub_resource type="Resource" id=1]
+script = ExtResource( 1 )
+class_options = "----------------------------------------------------------------"
+classname = "CheckpointBase"
+description = "Base class for a checkpoint"
+qodot_internal = false
+base_classes = [  ]
+class_properties = {
+"mangle": Vector3( 0, 0, 0 )
+}
+class_property_descriptions = {
+}
+meta_properties = {
+"color": Color( 0.8, 0.8, 0.8, 1 ),
+"size": AABB( -8, -8, -8, 8, 8, 8 )
+}
+node_options = "----------------------------------------------------------------"
+node_class = "Area"
+transient_node = false
+
+[resource]
+script = ExtResource( 2 )
+class_options = "----------------------------------------------------------------"
+classname = "StartPoint"
+description = "The start point, aka the very first checkpoint for the player"
+qodot_internal = false
+base_classes = [ SubResource( 1 ) ]
+class_properties = {
+}
+class_property_descriptions = {
+}
+meta_properties = {
+"color": Color( 0, 1, 0.0392157, 1 ),
+"size": AABB( -8, -8, -8, 8, 8, 8 )
+}
+node_options = "----------------------------------------------------------------"
+node_class = ""
+transient_node = false
+scene = "----------------------------------------------------------------"
+scene_file = ExtResource( 3 )
+scripting = "----------------------------------------------------------------"
