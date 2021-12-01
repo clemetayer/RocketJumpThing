@@ -8,6 +8,8 @@ extents = Vector3( 20, 20, 1 )
 
 [node name="CheckpointEntity" type="Spatial"]
 script = ExtResource( 2 )
+properties = {
+}
 
 [node name="Checkpoint" type="Area" parent="."]
 script = ExtResource( 1 )

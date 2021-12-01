@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://addons/qodot/src/nodes/qodot_entity.gd" type="Script" id=1]
+[ext_resource path="res://Game/Common/MapElements/Checkpoint/StartPointEntity.gd" type="Script" id=1]
 [ext_resource path="res://Game/Common/MapElements/Checkpoint/StartPoint.gd" type="Script" id=2]
 
 [node name="StartPointEntity" type="Spatial"]

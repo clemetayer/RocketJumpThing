@@ -45,7 +45,7 @@ func _get_trench_params() -> Array:
 	return TRENCH_PARAMS
 
 
-func _set_build_value(new_val: bool):
+func _set_build_value(_new_val: bool):
 	if Engine.editor_hint:
 		for i in range(TRENCH_PARAMS.size()):
 			var param = TRENCH_PARAMS[i]

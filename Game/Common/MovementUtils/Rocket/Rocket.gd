@@ -59,7 +59,6 @@ func _check_raycast_distance() -> void:
 	raycast.cast_to = Vector3(0, 0, 1) * RAYCAST_DISTANCE
 	if raycast.is_colliding():
 		var distance = _get_distance_to_collision(raycast)
-		print("distance = %f" % distance)
 		if distance <= RAYCAST_PLAN_EXPLODE_DISTANCE and not _expl_planned:
 			_plan_explosion(distance)
 

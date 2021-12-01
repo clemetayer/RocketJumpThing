@@ -34,7 +34,7 @@ func _init():
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	_last_cp = get_node(PATHS.start_point)
+	_last_cp = get_node(PATHS.start_point).get_checkpoint()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame. Remove the "_" to use it.
@@ -53,8 +53,23 @@ func check_scene_validity() -> bool:
 ##### PROTECTED METHODS #####
 # Connects the autoload signals on init
 func _connect_autoload_signals() -> void:
-	SignalManager.connect("checkpoint_triggered", self, "_on_checkpoint_triggered")
-	SignalManager.connect("respawn_player_on_last_cp", self, "_on_respawn_player_on_last_cp")
+	if SignalManager.connect("checkpoint_triggered", self, "_on_checkpoint_triggered") != OK:
+		Logger.error(
+			(
+				"Error connecting %s to %s in %s"
+				% ["body_exited", "_on_body_exited", DebugUtils.print_stack_trace(get_stack())]
+			)
+		)
+	if (
+		SignalManager.connect("respawn_player_on_last_cp", self, "_on_respawn_player_on_last_cp")
+		!= OK
+	):
+		Logger.error(
+			(
+				"Error connecting %s to %s in %s"
+				% ["body_exited", "_on_body_exited", DebugUtils.print_stack_trace(get_stack())]
+			)
+		)
 
 
 ##### SIGNAL MANAGEMENT #####

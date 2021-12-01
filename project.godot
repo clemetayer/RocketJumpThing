@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Reference",
+"class": "Appender",
+"language": "GDScript",
+"path": "res://addons/gs_logger/appender.gd"
+}, {
 "base": "Area",
 "class": "Checkpoint",
 "language": "GDScript",
@@ -19,25 +24,60 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Game/Common/MapElements/Checkpoint/CheckpointEntity.gd"
 }, {
+"base": "Appender",
+"class": "ConsoleAppender",
+"language": "GDScript",
+"path": "res://addons/gs_logger/appenders/console_appender.gd"
+}, {
 "base": "Area",
 "class": "DeathGrid",
 "language": "GDScript",
 "path": "res://Game/Common/MapElements/DeathGrid/DeathGrid.gd"
+}, {
+"base": "Reference",
+"class": "DebugUtils",
+"language": "GDScript",
+"path": "res://Game/Common/Utils/Debug/DebugUtils.gd"
+}, {
+"base": "Appender",
+"class": "FileAppender",
+"language": "GDScript",
+"path": "res://addons/gs_logger/appenders/file_appender.gd"
+}, {
+"base": "Layout",
+"class": "HtmlLayout",
+"language": "GDScript",
+"path": "res://addons/gs_logger/layouts/html_layout.gd"
 }, {
 "base": "LiquidLayer",
 "class": "LavaLayer",
 "language": "GDScript",
 "path": "res://addons/qodot/game_definitions/worldspawn_layers/liquid/lava.gd"
 }, {
+"base": "Reference",
+"class": "Layout",
+"language": "GDScript",
+"path": "res://addons/gs_logger/layout.gd"
+}, {
 "base": "Area",
 "class": "LiquidLayer",
 "language": "GDScript",
 "path": "res://addons/qodot/game_definitions/worldspawn_layers/liquid.gd"
 }, {
+"base": "Reference",
+"class": "Message",
+"language": "GDScript",
+"path": "res://addons/gs_logger/message.gd"
+}, {
 "base": "Spatial",
 "class": "OrbitArm",
 "language": "GDScript",
 "path": "res://addons/qodot/example_scenes/2-miscallaneous/1-runtime-map-building/orbit_arm.gd"
+}, {
+"base": "Layout",
+"class": "PatternLayout",
+"language": "GDScript",
+"path": "res://addons/gs_logger/layouts/pattern_layout.gd"
 }, {
 "base": "PhysicsEntity",
 "class": "PhysicsBall",
@@ -204,18 +244,31 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/qodot/src/resources/game-definitions/trenchbroom/trenchbroom_tag.gd"
 }, {
+"base": "Reference",
+"class": "Utils",
+"language": "GDScript",
+"path": "res://addons/gs_logger/utils.gd"
+}, {
 "base": "LiquidLayer",
 "class": "WaterLayer",
 "language": "GDScript",
 "path": "res://addons/qodot/game_definitions/worldspawn_layers/liquid/water.gd"
 } ]
 _global_script_class_icons={
+"Appender": "",
 "Checkpoint": "",
 "CheckpointEntity": "",
+"ConsoleAppender": "",
 "DeathGrid": "",
+"DebugUtils": "",
+"FileAppender": "",
+"HtmlLayout": "",
 "LavaLayer": "",
+"Layout": "",
 "LiquidLayer": "",
+"Message": "",
 "OrbitArm": "",
+"PatternLayout": "",
 "PhysicsBall": "",
 "PhysicsEntity": "",
 "Player": "",
@@ -249,6 +302,7 @@ _global_script_class_icons={
 "TrenchBroomGameConfigFile": "",
 "TrenchBroomGameConfigFolder": "",
 "TrenchBroomTag": "",
+"Utils": "",
 "WaterLayer": ""
 }
 
@@ -261,6 +315,7 @@ config/icon="res://icon.png"
 
 DebugDraw="*res://addons/zylann_debug_draw/debug_draw.gd"
 SignalManager="*res://Game/Common/Utils/Managers/SignalManager.gd"
+Logger="*res://addons/gs_logger/logger.gd"
 
 [debug]
 
@@ -268,7 +323,7 @@ settings/fps/force_fps=240
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/qodot/plugin.cfg" )
+enabled=PoolStringArray( "res://addons/gs_logger/plugin.cfg", "res://addons/qodot/plugin.cfg" )
 
 [input]
 

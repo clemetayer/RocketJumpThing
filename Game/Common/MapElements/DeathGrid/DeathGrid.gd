@@ -9,7 +9,13 @@ class_name DeathGrid
 ##### PROCESSING #####
 # Called when the object is initialized.
 func _init():
-	connect("body_exited", self, "_on_body_exited")
+	if connect("body_exited", self, "_on_body_exited") != OK:
+		Logger.error(
+			(
+				"Error connecting %s to %s in %s"
+				% ["body_exited", "_on_body_exited", DebugUtils.print_stack_trace(get_stack())]
+			)
+		)
 
 
 ##### SIGNAL MANAGEMENT #####
