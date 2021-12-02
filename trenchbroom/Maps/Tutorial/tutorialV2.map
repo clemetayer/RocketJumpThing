@@ -4,7 +4,7 @@
 {
 "classname" "worldspawn"
 "_tb_def" "builtin:Checkpoint_fgd.fgd"
-"_tb_textures" "textures/scenes/tutorial_scene;textures/test"
+"_tb_textures" "textures/replacements;textures/scenes/tutorial_scene;textures/test;textures/test/std_tests_textures"
 // brush 0
 {
 ( -1744 -4568 640 ) ( -1712 -4312 640 ) ( -1712 -4312 768 ) __TB_empty 0 0 0 1 1
@@ -184,12 +184,12 @@
 "classname" "group"
 // brush 0
 {
-( -112 -48 112 ) ( -112 -64 112 ) ( -112 -64 16 ) test/std_tests_textures/228 0 0 0 1 1
-( -112 -48 112 ) ( 0 -48 160 ) ( 0 -64 160 ) test/std_tests_textures/228 0 0 0 1 1
-( -112 -64 112 ) ( 0 -64 160 ) ( 0 -64 16 ) test/std_tests_textures/228 0 0 0 1 1
-( 0 -64 16 ) ( 0 -48 16 ) ( -112 -48 16 ) test/std_tests_textures/228 0 0 0 1 1
-( 0 -48 16 ) ( 0 -48 160 ) ( -112 -48 112 ) test/std_tests_textures/228 0 0 0 1 1
-( 48 -64 160 ) ( 48 -48 160 ) ( 48 -48 16 ) test/std_tests_textures/228 0 0 0 1 1
+( -112 -48 112 ) ( -112 -64 112 ) ( -112 -64 16 ) __TB_empty 0 0 0 1 1
+( -112 -48 112 ) ( 0 -48 160 ) ( 0 -64 160 ) __TB_empty 0 0 0 1 1
+( -112 -64 112 ) ( 0 -64 160 ) ( 0 -64 16 ) __TB_empty 0 0 0 1 1
+( 0 -64 16 ) ( 0 -48 16 ) ( -112 -48 16 ) __TB_empty 0 0 0 1 1
+( 0 -48 16 ) ( 0 -48 160 ) ( -112 -48 112 ) __TB_empty 0 0 0 1 1
+( 48 -64 160 ) ( 48 -48 160 ) ( 48 -48 16 ) __TB_empty 0 0 0 1 1
 }
 // brush 1
 {
@@ -202,48 +202,48 @@
 }
 // brush 2
 {
-( -112 -256 112 ) ( -112 -272 112 ) ( -112 -272 16 ) scenes/tutorial_scene/wall1 0 0 0 1 1
-( -112 -256 112 ) ( 0 -256 160 ) ( 0 -272 160 ) scenes/tutorial_scene/wall1 0 0 0 1 1
-( -112 -272 112 ) ( 0 -272 160 ) ( 0 -272 16 ) scenes/tutorial_scene/wall1 0 0 0 1 1
-( 0 -272 16 ) ( 0 -256 16 ) ( -112 -256 16 ) scenes/tutorial_scene/wall1 0 0 0 1 1
-( 0 -256 16 ) ( 0 -256 160 ) ( -112 -256 112 ) scenes/tutorial_scene/wall1 0 0 0 1 1
-( 416 -272 160 ) ( 416 -256 160 ) ( 416 -256 16 ) scenes/tutorial_scene/wall1 0 0 0 1 1
+( -112 -256 112 ) ( -112 -272 112 ) ( -112 -272 16 ) scenes/tutorial_scene/wall 0 0 0 1 1
+( -112 -256 112 ) ( 0 -256 160 ) ( 0 -272 160 ) scenes/tutorial_scene/wall 0 0 0 1 1
+( -112 -272 112 ) ( 0 -272 160 ) ( 0 -272 16 ) scenes/tutorial_scene/wall 0 0 0 1 1
+( 0 -272 16 ) ( 0 -256 16 ) ( -112 -256 16 ) scenes/tutorial_scene/wall 0 0 0 1 1
+( 0 -256 16 ) ( 0 -256 160 ) ( -112 -256 112 ) scenes/tutorial_scene/wall 0 0 0 1 1
+( 416 -272 160 ) ( 416 -256 160 ) ( 416 -256 16 ) scenes/tutorial_scene/wall 0 0 0 1 1
 }
 // brush 3
 {
-( -128 -64 -16 ) ( -128 -63 -16 ) ( -128 -64 -15 ) test/std_tests_textures/226 0 0 0 1 1
-( -96 -272 -16 ) ( -96 -272 -15 ) ( -95 -272 -16 ) test/std_tests_textures/226 0 0 0 1 1
-( -96 -64 0 ) ( -95 -64 0 ) ( -96 -63 0 ) test/std_tests_textures/226 0 0 0 1 1
-( 32 64 16 ) ( 32 65 16 ) ( 33 64 16 ) test/std_tests_textures/226 0 0 0 1 1
-( 32 576 16 ) ( 33 576 16 ) ( 32 576 17 ) test/std_tests_textures/226 0 0 0 1 1
-( 672 64 16 ) ( 672 64 17 ) ( 672 65 16 ) test/std_tests_textures/226 0 0 0 1 1
+( -128 -64 -16 ) ( -128 -63 -16 ) ( -128 -64 -15 ) test/std_tests_textures/MetalPlates 0 0 0 1 1
+( -96 -272 -16 ) ( -96 -272 -15 ) ( -95 -272 -16 ) test/std_tests_textures/MetalPlates 0 0 0 1 1
+( -96 -64 0 ) ( -95 -64 0 ) ( -96 -63 0 ) test/std_tests_textures/MetalPlates 0 0 0 1 1
+( 32 64 16 ) ( 32 65 16 ) ( 33 64 16 ) test/std_tests_textures/MetalPlates 0 0 0 1 1
+( 32 576 16 ) ( 33 576 16 ) ( 32 576 17 ) test/std_tests_textures/MetalPlates 0 0 0 1 1
+( 672 64 16 ) ( 672 64 17 ) ( 672 65 16 ) test/std_tests_textures/MetalPlates 0 0 0 1 1
 }
 // brush 4
 {
-( -112 160 112 ) ( -112 144 112 ) ( -112 144 16 ) test/std_tests_textures/228 0 0 0 1 1
-( -112 160 112 ) ( 0 160 160 ) ( 0 144 160 ) test/std_tests_textures/228 0 0 0 1 1
-( -112 144 112 ) ( 0 144 160 ) ( 0 144 16 ) test/std_tests_textures/228 0 0 0 1 1
-( 0 144 16 ) ( 0 160 16 ) ( -112 160 16 ) test/std_tests_textures/228 0 0 0 1 1
-( 0 160 16 ) ( 0 160 160 ) ( -112 160 112 ) test/std_tests_textures/228 0 0 0 1 1
-( 48 144 160 ) ( 48 160 160 ) ( 48 160 16 ) test/std_tests_textures/228 0 0 0 1 1
+( -112 160 112 ) ( -112 144 112 ) ( -112 144 16 ) __TB_empty 0 0 0 1 1
+( -112 160 112 ) ( 0 160 160 ) ( 0 144 160 ) __TB_empty 0 0 0 1 1
+( -112 144 112 ) ( 0 144 160 ) ( 0 144 16 ) __TB_empty 0 0 0 1 1
+( 0 144 16 ) ( 0 160 16 ) ( -112 160 16 ) __TB_empty 0 0 0 1 1
+( 0 160 16 ) ( 0 160 160 ) ( -112 160 112 ) __TB_empty 0 0 0 1 1
+( 48 144 160 ) ( 48 160 160 ) ( 48 160 16 ) __TB_empty 0 0 0 1 1
 }
 // brush 5
 {
-( -112 368 112 ) ( -112 352 112 ) ( -112 352 16 ) test/std_tests_textures/228 0 0 0 1 1
-( -112 368 112 ) ( 0 368 160 ) ( 0 352 160 ) test/std_tests_textures/228 0 0 0 1 1
-( -112 352 112 ) ( 0 352 160 ) ( 0 352 16 ) test/std_tests_textures/228 0 0 0 1 1
-( 0 352 16 ) ( 0 368 16 ) ( -112 368 16 ) test/std_tests_textures/228 0 0 0 1 1
-( 0 368 16 ) ( 0 368 160 ) ( -112 368 112 ) test/std_tests_textures/228 0 0 0 1 1
-( 48 352 160 ) ( 48 368 160 ) ( 48 368 16 ) test/std_tests_textures/228 0 0 0 1 1
+( -112 368 112 ) ( -112 352 112 ) ( -112 352 16 ) __TB_empty 0 0 0 1 1
+( -112 368 112 ) ( 0 368 160 ) ( 0 352 160 ) __TB_empty 0 0 0 1 1
+( -112 352 112 ) ( 0 352 160 ) ( 0 352 16 ) __TB_empty 0 0 0 1 1
+( 0 352 16 ) ( 0 368 16 ) ( -112 368 16 ) __TB_empty 0 0 0 1 1
+( 0 368 16 ) ( 0 368 160 ) ( -112 368 112 ) __TB_empty 0 0 0 1 1
+( 48 352 160 ) ( 48 368 160 ) ( 48 368 16 ) __TB_empty 0 0 0 1 1
 }
 // brush 6
 {
-( 656 -272 192 ) ( 656 192 16 ) ( 656 192 192 ) scenes/tutorial_scene/wall1 0 0 0 1 1
-( 672 -272 192 ) ( 656 -272 16 ) ( 656 -272 192 ) scenes/tutorial_scene/wall1 0 0 0 1 1
-( 672 192 16 ) ( 656 -272 16 ) ( 672 -272 16 ) scenes/tutorial_scene/wall1 0 0 0 1 1
-( 672 192 448 ) ( 656 -272 448 ) ( 656 192 448 ) scenes/tutorial_scene/wall1 0 0 0 1 1
-( 672 576 192 ) ( 656 576 16 ) ( 672 576 16 ) scenes/tutorial_scene/wall1 0 0 0 1 1
-( 672 192 192 ) ( 672 -272 16 ) ( 672 -272 192 ) scenes/tutorial_scene/wall1 0 0 0 1 1
+( 656 -272 192 ) ( 656 192 16 ) ( 656 192 192 ) scenes/tutorial_scene/wall 0 0 0 1 1
+( 672 -272 192 ) ( 656 -272 16 ) ( 656 -272 192 ) scenes/tutorial_scene/wall 0 0 0 1 1
+( 672 192 16 ) ( 656 -272 16 ) ( 672 -272 16 ) scenes/tutorial_scene/wall 0 0 0 1 1
+( 672 192 448 ) ( 656 -272 448 ) ( 656 192 448 ) scenes/tutorial_scene/wall 0 0 0 1 1
+( 672 576 192 ) ( 656 576 16 ) ( 672 576 16 ) scenes/tutorial_scene/wall 0 0 0 1 1
+( 672 192 192 ) ( 672 -272 16 ) ( 672 -272 192 ) scenes/tutorial_scene/wall 0 0 0 1 1
 }
 // brush 7
 {
@@ -256,12 +256,12 @@
 }
 // brush 8
 {
-( -112 -272 128 ) ( -112 176 112 ) ( -112 176 128 ) test/std_tests_textures/226 0 0 0 1 1
-( 384 176 336 ) ( -112 -272 128 ) ( -112 176 128 ) test/std_tests_textures/226 0 0 0 1 1
-( 384 -272 336 ) ( -112 -272 112 ) ( -112 -272 128 ) test/std_tests_textures/226 0 0 0 1 1
-( 384 560 336 ) ( -112 560 112 ) ( 384 560 320 ) test/std_tests_textures/226 0 0 0 1 1
-( 384 176 320 ) ( -112 -272 112 ) ( 384 -272 320 ) test/std_tests_textures/226 0 0 0 1 1
-( 656 176 336 ) ( 656 -272 320 ) ( 656 -272 336 ) test/std_tests_textures/226 0 0 0 1 1
+( -112 -272 128 ) ( -112 176 112 ) ( -112 176 128 ) __TB_empty 0 0 0 1 1
+( 384 176 336 ) ( -112 -272 128 ) ( -112 176 128 ) __TB_empty 0 0 0 1 1
+( 384 -272 336 ) ( -112 -272 112 ) ( -112 -272 128 ) __TB_empty 0 0 0 1 1
+( 384 560 336 ) ( -112 560 112 ) ( 384 560 320 ) __TB_empty 0 0 0 1 1
+( 384 176 320 ) ( -112 -272 112 ) ( 384 -272 320 ) __TB_empty 0 0 0 1 1
+( 656 176 336 ) ( 656 -272 320 ) ( 656 -272 336 ) __TB_empty 0 0 0 1 1
 }
 // brush 9
 {
