@@ -44,6 +44,7 @@ const WALL_RIDE_Z_ANGLE := PI / 2  # Angle from the wall on the z axis when wall
 const WALL_RIDE_ASCEND_AMOUNT := 10.0  # How much the player ascend during a wall ride
 const WALL_JUMP_BOOST := 50.0  # How much speed is given to the player when jumping while wall riding
 const WALL_JUMP_UP_BOOST := 15.0  # The up vector that is added when jumping off a wall
+const WALL_JUMP_ANGLE := PI / 4  # Angle from the wall forward vector when wall jumping
 const WALL_JUMP_MIX_DIRECTION_TIME := 0.5  # How much time after the jumping from a wall should override the forward movement (to avoid a bug that makes the player sticks to the wall)
 const WALL_JUMP_MIX_DIRECTION_AMOUNT := 300  # How much it will follow the tween curve after wall jumping to get to the desired direction
 
@@ -58,6 +59,7 @@ const SLIDE_STEER_POWER := 100  # How much the player can steer when sliding
 const ROCKET_DELAY := 1.0  # Time before you can shoot another rocket
 const ROCKET_START_OFFSET := Vector3(0, -0.5, 0)  # offest position from the player to throw the rocket
 const ROCKET_SCENE_PATH := "res://Game/Common/MovementUtils/Rocket/Rocket.tscn"  # Path to the rocket scene
+const ROCKET_LAUNCH_MAX_TIME := 3000.0  # Max time the player can hold the mouse button to set the speed of the rocket (in milliseconds)
 
 #---- EXPORTS -----
 export (Dictionary) var PATHS = {"camera": NodePath("."), "rotation_helper": NodePath(".")}
@@ -78,6 +80,7 @@ var _add_velocity_vector_queue := []  # queue to add the vector to the velocity 
 var _slide := false  # used to buffer a slide when in air
 var _RC_wall_direction := 0  # 1 if the raycasts aims for the right wall, -1 if the raycast aims for the left wall, 0 if not aiming for any wall
 var _mix_to_direction_amount := 1.0  # Used after wall jumping and pressing forward, to not stick to the wall. Varies between 0 and 1.
+var _charge_shot_time := 0  # time when the shot key was pressed (as unix timestamp, millis)
 
 #==== ONREADY ====
 # onready var onready_var # Optionnal comment
@@ -171,9 +174,15 @@ func _process_input(_delta):
 			vel.y = FLOOR_POWER
 
 	# Shooting
-	if Input.is_action_pressed("action_shoot") and not states.has("shooting"):
+	if Input.is_action_just_pressed("action_shoot"):
+		_charge_shot_time = OS.get_ticks_msec()
+	if Input.is_action_just_released("action_shoot") and not states.has("shooting"):
 		states.append("shooting")
 		var rocket = load(ROCKET_SCENE_PATH).instance()
+		rocket.SPEED_PERCENTAGE = (
+			min(OS.get_ticks_msec() - _charge_shot_time, ROCKET_LAUNCH_MAX_TIME)
+			/ ROCKET_LAUNCH_MAX_TIME
+		)
 		rocket.START_POS = transform.origin + transform.basis * ROCKET_START_OFFSET
 		rocket.DIRECTION = -cam_xform.basis.z
 		rocket.UP_VECTOR = Vector3(0, 1, 0)
@@ -232,7 +241,10 @@ func _process_movement(delta):
 						self, "_mix_to_direction_amount", 0.0, 1.0, WALL_JUMP_MIX_DIRECTION_TIME
 					)
 					tween.start()
-				vel += wall_normal * WALL_JUMP_BOOST
+				vel += (
+					wall_fw.rotated(wall_up, WALL_JUMP_ANGLE * -_RC_wall_direction)
+					* WALL_JUMP_BOOST
+				)
 				vel += wall_up * WALL_JUMP_UP_BOOST
 			else:
 				if not states.has("wall_riding"):

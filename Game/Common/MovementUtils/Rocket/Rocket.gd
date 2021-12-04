@@ -10,7 +10,8 @@ class_name Rocket
 
 ##### VARIABLES #####
 #---- CONSTANTS -----
-const SPEED := 150.0  # travel speed of the rocket
+const MIN_SPEED := 75.0  # min travel speed of the rocket
+const MAX_SPEED := 200.0  # max travel speed of the rocket
 const EXPLOSION_RADIUS := 5.0  # explosion radius
 const EXPLOSION_DECAY := 0.1  # how much time the explosion remains
 const EXPLOSION_POWER := 13  # power of the explosion
@@ -21,6 +22,7 @@ const RAYCAST_PLAN_EXPLODE_DISTANCE := 5  # Distance from a floor where the expl
 export (Vector3) var START_POS = Vector3(0, 0, 0)
 export (Vector3) var DIRECTION = Vector3(0, 0, 0)  # direction (normalized) where the rocket should travel
 export (Vector3) var UP_VECTOR = Vector3(0, 1, 0)  # up vector 
+export (float) var SPEED_PERCENTAGE = 0.0  # How fast the rocket will travel, between MIN and MAX_SPEED (SPEED_PERCENTAGE between 0.0 and 1.0) 
 
 #---- STANDARD -----
 #==== PUBLIC ====
@@ -29,6 +31,7 @@ export (Vector3) var UP_VECTOR = Vector3(0, 1, 0)  # up vector
 #==== PRIVATE ====
 var _translate := false
 var _expl_planned := false  # if the explosion has been already planned
+var _speed := 0.0  # travel speed of the rocket
 
 #==== ONREADY ====
 # onready var onready_var # Optionnal comment
@@ -38,6 +41,7 @@ var _expl_planned := false  # if the explosion has been already planned
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	transform.origin = START_POS
+	_speed = MIN_SPEED + SPEED_PERCENTAGE * (MAX_SPEED - MIN_SPEED)
 	look_at(START_POS - DIRECTION, UP_VECTOR)
 	_translate = true
 
@@ -46,7 +50,7 @@ func _ready():
 func _process(delta):
 	_check_raycast_distance()
 	if _translate:
-		translate_object_local(Vector3(0, 0, 1) * SPEED * delta)
+		translate_object_local(Vector3(0, 0, 1) * _speed * delta)
 
 
 ##### PUBLIC METHODS #####
@@ -84,13 +88,13 @@ func _get_distance_to_collision(raycast: RayCast) -> float:
 # plans an explosion, since the rocket is close to the floor (to make sure it explodes)
 func _plan_explosion(distance: float) -> void:
 	_expl_planned = true
-	yield(get_tree().create_timer(distance / SPEED), "timeout")
+	yield(get_tree().create_timer(distance / _speed), "timeout")
 	_explode($RayCast.get_collision_point())
 
 
 # Explosion of the rocket
 # FIXME : Not exploding sometimes, the collision probably doesn't operate well...
-func _explode(col_point : Vector3) -> void:
+func _explode(col_point: Vector3) -> void:
 	_translate = false
 	$RayCast.enabled = false
 	transform.origin = col_point
