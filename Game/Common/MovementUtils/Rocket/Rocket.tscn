@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Game/Common/MovementUtils/Rocket/Rocket.gd" type="Script" id=1]
 
@@ -11,6 +11,9 @@ mid_height = 0.6
 
 [sub_resource type="CubeMesh" id=3]
 size = Vector3( 0.1, 0.1, 1 )
+
+[sub_resource type="SphereShape" id=4]
+radius = 0.75
 
 [node name="Rocket" type="Spatial"]
 script = ExtResource( 1 )
@@ -26,4 +29,14 @@ material/0 = null
 
 [node name="RayCast" type="RayCast" parent="."]
 enabled = true
+cast_to = Vector3( 0, 0, 1 )
 collision_mask = 2
+
+[node name="CloseAreaCheck" type="Area" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape" type="CollisionShape" parent="CloseAreaCheck"]
+shape = SubResource( 4 )
+
+[connection signal="body_entered" from="CloseAreaCheck" to="." method="_on_CloseAreaCheck_body_entered"]

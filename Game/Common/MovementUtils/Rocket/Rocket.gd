@@ -85,14 +85,15 @@ func _get_distance_to_collision(raycast: RayCast) -> float:
 func _plan_explosion(distance: float) -> void:
 	_expl_planned = true
 	yield(get_tree().create_timer(distance / SPEED), "timeout")
-	_explode()
+	_explode($RayCast.get_collision_point())
 
 
 # Explosion of the rocket
 # FIXME : Not exploding sometimes, the collision probably doesn't operate well...
-func _explode() -> void:
+func _explode(col_point : Vector3) -> void:
 	_translate = false
 	$RayCast.enabled = false
+	transform.origin = col_point
 	if get_node_or_null("MeshInstance") != null and is_instance_valid($MeshInstance):
 		$MeshInstance.queue_free()
 	var area := Area.new()
@@ -114,3 +115,12 @@ func interact_with_body(body, area):
 	if body.is_in_group("player"):
 		var vector = (body.global_transform.origin - area.global_transform.origin) * EXPLOSION_POWER
 		body.add_velocity_vector(vector)
+
+
+# Additional area to make sure the rocket WILL explode
+func _on_CloseAreaCheck_body_entered(_body: Node):
+	if not _expl_planned:
+		_expl_planned = true
+		$RayCast.transform.origin.z = -100  # steps back the raycast to get the exact collision point
+		$CloseAreaCheck/CollisionShape.disabled = true  # disables the area
+		_explode(transform.origin)

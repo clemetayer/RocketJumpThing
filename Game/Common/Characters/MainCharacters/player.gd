@@ -4,11 +4,12 @@ class_name Player
 
 """
 - TODO : Use a rigid body instead ? Shifty’s Manifesto is a bit spooky...
+- TODO : Maybe refactor a bit this script in general, it's getting hard to read
 - TODO : improve BHop
-- TODO : For the wall boost, add a up vector too
+- TODO : Perhaps change the side movement to air strafing, sliding to the left or right feels a bit weird actually...
 - TODO : Choose the speed of the rocket depending on how long the player has pressed the shoot action 
-- FIXME : Rocket not exploding when too close to a wall
-- FIXME : Make rocket explode at the raycast collision point
+- FIXME : Use the wall collision info to compute wall ride
+- FIXME : Rocket not adding velocity when wall riding
 """
 
 ##### SIGNALS #####
@@ -41,7 +42,10 @@ const AIR_SWAY_SPEED := 100  # Speed for the velocity to get to the desired sway
 #==== WALL RIDE =====
 const WALL_RIDE_Z_ANGLE := PI / 2  # Angle from the wall on the z axis when wall riding
 const WALL_RIDE_ASCEND_AMOUNT := 10.0  # How much the player ascend during a wall ride
-const WALL_RIDE_BOOST := 65.0  # How much speed is given to the player when jumping while wall riding
+const WALL_JUMP_BOOST := 50.0  # How much speed is given to the player when jumping while wall riding
+const WALL_JUMP_UP_BOOST := 15.0  # The up vector that is added when jumping off a wall
+const WALL_JUMP_MIX_DIRECTION_TIME := 0.5  # How much time after the jumping from a wall should override the forward movement (to avoid a bug that makes the player sticks to the wall)
+const WALL_JUMP_MIX_DIRECTION_AMOUNT := 300  # How much it will follow the tween curve after wall jumping to get to the desired direction
 
 #==== GROUND =====
 const GROUND_TARGET_SPEED := 50  # Ground target speed
@@ -52,7 +56,7 @@ const SLIDE_STEER_POWER := 100  # How much the player can steer when sliding
 
 #~~~~~ PROJECTILES ~~~~~ 
 const ROCKET_DELAY := 1.0  # Time before you can shoot another rocket
-const ROCKET_START_OFFSET := Vector3(0, 1, -1)  # offest position from the player to throw the rocket
+const ROCKET_START_OFFSET := Vector3(0, -0.5, 0)  # offest position from the player to throw the rocket
 const ROCKET_SCENE_PATH := "res://Game/Common/MovementUtils/Rocket/Rocket.tscn"  # Path to the rocket scene
 
 #---- EXPORTS -----
@@ -73,6 +77,7 @@ var rotation_helper  # rotation helper node
 var _add_velocity_vector_queue := []  # queue to add the vector to the velocity on the next process (used to make external elements interact with the player velocity)
 var _slide := false  # used to buffer a slide when in air
 var _RC_wall_direction := 0  # 1 if the raycasts aims for the right wall, -1 if the raycast aims for the left wall, 0 if not aiming for any wall
+var _mix_to_direction_amount := 1.0  # Used after wall jumping and pressing forward, to not stick to the wall. Varies between 0 and 1.
 
 #==== ONREADY ====
 # onready var onready_var # Optionnal comment
@@ -219,13 +224,23 @@ func _process_movement(delta):
 			if Input.is_action_pressed("movement_jump"):
 				if states.has("wall_riding"):
 					states.remove("wall_riding")
-				vel += wall_normal * WALL_RIDE_BOOST
+				if Input.is_action_pressed("movement_forward"):
+					var tween = get_node("WallJumpMixMovement")
+					if tween.is_active():
+						tween.stop_all()
+					tween.interpolate_property(
+						self, "_mix_to_direction_amount", 0.0, 1.0, WALL_JUMP_MIX_DIRECTION_TIME
+					)
+					tween.start()
+				vel += wall_normal * WALL_JUMP_BOOST
+				vel += wall_up * WALL_JUMP_UP_BOOST
 			else:
 				if not states.has("wall_riding"):
 					states.append("wall_riding")
 				var vel_dir = Vector3(wall_fw.x, WALL_RIDE_ASCEND_AMOUNT * delta, wall_fw.z).normalized()
 				vel = vel_dir * vel.length()
 			DebugDraw.draw_line_3d(transform.origin, transform.origin + vel, Color(0, 1, 1))
+			_add_movement_queue_to_vel()
 			vel = move_and_slide(vel, wall_up, 0.05, 4, deg2rad(MAX_SLOPE_ANGLE))
 		else:
 			_RC_wall_direction = 0
@@ -263,9 +278,7 @@ func _process_hvel(delta: float) -> void:
 	var hvel := _compute_hvel(Vector2(vel.x, vel.z), delta)
 	vel.x = hvel.x
 	vel.z = hvel.y
-	for vect in _add_velocity_vector_queue:
-		vel += vect
-	_add_velocity_vector_queue = []
+	_add_movement_queue_to_vel()
 	vel = move_and_slide(vel, Vector3(0, 1, 0), 0.05, 4, deg2rad(MAX_SLOPE_ANGLE))
 
 
@@ -293,6 +306,13 @@ func _compute_air_hvel(p_vel: Vector2, delta: float) -> Vector2:
 			return _mvt_air_sway(dir_2D, p_vel, delta)
 
 
+# adds the vectors stored in the _add_velocity_vector_queue to velocity
+func _add_movement_queue_to_vel():
+	for vect in _add_velocity_vector_queue:
+		vel += vect
+	_add_velocity_vector_queue = []
+
+
 # Movement when in air when going straight forward
 func _mvt_air_fw(p_vel: Vector2, delta: float, dir_2D: Vector2) -> Vector2:
 	if abs(dir_2D.angle_to(p_vel)) <= PI / 2:  # keeps the same speed, but goes instantly toward what the player is aiming
@@ -303,9 +323,23 @@ func _mvt_air_fw(p_vel: Vector2, delta: float, dir_2D: Vector2) -> Vector2:
 				((atan((x + delta) * AIR_ACCELERATION) / (PI / 2)) * AIR_TARGET_SPEED)  # new speed should be the next delta x in the function above
 				- current_speed
 			)
-		return dir_2D * (p_vel.length() + air_accel_bonus)
+		return (
+			dir_2D * (p_vel.length() + air_accel_bonus)
+			if _mix_to_direction_amount >= 1.0
+			else p_vel.move_toward(
+				dir_2D * (p_vel.length() + air_accel_bonus),
+				delta * _mix_to_direction_amount * WALL_JUMP_MIX_DIRECTION_AMOUNT
+			)
+		)
 	else:  # goes toward where the player is aiming, but deccelerates 
-		return -dir_2D * p_vel.length() * AIR_BACK_DECCELERATE
+		return (
+			-dir_2D * p_vel.length() * AIR_BACK_DECCELERATE
+			if _mix_to_direction_amount >= 1.0
+			else p_vel.move_toward(
+				-dir_2D * p_vel.length() * AIR_BACK_DECCELERATE,
+				delta * _mix_to_direction_amount * WALL_JUMP_MIX_DIRECTION_AMOUNT
+			)
+		)
 
 
 # Movement when in air when going straight back
@@ -339,7 +373,6 @@ func _compute_ground_hvel(p_vel: Vector2, delta: float) -> Vector2:
 		if not states.has("sliding"):
 			self.rotate_object_local(Vector3(1, 0, 0), -PI / 4)
 			rotation_helper.rotate_object_local(Vector3(1, 0, 0), PI / 4)
-			# p_vel += p_vel.normalized() * SLIDE_SPEED_BONUS_GROUND
 			states.append("sliding")
 		return p_vel.move_toward(Vector2(dir.x, dir.z) * p_vel.length(), delta * SLIDE_STEER_POWER)
 	else:
