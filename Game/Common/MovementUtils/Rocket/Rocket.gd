@@ -10,8 +10,7 @@ class_name Rocket
 
 ##### VARIABLES #####
 #---- CONSTANTS -----
-const MIN_SPEED := 75.0  # min travel speed of the rocket
-const MAX_SPEED := 200.0  # max travel speed of the rocket
+const SPEED := 100.0  # travel speed of the rocket
 const EXPLOSION_RADIUS := 5.0  # explosion radius
 const EXPLOSION_DECAY := 0.1  # how much time the explosion remains
 const EXPLOSION_POWER := 13  # power of the explosion
@@ -41,7 +40,7 @@ var _speed := 0.0  # travel speed of the rocket
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	transform.origin = START_POS
-	_speed = MIN_SPEED + SPEED_PERCENTAGE * (MAX_SPEED - MIN_SPEED)
+	_speed = SPEED
 	look_at(START_POS - DIRECTION, UP_VECTOR)
 	_translate = true
 

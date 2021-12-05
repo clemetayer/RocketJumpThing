@@ -5,10 +5,12 @@ class_name Player
 """
 - TODO : Use a rigid body instead ? Shifty’s Manifesto is a bit spooky...
 - TODO : Maybe refactor a bit this script in general, it's getting hard to read
+- TODO : Explode the rockets on right click ? charge rocket on right click ?
 - TODO : improve BHop ~ Actually, maybe it is fine the way it is...
 - TODO : Perhaps change the side movement to air strafing, sliding to the left or right feels a bit weird actually... Should strafe 'harder' to the direction in that case
 - FIXME : Use the wall collision info to compute wall ride ~ To try, but there is a risk that it might either stick to the wall too well or not much...
 - FIXME : Rocket not adding velocity when wall riding ~ It does, but it feels a bit weird
+- FIXME : Wall jumping with rockets feels weird, it slows down even when pressing forward
 """
 
 ##### SIGNALS #####
@@ -41,8 +43,8 @@ const AIR_SWAY_SPEED := 100  # Speed for the velocity to get to the desired sway
 #==== WALL RIDE =====
 const WALL_RIDE_Z_ANGLE := PI / 2  # Angle from the wall on the z axis when wall riding
 const WALL_RIDE_ASCEND_AMOUNT := 10.0  # How much the player ascend during a wall ride
-const WALL_JUMP_BOOST := 50.0  # How much speed is given to the player when jumping while wall riding
-const WALL_JUMP_UP_BOOST := 15.0  # The up vector that is added when jumping off a wall
+const WALL_JUMP_BOOST := 20.0  # How much speed is given to the player when jumping while wall riding
+const WALL_JUMP_UP_BOOST := 10.0  # The up vector that is added when jumping off a wall
 const WALL_JUMP_ANGLE := PI / 4  # Angle from the wall forward vector when wall jumping
 const WALL_JUMP_MIX_DIRECTION_TIME := 0.5  # How much time after the jumping from a wall should override the forward movement (to avoid a bug that makes the player sticks to the wall)
 const WALL_JUMP_MIX_DIRECTION_AMOUNT := 300  # How much it will follow the tween curve after wall jumping to get to the desired direction
@@ -173,15 +175,9 @@ func _process_input(_delta):
 			vel.y = FLOOR_POWER
 
 	# Shooting
-	if Input.is_action_just_pressed("action_shoot"):
-		_charge_shot_time = OS.get_ticks_msec()
-	if Input.is_action_just_released("action_shoot") and not states.has("shooting"):
+	if Input.is_action_pressed("action_shoot") and not states.has("shooting"):
 		states.append("shooting")
 		var rocket = load(ROCKET_SCENE_PATH).instance()
-		rocket.SPEED_PERCENTAGE = (
-			min(OS.get_ticks_msec() - _charge_shot_time, ROCKET_LAUNCH_MAX_TIME)
-			/ ROCKET_LAUNCH_MAX_TIME
-		)
 		rocket.START_POS = transform.origin + transform.basis * ROCKET_START_OFFSET
 		rocket.DIRECTION = -cam_xform.basis.z
 		rocket.UP_VECTOR = Vector3(0, 1, 0)

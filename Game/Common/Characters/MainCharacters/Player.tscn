@@ -48,11 +48,11 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.950078, 1.06945 )
 
 [node name="Camera" type="Camera" parent="RotationHelper"]
 transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0.5, -0.75 )
+current = true
 far = 500.0
 
 [node name="ThirdPersonCamera" type="Camera" parent="RotationHelper"]
 transform = Transform( -1, -2.99003e-08, 8.21506e-08, 0, 0.939693, 0.34202, -8.74228e-08, 0.34202, -0.939693, 0, 3.62379, -6.16924 )
-current = true
 far = 500.0
 
 [node name="WallJumpMixMovement" type="Tween" parent="."]
