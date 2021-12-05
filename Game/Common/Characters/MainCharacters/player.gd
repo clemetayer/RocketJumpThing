@@ -5,11 +5,10 @@ class_name Player
 """
 - TODO : Use a rigid body instead ? Shifty’s Manifesto is a bit spooky...
 - TODO : Maybe refactor a bit this script in general, it's getting hard to read
-- TODO : improve BHop
-- TODO : Perhaps change the side movement to air strafing, sliding to the left or right feels a bit weird actually...
-- TODO : Choose the speed of the rocket depending on how long the player has pressed the shoot action 
-- FIXME : Use the wall collision info to compute wall ride
-- FIXME : Rocket not adding velocity when wall riding
+- TODO : improve BHop ~ Actually, maybe it is fine the way it is...
+- TODO : Perhaps change the side movement to air strafing, sliding to the left or right feels a bit weird actually... Should strafe 'harder' to the direction in that case
+- FIXME : Use the wall collision info to compute wall ride ~ To try, but there is a risk that it might either stick to the wall too well or not much...
+- FIXME : Rocket not adding velocity when wall riding ~ It does, but it feels a bit weird
 """
 
 ##### SIGNALS #####
@@ -247,6 +246,7 @@ func _process_movement(delta):
 				)
 				vel += wall_up * WALL_JUMP_UP_BOOST
 			else:
+				_keep_wallride_raycasts_perpendicular()
 				if not states.has("wall_riding"):
 					states.append("wall_riding")
 				var vel_dir = Vector3(wall_fw.x, WALL_RIDE_ASCEND_AMOUNT * delta, wall_fw.z).normalized()
@@ -257,6 +257,7 @@ func _process_movement(delta):
 		else:
 			_RC_wall_direction = 0
 	else:
+		_reset_wallride_raycasts()
 		_process_hvel(delta)
 
 
@@ -292,6 +293,33 @@ func _process_hvel(delta: float) -> void:
 	vel.z = hvel.y
 	_add_movement_queue_to_vel()
 	vel = move_and_slide(vel, Vector3(0, 1, 0), 0.05, 4, deg2rad(MAX_SLOPE_ANGLE))
+
+
+# resets the wallride raycasts to their standard rotation value
+func _reset_wallride_raycasts() -> void:
+	$RayCasts.rotation = Vector3(0, 0, 0)
+
+
+# sets the wallride raycast rotations to stay perpendicular to the wall it is colliding with
+func _keep_wallride_raycasts_perpendicular() -> void:
+	var rc: RayCast
+	var wall_normal_vect: Vector3  # normal of the wall returned by the raycast
+	var raycast_dir_vect: Vector3  # direction to the raycast from the collision point
+	var angle: float  # angle between wall_normal_vect and raycast_dir_vect
+	if _RC_wall_direction == -1:  # right raycast
+		rc = $RayCasts/RayCastWallMinus
+		wall_normal_vect = rc.get_collision_normal()
+		raycast_dir_vect = rc.global_transform.origin - rc.get_collision_point()
+		angle = wall_normal_vect.signed_angle_to(raycast_dir_vect, Vector3.UP)
+		DebugDraw.set_text("angle", angle)
+		$RayCasts.rotate_y(-angle)
+	elif _RC_wall_direction == 1:  # left raycast
+		rc = $RayCasts/RayCastWallPlus
+		wall_normal_vect = rc.get_collision_normal()
+		raycast_dir_vect = rc.global_transform.origin - rc.get_collision_point()
+		angle = wall_normal_vect.signed_angle_to(raycast_dir_vect, Vector3.UP)
+		DebugDraw.set_text("angle", angle)
+		$RayCasts.rotate_y(-angle)
 
 
 # computes the horizontal velocity
