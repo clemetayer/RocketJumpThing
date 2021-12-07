@@ -13,7 +13,7 @@ class_name Rocket
 const SPEED := 100.0  # travel speed of the rocket
 const EXPLOSION_RADIUS := 5.0  # explosion radius
 const EXPLOSION_DECAY := 0.1  # how much time the explosion remains
-const EXPLOSION_POWER := 13  # power of the explosion
+const EXPLOSION_POWER := 15  # power of the explosion
 const RAYCAST_DISTANCE := 200  # maximum distance to detect a floor
 const RAYCAST_PLAN_EXPLODE_DISTANCE := 5  # Distance from a floor where the explosion should be planned (since it's imminent), to be sure that is will explode (high speed makes collision weird)
 

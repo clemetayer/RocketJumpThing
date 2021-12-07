@@ -31,11 +31,10 @@ const PLAYER_HEIGHT := 2  # Player height
 const PLAYER_WIDTH := 1  # Player width
 
 #==== AIR =====
-const AIR_TARGET_SPEED := 130  # Target acceleration when just pressing forward in the air
+const AIR_TARGET_SPEED := 110  # Target acceleration when just pressing forward in the air
 const AIR_ADD_STRAFE_SPEED := .75  # Speed that is added during a strafe
-const AIR_BACK_DECCELERATE := 0.98  # Speed decceleration when pressing an opposite direction to the velocity
 const AIR_STANDARD_DECCELERATE := 0.985  # Speed decceleration when not pressing anything
-const AIR_ACCELERATION := 1.0  # Accel	eration in air to get to the AIR_TARGET_SPEED
+const AIR_ACCELERATION := 0.75  # Acceleration in air to get to the AIR_TARGET_SPEED
 const AIR_STRAFE_STEER_POWER := 50.0  # Power of the turn when air strafing
 const AIR_SWAY_ANGLE_MINUS_ANGLE := PI / 4  # Angle to retract from the wished direction (target direction when swaying)
 const AIR_SWAY_SPEED := 100  # Speed for the velocity to get to the desired sway angle
@@ -353,12 +352,8 @@ func _add_movement_queue_to_vel():
 func _mvt_air_fw(p_vel: Vector2, delta: float, dir_2D: Vector2) -> Vector2:
 	if abs(dir_2D.angle_to(p_vel)) <= PI / 2:  # keeps the same speed, but goes instantly toward what the player is aiming
 		var air_accel_bonus = 0.0
-		if current_speed < AIR_TARGET_SPEED:  # adds a bonus to get to the target speed, computed as y=(atan(x * AIR_ACCELERATION)/(PI/2)) * TARGET_SPEED
-			var x = tan((current_speed / AIR_TARGET_SPEED) * (PI / 2)) / AIR_ACCELERATION  # current x value for the function above
-			air_accel_bonus = (
-				((atan((x + delta) * AIR_ACCELERATION) / (PI / 2)) * AIR_TARGET_SPEED)  # new speed should be the next delta x in the function above
-				- current_speed
-			)
+		if current_speed < AIR_TARGET_SPEED:  # adds a bonus to get to the target speed, just a simple addition
+			air_accel_bonus = AIR_ACCELERATION
 		return (
 			dir_2D * (p_vel.length() + air_accel_bonus)
 			if _mix_to_direction_amount >= 1.0
@@ -368,14 +363,7 @@ func _mvt_air_fw(p_vel: Vector2, delta: float, dir_2D: Vector2) -> Vector2:
 			)
 		)
 	else:  # goes toward where the player is aiming, but deccelerates 
-		return (
-			-dir_2D * p_vel.length() * AIR_BACK_DECCELERATE
-			if _mix_to_direction_amount >= 1.0
-			else p_vel.move_toward(
-				-dir_2D * p_vel.length() * AIR_BACK_DECCELERATE,
-				delta * _mix_to_direction_amount * WALL_JUMP_MIX_DIRECTION_AMOUNT
-			)
-		)
+		return p_vel + dir_2D * AIR_ACCELERATION
 
 
 # Movement when in air when going straight back
@@ -391,8 +379,7 @@ func _mvt_air_strafe(p_vel: Vector2, dir_2D: Vector2, delta: float) -> Vector2:
 		var add_speed_vector = p_vel.project(r_dir_2D)
 		return p_vel + add_speed_vector * delta * AIR_ADD_STRAFE_SPEED
 	else:  # go backward like in _mvt_air_fw 
-		var r_dir_2D = dir_2D.rotated(input_movement_vector.x * PI / 3)  # rotates the dir_2D by PI/4, to give a vector that is "in front" of the character, where the velocity will be projected to compute add_speed. I don't know either with then PI/3, it just works better that way
-		return -r_dir_2D * p_vel.length() * AIR_BACK_DECCELERATE
+		return p_vel + dir_2D * AIR_ACCELERATION
 
 
 # Movement when in air and swaying straight left/right
