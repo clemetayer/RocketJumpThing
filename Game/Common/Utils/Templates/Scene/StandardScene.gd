@@ -39,7 +39,10 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame. Remove the "_" to use it.
 func _process(_delta):
-	pass
+	if Input.is_action_just_pressed("restart"):
+		_restart()
+	elif Input.is_action_just_pressed("restart_last_cp"):
+		_on_respawn_player_on_last_cp()
 
 
 ##### PUBLIC METHODS #####
@@ -70,6 +73,11 @@ func _connect_autoload_signals() -> void:
 				% ["body_exited", "_on_body_exited", DebugUtils.print_stack_trace(get_stack())]
 			)
 		)
+
+
+func _restart() -> void:
+	_last_cp = get_node(PATHS.start_point).get_checkpoint()
+	_on_respawn_player_on_last_cp()
 
 
 ##### SIGNAL MANAGEMENT #####

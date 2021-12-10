@@ -8,9 +8,10 @@ class_name Player
 - TODO : Explode the rockets on right click ? charge rocket on right click ?
 - TODO : improve BHop ~ Actually, maybe it is fine the way it is...
 - TODO : Perhaps change the side movement to air strafing, sliding to the left or right feels a bit weird actually... Should strafe 'harder' to the direction in that case
+- TODO : Create as a Qodot entity to be able to change the start rotation for instance
 - FIXME : Use the wall collision info to compute wall ride ~ To try, but there is a risk that it might either stick to the wall too well or not much...
 - FIXME : Rocket not adding velocity when wall riding ~ It does, but it feels a bit weird
-- FIXME : Wall jumping with rockets feels weird, it slows down even when pressing forward
+- FIXME : sliding on slopes stops the player
 """
 
 ##### SIGNALS #####

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=10 format=2]
+[gd_resource type="Resource" load_steps=11 format=2]
 
 [ext_resource path="res://addons/qodot/game_definitions/fgd/solid_classes/detail_solid_class.tres" type="Resource" id=1]
 [ext_resource path="res://addons/qodot/game_definitions/fgd/solid_classes/illusionary_solid_class.tres" type="Resource" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://addons/qodot/game_definitions/fgd/point_classes/light_point_class.tres" type="Resource" id=7]
 [ext_resource path="res://trenchbroom/Entities/Player/player_point_class.tres" type="Resource" id=8]
 [ext_resource path="res://trenchbroom/Entities/StandardMapElements/Checkpoints/checkpoint_fgd.tres" type="Resource" id=9]
+[ext_resource path="res://trenchbroom/Entities/StandardMapElements/Buildings/static_body_group_solid_class.tres" type="Resource" id=10]
 
 [resource]
 script = ExtResource( 5 )
@@ -16,4 +17,4 @@ export_file = false
 target_folder = "D:/Godot/TOOLS/games/RocketJumpThing"
 fgd_name = "RocketJumpThing_fgd"
 base_fgd_files = [ ExtResource( 9 ) ]
-entity_definitions = [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ]
+entity_definitions = [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 10 ) ]
