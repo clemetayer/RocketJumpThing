@@ -40,7 +40,7 @@ meta_properties = {
 "size": AABB( -8, -8, -8, 8, 8, 8 )
 }
 node_options = "----------------------------------------------------------------"
-node_class = ""
+node_class = "Area"
 transient_node = false
 scene = "----------------------------------------------------------------"
 scene_file = ExtResource( 3 )

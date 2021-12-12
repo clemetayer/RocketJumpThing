@@ -2,6 +2,12 @@
 // Format: Standard
 // entity 0
 {
+"classname" "worldspawn"
+"_tb_def" "builtin:RocketJumpThing_fgd.fgd"
+"_tb_textures" "textures/entities/checkpoint;textures/scenes/tutorial_scene"
+}
+// entity 1
+{
 "classname" "static_body_group"
 "_tb_def" "builtin:RocketJumpThing_fgd.fgd"
 "_tb_textures" "textures/replacements;textures/scenes/tutorial_scene;textures/test"
@@ -128,15 +134,6 @@
 }
 // brush 14
 {
-( 9152 -8016 0 ) ( 9152 -7584 -16 ) ( 9152 -7584 0 ) scenes/tutorial_scene/wall 0 0 0 1 1
-( 10208 -8016 0 ) ( 9152 -8016 -16 ) ( 9152 -8016 0 ) scenes/tutorial_scene/wall 0 0 0 1 1
-( 10208 -7584 -16 ) ( 9152 -8016 -16 ) ( 10208 -8016 -16 ) scenes/tutorial_scene/wall 0 0 0 1 1
-( 10208 -7584 0 ) ( 9152 -8016 0 ) ( 9152 -7584 0 ) scenes/tutorial_scene/wall 0 0 0 1 1
-( 10208 -6352 0 ) ( 9152 -6352 -16 ) ( 10208 -6352 -16 ) scenes/tutorial_scene/wall 0 0 0 1 1
-( 10208 -7584 0 ) ( 10208 -8016 -16 ) ( 10208 -8016 0 ) scenes/tutorial_scene/wall 0 0 0 1 1
-}
-// brush 15
-{
 ( 11472 2032 1616 ) ( 11472 2720 1600 ) ( 11472 2720 1616 ) __TB_empty 0 0 0 1 1
 ( 11488 2032 1616 ) ( 11472 2032 1600 ) ( 11472 2032 1616 ) __TB_empty 0 0 0 1 1
 ( 11488 2720 1600 ) ( 11472 2032 1600 ) ( 11488 2032 1600 ) __TB_empty 0 0 0 1 1
@@ -144,7 +141,7 @@
 ( 11488 2720 1616 ) ( 11472 2720 1600 ) ( 11488 2720 1600 ) __TB_empty 0 0 0 1 1
 ( 11488 2720 1616 ) ( 11488 2032 1600 ) ( 11488 2032 1616 ) __TB_empty 0 0 0 1 1
 }
-// brush 16
+// brush 15
 {
 ( 9152 -8992 144 ) ( 9152 -8992 137.0322580645162 ) ( 9152 -8976 144 ) scenes/tutorial_scene/wall 0 0 0 1 1
 ( 9168 -8992 144 ) ( 9168 -8992 137.0322580645162 ) ( 9152 -8992 144 ) scenes/tutorial_scene/wall 0 0 0 1 1
@@ -153,7 +150,7 @@
 ( 9152 -8976 144 ) ( 9152 -8976 130.0645161290324 ) ( 9168 -8976 144 ) scenes/tutorial_scene/wall 0 0 0 1 1
 ( 9168 -8976 144 ) ( 9168 -8976 130.0645161290324 ) ( 9168 -8992 144 ) scenes/tutorial_scene/wall 0 0 0 1 1
 }
-// brush 17
+// brush 16
 {
 ( 9152 -8576 -304 ) ( 9152 -8016 -304 ) ( 9152 -8576 -288 ) scenes/tutorial_scene/LightGuide 0 0 0 1 1
 ( 9168 -8016 -304 ) ( 9152 -8016 -304 ) ( 9168 -8052.740740740741 -288 ) scenes/tutorial_scene/LightGuide 0 0 0 1 1
@@ -162,7 +159,7 @@
 ( 9168 -8010.143013339164 -290.5506232232673 ) ( 9168 -8046.883754079905 -274.5506232232673 ) ( 9152 -8010.143013339164 -290.5506232232673 ) scenes/tutorial_scene/LightGuide 0 0 0 1 1
 ( 9168 -8576 -288 ) ( 9168 -8052.740740740741 -288 ) ( 9168 -8576 -304 ) scenes/tutorial_scene/LightGuide 0 0 0 1 1
 }
-// brush 18
+// brush 17
 {
 ( 9152 -8976 114.06451612903197 ) ( 9152 -8576 -416 ) ( 9152 -8016 -304 ) scenes/tutorial_scene/wall 0 0 0 1 1
 ( 9168 -8976 114.06451612903197 ) ( 9152 -8976 -416 ) ( 9152 -8976 114.06451612903197 ) scenes/tutorial_scene/wall 0 0 0 1 1
@@ -171,44 +168,53 @@
 ( 9168 -8016 -304 ) ( 9152 -8976 114.06451612903197 ) ( 9152 -8016 -304 ) scenes/tutorial_scene/wall 0 0 0 1 1
 ( 9168 -8016 -304 ) ( 9168 -8976 -416 ) ( 9168 -8976 114.06451612903197 ) scenes/tutorial_scene/wall 0 0 0 1 1
 }
+// brush 18
+{
+( 9152 -8016 0 ) ( 9152 -7584 -16 ) ( 9152 -7584 0 ) scenes/tutorial_scene/wall 0 0 0 1 1
+( 10208 -8016 0 ) ( 9152 -8016 -16 ) ( 9152 -8016 0 ) scenes/tutorial_scene/wall 0 0 0 1 1
+( 10208 -7584 -16 ) ( 9152 -8016 -16 ) ( 10208 -8016 -16 ) scenes/tutorial_scene/wall 0 0 0 1 1
+( 10208 -7584 0 ) ( 9152 -8016 0 ) ( 9152 -7584 0 ) scenes/tutorial_scene/wall 0 0 0 1 1
+( 10208 -6352 0 ) ( 9152 -6352 -16 ) ( 10208 -6352 -16 ) scenes/tutorial_scene/wall 0 0 0 1 1
+( 10208 -7584 0 ) ( 10208 -8016 -16 ) ( 10208 -8016 0 ) scenes/tutorial_scene/wall 0 0 0 1 1
 }
-// entity 1
+}
+// entity 2
 {
 "classname" "player"
 "origin" "-32 48 64"
 "angle" "0"
 }
-// entity 2
+// entity 3
 {
 "classname" "light"
 "origin" "-104 -152 72"
 }
-// entity 3
+// entity 4
 {
 "classname" "light"
 "origin" "-104 56 72"
 }
-// entity 4
+// entity 5
 {
 "classname" "light"
 "origin" "-104 264 72"
 }
-// entity 5
+// entity 6
 {
 "classname" "light"
 "origin" "-104 472 72"
 }
-// entity 6
+// entity 7
 {
 "classname" "light"
 "origin" "648 232 264"
 }
-// entity 7
+// entity 8
 {
 "classname" "light"
 "origin" "648 56 264"
 }
-// entity 8
+// entity 9
 {
 "classname" "static_body_group"
 "collision_mask" "5"
@@ -402,7 +408,7 @@
 ( 672 560 96 ) ( 672 -272 16 ) ( 672 -272 96 ) scenes/tutorial_scene/wall 0 0 0 1 1
 }
 }
-// entity 9
+// entity 10
 {
 "classname" "static_body_group"
 "collision_layer" "2"
@@ -685,7 +691,7 @@
 ( 416 -272 112 ) ( 416 -736 96 ) ( 416 -736 112 ) scenes/tutorial_scene/LightGuide 0 0 0 1 1
 }
 }
-// entity 10
+// entity 11
 {
 "classname" "static_body_group"
 "collision_layer" "2"
@@ -1808,7 +1814,7 @@
 ( 9152 -8992 432 ) ( 9152 -10016 416 ) ( 9152 -10016 432 ) scenes/tutorial_scene/wall 0 0 0 1 1
 }
 }
-// entity 11
+// entity 12
 {
 "classname" "static_body_group"
 "collision_layer" "2"
@@ -1833,15 +1839,6 @@
 }
 // brush 2
 {
-( 9152 -8016 0 ) ( 9152 -8576 432 ) ( 9152 -8576 416 ) scenes/tutorial_scene/wall 0 0 0 1 1
-( 9168 -8576 432 ) ( 10208 -8576 432 ) ( 10208 -8576 416 ) scenes/tutorial_scene/wall 0 0 0 1 1
-( 10208 -8576 416 ) ( 10208 -8016 -16 ) ( 9168 -8016 -16 ) scenes/tutorial_scene/wall 0 0 0 1 1
-( 9168 -8016 0 ) ( 10208 -8016 0 ) ( 10208 -8576 432 ) scenes/tutorial_scene/wall 0 0 0 1 1
-( 10208 -8016 -16 ) ( 10208 -8016 0 ) ( 9168 -8016 0 ) scenes/tutorial_scene/wall 0 0 0 1 1
-( 10208 -8576 432 ) ( 10208 -8016 0 ) ( 10208 -8016 -16 ) scenes/tutorial_scene/wall 0 0 0 1 1
-}
-// brush 3
-{
 ( 9168 -6352 -400 ) ( 9168 -6352 -399 ) ( 9168 -6353 -400 ) scenes/tutorial_scene/Floor 0 0 0 1 1
 ( 9200 -8576 -384 ) ( 9200 -8576 -383 ) ( 9201 -8576 -384 ) scenes/tutorial_scene/Floor 0 0 0 1 1
 ( 9168 -6352 -416 ) ( 9168 -6353 -416 ) ( 9169 -6352 -416 ) scenes/tutorial_scene/Floor 0 0 0 1 1
@@ -1849,7 +1846,7 @@
 ( 9168 -6352 -400 ) ( 9169 -6352 -400 ) ( 9168 -6352 -399 ) scenes/tutorial_scene/Floor 0 0 0 1 1
 ( 10192 -6368 -384 ) ( 10192 -6369 -384 ) ( 10192 -6368 -383 ) scenes/tutorial_scene/Floor 0 0 0 1 1
 }
-// brush 4
+// brush 3
 {
 ( 9152 -6352 -416 ) ( 9152 -6352 -304 ) ( 9152 -8576 -416 ) scenes/tutorial_scene/LightGuide 0 0 0 1 1
 ( 9152 -8016 -416 ) ( 9152 -8016 -304 ) ( 9168 -8016 -416 ) scenes/tutorial_scene/LightGuide 0 0 0 1 1
@@ -1858,7 +1855,7 @@
 ( 9168 -6352 -416 ) ( 9168 -6352 -304 ) ( 9152 -6352 -416 ) scenes/tutorial_scene/LightGuide 0 0 0 1 1
 ( 9168 -8576 -416 ) ( 9168 -8576 -304 ) ( 9168 -6352 -416 ) scenes/tutorial_scene/LightGuide 0 0 0 1 1
 }
-// brush 5
+// brush 4
 {
 ( 6944 -9008 128 ) ( 6944 -8992 128 ) ( 6944 -9008 144 ) scenes/tutorial_scene/LightGuide 0 0 0 1 1
 ( 6944 -9008 144 ) ( 9152 -9008 144 ) ( 6944 -9008 128 ) scenes/tutorial_scene/LightGuide 0 0 0 1 1
@@ -1867,7 +1864,7 @@
 ( 6944 -8992 128 ) ( 9152 -8992 128 ) ( 6944 -8992 144 ) scenes/tutorial_scene/LightGuide 0 0 0 1 1
 ( 9152 -8992 144 ) ( 9152 -8992 128 ) ( 9152 -9008 144 ) scenes/tutorial_scene/LightGuide 0 0 0 1 1
 }
-// brush 6
+// brush 5
 {
 ( 9152 -8992 144 ) ( 9152 -9008 144 ) ( 9152 -8992 137.0322580645162 ) scenes/tutorial_scene/wall 0 0 0 1 1
 ( 9168 -8992 137.0322580645162 ) ( 9152 -8992 137.0322580645162 ) ( 9168 -9008 144 ) scenes/tutorial_scene/wall 0 0 0 1 1
@@ -1875,7 +1872,7 @@
 ( 9152 -8992 144 ) ( 9152 -8992 137.0322580645162 ) ( 9168 -8992 144 ) scenes/tutorial_scene/LightGuide 0 0 0 1 1
 ( 9168 -8992 144 ) ( 9168 -8992 137.0322580645162 ) ( 9168 -9008 144 ) scenes/tutorial_scene/wall 0 0 0 1 1
 }
-// brush 7
+// brush 6
 {
 ( 9152 -8976 416 ) ( 9152 -8976 130.0645161290322 ) ( 9152 -8576 416 ) scenes/tutorial_scene/wall 0 0 0 1 1
 ( 9168 -8976 416 ) ( 9168 -8976 130.0645161290322 ) ( 9152 -8976 416 ) scenes/tutorial_scene/wall 0 0 0 1 1
@@ -1884,7 +1881,7 @@
 ( 9152 -8576 416 ) ( 9152 -8576 -44.12903225806468 ) ( 9168 -8576 416 ) scenes/tutorial_scene/wall 0 0 0 1 1
 ( 9168 -8576 416 ) ( 9168 -8576 -44.12903225806468 ) ( 9168 -8976 416 ) scenes/tutorial_scene/wall 0 0 0 1 1
 }
-// brush 8
+// brush 7
 {
 ( 9152 -8976 -416 ) ( 9152 -8976 114.06451612903237 ) ( 9152 -9008 -416 ) scenes/tutorial_scene/wall 0 0 0 1 1
 ( 9152 -9008 128 ) ( 9168 -9008 128 ) ( 9152 -9008 -416 ) scenes/tutorial_scene/wall 0 0 0 1 1
@@ -1893,7 +1890,7 @@
 ( 9168 -8976 -416 ) ( 9168 -8976 114.06451612903237 ) ( 9152 -8976 -416 ) scenes/tutorial_scene/wall 0 0 0 1 1
 ( 9168 -9008 -416 ) ( 9168 -9008 128 ) ( 9168 -8976 -416 ) scenes/tutorial_scene/wall 0 0 0 1 1
 }
-// brush 9
+// brush 8
 {
 ( 9152 -8576 -416 ) ( 9152 -8576 -60.129032258064726 ) ( 9152 -8976 -416 ) scenes/tutorial_scene/LightGuide 0 0 0 1 1
 ( 9152 -8976 -416 ) ( 9152 -8976 114.0645161290322 ) ( 9168 -8976 -416 ) scenes/tutorial_scene/LightGuide 0 0 0 1 1
@@ -1902,7 +1899,7 @@
 ( 9168 -8576 -416 ) ( 9168 -8576 -60.129032258064726 ) ( 9152 -8576 -416 ) scenes/tutorial_scene/LightGuide 0 0 0 1 1
 ( 9168 -8976 -416 ) ( 9168 -8976 114.0645161290322 ) ( 9168 -8576 -416 ) scenes/tutorial_scene/LightGuide 0 0 0 1 1
 }
-// brush 10
+// brush 9
 {
 ( 9152 -8976 -416 ) ( 9152 -8976 114.06451612903237 ) ( 9152 -9008 -416 ) scenes/tutorial_scene/LightGuide 0 0 0 1 1
 ( 9152 -9008 128 ) ( 9168 -9008 128 ) ( 9152 -9008 -416 ) scenes/tutorial_scene/LightGuide 0 0 0 1 1
@@ -1911,7 +1908,7 @@
 ( 9168 -8976 -416 ) ( 9168 -8976 114.06451612903237 ) ( 9152 -8976 -416 ) scenes/tutorial_scene/LightGuide 0 0 0 1 1
 ( 9168 -9008 -416 ) ( 9168 -9008 128 ) ( 9168 -8976 -416 ) scenes/tutorial_scene/LightGuide 0 0 0 1 1
 }
-// brush 11
+// brush 10
 {
 ( 9152 -8576 -288 ) ( 9152 -8052.740740740741 -288 ) ( 9152 -8576 -60.129032258064626 ) scenes/tutorial_scene/LightGuide 0 0 0 1 1
 ( 9152 -8576 -288 ) ( 9152 -8576 -60.129032258064626 ) ( 9168 -8576 -288 ) scenes/tutorial_scene/LightGuide 0 0 0 1 1
@@ -1920,7 +1917,7 @@
 ( 9152 -8570.143013339164 -46.67965548133194 ) ( 9152 -8046.883754079905 -274.5506232232673 ) ( 9168 -8570.143013339164 -46.67965548133194 ) scenes/tutorial_scene/LightGuide 0 0 0 1 1
 ( 9168 -8576 -288 ) ( 9168 -8576 -60.129032258064626 ) ( 9168 -8052.740740740741 -288 ) scenes/tutorial_scene/LightGuide 0 0 0 1 1
 }
-// brush 12
+// brush 11
 {
 ( 10192 -8016 -16 ) ( 10192 -8016 -288 ) ( 10192 -6352 -16 ) scenes/tutorial_scene/wall 0 0 0 1 1
 ( 10208 -8016 -16 ) ( 10208 -8016 -288 ) ( 10192 -8016 -16 ) scenes/tutorial_scene/wall 0 0 0 1 1
@@ -1929,7 +1926,7 @@
 ( 10192 -6352 -16 ) ( 10192 -6352 -288 ) ( 10208 -6352 -16 ) scenes/tutorial_scene/wall 0 0 0 1 1
 ( 10208 -6352 -16 ) ( 10208 -6352 -288 ) ( 10208 -8016 -16 ) scenes/tutorial_scene/wall 0 0 0 1 1
 }
-// brush 13
+// brush 12
 {
 ( 10192 -6352 -416 ) ( 10192 -6352 -304 ) ( 10192 -8016 -416 ) scenes/tutorial_scene/wall 0 0 0 1 1
 ( 10192 -8016 -416 ) ( 10192 -8016 -304 ) ( 10208 -8016 -416 ) scenes/tutorial_scene/wall 0 0 0 1 1
@@ -1938,7 +1935,7 @@
 ( 10208 -6352 -416 ) ( 10208 -6352 -304 ) ( 10192 -6352 -416 ) scenes/tutorial_scene/wall 0 0 0 1 1
 ( 10208 -8016 -416 ) ( 10208 -8016 -304 ) ( 10208 -6352 -416 ) scenes/tutorial_scene/wall 0 0 0 1 1
 }
-// brush 14
+// brush 13
 {
 ( 10192 -6352 -416 ) ( 10192 -6352 -304 ) ( 10192 -8016 -416 ) scenes/tutorial_scene/LightGuide 0 0 0 1 1
 ( 10192 -8016 -416 ) ( 10192 -8016 -304 ) ( 10208 -8016 -416 ) scenes/tutorial_scene/LightGuide 0 0 0 1 1
@@ -1947,7 +1944,7 @@
 ( 10208 -6352 -416 ) ( 10208 -6352 -304 ) ( 10192 -6352 -416 ) scenes/tutorial_scene/LightGuide 0 0 0 1 1
 ( 10208 -8016 -416 ) ( 10208 -8016 -304 ) ( 10208 -6352 -416 ) scenes/tutorial_scene/LightGuide 0 0 0 1 1
 }
-// brush 15
+// brush 14
 {
 ( 9168 -10016 416 ) ( 9168 -10016 144 ) ( 9168 -10000 416 ) scenes/tutorial_scene/wall 0 0 0 1 1
 ( 10192 -10016 416 ) ( 10192 -10016 144 ) ( 9168 -10016 416 ) scenes/tutorial_scene/wall 0 0 0 1 1
@@ -1956,7 +1953,7 @@
 ( 9168 -10000 416 ) ( 9168 -10000 144 ) ( 10192 -10000 416 ) scenes/tutorial_scene/wall 0 0 0 1 1
 ( 10192 -10000 416 ) ( 10192 -10000 144 ) ( 10192 -10016 416 ) scenes/tutorial_scene/wall 0 0 0 1 1
 }
-// brush 16
+// brush 15
 {
 ( 9168 -10000 -416 ) ( 9168 -10000 128 ) ( 9168 -10016 -416 ) scenes/tutorial_scene/wall 0 0 0 1 1
 ( 9168 -10016 -416 ) ( 9168 -10016 128 ) ( 10192 -10016 -416 ) scenes/tutorial_scene/wall 0 0 0 1 1
@@ -1965,7 +1962,7 @@
 ( 10192 -10000 -416 ) ( 10192 -10000 128 ) ( 9168 -10000 -416 ) scenes/tutorial_scene/wall 0 0 0 1 1
 ( 10192 -10016 -416 ) ( 10192 -10016 128 ) ( 10192 -10000 -416 ) scenes/tutorial_scene/wall 0 0 0 1 1
 }
-// brush 17
+// brush 16
 {
 ( 10192 -10016 416 ) ( 10192 -10016 144 ) ( 10192 -10000 416 ) scenes/tutorial_scene/wall 0 0 0 1 1
 ( 10208 -10016 416 ) ( 10208 -10016 144 ) ( 10192 -10016 416 ) scenes/tutorial_scene/wall 0 0 0 1 1
@@ -1974,7 +1971,7 @@
 ( 10192 -10000 416 ) ( 10192 -10000 144 ) ( 10208 -10000 416 ) scenes/tutorial_scene/wall 0 0 0 1 1
 ( 10208 -10000 416 ) ( 10208 -10000 144 ) ( 10208 -10016 416 ) scenes/tutorial_scene/wall 0 0 0 1 1
 }
-// brush 18
+// brush 17
 {
 ( 10192 -10000 -416 ) ( 10192 -10000 128 ) ( 10192 -10016 -416 ) scenes/tutorial_scene/wall 0 0 0 1 1
 ( 10192 -10016 -416 ) ( 10192 -10016 128 ) ( 10208 -10016 -416 ) scenes/tutorial_scene/wall 0 0 0 1 1
@@ -1983,7 +1980,7 @@
 ( 10208 -10000 -416 ) ( 10208 -10000 128 ) ( 10192 -10000 -416 ) scenes/tutorial_scene/wall 0 0 0 1 1
 ( 10208 -10016 -416 ) ( 10208 -10016 128 ) ( 10208 -10000 -416 ) scenes/tutorial_scene/wall 0 0 0 1 1
 }
-// brush 19
+// brush 18
 {
 ( 9168 -10000 -416 ) ( 9168 -10000 128 ) ( 9168 -10016 -416 ) scenes/tutorial_scene/LightGuide 0 0 0 1 1
 ( 9168 -10016 -416 ) ( 9168 -10016 128 ) ( 10192 -10016 -416 ) scenes/tutorial_scene/LightGuide 0 0 0 1 1
@@ -1992,7 +1989,7 @@
 ( 10192 -10000 -416 ) ( 10192 -10000 128 ) ( 9168 -10000 -416 ) scenes/tutorial_scene/LightGuide 0 0 0 1 1
 ( 10208 -10016 -416 ) ( 10208 -10016 128 ) ( 10208 -10000 -416 ) scenes/tutorial_scene/LightGuide 0 0 0 1 1
 }
-// brush 20
+// brush 19
 {
 ( 10192 -10000 416 ) ( 10192 -10000 144 ) ( 10192 -9008 416 ) scenes/tutorial_scene/wall 0 0 0 1 1
 ( 10208 -10000 416 ) ( 10208 -10000 144 ) ( 10192 -10000 416 ) scenes/tutorial_scene/wall 0 0 0 1 1
@@ -2001,7 +1998,7 @@
 ( 10192 -9008 416 ) ( 10192 -9008 144 ) ( 10208 -9008 416 ) scenes/tutorial_scene/wall 0 0 0 1 1
 ( 10208 -9008 416 ) ( 10208 -9008 144 ) ( 10208 -10000 416 ) scenes/tutorial_scene/wall 0 0 0 1 1
 }
-// brush 21
+// brush 20
 {
 ( 10192 -9008 -416 ) ( 10192 -9008 128 ) ( 10192 -10000 -416 ) scenes/tutorial_scene/wall 0 0 0 1 1
 ( 10192 -10000 -416 ) ( 10192 -10000 128 ) ( 10208 -10000 -416 ) scenes/tutorial_scene/wall 0 0 0 1 1
@@ -2010,7 +2007,7 @@
 ( 10208 -9008 -416 ) ( 10208 -9008 128 ) ( 10192 -9008 -416 ) scenes/tutorial_scene/wall 0 0 0 1 1
 ( 10208 -10000 -416 ) ( 10208 -10000 128 ) ( 10208 -9008 -416 ) scenes/tutorial_scene/wall 0 0 0 1 1
 }
-// brush 22
+// brush 21
 {
 ( 10192 -9008 -416 ) ( 10192 -9008 128 ) ( 10192 -10000 -416 ) scenes/tutorial_scene/LightGuide 0 0 0 1 1
 ( 10192 -10000 -416 ) ( 10192 -10000 128 ) ( 10208 -10000 -416 ) scenes/tutorial_scene/LightGuide 0 0 0 1 1
@@ -2019,7 +2016,7 @@
 ( 10208 -9008 -416 ) ( 10208 -9008 128 ) ( 10192 -9008 -416 ) scenes/tutorial_scene/LightGuide 0 0 0 1 1
 ( 10208 -10000 -416 ) ( 10208 -10000 128 ) ( 10208 -9008 -416 ) scenes/tutorial_scene/LightGuide 0 0 0 1 1
 }
-// brush 23
+// brush 22
 {
 ( 10192 -8016 -416 ) ( 10192 -8016 -304 ) ( 10192 -8576 -416 ) scenes/tutorial_scene/LightGuide 0 0 0 1 1
 ( 10192 -8576 -416 ) ( 10192 -8576 -60.12903225806468 ) ( 10208 -8576 -416 ) scenes/tutorial_scene/LightGuide 0 0 0 1 1
@@ -2028,7 +2025,7 @@
 ( 10208 -8016 -416 ) ( 10208 -8016 -304 ) ( 10192 -8016 -416 ) scenes/tutorial_scene/LightGuide 0 26 0 1 1
 ( 10208 -8576 -416 ) ( 10208 -8576 -60.12903225806468 ) ( 10208 -8016 -416 ) scenes/tutorial_scene/LightGuide 0 0 0 1 1
 }
-// brush 24
+// brush 23
 {
 ( 10192 -8576 -416 ) ( 10192 -8576 -60.129032258064726 ) ( 10192 -9008 -416 ) scenes/tutorial_scene/LightGuide 0 0 0 1 1
 ( 10192 -9008 -416 ) ( 10192 -9008 128 ) ( 10208 -9008 -416 ) scenes/tutorial_scene/LightGuide 0 0 0 1 1
@@ -2037,7 +2034,7 @@
 ( 10208 -8576 -416 ) ( 10208 -8576 -60.129032258064726 ) ( 10192 -8576 -416 ) scenes/tutorial_scene/LightGuide 0 0 0 1 1
 ( 10208 -9008 -416 ) ( 10208 -9008 128 ) ( 10208 -8576 -416 ) scenes/tutorial_scene/LightGuide 0 0 0 1 1
 }
-// brush 25
+// brush 24
 {
 ( 10192 -8576 416 ) ( 10192 -8016 -288 ) ( 10192 -8016 -16 ) scenes/tutorial_scene/wall 0 0 0 1 1
 ( 10208 -9008 416 ) ( 10192 -9008 144 ) ( 10192 -9008 416 ) scenes/tutorial_scene/wall 0 0 0 1 1
@@ -2047,7 +2044,7 @@
 ( 10208 -8016 -16 ) ( 10192 -8016 -288 ) ( 10208 -8016 -288 ) scenes/tutorial_scene/wall 0 26 0 1 1
 ( 10208 -8016 -16 ) ( 10208 -9008 416 ) ( 10208 -8576 416 ) scenes/tutorial_scene/wall 0 0 0 1 1
 }
-// brush 26
+// brush 25
 {
 ( 10192 -9008 128 ) ( 10192 -8016 -416 ) ( 10192 -8016 -304 ) scenes/tutorial_scene/wall 0 0 0 1 1
 ( 10208 -9008 128 ) ( 10192 -9008 -416 ) ( 10192 -9008 128 ) scenes/tutorial_scene/wall 0 0 0 1 1
@@ -2056,17 +2053,7 @@
 ( 10208 -8016 -304 ) ( 10192 -8016 -416 ) ( 10208 -8016 -416 ) scenes/tutorial_scene/wall 0 26 0 1 1
 ( 10208 -8016 -304 ) ( 10208 -9008 -416 ) ( 10208 -9008 128 ) scenes/tutorial_scene/wall 0 0 0 1 1
 }
-// brush 27
-{
-( 9152 -8576 416 ) ( 9152 -6352 -288 ) ( 9152 -6352 -16 ) scenes/tutorial_scene/wall 0 0 0 1 1
-( 9168 -8576 416 ) ( 9152 -8576 -44.12903225806804 ) ( 9152 -8576 416 ) scenes/tutorial_scene/wall 0 0 0 1 1
-( 9168 -8016 -288 ) ( 9152 -8576 -44.12903225806804 ) ( 9168 -8576 -44.12903225806803 ) scenes/tutorial_scene/wall 0 0 0 1 1
-( 9168 -6352 -288 ) ( 9152 -8016 -288 ) ( 9168 -8016 -288 ) scenes/tutorial_scene/wall 0 0 0 1 1
-( 9168 -6352 -16 ) ( 9152 -8576 416 ) ( 9152 -6352 -16 ) scenes/tutorial_scene/wall 0 0 0 1 1
-( 9168 -6352 -16 ) ( 9152 -6352 -288 ) ( 9168 -6352 -288 ) scenes/tutorial_scene/wall 0 0 0 1 1
-( 9168 -6352 -16 ) ( 9168 -8576 -44.12903225806803 ) ( 9168 -8576 416 ) scenes/tutorial_scene/wall 0 0 0 1 1
-}
-// brush 28
+// brush 26
 {
 ( 9152 -6352 -416 ) ( 9152 -6352 -304 ) ( 9152 -8576 -416 ) scenes/tutorial_scene/wall 0 0 0 1 1
 ( 9152 -8576 -416 ) ( 9152 -8576 -304 ) ( 9168 -8576 -416 ) scenes/tutorial_scene/wall 0 0 0 1 1
@@ -2075,7 +2062,7 @@
 ( 9168 -6352 -416 ) ( 9168 -6352 -304 ) ( 9152 -6352 -416 ) scenes/tutorial_scene/wall 0 0 0 1 1
 ( 9168 -8576 -416 ) ( 9168 -8576 -304 ) ( 9168 -6352 -416 ) scenes/tutorial_scene/wall 0 0 0 1 1
 }
-// brush 29
+// brush 27
 {
 ( 6400 -10016 48 ) ( 6400 -8992 16 ) ( 6400 -8992 48 ) scenes/tutorial_scene/Floor 0 0 0 1 1
 ( 9168 -10016 48 ) ( 6400 -10016 16 ) ( 6400 -10016 48 ) scenes/tutorial_scene/Floor 0 0 0 1 1
@@ -2085,7 +2072,7 @@
 ( 9168 -9008 48 ) ( 6944 -8992 16 ) ( 9168 -9008 16 ) scenes/tutorial_scene/Floor 0 0 0 1 1
 ( 9168 -9008 48 ) ( 9168 -10016 16 ) ( 9168 -10016 48 ) scenes/tutorial_scene/Floor 0 0 0 1 1
 }
-// brush 30
+// brush 28
 {
 ( 6400 -9008 416 ) ( 6400 -8992 144 ) ( 6400 -8992 416 ) scenes/tutorial_scene/wall 0 0 0 1 1
 ( 9152 -8976 416 ) ( 6400 -8992 144 ) ( 9152 -8976 144 ) scenes/tutorial_scene/wall 0 0 0 1 1
@@ -2095,8 +2082,35 @@
 ( 9168 -8976 416 ) ( 9152 -8976 144 ) ( 9168 -8976 144 ) scenes/tutorial_scene/wall 0 0 0 1 1
 ( 9168 -8976 416 ) ( 9168 -9008 144 ) ( 9168 -9008 416 ) scenes/tutorial_scene/wall 0 0 0 1 1
 }
+// brush 29
+{
+( 9152 -8016 0 ) ( 9152 -8576 432 ) ( 9152 -8576 416 ) scenes/tutorial_scene/wall 0 0 0 1 1
+( 9168 -8576 432 ) ( 10208 -8576 432 ) ( 10208 -8576 416 ) scenes/tutorial_scene/wall 0 0 0 1 1
+( 10208 -8576 416 ) ( 10208 -8016 -16 ) ( 9168 -8016 -16 ) scenes/tutorial_scene/wall 0 0 0 1 1
+( 9168 -8016 0 ) ( 10208 -8016 0 ) ( 10208 -8576 432 ) scenes/tutorial_scene/wall 0 0 0 1 1
+( 10208 -8016 -16 ) ( 10208 -8016 0 ) ( 9168 -8016 0 ) scenes/tutorial_scene/wall 0 0 0 1 1
+( 10208 -8576 432 ) ( 10208 -8016 0 ) ( 10208 -8016 -16 ) scenes/tutorial_scene/wall 0 0 0 1 1
 }
-// entity 12
+// brush 30
+{
+( 9152 -8016 -288 ) ( 9152 -7642.666666666667 -288 ) ( 9152 -8576 -44.12903225807895 ) scenes/tutorial_scene/wall 0 0 0 1 1
+( 9152 -8576 432 ) ( 9168 -8576 432 ) ( 9152 -8576 -44.12903225807895 ) scenes/tutorial_scene/wall 0 0 0 1 1
+( 9152 -8576 -44.12903225807895 ) ( 9168 -8576 -44.12903225807895 ) ( 9152 -8016 -288 ) scenes/tutorial_scene/wall 0 0 0 1 1
+( 9168 -8016 -288 ) ( 9168 -7642.666666666667 -288 ) ( 9152 -8016 -288 ) scenes/tutorial_scene/wall 0 0 0 1 1
+( 9168 -7642.666666666667 -288 ) ( 9168 -8576 432 ) ( 9152 -7642.666666666667 -288 ) scenes/tutorial_scene/wall 0 0 0 1 1
+( 9168 -8576 -44.12903225807895 ) ( 9168 -8576 432 ) ( 9168 -8016 -288 ) scenes/tutorial_scene/wall 0 0 0 1 1
+}
+// brush 31
+{
+( 9152 -6352 -288 ) ( 9152 -6352 0 ) ( 9152 -7642.666666666667 -288 ) scenes/tutorial_scene/wall 0 0 0 1 1
+( 9152 -7642.666666666667 -288 ) ( 9152 -8016 0 ) ( 9168 -7642.666666666667 -288 ) scenes/tutorial_scene/wall 0 0 0 1 1
+( 9152 -6352 -288 ) ( 9152 -7642.666666666667 -288 ) ( 9168 -6352 -288 ) scenes/tutorial_scene/wall 0 0 0 1 1
+( 9168 -6352 0 ) ( 9168 -8016 0 ) ( 9152 -6352 0 ) scenes/tutorial_scene/wall 0 0 0 1 1
+( 9152 -6352 -288 ) ( 9168 -6352 -288 ) ( 9152 -6352 0 ) scenes/tutorial_scene/wall 0 0 0 1 1
+( 9168 -7642.666666666667 -288 ) ( 9168 -8016 0 ) ( 9168 -6352 -288 ) scenes/tutorial_scene/wall 0 0 0 1 1
+}
+}
+// entity 13
 {
 "classname" "static_body_group"
 "collision_layer" "2"
@@ -2211,15 +2225,6 @@
 }
 // brush 12
 {
-( 10192 -4576 -416 ) ( 10192 -4576 464 ) ( 10192 -5664 -416 ) scenes/tutorial_scene/LightGuide 0 0 0 1 1
-( 10192 -5664 -416 ) ( 10192 -5664 -304 ) ( 10208 -5664 -416 ) scenes/tutorial_scene/LightGuide -26 4 0 1 1
-( 10192 -5671.5381062355655 -293.32101616628177 ) ( 10192 -4583.5381062355655 474.67898383371823 ) ( 10208 -5671.5381062355655 -293.32101616628177 ) scenes/tutorial_scene/LightGuide 0 0 0 1 1
-( 10192 -5664 -304 ) ( 10208 -5664 -304 ) ( 10192 -4576 464 ) scenes/tutorial_scene/LightGuide 0 0 0 1 1
-( 10208 -4576 -416 ) ( 10208 -4576 464 ) ( 10192 -4576 -416 ) scenes/tutorial_scene/LightGuide 0 0 0 1 1
-( 10208 -5664 -416 ) ( 10208 -5664 -304 ) ( 10208 -4576 -416 ) scenes/tutorial_scene/LightGuide 34 16.664062 0 1 1
-}
-// brush 13
-{
 ( 9152 -5664 784 ) ( 9152 -5664 -288 ) ( 9152 -4592 784 ) scenes/tutorial_scene/wall 0 0 0 1 1
 ( 9168 -5664 784 ) ( 9168 -5664 -288 ) ( 9152 -5664 784 ) scenes/tutorial_scene/wall 0 22 0 1 1
 ( 9152 -4592 784 ) ( 9168 -4592 784 ) ( 9152 -5664 784 ) scenes/tutorial_scene/wall 0 0 0 1 1
@@ -2227,7 +2232,7 @@
 ( 9152 -4592 784 ) ( 9152 -4592 480 ) ( 9168 -4592 784 ) scenes/tutorial_scene/wall 0 0 0 1 1
 ( 9168 -4592 784 ) ( 9168 -4592 480 ) ( 9168 -5664 784 ) scenes/tutorial_scene/wall 0 0 0 1 1
 }
-// brush 14
+// brush 13
 {
 ( 9152 -4592 -416 ) ( 9152 -4592 464 ) ( 9152 -5664 -416 ) scenes/tutorial_scene/wall 0 0 0 1 1
 ( 9152 -5664 -416 ) ( 9152 -5664 -304 ) ( 9168 -5664 -416 ) scenes/tutorial_scene/wall 0 22 0 1 1
@@ -2236,7 +2241,7 @@
 ( 9168 -4592 -416 ) ( 9168 -4592 464 ) ( 9152 -4592 -416 ) scenes/tutorial_scene/wall 0 0 0 1 1
 ( 9168 -5664 -416 ) ( 9168 -5664 -304 ) ( 9168 -4592 -416 ) scenes/tutorial_scene/wall 0 0 0 1 1
 }
-// brush 15
+// brush 14
 {
 ( 9152 -4592 -416 ) ( 9152 -4592 464 ) ( 9152 -5664 -416 ) scenes/tutorial_scene/LightGuide 0 0 0 1 1
 ( 9152 -5664 -416 ) ( 9152 -5664 -304 ) ( 9168 -5664 -416 ) scenes/tutorial_scene/LightGuide 0 22 0 1 1
@@ -2245,7 +2250,7 @@
 ( 9168 -4592 -416 ) ( 9168 -4592 464 ) ( 9152 -4592 -416 ) scenes/tutorial_scene/LightGuide 0 0 0 1 1
 ( 9168 -5664 -416 ) ( 9168 -5664 -304 ) ( 9168 -4592 -416 ) scenes/tutorial_scene/LightGuide 0 0 0 1 1
 }
-// brush 16
+// brush 15
 {
 ( 9152 -6256 -384 ) ( 9152 -6352 -384 ) ( 9152 -6352 -416 ) scenes/tutorial_scene/wall 0 0 0 1 1
 ( 10192 -5680 -384 ) ( 10192 -5680 -416 ) ( 9168 -5680 -416 ) scenes/tutorial_scene/wall 0 0 0 1 1
@@ -2255,7 +2260,7 @@
 ( 10208 -6256 -384 ) ( 10208 -6352 -416 ) ( 10208 -6352 -384 ) scenes/tutorial_scene/wall 0 0 0 1 1
 }
 }
-// entity 13
+// entity 14
 {
 "classname" "static_body_group"
 "collision_layer" "2"
@@ -2345,7 +2350,7 @@
 ( 10208 -3344 384 ) ( 10208 -3936 368 ) ( 10208 -3936 384 ) scenes/tutorial_scene/Floor 0 0 0 1 1
 }
 }
-// entity 14
+// entity 15
 {
 "classname" "static_body_group"
 "collision_layer" "2"
@@ -2450,7 +2455,7 @@
 ( 9168 5312 2016 ) ( 9168 2256 1712 ) ( 9168 2256 2016 ) scenes/tutorial_scene/wall 0 0 0 1 1
 }
 }
-// entity 15
+// entity 16
 {
 "classname" "static_body_group"
 "collision_layer" "2"
@@ -2928,7 +2933,7 @@
 ( 11472 5312 1616 ) ( 11472 4368 1600 ) ( 11472 4368 1616 ) scenes/tutorial_scene/Floor 0 0 0 1 1
 }
 }
-// entity 16
+// entity 17
 {
 "classname" "static_body_group"
 "collision_layer" "2"
@@ -3078,7 +3083,7 @@
 ( 10448 -1552 1856 ) ( 10448 -1552 1936 ) ( 10448 400 1600 ) scenes/tutorial_scene/LightGuide 0 0 0 1 1
 }
 }
-// entity 17
+// entity 18
 {
 "classname" "static_body_group"
 "collision_layer" "2"
@@ -3213,66 +3218,12 @@
 ( 81.63698967044229 -6813.237579931135 16 ) ( 81.63698967043045 -6813.237579931138 128 ) ( 352 -6384 16 ) scenes/tutorial_scene/LightGuide 0 0 0 1 1
 }
 }
-// entity 18
-{
-"classname" "StartPoint"
-"origin" "-40 56 56"
-}
 // entity 19
 {
-"classname" "Checkpoint"
-"origin" "552 -1480 56"
-"angles" "0 90 0"
+"classname" "StartPoint"
+"origin" "-24 56 72"
 }
 // entity 20
-{
-"classname" "Checkpoint"
-"origin" "552 -6200 56"
-"angles" "0 90 0"
-}
-// entity 21
-{
-"classname" "Checkpoint"
-"origin" "6664 -9512 56"
-"angles" "0 180 0"
-}
-// entity 22
-{
-"classname" "Checkpoint"
-"origin" "9672 -7976 -376"
-"angles" "0 -90 0"
-}
-// entity 23
-{
-"classname" "Checkpoint"
-"origin" "9656 -4264 392"
-"angles" "0 -90 0"
-}
-// entity 24
-{
-"classname" "Checkpoint"
-"origin" "9656 328 392"
-"angles" "0 -90 0"
-}
-// entity 25
-{
-"classname" "Checkpoint"
-"origin" "9704 2824 1624"
-"angles" "0 -90 0"
-}
-// entity 26
-{
-"classname" "Checkpoint"
-"origin" "10936 1256 1624"
-"angles" "0 90 0"
-}
-// entity 27
-{
-"classname" "Checkpoint"
-"origin" "10936 -1960 1864"
-"angles" "0 90 0"
-}
-// entity 28
 {
 "classname" "static_body_group"
 "collision_layer" "2"
@@ -3305,7 +3256,7 @@
 ( 736 -6384 48 ) ( 736 -6384 128 ) ( 736 -880 48 ) scenes/tutorial_scene/wall 0 0 0 1 1
 }
 }
-// entity 29
+// entity 21
 {
 "classname" "static_body_group"
 // brush 0
@@ -3327,7 +3278,7 @@
 ( 9168 -10000 416 ) ( 9168 -10016 144 ) ( 9168 -10016 416 ) scenes/tutorial_scene/wall 0 0 0 1 1
 }
 }
-// entity 30
+// entity 22
 {
 "classname" "static_body_group"
 // brush 0
@@ -3349,32 +3300,68 @@
 ( 9168 -10000 128 ) ( 9168 -10016 48 ) ( 9168 -10016 128 ) scenes/tutorial_scene/wall 0 0 0 1 1
 }
 }
-// entity 31
+// entity 23
 {
 "classname" "static_body_group"
 "collision_layer" "2"
 "collision_mask" "5"
 // brush 0
 {
-( 10192 -4576 464 ) ( 10192 -3920 368 ) ( 10192 -3920 464 ) scenes/tutorial_scene/LightGuide 0 0 0 1 1
-( 10208 -4576 464 ) ( 10192 -4576 -416 ) ( 10192 -4576 464 ) scenes/tutorial_scene/LightGuide 0 0 0 1 1
-( 10208 -3920 464 ) ( 10192 -3920 464 ) ( 10192 -4576 464 ) scenes/tutorial_scene/LightGuide 0 0 0 1 1
-( 10208 -3920 480 ) ( 10192 -4576 480 ) ( 10192 -3920 480 ) scenes/tutorial_scene/LightGuide 0 0 0 1 1
-( 10208 -3328 464 ) ( 10192 -3328 368 ) ( 10208 -3328 368 ) scenes/tutorial_scene/LightGuide 0 0 0 1 1
-( 10208 -3920 464 ) ( 10208 -4576 -416 ) ( 10208 -4576 464 ) scenes/tutorial_scene/LightGuide 0 0 0 1 1
+( 10192 -4576 784 ) ( 10192 -4576 480 ) ( 10192 -3328 784 ) scenes/tutorial_scene/wall 0 0 0 1 1
+( 10208 -4576 784 ) ( 10208 -4576 480 ) ( 10192 -4576 784 ) scenes/tutorial_scene/wall 0 0 0 1 1
+( 10208 -4576 480 ) ( 10208 -3328 480 ) ( 10192 -4576 480 ) scenes/tutorial_scene/wall 0 0 0 1 1
+( 10208 -3328 784 ) ( 10208 -4576 784 ) ( 10192 -3328 784 ) scenes/tutorial_scene/wall 0 0 0 1 1
+( 10192 -3328 784 ) ( 10192 -3328 480 ) ( 10208 -3328 784 ) scenes/tutorial_scene/wall 0 0 0 1 1
+( 10208 -3328 784 ) ( 10208 -3328 480 ) ( 10208 -4576 784 ) scenes/tutorial_scene/wall 0 0 0 1 1
 }
 // brush 1
 {
-( 10192 -5664 784 ) ( 10192 -3328 384 ) ( 10192 -3328 784 ) scenes/tutorial_scene/wall 0 0 0 1 1
-( 10208 -5664 784 ) ( 10192 -5664 -416 ) ( 10192 -5664 784 ) scenes/tutorial_scene/wall -26 4 0 1 1
-( 10208 -4560 -416 ) ( 10192 -5664 -416 ) ( 10208 -5664 -416 ) scenes/tutorial_scene/wall 0 0 0 1 1
-( 10208 -3328 784 ) ( 10192 -5664 784 ) ( 10192 -3328 784 ) scenes/tutorial_scene/wall 0 0 0 1 1
-( 10208 -3328 384 ) ( 10192 -4560 -416 ) ( 10208 -4560 -416 ) scenes/tutorial_scene/wall 0 0 0 1 1
-( 10208 -3328 784 ) ( 10192 -3328 384 ) ( 10208 -3328 384 ) scenes/tutorial_scene/wall 0 0 0 1 1
-( 10208 -3328 784 ) ( 10208 -5664 -416 ) ( 10208 -5664 784 ) scenes/tutorial_scene/wall 0 0 0 1 1
+( 10192 -3328 384 ) ( 10192 -3328 464 ) ( 10192 -4560 -416 ) scenes/tutorial_scene/wall 0 0 0 1 1
+( 10192 -4576 -416 ) ( 10192 -4576 464 ) ( 10208 -4576 -416 ) scenes/tutorial_scene/wall 0 0 0 1 1
+( 10192 -4560 -416 ) ( 10192 -4576 -416 ) ( 10208 -4560 -416 ) scenes/tutorial_scene/wall 0 0 0 1 1
+( 10192 -3328 464 ) ( 10208 -3328 464 ) ( 10192 -4576 464 ) scenes/tutorial_scene/wall 0 0 0 1 1
+( 10192 -4560 -416 ) ( 10208 -4560 -416 ) ( 10192 -3328 384 ) scenes/tutorial_scene/wall 0 0 0 1 1
+( 10208 -3328 384 ) ( 10208 -3328 464 ) ( 10192 -3328 384 ) scenes/tutorial_scene/wall 0 0 0 1 1
+( 10208 -4576 -416 ) ( 10208 -4576 464 ) ( 10208 -4560 -416 ) scenes/tutorial_scene/wall 0 0 0 1 1
+}
+// brush 2
+{
+( 10192 -3328 384 ) ( 10192 -3328 464 ) ( 10192 -4560 -416 ) scenes/tutorial_scene/LightGuide 0 0 0 1 1
+( 10192 -4576 -416 ) ( 10192 -4576 464 ) ( 10208 -4576 -416 ) scenes/tutorial_scene/LightGuide 0 0 0 1 1
+( 10192 -3328 464 ) ( 10192 -4576 464 ) ( 10208 -3328 464 ) scenes/tutorial_scene/LightGuide 0 0 0 1 1
+( 10192 -3328 480 ) ( 10208 -3328 480 ) ( 10192 -4576 480 ) scenes/tutorial_scene/LightGuide 0 0 0 1 1
+( 10208 -3328 384 ) ( 10208 -3328 464 ) ( 10192 -3328 384 ) scenes/tutorial_scene/LightGuide 0 0 0 1 1
+( 10208 -4576 -416 ) ( 10208 -4576 464 ) ( 10208 -4560 -416 ) scenes/tutorial_scene/LightGuide 0 0 0 1 1
+}
+// brush 3
+{
+( 10192 -5664 784 ) ( 10192 -5664 -288 ) ( 10192 -4576 784 ) scenes/tutorial_scene/wall 0 0 0 1 1
+( 10208 -5664 784 ) ( 10208 -5664 -288 ) ( 10192 -5664 784 ) scenes/tutorial_scene/wall -26 4 0 1 1
+( 10192 -4576 784 ) ( 10208 -4576 784 ) ( 10192 -5664 784 ) scenes/tutorial_scene/wall 0 0 0 1 1
+( 10208 -4576 480 ) ( 10192 -4576 480 ) ( 10208 -5664 -288 ) scenes/tutorial_scene/wall 0 0 0 1 1
+( 10192 -4576 784 ) ( 10192 -4576 480 ) ( 10208 -4576 784 ) scenes/tutorial_scene/wall 0 0 0 1 1
+( 10208 -4576 784 ) ( 10208 -4576 480 ) ( 10208 -5664 784 ) scenes/tutorial_scene/wall 34 16.664062 0 1 1
+}
+// brush 4
+{
+( 10192 -4576 -416 ) ( 10192 -4576 464 ) ( 10192 -5664 -416 ) scenes/tutorial_scene/wall 0 0 0 1 1
+( 10192 -5664 -416 ) ( 10192 -5664 -304 ) ( 10208 -5664 -416 ) scenes/tutorial_scene/wall -26 4 0 1 1
+( 10192 -5664 -304 ) ( 10192 -4576 464 ) ( 10208 -5664 -304 ) scenes/tutorial_scene/wall 0 0 0 1 1
+( 10192 -5664 -416 ) ( 10208 -5664 -416 ) ( 10192 -4576 -416 ) scenes/tutorial_scene/wall 0 0 0 1 1
+( 10208 -4576 -416 ) ( 10208 -4576 464 ) ( 10192 -4576 -416 ) scenes/tutorial_scene/wall 0 0 0 1 1
+( 10208 -5664 -416 ) ( 10208 -5664 -304 ) ( 10208 -4576 -416 ) scenes/tutorial_scene/wall 34 16.664062 0 1 1
+}
+// brush 5
+{
+( 10192 -4576 -416 ) ( 10192 -4576 464 ) ( 10192 -5664 -416 ) scenes/tutorial_scene/LightGuide 0 0 0 1 1
+( 10192 -5664 -416 ) ( 10192 -5664 -304 ) ( 10208 -5664 -416 ) scenes/tutorial_scene/LightGuide -26 4 0 1 1
+( 10192 -5671.5381062355655 -293.32101616628177 ) ( 10192 -4583.5381062355655 474.67898383371823 ) ( 10208 -5671.5381062355655 -293.32101616628177 ) scenes/tutorial_scene/LightGuide 0 0 0 1 1
+( 10192 -5664 -304 ) ( 10208 -5664 -304 ) ( 10192 -4576 464 ) scenes/tutorial_scene/LightGuide 0 0 0 1 1
+( 10208 -4576 -416 ) ( 10208 -4576 464 ) ( 10192 -4576 -416 ) scenes/tutorial_scene/LightGuide 0 0 0 1 1
+( 10208 -5664 -416 ) ( 10208 -5664 -304 ) ( 10208 -4576 -416 ) scenes/tutorial_scene/LightGuide 34 16.664062 0 1 1
 }
 }
-// entity 32
+// entity 24
 {
 "classname" "group"
 // brush 0
@@ -3385,5 +3372,109 @@
 ( 9072 -352 464 ) ( 9072 816 464 ) ( 9088 -352 464 ) scenes/tutorial_scene/wall 0 0 0 1 1
 ( 9088 816 384 ) ( 9088 816 464 ) ( 9072 816 384 ) scenes/tutorial_scene/wall 0 0 0 1 1
 ( 9088 -352 384 ) ( 9088 -352 464 ) ( 9088 816 384 ) scenes/tutorial_scene/wall 0 0 0 1 1
+}
+}
+// entity 25
+{
+"classname" "CheckpointSolidClass"
+// brush 0
+{
+( 352 -1472 240 ) ( 352 -1456 48 ) ( 352 -1456 240 ) entities/checkpoint/checkpoint_1 0 0 0 1 1
+( 720 -1472 240 ) ( 352 -1472 48 ) ( 352 -1472 240 ) entities/checkpoint/checkpoint_1 0 0 0 1 1
+( 720 -1456 48 ) ( 352 -1472 48 ) ( 720 -1472 48 ) entities/checkpoint/checkpoint_1 0 0 0 1 1
+( 720 -1456 352 ) ( 352 -1472 352 ) ( 352 -1456 352 ) entities/checkpoint/checkpoint_1 0 0 0 1 1
+( 720 -1456 240 ) ( 352 -1456 48 ) ( 720 -1456 48 ) entities/checkpoint/checkpoint_1 0 0 0 1 1
+( 720 -1456 240 ) ( 720 -1472 48 ) ( 720 -1472 240 ) entities/checkpoint/checkpoint_1 0 0 0 1 1
+}
+}
+// entity 26
+{
+"classname" "CheckpointSolidClass"
+// brush 0
+{
+( 352 -6224 320 ) ( 352 -6208 48 ) ( 352 -6208 320 ) entities/checkpoint/checkpoint_1 0 0 0 1 1
+( 720 -6224 320 ) ( 352 -6224 48 ) ( 352 -6224 320 ) entities/checkpoint/checkpoint_1 0 0 0 1 1
+( 720 -6208 48 ) ( 352 -6224 48 ) ( 720 -6224 48 ) entities/checkpoint/checkpoint_1 0 0 0 1 1
+( 720 -6208 352 ) ( 352 -6224 352 ) ( 352 -6208 352 ) entities/checkpoint/checkpoint_1 0 0 0 1 1
+( 720 -6208 320 ) ( 352 -6208 48 ) ( 720 -6208 48 ) entities/checkpoint/checkpoint_1 0 0 0 1 1
+( 720 -6208 320 ) ( 720 -6224 48 ) ( 720 -6224 320 ) entities/checkpoint/checkpoint_1 0 0 0 1 1
+}
+}
+// entity 27
+{
+"classname" "CheckpointSolidClass"
+// brush 0
+{
+( 6624 -10000 400 ) ( 6624 -9008 48 ) ( 6624 -9008 400 ) entities/checkpoint/checkpoint_1 0 0 0 1 1
+( 6640 -10000 400 ) ( 6624 -10000 48 ) ( 6624 -10000 400 ) entities/checkpoint/checkpoint_1 0 0 0 1 1
+( 6640 -9008 48 ) ( 6624 -10000 48 ) ( 6640 -10000 48 ) entities/checkpoint/checkpoint_1 0 0 0 1 1
+( 6640 -9008 416 ) ( 6624 -10000 416 ) ( 6624 -9008 416 ) entities/checkpoint/checkpoint_1 0 0 0 1 1
+( 6640 -9008 400 ) ( 6624 -9008 48 ) ( 6640 -9008 48 ) entities/checkpoint/checkpoint_1 0 0 0 1 1
+( 6640 -9008 400 ) ( 6640 -10000 48 ) ( 6640 -10000 400 ) entities/checkpoint/checkpoint_1 0 0 0 1 1
+}
+}
+// entity 28
+{
+"classname" "CheckpointSolidClass"
+// brush 0
+{
+( 9168 -4176 800 ) ( 9168 -4160 384 ) ( 9168 -4160 800 ) entities/checkpoint/checkpoint_1 0 0 0 1 1
+( 10192 -4176 800 ) ( 9168 -4176 384 ) ( 9168 -4176 800 ) entities/checkpoint/checkpoint_1 0 0 0 1 1
+( 10192 -4160 384 ) ( 9168 -4176 384 ) ( 10192 -4176 384 ) entities/checkpoint/checkpoint_1 0 0 0 1 1
+( 10192 -4160 784 ) ( 9168 -4176 784 ) ( 9168 -4160 784 ) entities/checkpoint/checkpoint_1 0 0 0 1 1
+( 10192 -4160 800 ) ( 9168 -4160 384 ) ( 10192 -4160 384 ) entities/checkpoint/checkpoint_1 0 0 0 1 1
+( 10192 -4160 800 ) ( 10192 -4176 384 ) ( 10192 -4176 800 ) entities/checkpoint/checkpoint_1 0 0 0 1 1
+}
+}
+// entity 29
+{
+"classname" "CheckpointSolidClass"
+// brush 0
+{
+( 9168 -7920 -16 ) ( 9168 -7904 -384 ) ( 9168 -7904 -16 ) entities/checkpoint/checkpoint_1 0 0 0 1 1
+( 10192 -7920 -16 ) ( 9168 -7920 -384 ) ( 9168 -7920 -16 ) entities/checkpoint/checkpoint_1 0 0 0 1 1
+( 10192 -7904 -384 ) ( 9168 -7920 -384 ) ( 10192 -7920 -384 ) entities/checkpoint/checkpoint_1 0 0 0 1 1
+( 10192 -7904 -16 ) ( 9168 -7920 -16 ) ( 9168 -7904 -16 ) entities/checkpoint/checkpoint_1 0 0 0 1 1
+( 10192 -7904 -16 ) ( 9168 -7904 -384 ) ( 10192 -7904 -384 ) entities/checkpoint/checkpoint_1 0 0 0 1 1
+( 10192 -7904 -16 ) ( 10192 -7920 -384 ) ( 10192 -7920 -16 ) entities/checkpoint/checkpoint_1 0 0 0 1 1
+}
+}
+// entity 30
+{
+"classname" "CheckpointSolidClass"
+// brush 0
+{
+( 9168 272 800 ) ( 9168 256 784 ) ( 9168 256 384 ) entities/checkpoint/checkpoint_1 0 0 0 1 1
+( 9168 256 784 ) ( 10192 256 784 ) ( 10192 256 384 ) entities/checkpoint/checkpoint_1 0 0 0 1 1
+( 9168 272 800 ) ( 10192 272 800 ) ( 10192 256 784 ) entities/checkpoint/checkpoint_1 0 0 0 1 1
+( 10192 256 384 ) ( 10192 272 384 ) ( 9168 272 384 ) entities/checkpoint/checkpoint_1 0 0 0 1 1
+( 10192 272 384 ) ( 10192 272 800 ) ( 9168 272 800 ) entities/checkpoint/checkpoint_1 0 0 0 1 1
+( 10192 256 784 ) ( 10192 272 800 ) ( 10192 272 384 ) entities/checkpoint/checkpoint_1 0 0 0 1 1
+}
+}
+// entity 31
+{
+"classname" "CheckpointSolidClass"
+// brush 0
+{
+( 10448 1232 2032 ) ( 10448 1248 1616 ) ( 10448 1248 2032 ) entities/checkpoint/checkpoint_1 0 0 0 1 1
+( 11472 1232 2032 ) ( 10448 1232 1616 ) ( 10448 1232 2032 ) entities/checkpoint/checkpoint_1 0 0 0 1 1
+( 11472 1248 1616 ) ( 10448 1232 1616 ) ( 11472 1232 1616 ) entities/checkpoint/checkpoint_1 0 0 0 1 1
+( 11472 1248 2016 ) ( 10448 1232 2016 ) ( 10448 1248 2016 ) entities/checkpoint/checkpoint_1 0 0 0 1 1
+( 11472 1248 2032 ) ( 10448 1248 1616 ) ( 11472 1248 1616 ) entities/checkpoint/checkpoint_1 0 0 0 1 1
+( 11472 1248 2032 ) ( 11472 1232 1616 ) ( 11472 1232 2032 ) entities/checkpoint/checkpoint_1 0 0 0 1 1
+}
+}
+// entity 32
+{
+"classname" "CheckpointSolidClass"
+// brush 0
+{
+( 9168 2880 2016 ) ( 9168 2896 1616 ) ( 9168 2896 2016 ) entities/checkpoint/checkpoint_1 0 0 0 1 1
+( 10192 2880 2016 ) ( 9168 2880 1616 ) ( 9168 2880 2016 ) entities/checkpoint/checkpoint_1 0 0 0 1 1
+( 10192 2896 1616 ) ( 9168 2880 1616 ) ( 10192 2880 1616 ) entities/checkpoint/checkpoint_1 0 0 0 1 1
+( 10192 2896 2016 ) ( 9168 2880 2016 ) ( 9168 2896 2016 ) entities/checkpoint/checkpoint_1 0 0 0 1 1
+( 10192 2896 2016 ) ( 9168 2896 1616 ) ( 10192 2896 1616 ) entities/checkpoint/checkpoint_1 0 0 0 1 1
+( 10192 2896 2016 ) ( 10192 2880 1616 ) ( 10192 2880 2016 ) entities/checkpoint/checkpoint_1 0 0 0 1 1
 }
 }

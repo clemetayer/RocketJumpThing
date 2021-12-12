@@ -1,11 +1,14 @@
 tool
 extends StaticBody
 class_name StaticBodyGroupSolidEntity
-# Checkpoint entity declaration
+# Standard entity to group brushes into one static body (with correct collision layer/mask)
 
+##### VARIABLES #####
+#---- EXPORTS -----
 export (Dictionary) var properties setget set_properties
 
 
+##### PROTECTED METHODS #####
 func set_properties(new_properties: Dictionary) -> void:
 	if properties != new_properties:
 		properties = new_properties

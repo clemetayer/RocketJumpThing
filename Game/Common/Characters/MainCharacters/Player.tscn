@@ -3,8 +3,8 @@
 [ext_resource path="res://Game/Common/Characters/MainCharacters/player.gd" type="Script" id=1]
 
 [sub_resource type="CylinderMesh" id=4]
-top_radius = 0.8
-bottom_radius = 0.8
+top_radius = 0.6
+bottom_radius = 0.6
 height = 3.0
 
 [sub_resource type="CylinderShape" id=5]
@@ -28,7 +28,7 @@ material/0 = null
 shape = SubResource( 5 )
 
 [node name="SlideCollision" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0 )
 shape = SubResource( 3 )
 
 [node name="RayCasts" type="Spatial" parent="."]
@@ -47,7 +47,7 @@ collision_mask = 2
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.950078, 1.06945 )
 
 [node name="Camera" type="Camera" parent="RotationHelper"]
-transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0.4, -0.2 )
+transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0.4, -0.35317 )
 current = true
 far = 500.0
 

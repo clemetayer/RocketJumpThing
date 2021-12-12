@@ -14,6 +14,7 @@ class_properties = {
 "angle": 0.0
 }
 class_property_descriptions = {
+"angle": "Angle of the player at start, in degrees"
 }
 meta_properties = {
 "color": Color( 0.8, 0.8, 0.8, 1 ),

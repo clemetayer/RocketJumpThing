@@ -1,3 +1,4 @@
+# tool
 extends KinematicBody
 class_name Player
 # Script for the player
@@ -64,6 +65,7 @@ const ROCKET_LAUNCH_MAX_TIME := 3000.0  # Max time the player can hold the mouse
 
 #---- EXPORTS -----
 export (Dictionary) var PATHS = {"camera": NodePath("."), "rotation_helper": NodePath(".")}
+export (Dictionary) var properties setget set_properties
 
 #---- STANDARD -----
 #==== PUBLIC ====
@@ -134,6 +136,19 @@ func add_velocity_vector(vector: Vector3):
 
 
 ##### PROTECTED METHODS #####
+#==== Qodot =====
+func set_properties(new_properties: Dictionary) -> void:
+	if properties != new_properties:
+		properties = new_properties
+		update_properties()
+
+
+func update_properties() -> void:
+	if 'angle' in properties:
+		rotation_degrees.y = properties.angle
+
+
+#==== Others =====
 # Enables/disables some collisions depending on the states
 func _process_collision():
 	$PlayerCollision.disabled = states.has("sliding")

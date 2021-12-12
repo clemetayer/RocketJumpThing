@@ -1,0 +1,25 @@
+[remap]
+
+importer="texture_array"
+type="TextureArray"
+path="res://.import/Scene1.exr-3ee57b0e1c10abda7715a757333427d4.texarr"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://Game/Scenes/Tutorial/Scene1/Scene1.exr"
+dest_files=[ "res://.import/Scene1.exr-3ee57b0e1c10abda7715a757333427d4.texarr" ]
+
+[params]
+
+compress/mode=0
+compress/no_bptc_if_rgb=false
+flags/repeat=false
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=false
+slices/horizontal=1
+slices/vertical=1

@@ -19,11 +19,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Game/Common/MapElements/Checkpoint/Checkpoint.gd"
 }, {
-"base": "QodotEntity",
-"class": "CheckpointEntity",
-"language": "GDScript",
-"path": "res://Game/Common/MapElements/Checkpoint/CheckpointEntity.gd"
-}, {
 "base": "Appender",
 "class": "ConsoleAppender",
 "language": "GDScript",
@@ -262,7 +257,6 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "Appender": "",
 "Checkpoint": "",
-"CheckpointEntity": "",
 "ConsoleAppender": "",
 "DeathGrid": "",
 "DebugUtils": "",
@@ -315,6 +309,7 @@ _global_script_class_icons={
 [application]
 
 config/name="RocketJumpThing"
+run/main_scene="res://Game/Scenes/Tutorial/Scene1/Scene1.tscn"
 config/icon="res://icon.png"
 
 [autoload]
