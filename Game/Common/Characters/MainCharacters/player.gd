@@ -13,6 +13,7 @@ class_name Player
 - FIXME : Use the wall collision info to compute wall ride ~ To try, but there is a risk that it might either stick to the wall too well or not much...
 - FIXME : Rocket not adding velocity when wall riding ~ It does, but it feels a bit weird
 - FIXME : sliding on slopes stops the player
+- FIXME : Reverse strafing accelerating player (moving mouse to the right and going forward left for instance). Maybe it can be desirable, idk, it doesn't feel that weird...
 """
 
 ##### SIGNALS #####
@@ -64,7 +65,9 @@ const ROCKET_SCENE_PATH := "res://Game/Common/MovementUtils/Rocket/Rocket.tscn" 
 const ROCKET_LAUNCH_MAX_TIME := 3000.0  # Max time the player can hold the mouse button to set the speed of the rocket (in milliseconds)
 
 #---- EXPORTS -----
-export (Dictionary) var PATHS = {"camera": NodePath("."), "rotation_helper": NodePath(".")}
+export (Dictionary) var PATHS = {
+	"camera": NodePath("."), "rotation_helper": NodePath("."), "UI": NodePath(".")
+}
 export (Dictionary) var properties setget set_properties
 
 #---- STANDARD -----
@@ -113,6 +116,7 @@ func _physics_process(delta):
 #	DebugDraw.draw_line_3d(
 #		self.transform.origin, self.transform.origin + self.transform.basis.z, Color(0, 0, 1)
 #	)
+	_set_UI_data()
 	_process_collision()
 	_process_input(delta)
 	_process_movement(delta)
@@ -149,6 +153,12 @@ func update_properties() -> void:
 
 
 #==== Others =====
+# sets the UI infos
+func _set_UI_data() -> void:
+	var ui := get_node(PATHS.UI)
+	ui.set_speed(current_speed)
+
+
 # Enables/disables some collisions depending on the states
 func _process_collision():
 	$PlayerCollision.disabled = states.has("sliding")

@@ -219,6 +219,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://trenchbroom/Entities/StandardMapElements/Buildings/static_body_group_solid_class.gd"
 }, {
+"base": "Reference",
+"class": "TextUtils",
+"language": "GDScript",
+"path": "res://Game/Common/Utils/Static/text_utils.gd"
+}, {
 "base": "Node",
 "class": "TrenchAutoComplete",
 "language": "GDScript",
@@ -297,6 +302,7 @@ _global_script_class_icons={
 "StandardScene": "",
 "StartPoint": "",
 "StaticBodyGroupSolidEntity": "",
+"TextUtils": "",
 "TrenchAutoComplete": "",
 "TrenchBroomFaceAttrib": "",
 "TrenchBroomGameConfigFile": "",
@@ -309,7 +315,6 @@ _global_script_class_icons={
 [application]
 
 config/name="RocketJumpThing"
-run/main_scene="res://Game/Scenes/Tutorial/Scene1/Scene1.tscn"
 config/icon="res://icon.png"
 
 [autoload]
