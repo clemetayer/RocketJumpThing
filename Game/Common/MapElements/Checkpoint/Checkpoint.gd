@@ -35,8 +35,8 @@ func get_checkpoint() -> Checkpoint:
 
 func get_spawn_point() -> Vector3:
 	if _spawn_position != null and _spawn_position != Vector3(0, 0, 0):
-		return get_parent().transform.origin + _spawn_position
-	return get_parent().transform.origin + self.transform.origin
+		return global_transform.origin + _spawn_position
+	return global_transform.origin
 
 
 ##### PROTECTED METHODS #####
