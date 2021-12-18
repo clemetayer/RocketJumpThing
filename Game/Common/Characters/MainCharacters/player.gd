@@ -1,5 +1,5 @@
 # tool
-extends KinematicBody
+extends RigidBody
 class_name Player
 # Script for the player
 
@@ -87,6 +87,7 @@ var _slide := false  # used to buffer a slide when in air
 var _RC_wall_direction := 0  # 1 if the raycasts aims for the right wall, -1 if the raycast aims for the left wall, 0 if not aiming for any wall
 var _mix_to_direction_amount := 1.0  # Used after wall jumping and pressing forward, to not stick to the wall. Varies between 0 and 1.
 var _charge_shot_time := 0  # time when the shot key was pressed (as unix timestamp, millis)
+var _angular_rot := 0
 
 #==== ONREADY ====
 # onready var onready_var # Optionnal comment
@@ -100,6 +101,31 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 
+func _integrate_forces(_state):
+	# Camera
+	dir = Vector3()
+	var cam_xform = camera.get_global_transform()
+
+	# Standard movement
+	input_movement_vector = Vector2()
+	if Input.is_action_pressed("movement_forward"):
+		input_movement_vector.y += 1
+	if Input.is_action_pressed("movement_backward"):
+		input_movement_vector.y -= 1
+	if Input.is_action_pressed("movement_left"):
+		input_movement_vector.x += 1
+	if Input.is_action_pressed("movement_right"):
+		input_movement_vector.x -= 1
+	input_movement_vector = input_movement_vector.normalized()
+
+	# Wished direction
+	dir += -cam_xform.basis.z * input_movement_vector.y
+	dir += -cam_xform.basis.x * input_movement_vector.x
+
+	linear_velocity = dir * 20
+	angular_velocity.y = _angular_rot
+
+
 # Called every frame. 'delta' is the elapsed time since the previous frame. Remove the "_" to use it.
 func _physics_process(delta):
 	DebugDraw.set_text("current_speed", current_speed)
@@ -107,15 +133,15 @@ func _physics_process(delta):
 	# DebugDraw.draw_line_3d(
 	# 	self.translation, self.transform.origin + Vector3(vel.x, 0, vel.z), Color(0, 1, 0)
 	# )
-#	DebugDraw.draw_line_3d(
-#		self.transform.origin, self.transform.origin + self.transform.basis.x, Color(1, 0, 0)
-#	)
-#	DebugDraw.draw_line_3d(
-#		self.transform.origin, self.transform.origin + self.transform.basis.y, Color(0, 1, 0)
-#	)
-#	DebugDraw.draw_line_3d(
-#		self.transform.origin, self.transform.origin + self.transform.basis.z, Color(0, 0, 1)
-#	)
+	#	DebugDraw.draw_line_3d(
+	#		self.transform.origin, self.transform.origin + self.transform.basis.x, Color(1, 0, 0)
+	#	)
+	#	DebugDraw.draw_line_3d(
+	#		self.transform.origin, self.transform.origin + self.transform.basis.y, Color(0, 1, 0)
+	#	)
+	#	DebugDraw.draw_line_3d(
+	#		self.transform.origin, self.transform.origin + self.transform.basis.z, Color(0, 0, 1)
+	#	)
 	_set_UI_data()
 	_process_collision()
 	_process_input(delta)
@@ -127,7 +153,7 @@ func _physics_process(delta):
 func _input(event):
 	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		rotation_helper.rotate_x(deg2rad(event.relative.y * mouse_sensitivity))
-		self.rotate_y(deg2rad(event.relative.x * mouse_sensitivity * -1))
+		_angular_rot = event.relative.x * 0.5 * -1.0
 		var camera_rot = rotation_helper.rotation_degrees
 		camera_rot.x = clamp(camera_rot.x, -70, 70)
 		rotation_helper.rotation_degrees = camera_rot
@@ -153,6 +179,14 @@ func update_properties() -> void:
 
 
 #==== Others =====
+func is_on_floor() -> bool:
+	return $RayCasts/Floor.is_colliding()
+
+
+func is_on_wall() -> bool:
+	return false
+
+
 # sets the UI infos
 func _set_UI_data() -> void:
 	var ui := get_node(PATHS.UI)
@@ -274,7 +308,7 @@ func _process_movement(delta):
 				vel = vel_dir * vel.length()
 			DebugDraw.draw_line_3d(transform.origin, transform.origin + vel, Color(0, 1, 1))
 			_add_movement_queue_to_vel()
-			vel = move_and_slide(vel, wall_up, 0.05, 4, deg2rad(MAX_SLOPE_ANGLE))
+			# vel = move_and_slide(vel, wall_up, 0.05, 4, deg2rad(MAX_SLOPE_ANGLE))
 		else:
 			_RC_wall_direction = 0
 	else:
@@ -313,7 +347,7 @@ func _process_hvel(delta: float) -> void:
 	vel.x = hvel.x
 	vel.z = hvel.y
 	_add_movement_queue_to_vel()
-	vel = move_and_slide(vel, Vector3(0, 1, 0), 0.05, 4, deg2rad(MAX_SLOPE_ANGLE))
+	# vel = move_and_slide(vel, Vector3(0, 1, 0), 0.05, 4, deg2rad(MAX_SLOPE_ANGLE))
 
 
 # resets the wallride raycasts to their standard rotation value

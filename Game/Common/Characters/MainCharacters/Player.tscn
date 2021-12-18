@@ -13,8 +13,11 @@ height = 3.0
 
 [sub_resource type="SphereShape" id=3]
 
-[node name="Player" type="KinematicBody" groups=["player"]]
+[node name="Player" type="RigidBody" groups=["player"]]
 collision_mask = 2
+custom_integrator = true
+axis_lock_angular_x = true
+axis_lock_angular_z = true
 script = ExtResource( 1 )
 PATHS = {
 "UI": NodePath("PlayerUI"),
@@ -45,17 +48,22 @@ enabled = true
 cast_to = Vector3( -3, 0, 0 )
 collision_mask = 2
 
+[node name="Floor" type="RayCast" parent="RayCasts"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.45, 0 )
+enabled = true
+cast_to = Vector3( 0, -0.1, 0 )
+
 [node name="RotationHelper" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.950078, 0.709967 )
 
 [node name="Camera" type="Camera" parent="RotationHelper"]
 transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0 )
-current = true
 near = 0.5
 far = 5000.0
 
 [node name="ThirdPersonCamera" type="Camera" parent="RotationHelper"]
 transform = Transform( -1, -2.99003e-08, 8.21506e-08, 0, 0.939693, 0.34202, -8.74228e-08, 0.34202, -0.939693, 0, 3.62379, -6.16924 )
+current = true
 far = 500.0
 
 [node name="WallJumpMixMovement" type="Tween" parent="."]
