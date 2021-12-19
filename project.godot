@@ -15,9 +15,19 @@ _global_script_classes=[ {
 "path": "res://addons/gs_logger/appender.gd"
 }, {
 "base": "Area",
+"class": "AreaOpenDoor",
+"language": "GDScript",
+"path": "res://Game/Common/MapElements/Doors/area_open_door.gd"
+}, {
+"base": "Area",
 "class": "Checkpoint",
 "language": "GDScript",
 "path": "res://Game/Common/MapElements/Checkpoint/Checkpoint.gd"
+}, {
+"base": "CollisionObject",
+"class": "Collidable",
+"language": "GDScript",
+"path": "res://Game/Common/MapElements/BaseClasses/collidable.gd"
 }, {
 "base": "Appender",
 "class": "ConsoleAppender",
@@ -204,6 +214,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/qodot/game_definitions/worldspawn_layers/liquid/slime.gd"
 }, {
+"base": "StaticBody",
+"class": "StandardDoor",
+"language": "GDScript",
+"path": "res://Game/Common/MapElements/Doors/standard_door.gd"
+}, {
 "base": "Node",
 "class": "StandardScene",
 "language": "GDScript",
@@ -261,7 +276,9 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "Appender": "",
+"AreaOpenDoor": "",
 "Checkpoint": "",
+"Collidable": "",
 "ConsoleAppender": "",
 "DeathGrid": "",
 "DebugUtils": "",
@@ -299,6 +316,7 @@ _global_script_class_icons={
 "QuakeWadImportPlugin": "",
 "Rocket": "",
 "SlimeLayer": "",
+"StandardDoor": "",
 "StandardScene": "",
 "StartPoint": "",
 "StaticBodyGroupSolidEntity": "",
@@ -384,6 +402,10 @@ restart={
 3d_physics/layer_1="player"
 3d_physics/layer_2="static_env"
 3d_physics/layer_3="explosive"
+
+[locale]
+
+translations=PoolStringArray( "res://Translations/po/french.po" )
 
 [physics]
 

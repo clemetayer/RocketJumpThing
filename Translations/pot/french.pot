@@ -1,0 +1,35 @@
+# French translation by clemetayer
+# MIT LICENCE
+# Corentin Le Métayer <c.lemetayer@laposte.net>, 2021.
+# Don't remove the two lines below, they're required for gettext to work correctly.
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: c.lemetayer@laposte.net\n"
+"POT-Creation-Date: 2021-12-19\n"
+"PO-Revision-Date: 2021-12-19\n"
+"Last-Translator: Corentin Le Métayer <c.lemetayer@laposte.net>\n"
+"Language: fr\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#================================= MENUS =================================
+
+#=============================== TUTORIALS ===============================
+#----------------------------- TUTORIAL SCENE ----------------------------
+msgid "tutorial_scene_move_tutorial"
+msgstr "##movement_forward##,##movement_backward##,##movement_left##,##movement_right## pour se déplacer."
+
+msgid "tutorial_scene_jump_tutorial"
+msgstr "##movement_jump## pour sauter."
+
+msgid "tutorial_scene_BHOP_tutorial"
+msgstr "Garder ##movement_jump## permet de gagner en vitesse."
+
+msgid "tutorial_scene_strafe_tutorial"
+msgstr "Pour gagner encore plus de vitesse lors d'un saut : \n - Appuyez sur ##movement_forward## + ##movement_left## et bougez doucement la souris vers la gauche\n - Appuyez sur ##movement_forward## + ##movement_right## et bougez doucement la souris vers la droite\n"
+
+msgid "tutorial_scene_air_control_tutorial"
+msgstr "Maintenir ##movement_forward## en l'air permet de bouger directement dans la direction souhaitée."
+
+msgid "tutorial_scene_checkpoint_tutorial"
+msgstr "Les Checkpoints permettent de réapparaitre lors d'une chute.\nIl est aussi possible de réapparaitre au checkpoint avec ##restart_last_cp## ou au départ avec ##restart##."

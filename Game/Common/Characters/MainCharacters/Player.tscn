@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Game/Common/Characters/MainCharacters/player.gd" type="Script" id=1]
 [ext_resource path="res://Game/Common/Characters/player_UI.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Game/Common/Characters/tutorial_hints.tscn" type="PackedScene" id=3]
 
 [sub_resource type="CylinderMesh" id=4]
 top_radius = 0.6
@@ -10,6 +11,9 @@ height = 3.0
 
 [sub_resource type="CylinderShape" id=5]
 height = 3.0
+
+[sub_resource type="SphereShape" id=6]
+radius = 0.5
 
 [sub_resource type="SphereShape" id=3]
 
@@ -28,6 +32,17 @@ material/0 = null
 
 [node name="PlayerCollision" type="CollisionShape" parent="."]
 shape = SubResource( 5 )
+__meta__ = {
+"_editor_description_": "Cylinder shape to match steps and corner well
+"
+}
+
+[node name="PlayerCollision2" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.26785, 0 )
+shape = SubResource( 6 )
+__meta__ = {
+"_editor_description_": "Sphere to smooth movement, especially to avoid brutal depenetration after jumping. (Kind of a hack, ngl)"
+}
 
 [node name="SlideCollision" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0 )
@@ -46,12 +61,12 @@ cast_to = Vector3( -3, 0, 0 )
 collision_mask = 2
 
 [node name="RotationHelper" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.950078, 0.709967 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.40428, 0.709967 )
 
 [node name="Camera" type="Camera" parent="RotationHelper"]
 transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0 )
 current = true
-near = 0.5
+fov = 90.0
 far = 5000.0
 
 [node name="ThirdPersonCamera" type="Camera" parent="RotationHelper"]
@@ -62,3 +77,5 @@ far = 500.0
 
 [node name="PlayerUI" parent="." instance=ExtResource( 2 )]
 follow_viewport_enable = true
+
+[node name="TutorialHints" parent="." instance=ExtResource( 3 )]

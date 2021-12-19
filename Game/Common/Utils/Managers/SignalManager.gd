@@ -4,6 +4,7 @@ extends Node
 ##### SIGNALS #####
 #==== PLAYER =====
 signal respawn_player_on_last_cp
+signal trigger_tutorial(key, time)
 
 #==== MAP =====
 signal checkpoint_triggered(checkpoint)
@@ -13,6 +14,10 @@ signal checkpoint_triggered(checkpoint)
 #==== PLAYER =====
 func emit_respawn_player_on_last_cp() -> void:
 	emit_signal("respawn_player_on_last_cp")
+
+
+func emit_trigger_tutorial(key: String, time: float) -> void:
+	emit_signal("trigger_tutorial", key, time)
 
 
 #==== MAP =====

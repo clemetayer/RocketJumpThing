@@ -1,5 +1,6 @@
-extends StaticBody
-# A wall that is breakable depending on the signal that is given on trigger-use
+extends CollisionObject
+class_name Collidable
+# a standard class for everything that can be collided with
 
 ##### VARIABLES #####
 #---- EXPORTS -----
@@ -19,9 +20,3 @@ func update_properties() -> void:
 		self.collision_layer = properties.collision_layer
 	if 'collision_mask' in properties and is_inside_tree():
 		self.collision_mask = properties.collision_mask
-
-
-##### SIGNAL MANAGEMENT #####
-#==== Qodot =====
-func use() -> void:
-	self.queue_free()

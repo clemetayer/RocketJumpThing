@@ -1,0 +1,26 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://addons/qodot/src/resources/game-definitions/fgd/qodot_fgd_base_class.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+class_options = "----------------------------------------------------------------"
+classname = "Collidable"
+description = "Something you can collide with"
+qodot_internal = false
+base_classes = [  ]
+class_properties = {
+"collision_layer": 2,
+"collision_mask": 5
+}
+class_property_descriptions = {
+"collision_layer": "Collision layer",
+"collision_mask": "Collision mask"
+}
+meta_properties = {
+"color": Color( 0.8, 0.8, 0.8, 1 ),
+"size": AABB( -8, -8, -8, 8, 8, 8 )
+}
+node_options = "----------------------------------------------------------------"
+node_class = "CollisionObject"
+transient_node = false
