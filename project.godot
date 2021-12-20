@@ -333,6 +333,7 @@ _global_script_class_icons={
 [application]
 
 config/name="RocketJumpThing"
+run/main_scene="res://Game/Scenes/Tutorial/Scene2/Scene2.tscn"
 config/icon="res://icon.png"
 
 [autoload]

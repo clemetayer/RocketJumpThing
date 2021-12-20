@@ -1,9 +1,16 @@
-extends StaticBody
+extends RigidBody
 # A wall that is breakable depending on the signal that is given on trigger-use
 
 ##### VARIABLES #####
 #---- EXPORTS -----
 export (Dictionary) var properties setget set_properties
+
+
+##### PROCESSING #####
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	weight = 10
+	mode = MODE_STATIC
 
 
 ##### PROTECTED METHODS #####
@@ -24,4 +31,6 @@ func update_properties() -> void:
 ##### SIGNAL MANAGEMENT #####
 #==== Qodot =====
 func use() -> void:
-	self.queue_free()
+	mode = MODE_RIGID
+	yield(get_tree().create_timer(60.0), "timeout")
+	queue_free()

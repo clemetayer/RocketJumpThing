@@ -23,7 +23,7 @@ meta_properties = {
 "size": AABB( -8, -8, -8, 8, 8, 8 )
 }
 node_options = "----------------------------------------------------------------"
-node_class = "StaticBody"
+node_class = "RigidBody"
 transient_node = false
 spawn = "----------------------------------------------------------------"
 spawn_type = 2
