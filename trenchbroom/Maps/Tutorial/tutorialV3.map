@@ -516,7 +516,7 @@
 // brush 3
 {
 ( -848 2162 260 ) ( -848 244 260 ) ( -848 244 258 ) scenes/tutorial_scene/Floor [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -848 526 260 ) ( -786 526 260 ) ( -786 526 258 ) scenes/tutorial_scene/Floor [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -848 515 260 ) ( -786 515 260 ) ( -786 515 258 ) scenes/tutorial_scene/Floor [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
 ( -786 244 258 ) ( -786 2162 258 ) ( -848 2162 258 ) scenes/tutorial_scene/Floor [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
 ( -848 2162 260 ) ( -786 2162 260 ) ( -786 244 260 ) scenes/tutorial_scene/Floor [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
 ( -786 2162 258 ) ( -786 2162 260 ) ( -848 2162 260 ) scenes/tutorial_scene/Floor [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -691,17 +691,17 @@
 ( -848 244 260 ) ( -786 244 260 ) ( -786 244 258 ) scenes/tutorial_scene/Floor [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
 ( -786 244 258 ) ( -786 2162 258 ) ( -848 2162 258 ) scenes/tutorial_scene/Floor [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
 ( -848 2162 260 ) ( -786 2162 260 ) ( -786 244 260 ) scenes/tutorial_scene/Floor [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -848 522 260 ) ( -786 522 258 ) ( -786 522 260 ) scenes/tutorial_scene/Floor [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -848 511 260 ) ( -786 511 258 ) ( -786 511 260 ) scenes/tutorial_scene/Floor [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
 ( -786 244 260 ) ( -786 2162 260 ) ( -786 2162 258 ) scenes/tutorial_scene/Floor [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 // brush 23
 {
-( -848 2162 260 ) ( -848 244 260 ) ( -848 244 258 ) scenes/tutorial_scene/LightHint2 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -848 522 260 ) ( -786 522 260 ) ( -786 522 258 ) scenes/tutorial_scene/LightHint2 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -786 244 258 ) ( -786 2162 258 ) ( -848 2162 258 ) scenes/tutorial_scene/LightHint2 [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -848 2162 260 ) ( -786 2162 260 ) ( -786 244 260 ) scenes/tutorial_scene/LightHint2 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -848 526 260 ) ( -786 526 258 ) ( -786 526 260 ) scenes/tutorial_scene/LightHint2 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -786 244 260 ) ( -786 2162 260 ) ( -786 2162 258 ) scenes/tutorial_scene/LightHint2 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -848 2151 260 ) ( -848 233 260 ) ( -848 233 258 ) scenes/tutorial_scene/LightHint2 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -848 511 260 ) ( -786 511 260 ) ( -786 511 258 ) scenes/tutorial_scene/LightHint2 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -786 233 258 ) ( -786 2151 258 ) ( -848 2151 258 ) scenes/tutorial_scene/LightHint2 [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -848 2151 260 ) ( -786 2151 260 ) ( -786 233 260 ) scenes/tutorial_scene/LightHint2 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -848 515 260 ) ( -786 515 258 ) ( -786 515 260 ) scenes/tutorial_scene/LightHint2 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -786 233 260 ) ( -786 2151 260 ) ( -786 2151 258 ) scenes/tutorial_scene/LightHint2 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
 // entity 8
@@ -3165,7 +3165,7 @@
 "collision_layer" "2"
 "collision_mask" "5"
 "key" "tutorial_scene_jump_tutorial"
-"time" "3"
+"time" ".75"
 // brush 0
 {
 ( -848 2144 260 ) ( -848 2145 260 ) ( -848 2144 261 ) common/material_override/Transparent [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -3174,5 +3174,73 @@
 ( -786 2148 322 ) ( -786 2149 322 ) ( -785 2148 322 ) common/material_override/Transparent [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
 ( -786 2148 262 ) ( -785 2148 262 ) ( -786 2148 263 ) common/material_override/Transparent [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
 ( -786 2148 262 ) ( -786 2148 263 ) ( -786 2149 262 ) common/material_override/Transparent [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+}
+// entity 22
+{
+"classname" "TutorialTrigger"
+"collision_layer" "2"
+"collision_mask" "5"
+"key" "tutorial_scene_BHOP_tutorial"
+"time" ".75"
+// brush 0
+{
+( -848 1711 260 ) ( -848 1712 260 ) ( -848 1711 261 ) common/material_override/Transparent [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -848 1711 260 ) ( -848 1711 261 ) ( -847 1711 260 ) common/material_override/Transparent [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -848 1711 260 ) ( -847 1711 260 ) ( -848 1712 260 ) common/material_override/Transparent [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -786 1715 322 ) ( -786 1716 322 ) ( -785 1715 322 ) common/material_override/Transparent [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -786 1715 262 ) ( -785 1715 262 ) ( -786 1715 263 ) common/material_override/Transparent [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -786 1715 262 ) ( -786 1715 263 ) ( -786 1716 262 ) common/material_override/Transparent [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+}
+// entity 23
+{
+"classname" "TutorialTrigger"
+"collision_layer" "2"
+"collision_mask" "5"
+"key" "tutorial_scene_checkpoint_tutorial"
+"time" "1.25"
+// brush 0
+{
+( -848 917 260 ) ( -848 918 260 ) ( -848 917 261 ) common/material_override/Transparent [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -848 917 260 ) ( -848 917 261 ) ( -847 917 260 ) common/material_override/Transparent [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -848 917 260 ) ( -847 917 260 ) ( -848 918 260 ) common/material_override/Transparent [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -786 921 322 ) ( -786 922 322 ) ( -785 921 322 ) common/material_override/Transparent [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -786 921 262 ) ( -785 921 262 ) ( -786 921 263 ) common/material_override/Transparent [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -786 921 262 ) ( -786 921 263 ) ( -786 922 262 ) common/material_override/Transparent [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+}
+// entity 24
+{
+"classname" "TutorialTrigger"
+"collision_layer" "2"
+"collision_mask" "5"
+"key" "tutorial_scene_strafe_tutorial"
+"time" "1.25"
+// brush 0
+{
+( -848 -152 260 ) ( -848 -151 260 ) ( -848 -152 261 ) common/material_override/Transparent [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -848 -152 260 ) ( -848 -152 261 ) ( -847 -152 260 ) common/material_override/Transparent [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -848 -152 260 ) ( -847 -152 260 ) ( -848 -151 260 ) common/material_override/Transparent [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -786 -148 322 ) ( -786 -147 322 ) ( -785 -148 322 ) common/material_override/Transparent [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -786 -148 262 ) ( -785 -148 262 ) ( -786 -148 263 ) common/material_override/Transparent [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -786 -148 262 ) ( -786 -148 263 ) ( -786 -147 262 ) common/material_override/Transparent [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+}
+// entity 25
+{
+"classname" "TutorialTrigger"
+"collision_layer" "2"
+"collision_mask" "5"
+"key" "tutorial_scene_air_control_tutorial"
+"time" ".75"
+// brush 0
+{
+( 820 -1268 260 ) ( 820 -1268 261 ) ( 820 -1269 260 ) common/material_override/Transparent [ 0 1.0000000000000002 0 0 ] [ 0 0 -1.0000000000000002 0 ] 0 1 1
+( 824 -1392 262 ) ( 824 -1392 263 ) ( 825 -1392 262 ) common/material_override/Transparent [ -1.0000000000000002 0 0 0 ] [ 0 0 -1.0000000000000002 0 ] 0 1 1
+( 820 -1268 260 ) ( 820 -1269 260 ) ( 821 -1268 260 ) common/material_override/Transparent [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 824 -1330 322 ) ( 825 -1330 322 ) ( 824 -1331 322 ) common/material_override/Transparent [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 820 -1268 260 ) ( 821 -1268 260 ) ( 820 -1268 261 ) common/material_override/Transparent [ 1.0000000000000002 0 0 0 ] [ 0 0 -1.0000000000000002 0 ] 0 1 1
+( 824 -1330 262 ) ( 824 -1331 262 ) ( 824 -1330 263 ) common/material_override/Transparent [ 0 -1.0000000000000002 0 0 ] [ 0 0 -1.0000000000000002 0 ] 0 1 1
 }
 }

@@ -36,13 +36,15 @@ func set_keys_dict() -> void:
 		"##movement_left##": InputMap.get_action_list("movement_left")[0].as_text(),
 		"##movement_right##": InputMap.get_action_list("movement_right")[0].as_text(),
 		"##movement_jump##": InputMap.get_action_list("movement_jump")[0].as_text(),
+		"##restart_last_cp##": InputMap.get_action_list("restart_last_cp")[0].as_text(),
+		"##restart##": InputMap.get_action_list("restart")[0].as_text()
 	}
 
 
 # Displays the text of a tutorial key for a given time (in seconds)
 func display_tutorial(key: String, time: float) -> void:
 	$Screen.show()
-	Engine.set_time_scale(0.5)
+	Engine.set_time_scale(0.25)
 	$Screen/CenterContainer/Label.set_text(TextUtils.replace_elements(tr(key), _keys_dict))
 	yield(get_tree().create_timer(time), "timeout")
 	Engine.set_time_scale(1.0)

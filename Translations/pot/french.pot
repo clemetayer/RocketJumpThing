@@ -32,4 +32,4 @@ msgid "tutorial_scene_air_control_tutorial"
 msgstr "Maintenir ##movement_forward## en l'air permet de bouger directement dans la direction souhaitée."
 
 msgid "tutorial_scene_checkpoint_tutorial"
-msgstr "Les Checkpoints permettent de réapparaitre lors d'une chute.\nIl est aussi possible de réapparaitre au checkpoint avec ##restart_last_cp## ou au départ avec ##restart##."
+msgstr "Les Checkpoints permettent de réapparaitre lors d'une chute.\nIl est aussi possible de réapparaitre au checkpoint avec ##restart_last_cp##\nou au départ avec ##restart##."

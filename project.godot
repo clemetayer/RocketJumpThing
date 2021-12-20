@@ -14,7 +14,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/gs_logger/appender.gd"
 }, {
-"base": "Area",
+"base": "Collidable",
 "class": "AreaOpenDoor",
 "language": "GDScript",
 "path": "res://Game/Common/MapElements/Doors/area_open_door.gd"
@@ -214,7 +214,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/qodot/game_definitions/worldspawn_layers/liquid/slime.gd"
 }, {
-"base": "StaticBody",
+"base": "Collidable",
 "class": "StandardDoor",
 "language": "GDScript",
 "path": "res://Game/Common/MapElements/Doors/standard_door.gd"
@@ -229,7 +229,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Game/Common/MapElements/Checkpoint/StartPoint.gd"
 }, {
-"base": "StaticBody",
+"base": "Collidable",
 "class": "StaticBodyGroupSolidEntity",
 "language": "GDScript",
 "path": "res://trenchbroom/Entities/StandardMapElements/Buildings/static_body_group_solid_class.gd"

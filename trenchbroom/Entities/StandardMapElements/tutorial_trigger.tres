@@ -12,10 +12,14 @@ description = "Area that triggers a tutorial to show"
 qodot_internal = false
 base_classes = [ ExtResource( 2 ) ]
 class_properties = {
+"collision_layer": 2,
+"collision_mask": 5,
 "key": "",
 "time": 0.0
 }
 class_property_descriptions = {
+"collision_layer": "Collision layer",
+"collision_mask": "Collision mask",
 "key": "Translation key corresponding to the tutorial to show",
 "time": "How much time the tutorial stays on screen"
 }
