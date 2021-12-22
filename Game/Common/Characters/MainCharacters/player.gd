@@ -68,6 +68,8 @@ const ROCKET_LAUNCH_MAX_TIME := 3000.0  # Max time the player can hold the mouse
 export (Dictionary) var PATHS = {
 	"camera": NodePath("."), "rotation_helper": NodePath("."), "UI": NodePath(".")
 }
+export (bool) var ROCKETS_ENABLED = true
+export (bool) var SLIDE_ENABLED = true
 export (Dictionary) var properties setget set_properties
 
 #---- STANDARD -----
@@ -200,7 +202,7 @@ func _process_input(_delta):
 			vel.y = FLOOR_POWER
 
 	# Shooting
-	if Input.is_action_pressed("action_shoot") and not states.has("shooting"):
+	if Input.is_action_pressed("action_shoot") and not states.has("shooting") and ROCKETS_ENABLED:
 		states.append("shooting")
 		var rocket = load(ROCKET_SCENE_PATH).instance()
 		rocket.START_POS = transform.origin + transform.basis * ROCKET_START_OFFSET
@@ -212,7 +214,7 @@ func _process_input(_delta):
 		)
 
 	# Slide
-	if Input.is_action_just_pressed("movement_slide"):
+	if Input.is_action_just_pressed("movement_slide") and SLIDE_ENABLED:
 		_slide = true
 	elif Input.is_action_just_released("movement_slide"):
 		_slide = false

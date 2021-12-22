@@ -14,6 +14,8 @@ class_name StandardScene
 
 #---- EXPORTS ----
 export (Dictionary) var PATHS = {"player": NodePath(), "start_point": NodePath()}  # various path for the scene
+export (bool) var ENABLE_ROCKETS = true
+export (bool) var ENABLE_SLIDE = true
 
 #---- STANDARD -----
 #==== PUBLIC ====
@@ -35,6 +37,8 @@ func _init():
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	_last_cp = get_node(PATHS.start_point).get_checkpoint()
+	get_node(PATHS.player).ROCKETS_ENABLED = ENABLE_ROCKETS
+	get_node(PATHS.player).SLIDE_ENABLED = ENABLE_SLIDE
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame. Remove the "_" to use it.

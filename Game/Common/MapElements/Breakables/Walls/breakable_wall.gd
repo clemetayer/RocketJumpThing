@@ -1,6 +1,9 @@
 extends RigidBody
 # A wall that is breakable depending on the signal that is given on trigger-use
 
+# FIXME : Actual advantage of using a rigisbody for character controler, as it provides better collision support
+# OPTIMIZATION : Split the wall procedurally at runtime for general memory optimization
+
 ##### VARIABLES #####
 #---- EXPORTS -----
 export (Dictionary) var properties setget set_properties
