@@ -3,6 +3,8 @@ extends Area
 class_name Checkpoint
 # Checkpoint to respawn after a death
 
+# TODO : look at the correct direction on respawn
+
 ##### VARIABLES #####
 #---- EXPORTS -----
 export (Dictionary) var properties setget set_properties
