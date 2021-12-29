@@ -1,13 +1,18 @@
 extends Collidable
 # Area to check the speed before breaking the associated wall
+# TODO : update entity
 
 ##### SIGNALS #####
 signal trigger
 
+##### VARIABLES #####
+#---- CONSTANTS -----
+const UI_PATH := "res://Game/Common/MapElements/Breakables/Walls/breakable_area_speed_ui.tscn"
+
 #---- STANDARD -----
 #==== PRIVATE ====
 var _treshold := 100.0  # treshold speed for the wall to break (greater or equal)
-
+var _ui_load := preload(UI_PATH)
 
 ##### PROCESSING #####
 # Called when the object is initialized.
@@ -24,6 +29,18 @@ func _init():
 			)
 		)
 
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	var ui := _ui_load.instance()
+	ui.SPEED = _treshold
+	if 'font_size' in properties:
+		ui.FONT_SIZE = properties.font_size
+	add_child(ui)
+	var sprite := Sprite3D.new()
+	add_child(sprite)
+	sprite.texture = ui.get_texture()
+	sprite.flip_v = true
+	
 
 ##### PROTECTED METHODS #####
 #==== Qodot =====

@@ -104,7 +104,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame. Remove the "_" to use it.
 func _physics_process(delta):
-	DebugDraw.set_text("current_speed", current_speed)
+	# DebugDraw.set_text("current_speed", current_speed)
 	# DebugDraw.draw_line_3d(self.transform.origin, self.transform.origin + dir, Color(0, 1, 1))
 	# DebugDraw.draw_line_3d(
 	# 	self.translation, self.transform.origin + Vector3(vel.x, 0, vel.z), Color(0, 1, 0)
@@ -274,7 +274,7 @@ func _process_movement(delta):
 					states.append("wall_riding")
 				var vel_dir = Vector3(wall_fw.x, WALL_RIDE_ASCEND_AMOUNT * delta, wall_fw.z).normalized()
 				vel = vel_dir * vel.length()
-			DebugDraw.draw_line_3d(transform.origin, transform.origin + vel, Color(0, 1, 1))
+			# DebugDraw.draw_line_3d(transform.origin, transform.origin + vel, Color(0, 1, 1))
 			_add_movement_queue_to_vel()
 			vel = move_and_slide(vel, wall_up, 0.05, 4, deg2rad(MAX_SLOPE_ANGLE))
 		else:
@@ -286,7 +286,7 @@ func _process_movement(delta):
 
 # updates the states
 func _process_states():
-	DebugDraw.set_text("states", states)
+	# DebugDraw.set_text("states", states)
 	if is_on_floor() and not states.has("in_air"):
 		states.append("in_air")
 	if current_speed != 0 and not states.has("moving"):
@@ -334,14 +334,14 @@ func _keep_wallride_raycasts_perpendicular() -> void:
 		wall_normal_vect = rc.get_collision_normal()
 		raycast_dir_vect = rc.global_transform.origin - rc.get_collision_point()
 		angle = wall_normal_vect.signed_angle_to(raycast_dir_vect, Vector3.UP)
-		DebugDraw.set_text("angle", angle)
+		# DebugDraw.set_text("angle", angle)
 		$RayCasts.rotate_y(-angle)
 	elif _RC_wall_direction == 1:  # left raycast
 		rc = $RayCasts/RayCastWallPlus
 		wall_normal_vect = rc.get_collision_normal()
 		raycast_dir_vect = rc.global_transform.origin - rc.get_collision_point()
 		angle = wall_normal_vect.signed_angle_to(raycast_dir_vect, Vector3.UP)
-		DebugDraw.set_text("angle", angle)
+		# DebugDraw.set_text("angle", angle)
 		$RayCasts.rotate_y(-angle)
 
 
@@ -453,17 +453,17 @@ func _debug_process_movement(_delta: float):
 		var wall_up = Vector3(0, 1, 0)  # Up direction from the wall (always that direction)
 		var wall_fw = (wall_normal.cross(wall_up) * -rc_dir).normalized()  # Forward direction, where the player should translate to (perpendicular to wall_normal and wall_up)
 		# Note : wall_normal, wall_up, wall_fw should give a (kind of) orthogonal basis
-		DebugDraw.set_text("Wall direction : ", _RC_wall_direction)
-		DebugDraw.set_text("is colliding : ", rc.is_colliding())
-		DebugDraw.draw_line_3d(
-			rc.get_collision_point(), rc.get_collision_point() + wall_normal, Color(1, 0, 0)
-		)
-		DebugDraw.set_text("wall normal", wall_normal)
-		DebugDraw.draw_line_3d(
-			rc.get_collision_point(), rc.get_collision_point() + wall_up, Color(0, 1, 0)
-		)
-		DebugDraw.set_text("wall up", wall_up)
-		DebugDraw.draw_line_3d(
-			rc.get_collision_point(), rc.get_collision_point() + wall_fw, Color(0, 0, 1)
-		)
-		DebugDraw.set_text("wall fw", wall_fw)
+		# DebugDraw.set_text("Wall direction : ", _RC_wall_direction)
+		# DebugDraw.set_text("is colliding : ", rc.is_colliding())
+		# DebugDraw.draw_line_3d(
+		# 	rc.get_collision_point(), rc.get_collision_point() + wall_normal, Color(1, 0, 0)
+		# )
+		# DebugDraw.set_text("wall normal", wall_normal)
+		# DebugDraw.draw_line_3d(
+		# 	rc.get_collision_point(), rc.get_collision_point() + wall_up, Color(0, 1, 0)
+		# )
+		# DebugDraw.set_text("wall up", wall_up)
+		# DebugDraw.draw_line_3d(
+		# 	rc.get_collision_point(), rc.get_collision_point() + wall_fw, Color(0, 0, 1)
+		# )
+		# DebugDraw.set_text("wall fw", wall_fw)

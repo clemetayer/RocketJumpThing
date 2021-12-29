@@ -39,6 +39,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Game/Common/MapElements/DeathGrid/DeathGrid.gd"
 }, {
+"base": "Node",
+"class": "DebugDraw",
+"language": "GDScript",
+"path": "res://addons/zylann.debug_draw/debug_draw.gd"
+}, {
 "base": "Reference",
 "class": "DebugUtils",
 "language": "GDScript",
@@ -281,6 +286,7 @@ _global_script_class_icons={
 "Collidable": "",
 "ConsoleAppender": "",
 "DeathGrid": "",
+"DebugDraw": "",
 "DebugUtils": "",
 "FileAppender": "",
 "HtmlLayout": "",
@@ -338,7 +344,6 @@ config/icon="res://icon.png"
 
 [autoload]
 
-DebugDraw="*res://addons/zylann_debug_draw/debug_draw.gd"
 SignalManager="*res://Game/Common/Utils/Managers/SignalManager.gd"
 Logger="*res://addons/gs_logger/logger.gd"
 

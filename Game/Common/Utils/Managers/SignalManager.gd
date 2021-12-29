@@ -1,6 +1,11 @@
 extends Node
 # Autoload script to handle signals globally
 
+##### VARIABLES #####
+#---- CONSTANTS -----
+const TUTORIALS_ENABLED = false
+
+
 ##### SIGNALS #####
 #==== PLAYER =====
 signal respawn_player_on_last_cp
@@ -17,7 +22,8 @@ func emit_respawn_player_on_last_cp() -> void:
 
 
 func emit_trigger_tutorial(key: String, time: float) -> void:
-	emit_signal("trigger_tutorial", key, time)
+	if TUTORIALS_ENABLED:
+		emit_signal("trigger_tutorial", key, time)
 
 
 #==== MAP =====
