@@ -12,7 +12,7 @@
 [resource]
 script = ExtResource( 1 )
 export_file = false
-target_folder = "D:/Godot/TOOLS/games/RocketJumpThing"
+target_folder = "C:/Users/user/Documents/Logiciels/TB/games/RocketJumpThing"
 fgd_name = "MapElements_fgd"
 base_fgd_files = [ ExtResource( 4 ), ExtResource( 7 ) ]
 entity_definitions = [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 8 ) ]

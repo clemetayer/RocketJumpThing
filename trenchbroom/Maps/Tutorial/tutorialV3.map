@@ -234,6 +234,9 @@
 "collision_mask" "5"
 "treshold" "100"
 "target" "breakable_wall_1"
+"font_size" "150"
+"text_direction" "0 90 0"
+"scale" "20 20 1"
 // brush 0
 {
 ( -848 1546 314 ) ( -848 1536 314 ) ( -848 1536 260 ) common/material_override/Transparent [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -1352,6 +1355,9 @@
 "collision_mask" "5"
 "treshold" "200"
 "target" "breakable_wall_2"
+"font_size" "150"
+"text_direction" "0 180 0"
+"scale" "20 20 1"
 // brush 0
 {
 ( -26 -1270 320 ) ( -26 -1392 320 ) ( -26 -1392 260 ) common/material_override/Transparent [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1

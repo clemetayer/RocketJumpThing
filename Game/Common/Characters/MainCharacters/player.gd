@@ -451,7 +451,7 @@ func _debug_process_movement(_delta: float):
 	if rc != null:
 		var wall_normal = rc.get_collision_normal().normalized()  # normal of the wall, should be the aligned with the player x axis
 		var wall_up = Vector3(0, 1, 0)  # Up direction from the wall (always that direction)
-		var wall_fw = (wall_normal.cross(wall_up) * -rc_dir).normalized()  # Forward direction, where the player should translate to (perpendicular to wall_normal and wall_up)
+		var _wall_fw = (wall_normal.cross(wall_up) * -rc_dir).normalized()  # Forward direction, where the player should translate to (perpendicular to wall_normal and wall_up)
 		# Note : wall_normal, wall_up, wall_fw should give a (kind of) orthogonal basis
 		# DebugDraw.set_text("Wall direction : ", _RC_wall_direction)
 		# DebugDraw.set_text("is colliding : ", rc.is_colliding())

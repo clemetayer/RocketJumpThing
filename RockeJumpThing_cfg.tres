@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://addons/qodot/src/resources/game-definitions/trenchbroom/trenchbroom_game_config_file.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+export_file = false
+target_file = "C:/Users/user/Documents/Logiciels/TB/games/RocketJumpThing/RocketJumpThing.cfg"
+game_name = "RocketJumpThing"
+brush_tags = [  ]
+face_tags = [  ]
+face_attrib_surface_flags = [  ]
+face_attrib_content_flags = [  ]
+fgd_filenames = [ "RocketJumpThing_fgd", "checkpoint_fgd", "MapElements_fgd" ]

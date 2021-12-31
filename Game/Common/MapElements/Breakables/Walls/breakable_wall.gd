@@ -12,7 +12,7 @@ export (Dictionary) var properties setget set_properties
 ##### PROCESSING #####
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	weight = 10
+	weight = 100
 	mode = MODE_STATIC
 
 
