@@ -10,6 +10,7 @@ const TUTORIALS_ENABLED = false
 #==== PLAYER =====
 signal respawn_player_on_last_cp
 signal trigger_tutorial(key, time)
+signal speed_updated(speed)
 
 #==== MAP =====
 signal checkpoint_triggered(checkpoint)
@@ -24,6 +25,10 @@ func emit_respawn_player_on_last_cp() -> void:
 func emit_trigger_tutorial(key: String, time: float) -> void:
 	if TUTORIALS_ENABLED:
 		emit_signal("trigger_tutorial", key, time)
+
+		
+func emit_speed_updated(speed : float) -> void:
+	emit_signal("speed_updated",speed)
 
 
 #==== MAP =====

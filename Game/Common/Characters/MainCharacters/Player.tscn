@@ -79,3 +79,10 @@ far = 500.0
 follow_viewport_enable = true
 
 [node name="TutorialHints" parent="." instance=ExtResource( 3 )]
+
+[node name="Timers" type="Node" parent="."]
+
+[node name="UpdateSpeed" type="Timer" parent="Timers"]
+wait_time = 0.1
+
+[connection signal="timeout" from="Timers/UpdateSpeed" to="." method="_on_UpdateSpeed_timeout"]

@@ -100,6 +100,7 @@ func _ready():
 	camera = get_node(PATHS.camera)
 	rotation_helper = get_node(PATHS.rotation_helper)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	$Timers/UpdateSpeed.start()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame. Remove the "_" to use it.
@@ -467,3 +468,7 @@ func _debug_process_movement(_delta: float):
 		# 	rc.get_collision_point(), rc.get_collision_point() + wall_fw, Color(0, 0, 1)
 		# )
 		# DebugDraw.set_text("wall fw", wall_fw)
+
+
+func _on_UpdateSpeed_timeout():
+	SignalManager.emit_speed_updated(current_speed)
