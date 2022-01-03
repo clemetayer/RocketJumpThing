@@ -26,7 +26,7 @@ class_name Player
 #---- CONSTANTS -----
 #~~~~ MOVEMENT ~~~~~
 #==== GLOBAL =====
-const GRAVITY := -80  # Gravity applied to the player
+const GRAVITY := -1  # Gravity applied to the player
 const JUMP_POWER := 33  # Power applied when jumping
 const FLOOR_POWER := -1  # Standard gravity power applied to the player when is on floor (to avoid gravity to keep decreasing on floor)
 const MAX_SLOPE_ANGLE := 45  # Max slope angle where you stop sliding
@@ -66,7 +66,10 @@ const ROCKET_LAUNCH_MAX_TIME := 3000.0  # Max time the player can hold the mouse
 
 #---- EXPORTS -----
 export (Dictionary) var PATHS = {
-	"camera": NodePath("."), "rotation_helper": NodePath("."), "UI": NodePath(".")
+	"camera": NodePath("."),
+	"global_rotation_helper": NodePath("."),
+	"rotation_helper": NodePath("."),
+	"UI": NodePath(".")
 }
 export (Dictionary) var properties setget set_properties
 
@@ -79,7 +82,8 @@ var vel := Vector3()  # velocity vector
 var dir := Vector3()  # wished direction by the player
 var current_speed := 0.0  # current speed of the player
 var camera  # camera node
-var rotation_helper  # rotation helper node
+var rotation_helper  # rotation helper node (for looking up/down)
+var global_rotation_helper  # rotation helper to move left/right
 
 #==== PRIVATE ====
 var _add_velocity_vector_queue := []  # queue to add the vector to the velocity on the next process (used to make external elements interact with the player velocity)
@@ -87,7 +91,7 @@ var _slide := false  # used to buffer a slide when in air
 var _RC_wall_direction := 0  # 1 if the raycasts aims for the right wall, -1 if the raycast aims for the left wall, 0 if not aiming for any wall
 var _mix_to_direction_amount := 1.0  # Used after wall jumping and pressing forward, to not stick to the wall. Varies between 0 and 1.
 var _charge_shot_time := 0  # time when the shot key was pressed (as unix timestamp, millis)
-var _angular_rot := 0
+var _angular_rot := 0.0
 
 #==== ONREADY ====
 # onready var onready_var # Optionnal comment
@@ -98,6 +102,7 @@ var _angular_rot := 0
 func _ready():
 	camera = get_node(PATHS.camera)
 	rotation_helper = get_node(PATHS.rotation_helper)
+	global_rotation_helper = get_node(PATHS.global_rotation_helper)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 
@@ -122,8 +127,8 @@ func _integrate_forces(_state):
 	dir += -cam_xform.basis.z * input_movement_vector.y
 	dir += -cam_xform.basis.x * input_movement_vector.x
 
-	linear_velocity = dir * 20
-	angular_velocity.y = _angular_rot
+	var xdir = Vector3(dir.x, 0, dir.z)  # only the X-Z plan direction
+	linear_velocity = xdir * 20
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame. Remove the "_" to use it.
@@ -142,18 +147,19 @@ func _physics_process(delta):
 	#	DebugDraw.draw_line_3d(
 	#		self.transform.origin, self.transform.origin + self.transform.basis.z, Color(0, 0, 1)
 	#	)
-	_set_UI_data()
-	_process_collision()
-	_process_input(delta)
-	_process_movement(delta)
-	_process_states()
+	# _set_UI_data()
+	# _process_collision()
+	# _process_input(delta)
+	# _process_movement(delta)
+	# _process_states()
 
 
 # when an input is pressed
 func _input(event):
 	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		rotation_helper.rotate_x(deg2rad(event.relative.y * mouse_sensitivity))
-		_angular_rot = event.relative.x * 0.5 * -1.0
+		global_rotation_helper.rotate_y(deg2rad(event.relative.x * mouse_sensitivity * -1))
+
 		var camera_rot = rotation_helper.rotation_degrees
 		camera_rot.x = clamp(camera_rot.x, -70, 70)
 		rotation_helper.rotation_degrees = camera_rot
@@ -179,11 +185,11 @@ func update_properties() -> void:
 
 
 #==== Others =====
-func is_on_floor() -> bool:
+func _is_on_floor() -> bool:
 	return $RayCasts/Floor.is_colliding()
 
 
-func is_on_wall() -> bool:
+func _is_on_wall() -> bool:
 	return false
 
 
@@ -221,7 +227,7 @@ func _process_input(_delta):
 	dir += cam_xform.basis.x * input_movement_vector.x
 
 	# Jumping
-	if is_on_floor():
+	if _is_on_floor():
 		if Input.is_action_pressed("movement_jump"):
 			if states.has("sliding"):
 				vel += Vector3(vel.x, 0, vel.z).normalized() * SLIDE_SPEED_BONUS_JUMP
@@ -269,12 +275,7 @@ func _process_movement(delta):
 		elif $RayCasts/RayCastWallPlus.is_colliding():
 			_RC_wall_direction = 1
 	# Movement process
-	if (
-		not is_on_floor()
-		and (is_on_wall() or states.has("wall_riding"))
-		and _slide
-		and _RC_wall_direction != 0
-	):
+	if not _is_on_floor() and _slide and _RC_wall_direction != 0:
 		var rc: RayCast = (
 			$RayCasts/RayCastWallPlus
 			if _RC_wall_direction == 1
@@ -319,7 +320,7 @@ func _process_movement(delta):
 # updates the states
 func _process_states():
 	DebugDraw.set_text("states", states)
-	if is_on_floor() and not states.has("in_air"):
+	if _is_on_floor() and not states.has("in_air"):
 		states.append("in_air")
 	if current_speed != 0 and not states.has("moving"):
 		states.append("moving")
@@ -331,7 +332,7 @@ func _process_states():
 		states.has("wall_riding")
 		and (
 			not Input.is_action_pressed("movement_slide")
-			or is_on_floor()
+			or _is_on_floor()
 			or _RC_wall_direction == 0
 		)
 	):
@@ -380,7 +381,7 @@ func _keep_wallride_raycasts_perpendicular() -> void:
 # computes the horizontal velocity
 func _compute_hvel(p_vel: Vector2, delta: float) -> Vector2:
 	current_speed = p_vel.length()
-	if is_on_floor():
+	if _is_on_floor():
 		return _compute_ground_hvel(p_vel, delta)
 	else:
 		return _compute_air_hvel(p_vel, delta)
