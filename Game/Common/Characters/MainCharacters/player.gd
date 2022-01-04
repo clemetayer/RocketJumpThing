@@ -69,7 +69,12 @@ export (Dictionary) var PATHS = {
 	"camera": NodePath("."),
 	"global_rotation_helper": NodePath("."),
 	"rotation_helper": NodePath("."),
-	"raycasts": {"floor": NodePath(".")},
+	"raycasts":
+	{
+		"floor": NodePath("."),
+		"raycast_wall_plus": NodePath("."),
+		"raycast_wall_minus": NodePath(".")
+	},
 	"UI": NodePath(".")
 }
 export (Dictionary) var properties setget set_properties
@@ -111,8 +116,6 @@ func _integrate_forces(_state):
 	# Camera
 	dir = Vector3()
 	var cam_xform = camera.get_global_transform()
-	if vel.y >= -200:  # To avoid getting too much speed when falling and going through the ground # TODO : use a const treshold
-		vel.y += GRAVITY
 
 	# Standard movement
 	input_movement_vector = Vector2()
@@ -171,15 +174,7 @@ func _integrate_forces(_state):
 		else:
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
-	vel.x = xdir.x * 50
-	vel.z = xdir.z * 50
 	linear_velocity = vel
-
-	# additional velocities from the environment
-	var vect_i := 0
-	while vect_i < len(_add_velocity_vector_queue):
-		apply_central_impulse(_add_velocity_vector_queue[0])
-		_add_velocity_vector_queue.pop_back()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame. Remove the "_" to use it.
@@ -199,10 +194,10 @@ func _physics_process(delta):
 	#		self.transform.origin, self.transform.origin + self.transform.basis.z, Color(0, 0, 1)
 	#	)
 	# _set_UI_data()
-	# _process_collision()
+	_process_collision()
 	# _process_input(delta)
-	# _process_movement(delta)
-	# _process_states()
+	_process_movement(delta)
+	_process_states()
 
 
 # when an input is pressed
@@ -317,19 +312,19 @@ func _process_input(_delta):
 
 # process for the movement
 func _process_movement(delta):
-	_debug_process_movement(delta)
+	# _debug_process_movement(delta)
 	# Wall ride wall check
 	if _RC_wall_direction == 0:  # First contact with wall
-		if $RayCasts/RayCastWallMinus.is_colliding():
+		if get_node(PATHS.raycasts.raycast_wall_minus).is_colliding():
 			_RC_wall_direction = -1
-		elif $RayCasts/RayCastWallPlus.is_colliding():
+		elif get_node(PATHS.raycasts.raycast_wall_plus).is_colliding():
 			_RC_wall_direction = 1
 	# Movement process
 	if not _is_on_floor() and _slide and _RC_wall_direction != 0:
 		var rc: RayCast = (
-			$RayCasts/RayCastWallPlus
+			get_node(PATHS.raycasts.raycast_wall_plus)
 			if _RC_wall_direction == 1
-			else $RayCasts/RayCastWallMinus if _RC_wall_direction == -1 else null
+			else get_node(PATHS.raycasts.raycast_wall_minus) if _RC_wall_direction == -1 else null
 		)
 		if rc != null and rc.is_colliding():  # if on an "acceptable" wall
 			var wall_normal = rc.get_collision_normal().normalized()  # normal of the wall, should be the aligned with the player x axis
@@ -375,7 +370,7 @@ func _process_states():
 	if current_speed != 0 and not states.has("moving"):
 		states.append("moving")
 	if states.has("sliding") and (not Input.is_action_pressed("movement_slide")):
-		rotate_object_local(Vector3(1, 0, 0), PI / 4)
+		global_rotation_helper.rotate_object_local(Vector3(1, 0, 0), PI / 4)
 		rotation_helper.rotate_object_local(Vector3(1, 0, 0), -PI / 4)
 		states.erase("sliding")
 	if (
@@ -393,7 +388,8 @@ func _process_states():
 func _process_hvel(delta: float) -> void:
 	dir.y = 0
 	dir = dir.normalized()
-	vel.y += delta * GRAVITY
+	if vel.y >= -200:  # To avoid getting too much speed when falling and going through the ground # TODO : use a const treshold
+		vel.y += GRAVITY
 	var hvel := _compute_hvel(Vector2(vel.x, vel.z), delta)
 	vel.x = hvel.x
 	vel.z = hvel.y
@@ -403,7 +399,7 @@ func _process_hvel(delta: float) -> void:
 
 # resets the wallride raycasts to their standard rotation value
 func _reset_wallride_raycasts() -> void:
-	$RayCasts.rotation = Vector3(0, 0, 0)
+	$GlobalRotationHelper/RayCasts.rotation = Vector3(0, 0, 0)
 
 
 # sets the wallride raycast rotations to stay perpendicular to the wall it is colliding with
@@ -413,19 +409,19 @@ func _keep_wallride_raycasts_perpendicular() -> void:
 	var raycast_dir_vect: Vector3  # direction to the raycast from the collision point
 	var angle: float  # angle between wall_normal_vect and raycast_dir_vect
 	if _RC_wall_direction == -1:  # right raycast
-		rc = $RayCasts/RayCastWallMinus
+		rc = get_node(PATHS.raycasts.raycast_wall_minus)
 		wall_normal_vect = rc.get_collision_normal()
 		raycast_dir_vect = rc.global_transform.origin - rc.get_collision_point()
 		angle = wall_normal_vect.signed_angle_to(raycast_dir_vect, Vector3.UP)
 		DebugDraw.set_text("angle", angle)
-		$RayCasts.rotate_y(-angle)
+		$GlobalRotationHelper/RayCasts.rotate_y(-angle)
 	elif _RC_wall_direction == 1:  # left raycast
-		rc = $RayCasts/RayCastWallPlus
+		rc = get_node(PATHS.raycasts.raycast_wall_plus)
 		wall_normal_vect = rc.get_collision_normal()
 		raycast_dir_vect = rc.global_transform.origin - rc.get_collision_point()
 		angle = wall_normal_vect.signed_angle_to(raycast_dir_vect, Vector3.UP)
 		DebugDraw.set_text("angle", angle)
-		$RayCasts.rotate_y(-angle)
+		$GlobalRotationHelper/RayCasts.rotate_y(-angle)
 
 
 # computes the horizontal velocity
@@ -525,11 +521,11 @@ func remove_shooting_state():
 func _debug_process_movement(_delta: float):
 	var rc: RayCast
 	var rc_dir := 0
-	if $RayCasts/RayCastWallMinus.is_colliding():
-		rc = $RayCasts/RayCastWallMinus
+	if get_node(PATHS.raycasts.raycast_wall_minus).is_colliding():
+		rc = get_node(PATHS.raycasts.raycast_wall_minus)
 		rc_dir = -1
-	elif $RayCasts/RayCastWallPlus.is_colliding():
-		rc = $RayCasts/RayCastWallPlus
+	elif get_node(PATHS.raycasts.raycast_wall_plus).is_colliding():
+		rc = get_node(PATHS.raycasts.raycast_wall_plus)
 		rc_dir = 1
 	if rc != null:
 		var wall_normal = rc.get_collision_normal().normalized()  # normal of the wall, should be the aligned with the player x axis

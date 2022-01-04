@@ -23,7 +23,9 @@ PATHS = {
 "camera": NodePath("GlobalRotationHelper/RotationHelper/Camera"),
 "global_rotation_helper": NodePath("GlobalRotationHelper"),
 "raycasts": {
-"floor": NodePath("GlobalRotationHelper/RayCasts/Floor")
+"floor": NodePath("GlobalRotationHelper/RayCasts/Floor"),
+"raycast_wall_minus": NodePath("GlobalRotationHelper/RayCasts/RayCastWallMinus"),
+"raycast_wall_plus": NodePath("GlobalRotationHelper/RayCasts/RayCastWallPlus")
 },
 "rotation_helper": NodePath("GlobalRotationHelper/RotationHelper")
 }
