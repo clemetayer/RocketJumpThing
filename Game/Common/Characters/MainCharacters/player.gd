@@ -69,6 +69,7 @@ export (Dictionary) var PATHS = {
 	"camera": NodePath("."),
 	"global_rotation_helper": NodePath("."),
 	"rotation_helper": NodePath("."),
+	"raycasts": {"floor": NodePath(".")},
 	"UI": NodePath(".")
 }
 export (Dictionary) var properties setget set_properties
@@ -110,6 +111,7 @@ func _integrate_forces(_state):
 	# Camera
 	dir = Vector3()
 	var cam_xform = camera.get_global_transform()
+	vel.y += GRAVITY
 
 	# Standard movement
 	input_movement_vector = Vector2()
@@ -127,8 +129,40 @@ func _integrate_forces(_state):
 	dir += -cam_xform.basis.z * input_movement_vector.y
 	dir += -cam_xform.basis.x * input_movement_vector.x
 
-	var xdir = Vector3(dir.x, 0, dir.z)  # only the X-Z plan direction
-	linear_velocity = xdir * 20
+	# velocity computation
+	var xdir = Vector3(dir.x, 0, dir.z).normalized()  # only the X-Z plan direction
+
+	if _is_on_floor():
+		if Input.is_action_pressed("movement_jump"):
+			if states.has("sliding"):
+				apply_central_impulse(xdir * SLIDE_SPEED_BONUS_JUMP)
+				vel += Vector3(vel.x, 0, vel.z).normalized() * SLIDE_SPEED_BONUS_JUMP
+				_slide = false
+				global_rotation_helper.rotate_object_local(Vector3(1, 0, 0), PI / 4)
+				rotation_helper.rotate_object_local(Vector3(1, 0, 0), -PI / 4)
+				states.erase("sliding")
+			vel.y = JUMP_POWER
+		else:
+			print("here")
+			vel.y = FLOOR_POWER
+
+	# Slide
+	if Input.is_action_just_pressed("movement_slide"):
+		_slide = true
+	elif Input.is_action_just_released("movement_slide"):
+		_slide = false
+
+	# Capturing/Freeing the cursor
+	if Input.is_action_just_pressed("ui_cancel"):
+		if Input.get_mouse_mode() == Input.MOUSE_MODE_VISIBLE:
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		else:
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
+	vel.x = xdir.x * 50
+	vel.z = xdir.z * 50
+	linear_velocity = vel
+	print(vel)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame. Remove the "_" to use it.
@@ -159,7 +193,6 @@ func _input(event):
 	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		rotation_helper.rotate_x(deg2rad(event.relative.y * mouse_sensitivity))
 		global_rotation_helper.rotate_y(deg2rad(event.relative.x * mouse_sensitivity * -1))
-
 		var camera_rot = rotation_helper.rotation_degrees
 		camera_rot.x = clamp(camera_rot.x, -70, 70)
 		rotation_helper.rotation_degrees = camera_rot
@@ -186,7 +219,7 @@ func update_properties() -> void:
 
 #==== Others =====
 func _is_on_floor() -> bool:
-	return $RayCasts/Floor.is_colliding()
+	return get_node(PATHS.raycasts.floor).is_colliding()
 
 
 func _is_on_wall() -> bool:
