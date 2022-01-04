@@ -56,7 +56,7 @@ material = SubResource( 10 )
 size = Vector2( 1000, 1000 )
 
 [sub_resource type="BoxShape" id=12]
-extents = Vector3( 1000, 0.1, 1000 )
+extents = Vector3( 1000, 1, 1000 )
 
 [sub_resource type="CubeMesh" id=13]
 size = Vector3( 2, 10, 2 )
@@ -104,7 +104,7 @@ height = 0.2
 [node name="TestScene" type="Spatial"]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.3319, 36.6203, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.3319, 617.49, 0 )
 PATHS = {
 "UI": NodePath("PlayerUI"),
 "camera": NodePath("GlobalRotationHelper/RotationHelper/Camera"),

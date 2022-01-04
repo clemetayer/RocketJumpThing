@@ -111,7 +111,8 @@ func _integrate_forces(_state):
 	# Camera
 	dir = Vector3()
 	var cam_xform = camera.get_global_transform()
-	vel.y += GRAVITY
+	if vel.y >= -200:  # To avoid getting too much speed when falling and going through the ground # TODO : use a const treshold
+		vel.y += GRAVITY
 
 	# Standard movement
 	input_movement_vector = Vector2()
@@ -143,8 +144,19 @@ func _integrate_forces(_state):
 				states.erase("sliding")
 			vel.y = JUMP_POWER
 		else:
-			print("here")
 			vel.y = FLOOR_POWER
+
+	# Shooting
+	if Input.is_action_pressed("action_shoot") and not states.has("shooting"):
+		states.append("shooting")
+		var rocket = load(ROCKET_SCENE_PATH).instance()
+		rocket.START_POS = transform.origin + transform.basis * ROCKET_START_OFFSET
+		rocket.DIRECTION = -cam_xform.basis.z
+		rocket.UP_VECTOR = Vector3(0, 1, 0)
+		get_parent().add_child(rocket)
+		var _err = get_tree().create_timer(ROCKET_DELAY).connect(
+			"timeout", self, "remove_shooting_state"
+		)
 
 	# Slide
 	if Input.is_action_just_pressed("movement_slide"):
@@ -162,7 +174,12 @@ func _integrate_forces(_state):
 	vel.x = xdir.x * 50
 	vel.z = xdir.z * 50
 	linear_velocity = vel
-	print(vel)
+
+	# additional velocities from the environment
+	var vect_i := 0
+	while vect_i < len(_add_velocity_vector_queue):
+		apply_central_impulse(_add_velocity_vector_queue[0])
+		_add_velocity_vector_queue.pop_back()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame. Remove the "_" to use it.
