@@ -135,6 +135,7 @@ func _integrate_forces(_state):
 
 	# velocity computation
 	var xdir = Vector3(dir.x, 0, dir.z).normalized()  # only the X-Z plan direction
+	DebugDraw.draw_line_3d(self.translation, self.translation + xdir * 50, Color(1, 1, 1, 1))
 
 	if _is_on_floor():
 		if Input.is_action_pressed("movement_jump"):
@@ -277,7 +278,7 @@ func _process_input(_delta):
 			if states.has("sliding"):
 				vel += Vector3(vel.x, 0, vel.z).normalized() * SLIDE_SPEED_BONUS_JUMP
 				_slide = false
-				rotate_object_local(Vector3(1, 0, 0), PI / 4)
+				global_rotation_helper.rotate_object_local(Vector3(1, 0, 0), PI / 4)
 				rotation_helper.rotate_object_local(Vector3(1, 0, 0), -PI / 4)
 				states.erase("sliding")
 			vel.y += JUMP_POWER
@@ -501,7 +502,7 @@ func _mvt_air_sway(dir_2D: Vector2, p_vel: Vector2, delta: float) -> Vector2:
 func _compute_ground_hvel(p_vel: Vector2, delta: float) -> Vector2:
 	if _slide:
 		if not states.has("sliding"):
-			self.rotate_object_local(Vector3(1, 0, 0), -PI / 4)
+			global_rotation_helper.rotate_object_local(Vector3(1, 0, 0), -PI / 4)
 			rotation_helper.rotate_object_local(Vector3(1, 0, 0), PI / 4)
 			states.append("sliding")
 		return p_vel.move_toward(Vector2(dir.x, dir.z) * p_vel.length(), delta * SLIDE_STEER_POWER)
