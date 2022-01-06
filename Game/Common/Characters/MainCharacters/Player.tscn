@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Game/Common/Characters/MainCharacters/player.gd" type="Script" id=1]
 [ext_resource path="res://Game/Common/Characters/player_UI.tscn" type="PackedScene" id=2]
@@ -11,9 +11,6 @@ height = 3.0
 
 [sub_resource type="CylinderShape" id=5]
 height = 3.0
-
-[sub_resource type="SphereShape" id=6]
-radius = 0.5
 
 [sub_resource type="SphereShape" id=3]
 
@@ -35,13 +32,6 @@ shape = SubResource( 5 )
 __meta__ = {
 "_editor_description_": "Cylinder shape to match steps and corner well
 "
-}
-
-[node name="PlayerCollision2" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.26785, 0 )
-shape = SubResource( 6 )
-__meta__ = {
-"_editor_description_": "Sphere to smooth movement, especially to avoid brutal depenetration after jumping. (Kind of a hack, ngl)"
 }
 
 [node name="SlideCollision" type="CollisionShape" parent="."]
