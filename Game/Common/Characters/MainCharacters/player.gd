@@ -232,6 +232,9 @@ func update_properties() -> void:
 
 #==== Others =====
 func _is_on_floor() -> bool:
+	# FIXME : don't rotate the raycasts with body
+	# FIXME : use a longer raycast and the collision normal for better floor detection (especially slopes)
+	# TODO : handle small steps ?
 	return get_node(PATHS.raycasts.floor).is_colliding()
 
 
@@ -482,7 +485,7 @@ func _mvt_air_bw(p_vel: Vector2) -> Vector2:
 # Movement when in air and strafing
 # FIXME : It works, but the vector values are a bit weird...
 func _mvt_air_strafe(p_vel: Vector2, dir_2D: Vector2, delta: float) -> Vector2:
-	if abs(p_vel.angle_to(dir_2D)) < PI / 1.5:  # No backward movement, Don't ask questions about the 1.5. By visualising the vectors, it stops at PI/4 for some reason...
+	if abs(p_vel.angle_to(dir_2D)) < PI / 4:  # No backward movement, Don't ask questions about the 1.5. By visualising the vectors, it stops at PI/4 for some reason...
 		var r_dir_2D = dir_2D.rotated(-input_movement_vector.x * PI / 4)  # rotates the dir_2D by PI/4, to give a vector that is "on the side" of the character, where the velocity will be projected to compute add_speed
 		var add_speed_vector = p_vel.project(r_dir_2D)
 		return p_vel + add_speed_vector * delta * AIR_ADD_STRAFE_SPEED
