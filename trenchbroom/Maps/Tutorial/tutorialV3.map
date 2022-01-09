@@ -3149,6 +3149,33 @@
 ( -786 2958 258 ) ( -784 2958 258 ) ( -786 2958 284 ) scenes/tutorial_scene/LightGuide [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
 ( -784 2956 258 ) ( -784 2956 276 ) ( -784 2958 258 ) scenes/tutorial_scene/LightGuide [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
+// brush 26
+{
+( -917 3028 301 ) ( -917 3032 260 ) ( -917 3032 301 ) scenes/tutorial_scene/LightGuide [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -992 3032 290 ) ( -952 3032 301 ) ( -952 3028 301 ) scenes/tutorial_scene/LightGuide [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -992 3028 290 ) ( -952 3028 301 ) ( -952 3028 260 ) scenes/tutorial_scene/LightGuide [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -952 3028 260 ) ( -952 3032 260 ) ( -992 3032 260 ) scenes/tutorial_scene/LightGuide [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -952 3032 260 ) ( -952 3032 301 ) ( -992 3032 290 ) scenes/tutorial_scene/LightGuide [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -916 3028 301 ) ( -916 3032 301 ) ( -916 3032 260 ) scenes/tutorial_scene/LightGuide [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+// brush 27
+{
+( -917 3092 301 ) ( -917 3096 260 ) ( -917 3096 301 ) scenes/tutorial_scene/LightGuide [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -991 3096 290 ) ( -951 3096 301 ) ( -951 3092 301 ) scenes/tutorial_scene/LightGuide [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -991 3092 290 ) ( -951 3092 301 ) ( -951 3092 260 ) scenes/tutorial_scene/LightGuide [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -951 3092 260 ) ( -951 3096 260 ) ( -991 3096 260 ) scenes/tutorial_scene/LightGuide [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -951 3096 260 ) ( -951 3096 301 ) ( -991 3096 290 ) scenes/tutorial_scene/LightGuide [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -916 3092 301 ) ( -916 3096 301 ) ( -916 3096 260 ) scenes/tutorial_scene/LightGuide [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+// brush 28
+{
+( -917 3156 301 ) ( -917 3160 260 ) ( -917 3160 301 ) scenes/tutorial_scene/LightGuide [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -990 3160 290 ) ( -950 3160 301 ) ( -950 3156 301 ) scenes/tutorial_scene/LightGuide [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -990 3156 290 ) ( -950 3156 301 ) ( -950 3156 260 ) scenes/tutorial_scene/LightGuide [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -950 3156 260 ) ( -950 3160 260 ) ( -990 3160 260 ) scenes/tutorial_scene/LightGuide [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -950 3160 260 ) ( -950 3160 301 ) ( -990 3160 290 ) scenes/tutorial_scene/LightGuide [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -916 3156 301 ) ( -916 3160 301 ) ( -916 3160 260 ) scenes/tutorial_scene/LightGuide [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
 }
 // entity 25
 {

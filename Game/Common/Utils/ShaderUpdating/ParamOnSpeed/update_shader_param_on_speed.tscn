@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Game/Common/Utils/ShaderUpdating/ParamOnSpeed/update_shader_param_on_speed.gd" type="Script" id=1]
+
+[node name="UpdateShaderParamOnSpeed" type="Node"]
+script = ExtResource( 1 )
+__meta__ = {
+"_editor_description_": "A node that updates shader parameters of a material based on the speed transmitted by the signal manager"
+}
