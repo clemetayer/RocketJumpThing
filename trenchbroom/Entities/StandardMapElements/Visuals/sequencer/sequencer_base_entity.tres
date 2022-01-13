@@ -5,17 +5,19 @@
 [resource]
 script = ExtResource( 1 )
 class_options = "----------------------------------------------------------------"
-classname = "Collidable"
-description = "Something you can collide with"
+classname = "SequencerBaseEntity"
+description = "Base class for the step sequencer"
 qodot_internal = false
 base_classes = [  ]
 class_properties = {
-"collision_layer": 2,
-"collision_mask": 5
+"id": "",
+"number": 0,
+"number_of_steps": 0
 }
 class_property_descriptions = {
-"collision_layer": "Collision layer",
-"collision_mask": "Collision mask"
+"id": "identifier of the step sequencer element",
+"number": "number of the step sequencer element to activate",
+"number_of_steps": "total amount of steps before looping"
 }
 meta_properties = {
 }

@@ -29,6 +29,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Game/Common/MapElements/BaseClasses/collidable.gd"
 }, {
+"base": "Collidable",
+"class": "CollidableStepSequencer",
+"language": "GDScript",
+"path": "res://trenchbroom/Entities/StandardMapElements/Visuals/sequencer/CollidableStepSequencers/collidable_step_sequencer.gd"
+}, {
 "base": "Appender",
 "class": "ConsoleAppender",
 "language": "GDScript",
@@ -209,6 +214,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Game/Common/MovementUtils/Rocket/Rocket.gd"
 }, {
+"base": "Node",
+"class": "SequencerBaseEntity",
+"language": "GDScript",
+"path": "res://trenchbroom/Entities/StandardMapElements/Visuals/sequencer/sequencer_base_entity.gd"
+}, {
 "base": "LiquidLayer",
 "class": "SlimeLayer",
 "language": "GDScript",
@@ -279,6 +289,7 @@ _global_script_class_icons={
 "AreaOpenDoor": "",
 "Checkpoint": "",
 "Collidable": "",
+"CollidableStepSequencer": "",
 "ConsoleAppender": "",
 "DeathGrid": "",
 "DebugUtils": "",
@@ -315,6 +326,7 @@ _global_script_class_icons={
 "QuakeWadFile": "",
 "QuakeWadImportPlugin": "",
 "Rocket": "",
+"SequencerBaseEntity": "",
 "SlimeLayer": "",
 "StandardDoor": "",
 "StandardScene": "",
