@@ -4,7 +4,7 @@ extends CollidableStepSequencer
 
 ##### VARIABLES #####
 #---- CONSTANTS -----
-const FADE_IN_TIME := .5
+const FADE_IN_TIME := .2
 const FADE_OUT_TIME := FADE_IN_TIME * 2.0
 const MIN_INTENSITY := 1.0
 const MAX_INTENSITY := 50.0

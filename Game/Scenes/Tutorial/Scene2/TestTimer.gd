@@ -3,4 +3,4 @@ extends Timer
 
 
 func _on_Timer_timeout():
-	SignalManager.emit_sequencer_step("test")
+	SignalManager.emit_sequencer_step("light_1")
