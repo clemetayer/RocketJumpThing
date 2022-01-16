@@ -12,8 +12,9 @@ export (Dictionary) var properties setget set_properties
 ##### PROCESSING #####
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	weight = 100
+	weight = 1
 	mode = MODE_STATIC
+	set_use_continuous_collision_detection(true)
 
 
 ##### PROTECTED METHODS #####
@@ -35,5 +36,5 @@ func update_properties() -> void:
 #==== Qodot =====
 func use() -> void:
 	mode = MODE_RIGID
-	yield(get_tree().create_timer(60.0), "timeout")
+	yield(get_tree().create_timer(30.0), "timeout")
 	queue_free()

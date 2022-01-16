@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Game/Common/Characters/MainCharacters/player.gd" type="Script" id=1]
 [ext_resource path="res://Game/Common/Characters/player_UI.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Game/Common/Characters/tutorial_hints.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Game/Common/Characters/checkpoint_UI.tscn" type="PackedScene" id=4]
 
 [sub_resource type="CylinderMesh" id=4]
 top_radius = 0.6
@@ -68,7 +69,11 @@ far = 500.0
 [node name="PlayerUI" parent="." instance=ExtResource( 2 )]
 follow_viewport_enable = true
 
+[node name="CheckpointUI" parent="." instance=ExtResource( 4 )]
+layer = 2
+
 [node name="TutorialHints" parent="." instance=ExtResource( 3 )]
+layer = 3
 
 [node name="Timers" type="Node" parent="."]
 

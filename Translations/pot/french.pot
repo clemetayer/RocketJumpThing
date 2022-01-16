@@ -6,13 +6,19 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: c.lemetayer@laposte.net\n"
 "POT-Creation-Date: 2021-12-19\n"
-"PO-Revision-Date: 2021-12-19\n"
+"PO-Revision-Date: 2022-01-16\n"
 "Last-Translator: Corentin Le Métayer <c.lemetayer@laposte.net>\n"
 "Language: fr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 #================================= MENUS =================================
+
+#================================ COMMON =================================
+#---------------------------------- UI -----------------------------------
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ PLAYER ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+msgid "player_ui_checkpoint"
+msgstr "Checkpoint !"
 
 #=============================== TUTORIALS ===============================
 #----------------------------- TUTORIAL SCENE ----------------------------
