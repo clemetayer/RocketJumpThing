@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=10 format=2]
+[gd_resource type="Resource" load_steps=11 format=2]
 
 [ext_resource path="res://addons/qodot/src/resources/game-definitions/fgd/qodot_fgd_file.gd" type="Script" id=1]
 [ext_resource path="res://addons/qodot/game_definitions/fgd/solid_classes/worldspawn_solid_class.tres" type="Resource" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://trenchbroom/Entities/StandardMapElements/Doors/doors_fgd.tres" type="Resource" id=7]
 [ext_resource path="res://trenchbroom/Entities/StandardMapElements/tutorial_trigger.tres" type="Resource" id=8]
 [ext_resource path="res://trenchbroom/Entities/StandardMapElements/Visuals/sequencer/sequencer_fgd.tres" type="Resource" id=9]
+[ext_resource path="res://trenchbroom/Entities/StandardMapElements/spatial_solid_entity.tres" type="Resource" id=10]
 
 [resource]
 script = ExtResource( 1 )
@@ -16,4 +17,4 @@ export_file = false
 target_folder = "D:/Godot/TOOLS/games/RocketJumpThing"
 fgd_name = "MapElements_fgd"
 base_fgd_files = [ ExtResource( 4 ), ExtResource( 7 ), ExtResource( 9 ) ]
-entity_definitions = [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 8 ) ]
+entity_definitions = [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 8 ), ExtResource( 10 ) ]
