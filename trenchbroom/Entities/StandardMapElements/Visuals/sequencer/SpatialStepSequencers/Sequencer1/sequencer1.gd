@@ -32,15 +32,33 @@ func _ready_func():
 func _step_function() -> void:
 	var tween := Tween.new()
 	add_child(tween)
-	tween.interpolate_method(
+	if ! tween.interpolate_method(
 		self, "_set_shader_intensity", MIN_INTENSITY, MAX_INTENSITY, FADE_IN_TIME
-	)
-	tween.start()
+	):
+		Logger.error(
+			(
+				"Error while setting tween interpolate method %s at %s"
+				% ["_set_shader_intensity", DebugUtils.print_stack_trace(get_stack())]
+			)
+		)
+	if ! tween.start():
+		Logger.error(
+			"Error when starting tween at %s" % [DebugUtils.print_stack_trace(get_stack())]
+		)
 	yield(tween, "tween_all_completed")
-	tween.interpolate_method(
+	if ! tween.interpolate_method(
 		self, "_set_shader_intensity", MAX_INTENSITY, MIN_INTENSITY, FADE_OUT_TIME
-	)
-	tween.start()
+	):
+		Logger.error(
+			(
+				"Error while setting tween interpolate method %s at %s"
+				% ["_set_shader_intensity", DebugUtils.print_stack_trace(get_stack())]
+			)
+		)
+	if ! tween.start():
+		Logger.error(
+			"Error when starting tween at %s" % [DebugUtils.print_stack_trace(get_stack())]
+		)
 	yield(tween, "tween_all_completed")
 	tween.queue_free()
 

@@ -47,20 +47,38 @@ func _display_effect() -> void:
 	var tween := Tween.new()
 	add_child(tween)
 	var col: Color = $CenterContainer.modulate
-	tween.interpolate_property(
+	if ! tween.interpolate_property(
 		$CenterContainer, "modulate", col, Color(col.r, col.g, col.b, 1), ATTACK_TIME
-	)
-	tween.start()
+	):
+		Logger.error(
+			(
+				"Error while setting tween interpolate property %s at %s"
+				% ["modulate", DebugUtils.print_stack_trace(get_stack())]
+			)
+		)
+	if ! tween.start():
+		Logger.error(
+			"Error when starting tween at %s" % [DebugUtils.print_stack_trace(get_stack())]
+		)
 	yield(tween, "tween_all_completed")
 	yield(get_tree().create_timer(DECAY_TIME), "timeout")
-	tween.interpolate_property(
+	if ! tween.interpolate_property(
 		$CenterContainer, "modulate", Color(col.r, col.g, col.b, 1), col, RELEASE_TIME
-	)
-	tween.start()
+	):
+		Logger.error(
+			(
+				"Error while setting tween interpolate property %s at %s"
+				% ["modulate", DebugUtils.print_stack_trace(get_stack())]
+			)
+		)
+	if ! tween.start():
+		Logger.error(
+			"Error when starting tween at %s" % [DebugUtils.print_stack_trace(get_stack())]
+		)
 	yield(tween, "tween_all_completed")
 	tween.queue_free()
 
 
 ##### SIGNAL MANAGEMENT #####
-func _on_SignalManager_checkpoint_triggered(checkpoint: Checkpoint) -> void:
+func _on_SignalManager_checkpoint_triggered(_checkpoint: Checkpoint) -> void:
 	_display_effect()
