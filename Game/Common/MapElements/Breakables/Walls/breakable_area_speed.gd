@@ -3,7 +3,7 @@ extends Collidable
 # TODO : update entity
 
 ##### SIGNALS #####
-signal trigger
+signal trigger(parameters)
 
 ##### VARIABLES #####
 #---- CONSTANTS -----
@@ -13,6 +13,7 @@ const UI_PATH := "res://Game/Common/MapElements/Breakables/Walls/breakable_area_
 #==== PRIVATE ====
 var _treshold := 100.0  # treshold speed for the wall to break (greater or equal)
 var _ui_load := preload(UI_PATH)
+
 
 ##### PROCESSING #####
 # Called when the object is initialized.
@@ -29,6 +30,7 @@ func _init():
 			)
 		)
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if 'treshold' in properties:
@@ -39,22 +41,23 @@ func _ready():
 	var sprite := Sprite3D.new()
 	if 'text_direction' in properties:
 		sprite.rotation_degrees = properties.text_direction
-	sprite.scale = Vector3(15,15,1)
+	sprite.scale = Vector3(15, 15, 1)
 	add_child(sprite)
 	if 'scale' in properties:
 		sprite.scale = properties.scale
 	sprite.texture = ui.get_texture()
 	sprite.texture.flags = Texture.FLAG_FILTER
 	sprite.flip_v = true
-	
+
 
 ##### PROTECTED METHODS #####
 #==== Qodot =====
 func update_properties() -> void:
 	.update_properties()
 
+
 ##### SIGNAL MANAGEMENT #####
 func _on_breakable_area_speed_body_entered(body):
 	if body.is_in_group("player") and body.current_speed >= _treshold:
-		emit_signal("trigger")
+		emit_signal("trigger", {"position" : body.transform.origin, "speed" : body.current_speed})
 		self.queue_free()

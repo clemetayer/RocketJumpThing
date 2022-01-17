@@ -5,6 +5,9 @@ extends RigidBody
 # OPTIMIZATION : Split the wall procedurally at runtime for general memory optimization
 
 ##### VARIABLES #####
+#---- CONSTANTS -----
+const SPEED_DIVIDER := 5  # Speed divider to prevent the wall from exploding too much 
+
 #---- EXPORTS -----
 export (Dictionary) var properties setget set_properties
 
@@ -34,7 +37,14 @@ func update_properties() -> void:
 
 ##### SIGNAL MANAGEMENT #####
 #==== Qodot =====
-func use() -> void:
+func use(parameters: Dictionary) -> void:
 	mode = MODE_RIGID
+	apply_central_impulse(
+		(
+			(self.transform.origin - parameters.position).normalized()
+			* parameters.speed
+			/ SPEED_DIVIDER
+		)
+	)
 	yield(get_tree().create_timer(30.0), "timeout")
 	queue_free()

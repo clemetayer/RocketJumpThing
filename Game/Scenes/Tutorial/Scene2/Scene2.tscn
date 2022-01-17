@@ -3137,6 +3137,9 @@ transform = Transform( -1, 6.18172e-08, -6.18172e-08, 0, 0.707107, 0.707107, 8.7
 light_color = Color( 0.490196, 1, 0.929412, 1 )
 light_specular = 10.0
 shadow_enabled = true
+directional_shadow_mode = 1
+directional_shadow_depth_range = 1
+directional_shadow_max_distance = 300.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 2 )
