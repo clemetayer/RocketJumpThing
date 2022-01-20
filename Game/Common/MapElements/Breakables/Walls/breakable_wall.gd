@@ -6,7 +6,7 @@ extends RigidBody
 
 ##### VARIABLES #####
 #---- CONSTANTS -----
-const SPEED_DIVIDER := 5  # Speed divider to prevent the wall from exploding too much 
+const SPEED_DIVIDER := .055  # Speed divider to prevent the wall from exploding too much, or not enough
 
 #---- EXPORTS -----
 export (Dictionary) var properties setget set_properties
@@ -15,7 +15,7 @@ export (Dictionary) var properties setget set_properties
 ##### PROCESSING #####
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	weight = 1
+	weight = 100
 	mode = MODE_STATIC
 	set_use_continuous_collision_detection(true)
 
