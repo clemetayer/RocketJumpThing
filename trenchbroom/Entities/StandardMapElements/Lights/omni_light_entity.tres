@@ -1,0 +1,36 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://addons/qodot/src/resources/game-definitions/fgd/qodot_fgd_point_class.gd" type="Script" id=1]
+[ext_resource path="res://trenchbroom/Entities/StandardMapElements/Lights/OmniLight.tscn" type="PackedScene" id=3]
+
+[resource]
+script = ExtResource( 1 )
+class_options = "----------------------------------------------------------------"
+classname = "OmniLightEntity"
+description = "An omni light entity point class"
+qodot_internal = false
+base_classes = [  ]
+class_properties = {
+"color": Color( 1, 1, 1, 1 ),
+"energy": 1.0,
+"range": 150.0,
+"shadow_mode": 1,
+"specular": 0.5
+}
+class_property_descriptions = {
+"color": "color of the light",
+"energy": "energy of the light",
+"range": "range of the omni light",
+"shadow_mode": "shadow mode : 0 = dual paraboid, 1 = cube",
+"specular": "Specular value of the light"
+}
+meta_properties = {
+"color": Color( 1, 0.937255, 0, 1 ),
+"size": AABB( -2, -2, -2, 2, 2, 2 )
+}
+node_options = "----------------------------------------------------------------"
+node_class = ""
+transient_node = false
+scene = "----------------------------------------------------------------"
+scene_file = ExtResource( 3 )
+scripting = "----------------------------------------------------------------"
