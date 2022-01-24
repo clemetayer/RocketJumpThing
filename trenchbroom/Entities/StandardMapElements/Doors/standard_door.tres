@@ -13,12 +13,14 @@ base_classes = [  ]
 class_properties = {
 "collision_layer": 2,
 "collision_mask": 5,
+"free_on_open": 0,
 "open_position": Vector3( 0, 0, 0 ),
 "open_time": 0.5
 }
 class_property_descriptions = {
 "collision_layer": "Collision layer",
 "collision_mask": "Collision mask",
+"free_on_open": "If the door should queue_free when opened (boolean)",
 "open_position": "Position where the door should translate to from the current position to open",
 "open_time": "Time to get to the open_position"
 }

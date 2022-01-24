@@ -33,3 +33,5 @@ custom_fonts/normal_font = SubResource( 1 )
 bbcode_enabled = true
 bbcode_text = "[center][color=#00ff2a][wave amp=50 freq=2]Checkpoint ![/wave][/color][/center]"
 text = "Checkpoint !"
+
+[node name="FadeTween" type="Tween" parent="."]

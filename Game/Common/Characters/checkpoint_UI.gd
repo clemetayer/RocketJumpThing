@@ -44,39 +44,46 @@ func _ready():
 ##### PROTECTED METHODS #####
 # displays the effect when triggering a checkpoint
 func _display_effect() -> void:
-	var tween := Tween.new()
-	add_child(tween)
-	var col: Color = $CenterContainer.modulate
-	if ! tween.interpolate_property(
-		$CenterContainer, "modulate", col, Color(col.r, col.g, col.b, 1), ATTACK_TIME
-	):
-		Logger.error(
-			(
-				"Error while setting tween interpolate property %s at %s"
-				% ["modulate", DebugUtils.print_stack_trace(get_stack())]
+	var tween := get_node("FadeTween")
+	if not tween.is_active():
+		var col: Color = $CenterContainer.modulate
+		if ! tween.interpolate_property(
+			$CenterContainer,
+			"modulate",
+			Color(col.r, col.g, col.b, 0),
+			Color(col.r, col.g, col.b, 1),
+			ATTACK_TIME
+		):
+			Logger.error(
+				(
+					"Error while setting tween interpolate property %s at %s"
+					% ["modulate", DebugUtils.print_stack_trace(get_stack())]
+				)
 			)
-		)
-	if ! tween.start():
-		Logger.error(
-			"Error when starting tween at %s" % [DebugUtils.print_stack_trace(get_stack())]
-		)
-	yield(tween, "tween_all_completed")
-	yield(get_tree().create_timer(DECAY_TIME), "timeout")
-	if ! tween.interpolate_property(
-		$CenterContainer, "modulate", Color(col.r, col.g, col.b, 1), col, RELEASE_TIME
-	):
-		Logger.error(
-			(
-				"Error while setting tween interpolate property %s at %s"
-				% ["modulate", DebugUtils.print_stack_trace(get_stack())]
+		if ! tween.start():
+			Logger.error(
+				"Error when starting tween at %s" % [DebugUtils.print_stack_trace(get_stack())]
 			)
-		)
-	if ! tween.start():
-		Logger.error(
-			"Error when starting tween at %s" % [DebugUtils.print_stack_trace(get_stack())]
-		)
-	yield(tween, "tween_all_completed")
-	tween.queue_free()
+		yield(tween, "tween_all_completed")
+		yield(get_tree().create_timer(DECAY_TIME), "timeout")
+		if ! tween.interpolate_property(
+			$CenterContainer,
+			"modulate",
+			Color(col.r, col.g, col.b, 1),
+			Color(col.r, col.g, col.b, 0),
+			RELEASE_TIME
+		):
+			Logger.error(
+				(
+					"Error while setting tween interpolate property %s at %s"
+					% ["modulate", DebugUtils.print_stack_trace(get_stack())]
+				)
+			)
+		if ! tween.start():
+			Logger.error(
+				"Error when starting tween at %s" % [DebugUtils.print_stack_trace(get_stack())]
+			)
+		yield(tween, "tween_all_completed")
 
 
 ##### SIGNAL MANAGEMENT #####

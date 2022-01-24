@@ -47,6 +47,8 @@ func _open() -> void:
 		_opening = false
 		_state = state.opened
 		tween.queue_free()
+		if 'free_on_open' in properties and properties.free_on_open:
+			queue_free()
 
 
 ##### SIGNAL MANAGEMENT #####
