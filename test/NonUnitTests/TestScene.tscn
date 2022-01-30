@@ -106,6 +106,7 @@ height = 0.2
 [node name="Player" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0 )
 PATHS = {
+"UI": NodePath("PlayerUI"),
 "camera": NodePath("RotationHelper/Camera"),
 "rotation_helper": NodePath("RotationHelper")
 }

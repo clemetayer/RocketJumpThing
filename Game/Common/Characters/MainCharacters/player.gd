@@ -132,7 +132,7 @@ func _input(event):
 		rotation_helper.rotate_x(deg2rad(event.relative.y * mouse_sensitivity))
 		self.rotate_y(deg2rad(event.relative.x * mouse_sensitivity * -1))
 		var camera_rot = rotation_helper.rotation_degrees
-		camera_rot.x = clamp(camera_rot.x, -70, 70)
+		camera_rot.x = clamp(camera_rot.x, -90, 90)
 		rotation_helper.rotation_degrees = camera_rot
 
 
@@ -158,6 +158,7 @@ func update_properties() -> void:
 #==== Others =====
 # sets the UI infos
 func _set_UI_data() -> void:
+	current_speed = vel.length()
 	var ui := get_node(PATHS.UI)
 	ui.set_speed(current_speed)
 
@@ -282,7 +283,11 @@ func _process_movement(delta):
 			_RC_wall_direction = 0
 	else:
 		_reset_wallride_raycasts()
-		_process_hvel(delta)
+		if is_on_floor():
+			_ground_movement(delta)
+		else:
+			_air_movement(delta)
+		vel = move_and_slide(vel, Vector3.UP)
 
 
 # updates the states
@@ -305,6 +310,91 @@ func _process_states():
 		)
 	):
 		states.erase("wall_riding")
+
+
+func _ground_movement(delta: float) -> void:
+	var wishdir: Vector3
+
+	if Input.is_action_pressed("movement_jump"):
+		_apply_friction(0, delta)
+	else:
+		_apply_friction(1.0, delta)
+
+	wishdir = dir.normalized()
+
+	var wishspeed = dir.length()
+	wishspeed *= GROUND_TARGET_SPEED
+
+	_accelerate(wishdir, wishspeed, GROUND_ACCELERATION, delta)
+
+	vel.y = JUMP_POWER if Input.is_action_pressed("movement_jump") else 0
+
+
+func _air_movement(delta: float) -> void:
+	#Allows for movement to slightly increase as you move through the air
+	var wishdir: Vector3
+	var accel: float
+
+	wishdir = dir.normalized()
+
+	DebugDraw.draw_line_3d(transform.origin, transform.origin + wishdir * 50, Color(255, 0, 0, 255))
+
+	var wishspeed = dir.length()
+	wishspeed *= AIR_TARGET_SPEED
+
+	accel = AIR_STANDARD_DECCELERATE if vel.dot(wishdir) < 0 else AIR_ACCELERATION
+
+	_accelerate(wishdir, wishspeed, accel, delta)  # accel
+
+	vel.y += GRAVITY * delta
+
+
+func _apply_friction(t: float, delta: float):
+	#Applys friction based off t
+	var friction := 6
+	var speed: float
+	var newspeed: float
+	var control: float
+	var drop: float
+
+	vel.y = 0.0
+	speed = vel.length()
+	drop = 0.0
+
+	if is_on_floor():
+		if speed < GROUND_ACCELERATION:
+			control = GROUND_ACCELERATION
+		else:
+			control = speed
+
+		drop = control * friction * delta * t
+
+	newspeed = speed - drop
+	if newspeed < 0:
+		newspeed = 0
+	if speed > 0:
+		newspeed /= speed
+
+	vel.x *= newspeed
+	vel.z *= newspeed
+
+
+func _accelerate(wishdir: Vector3, wishspeed: float, accel: float, delta: float):
+	#Allows the player to accelerate faster
+	var addspeed: float
+	var accelspeed: float
+	var currentspeed: float
+
+	currentspeed = vel.dot(wishdir)
+	addspeed = wishspeed - currentspeed
+	if addspeed <= 0:
+		return
+	accelspeed = accel * delta * wishspeed
+	if accelspeed > addspeed:
+		accelspeed = addspeed
+
+	vel.x += accelspeed * wishdir.x
+	vel.z += accelspeed * wishdir.z
 
 
 # processes the horizontal velocity when not wall riding
