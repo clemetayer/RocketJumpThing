@@ -32,6 +32,7 @@ const FLOOR_POWER := -1  # Standard gravity power applied to the player when is 
 const MAX_SLOPE_ANGLE := 45  # Max slope angle where you stop sliding
 const PLAYER_HEIGHT := 2  # Player height
 const PLAYER_WIDTH := 1  # Player width
+const STOP_SPEED := 1.0  # Minimum speed to consider the player "stopped"
 
 #==== AIR =====
 const AIR_TARGET_SPEED := 110  # Target acceleration when just pressing forward in the air
@@ -53,7 +54,9 @@ const WALL_JUMP_MIX_DIRECTION_AMOUNT := 300  # How much it will follow the tween
 
 #==== GROUND =====
 const GROUND_TARGET_SPEED := 50  # Ground target speed
-const GROUND_ACCELERATION := 4.5  # Acceleration on the ground to get to GROUND_TARGET_SPEED
+const GROUND_ACCELERATION := 4.5  # Acceleration on the ground
+const GROUND_DECCELERATION := 5.0  # Decceleration when on ground
+const GROUND_FRICTION := 5.0  # Ground frction for sliding
 const SLIDE_SPEED_BONUS_GROUND := 50  # Speed added when starting the slide
 const SLIDE_SPEED_BONUS_JUMP := 50  # Speed added when jumping after a slide
 const SLIDE_STEER_POWER := 100  # How much the player can steer when sliding
@@ -287,12 +290,13 @@ func _process_movement(delta):
 			_ground_movement(delta)
 		else:
 			_air_movement(delta)
-		vel = move_and_slide(vel, Vector3.UP)
+	_add_movement_queue_to_vel()
+	vel = move_and_slide(vel, Vector3.UP)
+	current_speed = vel.length()
 
 
 # updates the states
 func _process_states():
-	# DebugDraw.set_text("states", states)
 	if is_on_floor() and not states.has("in_air"):
 		states.append("in_air")
 	if current_speed != 0 and not states.has("moving"):
@@ -313,88 +317,52 @@ func _process_states():
 
 
 func _ground_movement(delta: float) -> void:
-	var wishdir: Vector3
-
-	if Input.is_action_pressed("movement_jump"):
-		_apply_friction(0, delta)
-	else:
-		_apply_friction(1.0, delta)
-
-	wishdir = dir.normalized()
-
-	var wishspeed = dir.length()
-	wishspeed *= GROUND_TARGET_SPEED
-
-	_accelerate(wishdir, wishspeed, GROUND_ACCELERATION, delta)
-
+	_apply_friction(delta)
+	_accelerate(
+		Vector3(dir.x, 0, dir.z).normalized(), GROUND_TARGET_SPEED, GROUND_ACCELERATION, delta
+	)
 	vel.y = JUMP_POWER if Input.is_action_pressed("movement_jump") else 0
 
 
 func _air_movement(delta: float) -> void:
-	#Allows for movement to slightly increase as you move through the air
-	var wishdir: Vector3
-	var accel: float
-
-	wishdir = dir.normalized()
-
-	DebugDraw.draw_line_3d(transform.origin, transform.origin + wishdir * 50, Color(255, 0, 0, 255))
-
-	var wishspeed = dir.length()
-	wishspeed *= AIR_TARGET_SPEED
-
-	accel = AIR_STANDARD_DECCELERATE if vel.dot(wishdir) < 0 else AIR_ACCELERATION
-
-	_accelerate(wishdir, wishspeed, accel, delta)  # accel
-
+	var wish_dir := Vector3(dir.x, 0, dir.z).normalized()
+	if input_movement_vector.x == 0 && input_movement_vector.y == 1:  # pressing forward only, forces the velocity direction to the wishdir
+		if current_speed < AIR_TARGET_SPEED:  # accelerate if not reached the target speed yet
+			_accelerate(wish_dir, AIR_TARGET_SPEED, AIR_ACCELERATION, delta)
+		var linear_speed := Vector3(vel.x, 0, vel.z).length()  # keep the current speed
+		var direction_vec := wish_dir * linear_speed  # direction and speed of the velocity on a linear axis
+		vel.x = direction_vec.x
+		vel.z = direction_vec.z
+	else:  # accelerate and strafe
+		_accelerate(wish_dir, AIR_TARGET_SPEED, AIR_ACCELERATION, delta)
 	vel.y += GRAVITY * delta
 
 
-func _apply_friction(t: float, delta: float):
-	#Applys friction based off t
-	var friction := 6
-	var speed: float
-	var newspeed: float
-	var control: float
-	var drop: float
-
+func _apply_friction(delta: float):
 	vel.y = 0.0
-	speed = vel.length()
-	drop = 0.0
-
-	if is_on_floor():
-		if speed < GROUND_ACCELERATION:
-			control = GROUND_ACCELERATION
-		else:
-			control = speed
-
-		drop = control * friction * delta * t
-
-	newspeed = speed - drop
-	if newspeed < 0:
-		newspeed = 0
-	if speed > 0:
-		newspeed /= speed
-
-	vel.x *= newspeed
-	vel.z *= newspeed
+	var drop := 0.0
+	if current_speed <= STOP_SPEED:
+		vel.x = 0
+		vel.z = 0
+		return  # no need to compute things further, the player is stopped
+	var control := 0.0
+	if is_on_floor() && ! Input.is_action_pressed("movement_jump"):
+		control = GROUND_DECCELERATION if current_speed < GROUND_DECCELERATION else current_speed
+		drop += control * GROUND_FRICTION * delta
+	var speed_multiplier := 1.0  # more like a "de"multiplier in most cases
+	if current_speed > 0:
+		speed_multiplier = abs(current_speed - drop) / current_speed
+	vel.x *= speed_multiplier
+	vel.z *= speed_multiplier
 
 
-func _accelerate(wishdir: Vector3, wishspeed: float, accel: float, delta: float):
-	#Allows the player to accelerate faster
-	var addspeed: float
-	var accelspeed: float
-	var currentspeed: float
-
-	currentspeed = vel.dot(wishdir)
-	addspeed = wishspeed - currentspeed
-	if addspeed <= 0:
-		return
-	accelspeed = accel * delta * wishspeed
-	if accelspeed > addspeed:
-		accelspeed = addspeed
-
-	vel.x += accelspeed * wishdir.x
-	vel.z += accelspeed * wishdir.z
+func _accelerate(wish_dir: Vector3, wish_speed: float, accel: float, delta: float):
+	var project_speed = vel.dot(wish_dir)  # dot product between the velocity and the wishdir. equivalent of currentspeed in Quake III code, which is the speed on the wishdir (and not the "real" speed vel.length()), but allows air strafing, which is very cool
+	var add_speed = wish_speed - project_speed
+	if add_speed > 0:  # accelerate only if needed
+		var accel_amount := clamp(accel * delta * wish_speed, 0.0, add_speed)  # acceleration amount 
+		vel.x += accel_amount * wish_dir.x
+		vel.z += accel_amount * wish_dir.z
 
 
 # processes the horizontal velocity when not wall riding
@@ -405,7 +373,6 @@ func _process_hvel(delta: float) -> void:
 	var hvel := _compute_hvel(Vector2(vel.x, vel.z), delta)
 	vel.x = hvel.x
 	vel.z = hvel.y
-	_add_movement_queue_to_vel()
 	vel = move_and_slide(vel, Vector3(0, 1, 0), 0.05, 4, deg2rad(MAX_SLOPE_ANGLE))
 
 
