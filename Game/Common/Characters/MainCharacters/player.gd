@@ -28,44 +28,32 @@ class_name Player
 #==== GLOBAL =====
 const GRAVITY := -80  # Gravity applied to the player
 const JUMP_POWER := 33  # Power applied when jumping
-const FLOOR_POWER := -1  # Standard gravity power applied to the player when is on floor (to avoid gravity to keep decreasing on floor)
 const MAX_SLOPE_ANGLE := 45  # Max slope angle where you stop sliding
-const PLAYER_HEIGHT := 2  # Player height
-const PLAYER_WIDTH := 1  # Player width
 const STOP_SPEED := 1.0  # Minimum speed to consider the player "stopped"
 
 #==== AIR =====
 const AIR_TARGET_SPEED := 110  # Target acceleration when just pressing forward in the air
-const AIR_ADD_STRAFE_SPEED := .75  # Speed that is added during a strafe
-const AIR_STANDARD_DECCELERATE := 0.985  # Speed decceleration when not pressing anything
 const AIR_ACCELERATION := 0.75  # Acceleration in air to get to the AIR_TARGET_SPEED
-const AIR_STRAFE_STEER_POWER := 50.0  # Power of the turn when air strafing
-const AIR_SWAY_ANGLE_MINUS_ANGLE := PI / 4  # Angle to retract from the wished direction (target direction when swaying)
-const AIR_SWAY_SPEED := 100  # Speed for the velocity to get to the desired sway angle
 
 #==== WALL RIDE =====
-const WALL_RIDE_Z_ANGLE := PI / 2  # Angle from the wall on the z axis when wall riding
 const WALL_RIDE_ASCEND_AMOUNT := 10.0  # How much the player ascend during a wall ride
 const WALL_JUMP_BOOST := 20.0  # How much speed is given to the player when jumping while wall riding
 const WALL_JUMP_UP_BOOST := 10.0  # The up vector that is added when jumping off a wall
 const WALL_JUMP_ANGLE := PI / 4  # Angle from the wall forward vector when wall jumping
 const WALL_JUMP_MIX_DIRECTION_TIME := 0.5  # How much time after the jumping from a wall should override the forward movement (to avoid a bug that makes the player sticks to the wall)
-const WALL_JUMP_MIX_DIRECTION_AMOUNT := 300  # How much it will follow the tween curve after wall jumping to get to the desired direction
 
 #==== GROUND =====
 const GROUND_TARGET_SPEED := 50  # Ground target speed
 const GROUND_ACCELERATION := 4.5  # Acceleration on the ground
-const GROUND_DECCELERATION := 5.0  # Decceleration when on ground
-const GROUND_FRICTION := 5.0  # Ground frction for sliding
-const SLIDE_SPEED_BONUS_GROUND := 50  # Speed added when starting the slide
+const GROUND_DECCELERATION := 4.5  # Decceleration when on ground
+const GROUND_FRICTION := 5.0  # Ground friction 
 const SLIDE_SPEED_BONUS_JUMP := 50  # Speed added when jumping after a slide
-const SLIDE_STEER_POWER := 100  # How much the player can steer when sliding
+const SLIDE_FRICTION := 0.5  # Friction when sliding on the ground. Equivalent to the movement in air, but with a little friction 
 
 #~~~~~ PROJECTILES ~~~~~ 
 const ROCKET_DELAY := 1.0  # Time before you can shoot another rocket
 const ROCKET_START_OFFSET := Vector3(0, -0.5, 0)  # offest position from the player to throw the rocket
 const ROCKET_SCENE_PATH := "res://Game/Common/MovementUtils/Rocket/Rocket.tscn"  # Path to the rocket scene
-const ROCKET_LAUNCH_MAX_TIME := 3000.0  # Max time the player can hold the mouse button to set the speed of the rocket (in milliseconds)
 
 #---- EXPORTS -----
 export (Dictionary) var PATHS = {
@@ -203,8 +191,6 @@ func _process_input(_delta):
 				rotation_helper.rotate_object_local(Vector3(1, 0, 0), -PI / 4)
 				states.erase("sliding")
 			vel.y += JUMP_POWER
-		else:
-			vel.y = FLOOR_POWER
 
 	# Shooting
 	if Input.is_action_pressed("action_shoot") and not states.has("shooting") and ROCKETS_ENABLED:
@@ -235,12 +221,14 @@ func _process_input(_delta):
 # process for the movement
 func _process_movement(delta):
 	_debug_process_movement(delta)
+
 	# Wall ride wall check
 	if _RC_wall_direction == 0:  # First contact with wall
 		if $RayCasts/RayCastWallMinus.is_colliding():
 			_RC_wall_direction = -1
 		elif $RayCasts/RayCastWallPlus.is_colliding():
 			_RC_wall_direction = 1
+
 	# Movement process
 	if (
 		not is_on_floor()
@@ -248,42 +236,7 @@ func _process_movement(delta):
 		and _slide
 		and _RC_wall_direction != 0
 	):
-		var rc: RayCast = (
-			$RayCasts/RayCastWallPlus
-			if _RC_wall_direction == 1
-			else $RayCasts/RayCastWallMinus if _RC_wall_direction == -1 else null
-		)
-		if rc != null and rc.is_colliding():  # if on an "acceptable" wall
-			var wall_normal = rc.get_collision_normal().normalized()  # normal of the wall, should be the aligned with the player x axis
-			var wall_up = Vector3(0, 1, 0)  # Up direction from the wall (always that direction)
-			var wall_fw = (wall_normal.cross(wall_up) * -_RC_wall_direction).normalized()  # Forward direction, where the player should translate to (perpendicular to wall_normal and wall_up)
-			if Input.is_action_pressed("movement_jump"):
-				if states.has("wall_riding"):
-					states.remove("wall_riding")
-				if Input.is_action_pressed("movement_forward"):
-					var tween = get_node("WallJumpMixMovement")
-					if tween.is_active():
-						tween.stop_all()
-					tween.interpolate_property(
-						self, "_mix_to_direction_amount", 0.0, 1.0, WALL_JUMP_MIX_DIRECTION_TIME
-					)
-					tween.start()
-				vel += (
-					wall_fw.rotated(wall_up, WALL_JUMP_ANGLE * -_RC_wall_direction)
-					* WALL_JUMP_BOOST
-				)
-				vel += wall_up * WALL_JUMP_UP_BOOST
-			else:
-				_keep_wallride_raycasts_perpendicular()
-				if not states.has("wall_riding"):
-					states.append("wall_riding")
-				var vel_dir = Vector3(wall_fw.x, WALL_RIDE_ASCEND_AMOUNT * delta, wall_fw.z).normalized()
-				vel = vel_dir * vel.length()
-			# DebugDraw.draw_line_3d(transform.origin, transform.origin + vel, Color(0, 1, 1))
-			_add_movement_queue_to_vel()
-			vel = move_and_slide(vel, wall_up, 0.05, 4, deg2rad(MAX_SLOPE_ANGLE))
-		else:
-			_RC_wall_direction = 0
+		_wall_ride_movement(delta)
 	else:
 		_reset_wallride_raycasts()
 		if is_on_floor():
@@ -297,6 +250,11 @@ func _process_movement(delta):
 
 # updates the states
 func _process_states():
+	if _slide:
+		if not states.has("sliding") and is_on_floor():
+			self.rotate_object_local(Vector3(1, 0, 0), -PI / 4)
+			rotation_helper.rotate_object_local(Vector3(1, 0, 0), PI / 4)
+			states.append("sliding")
 	if is_on_floor() and not states.has("in_air"):
 		states.append("in_air")
 	if current_speed != 0 and not states.has("moving"):
@@ -314,6 +272,44 @@ func _process_states():
 		)
 	):
 		states.erase("wall_riding")
+
+
+func _wall_ride_movement(delta: float) -> void:
+	var rc: RayCast = (
+		$RayCasts/RayCastWallPlus
+		if _RC_wall_direction == 1
+		else $RayCasts/RayCastWallMinus if _RC_wall_direction == -1 else null
+	)
+	if rc != null and rc.is_colliding():  # if on an "acceptable" wall
+		var wall_normal = rc.get_collision_normal().normalized()  # normal of the wall, should be the aligned with the player x axis
+		var wall_fw = (wall_normal.cross(Vector3.UP) * -_RC_wall_direction).normalized()  # Forward direction, where the player should translate to (perpendicular to wall_normal and wall_up)
+		if Input.is_action_pressed("movement_jump"):
+			if states.has("wall_riding"):
+				states.remove("wall_riding")
+			if Input.is_action_pressed("movement_forward"):
+				var tween = get_node("WallJumpMixMovement")
+				if tween.is_active():
+					tween.stop_all()
+				tween.interpolate_property(
+					self, "_mix_to_direction_amount", 0.0, 1.0, WALL_JUMP_MIX_DIRECTION_TIME
+				)
+				tween.start()
+			vel += (
+				wall_fw.rotated(Vector3.UP, WALL_JUMP_ANGLE * -_RC_wall_direction)
+				* WALL_JUMP_BOOST
+			)
+			vel += Vector3.UP * WALL_JUMP_UP_BOOST
+		else:
+			_keep_wallride_raycasts_perpendicular()
+			if not states.has("wall_riding"):
+				states.append("wall_riding")
+			var vel_dir = Vector3(wall_fw.x, WALL_RIDE_ASCEND_AMOUNT * delta, wall_fw.z).normalized()
+			vel = vel_dir * vel.length()
+		# DebugDraw.draw_line_3d(transform.origin, transform.origin + vel, Color(0, 1, 1))
+		_add_movement_queue_to_vel()
+		vel = move_and_slide(vel, Vector3.UP, 0.05, 4, deg2rad(MAX_SLOPE_ANGLE))
+	else:
+		_RC_wall_direction = 0
 
 
 func _ground_movement(delta: float) -> void:
@@ -347,8 +343,9 @@ func _apply_friction(delta: float):
 		return  # no need to compute things further, the player is stopped
 	var control := 0.0
 	if is_on_floor() && ! Input.is_action_pressed("movement_jump"):
+		var friction := SLIDE_FRICTION if _slide else GROUND_FRICTION
 		control = GROUND_DECCELERATION if current_speed < GROUND_DECCELERATION else current_speed
-		drop += control * GROUND_FRICTION * delta
+		drop += control * friction * delta
 	var speed_multiplier := 1.0  # more like a "de"multiplier in most cases
 	if current_speed > 0:
 		speed_multiplier = abs(current_speed - drop) / current_speed
@@ -363,17 +360,6 @@ func _accelerate(wish_dir: Vector3, wish_speed: float, accel: float, delta: floa
 		var accel_amount := clamp(accel * delta * wish_speed, 0.0, add_speed)  # acceleration amount 
 		vel.x += accel_amount * wish_dir.x
 		vel.z += accel_amount * wish_dir.z
-
-
-# processes the horizontal velocity when not wall riding
-func _process_hvel(delta: float) -> void:
-	dir.y = 0
-	dir = dir.normalized()
-	vel.y += delta * GRAVITY
-	var hvel := _compute_hvel(Vector2(vel.x, vel.z), delta)
-	vel.x = hvel.x
-	vel.z = hvel.y
-	vel = move_and_slide(vel, Vector3(0, 1, 0), 0.05, 4, deg2rad(MAX_SLOPE_ANGLE))
 
 
 # resets the wallride raycasts to their standard rotation value
@@ -403,91 +389,11 @@ func _keep_wallride_raycasts_perpendicular() -> void:
 		$RayCasts.rotate_y(-angle)
 
 
-# computes the horizontal velocity
-func _compute_hvel(p_vel: Vector2, delta: float) -> Vector2:
-	current_speed = p_vel.length()
-	if is_on_floor():
-		return _compute_ground_hvel(p_vel, delta)
-	else:
-		return _compute_air_hvel(p_vel, delta)
-
-
-# computes the horizontal velocity when in air
-func _compute_air_hvel(p_vel: Vector2, delta: float) -> Vector2:
-	var dir_2D = Vector2(dir.x, dir.z)
-	if input_movement_vector.x == 0:  # no left/right input
-		if input_movement_vector.y != 0:  # forward/backward input
-			return _mvt_air_fw(p_vel, delta, dir_2D)
-		else:  # just keeps the same vector (no horizontal movement input) and deccelerate slightly (NOTE : Maybe cancel the decceleration with shift ?)
-			return _mvt_air_bw(p_vel)
-	else:  # left/right input
-		if input_movement_vector.y != 0:  # this is where you should gain a lot of speed, by "snaking" or strafing
-			return _mvt_air_strafe(p_vel, dir_2D, delta)
-		else:  # should sway left/right without modifying the speed (and also goes towards the mouse vector)
-			return _mvt_air_sway(dir_2D, p_vel, delta)
-
-
 # adds the vectors stored in the _add_velocity_vector_queue to velocity
 func _add_movement_queue_to_vel():
 	for vect in _add_velocity_vector_queue:
 		vel += vect
 	_add_velocity_vector_queue = []
-
-
-# Movement when in air when going straight forward
-func _mvt_air_fw(p_vel: Vector2, delta: float, dir_2D: Vector2) -> Vector2:
-	if abs(dir_2D.angle_to(p_vel)) <= PI / 2:  # keeps the same speed, but goes instantly toward what the player is aiming
-		var air_accel_bonus = 0.0
-		if current_speed < AIR_TARGET_SPEED:  # adds a bonus to get to the target speed, just a simple addition
-			air_accel_bonus = AIR_ACCELERATION
-		return (
-			dir_2D * (p_vel.length() + air_accel_bonus)
-			if _mix_to_direction_amount >= 1.0
-			else p_vel.move_toward(
-				dir_2D * (p_vel.length() + air_accel_bonus),
-				delta * _mix_to_direction_amount * WALL_JUMP_MIX_DIRECTION_AMOUNT
-			)
-		)
-	else:  # goes toward where the player is aiming, but deccelerates 
-		return p_vel + dir_2D * AIR_ACCELERATION
-
-
-# Movement when in air when going straight back
-func _mvt_air_bw(p_vel: Vector2) -> Vector2:
-	return p_vel * AIR_STANDARD_DECCELERATE
-
-
-# Movement when in air and strafing
-# FIXME : It works, but the vector values are a bit weird...
-func _mvt_air_strafe(p_vel: Vector2, dir_2D: Vector2, delta: float) -> Vector2:
-	if abs(p_vel.angle_to(dir_2D)) < PI / 1.5:  # No backward movement, Don't ask questions about the 1.5. By visualising the vectors, it stops at PI/4 for some reason...
-		var r_dir_2D = dir_2D.rotated(-input_movement_vector.x * PI / 4)  # rotates the dir_2D by PI/4, to give a vector that is "on the side" of the character, where the velocity will be projected to compute add_speed
-		var add_speed_vector = p_vel.project(r_dir_2D)
-		return p_vel + add_speed_vector * delta * AIR_ADD_STRAFE_SPEED
-	else:  # go backward like in _mvt_air_fw 
-		return p_vel + dir_2D * AIR_ACCELERATION
-
-
-# Movement when in air and swaying straight left/right
-func _mvt_air_sway(dir_2D: Vector2, p_vel: Vector2, delta: float) -> Vector2:
-	return p_vel.move_toward(
-		dir_2D.rotated(AIR_SWAY_ANGLE_MINUS_ANGLE * -input_movement_vector.x) * p_vel.length(),
-		delta * AIR_SWAY_SPEED
-	)
-
-
-# computes the horizontal velocity when on ground
-func _compute_ground_hvel(p_vel: Vector2, delta: float) -> Vector2:
-	if _slide:
-		if not states.has("sliding"):
-			self.rotate_object_local(Vector3(1, 0, 0), -PI / 4)
-			rotation_helper.rotate_object_local(Vector3(1, 0, 0), PI / 4)
-			states.append("sliding")
-		return p_vel.move_toward(Vector2(dir.x, dir.z) * p_vel.length(), delta * SLIDE_STEER_POWER)
-	else:
-		return p_vel.linear_interpolate(
-			Vector2(dir.x, dir.z) * GROUND_TARGET_SPEED, GROUND_ACCELERATION * delta
-		)
 
 
 ##### SIGNAL MANAGEMENT #####

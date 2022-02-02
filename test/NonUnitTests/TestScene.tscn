@@ -113,6 +113,50 @@ PATHS = {
 
 [node name="Map" type="Spatial" parent="."]
 
+[node name="Inclined floor" type="StaticBody" parent="Map"]
+transform = Transform( 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 0, 0, 1, -156.715, 134.713, 210 )
+collision_layer = 2
+
+[node name="MeshInstance" type="MeshInstance" parent="Map/Inclined floor"]
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Map/Inclined floor"]
+shape = SubResource( 3 )
+
+[node name="Inclined floor2" type="StaticBody" parent="Map"]
+transform = Transform( 0.866025, 0.5, 0, -0.5, 0.866025, 0, 0, 0, 1, -337.111, 209.209, 210 )
+collision_layer = 2
+
+[node name="MeshInstance" type="MeshInstance" parent="Map/Inclined floor2"]
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Map/Inclined floor2"]
+shape = SubResource( 3 )
+
+[node name="Inclined floor3" type="StaticBody" parent="Map"]
+transform = Transform( 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0, 1, -492.111, 328.339, 210 )
+collision_layer = 2
+
+[node name="MeshInstance" type="MeshInstance" parent="Map/Inclined floor3"]
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Map/Inclined floor3"]
+shape = SubResource( 3 )
+
+[node name="Inclined floor4" type="StaticBody" parent="Map"]
+transform = Transform( 0.5, 0.866025, 0, -0.866025, 0.5, 0, 0, 0, 1, -611.429, 481.345, 210 )
+collision_layer = 2
+
+[node name="MeshInstance" type="MeshInstance" parent="Map/Inclined floor4"]
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Map/Inclined floor4"]
+shape = SubResource( 3 )
+
 [node name="Floor1" type="StaticBody" parent="Map"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 35, 110, 210 )
 collision_layer = 2
