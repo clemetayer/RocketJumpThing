@@ -244,7 +244,7 @@ func _process_movement(delta):
 		else:
 			_air_movement(delta)
 	_add_movement_queue_to_vel()
-	vel = move_and_slide(vel, Vector3.UP)
+	vel = move_and_slide(vel, Vector3.UP, true, 4, deg2rad(MAX_SLOPE_ANGLE))
 	current_speed = vel.length()
 
 
@@ -306,8 +306,6 @@ func _wall_ride_movement(delta: float) -> void:
 			var vel_dir = Vector3(wall_fw.x, WALL_RIDE_ASCEND_AMOUNT * delta, wall_fw.z).normalized()
 			vel = vel_dir * vel.length()
 		# DebugDraw.draw_line_3d(transform.origin, transform.origin + vel, Color(0, 1, 1))
-		_add_movement_queue_to_vel()
-		vel = move_and_slide(vel, Vector3.UP, 0.05, 4, deg2rad(MAX_SLOPE_ANGLE))
 	else:
 		_RC_wall_direction = 0
 
