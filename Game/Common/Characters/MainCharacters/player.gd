@@ -176,17 +176,6 @@ func _process_input(_delta):
 	dir += -cam_xform.basis.z * input_movement_vector.y
 	dir += cam_xform.basis.x * input_movement_vector.x
 
-	# Jumping
-	# TODO : Move this in _ground_movement
-	if is_on_floor():
-		if Input.is_action_pressed("movement_jump"):
-			if states.has("sliding"):
-				vel += Vector3(vel.x, 0, vel.z).normalized() * SLIDE_SPEED_BONUS_JUMP
-				_slide = false
-				self.rotate_object_local(Vector3(1, 0, 0), PI / 4)
-				rotation_helper.rotate_object_local(Vector3(1, 0, 0), -PI / 4)
-				states.erase("sliding")
-
 	# Shooting
 	# TODO : make a separate function
 	if Input.is_action_pressed("action_shoot") and not states.has("shooting") and ROCKETS_ENABLED:
@@ -322,7 +311,7 @@ func _ground_movement(delta: float) -> void:
 		Vector3(dir.x, 0, dir.z).normalized(), GROUND_TARGET_SPEED, GROUND_ACCELERATION, delta
 	)
 	if Input.is_action_pressed("movement_jump"):
-		vel += get_floor_normal() * JUMP_POWER
+		vel.y += JUMP_POWER
 		if states.has("sliding"):
 			_slide_jump()
 
@@ -342,7 +331,6 @@ func _air_movement(delta: float) -> void:
 
 
 func _apply_friction(delta: float):
-	vel.y = 0.0
 	var drop := 0.0
 	if current_speed <= STOP_SPEED:
 		vel.x = 0
