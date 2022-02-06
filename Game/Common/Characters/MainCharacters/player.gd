@@ -4,16 +4,11 @@ class_name Player
 # Script for the player
 
 """
-- TODO : Use a rigid body instead ? Shifty’s Manifesto is a bit spooky...
+- TODO : Use a rigid body instead ? Meh actually, it tends to go through floors, and there is a respawn possibility if you're stuck in a wall
 - TODO : Maybe refactor a bit this script in general, it's getting hard to read
 - TODO : Explode the rockets on right click ? charge rocket on right click ?
 - TODO : improve BHop ~ Actually, maybe it is fine the way it is...
-- TODO : Perhaps change the side movement to air strafing, sliding to the left or right feels a bit weird actually... Should strafe 'harder' to the direction in that case
-- TODO : Create as a Qodot entity to be able to change the start rotation for instance
-- FIXME : Use the wall collision info to compute wall ride ~ To try, but there is a risk that it might either stick to the wall too well or not much...
-- FIXME : Rocket not adding velocity when wall riding ~ It does, but it feels a bit weird
-- FIXME : sliding on slopes stops the player
-- FIXME : Reverse strafing accelerating player (moving mouse to the right and going forward left for instance). Maybe it can be desirable, idk, it doesn't feel that weird...
+- FIXME : Use the wall collision info to compute wall ride ~ Maybe try using an Area to detect the wall
 """
 
 ##### SIGNALS #####
@@ -28,7 +23,7 @@ class_name Player
 #==== GLOBAL =====
 const GRAVITY := -80  # Gravity applied to the player
 const JUMP_POWER := 33  # Power applied when jumping
-const MAX_SLOPE_ANGLE := 45  # Max slope angle where you stop sliding
+const MAX_SLOPE_ANGLE := 60  # Max slope angle where you stop sliding
 const STOP_SPEED := 1.0  # Minimum speed to consider the player "stopped"
 
 #==== AIR =====
@@ -46,28 +41,28 @@ const WALL_JUMP_MIX_DIRECTION_TIME := 0.5  # How much time after the jumping fro
 const GROUND_TARGET_SPEED := 50  # Ground target speed
 const GROUND_ACCELERATION := 4.5  # Acceleration on the ground
 const GROUND_DECCELERATION := 4.5  # Decceleration when on ground
-const GROUND_FRICTION := 5.0  # Ground friction 
+const GROUND_FRICTION := 5.0  # Ground friction
 const SLIDE_SPEED_BONUS_JUMP := 50  # Speed added when jumping after a slide
-const SLIDE_FRICTION := 0.5  # Friction when sliding on the ground. Equivalent to the movement in air, but with a little friction 
+const SLIDE_FRICTION := 0.5  # Friction when sliding on the ground. Equivalent to the movement in air, but with a little friction
 
-#~~~~~ PROJECTILES ~~~~~ 
+#~~~~~ PROJECTILES ~~~~~
 const ROCKET_DELAY := 1.0  # Time before you can shoot another rocket
 const ROCKET_START_OFFSET := Vector3(0, -0.5, 0)  # offest position from the player to throw the rocket
 const ROCKET_SCENE_PATH := "res://Game/Common/MovementUtils/Rocket/Rocket.tscn"  # Path to the rocket scene
 
 #---- EXPORTS -----
-export (Dictionary) var PATHS = {
+export(Dictionary) var PATHS = {
 	"camera": NodePath("."), "rotation_helper": NodePath("."), "UI": NodePath(".")
 }
-export (bool) var ROCKETS_ENABLED = true
-export (bool) var SLIDE_ENABLED = true
-export (Dictionary) var properties setget set_properties
+export(bool) var ROCKETS_ENABLED = true
+export(bool) var SLIDE_ENABLED = true
+export(Dictionary) var properties setget set_properties
 
 #---- STANDARD -----
 #==== PUBLIC ====
 var mouse_sensitivity = 0.05  # mouse sensitivity
 var states = []  # player current states # OPTIMIZATION : Use a bitmask for states, with an enum and everything
-var input_movement_vector = Vector2()  # vector for the movement 
+var input_movement_vector = Vector2()  # vector for the movement
 var vel := Vector3()  # velocity vector
 var dir := Vector3()  # wished direction by the player
 var current_speed := 0.0  # current speed of the player
@@ -142,7 +137,7 @@ func set_properties(new_properties: Dictionary) -> void:
 
 
 func update_properties() -> void:
-	if 'angle' in properties:
+	if "angle" in properties:
 		rotation_degrees.y = properties.angle
 
 
@@ -182,6 +177,7 @@ func _process_input(_delta):
 	dir += cam_xform.basis.x * input_movement_vector.x
 
 	# Jumping
+	# TODO : Move this in _ground_movement
 	if is_on_floor():
 		if Input.is_action_pressed("movement_jump"):
 			if states.has("sliding"):
@@ -190,9 +186,9 @@ func _process_input(_delta):
 				self.rotate_object_local(Vector3(1, 0, 0), PI / 4)
 				rotation_helper.rotate_object_local(Vector3(1, 0, 0), -PI / 4)
 				states.erase("sliding")
-			vel.y += JUMP_POWER
 
 	# Shooting
+	# TODO : make a separate function
 	if Input.is_action_pressed("action_shoot") and not states.has("shooting") and ROCKETS_ENABLED:
 		states.append("shooting")
 		var rocket = load(ROCKET_SCENE_PATH).instance()
@@ -244,7 +240,8 @@ func _process_movement(delta):
 		else:
 			_air_movement(delta)
 	_add_movement_queue_to_vel()
-	vel = move_and_slide(vel, Vector3.UP)
+	var snap = Vector3.ZERO if Input.is_action_pressed("movement_jump") else Vector3.DOWN
+	vel = move_and_slide_with_snap(vel, snap, Vector3.UP, true)
 	current_speed = vel.length()
 
 
@@ -276,7 +273,7 @@ func _process_states():
 
 # verifies if the player is on the floor (to update the _is_on_floor value)
 func _check_is_on_floor(state: PhysicsDirectBodyState) -> bool:
-	for i in range(state.get_contact_count()):  # if at least one contact has an angle from the up vector inferior to the max slope angle, then we are on floor 
+	for i in range(state.get_contact_count()):  # if at least one contact has an angle from the up vector inferior to the max slope angle, then we are on floor
 		if state.get_contact_local_normal(i).angle_to(Vector3.UP):
 			return true
 	return false
@@ -315,7 +312,6 @@ func _wall_ride_movement(delta: float) -> void:
 			vel = vel_dir * vel.length()
 		# DebugDraw.draw_line_3d(transform.origin, transform.origin + vel, Color(0, 1, 1))
 		_add_movement_queue_to_vel()
-		vel = move_and_slide(vel, Vector3.UP, 0.05, 4, deg2rad(MAX_SLOPE_ANGLE))
 	else:
 		_RC_wall_direction = 0
 
@@ -325,7 +321,10 @@ func _ground_movement(delta: float) -> void:
 	_accelerate(
 		Vector3(dir.x, 0, dir.z).normalized(), GROUND_TARGET_SPEED, GROUND_ACCELERATION, delta
 	)
-	vel.y = JUMP_POWER if Input.is_action_pressed("movement_jump") else 0
+	if Input.is_action_pressed("movement_jump"):
+		vel += get_floor_normal() * JUMP_POWER
+		if states.has("sliding"):
+			_slide_jump()
 
 
 func _air_movement(delta: float) -> void:
@@ -350,7 +349,7 @@ func _apply_friction(delta: float):
 		vel.z = 0
 		return  # no need to compute things further, the player is stopped
 	var control := 0.0
-	if is_on_floor() && ! Input.is_action_pressed("movement_jump"):
+	if is_on_floor() && !Input.is_action_pressed("movement_jump"):
 		var friction := SLIDE_FRICTION if _slide else GROUND_FRICTION
 		control = GROUND_DECCELERATION if current_speed < GROUND_DECCELERATION else current_speed
 		drop += control * friction * delta
@@ -365,9 +364,17 @@ func _accelerate(wish_dir: Vector3, wish_speed: float, accel: float, delta: floa
 	var project_speed = vel.dot(wish_dir)  # dot product between the velocity and the wishdir. equivalent of currentspeed in Quake III code, which is the speed on the wishdir (and not the "real" speed vel.length()), but allows air strafing, which is very cool
 	var add_speed = wish_speed - project_speed
 	if add_speed > 0:  # accelerate only if needed
-		var accel_amount := clamp(accel * delta * wish_speed, 0.0, add_speed)  # acceleration amount 
+		var accel_amount := clamp(accel * delta * wish_speed, 0.0, add_speed)  # acceleration amount
 		vel.x += accel_amount * wish_dir.x
 		vel.z += accel_amount * wish_dir.z
+
+
+func _slide_jump():
+	vel += Vector3(vel.x, 0, vel.z).normalized() * SLIDE_SPEED_BONUS_JUMP
+	_slide = false
+	self.rotate_object_local(Vector3(1, 0, 0), PI / 4)
+	rotation_helper.rotate_object_local(Vector3(1, 0, 0), -PI / 4)
+	states.erase("sliding")
 
 
 # resets the wallride raycasts to their standard rotation value
