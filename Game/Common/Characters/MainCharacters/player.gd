@@ -144,7 +144,6 @@ func update_properties() -> void:
 #==== Others =====
 # sets the UI infos
 func _set_UI_data() -> void:
-	current_speed = vel.length()
 	var ui := get_node(PATHS.UI)
 	ui.set_speed(current_speed)
 
@@ -155,6 +154,7 @@ func _process_collision():
 	$SlideCollision.disabled = not states.has("sliding")
 
 
+# Input management
 func _process_input(_delta):
 	# Camera
 	dir = Vector3()
@@ -177,17 +177,8 @@ func _process_input(_delta):
 	dir += cam_xform.basis.x * input_movement_vector.x
 
 	# Shooting
-	# TODO : make a separate function
 	if Input.is_action_pressed("action_shoot") and not states.has("shooting") and ROCKETS_ENABLED:
-		states.append("shooting")
-		var rocket = load(ROCKET_SCENE_PATH).instance()
-		rocket.START_POS = transform.origin + transform.basis * ROCKET_START_OFFSET
-		rocket.DIRECTION = -cam_xform.basis.z
-		rocket.UP_VECTOR = Vector3(0, 1, 0)
-		get_parent().add_child(rocket)
-		var _err = get_tree().create_timer(ROCKET_DELAY).connect(
-			"timeout", self, "remove_shooting_state"
-		)
+		_shoot(cam_xform)
 
 	# Slide
 	if Input.is_action_just_pressed("movement_slide") and SLIDE_ENABLED:
@@ -229,7 +220,7 @@ func _process_movement(delta):
 		else:
 			_air_movement(delta)
 	_add_movement_queue_to_vel()
-	var snap = Vector3.ZERO if Input.is_action_pressed("movement_jump") else Vector3.DOWN
+	var snap = Vector3.ZERO if Input.is_action_pressed("movement_jump") else -get_floor_normal()
 	vel = move_and_slide_with_snap(vel, snap, Vector3.UP, true)
 	current_speed = vel.length()
 
@@ -260,14 +251,7 @@ func _process_states():
 		states.erase("wall_riding")
 
 
-# verifies if the player is on the floor (to update the _is_on_floor value)
-func _check_is_on_floor(state: PhysicsDirectBodyState) -> bool:
-	for i in range(state.get_contact_count()):  # if at least one contact has an angle from the up vector inferior to the max slope angle, then we are on floor
-		if state.get_contact_local_normal(i).angle_to(Vector3.UP):
-			return true
-	return false
-
-
+# wall ride movement management
 func _wall_ride_movement(delta: float) -> void:
 	var rc: RayCast = (
 		$RayCasts/RayCastWallPlus
@@ -305,6 +289,20 @@ func _wall_ride_movement(delta: float) -> void:
 		_RC_wall_direction = 0
 
 
+# Shoots a rocket
+func _shoot(cam_xform: Transform) -> void:
+	states.append("shooting")
+	var rocket = load(ROCKET_SCENE_PATH).instance()
+	rocket.START_POS = transform.origin + transform.basis * ROCKET_START_OFFSET
+	rocket.DIRECTION = -cam_xform.basis.z
+	rocket.UP_VECTOR = Vector3(0, 1, 0)
+	get_parent().add_child(rocket)
+	var _err = get_tree().create_timer(ROCKET_DELAY).connect(
+		"timeout", self, "remove_shooting_state"
+	)
+
+
+# movement management when on the ground
 func _ground_movement(delta: float) -> void:
 	_apply_friction(delta)
 	_accelerate(
@@ -316,6 +314,7 @@ func _ground_movement(delta: float) -> void:
 			_slide_jump()
 
 
+# movement management when in the air
 func _air_movement(delta: float) -> void:
 	var wish_dir := Vector3(dir.x, 0, dir.z).normalized()
 	if input_movement_vector.x == 0 && input_movement_vector.y == 1:  # pressing forward only, forces the velocity direction to the wishdir
@@ -330,6 +329,7 @@ func _air_movement(delta: float) -> void:
 	vel.y += GRAVITY * delta
 
 
+# applies friction, mostly for when on floor
 func _apply_friction(delta: float):
 	var drop := 0.0
 	if current_speed <= STOP_SPEED:
@@ -348,6 +348,7 @@ func _apply_friction(delta: float):
 	vel.z *= speed_multiplier
 
 
+# accelerates the player, enables strafing
 func _accelerate(wish_dir: Vector3, wish_speed: float, accel: float, delta: float):
 	var project_speed = vel.dot(wish_dir)  # dot product between the velocity and the wishdir. equivalent of currentspeed in Quake III code, which is the speed on the wishdir (and not the "real" speed vel.length()), but allows air strafing, which is very cool
 	var add_speed = wish_speed - project_speed
@@ -357,6 +358,7 @@ func _accelerate(wish_dir: Vector3, wish_speed: float, accel: float, delta: floa
 		vel.z += accel_amount * wish_dir.z
 
 
+# Executed when jumping while sliding
 func _slide_jump():
 	vel += Vector3(vel.x, 0, vel.z).normalized() * SLIDE_SPEED_BONUS_JUMP
 	_slide = false
@@ -405,6 +407,10 @@ func remove_shooting_state():
 		states.erase("shooting")
 
 
+func _on_UpdateSpeed_timeout():
+	SignalManager.emit_speed_updated(current_speed)
+
+
 #### DEBUG #####
 func _debug_process_movement(_delta: float):
 	var rc: RayCast
@@ -434,7 +440,3 @@ func _debug_process_movement(_delta: float):
 		# 	rc.get_collision_point(), rc.get_collision_point() + wall_fw, Color(0, 0, 1)
 		# )
 		# DebugDraw.set_text("wall fw", wall_fw)
-
-
-func _on_UpdateSpeed_timeout():
-	SignalManager.emit_speed_updated(current_speed)
