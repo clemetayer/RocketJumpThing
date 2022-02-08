@@ -8,7 +8,7 @@ class_name Player
 - TODO : Maybe refactor a bit this script in general, it's getting hard to read
 - TODO : Explode the rockets on right click ? charge rocket on right click ?
 - TODO : improve BHop ~ Actually, maybe it is fine the way it is...
-- FIXME : Use the wall collision info to compute wall ride ~ Maybe try using an Area to detect the wall
+- FIXME : Use the wall collision info to compute wall ride ~ Maybe try using an Area to detect the wall, but that's probably pretty hard to implement, for a not that significant result 
 """
 
 ##### SIGNALS #####
@@ -32,8 +32,8 @@ const AIR_ACCELERATION := 0.75  # Acceleration in air to get to the AIR_TARGET_S
 
 #==== WALL RIDE =====
 const WALL_RIDE_ASCEND_AMOUNT := 10.0  # How much the player ascend during a wall ride
-const WALL_JUMP_BOOST := 20.0  # How much speed is given to the player when jumping while wall riding
-const WALL_JUMP_UP_BOOST := 10.0  # The up vector that is added when jumping off a wall
+const WALL_JUMP_BOOST := 100.0  # How much speed is given to the player when jumping while wall riding
+const WALL_JUMP_UP_BOOST := 50.0  # The up vector that is added when jumping off a wall
 const WALL_JUMP_ANGLE := PI / 4  # Angle from the wall forward vector when wall jumping
 const WALL_JUMP_MIX_DIRECTION_TIME := 0.5  # How much time after the jumping from a wall should override the forward movement (to avoid a bug that makes the player sticks to the wall)
 
@@ -44,6 +44,7 @@ const GROUND_DECCELERATION := 4.5  # Decceleration when on ground
 const GROUND_FRICTION := 5.0  # Ground friction
 const SLIDE_SPEED_BONUS_JUMP := 50  # Speed added when jumping after a slide
 const SLIDE_FRICTION := 0.5  # Friction when sliding on the ground. Equivalent to the movement in air, but with a little friction
+const AIR_MOVE_TOWARD := 750  # When pressing forward in the air, how much it should stick to the aim direction
 
 #~~~~~ PROJECTILES ~~~~~
 const ROCKET_DELAY := 1.0  # Time before you can shoot another rocket
@@ -73,11 +74,9 @@ var rotation_helper  # rotation helper node
 var _add_velocity_vector_queue := []  # queue to add the vector to the velocity on the next process (used to make external elements interact with the player velocity)
 var _slide := false  # used to buffer a slide when in air
 var _RC_wall_direction := 0  # 1 if the raycasts aims for the right wall, -1 if the raycast aims for the left wall, 0 if not aiming for any wall
-var _mix_to_direction_amount := 1.0  # Used after wall jumping and pressing forward, to not stick to the wall. Varies between 0 and 1.
 var _charge_shot_time := 0  # time when the shot key was pressed (as unix timestamp, millis)
-
-#==== ONREADY ====
-# onready var onready_var # Optionnal comment
+var _wall_ride_lock := false  # lock for the wall ride to avoid sticking to the wall when jumping
+var _mix_to_direction_amount := 1.0  # when in air and pressing forward, how much the velocity should stick to the direction
 
 
 ##### PROCESSING #####
@@ -156,6 +155,7 @@ func _process_collision():
 
 # Input management
 func _process_input(_delta):
+	DebugDraw.set_text("_wall_ride_lock", _wall_ride_lock)
 	# Camera
 	dir = Vector3()
 	var cam_xform = camera.get_global_transform()
@@ -206,12 +206,7 @@ func _process_movement(delta):
 			_RC_wall_direction = 1
 
 	# Movement process
-	if (
-		not is_on_floor()
-		and (true or states.has("wall_riding"))
-		and _slide
-		and _RC_wall_direction != 0
-	):
+	if not is_on_floor() and _slide and _RC_wall_direction != 0 and !_wall_ride_lock:
 		_wall_ride_movement(delta)
 	else:
 		_reset_wallride_raycasts()
@@ -259,19 +254,30 @@ func _wall_ride_movement(delta: float) -> void:
 		else $RayCasts/RayCastWallMinus if _RC_wall_direction == -1 else null
 	)
 	if rc != null and rc.is_colliding():  # if on an "acceptable" wall
+		if !states.has("wall_riding"):  # first contact with the wall, snap the player to it
+			transform.origin = rc.get_collision_point()
+			states.append("wall_riding")
 		var wall_normal = rc.get_collision_normal().normalized()  # normal of the wall, should be the aligned with the player x axis
 		var wall_fw = (wall_normal.cross(Vector3.UP) * -_RC_wall_direction).normalized()  # Forward direction, where the player should translate to (perpendicular to wall_normal and wall_up)
 		if Input.is_action_pressed("movement_jump"):
 			if states.has("wall_riding"):
 				states.remove("wall_riding")
-			if Input.is_action_pressed("movement_forward"):
-				var tween = get_node("WallJumpMixMovement")
-				if tween.is_active():
-					tween.stop_all()
-				tween.interpolate_property(
-					self, "_mix_to_direction_amount", 0.0, 1.0, WALL_JUMP_MIX_DIRECTION_TIME
-				)
-				tween.start()
+				$Timers/WallRideJumpLock.start()  # to avoid sticking and accelerating back on the wall after jumping
+				_wall_ride_lock = true
+				if Input.is_action_pressed("movement_forward"):
+					var tween = get_node("WallJumpMixMovement")
+					if tween.is_active():
+						tween.stop_all()
+					tween.interpolate_property(
+						self,
+						"_mix_to_direction_amount",
+						0.0,
+						1.0,
+						WALL_JUMP_MIX_DIRECTION_TIME,
+						Tween.TRANS_QUART,
+						Tween.EASE_IN
+					)
+					tween.start()
 			vel += (
 				wall_fw.rotated(Vector3.UP, WALL_JUMP_ANGLE * -_RC_wall_direction)
 				* WALL_JUMP_BOOST
@@ -284,7 +290,6 @@ func _wall_ride_movement(delta: float) -> void:
 			var vel_dir = Vector3(wall_fw.x, WALL_RIDE_ASCEND_AMOUNT * delta, wall_fw.z).normalized()
 			vel = vel_dir * vel.length()
 		# DebugDraw.draw_line_3d(transform.origin, transform.origin + vel, Color(0, 1, 1))
-		_add_movement_queue_to_vel()
 	else:
 		_RC_wall_direction = 0
 
@@ -322,8 +327,8 @@ func _air_movement(delta: float) -> void:
 			_accelerate(wish_dir, AIR_TARGET_SPEED, AIR_ACCELERATION, delta)
 		var linear_speed := Vector3(vel.x, 0, vel.z).length()  # keep the current speed
 		var direction_vec := wish_dir * linear_speed  # direction and speed of the velocity on a linear axis
-		vel.x = direction_vec.x
-		vel.z = direction_vec.z
+		direction_vec.y = vel.y
+		vel = vel.move_toward(direction_vec, delta * _mix_to_direction_amount * AIR_MOVE_TOWARD)
 	else:  # accelerate and strafe
 		_accelerate(wish_dir, AIR_TARGET_SPEED, AIR_ACCELERATION, delta)
 	vel.y += GRAVITY * delta
@@ -409,6 +414,10 @@ func remove_shooting_state():
 
 func _on_UpdateSpeed_timeout():
 	SignalManager.emit_speed_updated(current_speed)
+
+
+func _on_WallRideJumpLock_timeout():
+	_wall_ride_lock = false
 
 
 #### DEBUG #####

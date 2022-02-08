@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Game/Common/Characters/MainCharacters/player.gd" type="Script" id=1]
 [ext_resource path="res://Game/Common/Characters/player_UI.tscn" type="PackedScene" id=2]
@@ -9,9 +9,6 @@
 top_radius = 0.6
 bottom_radius = 0.6
 height = 3.0
-
-[sub_resource type="CylinderShape" id=6]
-height = 0.1
 
 [sub_resource type="CylinderShape" id=5]
 height = 3.0
@@ -31,24 +28,16 @@ PATHS = {
 mesh = SubResource( 4 )
 material/0 = null
 
-[node name="Areas" type="Spatial" parent="."]
-
-[node name="FloorDetection" type="Area" parent="Areas"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.5, 0 )
-
-[node name="CollisionShape" type="CollisionShape" parent="Areas/FloorDetection"]
-shape = SubResource( 6 )
-
 [node name="RayCasts" type="Spatial" parent="."]
 
 [node name="RayCastWallPlus" type="RayCast" parent="RayCasts"]
 enabled = true
-cast_to = Vector3( 3, 0, 0 )
+cast_to = Vector3( 5, 0, 0 )
 collision_mask = 2
 
 [node name="RayCastWallMinus" type="RayCast" parent="RayCasts"]
 enabled = true
-cast_to = Vector3( -3, 0, 0 )
+cast_to = Vector3( -5, 0, 0 )
 collision_mask = 2
 
 [node name="RotationHelper" type="Spatial" parent="."]
@@ -88,5 +77,11 @@ layer = 3
 
 [node name="Timers" type="Node" parent="."]
 
+[node name="WallRideJumpLock" type="Timer" parent="Timers"]
+one_shot = true
+
 [node name="UpdateSpeed" type="Timer" parent="Timers"]
 wait_time = 0.1
+
+[connection signal="timeout" from="Timers/WallRideJumpLock" to="." method="_on_WallRideJumpLock_timeout"]
+[connection signal="timeout" from="Timers/UpdateSpeed" to="." method="_on_UpdateSpeed_timeout"]
