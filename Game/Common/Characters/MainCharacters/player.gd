@@ -32,8 +32,9 @@ const AIR_ACCELERATION := 0.75  # Acceleration in air to get to the AIR_TARGET_S
 
 #==== WALL RIDE =====
 const WALL_RIDE_ASCEND_AMOUNT := 10.0  # How much the player ascend during a wall ride
-const WALL_JUMP_BOOST := 100.0  # How much speed is given to the player when jumping while wall riding
-const WALL_JUMP_UP_BOOST := 50.0  # The up vector that is added when jumping off a wall
+const WALL_RIDE_WALL_DISTANCE := 0.25  # distance from the wall normal, to avoid possibly getting stuck in it on some cases
+const WALL_JUMP_BOOST := 75.0  # How much speed is given to the player when jumping while wall riding
+const WALL_JUMP_UP_BOOST := 40.0  # The up vector that is added when jumping off a wall
 const WALL_JUMP_ANGLE := PI / 4  # Angle from the wall forward vector when wall jumping
 const WALL_JUMP_MIX_DIRECTION_TIME := 0.5  # How much time after the jumping from a wall should override the forward movement (to avoid a bug that makes the player sticks to the wall)
 
@@ -90,20 +91,6 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame. Remove the "_" to use it.
 func _physics_process(delta):
-	# DebugDraw.set_text("current_speed", current_speed)
-	# DebugDraw.draw_line_3d(self.transform.origin, self.transform.origin + dir, Color(0, 1, 1))
-	# DebugDraw.draw_line_3d(
-	# 	self.translation, self.transform.origin + Vector3(vel.x, 0, vel.z), Color(0, 1, 0)
-	# )
-#	DebugDraw.draw_line_3d(
-#		self.transform.origin, self.transform.origin + self.transform.basis.x, Color(1, 0, 0)
-#	)
-#	DebugDraw.draw_line_3d(
-#		self.transform.origin, self.transform.origin + self.transform.basis.y, Color(0, 1, 0)
-#	)
-#	DebugDraw.draw_line_3d(
-#		self.transform.origin, self.transform.origin + self.transform.basis.z, Color(0, 0, 1)
-#	)
 	_set_UI_data()
 	_process_collision()
 	_process_input(delta)
@@ -155,7 +142,6 @@ func _process_collision():
 
 # Input management
 func _process_input(_delta):
-	DebugDraw.set_text("_wall_ride_lock", _wall_ride_lock)
 	# Camera
 	dir = Vector3()
 	var cam_xform = camera.get_global_transform()
@@ -196,7 +182,7 @@ func _process_input(_delta):
 
 # process for the movement
 func _process_movement(delta):
-	_debug_process_movement(delta)
+	# _debug_process_movement(delta)
 
 	# Wall ride wall check
 	if _RC_wall_direction == 0:  # First contact with wall
@@ -215,6 +201,8 @@ func _process_movement(delta):
 		else:
 			_air_movement(delta)
 	_add_movement_queue_to_vel()
+
+	# Move and slide + update speed
 	var snap = Vector3.ZERO if Input.is_action_pressed("movement_jump") else -get_floor_normal()
 	vel = move_and_slide_with_snap(vel, snap, Vector3.UP, true)
 	current_speed = vel.length()
@@ -255,7 +243,10 @@ func _wall_ride_movement(delta: float) -> void:
 	)
 	if rc != null and rc.is_colliding():  # if on an "acceptable" wall
 		if !states.has("wall_riding"):  # first contact with the wall, snap the player to it
-			transform.origin = rc.get_collision_point()
+			transform.origin = (
+				rc.get_collision_point()
+				+ rc.get_collision_normal() * WALL_RIDE_WALL_DISTANCE
+			)  # keep a small distance from the wall to avoid getting stuck in it
 			states.append("wall_riding")
 		var wall_normal = rc.get_collision_normal().normalized()  # normal of the wall, should be the aligned with the player x axis
 		var wall_fw = (wall_normal.cross(Vector3.UP) * -_RC_wall_direction).normalized()  # Forward direction, where the player should translate to (perpendicular to wall_normal and wall_up)
@@ -289,7 +280,6 @@ func _wall_ride_movement(delta: float) -> void:
 				states.append("wall_riding")
 			var vel_dir = Vector3(wall_fw.x, WALL_RIDE_ASCEND_AMOUNT * delta, wall_fw.z).normalized()
 			vel = vel_dir * vel.length()
-		# DebugDraw.draw_line_3d(transform.origin, transform.origin + vel, Color(0, 1, 1))
 	else:
 		_RC_wall_direction = 0
 
@@ -388,14 +378,12 @@ func _keep_wallride_raycasts_perpendicular() -> void:
 		wall_normal_vect = rc.get_collision_normal()
 		raycast_dir_vect = rc.global_transform.origin - rc.get_collision_point()
 		angle = wall_normal_vect.signed_angle_to(raycast_dir_vect, Vector3.UP)
-		# DebugDraw.set_text("angle", angle)
 		$RayCasts.rotate_y(-angle)
 	elif _RC_wall_direction == 1:  # left raycast
 		rc = $RayCasts/RayCastWallPlus
 		wall_normal_vect = rc.get_collision_normal()
 		raycast_dir_vect = rc.global_transform.origin - rc.get_collision_point()
 		angle = wall_normal_vect.signed_angle_to(raycast_dir_vect, Vector3.UP)
-		# DebugDraw.set_text("angle", angle)
 		$RayCasts.rotate_y(-angle)
 
 
