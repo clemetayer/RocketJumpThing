@@ -5,10 +5,7 @@ class_name Player
 
 """
 - TODO : Use a rigid body instead ? Meh actually, it tends to go through floors, and there is a respawn possibility if you're stuck in a wall
-- TODO : Maybe refactor a bit this script in general, it's getting hard to read
 - TODO : Explode the rockets on right click ? charge rocket on right click ?
-- TODO : improve BHop ~ Actually, maybe it is fine the way it is...
-- FIXME : Use the wall collision info to compute wall ride ~ Maybe try using an Area to detect the wall, but that's probably pretty hard to implement, for a not that significant result 
 """
 
 ##### SIGNALS #####
@@ -128,18 +125,21 @@ func update_properties() -> void:
 
 
 #==== Others =====
+#---- UI data -----
 # sets the UI infos
 func _set_UI_data() -> void:
 	var ui := get_node(PATHS.UI)
 	ui.set_speed(current_speed)
 
 
+#---- Process collision -----
 # Enables/disables some collisions depending on the states
 func _process_collision():
 	$PlayerCollision.disabled = states.has("sliding")
 	$SlideCollision.disabled = not states.has("sliding")
 
 
+#---- Process states -----
 # Input management
 func _process_input(_delta):
 	# Camera
@@ -180,6 +180,20 @@ func _process_input(_delta):
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 
+# Shoots a rocket
+func _shoot(cam_xform: Transform) -> void:
+	states.append("shooting")
+	var rocket = load(ROCKET_SCENE_PATH).instance()
+	rocket.START_POS = transform.origin + transform.basis * ROCKET_START_OFFSET
+	rocket.DIRECTION = -cam_xform.basis.z
+	rocket.UP_VECTOR = Vector3(0, 1, 0)
+	get_parent().add_child(rocket)
+	var _err = get_tree().create_timer(ROCKET_DELAY).connect(
+		"timeout", self, "remove_shooting_state"
+	)
+
+
+#---- Process movement -----
 # process for the movement
 func _process_movement(delta):
 	# _debug_process_movement(delta)
@@ -206,32 +220,6 @@ func _process_movement(delta):
 	var snap = Vector3.ZERO if Input.is_action_pressed("movement_jump") else -get_floor_normal()
 	vel = move_and_slide_with_snap(vel, snap, Vector3.UP, true)
 	current_speed = vel.length()
-
-
-# updates the states
-func _process_states():
-	if _slide:
-		if not states.has("sliding") and is_on_floor():
-			self.rotate_object_local(Vector3(1, 0, 0), -PI / 4)
-			rotation_helper.rotate_object_local(Vector3(1, 0, 0), PI / 4)
-			states.append("sliding")
-	if is_on_floor() and not states.has("in_air"):
-		states.append("in_air")
-	if current_speed != 0 and not states.has("moving"):
-		states.append("moving")
-	if states.has("sliding") and (not Input.is_action_pressed("movement_slide")):
-		self.rotate_object_local(Vector3(1, 0, 0), PI / 4)
-		rotation_helper.rotate_object_local(Vector3(1, 0, 0), -PI / 4)
-		states.erase("sliding")
-	if (
-		states.has("wall_riding")
-		and (
-			not Input.is_action_pressed("movement_slide")
-			or is_on_floor()
-			or _RC_wall_direction == 0
-		)
-	):
-		states.erase("wall_riding")
 
 
 # wall ride movement management
@@ -284,17 +272,29 @@ func _wall_ride_movement(delta: float) -> void:
 		_RC_wall_direction = 0
 
 
-# Shoots a rocket
-func _shoot(cam_xform: Transform) -> void:
-	states.append("shooting")
-	var rocket = load(ROCKET_SCENE_PATH).instance()
-	rocket.START_POS = transform.origin + transform.basis * ROCKET_START_OFFSET
-	rocket.DIRECTION = -cam_xform.basis.z
-	rocket.UP_VECTOR = Vector3(0, 1, 0)
-	get_parent().add_child(rocket)
-	var _err = get_tree().create_timer(ROCKET_DELAY).connect(
-		"timeout", self, "remove_shooting_state"
-	)
+# sets the wallride raycast rotations to stay perpendicular to the wall it is colliding with
+func _keep_wallride_raycasts_perpendicular() -> void:
+	var rc: RayCast
+	var wall_normal_vect: Vector3  # normal of the wall returned by the raycast
+	var raycast_dir_vect: Vector3  # direction to the raycast from the collision point
+	var angle: float  # angle between wall_normal_vect and raycast_dir_vect
+	if _RC_wall_direction == -1:  # right raycast
+		rc = $RayCasts/RayCastWallMinus
+		wall_normal_vect = rc.get_collision_normal()
+		raycast_dir_vect = rc.global_transform.origin - rc.get_collision_point()
+		angle = wall_normal_vect.signed_angle_to(raycast_dir_vect, Vector3.UP)
+		$RayCasts.rotate_y(-angle)
+	elif _RC_wall_direction == 1:  # left raycast
+		rc = $RayCasts/RayCastWallPlus
+		wall_normal_vect = rc.get_collision_normal()
+		raycast_dir_vect = rc.global_transform.origin - rc.get_collision_point()
+		angle = wall_normal_vect.signed_angle_to(raycast_dir_vect, Vector3.UP)
+		$RayCasts.rotate_y(-angle)
+
+
+# resets the wallride raycasts to their standard rotation value
+func _reset_wallride_raycasts() -> void:
+	$RayCasts.rotation = Vector3(0, 0, 0)
 
 
 # movement management when on the ground
@@ -307,21 +307,6 @@ func _ground_movement(delta: float) -> void:
 		vel.y += JUMP_POWER
 		if states.has("sliding"):
 			_slide_jump()
-
-
-# movement management when in the air
-func _air_movement(delta: float) -> void:
-	var wish_dir := Vector3(dir.x, 0, dir.z).normalized()
-	if input_movement_vector.x == 0 && input_movement_vector.y == 1:  # pressing forward only, forces the velocity direction to the wishdir
-		if current_speed < AIR_TARGET_SPEED:  # accelerate if not reached the target speed yet
-			_accelerate(wish_dir, AIR_TARGET_SPEED, AIR_ACCELERATION, delta)
-		var linear_speed := Vector3(vel.x, 0, vel.z).length()  # keep the current speed
-		var direction_vec := wish_dir * linear_speed  # direction and speed of the velocity on a linear axis
-		direction_vec.y = vel.y
-		vel = vel.move_toward(direction_vec, delta * _mix_to_direction_amount * AIR_MOVE_TOWARD)
-	else:  # accelerate and strafe
-		_accelerate(wish_dir, AIR_TARGET_SPEED, AIR_ACCELERATION, delta)
-	vel.y += GRAVITY * delta
 
 
 # applies friction, mostly for when on floor
@@ -362,29 +347,19 @@ func _slide_jump():
 	states.erase("sliding")
 
 
-# resets the wallride raycasts to their standard rotation value
-func _reset_wallride_raycasts() -> void:
-	$RayCasts.rotation = Vector3(0, 0, 0)
-
-
-# sets the wallride raycast rotations to stay perpendicular to the wall it is colliding with
-func _keep_wallride_raycasts_perpendicular() -> void:
-	var rc: RayCast
-	var wall_normal_vect: Vector3  # normal of the wall returned by the raycast
-	var raycast_dir_vect: Vector3  # direction to the raycast from the collision point
-	var angle: float  # angle between wall_normal_vect and raycast_dir_vect
-	if _RC_wall_direction == -1:  # right raycast
-		rc = $RayCasts/RayCastWallMinus
-		wall_normal_vect = rc.get_collision_normal()
-		raycast_dir_vect = rc.global_transform.origin - rc.get_collision_point()
-		angle = wall_normal_vect.signed_angle_to(raycast_dir_vect, Vector3.UP)
-		$RayCasts.rotate_y(-angle)
-	elif _RC_wall_direction == 1:  # left raycast
-		rc = $RayCasts/RayCastWallPlus
-		wall_normal_vect = rc.get_collision_normal()
-		raycast_dir_vect = rc.global_transform.origin - rc.get_collision_point()
-		angle = wall_normal_vect.signed_angle_to(raycast_dir_vect, Vector3.UP)
-		$RayCasts.rotate_y(-angle)
+# movement management when in the air
+func _air_movement(delta: float) -> void:
+	var wish_dir := Vector3(dir.x, 0, dir.z).normalized()
+	if input_movement_vector.x == 0 && input_movement_vector.y == 1:  # pressing forward only, forces the velocity direction to the wishdir
+		if current_speed < AIR_TARGET_SPEED:  # accelerate if not reached the target speed yet
+			_accelerate(wish_dir, AIR_TARGET_SPEED, AIR_ACCELERATION, delta)
+		var linear_speed := Vector3(vel.x, 0, vel.z).length()  # keep the current speed
+		var direction_vec := wish_dir * linear_speed  # direction and speed of the velocity on a linear axis
+		direction_vec.y = vel.y
+		vel = vel.move_toward(direction_vec, delta * _mix_to_direction_amount * AIR_MOVE_TOWARD)
+	else:  # accelerate and strafe
+		_accelerate(wish_dir, AIR_TARGET_SPEED, AIR_ACCELERATION, delta)
+	vel.y += GRAVITY * delta
 
 
 # adds the vectors stored in the _add_velocity_vector_queue to velocity
@@ -392,6 +367,33 @@ func _add_movement_queue_to_vel():
 	for vect in _add_velocity_vector_queue:
 		vel += vect
 	_add_velocity_vector_queue = []
+
+
+#---- Process states -----
+# updates the states
+func _process_states():
+	if _slide:
+		if not states.has("sliding") and is_on_floor():
+			self.rotate_object_local(Vector3(1, 0, 0), -PI / 4)
+			rotation_helper.rotate_object_local(Vector3(1, 0, 0), PI / 4)
+			states.append("sliding")
+	if is_on_floor() and not states.has("in_air"):
+		states.append("in_air")
+	if current_speed != 0 and not states.has("moving"):
+		states.append("moving")
+	if states.has("sliding") and (not Input.is_action_pressed("movement_slide")):
+		self.rotate_object_local(Vector3(1, 0, 0), PI / 4)
+		rotation_helper.rotate_object_local(Vector3(1, 0, 0), -PI / 4)
+		states.erase("sliding")
+	if (
+		states.has("wall_riding")
+		and (
+			not Input.is_action_pressed("movement_slide")
+			or is_on_floor()
+			or _RC_wall_direction == 0
+		)
+	):
+		states.erase("wall_riding")
 
 
 ##### SIGNAL MANAGEMENT #####
