@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource( 3 )
 export_file = false
-target_folder = "D:/Godot/TOOLS/games/RocketJumpThing"
+target_folder = "/home/clemetayer/.TrenchBroom/games/RocketJumpThing"
 fgd_name = "light_fgd"
 base_fgd_files = [  ]
 entity_definitions = [ ExtResource( 1 ) ]

@@ -5,10 +5,10 @@
 [resource]
 script = ExtResource( 1 )
 export_file = false
-target_file = "C:/Users/user/Documents/Logiciels/TB/games/RocketJumpThing/RocketJumpThing.cfg"
+target_file = "/home/clemetayer/.TrenchBroom/games/RocketJumpThing/GameConfig.cfg"
 game_name = "RocketJumpThing"
 brush_tags = [  ]
 face_tags = [  ]
 face_attrib_surface_flags = [  ]
 face_attrib_content_flags = [  ]
-fgd_filenames = [ "RocketJumpThing_fgd", "checkpoint_fgd", "MapElements_fgd" ]
+fgd_filenames = [ "RocketJumpThing_fgd", "Checkpoint_fgd", "MapElements_fgd", "Doors_fgd", "MapElements_fgd", "light_fgd", "sequencer_fgd" ]
