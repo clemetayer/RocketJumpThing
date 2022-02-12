@@ -12,8 +12,16 @@ description = "A Spatial step sequencer with flashing visuals"
 qodot_internal = false
 base_classes = [ ExtResource( 2 ) ]
 class_properties = {
+"fade_in_time": 0.2,
+"fade_out_time": 0.4,
+"max_intensity": 50.0,
+"min_intensity": 1.0
 }
 class_property_descriptions = {
+"fade_in_time": "time in seconds it takes for the sequencer to peak",
+"fade_out_time": "time it seconds it takes for the sequencer to release",
+"max_intensity": "Maximal intensity value, when the sequencer is peaking",
+"min_intensity": "Minimal intensity value, when the sequencer is done or just starting"
 }
 meta_properties = {
 "color": Color( 0.85098, 0.00392157, 1, 1 ),

@@ -366,7 +366,7 @@ settings/fps/force_fps=240
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/qodot/plugin.cfg" )
+enabled=PoolStringArray( "res://addons/gs_logger/plugin.cfg", "res://addons/qodot/plugin.cfg" )
 
 [input]
 

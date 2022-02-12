@@ -13,15 +13,15 @@ class_name SequencerBaseEntity
 # const constant := 10 # Optionnal comment
 
 #---- EXPORTS -----
-export (Dictionary) var properties setget set_properties
+export(Dictionary) var properties setget set_properties
 
 #---- STANDARD -----
 #==== PUBLIC ====
 # var public_var # Optionnal comment
 
 #==== PRIVATE ====
-var _step := 0  # Current step 
-var _id: String  # Identifier of the sequencer 
+var _step := 0  # Current step
+var _id: String  # Identifier of the sequencer
 var _number_of_steps: int  # Number of steps in total for the elements with the same ID
 var _number: int  # Number of the element alone
 
@@ -47,11 +47,11 @@ func _init():
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	if 'id' in properties:
+	if "id" in properties:
 		self._id = properties.id
-	if 'number_of_steps' in properties:
+	if "number_of_steps" in properties:
 		self._number_of_steps = properties.number_of_steps
-	if 'number' in properties:
+	if "number" in properties:
 		self._number = properties.number
 
 
@@ -63,7 +63,7 @@ func set_properties(new_properties: Dictionary) -> void:
 
 
 ##### PROTECTED METHODS #####
-# function to do when this is the correct step 
+# function to do when this is the correct step
 # Override this
 func _step_function() -> void:
 	pass

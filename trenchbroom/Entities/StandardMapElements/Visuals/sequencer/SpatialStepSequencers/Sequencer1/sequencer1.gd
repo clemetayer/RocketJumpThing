@@ -1,18 +1,16 @@
 extends SpatialStepSequencer
-# Some standard sequencer that makes the material light "flash". 
+# Some standard sequencer that makes the material light "flash".
 # Note : Can only handle 1 material (the other surfaces will have the same materials)
 
 ##### VARIABLES #####
 #---- CONSTANTS -----
-const FADE_IN_TIME := .2
-const FADE_OUT_TIME := FADE_IN_TIME * 2.0
-const MIN_INTENSITY := 1.0
-const MAX_INTENSITY := 50.0
 const SHADER_PARAM_NAME := "intensity"
 
 #---- STANDARD -----
 #==== PRIVATE ====
 var material: Material
+var _intensity := {min = 1.0, max = 50.0}
+var _fade := {f_in = 0.2, f_out = 0.4}
 
 
 ##### PROTECTED METHODS #####
@@ -28,12 +26,23 @@ func _ready_func():
 			break
 
 
-# function to do when this is the correct step 
+func _qodot_properties() -> void:
+	if properties.has("min_intensity"):
+		_intensity.min = properties.min_intensity
+	if properties.has("max_intensity"):
+		_intensity.max = properties.max_intensity
+	if properties.has("fade_in_time"):
+		_fade.f_in = properties.fade_in_time
+	if properties.has("fade_out_time"):
+		_fade.f_out = properties.fade_out_time
+
+
+# function to do when this is the correct step
 func _step_function() -> void:
 	var tween := Tween.new()
 	add_child(tween)
-	if ! tween.interpolate_method(
-		self, "_set_shader_intensity", MIN_INTENSITY, MAX_INTENSITY, FADE_IN_TIME
+	if !tween.interpolate_method(
+		self, "_set_shader_intensity", _intensity.min, _intensity.max, _fade.f_in
 	):
 		Logger.error(
 			(
@@ -41,13 +50,13 @@ func _step_function() -> void:
 				% ["_set_shader_intensity", DebugUtils.print_stack_trace(get_stack())]
 			)
 		)
-	if ! tween.start():
+	if !tween.start():
 		Logger.error(
 			"Error when starting tween at %s" % [DebugUtils.print_stack_trace(get_stack())]
 		)
 	yield(tween, "tween_all_completed")
-	if ! tween.interpolate_method(
-		self, "_set_shader_intensity", MAX_INTENSITY, MIN_INTENSITY, FADE_OUT_TIME
+	if !tween.interpolate_method(
+		self, "_set_shader_intensity", _intensity.max, _intensity.min, _fade.f_out
 	):
 		Logger.error(
 			(
@@ -55,7 +64,7 @@ func _step_function() -> void:
 				% ["_set_shader_intensity", DebugUtils.print_stack_trace(get_stack())]
 			)
 		)
-	if ! tween.start():
+	if !tween.start():
 		Logger.error(
 			"Error when starting tween at %s" % [DebugUtils.print_stack_trace(get_stack())]
 		)
