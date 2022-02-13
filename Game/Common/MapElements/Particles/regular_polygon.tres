@@ -1,0 +1,27 @@
+[gd_resource type="Shader" format=2]
+
+[resource]
+code = "shader_type spatial;
+
+uniform int sides = 3;
+uniform float max_size : hint_range(0.0,0.5) = 0.45;
+uniform float min_size : hint_range(0.0,0.5) = 0.3;
+uniform float epsilon = 0.02;
+uniform float intensity = 1.0;
+
+const float PI = 3.1415;
+
+void fragment(){
+	vec2 c_UV = (UV - 0.5)*2.0;
+	float a = atan(c_UV.x,c_UV.y)+PI;
+	float r = 2.0*PI/float(sides);
+	// Shaping function that modulate the distance
+	float d = cos(floor(0.5 + a/r) * r - a) * length(c_UV);
+	ALBEDO = COLOR.rgb;
+	ALPHA = (1.0 - smoothstep(max_size,max_size + epsilon,d)) - (1.0 - smoothstep(min_size,min_size + epsilon,d));
+	EMISSION = ALBEDO * intensity;
+}
+
+//void light(){
+//	DIFFUSE_LIGHT += ALBEDO * intensity;
+//}"
