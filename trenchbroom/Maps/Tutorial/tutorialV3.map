@@ -65,7 +65,7 @@
 ( 3760 -462 454 ) ( 3856 -462 454 ) ( 3856 -462 444 ) scenes/tutorial_scene/Floor [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
 ( 3856 -462 160 ) ( 3888 -334 160 ) ( 3728 -334 160 ) scenes/tutorial_scene/Floor [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
 ( 3728 -334 454 ) ( 3888 -334 454 ) ( 3856 -462 454 ) scenes/tutorial_scene/Floor [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( 3888 -334 444 ) ( 3888 -334 454 ) ( 3728 -334 454 ) scenes/tutorial_scene/Floor [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 3888 -352 444 ) ( 3888 -352 454 ) ( 3728 -352 454 ) scenes/tutorial_scene/Floor [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
 ( 3856 -462 454 ) ( 3888 -334 454 ) ( 3888 -334 444 ) scenes/tutorial_scene/Floor [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 // brush 7
@@ -13932,6 +13932,8 @@
 "fade_out_time" "0.4"
 "max_intensity" "500"
 "min_intensity" "1"
+"albedo" "0 135 215"
+"emission_color" "0 135 215"
 // brush 0
 {
 ( 11484.12644344909 -1616 187.53408911117003 ) ( 13116.410386864743 34.637949643958564 2899.5338188790556 ) ( 11484.126443448511 -1664 187.53408911152118 ) scenes/tutorial_scene/Sequencer1 [ 0 -1 0 0 ] [ 0.5155632173237562 0 0.8568515442845257 0.03564453 ] 0 1 1
@@ -13965,6 +13967,8 @@
 "fade_out_time" "0.4"
 "max_intensity" "500"
 "min_intensity" "1"
+"albedo" "0 200 170"
+"emission_color" "0 200 170"
 // brush 0
 {
 ( 12554.589709324558 16 1957.2929362384602 ) ( 12570.589720284395 0 1989.2929543592659 ) ( 11484.130562557573 -1039.9960570477997 187.54092012000183 ) scenes/tutorial_scene/Sequencer1 [ 0 -1 0 0 ] [ 0.5155632173237562 0 0.8568515442845257 0.03564453 ] 0 1 1
@@ -13996,8 +14000,10 @@
 "number_of_steps" "4"
 "fade_in_time" "0.2"
 "fade_out_time" "0.4"
-"max_intensity" "500"
+"max_intensity" "16"
 "min_intensity" "1"
+"albedo" "0 255 130"
+"emission_color" "0 255 130"
 // brush 0
 {
 ( 11979.40348698864 16 1003.4209469103885 ) ( 11995.403488670043 0 1035.420960638723 ) ( 11484.128394386007 -463.9982087356693 187.5373244877866 ) scenes/tutorial_scene/Sequencer1 [ 0 -1 0 0 ] [ 0.5155632173237562 0 0.8568515442845257 0.03564453 ] 0 1 1
@@ -14031,6 +14037,8 @@
 "fade_out_time" "0.4"
 "max_intensity" "500"
 "min_intensity" "1"
+"albedo" "0 75 255"
+"emission_color" "0 75 255"
 // brush 0
 {
 ( 13720.940002775955 16 3891.534089118324 ) ( 13736.940002770749 0 3923.5340891141313 ) ( 11484.126443449266 -2192 187.53408911103907 ) scenes/tutorial_scene/Sequencer1 [ 0 -1 0 0 ] [ 0.5155632173237562 0 0.8568515442845257 0.03564453 ] 0 1 1
@@ -14097,16 +14105,6 @@
 // entity 167
 {
 "classname" "OmniLightEntity"
-"origin" "3790 -22 378"
-"color" "0 170 255"
-"energy" ".5"
-"range" "400"
-"shadow_mode" "1"
-"specular" "0.5"
-}
-// entity 168
-{
-"classname" "OmniLightEntity"
 "origin" "3790 -22 554"
 "color" "20 255 255"
 "energy" "1"
@@ -14114,7 +14112,7 @@
 "shadow_mode" "1"
 "specular" "0.5"
 }
-// entity 169
+// entity 168
 {
 "classname" "OmniLightEntity"
 "origin" "3438 -22 378"
@@ -14124,17 +14122,7 @@
 "shadow_mode" "1"
 "specular" "0.5"
 }
-// entity 170
-{
-"classname" "OmniLightEntity"
-"origin" "4270 106 378"
-"color" "0 170 255"
-"energy" ".5"
-"range" "400"
-"shadow_mode" "1"
-"specular" "0.5"
-}
-// entity 171
+// entity 169
 {
 "classname" "OmniLightEntity"
 "origin" "4046 698 554"
@@ -14143,4 +14131,195 @@
 "range" "400"
 "shadow_mode" "1"
 "specular" "0.5"
+}
+// entity 170
+{
+"classname" "SpatialStepSequencer1"
+"fade_in_time" "0.2"
+"fade_out_time" "0.4"
+"id" "light_1"
+"max_intensity" "8"
+"min_intensity" "1"
+"number" "1"
+"number_of_steps" "4"
+"albedo" "0 155 255"
+"emission_color" "0 155 255"
+// brush 0
+{
+( 3664 -218 261 ) ( 3664 -250 260 ) ( 3664 -218 260 ) scenes/tutorial_scene/Sequencer1 [ -2.220446049250313e-16 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 4230 -240 261 ) ( 3558 -240 260 ) ( 3558 -240 261 ) scenes/tutorial_scene/Sequencer1 [ -1 -2.220446049250313e-16 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 3558 -218 260 ) ( 4230 -250 260 ) ( 4230 -218 260 ) scenes/tutorial_scene/Sequencer1 [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 3558 -218 261 ) ( 4230 -250 261 ) ( 3558 -250 261 ) scenes/tutorial_scene/Sequencer1 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 3558 -224 261 ) ( 4230 -224 260 ) ( 4230 -224 261 ) scenes/tutorial_scene/Sequencer1 [ 1 2.220446049250313e-16 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 4128 -218 261 ) ( 4128 -250 260 ) ( 4128 -250 261 ) scenes/tutorial_scene/Sequencer1 [ 2.220446049250313e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+// brush 1
+{
+( 4112 -334 261 ) ( 4112 338 260 ) ( 4112 338 261 ) scenes/tutorial_scene/Sequencer1 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 4128 -224 261 ) ( 4096 -224 260 ) ( 4096 -224 261 ) scenes/tutorial_scene/Sequencer1 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 4128 338 260 ) ( 4096 -334 260 ) ( 4128 -334 260 ) scenes/tutorial_scene/Sequencer1 [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 4128 338 261 ) ( 4096 -334 261 ) ( 4096 338 261 ) scenes/tutorial_scene/Sequencer1 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 4128 224 261 ) ( 4096 224 260 ) ( 4128 224 260 ) scenes/tutorial_scene/Sequencer1 [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 4128 338 261 ) ( 4128 -334 260 ) ( 4128 -334 261 ) scenes/tutorial_scene/Sequencer1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+// brush 2
+{
+( 3664 246 261 ) ( 3664 214 260 ) ( 3664 246 260 ) scenes/tutorial_scene/Sequencer1 [ -2.220446049250313e-16 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 4230 224 261 ) ( 3558 224 260 ) ( 3558 224 261 ) scenes/tutorial_scene/Sequencer1 [ -1 -2.220446049250313e-16 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 3558 246 260 ) ( 4230 214 260 ) ( 4230 246 260 ) scenes/tutorial_scene/Sequencer1 [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 3558 246 261 ) ( 4230 214 261 ) ( 3558 214 261 ) scenes/tutorial_scene/Sequencer1 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 3558 240 261 ) ( 4230 240 260 ) ( 4230 240 261 ) scenes/tutorial_scene/Sequencer1 [ 1 2.220446049250313e-16 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 4128 246 261 ) ( 4128 214 260 ) ( 4128 214 261 ) scenes/tutorial_scene/Sequencer1 [ 2.220446049250313e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+// brush 3
+{
+( 3664 -336 261 ) ( 3664 336 260 ) ( 3664 336 261 ) scenes/tutorial_scene/Sequencer1 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 3696 -224 261 ) ( 3664 -224 260 ) ( 3664 -224 261 ) scenes/tutorial_scene/Sequencer1 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 3696 336 260 ) ( 3664 -336 260 ) ( 3696 -336 260 ) scenes/tutorial_scene/Sequencer1 [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 3696 336 261 ) ( 3664 -336 261 ) ( 3664 336 261 ) scenes/tutorial_scene/Sequencer1 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 3696 224 261 ) ( 3664 224 260 ) ( 3696 224 260 ) scenes/tutorial_scene/Sequencer1 [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 3680 336 261 ) ( 3680 -336 260 ) ( 3680 -336 261 ) scenes/tutorial_scene/Sequencer1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+}
+// entity 171
+{
+"classname" "SpatialStepSequencer1"
+"fade_in_time" "0.2"
+"fade_out_time" "0.4"
+"id" "light_1"
+"max_intensity" "8"
+"min_intensity" "1"
+"number" "2"
+"number_of_steps" "4"
+"emission_color" "135 255 255"
+"albedo" "135 255 255"
+// brush 0
+{
+( 4016 -334 261 ) ( 4016 338 260 ) ( 4016 338 261 ) scenes/tutorial_scene/Sequencer1 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 4032 -128 261 ) ( 4000 -128 260 ) ( 4000 -128 261 ) scenes/tutorial_scene/Sequencer1 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 4032 338 260 ) ( 4000 -334 260 ) ( 4032 -334 260 ) scenes/tutorial_scene/Sequencer1 [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 4032 338 261 ) ( 4000 -334 261 ) ( 4000 338 261 ) scenes/tutorial_scene/Sequencer1 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 4032 128 261 ) ( 4000 128 260 ) ( 4032 128 260 ) scenes/tutorial_scene/Sequencer1 [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 4032 338 261 ) ( 4032 -334 260 ) ( 4032 -334 261 ) scenes/tutorial_scene/Sequencer1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+// brush 1
+{
+( 3792 -106 261 ) ( 3792 -138 260 ) ( 3792 -106 260 ) scenes/tutorial_scene/Sequencer1 [ -2.220446049250313e-16 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 4230 -128 261 ) ( 3558 -128 260 ) ( 3558 -128 261 ) scenes/tutorial_scene/Sequencer1 [ -1 -2.220446049250313e-16 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 3558 -106 260 ) ( 4230 -138 260 ) ( 4230 -106 260 ) scenes/tutorial_scene/Sequencer1 [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 3558 -106 261 ) ( 4230 -138 261 ) ( 3558 -138 261 ) scenes/tutorial_scene/Sequencer1 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 3558 -112 261 ) ( 4230 -112 260 ) ( 4230 -112 261 ) scenes/tutorial_scene/Sequencer1 [ 1 2.220446049250313e-16 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 4016 -106 261 ) ( 4016 -138 260 ) ( 4016 -138 261 ) scenes/tutorial_scene/Sequencer1 [ 2.220446049250313e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+// brush 2
+{
+( 3776 -336 261 ) ( 3776 336 260 ) ( 3776 336 261 ) scenes/tutorial_scene/Sequencer1 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 3808 -128 261 ) ( 3776 -128 260 ) ( 3776 -128 261 ) scenes/tutorial_scene/Sequencer1 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 3808 336 260 ) ( 3776 -336 260 ) ( 3808 -336 260 ) scenes/tutorial_scene/Sequencer1 [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 3808 336 261 ) ( 3776 -336 261 ) ( 3776 336 261 ) scenes/tutorial_scene/Sequencer1 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 3808 128 261 ) ( 3776 128 260 ) ( 3808 128 260 ) scenes/tutorial_scene/Sequencer1 [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 3792 336 261 ) ( 3792 -336 260 ) ( 3792 -336 261 ) scenes/tutorial_scene/Sequencer1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+// brush 3
+{
+( 3792 134 261 ) ( 3792 102 260 ) ( 3792 134 260 ) scenes/tutorial_scene/Sequencer1 [ -2.220446049250313e-16 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 4230 112 261 ) ( 3558 112 260 ) ( 3558 112 261 ) scenes/tutorial_scene/Sequencer1 [ -1 -2.220446049250313e-16 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 3558 134 260 ) ( 4230 102 260 ) ( 4230 134 260 ) scenes/tutorial_scene/Sequencer1 [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 3558 134 261 ) ( 4230 102 261 ) ( 3558 102 261 ) scenes/tutorial_scene/Sequencer1 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 3558 128 261 ) ( 4230 128 260 ) ( 4230 128 261 ) scenes/tutorial_scene/Sequencer1 [ 1 2.220446049250313e-16 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 4016 134 261 ) ( 4016 102 260 ) ( 4016 102 261 ) scenes/tutorial_scene/Sequencer1 [ 2.220446049250313e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+}
+// entity 172
+{
+"classname" "SpatialStepSequencer1"
+"fade_in_time" "0.2"
+"fade_out_time" "0.4"
+"max_intensity" "8"
+"id" "light_1"
+"min_intensity" "1"
+"number" "3"
+"number_of_steps" "4"
+"albedo" "255 255 255"
+"emission_color" "255 255 255"
+// brush 0
+{
+( 3888 22 261 ) ( 3888 -10 260 ) ( 3888 22 260 ) scenes/tutorial_scene/Sequencer1 [ -2.220446049250313e-16 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 4230 -16 261 ) ( 3558 -16 260 ) ( 3558 -16 261 ) scenes/tutorial_scene/Sequencer1 [ -1 -2.220446049250313e-16 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 3558 22 260 ) ( 4230 -10 260 ) ( 4230 22 260 ) scenes/tutorial_scene/Sequencer1 [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 3558 22 261 ) ( 4230 -10 261 ) ( 3558 -10 261 ) scenes/tutorial_scene/Sequencer1 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 3558 16 261 ) ( 4230 16 260 ) ( 4230 16 261 ) scenes/tutorial_scene/Sequencer1 [ 1 2.220446049250313e-16 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 3920 22 261 ) ( 3920 -10 260 ) ( 3920 -10 261 ) scenes/tutorial_scene/Sequencer1 [ 2.220446049250313e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+}
+// entity 173
+{
+"classname" "SpatialStepSequencer1"
+"fade_in_time" "0.2"
+"fade_out_time" "0.4"
+"id" "light_1"
+"max_intensity" "8"
+"min_intensity" "1"
+"number" "0"
+"number_of_steps" "4"
+"albedo" "0 0 255"
+"emission_color" "0 0 255"
+// brush 0
+{
+( 4224 -334 261 ) ( 4224 338 260 ) ( 4224 338 261 ) scenes/tutorial_scene/Sequencer1 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 4240 -336 261 ) ( 4208 -336 260 ) ( 4208 -336 261 ) scenes/tutorial_scene/Sequencer1 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 4240 338 260 ) ( 4208 -334 260 ) ( 4240 -334 260 ) scenes/tutorial_scene/Sequencer1 [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 4240 338 261 ) ( 4208 -334 261 ) ( 4208 338 261 ) scenes/tutorial_scene/Sequencer1 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 4240 336 261 ) ( 4208 336 260 ) ( 4240 336 260 ) scenes/tutorial_scene/Sequencer1 [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 4240 338 261 ) ( 4240 -334 260 ) ( 4240 -334 261 ) scenes/tutorial_scene/Sequencer1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+// brush 1
+{
+( 3552 358 261 ) ( 3552 326 260 ) ( 3552 358 260 ) scenes/tutorial_scene/Sequencer1 [ -2.220446049250313e-16 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 4230 336 261 ) ( 3558 336 260 ) ( 3558 336 261 ) scenes/tutorial_scene/Sequencer1 [ -1 -2.220446049250313e-16 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 3558 358 260 ) ( 4230 326 260 ) ( 4230 358 260 ) scenes/tutorial_scene/Sequencer1 [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 3558 358 261 ) ( 4230 326 261 ) ( 3558 326 261 ) scenes/tutorial_scene/Sequencer1 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 3558 352 261 ) ( 4230 352 260 ) ( 4230 352 261 ) scenes/tutorial_scene/Sequencer1 [ 1 2.220446049250313e-16 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 4240 358 261 ) ( 4240 326 260 ) ( 4240 326 261 ) scenes/tutorial_scene/Sequencer1 [ 2.220446049250313e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+// brush 2
+{
+( 3552 -336 261 ) ( 3552 336 260 ) ( 3552 336 261 ) scenes/tutorial_scene/Sequencer1 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 3584 -336 261 ) ( 3552 -336 260 ) ( 3552 -336 261 ) scenes/tutorial_scene/Sequencer1 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 3584 336 260 ) ( 3552 -336 260 ) ( 3584 -336 260 ) scenes/tutorial_scene/Sequencer1 [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 3584 336 261 ) ( 3552 -336 261 ) ( 3552 336 261 ) scenes/tutorial_scene/Sequencer1 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 3584 336 261 ) ( 3552 336 260 ) ( 3584 336 260 ) scenes/tutorial_scene/Sequencer1 [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 3568 336 261 ) ( 3568 -336 260 ) ( 3568 -336 261 ) scenes/tutorial_scene/Sequencer1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+// brush 3
+{
+( 3552 -330 261 ) ( 3552 -362 260 ) ( 3552 -330 260 ) scenes/tutorial_scene/Sequencer1 [ -2.220446049250313e-16 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 4230 -352 261 ) ( 3558 -352 260 ) ( 3558 -352 261 ) scenes/tutorial_scene/Sequencer1 [ -1 -2.220446049250313e-16 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 3558 -330 260 ) ( 4230 -362 260 ) ( 4230 -330 260 ) scenes/tutorial_scene/Sequencer1 [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 3558 -330 261 ) ( 4230 -362 261 ) ( 3558 -362 261 ) scenes/tutorial_scene/Sequencer1 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 3558 -336 261 ) ( 4230 -336 260 ) ( 4230 -336 261 ) scenes/tutorial_scene/Sequencer1 [ 1 2.220446049250313e-16 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 4240 -330 261 ) ( 4240 -362 260 ) ( 4240 -362 261 ) scenes/tutorial_scene/Sequencer1 [ 2.220446049250313e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+}
+// entity 174
+{
+"classname" "SpatialStepSequencer1"
+"fade_in_time" "0.2"
+"fade_out_time" "0.4"
+"max_intensity" "4"
+"id" "light_1"
+"min_intensity" "1"
+"number" "0"
+"number_of_steps" "4"
+"albedo" "20 255 255"
+"emission_color" "20 255 255"
+// brush 0
+{
+( 4272 518 261 ) ( 4272 486 260 ) ( 4272 518 260 ) scenes/tutorial_scene/Sequencer1 [ -2.220446049250313e-16 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 4614 480 261 ) ( 3942 480 260 ) ( 3942 480 261 ) scenes/tutorial_scene/Sequencer1 [ -1 -2.220446049250313e-16 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 3942 518 260 ) ( 4614 486 260 ) ( 4614 518 260 ) scenes/tutorial_scene/Sequencer1 [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 3942 518 261 ) ( 4614 486 261 ) ( 3942 486 261 ) scenes/tutorial_scene/Sequencer1 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 3942 512 261 ) ( 4614 512 260 ) ( 4614 512 261 ) scenes/tutorial_scene/Sequencer1 [ 1 2.220446049250313e-16 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 4304 518 261 ) ( 4304 486 260 ) ( 4304 486 261 ) scenes/tutorial_scene/Sequencer1 [ 2.220446049250313e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
 }
