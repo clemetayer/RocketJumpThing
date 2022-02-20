@@ -1,7 +1,7 @@
 [gd_resource type="Resource" load_steps=4 format=2]
 
 [ext_resource path="res://addons/qodot/src/resources/game-definitions/fgd/qodot_fgd_solid_class.gd" type="Script" id=1]
-[ext_resource path="res://trenchbroom/Entities/StandardMapElements/Visuals/sequencer/SpatialStepSequencers/spatial_step_sequencer.tres" type="Resource" id=2]
+[ext_resource path="res://trenchbroom/Entities/StandardMapElements/Visuals/sequencer/SpatialStepSequencers/Sequencer1/light_pulse_sequencer_base.tres" type="Resource" id=2]
 [ext_resource path="res://trenchbroom/Entities/StandardMapElements/Visuals/sequencer/SpatialStepSequencers/Sequencer1/sequencer1.gd" type="Script" id=3]
 
 [resource]
@@ -12,20 +12,8 @@ description = "A Spatial step sequencer with flashing visuals"
 qodot_internal = false
 base_classes = [ ExtResource( 2 ) ]
 class_properties = {
-"albedo": Color( 1, 1, 1, 1 ),
-"emission_color": Color( 1, 1, 1, 1 ),
-"fade_in_time": 0.2,
-"fade_out_time": 0.4,
-"max_intensity": 50.0,
-"min_intensity": 1.0
 }
 class_property_descriptions = {
-"albedo": "Color of the material",
-"emission_color": "Color of the light the material emits",
-"fade_in_time": "time in seconds it takes for the sequencer to peak",
-"fade_out_time": "time it seconds it takes for the sequencer to release",
-"max_intensity": "Maximal intensity value, when the sequencer is peaking",
-"min_intensity": "Minimal intensity value, when the sequencer is done or just starting"
 }
 meta_properties = {
 "color": Color( 0.85098, 0.00392157, 1, 1 ),

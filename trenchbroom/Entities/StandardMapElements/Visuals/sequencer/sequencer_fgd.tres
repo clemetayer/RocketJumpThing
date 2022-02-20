@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=9 format=2]
+[gd_resource type="Resource" load_steps=10 format=2]
 
 [ext_resource path="res://trenchbroom/Entities/StandardMapElements/Visuals/sequencer/CollidableStepSequencers/Sequencer1/collidable_step_sequencer_1.tres" type="Resource" id=1]
 [ext_resource path="res://trenchbroom/Entities/StandardMapElements/BaseClasses/collidable.tres" type="Resource" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://trenchbroom/Entities/StandardMapElements/Visuals/sequencer/SpatialStepSequencers/Sequencer1/spatial_step_sequencer_1.tres" type="Resource" id=6]
 [ext_resource path="res://trenchbroom/Entities/StandardMapElements/Visuals/sequencer/SpatialStepSequencers/spatial_step_sequencer.tres" type="Resource" id=7]
 [ext_resource path="res://trenchbroom/Entities/StandardMapElements/BaseClasses/spatial.tres" type="Resource" id=8]
+[ext_resource path="res://trenchbroom/Entities/StandardMapElements/Visuals/sequencer/SpatialStepSequencers/Sequencer1/light_pulse_sequencer_base.tres" type="Resource" id=9]
 
 [resource]
 script = ExtResource( 5 )
@@ -15,4 +16,4 @@ export_file = false
 target_folder = "/home/clemetayer/.TrenchBroom/games/RocketJumpThing"
 fgd_name = "Sequencer_fgd"
 base_fgd_files = [  ]
-entity_definitions = [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 8 ) ]
+entity_definitions = [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 8 ), ExtResource( 9 ) ]
