@@ -1,3 +1,4 @@
+tool
 extends SpatialStepSequencer
 # Some standard sequencer that makes the material light "flash".
 # Note : Can only handle 1 material (the other surfaces will have the same materials)

@@ -28,6 +28,6 @@ spawn_type = 2
 visual_build = "----------------------------------------------------------------"
 build_visuals = true
 collision_build = "----------------------------------------------------------------"
-collision_shape_type = 1
+collision_shape_type = 0
 scripting = "----------------------------------------------------------------"
 script_class = ExtResource( 4 )
