@@ -16,6 +16,11 @@ class_name Player
 
 ##### VARIABLES #####
 #---- CONSTANTS -----
+#~~~~ CAMERA ~~~~~
+const MIN_FOV := 80  # Min and max fov of the camera that changes depending on the character speed
+const MAX_FOV := 100
+const FOV_MAX_SPEED := 250  # Speed where the fov is maxed out
+
 #~~~~ MOVEMENT ~~~~~
 #==== GLOBAL =====
 const GRAVITY := -80  # Gravity applied to the player
@@ -88,6 +93,11 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame. Remove the "_" to use it.
 func _physics_process(delta):
+	get_node(PATHS.camera).fov = (
+		MIN_FOV
+		+ (MAX_FOV - MIN_FOV) * ease(min(1, current_speed / FOV_MAX_SPEED), 1.6)
+	)
+	DebugDraw.set_text("fov", get_node(PATHS.camera).fov)
 	_set_UI_data()
 	_process_collision()
 	_process_input(delta)
