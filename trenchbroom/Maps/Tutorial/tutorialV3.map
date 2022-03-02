@@ -1338,6 +1338,7 @@
 {
 "classname" "CheckpointSolidClass"
 "spawn_position" "0 -5 0"
+"spawn_rotation" "-90"
 // brush 0
 {
 ( -848 448 322 ) ( -848 446 322 ) ( -848 446 260 ) entities/checkpoint/checkpoint_1 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -1352,6 +1353,7 @@
 {
 "classname" "CheckpointSolidClass"
 "spawn_position" "0 -5 0"
+"spawn_rotation" "-90"
 // brush 0
 {
 ( -848 -108 322 ) ( -848 -110 322 ) ( -848 -110 260 ) entities/checkpoint/checkpoint_1 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -2356,6 +2358,7 @@
 {
 "classname" "CheckpointSolidClass"
 "spawn_position" "0 -5 0"
+"spawn_rotation" "0"
 // brush 0
 {
 ( 852 -1446 320 ) ( 852 -1568 320 ) ( 852 -1568 260 ) entities/checkpoint/checkpoint_1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -2740,6 +2743,7 @@
 {
 "classname" "CheckpointSolidClass"
 "spawn_position" "0 -5 0"
+"spawn_rotation" "90"
 // brush 0
 {
 ( 1014 -1254 322 ) ( 1014 -1256 322 ) ( 1014 -1256 260 ) entities/checkpoint/checkpoint_1 [ 0 1.0000000000000002 0 -31.117188 ] [ 0 0 -1.0000000000000002 0 ] 0 1 1
@@ -14396,6 +14400,7 @@
 {
 "classname" "CheckpointSolidClass"
 "spawn_position" "0 -10 0"
+"spawn_rotation" "0"
 // brush 0
 {
 ( 3232 -160 324 ) ( 3232 160 260 ) ( 3232 160 324 ) entities/checkpoint/checkpoint_1 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -14410,6 +14415,7 @@
 {
 "classname" "CheckpointSolidClass"
 "spawn_position" "0 -7 0"
+"spawn_rotation" "-90"
 // brush 0
 {
 ( 3760 592 518 ) ( 3760 608 454 ) ( 3760 608 518 ) entities/checkpoint/checkpoint_1 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -14424,6 +14430,7 @@
 {
 "classname" "CheckpointSolidClass"
 "spawn_position" "0 -7 0"
+"spawn_rotation" "-90"
 // brush 0
 {
 ( 3760 -480 550 ) ( 3760 -464 454 ) ( 3760 -464 550 ) entities/checkpoint/checkpoint_1 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -14438,6 +14445,7 @@
 {
 "classname" "CheckpointSolidClass"
 "spawn_position" "0 -7 0"
+"spawn_rotation" "0"
 // brush 0
 {
 ( 5392 -1024 150 ) ( 5392 -928 54 ) ( 5392 -928 150 ) entities/checkpoint/checkpoint_1 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -14452,6 +14460,7 @@
 {
 "classname" "CheckpointSolidClass"
 "spawn_position" "0 -7 0"
+"spawn_rotation" "90"
 // brush 0
 {
 ( 6128 464 -320 ) ( 6128 480 -416 ) ( 6128 480 -320 ) entities/checkpoint/checkpoint_1 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -14466,6 +14475,7 @@
 {
 "classname" "CheckpointSolidClass"
 "spawn_position" "0 -7 0"
+"spawn_rotation" "-90"
 // brush 0
 {
 ( 8288 -64 -256 ) ( 8288 -48 -352 ) ( 8288 -48 -256 ) entities/checkpoint/checkpoint_1 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -14480,6 +14490,7 @@
 {
 "classname" "CheckpointSolidClass"
 "spawn_position" "0 -11 0"
+"spawn_rotation" "90"
 // brush 0
 {
 ( 8992 -880 48 ) ( 8992 -864 -96 ) ( 8992 -864 48 ) entities/checkpoint/checkpoint_1 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1

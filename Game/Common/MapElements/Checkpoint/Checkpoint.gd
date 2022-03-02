@@ -7,11 +7,12 @@ class_name Checkpoint
 
 ##### VARIABLES #####
 #---- EXPORTS -----
-export (Dictionary) var properties setget set_properties
+export(Dictionary) var properties setget set_properties
 
 #---- STANDARD -----
 #==== PRIVATE ====
 var _spawn_position: Vector3
+var _spawn_rotation: float
 
 
 ##### PROCESSING #####
@@ -41,6 +42,12 @@ func get_spawn_point() -> Vector3:
 	return global_transform.origin
 
 
+func get_spawn_rotation() -> float:
+	if _spawn_rotation != null:
+		return _spawn_rotation
+	return 0.0
+
+
 ##### PROTECTED METHODS #####
 func set_properties(new_properties: Dictionary) -> void:
 	if properties != new_properties:
@@ -49,8 +56,10 @@ func set_properties(new_properties: Dictionary) -> void:
 
 
 func update_properties() -> void:
-	if 'spawn_position' in properties:
+	if "spawn_position" in properties:
 		_spawn_position = properties.spawn_position
+	if "spawn_rotation" in properties:
+		_spawn_rotation = properties.spawn_rotation
 
 
 ##### SIGNAL MANAGEMENT #####

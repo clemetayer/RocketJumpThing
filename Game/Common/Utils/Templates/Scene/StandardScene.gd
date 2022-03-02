@@ -13,9 +13,9 @@ class_name StandardScene
 # const constant := 10 # Optionnal comment
 
 #---- EXPORTS ----
-export (Dictionary) var PATHS = {"player": NodePath(), "start_point": NodePath()}  # various path for the scene
-export (bool) var ENABLE_ROCKETS = true
-export (bool) var ENABLE_SLIDE = true
+export(Dictionary) var PATHS = {"player": NodePath(), "start_point": NodePath()}  # various path for the scene
+export(bool) var ENABLE_ROCKETS = true
+export(bool) var ENABLE_SLIDE = true
 
 #---- STANDARD -----
 #==== PUBLIC ====
@@ -92,4 +92,5 @@ func _on_checkpoint_triggered(checkpoint: Checkpoint) -> void:
 func _on_respawn_player_on_last_cp() -> void:
 	var player: Player = get_node(PATHS.player)
 	player.transform.origin = _last_cp.get_spawn_point()
+	player.rotation_degrees.y = _last_cp.get_spawn_rotation()
 	player.vel = Vector3()
