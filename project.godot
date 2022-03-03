@@ -47,12 +47,22 @@ _global_script_classes=[ {
 "base": "Reference",
 "class": "DebugUtils",
 "language": "GDScript",
-"path": "res://Game/Common/Utils/Debug/DebugUtils.gd"
+"path": "res://Game/Common/Utils/Debug/debug_utils.gd"
 }, {
 "base": "Appender",
 "class": "FileAppender",
 "language": "GDScript",
 "path": "res://addons/gs_logger/appenders/file_appender.gd"
+}, {
+"base": "Reference",
+"class": "FunctionUtils",
+"language": "GDScript",
+"path": "res://Game/Common/Utils/Static/function_utils.gd"
+}, {
+"base": "Reference",
+"class": "GlobalParameters",
+"language": "GDScript",
+"path": "res://Game/Common/Utils/Static/global_parameters.gd"
 }, {
 "base": "Layout",
 "class": "HtmlLayout",
@@ -299,6 +309,8 @@ _global_script_class_icons={
 "DeathGrid": "",
 "DebugUtils": "",
 "FileAppender": "",
+"FunctionUtils": "",
+"GlobalParameters": "",
 "HtmlLayout": "",
 "LavaLayer": "",
 "Layout": "",
@@ -356,9 +368,10 @@ config/icon="res://icon.png"
 
 [autoload]
 
-SignalManager="*res://Game/Common/Utils/Managers/SignalManager.gd"
-DebugDraw="*res://addons/zylann_debug_draw/debug_draw.gd"
 Logger="*res://addons/gs_logger/logger.gd"
+SignalManager="*res://Game/Common/Utils/Managers/signal_manager.gd"
+VariableManager="*res://Game/Common/Utils/Managers/variable_manager.gd"
+DebugDraw="*res://Game/Common/Utils/Debug/debug_draw.gd"
 
 [debug]
 
