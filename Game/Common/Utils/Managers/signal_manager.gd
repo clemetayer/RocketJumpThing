@@ -10,6 +10,7 @@ signal speed_updated(speed)
 #==== MAP =====
 signal checkpoint_triggered(checkpoint)
 signal start_level_chronometer
+signal end_reached
 
 #==== VISUALS =====
 signal sequencer_step(id)
@@ -33,6 +34,10 @@ func emit_speed_updated(speed: float) -> void:
 #==== MAP =====
 func emit_checkpoint_triggered(checkpoint: Checkpoint) -> void:
 	emit_signal("checkpoint_triggered", checkpoint)
+
+
+func emit_end_reached() -> void:
+	emit_signal("end_reached")
 
 
 func emit_start_level_chronometer() -> void:

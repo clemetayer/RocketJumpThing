@@ -4,5 +4,5 @@
 
 [node name="Checkpoint" type="Area"]
 script = ExtResource( 1 )
-
-[connection signal="body_entered" from="." to="." method="_on_Checkpoint_body_entered"]
+properties = {
+}
