@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: c.lemetayer@laposte.net\n"
 "POT-Creation-Date: 2021-12-19\n"
-"PO-Revision-Date: 2022-01-16\n"
+"PO-Revision-Date: 2022-03-06\n"
 "Last-Translator: Corentin Le Métayer <c.lemetayer@laposte.net>\n"
 "Language: fr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -23,19 +23,19 @@ msgstr "Checkpoint !"
 #=============================== TUTORIALS ===============================
 #----------------------------- TUTORIAL SCENE ----------------------------
 msgid "tutorial_scene_move_tutorial"
-msgstr "##movement_forward##,##movement_backward##,##movement_left##,##movement_right## pour se déplacer."
+msgstr "##movement_wasd## pour se déplacer."
 
 msgid "tutorial_scene_jump_tutorial"
 msgstr "##movement_jump## pour sauter."
 
 msgid "tutorial_scene_BHOP_tutorial"
-msgstr "Garder ##movement_jump## appuyé permet de gagner en vitesse."
+msgstr "Garder ##movement_jump## appuyé pour aller plus vite."
 
 msgid "tutorial_scene_strafe_tutorial"
-msgstr "Pour gagner encore plus de vitesse lors d'un saut : \n - Appuyez sur ##movement_forward## + ##movement_left## et bougez doucement la souris vers la gauche\n - Appuyez sur ##movement_forward## + ##movement_right## et bougez doucement la souris vers la droite\n"
+msgstr "pour aller encore plus vite :\n##movement_wa## + ##mouse_strafe_left##\nou\n##movement_wd## + ##mouse_strafe_right##"
 
 msgid "tutorial_scene_air_control_tutorial"
-msgstr "Maintenir ##movement_forward## en l'air permet de bouger directement dans la direction souhaitée."
+msgstr "##movement_w## + ##mouse_strafe_left_right## en l'air pour controler sa direction."
 
 msgid "tutorial_scene_checkpoint_tutorial"
-msgstr "Les Checkpoints permettent de réapparaitre lors d'une chute.\nIl est aussi possible de réapparaitre au checkpoint avec ##restart_last_cp##\nou au départ avec ##restart##."
+msgstr "##restart_last_cp## pour réapparaitre au checkpoint.\n##restart## pour recommencer." 

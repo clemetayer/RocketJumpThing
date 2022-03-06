@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Game/Common/Themes/TutorialUI/SingleKey/single_key_theme.tres" type="Theme" id=1]
+[ext_resource path="res://Misc/UI/Icons/single_key.gd" type="Script" id=2]
+
+[node name="SingleKey" type="CenterContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="."]
+margin_left = 485.0
+margin_top = 281.0
+margin_right = 539.0
+margin_bottom = 319.0
+toggle_mode = true
+text = "Space"
