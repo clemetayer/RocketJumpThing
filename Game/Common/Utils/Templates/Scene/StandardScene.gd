@@ -36,6 +36,7 @@ func _init():
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	VariableManager.scene_unloading = false
 	_last_cp = get_node(PATHS.start_point).get_checkpoint()
 	get_node(PATHS.player).ROCKETS_ENABLED = ENABLE_ROCKETS
 	get_node(PATHS.player).SLIDE_ENABLED = ENABLE_SLIDE
@@ -81,6 +82,7 @@ func _connect_autoload_signals() -> void:
 
 
 func _restart() -> void:
+	SignalManager.emit_start_level_chronometer()  # restarts the chronometer
 	_last_cp = get_node(PATHS.start_point).get_checkpoint()
 	_on_respawn_player_on_last_cp()
 
@@ -95,3 +97,5 @@ func _on_respawn_player_on_last_cp() -> void:
 	player.transform.origin = _last_cp.get_spawn_point()
 	player.rotation_degrees.y = _last_cp.get_spawn_rotation()
 	player.vel = Vector3()
+	if _last_cp is StartPoint:  # if restart at the beginning of the level, restart the chronometer
+		SignalManager.emit_start_level_chronometer()
