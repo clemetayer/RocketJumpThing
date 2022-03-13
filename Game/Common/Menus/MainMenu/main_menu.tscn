@@ -1,0 +1,141 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Game/Common/Menus/MainMenu/wavy_shader.shader" type="Shader" id=1]
+[ext_resource path="res://Game/Common/Themes/Menus/MainMenu/main_menu.tres" type="Theme" id=2]
+[ext_resource path="res://Game/Common/Menus/MainMenu/main_menu.gd" type="Script" id=3]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 1 )
+shader_param/back_color1 = Color( 0.14902, 0.729412, 0.686275, 1 )
+shader_param/back_color2 = Color( 0.0666667, 0.776471, 0.811765, 1 )
+shader_param/back_cycle_speed = 0.5
+shader_param/wave1_color = Color( 1, 1, 1, 1 )
+shader_param/wave1_thick = 0.4
+shader_param/wave1_up_sine_speed = 0.25
+shader_param/wave1_up_sine_amplitude = 0.08
+shader_param/wave1_down_sine_speed = 0.15
+shader_param/wave1_down_sine_amplitude = 0.08
+shader_param/wave2_color = Color( 1, 1, 1, 1 )
+shader_param/wave2_thick = 0.5
+shader_param/wave2_up_sine_speed = 0.2
+shader_param/wave2_up_sine_amplitude = 0.08
+shader_param/wave2_down_sine_speed = 0.3
+shader_param/wave2_down_sine_amplitude = 0.03
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0, 0, 0, 0.180392 )
+
+[sub_resource type="StyleBoxFlat" id=9]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color( 0.94902, 0.329412, 0.176471, 1 )
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+anti_aliasing_size = 0.75
+
+[sub_resource type="StyleBoxFlat" id=10]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color( 0.337255, 0.172549, 0.172549, 1 )
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+anti_aliasing_size = 0.75
+
+[sub_resource type="StyleBoxFlat" id=11]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color( 0.337255, 0.172549, 0.172549, 1 )
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+anti_aliasing_size = 0.75
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+current = true
+
+[node name="Menu" type="CanvasLayer" parent="."]
+
+[node name="Backgrouds" type="Control" parent="Menu"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="Panel" parent="Menu/Backgrouds"]
+material = SubResource( 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="Menu/Backgrouds"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="Menu"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Buttons" type="VBoxContainer" parent="Menu/CenterContainer"]
+margin_left = 387.0
+margin_top = 164.0
+margin_right = 637.0
+margin_bottom = 435.0
+rect_min_size = Vector2( 250, 0 )
+
+[node name="PlayButton" type="Button" parent="Menu/CenterContainer/Buttons"]
+margin_right = 250.0
+margin_bottom = 57.0
+text = "menu_play"
+
+[node name="OptionsButton" type="Button" parent="Menu/CenterContainer/Buttons"]
+margin_top = 107.0
+margin_right = 250.0
+margin_bottom = 164.0
+disabled = true
+text = "menu_options"
+
+[node name="QuitButton" type="Button" parent="Menu/CenterContainer/Buttons"]
+margin_top = 214.0
+margin_right = 250.0
+margin_bottom = 271.0
+custom_colors/font_color_focus = Color( 0.337255, 0.172549, 0.172549, 1 )
+custom_colors/font_color_hover = Color( 0.94902, 0.329412, 0.176471, 1 )
+custom_colors/font_color_pressed = Color( 0.337255, 0.172549, 0.172549, 1 )
+custom_styles/hover = SubResource( 9 )
+custom_styles/pressed = SubResource( 10 )
+custom_styles/focus = SubResource( 11 )
+text = "menu_quit"
+
+[connection signal="pressed" from="Menu/CenterContainer/Buttons/PlayButton" to="." method="_on_PlayButton_pressed"]
+[connection signal="pressed" from="Menu/CenterContainer/Buttons/OptionsButton" to="." method="_on_OptionsButton_pressed"]
+[connection signal="pressed" from="Menu/CenterContainer/Buttons/QuitButton" to="." method="_on_QuitButton_pressed"]
