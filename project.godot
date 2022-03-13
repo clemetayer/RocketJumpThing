@@ -372,6 +372,7 @@ Logger="*res://addons/gs_logger/logger.gd"
 SignalManager="*res://Game/Common/Utils/Managers/signal_manager.gd"
 VariableManager="*res://Game/Common/Utils/Managers/variable_manager.gd"
 DebugDraw="*res://Game/Common/Utils/Debug/debug_draw.gd"
+CameraUtils="*res://Game/Common/Utils/Camera/camera_utils.gd"
 
 [debug]
 

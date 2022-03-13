@@ -33,17 +33,17 @@ func _init():
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	if 'treshold' in properties:
+	if "treshold" in properties:
 		self._treshold = properties.treshold
 	var ui := _ui_load.instance()
 	ui.SPEED = _treshold
 	add_child(ui)
 	var sprite := Sprite3D.new()
-	if 'text_direction' in properties:
+	if "text_direction" in properties:
 		sprite.rotation_degrees = properties.text_direction
 	sprite.scale = Vector3(15, 15, 1)
 	add_child(sprite)
-	if 'scale' in properties:
+	if "scale" in properties:
 		sprite.scale = properties.scale
 	sprite.texture = ui.get_texture()
 	sprite.texture.flags = Texture.FLAG_FILTER
@@ -59,5 +59,6 @@ func update_properties() -> void:
 ##### SIGNAL MANAGEMENT #####
 func _on_breakable_area_speed_body_entered(body):
 	if body.is_in_group("player") and body.current_speed >= _treshold:
-		emit_signal("trigger", {"position" : body.transform.origin, "speed" : body.current_speed})
+		emit_signal("trigger", {"position": body.transform.origin, "speed": body.current_speed})
+		CameraUtils.start_camera_shake(0.75, 9, 0.6, 0)
 		self.queue_free()
