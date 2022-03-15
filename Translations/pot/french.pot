@@ -14,15 +14,25 @@ msgstr ""
 
 #================================= MENUS =================================
 #-------------------------------- COMMON ---------------------------------
+msgid "menu_main_menu"
+msgstr "Menu principal"
+
 msgid "menu_quit"
 msgstr "Quitter"
 
 msgid "menu_options"
 msgstr "Options"
 
+msgid "menu_restart"
+msgstr "Recommencer"
+
 #------------------------------- MAIN MENU -------------------------------
 msgid "menu_play"
 msgstr "Jouer"
+
+#----------------------------- END LEVEL MENU -----------------------------
+msgid "menu_next_level"
+msgstr "Niveau suivant"
 
 #================================ COMMON =================================
 #---------------------------------- UI -----------------------------------

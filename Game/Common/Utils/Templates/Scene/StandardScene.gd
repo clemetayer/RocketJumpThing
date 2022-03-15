@@ -13,9 +13,14 @@ class_name StandardScene
 # const constant := 10 # Optionnal comment
 
 #---- EXPORTS ----
-export(Dictionary) var PATHS = {"player": NodePath(), "start_point": NodePath()}  # various path for the scene
+export(Dictionary) var PATHS = {  # various paths for the scene
+	"player": NodePath(),
+	"start_point": NodePath(),
+	"end_level_ui": "res://Game/Common/Menus/EndLevel/end_level_ui.tscn"
+}
 export(bool) var ENABLE_ROCKETS = true
 export(bool) var ENABLE_SLIDE = true
+export(String) var NEXT_SCENE_PATH = null
 
 #---- STANDARD -----
 #==== PUBLIC ====
@@ -41,6 +46,10 @@ func _ready():
 	get_node(PATHS.player).ROCKETS_ENABLED = ENABLE_ROCKETS
 	get_node(PATHS.player).SLIDE_ENABLED = ENABLE_SLIDE
 	SignalManager.emit_start_level_chronometer()
+	var end_level_ui = load(PATHS.end_level_ui).instance()
+	if NEXT_SCENE_PATH != null:
+		end_level_ui.set_next_scene(NEXT_SCENE_PATH)
+	add_child(end_level_ui)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame. Remove the "_" to use it.
