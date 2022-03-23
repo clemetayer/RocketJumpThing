@@ -6,6 +6,13 @@ extends Node2D
 const PATHS := {"tutorial_scene": "res://Game/Scenes/Tutorial/Scene2/Scene2.tscn"}
 
 
+##### PROCESSING #####
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	VariableManager.end_level_enabled = false
+	VariableManager.pause_enabled = false
+
+
 ##### SIGNAL MANAGEMENT #####
 func _on_PlayButton_pressed():
 	get_tree().change_scene(PATHS.tutorial_scene)

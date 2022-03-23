@@ -1,0 +1,322 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Misc/Audio/BGM/Tutorial1/belly_high.wav" type="AudioStream" id=1]
+[ext_resource path="res://Game/Common/Utils/SongManager/templates/Songs/SongAnimationPlayer/song_animation_player.gd" type="Script" id=2]
+[ext_resource path="res://Misc/Audio/BGM/Tutorial1/SuperSaw.wav" type="AudioStream" id=3]
+[ext_resource path="res://Misc/Audio/BGM/Tutorial1/SuperSawP2.wav" type="AudioStream" id=4]
+[ext_resource path="res://Misc/Audio/BGM/Tutorial1/VerySoftPad.wav" type="AudioStream" id=5]
+[ext_resource path="res://Misc/Audio/BGM/Tutorial1/bass.wav" type="AudioStream" id=6]
+[ext_resource path="res://Misc/Audio/BGM/Tutorial1/beat.wav" type="AudioStream" id=7]
+[ext_resource path="res://Misc/Audio/BGM/Tutorial1/belly_low.wav" type="AudioStream" id=8]
+[ext_resource path="res://Misc/Audio/BGM/Tutorial1/StringsPad_HousePiano.wav" type="AudioStream" id=9]
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("SuperSaw:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=1]
+resource_name = "part1"
+length = 32.0
+loop = true
+step = 0.5
+tracks/0/type = "audio"
+tracks/0/path = NodePath("SuperSaw")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 3 )
+} ],
+"times": PoolRealArray( 0 )
+}
+tracks/1/type = "audio"
+tracks/1/path = NodePath("bass")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+} ],
+"times": PoolRealArray( 0, 16 )
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "part2"
+length = 32.0
+loop = true
+step = 0.5
+tracks/0/type = "audio"
+tracks/0/path = NodePath("belly_low")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 8 )
+} ],
+"times": PoolRealArray( 0 )
+}
+tracks/1/type = "audio"
+tracks/1/path = NodePath("SuperSaw")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 3 )
+} ],
+"times": PoolRealArray( 0 )
+}
+tracks/2/type = "audio"
+tracks/2/path = NodePath("VerySoftPad")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 5 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 5 )
+} ],
+"times": PoolRealArray( 0, 16 )
+}
+tracks/3/type = "audio"
+tracks/3/path = NodePath("bass")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+} ],
+"times": PoolRealArray( 0, 16 )
+}
+tracks/4/type = "audio"
+tracks/4/path = NodePath("beat")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 7 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 7 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 7 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 7 )
+} ],
+"times": PoolRealArray( 0, 8, 16, 24 )
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "part3"
+length = 32.0
+step = 0.5
+tracks/0/type = "audio"
+tracks/0/path = NodePath("belly_high")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 1 )
+} ],
+"times": PoolRealArray( 0 )
+}
+tracks/1/type = "audio"
+tracks/1/path = NodePath("belly_low")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 8 )
+} ],
+"times": PoolRealArray( 0 )
+}
+tracks/2/type = "audio"
+tracks/2/path = NodePath("SuperSawP2")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 4 )
+} ],
+"times": PoolRealArray( 0 )
+}
+tracks/3/type = "audio"
+tracks/3/path = NodePath("VerySoftPad")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 5 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 5 )
+} ],
+"times": PoolRealArray( 0, 16 )
+}
+tracks/4/type = "audio"
+tracks/4/path = NodePath("StringsPad_HousePiano")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 9 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 9 )
+} ],
+"times": PoolRealArray( 0, 16 )
+}
+tracks/5/type = "audio"
+tracks/5/path = NodePath("bass")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+} ],
+"times": PoolRealArray( 0, 16 )
+}
+tracks/6/type = "audio"
+tracks/6/path = NodePath("beat")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 7 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 7 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 7 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 7 )
+} ],
+"times": PoolRealArray( 0, 8, 16, 24 )
+}
+
+[node name="Tutorial1" type="Node"]
+script = ExtResource( 2 )
+ANIMATION_PLAYER = NodePath("AnimationPlayer")
+SONG_SEND_TO = "BGM"
+
+[node name="belly_high" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
+
+[node name="belly_low" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+
+[node name="bass" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+
+[node name="beat" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+
+[node name="SuperSaw" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+
+[node name="SuperSawP2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+
+[node name="VerySoftPad" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+
+[node name="StringsPad_HousePiano" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 2 )
+anims/part1 = SubResource( 1 )
+anims/part2 = SubResource( 3 )
+anims/part3 = SubResource( 4 )

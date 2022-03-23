@@ -49,10 +49,20 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Game/Common/Utils/Debug/debug_utils.gd"
 }, {
+"base": "Node",
+"class": "EffectManager",
+"language": "GDScript",
+"path": "res://Game/Common/Utils/SongManager/Interfaces/effect_manager.gd"
+}, {
 "base": "Appender",
 "class": "FileAppender",
 "language": "GDScript",
 "path": "res://addons/gs_logger/appenders/file_appender.gd"
+}, {
+"base": "EffectManager",
+"class": "FilterEffectManager",
+"language": "GDScript",
+"path": "res://Game/Common/Utils/SongManager/templates/EffectManagers/FilterEffectManager/filter_effect_manager.gd"
 }, {
 "base": "Reference",
 "class": "FunctionUtils",
@@ -68,6 +78,11 @@ _global_script_classes=[ {
 "class": "HtmlLayout",
 "language": "GDScript",
 "path": "res://addons/gs_logger/layouts/html_layout.gd"
+}, {
+"base": "EffectManager",
+"class": "InstantEffectManager",
+"language": "GDScript",
+"path": "res://Game/Common/Utils/SongManager/templates/EffectManagers/InstantEffectManager/instant_effect_manager.gd"
 }, {
 "base": "LiquidLayer",
 "class": "LavaLayer",
@@ -234,6 +249,26 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/qodot/game_definitions/worldspawn_layers/liquid/slime.gd"
 }, {
+"base": "Node",
+"class": "Song",
+"language": "GDScript",
+"path": "res://Game/Common/Utils/SongManager/Interfaces/song.gd"
+}, {
+"base": "Song",
+"class": "SongAnimationPlayer",
+"language": "GDScript",
+"path": "res://Game/Common/Utils/SongManager/templates/Songs/SongAnimationPlayer/song_animation_player.gd"
+}, {
+"base": "Node",
+"class": "SongManager",
+"language": "GDScript",
+"path": "res://Game/Common/Utils/SongManager/Interfaces/song_manager.gd"
+}, {
+"base": "Song",
+"class": "SongSimple",
+"language": "GDScript",
+"path": "res://Game/Common/Utils/SongManager/templates/Songs/SongSimple/song_simple.gd"
+}, {
 "base": "Spatial",
 "class": "SpatialStepSequencer",
 "language": "GDScript",
@@ -248,6 +283,11 @@ _global_script_classes=[ {
 "class": "StandardScene",
 "language": "GDScript",
 "path": "res://Game/Common/Utils/Templates/Scene/StandardScene.gd"
+}, {
+"base": "SongManager",
+"class": "StandardSongManager",
+"language": "GDScript",
+"path": "res://Game/Common/Utils/SongManager/templates/SongManagers/standard_song_manager.gd"
 }, {
 "base": "Checkpoint",
 "class": "StartPoint",
@@ -294,6 +334,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/gs_logger/utils.gd"
 }, {
+"base": "EffectManager",
+"class": "VolumeEffectManager",
+"language": "GDScript",
+"path": "res://Game/Common/Utils/SongManager/templates/EffectManagers/VolumeEffectManager/volume_effect_manager.gd"
+}, {
 "base": "LiquidLayer",
 "class": "WaterLayer",
 "language": "GDScript",
@@ -308,10 +353,13 @@ _global_script_class_icons={
 "ConsoleAppender": "",
 "DeathGrid": "",
 "DebugUtils": "",
+"EffectManager": "",
 "FileAppender": "",
+"FilterEffectManager": "",
 "FunctionUtils": "",
 "GlobalParameters": "",
 "HtmlLayout": "",
+"InstantEffectManager": "",
 "LavaLayer": "",
 "Layout": "",
 "LiquidLayer": "",
@@ -345,9 +393,14 @@ _global_script_class_icons={
 "Rocket": "",
 "SequencerBaseEntity": "",
 "SlimeLayer": "",
+"Song": "",
+"SongAnimationPlayer": "",
+"SongManager": "",
+"SongSimple": "",
 "SpatialStepSequencer": "",
 "StandardDoor": "",
 "StandardScene": "",
+"StandardSongManager": "",
 "StartPoint": "",
 "StaticBodyGroupSolidEntity": "",
 "TextUtils": "",
@@ -357,6 +410,7 @@ _global_script_class_icons={
 "TrenchBroomGameConfigFolder": "",
 "TrenchBroomTag": "",
 "Utils": "",
+"VolumeEffectManager": "",
 "WaterLayer": ""
 }
 
@@ -366,6 +420,10 @@ config/name="RocketJumpThing"
 run/main_scene="res://Game/Scenes/Tutorial/Scene2/Scene2.tscn"
 config/icon="res://icon.png"
 
+[audio]
+
+default_bus_layout="res://global_bus_layout.tres"
+
 [autoload]
 
 Logger="*res://addons/gs_logger/logger.gd"
@@ -373,6 +431,9 @@ SignalManager="*res://Game/Common/Utils/Managers/signal_manager.gd"
 VariableManager="*res://Game/Common/Utils/Managers/variable_manager.gd"
 DebugDraw="*res://Game/Common/Utils/Debug/debug_draw.gd"
 CameraUtils="*res://Game/Common/Utils/Camera/camera_utils.gd"
+EndLevelUi="*res://Game/Common/Menus/EndLevel/end_level_ui.tscn"
+PauseMenu="*res://Game/Common/Menus/PauseMenu/pause_menu.tscn"
+StandardSongManager="*res://Game/Common/Utils/SongManager/templates/SongManagers/standard_song_manager.gd"
 
 [debug]
 

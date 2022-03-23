@@ -1,0 +1,69 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[sub_resource type="Shader" id=1]
+code = "// Kept this one too, smoothstep is fun
+shader_type spatial;
+
+uniform float max_size = 0.05;
+uniform float width = 0.01;
+uniform float size_divider = 1.0;
+uniform float intensity = 1.0;
+uniform float ss_e = 0.1; // smoothstep epsilon
+uniform int number_of_squares = 10;
+uniform float max_velocity = 1.0;
+uniform float min_velocity = 0.1;
+uniform bool left_to_right = true;
+uniform vec4 back_color : hint_color;
+uniform vec4 color_1 : hint_color;
+uniform vec4 color_2 : hint_color;
+
+float random (vec2 uv) {
+    return fract(sin(dot(uv.xy,
+        vec2(12.9898,78.233))) * 43758.5453123);
+}
+
+vec4 square_stroke(vec2 uv, float rand, vec2 pos)
+{
+	float outer_square = smoothstep(pos.x - ss_e, pos.x + ss_e, uv.x) * smoothstep(uv.x - ss_e, uv.x + ss_e, pos.x + max_size) * smoothstep(pos.y - ss_e, pos.y + ss_e, uv.y) * smoothstep(uv.y - ss_e, uv.y + ss_e, pos.y + max_size);
+	float inner_square = smoothstep(pos.x + width - ss_e, pos.x + width + ss_e, uv.x) * smoothstep(uv.x - ss_e, uv.x + ss_e , pos.x + max_size - width) * smoothstep(pos.y + width - ss_e, pos.y + width + ss_e, uv.y) * smoothstep(uv.y - ss_e, uv.y + ss_e, pos.y + max_size - width);
+	float stroke = outer_square - inner_square;
+	return mix(color_1,color_2,rand) * stroke;
+}
+
+void fragment(){
+	vec2 uv = UV;
+	uv.x = fract(uv.x * (3.0/size_divider));
+	uv.y = fract(uv.y * (2.0/size_divider));
+	vec4 color = back_color;
+	float left_to_right_val = 1.0;
+	if(!left_to_right)
+		left_to_right_val = -1.0;
+	for(int i = 0; i < number_of_squares; i++){
+		float rand_x = random(vec2(float(i)/float(number_of_squares)));
+		float rand_y = random(vec2(float(i)/float(number_of_squares),0.0));
+		float rand_vel = max(min_velocity,random(vec2(0.0,float(i)/float(number_of_squares))) * max_velocity);
+		vec2 pos = vec2(0);
+		pos.x = mod(TIME * rand_vel * left_to_right_val, 1.0) ;
+		pos.y = rand_y;
+		vec4 square = square_stroke(uv,rand_x, pos);
+		color += square;
+		EMISSION += color.rgb * intensity;
+	}
+	ALBEDO = color.rgb;
+}
+"
+
+[resource]
+shader = SubResource( 1 )
+shader_param/max_size = 0.13
+shader_param/width = 0.01
+shader_param/size_divider = 6.0
+shader_param/intensity = 2.0
+shader_param/ss_e = 0.01
+shader_param/number_of_squares = 8
+shader_param/max_velocity = 1.0
+shader_param/min_velocity = 0.1
+shader_param/left_to_right = true
+shader_param/back_color = Color( 0, 0, 0, 1 )
+shader_param/color_1 = Color( 0, 0.952941, 1, 1 )
+shader_param/color_2 = Color( 0.054902, 0, 1, 1 )

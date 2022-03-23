@@ -31,20 +31,22 @@ func set_next_scene(next_scene_path: String) -> void:
 
 ##### SIGNAL MANAGEMENT #####
 func _on_SignalManager_end_reached() -> void:
-	if _paths.next_scene == null:
-		get_node(_paths.next_scene_button).disabled = true
-	var tween: Tween = get_node(_paths.tween)
-	var millis = VariableManager.chronometer.level % 1000
-	var seconds = floor((VariableManager.chronometer.level / 1000) % 60)
-	var minutes = floor(VariableManager.chronometer.level / (1000 * 60))
-	get_node(_paths.label).set_text("%02d : %02d : %03d" % [minutes, seconds, millis])
-	tween.interpolate_property(
-		get_node(_paths.root_ui), "modulate", Color(1, 1, 1, 0), Color(1, 1, 1, 1), FADE_IN_TIME
-	)
-	get_tree().paused = true
-	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	tween.start()
-	get_node(_paths.root_ui).show()
+	if VariableManager.end_level_enabled:
+		VariableManager.pause_enabled = false
+		if _paths.next_scene == null:
+			get_node(_paths.next_scene_button).disabled = true
+		var tween: Tween = get_node(_paths.tween)
+		var millis = VariableManager.chronometer.level % 1000
+		var seconds = floor((VariableManager.chronometer.level / 1000) % 60)
+		var minutes = floor(VariableManager.chronometer.level / (1000 * 60))
+		get_node(_paths.label).set_text("%02d : %02d : %03d" % [minutes, seconds, millis])
+		tween.interpolate_property(
+			get_node(_paths.root_ui), "modulate", Color(1, 1, 1, 0), Color(1, 1, 1, 1), FADE_IN_TIME
+		)
+		get_tree().paused = true
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		tween.start()
+		get_node(_paths.root_ui).show()
 
 
 func _unpause():

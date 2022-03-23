@@ -42,14 +42,14 @@ func _init():
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	VariableManager.scene_unloading = false
+	VariableManager.pause_enabled = true
+	VariableManager.end_level_enabled = true
 	_last_cp = get_node(PATHS.start_point).get_checkpoint()
 	get_node(PATHS.player).ROCKETS_ENABLED = ENABLE_ROCKETS
 	get_node(PATHS.player).SLIDE_ENABLED = ENABLE_SLIDE
 	SignalManager.emit_start_level_chronometer()
-	var end_level_ui = load(PATHS.end_level_ui).instance()
 	if NEXT_SCENE_PATH != null:
-		end_level_ui.set_next_scene(NEXT_SCENE_PATH)
-	add_child(end_level_ui)
+		EndLevelUi.set_next_scene(NEXT_SCENE_PATH)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame. Remove the "_" to use it.

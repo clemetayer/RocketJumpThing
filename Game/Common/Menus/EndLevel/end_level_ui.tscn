@@ -187,7 +187,7 @@ text = "menu_next_level"
 
 [connection signal="pressed" from="UI/CenterContainer/VBoxContainer/Buttons/MainMenuButton" to="." method="_on_MainMenuButton_pressed"]
 [connection signal="pressed" from="UI/CenterContainer/VBoxContainer/Buttons/MainMenuButton" to="." method="_unpause"]
-[connection signal="pressed" from="UI/CenterContainer/VBoxContainer/Buttons/RestartButton" to="." method="_on_RestartButton_pressed"]
 [connection signal="pressed" from="UI/CenterContainer/VBoxContainer/Buttons/RestartButton" to="." method="_unpause"]
-[connection signal="pressed" from="UI/CenterContainer/VBoxContainer/Buttons/NextButton" to="." method="_on_NextButton_pressed"]
+[connection signal="pressed" from="UI/CenterContainer/VBoxContainer/Buttons/RestartButton" to="." method="_on_RestartButton_pressed"]
 [connection signal="pressed" from="UI/CenterContainer/VBoxContainer/Buttons/NextButton" to="." method="_unpause"]
+[connection signal="pressed" from="UI/CenterContainer/VBoxContainer/Buttons/NextButton" to="." method="_on_NextButton_pressed"]
