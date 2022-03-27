@@ -1,6 +1,6 @@
 extends Node
 class_name StandardScene
-# A standard template for scenes
+# A standard template for scenes, should be the root of the scene
 
 ##### SIGNALS #####
 # Node signals
@@ -16,17 +16,15 @@ class_name StandardScene
 export(Dictionary) var PATHS = {  # various paths for the scene
 	"player": NodePath(),
 	"start_point": NodePath(),
-	"end_level_ui": "res://Game/Common/Menus/EndLevel/end_level_ui.tscn"
+	"end_level_ui": "res://Game/Common/Menus/EndLevel/end_level_ui.tscn",
+	"bgm": {"path": "", "animation": ""}
 }
 export(bool) var ENABLE_ROCKETS = true
 export(bool) var ENABLE_SLIDE = true
 export(String) var NEXT_SCENE_PATH = null
 
 #---- STANDARD -----
-#==== PUBLIC ====
-# var public_var # Optionnal comment
-
-#==== PRIVATE ====
+#==== PRIVATE =====
 var _last_cp: Checkpoint
 
 #==== ONREADY ====
@@ -48,8 +46,17 @@ func _ready():
 	get_node(PATHS.player).ROCKETS_ENABLED = ENABLE_ROCKETS
 	get_node(PATHS.player).SLIDE_ENABLED = ENABLE_SLIDE
 	SignalManager.emit_start_level_chronometer()
+	# init end level ui
 	if NEXT_SCENE_PATH != null:
 		EndLevelUi.set_next_scene(NEXT_SCENE_PATH)
+	# init song
+	if null != PATHS.bgm.path and PATHS.bgm.path != "":
+		VariableManager.song = load(PATHS.bgm.path)
+		var song_instance = VariableManager.song.instance()
+		song_instance.ANIMATION = PATHS.bgm.animation
+		var effect = VolumeEffectManager.new()
+		effect.TIME = 1.0
+		StandardSongManager.add_to_queue(song_instance, effect)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame. Remove the "_" to use it.
@@ -64,7 +71,7 @@ func _process(_delta):
 # checks if the scene is valid, intended to be used as a guard before entering the scene
 # actually might be a bit complex to implement
 func check_scene_validity() -> bool:
-	# TODO : Check node paths, etc. But maybe a bit complex to implement
+	# TODO : Check node paths, etc. But maybe a bit complex to implement (and useless ?)
 	return true
 
 
@@ -108,3 +115,15 @@ func _on_respawn_player_on_last_cp() -> void:
 	player.vel = Vector3()
 	if _last_cp is StartPoint:  # if restart at the beginning of the level, restart the chronometer
 		SignalManager.emit_start_level_chronometer()
+		if null != PATHS.bgm.path and PATHS.bgm.path != "":
+			var song_instance = VariableManager.song.instance()
+			song_instance.ANIMATION = PATHS.bgm.animation
+			var effect = VolumeEffectManager.new()
+			effect.TIME = 1.0
+			StandardSongManager.add_to_queue(song_instance, effect)
+	elif null != PATHS.bgm.path and PATHS.bgm.path != "":
+		var song_instance = VariableManager.song.instance()
+		song_instance.ANIMATION = _last_cp.song_animation
+		var effect = VolumeEffectManager.new()
+		effect.TIME = 1.0
+		StandardSongManager.add_to_queue(song_instance, effect)

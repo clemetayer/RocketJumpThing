@@ -1,6 +1,6 @@
 extends Node
 class_name SongManager
-# Interface for the song manager, every method here can (and should) be overrided 
+# Interface for the song manager, every method here can (and should) be overrided
 
 #==== PRIVATE ====
 var _queue = []  # song queue

@@ -284,11 +284,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Game/Common/Utils/Templates/Scene/StandardScene.gd"
 }, {
-"base": "SongManager",
-"class": "StandardSongManager",
-"language": "GDScript",
-"path": "res://Game/Common/Utils/SongManager/templates/SongManagers/standard_song_manager.gd"
-}, {
 "base": "Checkpoint",
 "class": "StartPoint",
 "language": "GDScript",
@@ -400,7 +395,6 @@ _global_script_class_icons={
 "SpatialStepSequencer": "",
 "StandardDoor": "",
 "StandardScene": "",
-"StandardSongManager": "",
 "StartPoint": "",
 "StaticBodyGroupSolidEntity": "",
 "TextUtils": "",
@@ -427,13 +421,13 @@ default_bus_layout="res://global_bus_layout.tres"
 [autoload]
 
 Logger="*res://addons/gs_logger/logger.gd"
+StandardSongManager="*res://Game/Common/Utils/SongManager/templates/SongManagers/standard_song_manager.gd"
 SignalManager="*res://Game/Common/Utils/Managers/signal_manager.gd"
 VariableManager="*res://Game/Common/Utils/Managers/variable_manager.gd"
 DebugDraw="*res://Game/Common/Utils/Debug/debug_draw.gd"
 CameraUtils="*res://Game/Common/Utils/Camera/camera_utils.gd"
 EndLevelUi="*res://Game/Common/Menus/EndLevel/end_level_ui.tscn"
 PauseMenu="*res://Game/Common/Menus/PauseMenu/pause_menu.tscn"
-StandardSongManager="*res://Game/Common/Utils/SongManager/templates/SongManagers/standard_song_manager.gd"
 
 [debug]
 

@@ -5,6 +5,7 @@
 "classname" "worldspawn"
 "_tb_def" "builtin:RocketJumpThing_fgd.fgd"
 "_tb_textures" "textures/common/material_override;textures/entities/checkpoint;textures/scenes/tutorial_scene"
+"id" "pluck"
 // brush 0
 {
 ( 984 -1576 258 ) ( 984 -1548 198 ) ( 984 -1462 198 ) scenes/tutorial_scene/Hexagon1 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -5287,7 +5288,7 @@
 "classname" "SpatialStepSequencer1"
 "collision_layer" "2"
 "collision_mask" "5"
-"id" "light_1"
+"id" "kick"
 "number" "0"
 "number_of_steps" "4"
 "albedo" "0 175 255"
@@ -5338,7 +5339,7 @@
 "classname" "SpatialStepSequencer1"
 "collision_layer" "2"
 "collision_mask" "5"
-"id" "light_1"
+"id" "kick"
 "number" "1"
 "number_of_steps" "4"
 "emission_color" "0 175 255"
@@ -5389,7 +5390,7 @@
 "classname" "SpatialStepSequencer1"
 "collision_layer" "2"
 "collision_mask" "5"
-"id" "light_1"
+"id" "kick"
 "number" "2"
 "number_of_steps" "4"
 "emission_color" "0 175 255"
@@ -5440,7 +5441,7 @@
 "classname" "SpatialStepSequencer1"
 "collision_layer" "2"
 "collision_mask" "5"
-"id" "light_1"
+"id" "kick"
 "number" "3"
 "number_of_steps" "4"
 "emission_color" "0 175 255"
@@ -5491,7 +5492,7 @@
 "classname" "SpatialStepSequencer1"
 "collision_layer" "2"
 "collision_mask" "5"
-"id" "light_1"
+"id" "kick"
 "number" "0"
 "number_of_steps" "4"
 "emission_color" "0 175 255"
@@ -5542,7 +5543,7 @@
 "classname" "SpatialStepSequencer1"
 "collision_layer" "2"
 "collision_mask" "5"
-"id" "light_1"
+"id" "kick"
 "number" "1"
 "number_of_steps" "4"
 "emission_color" "0 175 255"
@@ -5593,7 +5594,7 @@
 "classname" "SpatialStepSequencer1"
 "collision_layer" "2"
 "collision_mask" "5"
-"id" "light_1"
+"id" "kick"
 "number" "2"
 "number_of_steps" "4"
 "emission_color" "0 175 255"
@@ -5644,7 +5645,7 @@
 "classname" "SpatialStepSequencer1"
 "collision_layer" "2"
 "collision_mask" "5"
-"id" "light_1"
+"id" "kick"
 "number" "3"
 "number_of_steps" "4"
 "emission_color" "0 175 255"
@@ -5695,7 +5696,7 @@
 "classname" "SpatialStepSequencer1"
 "collision_layer" "2"
 "collision_mask" "5"
-"id" "light_1"
+"id" "kick"
 "number" "0"
 "number_of_steps" "4"
 "emission_color" "0 175 255"
@@ -5746,7 +5747,7 @@
 "classname" "SpatialStepSequencer1"
 "collision_layer" "2"
 "collision_mask" "5"
-"id" "light_1"
+"id" "kick"
 "number" "1"
 "number_of_steps" "4"
 "emission_color" "0 175 255"
@@ -5797,7 +5798,7 @@
 "classname" "SpatialStepSequencer1"
 "collision_layer" "2"
 "collision_mask" "5"
-"id" "light_1"
+"id" "kick"
 "number" "2"
 "number_of_steps" "4"
 "emission_color" "0 175 255"
@@ -5848,7 +5849,7 @@
 "classname" "SpatialStepSequencer1"
 "collision_layer" "2"
 "collision_mask" "5"
-"id" "light_1"
+"id" "kick"
 "number" "3"
 "number_of_steps" "4"
 "emission_color" "0 175 255"
@@ -5899,7 +5900,7 @@
 "classname" "SpatialStepSequencer1"
 "collision_layer" "2"
 "collision_mask" "5"
-"id" "light_1"
+"id" "kick"
 "number" "0"
 "number_of_steps" "4"
 "emission_color" "0 175 255"
@@ -5950,7 +5951,7 @@
 "classname" "SpatialStepSequencer1"
 "collision_layer" "2"
 "collision_mask" "5"
-"id" "light_1"
+"id" "kick"
 "number" "1"
 "number_of_steps" "4"
 "emission_color" "0 175 255"
@@ -6001,7 +6002,7 @@
 "classname" "SpatialStepSequencer1"
 "collision_layer" "2"
 "collision_mask" "5"
-"id" "light_1"
+"id" "kick"
 "number" "2"
 "number_of_steps" "4"
 "emission_color" "0 175 255"
@@ -6052,7 +6053,7 @@
 "classname" "SpatialStepSequencer1"
 "collision_layer" "2"
 "collision_mask" "5"
-"id" "light_1"
+"id" "kick"
 "number" "3"
 "number_of_steps" "4"
 "emission_color" "0 175 255"
@@ -6103,7 +6104,7 @@
 "classname" "SpatialStepSequencer1"
 "collision_layer" "2"
 "collision_mask" "5"
-"id" "light_1"
+"id" "kick"
 "number" "0"
 "number_of_steps" "4"
 "emission_color" "0 175 255"
@@ -6154,7 +6155,7 @@
 "classname" "SpatialStepSequencer1"
 "collision_layer" "2"
 "collision_mask" "5"
-"id" "light_1"
+"id" "kick"
 "number" "1"
 "number_of_steps" "4"
 "emission_color" "0 175 255"
@@ -6205,7 +6206,7 @@
 "classname" "SpatialStepSequencer1"
 "collision_layer" "2"
 "collision_mask" "5"
-"id" "light_1"
+"id" "kick"
 "number" "2"
 "number_of_steps" "4"
 "emission_color" "0 175 255"
@@ -6256,7 +6257,7 @@
 "classname" "SpatialStepSequencer1"
 "collision_layer" "2"
 "collision_mask" "5"
-"id" "light_1"
+"id" "kick"
 "number" "3"
 "number_of_steps" "4"
 "emission_color" "0 175 255"
@@ -6307,7 +6308,7 @@
 "classname" "SpatialStepSequencer1"
 "collision_layer" "2"
 "collision_mask" "5"
-"id" "light_1"
+"id" "kick"
 "number" "0"
 "number_of_steps" "4"
 "emission_color" "0 175 255"
@@ -6358,7 +6359,7 @@
 "classname" "SpatialStepSequencer1"
 "collision_layer" "2"
 "collision_mask" "5"
-"id" "light_1"
+"id" "kick"
 "number" "1"
 "number_of_steps" "4"
 "emission_color" "0 175 255"
@@ -6409,7 +6410,7 @@
 "classname" "SpatialStepSequencer1"
 "collision_layer" "2"
 "collision_mask" "5"
-"id" "light_1"
+"id" "kick"
 "number" "2"
 "number_of_steps" "4"
 "emission_color" "0 175 255"
@@ -6460,7 +6461,7 @@
 "classname" "SpatialStepSequencer1"
 "collision_layer" "2"
 "collision_mask" "5"
-"id" "light_1"
+"id" "kick"
 "number" "3"
 "number_of_steps" "4"
 "emission_color" "0 175 255"
@@ -6511,7 +6512,7 @@
 "classname" "SpatialStepSequencer1"
 "collision_layer" "2"
 "collision_mask" "5"
-"id" "light_1"
+"id" "kick"
 "number" "0"
 "number_of_steps" "4"
 "emission_color" "0 175 255"
@@ -14096,6 +14097,7 @@
 "classname" "static_body_group"
 "collision_layer" "2"
 "collision_mask" "5"
+"id" "pluck"
 // brush 0
 {
 ( 3320 150 260 ) ( 3320 -154 260 ) ( 3320 -154 258 ) scenes/tutorial_scene/Floor [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -14534,7 +14536,7 @@
 // entity 159
 {
 "classname" "SpatialStepSequencer1"
-"id" "light_1"
+"id" "kick"
 "number" "1"
 "number_of_steps" "4"
 "fade_in_time" "0.2"
@@ -14569,7 +14571,7 @@
 // entity 160
 {
 "classname" "SpatialStepSequencer1"
-"id" "light_1"
+"id" "kick"
 "number" "2"
 "number_of_steps" "4"
 "fade_in_time" "0.2"
@@ -14604,7 +14606,7 @@
 // entity 161
 {
 "classname" "SpatialStepSequencer1"
-"id" "light_1"
+"id" "kick"
 "number" "3"
 "number_of_steps" "4"
 "fade_in_time" "0.2"
@@ -14639,7 +14641,7 @@
 // entity 162
 {
 "classname" "SpatialStepSequencer1"
-"id" "light_1"
+"id" "kick"
 "number" "0"
 "number_of_steps" "4"
 "fade_in_time" "0.2"
@@ -14746,7 +14748,7 @@
 "classname" "SpatialStepSequencer1"
 "fade_in_time" "0.2"
 "fade_out_time" "0.4"
-"id" "light_1"
+"id" "kick"
 "max_intensity" "1"
 "min_intensity" "0"
 "number" "1"
@@ -14795,7 +14797,7 @@
 "classname" "SpatialStepSequencer1"
 "fade_in_time" "0.2"
 "fade_out_time" "0.4"
-"id" "light_1"
+"id" "kick"
 "max_intensity" "1"
 "min_intensity" "0"
 "number" "2"
@@ -14845,7 +14847,7 @@
 "fade_in_time" "0.2"
 "fade_out_time" "0.4"
 "max_intensity" "1"
-"id" "light_1"
+"id" "kick"
 "min_intensity" "0"
 "number" "3"
 "number_of_steps" "4"
@@ -14866,7 +14868,7 @@
 "classname" "SpatialStepSequencer1"
 "fade_in_time" "0.2"
 "fade_out_time" "0.4"
-"id" "light_1"
+"id" "kick"
 "max_intensity" "1"
 "min_intensity" "0"
 "number" "0"
@@ -14916,7 +14918,7 @@
 "fade_in_time" "0.2"
 "fade_out_time" "0.4"
 "max_intensity" "4"
-"id" "light_1"
+"id" "kick"
 "min_intensity" "1"
 "number" "0"
 "number_of_steps" "4"
@@ -14938,7 +14940,7 @@
 "fade_in_time" "0.2"
 "fade_out_time" "0.4"
 "max_intensity" "4"
-"id" "light_1"
+"id" "kick"
 "min_intensity" "1"
 "number" "1"
 "number_of_steps" "4"
@@ -14960,7 +14962,7 @@
 "fade_in_time" "0.2"
 "fade_out_time" "0.4"
 "max_intensity" "4"
-"id" "light_1"
+"id" "kick"
 "min_intensity" "1"
 "number" "0"
 "number_of_steps" "4"
@@ -14982,29 +14984,7 @@
 "fade_in_time" "0.2"
 "fade_out_time" "0.4"
 "max_intensity" "4"
-"id" "light_1"
-"min_intensity" "1"
-"number" "2"
-"number_of_steps" "4"
-"albedo" "20 255 255"
-"emission_color" "20 255 255"
-// brush 0
-{
-( 3792 1030 375 ) ( 3792 998 374 ) ( 3792 1030 374 ) scenes/tutorial_scene/Sequencer1 [ -2.220446049250313e-16 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 4134 992 375 ) ( 3462 992 374 ) ( 3462 992 375 ) scenes/tutorial_scene/Sequencer1 [ -1 -2.220446049250313e-16 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 3462 1030 374 ) ( 4134 998 374 ) ( 4134 1030 374 ) scenes/tutorial_scene/Sequencer1 [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( 3462 1030 375 ) ( 4134 998 375 ) ( 3462 998 375 ) scenes/tutorial_scene/Sequencer1 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( 3462 1024 375 ) ( 4134 1024 374 ) ( 4134 1024 375 ) scenes/tutorial_scene/Sequencer1 [ 1 2.220446049250313e-16 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 3824 1030 375 ) ( 3824 998 374 ) ( 3824 998 375 ) scenes/tutorial_scene/Sequencer1 [ 2.220446049250313e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-}
-}
-// entity 178
-{
-"classname" "SpatialStepSequencer1"
-"fade_in_time" "0.2"
-"fade_out_time" "0.4"
-"max_intensity" "4"
-"id" "light_1"
+"id" "kick"
 "min_intensity" "1"
 "number" "3"
 "number_of_steps" "4"
@@ -15020,13 +15000,13 @@
 ( 3824 438 455 ) ( 3824 406 454 ) ( 3824 406 455 ) scenes/tutorial_scene/Sequencer1 [ 2.220446049250313e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 179
+// entity 178
 {
 "classname" "SpatialStepSequencer1"
 "fade_in_time" "0.2"
 "fade_out_time" "0.4"
 "max_intensity" "4"
-"id" "light_1"
+"id" "kick"
 "min_intensity" "1"
 "number" "0"
 "number_of_steps" "4"
@@ -15042,13 +15022,13 @@
 ( 3920 230 455 ) ( 3920 198 454 ) ( 3920 198 455 ) scenes/tutorial_scene/Sequencer1 [ 2.220446049250313e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 180
+// entity 179
 {
 "classname" "SpatialStepSequencer1"
 "fade_in_time" "0.2"
 "fade_out_time" "0.4"
 "max_intensity" "4"
-"id" "light_1"
+"id" "kick"
 "min_intensity" "1"
 "number" "1"
 "number_of_steps" "4"
@@ -15064,13 +15044,13 @@
 ( 3808 6 455 ) ( 3808 -26 454 ) ( 3808 -26 455 ) scenes/tutorial_scene/Sequencer1 [ 2.220446049250313e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 181
+// entity 180
 {
 "classname" "SpatialStepSequencer1"
 "fade_in_time" "0.2"
 "fade_out_time" "0.4"
 "max_intensity" "4"
-"id" "light_1"
+"id" "kick"
 "min_intensity" "1"
 "number" "2"
 "number_of_steps" "4"
@@ -15086,13 +15066,13 @@
 ( 3920 -186 455 ) ( 3920 -218 454 ) ( 3920 -218 455 ) scenes/tutorial_scene/Sequencer1 [ 2.220446049250313e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 182
+// entity 181
 {
 "classname" "SpatialStepSequencer1"
 "fade_in_time" "0.2"
 "fade_out_time" "0.4"
 "max_intensity" "4"
-"id" "light_1"
+"id" "kick"
 "min_intensity" "1"
 "number" "3"
 "number_of_steps" "4"
@@ -15108,7 +15088,7 @@
 ( 3824 -378 455 ) ( 3824 -410 454 ) ( 3824 -410 455 ) scenes/tutorial_scene/Sequencer1 [ 2.220446049250313e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 183
+// entity 182
 {
 "classname" "OmniLightEntity"
 "origin" "4050 -686 526"
@@ -15118,7 +15098,7 @@
 "shadow_mode" "1"
 "specular" "0.5"
 }
-// entity 184
+// entity 183
 {
 "classname" "OmniLightEntity"
 "origin" "4290 -830 526"
@@ -15128,7 +15108,7 @@
 "shadow_mode" "1"
 "specular" "0.5"
 }
-// entity 185
+// entity 184
 {
 "classname" "OmniLightEntity"
 "origin" "4642 -798 526"
@@ -15138,7 +15118,7 @@
 "shadow_mode" "1"
 "specular" "0.5"
 }
-// entity 186
+// entity 185
 {
 "classname" "OmniLightEntity"
 "origin" "5570 -830 270"
@@ -15148,7 +15128,7 @@
 "shadow_mode" "1"
 "specular" "0.5"
 }
-// entity 187
+// entity 186
 {
 "classname" "OmniLightEntity"
 "origin" "6018 -830 270"
@@ -15158,7 +15138,7 @@
 "shadow_mode" "1"
 "specular" "0.5"
 }
-// entity 188
+// entity 187
 {
 "classname" "OmniLightEntity"
 "origin" "6018 -350 270"
@@ -15168,7 +15148,7 @@
 "shadow_mode" "1"
 "specular" "0.5"
 }
-// entity 189
+// entity 188
 {
 "classname" "OmniLightEntity"
 "origin" "6178 210 190"
@@ -15178,7 +15158,7 @@
 "shadow_mode" "1"
 "specular" "0.5"
 }
-// entity 190
+// entity 189
 {
 "classname" "OmniLightEntity"
 "origin" "6178 258 -370"
@@ -15188,7 +15168,7 @@
 "shadow_mode" "1"
 "specular" "0.5"
 }
-// entity 191
+// entity 190
 {
 "classname" "OmniLightEntity"
 "origin" "6178 770 -274"
@@ -15198,7 +15178,7 @@
 "shadow_mode" "1"
 "specular" "0.5"
 }
-// entity 192
+// entity 191
 {
 "classname" "OmniLightEntity"
 "origin" "6298 1302 -214"
@@ -15208,14 +15188,14 @@
 "shadow_mode" "1"
 "specular" "0.5"
 }
-// entity 193
+// entity 192
 {
 "classname" "SpatialStepSequencer1"
 "albedo" "0 0 255"
 "emission_color" "0 0 255"
 "fade_in_time" "0.2"
 "fade_out_time" "0.4"
-"id" "light_1"
+"id" "kick"
 "max_intensity" "8"
 "min_intensity" "0"
 "number" "0"
@@ -15257,14 +15237,14 @@
 ( 7504 1056 -245 ) ( 7504 1312 -246 ) ( 7504 1056 -246 ) scenes/tutorial_scene/Sequencer1 [ -2.220446049250313e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 194
+// entity 193
 {
 "classname" "SpatialStepSequencer1"
 "albedo" "135 255 255"
 "emission_color" "135 255 255"
 "fade_in_time" "0.2"
 "fade_out_time" "0.4"
-"id" "light_1"
+"id" "kick"
 "max_intensity" "8"
 "min_intensity" "0"
 "number" "2"
@@ -15306,14 +15286,14 @@
 ( 7411.805826175842 1225.4314575050903 -245.3349223256645 ) ( 7411.805826175848 1220.1489719263564 -245.66507767433447 ) ( 7411.805826175848 1220.1489719263564 -245.3349223256645 ) scenes/tutorial_scene/Sequencer1 [ -2.7755575615628914e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 195
+// entity 194
 {
 "classname" "SpatialStepSequencer1"
 "albedo" "255 255 255"
 "emission_color" "255 255 255"
 "fade_in_time" "0.2"
 "fade_out_time" "0.4"
-"id" "light_1"
+"id" "kick"
 "max_intensity" "8"
 "min_intensity" "0"
 "number" "3"
@@ -15328,14 +15308,14 @@
 ( 7379.514718625763 1187.5147186257618 -245.39016504294491 ) ( 7379.514718625765 1180.4852813742305 -245.60983495705594 ) ( 7379.514718625765 1180.4852813742305 -245.39016504294491 ) scenes/tutorial_scene/Sequencer1 [ 2.220446049250313e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 196
+// entity 195
 {
 "classname" "SpatialStepSequencer1"
 "albedo" "0 155 255"
 "emission_color" "0 155 255"
 "fade_in_time" "0.2"
 "fade_out_time" "0.4"
-"id" "light_1"
+"id" "kick"
 "max_intensity" "8"
 "min_intensity" "0"
 "number" "1"
@@ -15377,14 +15357,14 @@
 ( 7311.798989873222 1257.3725830020367 -245.21338834764828 ) ( 7311.798989873221 1110.627416997967 -245.78661165235195 ) ( 7311.798989873221 1110.627416997967 -245.21338834764828 ) scenes/tutorial_scene/Sequencer1 [ 2.220446049250313e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 197
+// entity 196
 {
 "classname" "SpatialStepSequencer1"
 "albedo" "0 0 255"
 "emission_color" "0 0 255"
 "fade_in_time" "0.2"
 "fade_out_time" "0.4"
-"id" "light_1"
+"id" "multi"
 "max_intensity" "8"
 "min_intensity" "0"
 "number" "0"
@@ -15426,14 +15406,14 @@
 ( 7888 942 -293 ) ( 7888 1198 -294 ) ( 7888 942 -294 ) scenes/tutorial_scene/Sequencer1 [ -2.220446049250313e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 198
+// entity 197
 {
 "classname" "SpatialStepSequencer1"
 "albedo" "0 155 255"
 "emission_color" "0 155 255"
 "fade_in_time" "0.2"
 "fade_out_time" "0.4"
-"id" "light_1"
+"id" "multi"
 "max_intensity" "8"
 "min_intensity" "0"
 "number" "1"
@@ -15475,14 +15455,14 @@
 ( 7695.798989873222 1143.3725830020367 -293.2133883476482 ) ( 7695.798989873221 996.627416997967 -293.7866116523519 ) ( 7695.798989873221 996.627416997967 -293.2133883476482 ) scenes/tutorial_scene/Sequencer1 [ 2.220446049250313e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 199
+// entity 198
 {
 "classname" "SpatialStepSequencer1"
 "albedo" "135 255 255"
 "emission_color" "135 255 255"
 "fade_in_time" "0.2"
 "fade_out_time" "0.4"
-"id" "light_1"
+"id" "multi"
 "max_intensity" "8"
 "min_intensity" "0"
 "number" "2"
@@ -15524,14 +15504,14 @@
 ( 7795.805826175842 1111.4314575050903 -293.3349223256645 ) ( 7795.805826175848 1106.1489719263564 -293.66507767433444 ) ( 7795.805826175848 1106.1489719263564 -293.3349223256645 ) scenes/tutorial_scene/Sequencer1 [ -2.7755575615628914e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 200
+// entity 199
 {
 "classname" "SpatialStepSequencer1"
 "albedo" "255 255 255"
 "emission_color" "255 255 255"
 "fade_in_time" "0.2"
 "fade_out_time" "0.4"
-"id" "light_1"
+"id" "multi"
 "max_intensity" "8"
 "min_intensity" "0"
 "number" "3"
@@ -15546,7 +15526,7 @@
 ( 7763.514718625763 1073.5147186257618 -293.3901650429449 ) ( 7763.514718625765 1066.4852813742305 -293.6098349570559 ) ( 7763.514718625765 1066.4852813742305 -293.3901650429449 ) scenes/tutorial_scene/Sequencer1 [ 2.220446049250313e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 201
+// entity 200
 {
 "classname" "SpatialSolidEntity"
 // brush 0
@@ -17494,14 +17474,14 @@
 ( 4552 -752 560 ) ( 4552 -784 544 ) ( 4552 -784 560 ) scenes/tutorial_scene/LightGuide [ 2.220446049250313e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 202
+// entity 201
 {
 "classname" "RotateSpatialSequencerSolid"
 "albedo" "255 255 255"
 "emission_color" "255 255 255"
 "fade_in_time" "0.2"
 "fade_out_time" "0.4"
-"id" "light_1"
+"id" "kick"
 "max_intensity" "0.3"
 "min_intensity" "0.1"
 "number" "0"
@@ -17616,7 +17596,7 @@
 ( 5768 -280 62 ) ( 5768 -277.8125 62 ) ( 5768 -280 59.8125 ) scenes/tutorial_scene/Light1 [ -2.220446049250313e-16 0 1 0 ] [ 0 -1 0 0 ] 0 1 1
 }
 }
-// entity 203
+// entity 202
 {
 "classname" "OmniLightEntity"
 "origin" "8334 202 -102"
@@ -17626,7 +17606,7 @@
 "shadow_mode" "1"
 "specular" "0.5"
 }
-// entity 204
+// entity 203
 {
 "classname" "OmniLightEntity"
 "origin" "8510 602 -102"
@@ -17636,7 +17616,7 @@
 "shadow_mode" "1"
 "specular" "0.5"
 }
-// entity 205
+// entity 204
 {
 "classname" "OmniLightEntity"
 "origin" "8158 602 -102"
@@ -17646,7 +17626,7 @@
 "shadow_mode" "1"
 "specular" "0.5"
 }
-// entity 206
+// entity 205
 {
 "classname" "OmniLightEntity"
 "origin" "8334 -470 -102"
@@ -17656,7 +17636,7 @@
 "shadow_mode" "1"
 "specular" "0.5"
 }
-// entity 207
+// entity 206
 {
 "classname" "OmniLightEntity"
 "origin" "8334 -1046 26"
@@ -17666,7 +17646,7 @@
 "shadow_mode" "1"
 "specular" "0.5"
 }
-// entity 208
+// entity 207
 {
 "classname" "OmniLightEntity"
 "origin" "8478 -1286 26"
@@ -17676,7 +17656,7 @@
 "shadow_mode" "1"
 "specular" "0.5"
 }
-// entity 209
+// entity 208
 {
 "classname" "OmniLightEntity"
 "origin" "8830 -1286 26"
@@ -17686,7 +17666,7 @@
 "shadow_mode" "1"
 "specular" "0.5"
 }
-// entity 210
+// entity 209
 {
 "classname" "OmniLightEntity"
 "origin" "9070 -966 26"
@@ -17696,7 +17676,7 @@
 "shadow_mode" "1"
 "specular" "0.5"
 }
-// entity 211
+// entity 210
 {
 "classname" "OmniLightEntity"
 "origin" "9070 -582 26"
@@ -17706,7 +17686,7 @@
 "shadow_mode" "1"
 "specular" "0.5"
 }
-// entity 212
+// entity 211
 {
 "classname" "OmniLightEntity"
 "origin" "9070 -22 58"
@@ -17716,7 +17696,7 @@
 "shadow_mode" "1"
 "specular" "0.5"
 }
-// entity 213
+// entity 212
 {
 "classname" "OmniLightEntity"
 "origin" "9662 -6 138"
@@ -17726,7 +17706,7 @@
 "shadow_mode" "1"
 "specular" "0.5"
 }
-// entity 214
+// entity 213
 {
 "classname" "OmniLightEntity"
 "origin" "10270 -6 266"
@@ -17736,7 +17716,7 @@
 "shadow_mode" "1"
 "specular" "0.5"
 }
-// entity 215
+// entity 214
 {
 "classname" "OmniLightEntity"
 "origin" "11630 -6 506"
@@ -17746,7 +17726,7 @@
 "shadow_mode" "1"
 "specular" "0.5"
 }
-// entity 216
+// entity 215
 {
 "classname" "OmniLightEntity"
 "origin" "12702 -6 506"
@@ -17756,7 +17736,7 @@
 "shadow_mode" "1"
 "specular" "0.5"
 }
-// entity 217
+// entity 216
 {
 "classname" "OmniLightEntity"
 "origin" "10926 -6 442"
@@ -17766,7 +17746,7 @@
 "shadow_mode" "1"
 "specular" "0.5"
 }
-// entity 218
+// entity 217
 {
 "classname" "static_body_group"
 // brush 0
@@ -17779,7 +17759,7 @@
 ( 3468 997 710 ) ( 3468 1237 710 ) ( 3468 1237 -234 ) scenes/tutorial_scene/Hexagon1 [ 4.440892098500626e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 219
+// entity 218
 {
 "classname" "SpatialSolidEntity"
 // brush 0
@@ -18233,7 +18213,7 @@
 ( 3404 996 -218 ) ( 3404 997 -234 ) ( 3404 996 -234 ) scenes/tutorial_scene/LightGuide [ 4.440892098500626e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 220
+// entity 219
 {
 "classname" "static_body_group"
 // brush 0
@@ -18246,7 +18226,7 @@
 ( 3477 524 494 ) ( 3477 684 638 ) ( 3477 684 -450 ) scenes/tutorial_scene/Hexagon1 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 221
+// entity 220
 {
 "classname" "SpatialSolidEntity"
 // brush 0
@@ -18700,7 +18680,7 @@
 ( 3237 620 -434 ) ( 3237 588 -450 ) ( 3237 588 -434 ) scenes/tutorial_scene/LightGuide [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 222
+// entity 221
 {
 "classname" "static_body_group"
 // brush 0
@@ -18713,7 +18693,7 @@
 ( 3140.7142494561226 1902.7659812842317 398 ) ( 2971.0086219713517 2072.471608769003 398 ) ( 2971.0086219713517 2072.471608769003 -546 ) scenes/tutorial_scene/Hexagon1 [ -1.1102230246251565e-16 -1.0000000000000002 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 223
+// entity 222
 {
 "classname" "SpatialSolidEntity"
 // brush 0
@@ -19167,7 +19147,7 @@
 ( 3096.1665222413703 1856.8040405071065 -530 ) ( 3073.5391052434006 1834.1766235091363 -546 ) ( 3073.5391052434006 1834.1766235091363 -530 ) scenes/tutorial_scene/LightGuide [ -3.3306690738754696e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 224
+// entity 223
 {
 "classname" "static_body_group"
 // brush 0
@@ -19180,7 +19160,7 @@
 ( 5189 1332 398 ) ( 5189 1492 542 ) ( 5189 1492 -546 ) scenes/tutorial_scene/Hexagon1 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 225
+// entity 224
 {
 "classname" "SpatialSolidEntity"
 // brush 0
@@ -19634,7 +19614,7 @@
 ( 4949 1428 -530 ) ( 4949 1396 -546 ) ( 4949 1396 -530 ) scenes/tutorial_scene/LightGuide [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 226
+// entity 225
 {
 "classname" "static_body_group"
 // brush 0
@@ -19647,7 +19627,7 @@
 ( 4173 1540 798 ) ( 4173 1700 942 ) ( 4173 1700 -146 ) scenes/tutorial_scene/Hexagon1 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 227
+// entity 226
 {
 "classname" "SpatialSolidEntity"
 // brush 0
@@ -20101,7 +20081,7 @@
 ( 3933 1636 -130 ) ( 3933 1604 -146 ) ( 3933 1604 -130 ) scenes/tutorial_scene/LightGuide [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 228
+// entity 227
 {
 "classname" "static_body_group"
 // brush 0
@@ -20114,7 +20094,7 @@
 ( 4187 -1852 -10 ) ( 4187 -1852 1078 ) ( 4187 -1692 934 ) scenes/tutorial_scene/Hexagon1 [ -3.3306690738754696e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 229
+// entity 228
 {
 "classname" "SpatialSolidEntity"
 // brush 0
@@ -20568,7 +20548,7 @@
 ( 4188 -1756 6 ) ( 4188 -1788 -10 ) ( 4188 -1788 6 ) scenes/tutorial_scene/LightGuide [ -3.3306690738754696e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 230
+// entity 229
 {
 "classname" "static_body_group"
 // brush 0
@@ -20581,7 +20561,7 @@
 ( 4636 -2699 398 ) ( 4636 -2459 398 ) ( 4636 -2459 -546 ) scenes/tutorial_scene/Hexagon1 [ -1.1102230246251565e-16 -1.0000000000000002 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 231
+// entity 230
 {
 "classname" "SpatialSolidEntity"
 // brush 0
@@ -21035,7 +21015,7 @@
 ( 4572 -2700 -530 ) ( 4572 -2699 -546 ) ( 4572 -2700 -546 ) scenes/tutorial_scene/LightGuide [ -1.1102230246251565e-16 -1.0000000000000002 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 232
+// entity 231
 {
 "classname" "static_body_group"
 // brush 0
@@ -21048,7 +21028,7 @@
 ( 4996 -2131 246 ) ( 4996 -1891 246 ) ( 4996 -1891 -698 ) scenes/tutorial_scene/Hexagon1 [ -1.1102230246251565e-16 -1.0000000000000002 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 233
+// entity 232
 {
 "classname" "SpatialSolidEntity"
 // brush 0
@@ -21502,7 +21482,7 @@
 ( 4932 -2132 -682 ) ( 4932 -2131 -698 ) ( 4932 -2132 -698 ) scenes/tutorial_scene/LightGuide [ -1.1102230246251565e-16 -1.0000000000000002 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 234
+// entity 233
 {
 "classname" "static_body_group"
 // brush 0
@@ -21515,7 +21495,7 @@
 ( 5755 -1820 -762 ) ( 5755 -1820 326 ) ( 5755 -1660 182 ) scenes/tutorial_scene/Hexagon1 [ -3.3306690738754696e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 235
+// entity 234
 {
 "classname" "SpatialSolidEntity"
 // brush 0
@@ -21969,7 +21949,7 @@
 ( 5756 -1724 -746 ) ( 5756 -1756 -762 ) ( 5756 -1756 -746 ) scenes/tutorial_scene/LightGuide [ -3.3306690738754696e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 236
+// entity 235
 {
 "classname" "static_body_group"
 // brush 0
@@ -21982,7 +21962,7 @@
 ( 6364 -2179 150 ) ( 6364 -1939 150 ) ( 6364 -1939 -794 ) scenes/tutorial_scene/Hexagon1 [ -1.1102230246251565e-16 -1.0000000000000002 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 237
+// entity 236
 {
 "classname" "SpatialSolidEntity"
 // brush 0
@@ -22436,7 +22416,7 @@
 ( 6300 -2180 -778 ) ( 6300 -2179 -794 ) ( 6300 -2180 -794 ) scenes/tutorial_scene/LightGuide [ -1.1102230246251565e-16 -1.0000000000000002 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 238
+// entity 237
 {
 "classname" "static_body_group"
 // brush 0
@@ -22449,7 +22429,7 @@
 ( 7331 -1140 -842 ) ( 7331 -1140 246 ) ( 7331 -980 102 ) scenes/tutorial_scene/Hexagon1 [ -3.3306690738754696e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 239
+// entity 238
 {
 "classname" "SpatialSolidEntity"
 // brush 0
@@ -22903,7 +22883,7 @@
 ( 7332 -1044 -826 ) ( 7332 -1076 -842 ) ( 7332 -1076 -826 ) scenes/tutorial_scene/LightGuide [ -3.3306690738754696e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 240
+// entity 239
 {
 "classname" "static_body_group"
 // brush 0
@@ -22916,7 +22896,7 @@
 ( 6900 -533 390 ) ( 6900 -293 390 ) ( 6900 -293 -698 ) scenes/tutorial_scene/Hexagon1 [ 1.1102230246251565e-16 1.0000000000000002 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 241
+// entity 240
 {
 "classname" "SpatialSolidEntity"
 // brush 0
@@ -23370,7 +23350,7 @@
 ( 6836 -292 -682 ) ( 6836 -293 -698 ) ( 6836 -293 -682 ) scenes/tutorial_scene/LightGuide [ 1.1102230246251565e-16 1.0000000000000002 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 242
+// entity 241
 {
 "classname" "static_body_group"
 // brush 0
@@ -23383,7 +23363,7 @@
 ( 6666.371103705615 -1380.4228355337254 -570 ) ( 6666.371103705615 -1380.4228355337254 518 ) ( 6553.234018715767 -1267.2857505438778 374 ) scenes/tutorial_scene/Hexagon1 [ -1.0000000000000002 1.1102230246251565e-16 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 243
+// entity 242
 {
 "classname" "SpatialSolidEntity"
 // brush 0
@@ -23837,7 +23817,7 @@
 ( 6599.195959492892 -1311.8334777586306 -554 ) ( 6621.823376490862 -1334.4608947566003 -570 ) ( 6621.823376490862 -1334.4608947566003 -554 ) scenes/tutorial_scene/LightGuide [ -1.0000000000000002 1.1102230246251565e-16 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 244
+// entity 243
 {
 "classname" "static_body_group"
 // brush 0
@@ -23850,7 +23830,7 @@
 ( 7600.521124665486 73.75386608210647 -938 ) ( 7600.521124665486 73.75386608210647 150 ) ( 7680.521124665486 212.31793068761726 6 ) scenes/tutorial_scene/Hexagon1 [ -3.3306690738754696e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 245
+// entity 244
 {
 "classname" "SpatialSolidEntity"
 // brush 0
@@ -24304,7 +24284,7 @@
 ( 7649.387150069271 156.39230484541258 -922 ) ( 7633.387150069271 128.67949192431115 -938 ) ( 7633.387150069271 128.67949192431115 -922 ) scenes/tutorial_scene/LightGuide [ -3.3306690738754696e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 246
+// entity 245
 {
 "classname" "static_body_group"
 // brush 0
@@ -24317,7 +24297,7 @@
 ( 8364 -2635 398 ) ( 8364 -2395 398 ) ( 8364 -2395 -546 ) scenes/tutorial_scene/Hexagon1 [ -1.1102230246251565e-16 -1.0000000000000002 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 247
+// entity 246
 {
 "classname" "SpatialSolidEntity"
 // brush 0
@@ -24771,7 +24751,7 @@
 ( 8300 -2636 -530 ) ( 8300 -2635 -546 ) ( 8300 -2636 -546 ) scenes/tutorial_scene/LightGuide [ -1.1102230246251565e-16 -1.0000000000000002 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 248
+// entity 247
 {
 "classname" "static_body_group"
 // brush 0
@@ -24784,7 +24764,7 @@
 ( 7819.5771644662755 -1826.3711037056155 -802 ) ( 7819.5771644662755 -1826.3711037056155 286 ) ( 7932.714249456123 -1713.234018715768 142 ) scenes/tutorial_scene/Hexagon1 [ -3.3306690738754696e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 249
+// entity 248
 {
 "classname" "SpatialSolidEntity"
 // brush 0
@@ -25238,7 +25218,7 @@
 ( 7888.16652224137 -1759.195959492893 -786 ) ( 7887.459415460184 -1758.4888527117064 -802 ) ( 7888.16652224137 -1759.195959492893 -802 ) scenes/tutorial_scene/LightGuide [ 1 -3.3306690738754696e-16 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 250
+// entity 249
 {
 "classname" "static_body_group"
 // brush 0
@@ -25251,7 +25231,7 @@
 ( 9024.93806961053 -1700.057910657676 542 ) ( 9194.643697095302 -1530.3522831729042 542 ) ( 9194.643697095302 -1530.3522831729042 -546 ) scenes/tutorial_scene/Hexagon1 [ 1.1102230246251565e-16 1.0000000000000002 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 251
+// entity 250
 {
 "classname" "SpatialSolidEntity"
 // brush 0
@@ -25705,7 +25685,7 @@
 ( 9127.46855288258 -1461.7629253978093 -530 ) ( 9150.09596988055 -1484.3903423957786 -546 ) ( 9150.09596988055 -1484.3903423957786 -530 ) scenes/tutorial_scene/LightGuide [ -1.0000000000000002 1.1102230246251565e-16 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 252
+// entity 251
 {
 "classname" "static_body_group"
 // brush 0
@@ -25718,7 +25698,7 @@
 ( 9588 -821 486 ) ( 9588 -581 486 ) ( 9588 -581 -602 ) scenes/tutorial_scene/Hexagon1 [ 1.1102230246251565e-16 1.0000000000000002 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 253
+// entity 252
 {
 "classname" "SpatialSolidEntity"
 // brush 0
@@ -26172,7 +26152,7 @@
 ( 9524 -580 -586 ) ( 9524 -581 -602 ) ( 9524 -581 -586 ) scenes/tutorial_scene/LightGuide [ 1.1102230246251565e-16 1.0000000000000002 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 254
+// entity 253
 {
 "classname" "static_body_group"
 // brush 0
@@ -26185,7 +26165,7 @@
 ( 8819 -772 -546 ) ( 8819 -772 542 ) ( 8819 -612 398 ) scenes/tutorial_scene/Hexagon1 [ -3.3306690738754696e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 255
+// entity 254
 {
 "classname" "SpatialSolidEntity"
 // brush 0
@@ -26639,7 +26619,7 @@
 ( 8820 -676 -530 ) ( 8820 -708 -546 ) ( 8820 -708 -530 ) scenes/tutorial_scene/LightGuide [ -3.3306690738754696e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 256
+// entity 255
 {
 "classname" "static_body_group"
 // brush 0
@@ -26652,7 +26632,7 @@
 ( 4525 1540 478 ) ( 4525 1700 622 ) ( 4525 1700 -466 ) scenes/tutorial_scene/Hexagon1 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 257
+// entity 256
 {
 "classname" "SpatialSolidEntity"
 // brush 0
@@ -27106,7 +27086,7 @@
 ( 4285 1636 -450 ) ( 4285 1604 -466 ) ( 4285 1604 -450 ) scenes/tutorial_scene/LightGuide [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 258
+// entity 257
 {
 "classname" "static_body_group"
 // brush 0
@@ -27119,7 +27099,7 @@
 ( 3821 1540 590 ) ( 3821 1700 734 ) ( 3821 1700 -354 ) scenes/tutorial_scene/Hexagon1 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 259
+// entity 258
 {
 "classname" "SpatialSolidEntity"
 // brush 0
@@ -27573,7 +27553,7 @@
 ( 3581 1636 -338 ) ( 3581 1604 -354 ) ( 3581 1604 -338 ) scenes/tutorial_scene/LightGuide [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 260
+// entity 259
 {
 "classname" "static_body_group"
 // brush 0
@@ -27586,7 +27566,7 @@
 ( 5187 1492 -690 ) ( 5187 1492 398 ) ( 5187 1652 254 ) scenes/tutorial_scene/Hexagon1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 261
+// entity 260
 {
 "classname" "SpatialSolidEntity"
 // brush 0
@@ -28040,7 +28020,7 @@
 ( 5188 1588 -674 ) ( 5188 1556 -690 ) ( 5188 1556 -674 ) scenes/tutorial_scene/LightGuide [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 262
+// entity 261
 {
 "classname" "static_body_group"
 // brush 0
@@ -28053,7 +28033,7 @@
 ( 5732 1307 -2 ) ( 5732 1547 -2 ) ( 5732 1547 -1090 ) scenes/tutorial_scene/Hexagon1 [ 2.220446049250313e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 263
+// entity 262
 {
 "classname" "SpatialSolidEntity"
 // brush 0
@@ -28507,7 +28487,7 @@
 ( 5668 1548 -1074 ) ( 5668 1547 -1090 ) ( 5668 1547 -1074 ) scenes/tutorial_scene/LightGuide [ 2.220446049250313e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 264
+// entity 263
 {
 "classname" "static_body_group"
 // brush 0
@@ -28520,7 +28500,7 @@
 ( 3513.3884830484376 -1468.7937180551735 494 ) ( 3393.3884830484385 -1260.947621146908 494 ) ( 3393.3884830484385 -1260.947621146908 -450 ) scenes/tutorial_scene/Hexagon1 [ -2.220446049250313e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 265
+// entity 264
 {
 "classname" "SpatialSolidEntity"
 // brush 0
@@ -28974,7 +28954,7 @@
 ( 3458.4628572062343 -1501.659743458958 -434 ) ( 3457.962857206234 -1500.7937180551735 -450 ) ( 3458.4628572062343 -1501.659743458958 -450 ) scenes/tutorial_scene/LightGuide [ -2.220446049250313e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 266
+// entity 265
 {
 "classname" "static_body_group"
 // brush 0
@@ -28987,7 +28967,7 @@
 ( 3253.343145750508 -886.3431457505076 -810 ) ( 3253.343145750508 -886.3431457505076 278 ) ( 3253.3431457505076 -726.3431457505076 134 ) scenes/tutorial_scene/Hexagon1 [ -2.7755575615628914e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 267
+// entity 266
 {
 "classname" "SpatialSolidEntity"
 // brush 0
@@ -29441,7 +29421,7 @@
 ( 3254.3431457505085 -790.3431457505071 -794 ) ( 3254.343145750508 -822.3431457505071 -810 ) ( 3254.343145750508 -822.3431457505071 -794 ) scenes/tutorial_scene/LightGuide [ -2.7755575615628914e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 268
+// entity 267
 {
 "classname" "static_body_group"
 // brush 0
@@ -29454,7 +29434,7 @@
 ( 3620 -2627 886 ) ( 3620 -2387 886 ) ( 3620 -2387 -58 ) scenes/tutorial_scene/Hexagon1 [ -1.1102230246251565e-16 -1.0000000000000002 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 269
+// entity 268
 {
 "classname" "SpatialSolidEntity"
 // brush 0
@@ -29908,7 +29888,7 @@
 ( 3556 -2628 -42 ) ( 3556 -2627 -58 ) ( 3556 -2628 -58 ) scenes/tutorial_scene/LightGuide [ -1.1102230246251565e-16 -1.0000000000000002 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 270
+// entity 269
 {
 "classname" "static_body_group"
 // brush 0
@@ -29921,7 +29901,7 @@
 ( 7644 -555 14 ) ( 7644 -315 14 ) ( 7644 -315 -930 ) scenes/tutorial_scene/Hexagon1 [ -1.1102230246251565e-16 -1.0000000000000002 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 271
+// entity 270
 {
 "classname" "SpatialSolidEntity"
 // brush 0
@@ -30375,7 +30355,7 @@
 ( 7580 -556 -914 ) ( 7580 -555 -930 ) ( 7580 -556 -930 ) scenes/tutorial_scene/LightGuide [ -1.1102230246251565e-16 -1.0000000000000002 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 272
+// entity 271
 {
 "classname" "SpatialSolidEntity"
 // brush 0
@@ -32323,7 +32303,7 @@
 ( 4976 -1064 560 ) ( 4976 -1096 544 ) ( 4976 -1096 560 ) scenes/tutorial_scene/LightGuide [ 2.220446049250313e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 273
+// entity 272
 {
 "classname" "static_body_group"
 // brush 0
@@ -32336,7 +32316,7 @@
 ( 7045 1732 142 ) ( 7045 1892 286 ) ( 7045 1892 -802 ) scenes/tutorial_scene/Hexagon1 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 274
+// entity 273
 {
 "classname" "SpatialSolidEntity"
 // brush 0
@@ -32790,7 +32770,7 @@
 ( 6805 1828 -786 ) ( 6805 1796 -802 ) ( 6805 1796 -786 ) scenes/tutorial_scene/LightGuide [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 275
+// entity 274
 {
 "classname" "static_body_group"
 // brush 0
@@ -32803,7 +32783,7 @@
 ( 7822.128463018496 2040.6654762208445 126 ) ( 7652.422835533725 2210.3711037056155 126 ) ( 7652.422835533725 2210.3711037056155 -962 ) scenes/tutorial_scene/Hexagon1 [ 2.220446049250313e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 276
+// entity 275
 {
 "classname" "SpatialSolidEntity"
 // brush 0
@@ -33257,7 +33237,7 @@
 ( 7606.460894756599 2165.8233764908628 -946 ) ( 7607.168001537786 2165.116269709676 -962 ) ( 7607.168001537786 2165.116269709676 -946 ) scenes/tutorial_scene/LightGuide [ 2.220446049250313e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 277
+// entity 276
 {
 "classname" "static_body_group"
 // brush 0
@@ -33270,7 +33250,7 @@
 ( 9300 939 286 ) ( 9300 1179 286 ) ( 9300 1179 -802 ) scenes/tutorial_scene/Hexagon1 [ 2.220446049250313e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 278
+// entity 277
 {
 "classname" "SpatialSolidEntity"
 // brush 0
@@ -33724,7 +33704,7 @@
 ( 9236 1180 -786 ) ( 9236 1179 -802 ) ( 9236 1179 -786 ) scenes/tutorial_scene/LightGuide [ 2.220446049250313e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 279
+// entity 278
 {
 "classname" "SpatialSolidEntity"
 // brush 0
@@ -34178,7 +34158,7 @@
 ( 8325 1892 -786 ) ( 8325 1860 -802 ) ( 8325 1860 -786 ) scenes/tutorial_scene/LightGuide [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 280
+// entity 279
 {
 "classname" "static_body_group"
 // brush 0
@@ -34191,7 +34171,7 @@
 ( 8565 1796 142 ) ( 8565 1956 286 ) ( 8565 1956 -802 ) scenes/tutorial_scene/Hexagon1 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 281
+// entity 280
 {
 "classname" "SpatialSolidEntity"
 // brush 0
@@ -34645,7 +34625,7 @@
 ( 6597 2676 -1074 ) ( 6597 2644 -1090 ) ( 6597 2644 -1074 ) scenes/tutorial_scene/LightGuide [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 282
+// entity 281
 {
 "classname" "static_body_group"
 // brush 0
@@ -34658,7 +34638,7 @@
 ( 6837 2580 -146 ) ( 6837 2740 -2 ) ( 6837 2740 -1090 ) scenes/tutorial_scene/Hexagon1 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 283
+// entity 282
 {
 "classname" "SpatialSolidEntity"
 // brush 0
@@ -35112,7 +35092,7 @@
 ( 5883.478875334515 2195.820508075689 -1074 ) ( 5899.478875334515 2168.1076951545865 -1090 ) ( 5899.478875334515 2168.1076951545865 -1074 ) scenes/tutorial_scene/LightGuide [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 284
+// entity 283
 {
 "classname" "static_body_group"
 // brush 0
@@ -35125,7 +35105,7 @@
 ( 6139.32497224278 2232.6820693123827 -146 ) ( 6059.32497224278 2371.246133917893 -2 ) ( 6059.32497224278 2371.246133917893 -1090 ) scenes/tutorial_scene/Hexagon1 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 285
+// entity 284
 {
 "classname" "SpatialSolidEntity"
 // brush 0
@@ -35579,7 +35559,7 @@
 ( 8172 2388 -1074 ) ( 8172 2389 -1090 ) ( 8172 2388 -1090 ) scenes/tutorial_scene/LightGuide [ -2.220446049250313e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 286
+// entity 285
 {
 "classname" "static_body_group"
 // brush 0
@@ -35592,7 +35572,7 @@
 ( 8236 2389 -146 ) ( 8236 2629 -146 ) ( 8236 2629 -1090 ) scenes/tutorial_scene/Hexagon1 [ -2.220446049250313e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 287
+// entity 286
 {
 "classname" "SpatialSolidEntity"
 // brush 0
@@ -36046,7 +36026,7 @@
 ( 8790.460894756598 1637.8233764908655 -962 ) ( 8791.168001537786 1637.116269709676 -978 ) ( 8791.168001537786 1637.116269709676 -962 ) scenes/tutorial_scene/LightGuide [ 2.220446049250313e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 288
+// entity 287
 {
 "classname" "static_body_group"
 // brush 0
@@ -36059,7 +36039,7 @@
 ( 9006.128463018496 1512.665476220844 110 ) ( 8836.422835533725 1682.3711037056169 110 ) ( 8836.422835533725 1682.3711037056169 -978 ) scenes/tutorial_scene/Hexagon1 [ 2.220446049250313e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 289
+// entity 288
 {
 "classname" "SpatialSolidEntity"
 // brush 0
@@ -36198,7 +36178,7 @@
 ( 5536 -927 32 ) ( 5536 -928 16 ) ( 5536 -928 32 ) scenes/tutorial_scene/Light1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 290
+// entity 289
 {
 "classname" "SpatialSolidEntity"
 // brush 0
@@ -36337,7 +36317,7 @@
 ( 6128 -784 32 ) ( 6128 -816 16 ) ( 6128 -816 32 ) scenes/tutorial_scene/Light1 [ 2.220446049250313e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 291
+// entity 290
 {
 "classname" "SpatialSolidEntity"
 // brush 0
@@ -36431,7 +36411,7 @@
 ( 6128 480 -448 ) ( 6128 448 -464 ) ( 6128 448 -448 ) scenes/tutorial_scene/Light1 [ 2.220446049250313e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 292
+// entity 291
 {
 "classname" "SpatialSolidEntity"
 // brush 0
@@ -36525,7 +36505,7 @@
 ( 6225 896 -448 ) ( 6225 928 -464 ) ( 6225 896 -464 ) scenes/tutorial_scene/Light1 [ -2.220446049250313e-16 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 293
+// entity 292
 {
 "classname" "EndPoint"
 // brush 0
@@ -36536,5 +36516,37 @@
 ( 12576 144 592 ) ( 12544 -128 592 ) ( 12544 144 592 ) entities/checkpoint/end_level [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
 ( 12576 144 576 ) ( 12544 144 352 ) ( 12576 144 352 ) entities/checkpoint/end_level [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
 ( 12576 144 576 ) ( 12576 -128 352 ) ( 12576 -128 576 ) entities/checkpoint/end_level [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+}
+// entity 293
+{
+"classname" "TriggerSongAnimationChange"
+"animation" "part2"
+"collision_layer" "2"
+"collision_mask" "5"
+// brush 0
+{
+( -848 2784 292 ) ( -848 2848 260 ) ( -848 2848 292 ) common/material_override/Transparent [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -776 2784 292 ) ( -848 2784 260 ) ( -848 2784 292 ) common/material_override/Transparent [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -776 2848 260 ) ( -848 2784 260 ) ( -776 2784 260 ) common/material_override/Transparent [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -776 2848 292 ) ( -848 2784 292 ) ( -848 2848 292 ) common/material_override/Transparent [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -776 2848 292 ) ( -848 2848 260 ) ( -776 2848 260 ) common/material_override/Transparent [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -784 2848 292 ) ( -784 2784 260 ) ( -784 2784 292 ) common/material_override/Transparent [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+}
+// entity 294
+{
+"classname" "TriggerSongAnimationChange"
+"animation" "part3"
+"collision_layer" "2"
+"collision_mask" "5"
+// brush 0
+{
+( 2560 -112 420 ) ( 2560 176 260 ) ( 2560 176 420 ) common/material_override/Transparent [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 2624 -112 420 ) ( 2576 -112 260 ) ( 2576 -112 420 ) common/material_override/Transparent [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 2624 176 260 ) ( 2576 -112 260 ) ( 2624 -112 260 ) common/material_override/Transparent [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 2624 176 448 ) ( 2576 -112 448 ) ( 2576 176 448 ) common/material_override/Transparent [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 2624 112 420 ) ( 2576 112 260 ) ( 2624 112 260 ) common/material_override/Transparent [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 2624 176 420 ) ( 2624 -112 260 ) ( 2624 -112 420 ) common/material_override/Transparent [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }

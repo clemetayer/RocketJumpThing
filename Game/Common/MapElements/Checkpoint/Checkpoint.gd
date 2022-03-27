@@ -10,6 +10,9 @@ class_name Checkpoint
 export(Dictionary) var properties setget set_properties
 
 #---- STANDARD -----
+#==== PUBLIC ====
+var song_animation: String  # keeps the song animation name, to change the current song animation when respawning
+
 #==== PRIVATE ====
 var _spawn_position: Vector3
 var _spawn_rotation: float
@@ -67,3 +70,5 @@ func update_properties() -> void:
 func _on_Checkpoint_body_entered(body: Node):
 	if body.is_in_group("player"):
 		SignalManager.emit_checkpoint_triggered(self)
+		if song_animation == null or song_animation == "":
+			song_animation = StandardSongManager.get_current().get_animation_name()

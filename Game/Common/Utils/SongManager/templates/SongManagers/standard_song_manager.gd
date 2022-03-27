@@ -1,5 +1,5 @@
 extends SongManager
-class_name StandardSongManager
+# class_name StandardSongManager # removed the class name since it is treated as a singleton
 # A basic song manager that should fit a lot of cases (contrary to a Song or a Transition)
 
 # Note : en cas d'update song et de cancel de tween, que fait-on ? Prendre un exemple
@@ -110,7 +110,7 @@ func _update_current(song: Song, effect: EffectManager):
 # switches the current song to a new one with an effect
 func _switch_song(song: Song, effect: EffectManager):
 	var effect_data := _current_song.stop()
-	var switch_effect = effect.duplicate() # duplicates the effect, to avoid having an error when re-adding the effet on play
+	var switch_effect = effect.duplicate()  # duplicates the effect, to avoid having an error when re-adding the effet on play
 	if effect != null:
 		add_child(switch_effect)
 		switch_effect.init_updating_properties(effect_data)
