@@ -51,8 +51,7 @@ func _ready():
 		EndLevelUi.set_next_scene(NEXT_SCENE_PATH)
 	# init song
 	if null != PATHS.bgm.path and PATHS.bgm.path != "":
-		VariableManager.song = load(PATHS.bgm.path)
-		var song_instance = VariableManager.song.instance()
+		var song_instance = load(PATHS.bgm.path).instance()
 		song_instance.ANIMATION = PATHS.bgm.animation
 		var effect = VolumeEffectManager.new()
 		effect.TIME = 1.0
@@ -116,13 +115,13 @@ func _on_respawn_player_on_last_cp() -> void:
 	if _last_cp is StartPoint:  # if restart at the beginning of the level, restart the chronometer
 		SignalManager.emit_start_level_chronometer()
 		if null != PATHS.bgm.path and PATHS.bgm.path != "":
-			var song_instance = VariableManager.song.instance()
+			var song_instance = VariableManager.song
 			song_instance.ANIMATION = PATHS.bgm.animation
 			var effect = VolumeEffectManager.new()
 			effect.TIME = 1.0
 			StandardSongManager.add_to_queue(song_instance, effect)
 	elif null != PATHS.bgm.path and PATHS.bgm.path != "":
-		var song_instance = VariableManager.song.instance()
+		var song_instance = VariableManager.song
 		song_instance.ANIMATION = _last_cp.song_animation
 		var effect = VolumeEffectManager.new()
 		effect.TIME = 1.0

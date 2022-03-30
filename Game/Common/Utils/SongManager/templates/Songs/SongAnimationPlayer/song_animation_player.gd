@@ -40,6 +40,7 @@ func play() -> Array:
 	if _buses_cleared:
 		_init_buses()
 	get_node(ANIMATION_PLAYER).play(ANIMATION)
+	VariableManager.song = self
 	return _get_track_effect_array(name, true)
 
 
@@ -50,42 +51,43 @@ func stop() -> Array:
 	if not get_parent().is_connected("effect_done", self, "_handle_queue_stop"):
 		var _err = get_parent().connect("effect_done", self, "_handle_queue_stop")
 	_stop_queue.push_back([name])  # name just means to stop all tracks, setups the stop of the song
+	VariableManager.song = null
 	return _get_track_effect_array(name, false)
 
 
-# updates the song to match the one specified in parameters, returns an array to give to  the EffectManager as a parameter
 func update(song: Song) -> Array:
 	var effect_array = []
+	var stop_array = []  # tracks to stop
 	if _buses_cleared:
 		_init_buses()
 	if ANIMATION != song.ANIMATION:
-		var anim_player: AnimationPlayer = get_node(ANIMATION_PLAYER)  # shortcut
-		var stop_array = []  # tracks to stop
-		var cur_anim_time = anim_player.current_animation_position
-		var new_anim_time = fmod(cur_anim_time, anim_player.get_animation(song.ANIMATION).length)
-		var time_tracks = _get_track_play_times(song.ANIMATION, new_anim_time)  # play time for each track on new animation
-		get_node(ANIMATION_PLAYER).play(song.ANIMATION)
-		get_node(ANIMATION_PLAYER).seek(new_anim_time)
-		for track in _tracks:
-			if track != name:  # not the root
-				if (
-					_tracks[track].playing_in_animation.has(ANIMATION)
-					and not _tracks[track].playing_in_animation.has(song.ANIMATION)
-				):  # current track playing should fade out
-					effect_array.append_array(_get_track_effect_array(track, false))
-					stop_array.append(track)
-					_remove_track_from_stop_queue(track)
-				elif (
-					not _tracks[track].playing_in_animation.has(ANIMATION)
-					and _tracks[track].playing_in_animation.has(song.ANIMATION)
-				):  # new track should fade in
-					effect_array.append_array(_get_track_effect_array(track, true))
-					if time_tracks.has(track):  # if not stopped, play the sound immediately at the correct position
-						get_node(_tracks[track].path).play(time_tracks[track])
-		if not get_parent().is_connected("effect_done", self, "_handle_queue_stop"):
-			var _err = get_parent().connect("effect_done", self, "_handle_queue_stop")
-		_stop_queue.push_back(stop_array)
-		ANIMATION = song.ANIMATION
+		var common_track_name = _get_same_track(song)
+		if common_track_name != null:  # has a common track, base the other tracks on this one for the transition
+			var animation_time = _get_animation_time_from_track_time(
+				song.ANIMATION, common_track_name
+			)  # global time in the animation, depending on the common track
+			var time_tracks = _get_track_play_times(song.ANIMATION, animation_time)  # play time for each track on new animation
+			for track in _tracks:
+				if track != name:  # not the root
+					if (
+						_tracks[track].playing_in_animation.has(ANIMATION)
+						and not _tracks[track].playing_in_animation.has(song.ANIMATION)
+					):  # current track playing should fade out
+						effect_array.append_array(_get_track_effect_array(track, false))
+						stop_array.append(track)
+						_remove_track_from_stop_queue(track)
+					elif (
+						not _tracks[track].playing_in_animation.has(ANIMATION)
+						and _tracks[track].playing_in_animation.has(song.ANIMATION)
+					):  # new track should fade in (even if it is not currently playing)
+						effect_array.append_array(_get_track_effect_array(track, true))
+						if time_tracks.has(track):  # if not stopped, play the sound immediately at the correct position
+							get_node(_tracks[track].path).play(time_tracks[track])
+			if not get_parent().is_connected("effect_done", self, "_handle_queue_stop"):
+				var _err = get_parent().connect("effect_done", self, "_handle_queue_stop")
+			_stop_queue.push_back(stop_array)
+			ANIMATION = song.ANIMATION
+	VariableManager.song = song
 	return effect_array
 
 
@@ -109,11 +111,6 @@ func update_volumes(_percents: float):
 		AudioServer.set_bus_volume_db(
 			AudioServer.get_bus_index(_tracks[track].bus), _tracks[track].volume
 		)
-
-
-# returns the current animation name playing
-func get_animation_name() -> String:
-	return get_node(ANIMATION_PLAYER).current_animation
 
 
 # Triggers a specific step for the step sequencer in the SignalManager
@@ -212,6 +209,40 @@ func _get_track_effect_array(track_name: String, fade_in: bool):
 			"fade_in": fade_in
 		}
 	]
+
+
+# returns the first common track playing in new song and current song, or null if they have no common tracks
+func _get_same_track(new_song: Song):
+	for track_name in _tracks:
+		if track_name != name:  # not the root
+			var track = _tracks[track_name]
+			if (
+				ANIMATION in track.playing_in_animation
+				and new_song.ANIMATION in track.playing_in_animation  # if the track is both in the new and old animation
+				and get_node(track.path).playing
+			):  # and if the track is currently playing, that is a "coherent" link
+				return track_name
+	return null
+
+
+# returns the animation time where the track matches the play_time
+func _get_animation_time_from_track_time(animation: String, track: String) -> float:
+	var anim: Animation = get_node(ANIMATION_PLAYER).get_animation(animation)
+	for track_idx in range(anim.get_track_count()):
+		if (
+			get_node(anim.track_get_path(track_idx)) is AudioStreamPlayer
+			and get_node(anim.track_get_path(track_idx)).name == track
+		):  # audio track (idk, maybe there will be some other track types), and this is the common track
+			var property_name = anim.track_get_path(track_idx).get_subname(
+				anim.track_get_path(track_idx).get_subname_count() - 1
+			)  # just gets the last property
+			var key_idx = anim.track_find_key(track_idx, 0.0, false)  # closest key to start
+			if property_name == "playing" and anim.track_get_key_value(track_idx, key_idx):  # value of the key is playing == true
+				return (
+					anim.track_get_key_time(track_idx, key_idx)
+					+ get_node(_tracks[track].path).get_playback_position()
+				)  # usually, the animation length is at least the length of the track (otherwise, just use modulo, but that would probably give weird results)
+	return 0.0  # standard case that should not happen (TODO : put a log here ?)
 
 
 # returns the play times of each track, depending on the position of the animation
