@@ -278,6 +278,14 @@ func _remove_track_from_stop_queue(track: String):
 			_stop_queue[stop_idx].erase(track)
 
 
+# resets a bus
+func _reset_bus(name: String) -> void:
+	var bus_idx := AudioServer.get_bus_index(name)
+	if bus_idx != -1:
+		AudioServer.set_bus_volume_db(bus_idx, 0.0)
+		AudioServer.get_bus_effect(bus_idx, bus_effects.filter).cutoff_hz = 20000
+
+
 ##### SIGNAL MANAGEMENT #####
 # handles the stop queue
 func _handle_queue_stop():
@@ -287,9 +295,11 @@ func _handle_queue_stop():
 			for track in _tracks.keys():
 				if not track == name:
 					get_node(_tracks[track].path).stop()
+					_reset_bus(_tracks[track].bus)
 		else:
 			for track in to_stop:
 				get_node(_tracks[track].path).stop()
+				_reset_bus(_tracks[track].bus)
 	var should_clear_buses = true
 	for track in get_children():
 		if track is AudioStreamPlayer and track.playing:  # not everything is stopped
