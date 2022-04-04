@@ -30,7 +30,7 @@ func update_properties() -> void:
 ##### SIGNAL MANAGEMENT #####
 func _on_body_entered(body: Node) -> void:
 	if properties.has("animation") and body.is_in_group("player"):
-		var song_instance = VariableManager.song.duplicate()
+		var song_instance = StandardSongManager.get_current().duplicate()
 		song_instance.ANIMATION = properties.animation
 		var effect = FilterEffectManager.new()
 		effect.TIME = 1.0

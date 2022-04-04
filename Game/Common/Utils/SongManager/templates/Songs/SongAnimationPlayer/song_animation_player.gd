@@ -40,7 +40,6 @@ func play() -> Array:
 	if _buses_cleared:
 		_init_buses()
 	get_node(ANIMATION_PLAYER).play(ANIMATION)
-	VariableManager.song = self
 	return _get_track_effect_array(name, true)
 
 
@@ -52,7 +51,6 @@ func stop() -> Array:
 		var _err = get_parent().connect("effect_done", self, "_on_parent_effect_done")
 	if not _update_track_infos.fade_out.has(name):
 		_update_track_infos.fade_out.push_back(name)  # name just means to stop all tracks, setups the stop of the song
-	VariableManager.song = null
 	return _get_track_effect_array(name, false)
 
 
@@ -311,10 +309,13 @@ func _on_parent_effect_done() -> void:
 				for track in _tracks.keys():
 					if track != name:
 						_reset_bus(_tracks[track].bus)
+						_tracks[track].volume = 0.0
 				_reset_bus(_tracks[name].bus)  # Resets the global song bus
+				_tracks[name].volume = 0.0
 			else:
 				for track in to_stop:
 					_reset_bus(_tracks[track].bus)
+					_tracks[track].volume = 0.0
 		ANIMATION = _update_track_infos.animation
 		get_node(ANIMATION_PLAYER).play(_update_track_infos.animation)
 		get_node(ANIMATION_PLAYER).seek(animation_time)
