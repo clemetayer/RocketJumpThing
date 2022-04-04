@@ -51,11 +51,7 @@ func _ready():
 		EndLevelUi.set_next_scene(NEXT_SCENE_PATH)
 	# init song
 	if null != PATHS.bgm.path and PATHS.bgm.path != "":
-		var song_instance = load(PATHS.bgm.path).instance()
-		song_instance.ANIMATION = PATHS.bgm.animation
-		var effect = VolumeEffectManager.new()
-		effect.TIME = 1.0
-		StandardSongManager.add_to_queue(song_instance, effect)
+		_change_song_anim(PATHS.bgm.animation)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame. Remove the "_" to use it.
@@ -102,6 +98,15 @@ func _restart() -> void:
 	_on_respawn_player_on_last_cp()
 
 
+# changes the scene song animation
+func _change_song_anim(anim_name: String) -> void:
+	var song_instance = load(PATHS.bgm.path).instance()
+	song_instance.ANIMATION = anim_name
+	var effect = VolumeEffectManager.new()
+	effect.TIME = 1.0
+	StandardSongManager.add_to_queue(song_instance, effect)
+
+
 ##### SIGNAL MANAGEMENT #####
 func _on_checkpoint_triggered(checkpoint: Checkpoint) -> void:
 	_last_cp = checkpoint
@@ -115,14 +120,6 @@ func _on_respawn_player_on_last_cp() -> void:
 	if _last_cp is StartPoint:  # if restart at the beginning of the level, restart the chronometer
 		SignalManager.emit_start_level_chronometer()
 		if null != PATHS.bgm.path and PATHS.bgm.path != "":
-			var song_instance = VariableManager.song
-			song_instance.ANIMATION = PATHS.bgm.animation
-			var effect = VolumeEffectManager.new()
-			effect.TIME = 1.0
-			StandardSongManager.add_to_queue(song_instance, effect)
+			_change_song_anim(PATHS.bgm.animation)
 	elif null != PATHS.bgm.path and PATHS.bgm.path != "":
-		var song_instance = VariableManager.song
-		song_instance.ANIMATION = _last_cp.song_animation
-		var effect = VolumeEffectManager.new()
-		effect.TIME = 1.0
-		StandardSongManager.add_to_queue(song_instance, effect)
+		_change_song_anim(_last_cp.song_animation)

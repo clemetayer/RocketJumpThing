@@ -53,7 +53,8 @@ func cancel_same_effects(effect):
 ##### PROTECTED METHODS #####
 func _init_tween(params: Array) -> void:
 	_tween = Tween.new()
-#	var _err = _tween.connect("tween_step", self, "_print_tween_step")
+	# var _err = _tween.connect("tween_step", self, "_print_tween_step")
+	Logger.debug("params = %s" % [params])
 	for param in params:
 		if param.has("type") and param.type == "volume":
 			_add_effect_to_tween(param)

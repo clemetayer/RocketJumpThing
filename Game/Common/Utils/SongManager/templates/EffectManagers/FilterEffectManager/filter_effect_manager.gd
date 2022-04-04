@@ -3,7 +3,7 @@ class_name FilterEffectManager
 
 ##### VARIABLES #####
 #---- STANDARD -----
-var _tween : Tween
+var _tween: Tween
 
 ##### PUBLIC METHODS #####
 """
@@ -17,18 +17,22 @@ compatible param :
 	"fade_in":bool
 }
 """
-func start_effect(params:Array) -> void:
+
+
+func start_effect(params: Array) -> void:
 	_init_tween(params)
 	add_child(_tween)
 	var _err = _tween.start()
-	yield(_tween,"tween_all_completed")
+	yield(_tween, "tween_all_completed")
 	emit_signal("effect_done")
 
+
 # inits the updating properties array (to cancel the same effects if necessary)
-func init_updating_properties(params:Array) -> void:
+func init_updating_properties(params: Array) -> void:
 	for param in params:
 		if param.has("type") and param.type == "filter":
 			updating_properties.append(param)
+
 
 # cancels the effects that are the same as the one specified in parameters
 func cancel_same_effects(effect):
@@ -53,6 +57,7 @@ func _init_tween(params: Array) -> void:
 	for param in params:
 		if param.has("type") and param.type == "filter":
 			_add_effect_to_tween(param)
+
 
 # adds an effect to the tween with the parameter specified
 func _add_effect_to_tween(param: Dictionary):

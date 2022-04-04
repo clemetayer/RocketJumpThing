@@ -32,7 +32,6 @@ func _on_body_entered(body: Node) -> void:
 	if properties.has("animation") and body.is_in_group("player"):
 		var song_instance = VariableManager.song.duplicate()
 		song_instance.ANIMATION = properties.animation
-		print(properties.animation)
 		var effect = FilterEffectManager.new()
 		effect.TIME = 1.0
 		StandardSongManager.add_to_queue(song_instance, effect)
