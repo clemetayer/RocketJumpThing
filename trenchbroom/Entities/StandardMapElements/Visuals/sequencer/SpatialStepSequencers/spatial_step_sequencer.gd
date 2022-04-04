@@ -4,12 +4,12 @@ class_name SpatialStepSequencer
 
 ##### VARIABLES #####
 #---- EXPORTS -----
-export (Dictionary) var properties
+export(Dictionary) var properties
 
 #---- STANDARD -----
 #==== PRIVATE ====
-var _step := 0  # Current step 
-var _id: String  # Identifier of the sequencer 
+var _step := 0  # Current step
+var _id: String  # Identifier of the sequencer
 var _number_of_steps: int  # Number of steps in total for the elements with the same ID
 var _number: int  # Number of the element alone
 
@@ -36,18 +36,18 @@ func _ready():
 
 
 ##### PROTECTED METHODS #####
-#==== Other =====	
+#==== Other =====
 # made to override _ready
 func _ready_func():
-	if 'id' in properties:
+	if "id" in properties:
 		self._id = properties.id
-	if 'number_of_steps' in properties:
+	if "number_of_steps" in properties:
 		self._number_of_steps = properties.number_of_steps
-	if 'number' in properties:
+	if "number" in properties:
 		self._number = properties.number
 
 
-# function to do when this is the correct step 
+# function to do when this is the correct step
 # Override this
 func _step_function() -> void:
 	pass
@@ -55,6 +55,7 @@ func _step_function() -> void:
 
 ##### SIGNAL MANAGEMENT #####
 func _on_SignalManager_sequencer_step(id: String) -> void:
-	if id == _id and _step == _number:
-		_step_function()
-	_step = (_step + 1) % _number_of_steps
+	if id == _id:
+		if _step == _number:
+			_step_function()
+		_step = (_step + 1) % _number_of_steps
