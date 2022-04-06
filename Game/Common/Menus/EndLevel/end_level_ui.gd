@@ -32,6 +32,7 @@ func set_next_scene(next_scene_path: String) -> void:
 ##### SIGNAL MANAGEMENT #####
 func _on_SignalManager_end_reached() -> void:
 	if VariableManager.end_level_enabled:
+		yield(get_tree().create_timer(0.1), "timeout")  # waits a little before pausing, to at least update the time in VariableManager. OPTIMIZATION : this is pretty dirty, create a special signal to tell when the time was updated instead ?
 		VariableManager.pause_enabled = false
 		if _paths.next_scene == null:
 			get_node(_paths.next_scene_button).disabled = true
@@ -43,23 +44,27 @@ func _on_SignalManager_end_reached() -> void:
 		tween.interpolate_property(
 			get_node(_paths.root_ui), "modulate", Color(1, 1, 1, 0), Color(1, 1, 1, 1), FADE_IN_TIME
 		)
-		get_tree().paused = true
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		tween.start()
 		get_node(_paths.root_ui).show()
+		get_tree().paused = true
 
 
 func _unpause():
 	get_tree().paused = false
+	get_node(_paths.root_ui).hide()
 
 
 func _on_NextButton_pressed():
+	_unpause()
 	get_tree().change_scene(_paths.next_scene)
 
 
 func _on_RestartButton_pressed():
+	_unpause()
 	get_tree().reload_current_scene()
 
 
 func _on_MainMenuButton_pressed():
+	_unpause()
 	get_tree().change_scene(_paths.main_menu_scene)

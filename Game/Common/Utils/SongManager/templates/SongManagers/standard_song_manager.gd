@@ -11,6 +11,11 @@ signal effect_done  # when an effect is done
 var _current_effects = []  # current effects playing, to cancel these if necessary
 
 
+# Called when the object is initialized.
+func _init():
+	set_pause_mode(PAUSE_MODE_PROCESS)
+
+
 # Called every frame. 'delta' is the elapsed time since the previous frame. Remove the "_" to use it.
 func _process(_delta):
 	if _queue.size() > 0:  # queue not empty
