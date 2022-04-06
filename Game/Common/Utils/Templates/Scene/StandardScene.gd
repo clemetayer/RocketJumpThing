@@ -39,7 +39,7 @@ func _init():
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	VariableManager.scene_unloading = false
+	PauseMenu.ENABLED = true
 	VariableManager.pause_enabled = true
 	VariableManager.end_level_enabled = true
 	_last_cp = get_node(PATHS.start_point).get_checkpoint()
@@ -113,13 +113,14 @@ func _on_checkpoint_triggered(checkpoint: Checkpoint) -> void:
 
 
 func _on_respawn_player_on_last_cp() -> void:
-	var player: Player = get_node(PATHS.player)
-	player.transform.origin = _last_cp.get_spawn_point()
-	player.rotation_degrees.y = _last_cp.get_spawn_rotation()
-	player.vel = Vector3()
-	if _last_cp is StartPoint:  # if restart at the beginning of the level, restart the chronometer
-		SignalManager.emit_start_level_chronometer()
-		if null != PATHS.bgm.path and PATHS.bgm.path != "":
-			_change_song_anim(PATHS.bgm.animation)
-	elif null != PATHS.bgm.path and PATHS.bgm.path != "":
-		_change_song_anim(_last_cp.song_animation)
+	if _last_cp != null:
+		var player: Player = get_node(PATHS.player)
+		player.transform.origin = _last_cp.get_spawn_point()
+		player.rotation_degrees.y = _last_cp.get_spawn_rotation()
+		player.vel = Vector3()
+		if _last_cp is StartPoint:  # if restart at the beginning of the level, restart the chronometer
+			SignalManager.emit_start_level_chronometer()
+			if null != PATHS.bgm.path and PATHS.bgm.path != "":
+				_change_song_anim(PATHS.bgm.animation)
+		elif null != PATHS.bgm.path and PATHS.bgm.path != "":
+			_change_song_anim(_last_cp.song_animation)

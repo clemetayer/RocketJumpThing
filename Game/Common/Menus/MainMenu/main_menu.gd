@@ -9,6 +9,8 @@ const PATHS := {"tutorial_scene": "res://Game/Scenes/Tutorial/Scene2/Scene2.tscn
 ##### PROCESSING #####
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	PauseMenu.ENABLED = false
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	VariableManager.end_level_enabled = false
 	VariableManager.pause_enabled = false
 

@@ -55,7 +55,7 @@ func apply_effect(effect: EffectManager, params = {}) -> void:
 		effect.start_effect(effect_data)
 		yield(effect, "effect_done")
 		_current_effects.erase(effect)
-		effect.tween.queue_free()
+		effect.queue_free()
 	emit_signal("effect_done")
 
 

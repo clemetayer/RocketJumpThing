@@ -11,6 +11,9 @@ extends CanvasLayer
 #---- CONSTANTS -----
 const FADE_IN_TIME := 0.5
 
+#---- EXPORTS -----
+export(bool) var ENABLED
+
 #---- STANDARD -----
 #==== PRIVATE ====
 var _paths := {
@@ -26,29 +29,61 @@ func _ready():
 	get_node(_paths.root_ui).hide()
 
 
+# Called every frame. 'delta' is the elapsed time since the previous frame. Remove the "_" to use it.
+func _process(_delta):
+	if Input.is_action_just_pressed("pause"):
+		if get_node(_paths.root_ui).visible:
+			_unpause()
+		elif ENABLED:
+			_pause()
+
+
 ##### PUBLIC METHODS #####
 # Methods that are intended to be "visible" to other nodes or scripts
 # func public_method(arg : int) -> void:
 #     pass
 
+
 ##### PROTECTED METHODS #####
-# Methods that are intended to be used exclusively by this scripts
-# func _private_method(arg):
-#     pass
+func _pause():
+	StandardSongManager.apply_effect(
+		_create_filter_auto_effect(), {StandardSongManager.get_current().name: {"fade_in": false}}
+	)
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	get_tree().paused = true
+	get_node(_paths.root_ui).show()
+
+
+func _unpause():
+	StandardSongManager.apply_effect(
+		_create_filter_auto_effect(), {StandardSongManager.get_current().name: {"fade_in": true}}
+	)
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	get_tree().paused = false
+	get_node(_paths.root_ui).hide()
+
+
+func _create_filter_auto_effect() -> EffectManager:
+	var effect = HalfFilterEffectManager.new()
+	effect.TIME = 1.0
+	return effect
 
 
 ##### SIGNAL MANAGEMENT #####
 func _on_ResumeButton_pressed():
-	pass  # Replace with function body.
+	_unpause()
 
 
 func _on_MainMenuButton_pressed():
-	pass  # Replace with function body.
+	_unpause()
+	get_tree().change_scene(_paths.main_menu_scene)
 
 
 func _on_OptionButton_pressed():
+	# TODO
 	pass  # Replace with function body.
 
 
 func _on_RestartButton_pressed():
-	pass  # Replace with function body.
+	_unpause()
+	get_tree().reload_current_scene()

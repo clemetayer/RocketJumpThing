@@ -20,5 +20,5 @@ func _init():
 
 ##### SIGNAL MANAGEMENT #####
 func _on_body_exited(body: Node):
-	if body.is_in_group("player") and not VariableManager.scene_unloading:
+	if body.is_in_group("player"):
 		SignalManager.emit_respawn_player_on_last_cp()

@@ -74,6 +74,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Game/Common/Utils/Static/global_parameters.gd"
 }, {
+"base": "FilterEffectManager",
+"class": "HalfFilterEffectManager",
+"language": "GDScript",
+"path": "res://Game/Common/Utils/SongManager/templates/EffectManagers/FilterEffectManager/half_filter_effect_manager.gd"
+}, {
 "base": "Layout",
 "class": "HtmlLayout",
 "language": "GDScript",
@@ -353,6 +358,7 @@ _global_script_class_icons={
 "FilterEffectManager": "",
 "FunctionUtils": "",
 "GlobalParameters": "",
+"HalfFilterEffectManager": "",
 "HtmlLayout": "",
 "InstantEffectManager": "",
 "LavaLayer": "",
@@ -482,6 +488,11 @@ restart_last_cp={
 restart={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777220,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+pause={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777217,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
  ]
 }
 
