@@ -21,6 +21,9 @@ const MIN_FOV := 80  # Min and max fov of the camera that changes depending on t
 const MAX_FOV := 100
 const FOV_MAX_SPEED := 250  # Speed where the fov is maxed out
 
+#~~~~ SOUNDS ~~~~~
+const SOUND_MAX_SPEED := 250  # Treshold for the pitch run sound to be maxed
+
 #~~~~ MOVEMENT ~~~~~
 #==== GLOBAL =====
 const GRAVITY := -80  # Gravity applied to the player
@@ -56,7 +59,11 @@ const ROCKET_SCENE_PATH := "res://Game/Common/MovementUtils/Rocket/Rocket.tscn" 
 
 #---- EXPORTS -----
 export(Dictionary) var PATHS = {
-	"camera": NodePath("."), "rotation_helper": NodePath("."), "UI": NodePath(".")
+	"camera": NodePath("."),
+	"rotation_helper": NodePath("."),
+	"UI": NodePath("."),
+	"run_sound": NodePath("."),
+	"jump_sound": NodePath(".")
 }
 export(bool) var ROCKETS_ENABLED = true
 export(bool) var SLIDE_ENABLED = true
@@ -89,6 +96,11 @@ func _ready():
 	rotation_helper = get_node(PATHS.rotation_helper)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	$Timers/UpdateSpeed.start()
+	get_node(PATHS.run_sound).play()
+
+
+func _process(delta):
+	_process_sounds()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame. Remove the "_" to use it.
@@ -196,6 +208,11 @@ func _shoot(cam_xform: Transform) -> void:
 	)
 
 
+#---- Process sounds -----
+func _process_sounds() -> void:
+	get_node(PATHS.run_sound).pitch_scale = (current_speed / SOUND_MAX_SPEED) * 4.0
+
+
 #---- Process movement -----
 # process for the movement
 func _process_movement(delta):
@@ -265,6 +282,7 @@ func _wall_ride_movement(delta: float) -> void:
 				* WALL_JUMP_BOOST
 			)
 			vel += Vector3.UP * WALL_JUMP_UP_BOOST
+			get_node(PATHS.jump_sound).play()
 		else:
 			_keep_wallride_raycasts_perpendicular()
 			if not states.has("wall_riding"):
@@ -310,6 +328,7 @@ func _ground_movement(delta: float) -> void:
 		vel.y += JUMP_POWER
 		if states.has("sliding"):
 			_slide_jump()
+		get_node(PATHS.jump_sound).play()
 
 
 # applies friction, mostly for when on floor
