@@ -210,7 +210,12 @@ func _shoot(cam_xform: Transform) -> void:
 
 #---- Process sounds -----
 func _process_sounds() -> void:
-	get_node(PATHS.run_sound).pitch_scale = (current_speed / SOUND_MAX_SPEED) * 4.0
+	if (current_speed / SOUND_MAX_SPEED) * 4.0 > 0.0:
+		if !get_node(PATHS.run_sound).playing:
+			get_node(PATHS.run_sound).play()
+		get_node(PATHS.run_sound).pitch_scale = (current_speed / SOUND_MAX_SPEED) * 4.0
+	elif get_node(PATHS.run_sound).playing:
+		get_node(PATHS.run_sound).stop()
 
 
 #---- Process movement -----
