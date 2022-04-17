@@ -21,6 +21,7 @@ height = 3.0
 [node name="Player" type="RigidBody" groups=["player"]]
 collision_mask = 2
 mode = 2
+mass = 0.01
 custom_integrator = true
 contacts_reported = 20
 contact_monitor = true

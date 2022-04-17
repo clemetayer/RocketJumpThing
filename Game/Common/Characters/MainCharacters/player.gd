@@ -114,6 +114,7 @@ func _physics_process(delta):
 		+ (MAX_FOV - MIN_FOV) * ease(min(1, current_speed / FOV_MAX_SPEED), 1.6)
 	)
 	DebugDraw.set_text("fov", get_node(PATHS.camera).fov)
+	DebugDraw.set_text("_is_on_floor", _is_on_floor)
 	_set_UI_data()
 	_process_collision()
 	_process_input(delta)
@@ -260,8 +261,10 @@ func _process_movement(delta):
 
 # verifies if the player is on the floor (to update the _is_on_floor value)
 func _check_is_on_floor(state: PhysicsDirectBodyState) -> bool:
+	DebugDraw.set_text("contacts", state.get_contact_count())
 	for i in range(state.get_contact_count()):  # if at least one contact has an angle from the up vector inferior to the max slope angle, then we are on floor
-		if state.get_contact_local_normal(i).angle_to(Vector3.UP):
+		DebugDraw.set_text("contact %d angle" % i, state.get_contact_local_normal(i))
+		if state.get_contact_local_normal(i).angle_to(Vector3.UP) <= MAX_SLOPE_ANGLE:
 			return true
 	return false
 
