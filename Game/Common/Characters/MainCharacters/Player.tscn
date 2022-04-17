@@ -18,45 +18,53 @@ height = 3.0
 
 [sub_resource type="SphereShape" id=3]
 
-[node name="Player" type="KinematicBody" groups=["player"]]
+[node name="Player" type="RigidBody" groups=["player"]]
 collision_mask = 2
+mode = 2
+custom_integrator = true
+contacts_reported = 20
+contact_monitor = true
 script = ExtResource( 1 )
 PATHS = {
 "UI": NodePath("PlayerUI"),
-"camera": NodePath("RotationHelper/Camera"),
+"camera": NodePath("GlobalRotationHelper/RotationHelper/Camera"),
+"global_rotation_helper": NodePath("GlobalRotationHelper"),
 "jump_sound": NodePath("Sounds/JumpSound"),
-"rotation_helper": NodePath("RotationHelper"),
+"rotation_helper": NodePath("GlobalRotationHelper/RotationHelper"),
 "run_sound": NodePath("Sounds/RunSound")
 }
 
-[node name="Body" type="MeshInstance" parent="."]
-mesh = SubResource( 4 )
-material/0 = null
+[node name="GlobalRotationHelper" type="Spatial" parent="."]
 
-[node name="RayCasts" type="Spatial" parent="."]
+[node name="RayCasts" type="Spatial" parent="GlobalRotationHelper"]
 
-[node name="RayCastWallPlus" type="RayCast" parent="RayCasts"]
+[node name="RayCastWallPlus" type="RayCast" parent="GlobalRotationHelper/RayCasts"]
 enabled = true
 cast_to = Vector3( 5, 0, 0 )
 collision_mask = 2
 
-[node name="RayCastWallMinus" type="RayCast" parent="RayCasts"]
+[node name="RayCastWallMinus" type="RayCast" parent="GlobalRotationHelper/RayCasts"]
 enabled = true
 cast_to = Vector3( -5, 0, 0 )
 collision_mask = 2
 
-[node name="RotationHelper" type="Spatial" parent="."]
+[node name="RotationHelper" type="Spatial" parent="GlobalRotationHelper"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.40428, 0.709967 )
 
-[node name="Camera" type="Camera" parent="RotationHelper"]
+[node name="Camera" type="Camera" parent="GlobalRotationHelper/RotationHelper"]
 transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0 )
 fov = 90.0
 far = 8192.0
 
-[node name="ThirdPersonCamera" type="Camera" parent="RotationHelper"]
+[node name="ThirdPersonCamera" type="Camera" parent="GlobalRotationHelper/RotationHelper"]
 transform = Transform( -1, -2.99003e-08, 8.21506e-08, 0, 0.939693, 0.34202, -8.74228e-08, 0.34202, -0.939693, 0, 3.62379, -6.16924 )
 current = true
 far = 500.0
+
+[node name="Body" type="MeshInstance" parent="GlobalRotationHelper"]
+mesh = SubResource( 4 )
+skeleton = NodePath("../..")
+material/0 = null
 
 [node name="PlayerCollision" type="CollisionShape" parent="."]
 shape = SubResource( 5 )
