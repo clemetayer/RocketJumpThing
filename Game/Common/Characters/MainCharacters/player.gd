@@ -404,8 +404,11 @@ func _process_states():
 			self.rotate_object_local(Vector3(1, 0, 0), -PI / 4)
 			rotation_helper.rotate_object_local(Vector3(1, 0, 0), PI / 4)
 			states.append("sliding")
-	if is_on_floor() and not states.has("in_air"):
+	if not is_on_floor() and not states.has("in_air"):
 		states.append("in_air")
+	elif is_on_floor() and states.has("in_air"):
+		vel -= get_floor_velocity()  # HACK : to avoid adding speed by just jumping on a moving platform. probably some scenarios where this won't be ideal
+		states.erase("in_air")
 	if current_speed != 0 and not states.has("moving"):
 		states.append("moving")
 	if states.has("sliding") and (not Input.is_action_pressed("movement_slide")):

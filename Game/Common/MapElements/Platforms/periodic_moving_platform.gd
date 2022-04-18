@@ -87,6 +87,7 @@ func update_properties() -> void:
 		self.collision_mask = properties.collision_mask
 
 
+#==== Other =====
 func _set_tween_to_pos_idx(idx: int) -> void:
 	_tween.interpolate_property(
 		self,
@@ -102,8 +103,6 @@ func _set_tween_to_pos_idx(idx: int) -> void:
 
 
 ##### SIGNAL MANAGEMENT #####
-
-
 func _on_tween_all_completed() -> void:
 	_step_idx = (_step_idx + 1) % _pos_array.size()
 	_set_tween_to_pos_idx(_step_idx)
