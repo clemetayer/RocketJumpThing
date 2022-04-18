@@ -70,5 +70,8 @@ func update_properties() -> void:
 func _on_Checkpoint_body_entered(body: Node):
 	if body.is_in_group("player"):
 		SignalManager.emit_checkpoint_triggered(self)
-		if song_animation == null or song_animation == "":
+		if (
+			(song_animation == null or song_animation == "")
+			and StandardSongManager.get_current() != null
+		):
 			song_animation = StandardSongManager.get_current().ANIMATION
