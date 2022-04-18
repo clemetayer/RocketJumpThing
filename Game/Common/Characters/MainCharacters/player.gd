@@ -28,7 +28,7 @@ const SOUND_MAX_SPEED := 250  # Treshold for the pitch run sound to be maxed
 #==== GLOBAL =====
 const GRAVITY := -80  # Gravity applied to the player
 const JUMP_POWER := 33  # Power applied when jumping
-const MAX_SLOPE_ANGLE := 60  # Max slope angle where you stop sliding
+const MAX_SLOPE_ANGLE := PI / 4  # Max slope angle where you stop sliding
 const STOP_SPEED := 1.0  # Minimum speed to consider the player "stopped"
 
 #==== AIR =====
@@ -243,7 +243,7 @@ func _process_movement(delta):
 
 	# Move and slide + update speed
 	var snap = Vector3.ZERO if Input.is_action_pressed("movement_jump") else -get_floor_normal()
-	vel = move_and_slide_with_snap(vel, snap, Vector3.UP, true)
+	vel = move_and_slide_with_snap(vel, snap, Vector3.UP, true, 4, MAX_SLOPE_ANGLE, false)
 	current_speed = vel.length()
 
 

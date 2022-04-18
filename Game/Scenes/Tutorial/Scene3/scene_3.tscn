@@ -412,6 +412,7 @@ shape = SubResource( 49 )
 
 [node name="entity_3_player" parent="QodotMap" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -31, 34, -7359 )
+collision/safe_margin = 1.0
 PATHS = {
 "UI": NodePath("PlayerUI"),
 "camera": NodePath("RotationHelper/Camera"),
