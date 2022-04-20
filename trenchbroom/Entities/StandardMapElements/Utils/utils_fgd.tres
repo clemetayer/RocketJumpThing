@@ -1,6 +1,7 @@
-[gd_resource type="Resource" load_steps=3 format=2]
+[gd_resource type="Resource" load_steps=4 format=2]
 
 [ext_resource path="res://trenchbroom/Entities/StandardMapElements/Utils/trigger_song_animation_change.tres" type="Resource" id=1]
+[ext_resource path="res://trenchbroom/Entities/StandardMapElements/Utils/enable_ability_area.tres" type="Resource" id=2]
 [ext_resource path="res://addons/qodot/src/resources/game-definitions/fgd/qodot_fgd_file.gd" type="Script" id=4]
 
 [resource]
@@ -9,4 +10,4 @@ export_file = false
 target_folder = "/home/clemetayer/.TrenchBroom/games/RocketJumpThing"
 fgd_name = "Utils_fgd"
 base_fgd_files = [  ]
-entity_definitions = [ ExtResource( 1 ) ]
+entity_definitions = [ ExtResource( 1 ), ExtResource( 2 ) ]

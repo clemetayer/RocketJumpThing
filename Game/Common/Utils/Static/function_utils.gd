@@ -5,6 +5,7 @@ class_name FunctionUtils
 
 #### Logger #####
 # connects and logs if it fails
+# TODO : switch this to DebugUtils ?
 static func log_connect(caller, receiver, caller_signal_name: String, receiver_func_name: String):
 	if caller.connect(caller_signal_name, receiver, receiver_func_name) != OK:
 		Logger.error(

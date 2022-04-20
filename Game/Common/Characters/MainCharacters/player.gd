@@ -129,8 +129,17 @@ func _input(event):
 
 ##### PUBLIC METHODS #####
 # Adds some vector to move the player (to be queued)
-func add_velocity_vector(vector: Vector3):
+func add_velocity_vector(vector: Vector3) -> void:
 	_add_velocity_vector_queue.append(vector)
+
+
+# toggles a player ability
+func toggle_ability(name: String, enabled: bool) -> void:
+	match name:
+		"sliding":
+			SLIDE_ENABLED = enabled
+		"rockets":
+			ROCKETS_ENABLED = enabled
 
 
 ##### PROTECTED METHODS #####

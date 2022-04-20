@@ -45,7 +45,7 @@ msgid "player_ui_checkpoint"
 msgstr "Checkpoint !"
 
 #=============================== TUTORIALS ===============================
-#----------------------------- TUTORIAL SCENE ----------------------------
+#----------------------------- TUTORIAL SCENES ----------------------------
 msgid "tutorial_scene_move_tutorial"
 msgstr "##movement_wasd## pour se déplacer."
 
@@ -53,13 +53,22 @@ msgid "tutorial_scene_jump_tutorial"
 msgstr "##movement_jump## pour sauter."
 
 msgid "tutorial_scene_BHOP_tutorial"
-msgstr "Garder ##movement_jump## appuyé pour aller plus vite."
+msgstr "Garder ##movement_jump## appuyé pour accélerer."
 
 msgid "tutorial_scene_strafe_tutorial"
-msgstr "pour aller encore plus vite :\n##movement_wa## + ##mouse_strafe_left##\nou\n##movement_wd## + ##mouse_strafe_right##"
+msgstr "pour accélerer encore plus :\n##movement_wa## + ##mouse_strafe_left##\nou\n##movement_wd## + ##mouse_strafe_right##"
 
 msgid "tutorial_scene_air_control_tutorial"
 msgstr "##movement_w## + ##mouse_strafe_left_right## en l'air pour controler sa direction."
 
 msgid "tutorial_scene_checkpoint_tutorial"
 msgstr "##restart_last_cp## pour réapparaitre au checkpoint.\n##restart## pour recommencer." 
+
+msgid "tutorial_scene_2_slide_1"
+msgstr "##movement_slide## pour glisser." 
+
+msgid "tutorial_scene_2_slide_2"
+msgstr "##movement_jump## pendant une glissade pour accélérer." 
+
+msgid "tutorial_wall_ride_1"
+msgstr "##movement_slide## pour wallride\n##movement_jump## en wallride pour sauter."

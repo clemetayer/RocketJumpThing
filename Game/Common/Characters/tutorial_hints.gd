@@ -11,6 +11,7 @@ const REPLACE_STRING := [  # substrings that can be replaced in texts
 	"##movement_wd##",
 	"##movement_w##",
 	"##movement_jump##",
+	"##movement_slide##",
 	"##mouse_strafe_left##",
 	"##mouse_strafe_right##",
 	"##mouse_strafe_left_right##",
@@ -160,11 +161,19 @@ func _handle_str_part(part: String):
 				hbox.add_child(mouse_tex)
 				hbox.add_child(_create_texture_rect_from_path(PATHS.r_arrow_icon_path))
 		return hbox
-	if part == "movement_jump" or part == "restart" or part == "restart_last_cp":
+	if (
+		part == "movement_jump"
+		or part == "movement_slide"
+		or part == "restart"
+		or part == "restart_last_cp"
+	):
 		var single_key_scene = load(PATHS.single_key_path).instance()
 		match part:
 			"movement_jump":
 				single_key_scene.key_text = InputMap.get_action_list("movement_jump")[0].as_text()
+				single_key_scene.pressed = true
+			"movement_slide":
+				single_key_scene.key_text = InputMap.get_action_list("movement_slide")[0].as_text()
 				single_key_scene.pressed = true
 			"restart":
 				single_key_scene.key_text = InputMap.get_action_list("restart")[0].as_text()

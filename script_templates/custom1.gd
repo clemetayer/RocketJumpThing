@@ -29,15 +29,15 @@ extends %BASE%
 ##### PROCESSING #####
 # Called when the object is initialized.
 func _init():
-    pass
+	pass
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-    pass
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame. Remove the "_" to use it.
 func _process(_delta):
-    pass
+	pass
 
 ##### PUBLIC METHODS #####
 # Methods that are intended to be "visible" to other nodes or scripts

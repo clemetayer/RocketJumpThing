@@ -44,7 +44,6 @@ margin_right = 512.0
 margin_bottom = 300.0
 
 [node name="Label" type="Label" parent="Screen/CenterContainer"]
-visible = false
 margin_left = 414.0
 margin_top = 277.0
 margin_right = 610.0
