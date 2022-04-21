@@ -1062,11 +1062,11 @@
 "key" "tutorial_scene_2_slide_1"
 // brush 0
 {
-( -4864 512 416 ) ( -4864 320 0 ) ( -4864 736 0 ) common/material_override/Transparent [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -4864 512 416 ) ( -4800 512 416 ) ( -4800 320 0 ) common/material_override/Transparent [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -4800 320 0 ) ( -4800 736 0 ) ( -4864 736 0 ) common/material_override/Transparent [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -4864 736 0 ) ( -4800 736 0 ) ( -4800 512 416 ) common/material_override/Transparent [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -4800 512 416 ) ( -4800 736 0 ) ( -4800 320 0 ) common/material_override/Transparent [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -4800 496 416 ) ( -4800 304 0 ) ( -4800 720 0 ) common/material_override/Transparent [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -4800 496 416 ) ( -4736 496 416 ) ( -4736 304 0 ) common/material_override/Transparent [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -4736 304 0 ) ( -4736 720 0 ) ( -4800 720 0 ) common/material_override/Transparent [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -4800 720 0 ) ( -4736 720 0 ) ( -4736 496 416 ) common/material_override/Transparent [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -4736 496 416 ) ( -4736 720 0 ) ( -4736 304 0 ) common/material_override/Transparent [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
 // entity 39
@@ -1109,10 +1109,40 @@
 "abilities" "{\"sliding\":true}"
 // brush 0
 {
-( -4848 512 416 ) ( -4848 320 0 ) ( -4848 736 0 ) common/material_override/Transparent [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -4848 512 416 ) ( -4784 512 416 ) ( -4784 320 0 ) common/material_override/Transparent [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -4784 320 0 ) ( -4784 736 0 ) ( -4848 736 0 ) common/material_override/Transparent [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -4848 736 0 ) ( -4784 736 0 ) ( -4784 512 416 ) common/material_override/Transparent [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -4784 512 416 ) ( -4784 736 0 ) ( -4784 320 0 ) common/material_override/Transparent [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -4784 496 416 ) ( -4784 304 0 ) ( -4784 720 0 ) common/material_override/Transparent [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -4784 496 416 ) ( -4720 496 416 ) ( -4720 304 0 ) common/material_override/Transparent [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -4720 304 0 ) ( -4720 720 0 ) ( -4784 720 0 ) common/material_override/Transparent [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -4784 720 0 ) ( -4720 720 0 ) ( -4720 496 416 ) common/material_override/Transparent [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -4720 496 416 ) ( -4720 720 0 ) ( -4720 304 0 ) common/material_override/Transparent [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+}
+// entity 42
+{
+"classname" "area_death"
+"collision_layer" "2"
+"collision_mask" "5"
+// brush 0
+{
+( -4192 304 16 ) ( -4192 720 0 ) ( -4192 720 16 ) entities/checkpoint/end_level [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -4080 304 16 ) ( -4192 304 0 ) ( -4192 304 16 ) entities/checkpoint/end_level [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -4080 720 0 ) ( -4192 304 0 ) ( -4080 304 0 ) entities/checkpoint/end_level [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -4080 720 1 ) ( -4192 304 1 ) ( -4192 720 1 ) entities/checkpoint/end_level [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -4080 720 16 ) ( -4192 720 0 ) ( -4080 720 0 ) entities/checkpoint/end_level [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -4160 720 16 ) ( -4160 304 0 ) ( -4160 304 16 ) entities/checkpoint/end_level [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+}
+// entity 43
+{
+"classname" "area_death"
+"collision_layer" "2"
+"collision_mask" "5"
+// brush 0
+{
+( -3200 304 16 ) ( -3200 720 0 ) ( -3200 720 16 ) entities/checkpoint/end_level [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -3152 304 16 ) ( -3264 304 0 ) ( -3264 304 16 ) entities/checkpoint/end_level [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -3152 720 0 ) ( -3264 304 0 ) ( -3152 304 0 ) entities/checkpoint/end_level [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -3152 720 1 ) ( -3264 304 1 ) ( -3264 720 1 ) entities/checkpoint/end_level [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -3152 720 16 ) ( -3264 720 0 ) ( -3152 720 0 ) entities/checkpoint/end_level [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -2624 720 16 ) ( -2624 304 0 ) ( -2624 304 16 ) entities/checkpoint/end_level [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }

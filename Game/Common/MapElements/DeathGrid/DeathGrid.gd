@@ -1,10 +1,6 @@
 extends Area
 class_name DeathGrid
 
-"""
-- TODO : add a nice effect when getting close to the grid 
-"""
-
 
 ##### PROCESSING #####
 # Called when the object is initialized.
