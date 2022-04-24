@@ -422,6 +422,8 @@
 // entity 8
 {
 "classname" "CheckpointSolidClass"
+"spawn_position" "0 -32 0"
+"spawn_rotation" "90"
 // brush 0
 {
 ( -7392 -24 92 ) ( -7392 -16 28 ) ( -7392 -16 92 ) entities/checkpoint/checkpoint_1 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -435,6 +437,8 @@
 // entity 9
 {
 "classname" "CheckpointSolidClass"
+"spawn_rotation" "90"
+"spawn_position" "0 -32 0"
 // brush 0
 {
 ( -7392 520 128 ) ( -7392 528 64 ) ( -7392 528 128 ) entities/checkpoint/checkpoint_1 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -483,6 +487,8 @@
 // entity 12
 {
 "classname" "CheckpointSolidClass"
+"spawn_position" "0 -32 0"
+"spawn_rotation" "-90"
 // brush 0
 {
 ( -6864 496 256 ) ( -6864 504 192 ) ( -6864 504 256 ) entities/checkpoint/checkpoint_1 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -621,6 +627,8 @@
 // entity 19
 {
 "classname" "CheckpointSolidClass"
+"spawn_position" "0 -32 0"
+"spawn_rotation" "-90"
 // brush 0
 {
 ( -6864 -256 256 ) ( -6864 -248 192 ) ( -6864 -248 256 ) entities/checkpoint/checkpoint_1 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -716,6 +724,8 @@
 // entity 22
 {
 "classname" "CheckpointSolidClass"
+"spawn_position" "0 -32 0"
+"spawn_rotation" "90"
 // brush 0
 {
 ( -5968 0 64 ) ( -5968 8 0 ) ( -5968 8 64 ) entities/checkpoint/checkpoint_1 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -1264,6 +1274,8 @@
 // entity 45
 {
 "classname" "CheckpointSolidClass"
+"spawn_position" "0 -64 0"
+"spawn_rotation" "0"
 // brush 0
 {
 ( -832 448 128 ) ( -832 576 0 ) ( -832 576 128 ) entities/checkpoint/checkpoint_1 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -1346,6 +1358,8 @@
 // entity 47
 {
 "classname" "CheckpointSolidClass"
+"spawn_position" "0 -64 0"
+"spawn_rotation" "0"
 // brush 0
 {
 ( 880 1312 224 ) ( 880 1440 96 ) ( 880 1440 224 ) entities/checkpoint/checkpoint_1 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -1423,6 +1437,8 @@
 // entity 52
 {
 "classname" "CheckpointSolidClass"
+"spawn_position" "0 -64 0"
+"spawn_rotation" "0"
 // brush 0
 {
 ( 2464 1296 192 ) ( 2464 1424 64 ) ( 2464 1424 192 ) entities/checkpoint/checkpoint_1 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -1466,6 +1482,8 @@
 // entity 55
 {
 "classname" "CheckpointSolidClass"
+"spawn_position" "0 -64 0"
+"spawn_rotation" "0"
 // brush 0
 {
 ( 4272 1760 256 ) ( 4272 1888 128 ) ( 4272 1888 256 ) entities/checkpoint/checkpoint_1 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -1630,6 +1648,8 @@
 // entity 61
 {
 "classname" "CheckpointSolidClass"
+"spawn_position" "0 -64 0"
+"spawn_rotation" "-90"
 // brush 0
 {
 ( 5232 1632 480 ) ( 5232 1616 352 ) ( 5232 1632 352 ) entities/checkpoint/checkpoint_1 [ -2.220446049250313e-16 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -1712,6 +1732,8 @@
 // entity 66
 {
 "classname" "CheckpointSolidClass"
+"spawn_position" "0 -64 0"
+"spawn_rotation" "180"
 // brush 0
 {
 ( 3936 -912 768 ) ( 3936 -784 640 ) ( 3936 -784 768 ) entities/checkpoint/checkpoint_1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -1868,6 +1890,8 @@
 // entity 76
 {
 "classname" "CheckpointSolidClass"
+"spawn_position" "0 -64 0"
+"spawn_rotation" "180"
 // brush 0
 {
 ( 2368 -912 760 ) ( 2368 -784 632 ) ( 2368 -784 760 ) entities/checkpoint/checkpoint_1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -1963,6 +1987,8 @@
 // entity 78
 {
 "classname" "CheckpointSolidClass"
+"spawn_position" "0 64 0"
+"spawn_rotation" "90"
 // brush 0
 {
 ( 1936 -320 1712 ) ( 1936 -304 1584 ) ( 1936 -304 1712 ) entities/checkpoint/checkpoint_1 [ 2.220446049250313e-16 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -2069,6 +2095,8 @@
 // entity 84
 {
 "classname" "CheckpointSolidClass"
+"spawn_position" "0 -64 0"
+"spawn_rotation" "90"
 // brush 0
 {
 ( 832 -1728 1440 ) ( 832 -1712 1312 ) ( 832 -1712 1440 ) entities/checkpoint/checkpoint_1 [ 2.220446049250313e-16 1 0 0 ] [ 0 0 -1 0 ] 0 1 1

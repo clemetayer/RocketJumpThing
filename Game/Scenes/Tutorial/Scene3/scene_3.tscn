@@ -2080,7 +2080,9 @@ shape = SubResource( 76 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 60, -7360 )
 script = ExtResource( 9 )
 properties = {
-"classname": "CheckpointSolidClass"
+"classname": "CheckpointSolidClass",
+"spawn_position": Vector3( 0, -32, 0 ),
+"spawn_rotation": 90.0
 }
 
 [node name="entity_8_mesh_instance" type="MeshInstance" parent="QodotMap/entity_8_CheckpointSolidClass"]
@@ -2094,7 +2096,9 @@ shape = SubResource( 78 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 524, 96, -7360 )
 script = ExtResource( 9 )
 properties = {
-"classname": "CheckpointSolidClass"
+"classname": "CheckpointSolidClass",
+"spawn_position": Vector3( 0, -32, 0 ),
+"spawn_rotation": 90.0
 }
 
 [node name="entity_9_mesh_instance" type="MeshInstance" parent="QodotMap/entity_9_CheckpointSolidClass"]
@@ -2145,7 +2149,9 @@ shape = SubResource( 84 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 500, 224, -6816 )
 script = ExtResource( 9 )
 properties = {
-"classname": "CheckpointSolidClass"
+"classname": "CheckpointSolidClass",
+"spawn_position": Vector3( 0, -32, 0 ),
+"spawn_rotation": -90.0
 }
 
 [node name="entity_12_mesh_instance" type="MeshInstance" parent="QodotMap/entity_12_CheckpointSolidClass"]
@@ -2292,7 +2298,9 @@ shape = SubResource( 98 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -252, 224, -6816 )
 script = ExtResource( 9 )
 properties = {
-"classname": "CheckpointSolidClass"
+"classname": "CheckpointSolidClass",
+"spawn_position": Vector3( 0, -32, 0 ),
+"spawn_rotation": -90.0
 }
 
 [node name="entity_19_mesh_instance" type="MeshInstance" parent="QodotMap/entity_19_CheckpointSolidClass"]
@@ -2356,7 +2364,9 @@ shape = SubResource( 110 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 32, -5888 )
 script = ExtResource( 9 )
 properties = {
-"classname": "CheckpointSolidClass"
+"classname": "CheckpointSolidClass",
+"spawn_position": Vector3( 0, -32, 0 ),
+"spawn_rotation": 90.0
 }
 
 [node name="entity_22_mesh_instance" type="MeshInstance" parent="QodotMap/entity_22_CheckpointSolidClass"]
@@ -2812,7 +2822,9 @@ shape = SubResource( 173 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 512, 64, -824 )
 script = ExtResource( 9 )
 properties = {
-"classname": "CheckpointSolidClass"
+"classname": "CheckpointSolidClass",
+"spawn_position": Vector3( 0, -64, 0 ),
+"spawn_rotation": 0.0
 }
 
 [node name="entity_45_mesh_instance" type="MeshInstance" parent="QodotMap/entity_45_CheckpointSolidClass"]
@@ -2862,7 +2874,9 @@ shape = SubResource( 183 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1376, 160, 888 )
 script = ExtResource( 9 )
 properties = {
-"classname": "CheckpointSolidClass"
+"classname": "CheckpointSolidClass",
+"spawn_position": Vector3( 0, -64, 0 ),
+"spawn_rotation": 0.0
 }
 
 [node name="entity_47_mesh_instance" type="MeshInstance" parent="QodotMap/entity_47_CheckpointSolidClass"]
@@ -2948,7 +2962,9 @@ shape = SubResource( 193 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1360, 128, 2472 )
 script = ExtResource( 9 )
 properties = {
-"classname": "CheckpointSolidClass"
+"classname": "CheckpointSolidClass",
+"spawn_position": Vector3( 0, -64, 0 ),
+"spawn_rotation": 0.0
 }
 
 [node name="entity_52_mesh_instance" type="MeshInstance" parent="QodotMap/entity_52_CheckpointSolidClass"]
@@ -2998,7 +3014,9 @@ shape = SubResource( 199 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1824, 192, 4280 )
 script = ExtResource( 9 )
 properties = {
-"classname": "CheckpointSolidClass"
+"classname": "CheckpointSolidClass",
+"spawn_position": Vector3( 0, -64, 0 ),
+"spawn_rotation": 0.0
 }
 
 [node name="entity_55_mesh_instance" type="MeshInstance" parent="QodotMap/entity_55_CheckpointSolidClass"]
@@ -3126,7 +3144,9 @@ shape = SubResource( 217 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1624, 416, 5296 )
 script = ExtResource( 9 )
 properties = {
-"classname": "CheckpointSolidClass"
+"classname": "CheckpointSolidClass",
+"spawn_position": Vector3( 0, -64, 0 ),
+"spawn_rotation": -90.0
 }
 
 [node name="entity_61_mesh_instance" type="MeshInstance" parent="QodotMap/entity_61_CheckpointSolidClass"]
@@ -3215,7 +3235,9 @@ shape = SubResource( 228 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -848, 704, 3944 )
 script = ExtResource( 9 )
 properties = {
-"classname": "CheckpointSolidClass"
+"classname": "CheckpointSolidClass",
+"spawn_position": Vector3( 0, -64, 0 ),
+"spawn_rotation": 180.0
 }
 
 [node name="entity_66_mesh_instance" type="MeshInstance" parent="QodotMap/entity_66_CheckpointSolidClass"]
@@ -3391,7 +3413,9 @@ shape = SubResource( 248 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -848, 696, 2376 )
 script = ExtResource( 9 )
 properties = {
-"classname": "CheckpointSolidClass"
+"classname": "CheckpointSolidClass",
+"spawn_position": Vector3( 0, -64, 0 ),
+"spawn_rotation": 180.0
 }
 
 [node name="entity_76_mesh_instance" type="MeshInstance" parent="QodotMap/entity_76_CheckpointSolidClass"]
@@ -3441,7 +3465,9 @@ shape = SubResource( 258 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -312, 1648, 2000 )
 script = ExtResource( 9 )
 properties = {
-"classname": "CheckpointSolidClass"
+"classname": "CheckpointSolidClass",
+"spawn_position": Vector3( 0, 64, 0 ),
+"spawn_rotation": 90.0
 }
 
 [node name="entity_78_mesh_instance" type="MeshInstance" parent="QodotMap/entity_78_CheckpointSolidClass"]
@@ -3551,7 +3577,9 @@ shape = SubResource( 272 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1720, 1376, 904 )
 script = ExtResource( 9 )
 properties = {
-"classname": "CheckpointSolidClass"
+"classname": "CheckpointSolidClass",
+"spawn_position": Vector3( 0, -64, 0 ),
+"spawn_rotation": 90.0
 }
 
 [node name="entity_84_mesh_instance" type="MeshInstance" parent="QodotMap/entity_84_CheckpointSolidClass"]
