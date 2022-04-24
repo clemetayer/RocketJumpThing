@@ -1987,7 +1987,7 @@
 // entity 78
 {
 "classname" "CheckpointSolidClass"
-"spawn_position" "0 64 0"
+"spawn_position" "0 -64 0"
 "spawn_rotation" "90"
 // brush 0
 {
