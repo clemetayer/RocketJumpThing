@@ -4,7 +4,7 @@
 {
 "mapversion" "220"
 "classname" "worldspawn"
-"_tb_textures" "textures/common/material_override;textures/entities/checkpoint"
+"_tb_textures" "textures/common/material_override;textures/entities/DeathMesh;textures/entities/checkpoint"
 // brush 0
 {
 ( 560 -1920 1312 ) ( 560 -1920 1313 ) ( 560 -1921 1312 ) common/material_override/Transparent [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -1179,12 +1179,12 @@
 "collision_mask" "5"
 // brush 0
 {
-( -4192 304 16 ) ( -4192 720 0 ) ( -4192 720 16 ) entities/checkpoint/end_level [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -4080 304 16 ) ( -4192 304 0 ) ( -4192 304 16 ) entities/checkpoint/end_level [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -4080 720 0 ) ( -4192 304 0 ) ( -4080 304 0 ) entities/checkpoint/end_level [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -4080 720 1 ) ( -4192 304 1 ) ( -4192 720 1 ) entities/checkpoint/end_level [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -4080 720 16 ) ( -4192 720 0 ) ( -4080 720 0 ) entities/checkpoint/end_level [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -4160 720 16 ) ( -4160 304 0 ) ( -4160 304 16 ) entities/checkpoint/end_level [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -4192 304 16 ) ( -4192 720 0 ) ( -4192 720 16 ) entities/DeathMesh/death_mesh [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -4080 304 16 ) ( -4192 304 0 ) ( -4192 304 16 ) entities/DeathMesh/death_mesh [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -4080 720 0 ) ( -4192 304 0 ) ( -4080 304 0 ) entities/DeathMesh/death_mesh [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -4080 720 1 ) ( -4192 304 1 ) ( -4192 720 1 ) entities/DeathMesh/death_mesh [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -4080 720 16 ) ( -4192 720 0 ) ( -4080 720 0 ) entities/DeathMesh/death_mesh [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -4160 720 16 ) ( -4160 304 0 ) ( -4160 304 16 ) entities/DeathMesh/death_mesh [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
 // entity 43
@@ -1194,12 +1194,12 @@
 "collision_mask" "5"
 // brush 0
 {
-( -3200 304 16 ) ( -3200 720 0 ) ( -3200 720 16 ) entities/checkpoint/end_level [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -3152 304 16 ) ( -3264 304 0 ) ( -3264 304 16 ) entities/checkpoint/end_level [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -3152 720 0 ) ( -3264 304 0 ) ( -3152 304 0 ) entities/checkpoint/end_level [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -3152 720 1 ) ( -3264 304 1 ) ( -3264 720 1 ) entities/checkpoint/end_level [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -3152 720 16 ) ( -3264 720 0 ) ( -3152 720 0 ) entities/checkpoint/end_level [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -2624 720 16 ) ( -2624 304 0 ) ( -2624 304 16 ) entities/checkpoint/end_level [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -3200 304 16 ) ( -3200 720 0 ) ( -3200 720 16 ) entities/DeathMesh/death_mesh [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -3152 304 16 ) ( -3264 304 0 ) ( -3264 304 16 ) entities/DeathMesh/death_mesh [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -3152 720 0 ) ( -3264 304 0 ) ( -3152 304 0 ) entities/DeathMesh/death_mesh [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -3152 720 1 ) ( -3264 304 1 ) ( -3264 720 1 ) entities/DeathMesh/death_mesh [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -3152 720 16 ) ( -3264 720 0 ) ( -3152 720 0 ) entities/DeathMesh/death_mesh [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -2624 720 16 ) ( -2624 304 0 ) ( -2624 304 16 ) entities/DeathMesh/death_mesh [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
 // entity 44
