@@ -1,4 +1,5 @@
 shader_type spatial;
+render_mode cull_disabled;
 
 const float PI = 3.1415;
 
@@ -12,19 +13,9 @@ uniform float light_intensity = 1.5;
 
 void fragment(){
 	vec2 uv = UV;
-	//uv.x = fract(uv.x * 3.0);
-	//uv.y = fract(uv.y * 2.0);
 	uv.y = fract(uv.y * cylinder_height);
 	ALPHA = smoothstep(uv.y - line_thickness, uv.y, mod((uv.x + TIME /(1.0/spin_speed)) * float(number_of_lines),1.0)) 
 		- smoothstep(uv.y, uv.y + line_thickness, mod((uv.x + TIME /(1.0/spin_speed)) * float(number_of_lines),1.0));
-//	if(
-//		mod((uv.x + TIME/(1.0/spin_speed)) * float(number_of_lines),1.0) < (uv.y + line_thickness) && 
-//		mod((uv.x + TIME/(1.0/spin_speed)) * float(number_of_lines),1.0) > uv.y){
-//		ALPHA = 1.0;
-//	}
-//	else{
-//		ALPHA = 0.0;
-//	}
 	ALBEDO = mix(color1,color2,uv.y).rgb;
 	EMISSION = ALBEDO * light_intensity;
 }

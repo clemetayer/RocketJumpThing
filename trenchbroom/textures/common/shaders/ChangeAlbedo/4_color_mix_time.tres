@@ -1,0 +1,17 @@
+[gd_resource type="Shader" format=2]
+
+[resource]
+code = "shader_type spatial;
+
+uniform float intensity = 4.0;
+uniform vec4 cos_col_1 : hint_color;
+uniform vec4 cos_col_2 : hint_color;
+uniform vec4 sin_col_1 : hint_color;
+uniform vec4 sin_col_2 : hint_color;
+
+void fragment(){
+	vec4 col_1 = mix(cos_col_1,cos_col_2,cos(UV.x + TIME));
+	vec4 col_2 = mix(sin_col_1,sin_col_2,sin(UV.y + TIME));
+	ALBEDO = mix(col_1,col_2,0.5).rgb;
+	EMISSION = ALBEDO * intensity;
+}"

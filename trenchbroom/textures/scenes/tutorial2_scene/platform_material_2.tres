@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[ext_resource path="res://trenchbroom/textures/common/shaders/ChangeAlbedo/color_uv_mix.tres" type="Shader" id=1]
+
+[resource]
+shader = ExtResource( 1 )
+shader_param/intensity = 3.0
+shader_param/col_1 = Color( 0, 1, 1, 1 )
+shader_param/col_2 = Color( 0, 0, 1, 1 )
