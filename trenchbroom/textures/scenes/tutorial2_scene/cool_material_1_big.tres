@@ -6,7 +6,7 @@ code = "shader_type spatial;
 const float metallic = 0.75;
 const float roughness = 0.5;
 const float specular = 0.5;
-const vec2 uv1_scale = vec2(1.0/50.0);
+const vec2 uv1_scale = vec2(1.0/25.0);
 
 uniform float max_size = 0.1;
 uniform float ss_e = 0.0; // smoothstep epsilon
@@ -65,9 +65,9 @@ void fragment(){
 
 [resource]
 shader = SubResource( 1 )
-shader_param/max_size = 0.03
+shader_param/max_size = 0.04
 shader_param/ss_e = 0.004
-shader_param/number_of_squares = 74
-shader_param/back_color = Color( 0.372549, 0.372549, 0.372549, 1 )
+shader_param/number_of_squares = 60
+shader_param/back_color = Color( 0.176471, 0.176471, 0.176471, 1 )
 shader_param/color_1 = Color( 1, 0, 1, 1 )
 shader_param/color_2 = Color( 0, 1, 1, 1 )

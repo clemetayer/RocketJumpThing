@@ -49,5 +49,7 @@ extends StandardScene
 # func _private_method(arg):
 #     pass
 
+
 ##### SIGNAL MANAGEMENT #####
-# Functions that should be triggered when a specific signal is received
+func _on_KickTempTimer_timeout():
+	SignalManager.emit_sequencer_step("kick")
