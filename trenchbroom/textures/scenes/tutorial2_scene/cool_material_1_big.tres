@@ -68,6 +68,6 @@ shader = SubResource( 1 )
 shader_param/max_size = 0.04
 shader_param/ss_e = 0.004
 shader_param/number_of_squares = 60
-shader_param/back_color = Color( 0.176471, 0.176471, 0.176471, 1 )
+shader_param/back_color = Color( 0.294118, 0.294118, 0.294118, 1 )
 shader_param/color_1 = Color( 1, 0, 1, 1 )
 shader_param/color_2 = Color( 0, 1, 1, 1 )

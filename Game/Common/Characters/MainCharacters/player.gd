@@ -49,7 +49,7 @@ const GROUND_ACCELERATION := 4.5  # Acceleration on the ground
 const GROUND_DECCELERATION := 4.5  # Decceleration when on ground
 const GROUND_FRICTION := 5.0  # Ground friction
 const SLIDE_SPEED_BONUS_JUMP := 50  # Speed added when jumping after a slide
-const SLIDE_FRICTION := 0.5  # Friction when sliding on the ground. Equivalent to the movement in air, but with a little friction
+const SLIDE_FRICTION := 0.1  # Friction when sliding on the ground. Equivalent to the movement in air, but with a little friction
 const AIR_MOVE_TOWARD := 750  # When pressing forward in the air, how much it should stick to the aim direction
 
 #~~~~~ PROJECTILES ~~~~~
