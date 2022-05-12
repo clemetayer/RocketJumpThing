@@ -5,7 +5,7 @@
 "mapversion" "220"
 "classname" "worldspawn"
 "_tb_textures" "textures/common/material_override;textures/entities/DeathMesh;textures/entities/checkpoint;textures/scenes/tutorial2_scene"
-"_tb_def" "builtin:sequencer_fgd.fgd"
+"_tb_def" "builtin:RocketJumpThing_fgd.fgd"
 // brush 0
 {
 ( 560 -1920 1312 ) ( 560 -1920 1313 ) ( 560 -1921 1312 ) common/material_override/Transparent [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -174,7 +174,7 @@
 // entity 1
 {
 "classname" "player"
-"origin" "-8543 1 2"
+"origin" "-8367 -7 2"
 "angle" "0"
 }
 // entity 2
@@ -317,93 +317,21 @@
 "classname" "static_body_group"
 // brush 0
 {
-( -8072 -240 0 ) ( -8072 240 -16 ) ( -8072 240 0 ) scenes/tutorial2_scene/platform_material_1 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -7768 -240 0 ) ( -8072 -240 -16 ) ( -8072 -240 0 ) scenes/tutorial2_scene/platform_material_1 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -7768 240 -16 ) ( -8072 -240 -16 ) ( -7768 -240 -16 ) scenes/tutorial2_scene/platform_material_1 [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -7840 -240 0 ) ( -7840 240 -16 ) ( -7840 240 0 ) scenes/tutorial2_scene/platform_material_1 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -7768 -160 0 ) ( -8072 -160 -16 ) ( -8072 -160 0 ) scenes/tutorial2_scene/platform_material_1 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -7768 240 -8 ) ( -8072 -240 -8 ) ( -7768 -240 -8 ) scenes/tutorial2_scene/platform_material_1 [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
 ( -7768 240 0 ) ( -8072 -240 0 ) ( -8072 240 0 ) scenes/tutorial2_scene/platform_material_1 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -7768 240 0 ) ( -8072 240 -16 ) ( -7768 240 -16 ) scenes/tutorial2_scene/platform_material_1 [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -7768 144 0 ) ( -8072 144 -16 ) ( -7768 144 -16 ) scenes/tutorial2_scene/platform_material_1 [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
 ( -7616 240 0 ) ( -7616 -240 -16 ) ( -7616 -240 0 ) scenes/tutorial2_scene/platform_material_1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 // brush 1
 {
-( -8432 80 0 ) ( -8432 -80 0 ) ( -8432 -80 -16 ) scenes/tutorial2_scene/platform_material_1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -8432 -80 0 ) ( -8192 -176 0 ) ( -8192 -176 -16 ) scenes/tutorial2_scene/platform_material_1 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -8192 176 -16 ) ( -8192 176 0 ) ( -8432 80 0 ) scenes/tutorial2_scene/platform_material_1 [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -8192 -176 -16 ) ( -8192 176 -16 ) ( -8432 80 -16 ) scenes/tutorial2_scene/platform_material_1 [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -8432 80 0 ) ( -8192 176 0 ) ( -8192 -176 0 ) scenes/tutorial2_scene/platform_material_1 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -8072 -176 0 ) ( -8072 176 0 ) ( -8072 176 -16 ) scenes/tutorial2_scene/platform_material_1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-}
-// brush 2
-{
-( -8432 -80 144 ) ( -8432 -96 144 ) ( -8432 -96 -16 ) scenes/tutorial2_scene/platform_material_1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -8432 -96 144 ) ( -8192 -192 240 ) ( -8192 -192 -16 ) scenes/tutorial2_scene/platform_material_1 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -8432 -80 144 ) ( -8192 -176 240 ) ( -8192 -192 240 ) scenes/tutorial2_scene/platform_material_1 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -8192 -192 -16 ) ( -8192 -176 -16 ) ( -8432 -80 -16 ) scenes/tutorial2_scene/platform_material_1 [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -8192 -176 -16 ) ( -8192 -176 240 ) ( -8432 -80 144 ) scenes/tutorial2_scene/platform_material_1 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -8072 -192 240 ) ( -8072 -176 240 ) ( -8072 -176 -16 ) scenes/tutorial2_scene/platform_material_1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-}
-// brush 3
-{
-( -8432 96 160 ) ( -8432 -96 160 ) ( -8432 -96 144 ) scenes/tutorial2_scene/platform_material_1 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -8432 -96 160 ) ( -8192 -192 256 ) ( -8192 -192 240 ) scenes/tutorial2_scene/platform_material_1 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -8192 192 240 ) ( -8192 192 256 ) ( -8432 96 160 ) scenes/tutorial2_scene/platform_material_1 [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -8432 96 160 ) ( -8192 192 256 ) ( -8192 -192 256 ) scenes/tutorial2_scene/platform_material_1 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -8192 -192 240 ) ( -8192 192 240 ) ( -8432 96 144 ) scenes/tutorial2_scene/platform_material_1 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -8072 -192 256 ) ( -8072 192 256 ) ( -8072 192 240 ) scenes/tutorial2_scene/platform_material_1 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-}
-// brush 4
-{
-( -8608 -96 -16 ) ( -8608 -95 -16 ) ( -8608 -96 -15 ) scenes/tutorial2_scene/platform_material_1 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -8592 -96 -16 ) ( -8592 -96 -15 ) ( -8591 -96 -16 ) scenes/tutorial2_scene/platform_material_1 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -8528 16 144 ) ( -8527 16 144 ) ( -8528 17 144 ) scenes/tutorial2_scene/platform_material_1 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -8528 16 160 ) ( -8528 17 160 ) ( -8527 16 160 ) scenes/tutorial2_scene/platform_material_1 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -8528 96 0 ) ( -8527 96 0 ) ( -8528 96 1 ) scenes/tutorial2_scene/platform_material_1 [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -8432 -96 -16 ) ( -8432 -96 -15 ) ( -8432 -95 -16 ) scenes/tutorial2_scene/platform_material_1 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-}
-// brush 5
-{
-( -8592 -96 -16 ) ( -8592 -95 -16 ) ( -8592 -96 -15 ) scenes/tutorial2_scene/platform_material_1 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -8528 80 0 ) ( -8528 80 1 ) ( -8527 80 0 ) scenes/tutorial2_scene/platform_material_1 [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -8592 -96 -16 ) ( -8591 -96 -16 ) ( -8592 -95 -16 ) scenes/tutorial2_scene/platform_material_1 [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -8528 16 144 ) ( -8528 17 144 ) ( -8527 16 144 ) scenes/tutorial2_scene/platform_material_1 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -8528 96 0 ) ( -8527 96 0 ) ( -8528 96 1 ) scenes/tutorial2_scene/platform_material_1 [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -8432 16 0 ) ( -8432 16 1 ) ( -8432 17 0 ) scenes/tutorial2_scene/platform_material_1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-}
-// brush 6
-{
-( -8608 -96 -16 ) ( -8608 -95 -16 ) ( -8608 -96 -15 ) scenes/tutorial2_scene/platform_material_1 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -8592 -96 -16 ) ( -8592 -96 -15 ) ( -8591 -96 -16 ) scenes/tutorial2_scene/platform_material_1 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -8592 -96 -16 ) ( -8591 -96 -16 ) ( -8592 -95 -16 ) scenes/tutorial2_scene/platform_material_1 [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -8528 16 144 ) ( -8528 17 144 ) ( -8527 16 144 ) scenes/tutorial2_scene/platform_material_1 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -8528 96 0 ) ( -8527 96 0 ) ( -8528 96 1 ) scenes/tutorial2_scene/platform_material_1 [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -8592 -96 -16 ) ( -8592 -96 -15 ) ( -8592 -95 -16 ) scenes/tutorial2_scene/platform_material_1 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-}
-// brush 7
-{
-( -8432 96 144 ) ( -8432 80 144 ) ( -8432 80 -16 ) scenes/tutorial2_scene/platform_material_1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -8432 96 144 ) ( -8192 192 240 ) ( -8192 176 240 ) scenes/tutorial2_scene/platform_material_1 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -8432 96 144 ) ( -8432 96 -16 ) ( -8192 192 -16 ) scenes/tutorial2_scene/platform_material_1 [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -8192 176 -16 ) ( -8192 192 -16 ) ( -8432 96 -16 ) scenes/tutorial2_scene/platform_material_1 [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -8432 80 144 ) ( -8192 176 240 ) ( -8192 176 -16 ) scenes/tutorial2_scene/platform_material_1 [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -8072 176 240 ) ( -8072 192 240 ) ( -8072 192 -16 ) scenes/tutorial2_scene/platform_material_1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-}
-// brush 8
-{
-( -8592 -96 -16 ) ( -8592 -95 -16 ) ( -8592 -96 -15 ) scenes/tutorial2_scene/platform_material_1 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -8592 -80 -16 ) ( -8592 -80 -15 ) ( -8591 -80 -16 ) scenes/tutorial2_scene/platform_material_1 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -8592 -96 -16 ) ( -8591 -96 -16 ) ( -8592 -95 -16 ) scenes/tutorial2_scene/platform_material_1 [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -8528 16 0 ) ( -8528 17 0 ) ( -8527 16 0 ) scenes/tutorial2_scene/platform_material_1 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -8528 80 0 ) ( -8527 80 0 ) ( -8528 80 1 ) scenes/tutorial2_scene/platform_material_1 [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -8432 16 0 ) ( -8432 16 1 ) ( -8432 17 0 ) scenes/tutorial2_scene/platform_material_1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-}
-// brush 9
-{
-( -8592 -96 -16 ) ( -8592 -95 -16 ) ( -8592 -96 -15 ) scenes/tutorial2_scene/platform_material_1 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -8592 -96 -16 ) ( -8592 -96 -15 ) ( -8591 -96 -16 ) scenes/tutorial2_scene/platform_material_1 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -8592 -96 -16 ) ( -8591 -96 -16 ) ( -8592 -95 -16 ) scenes/tutorial2_scene/platform_material_1 [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -8528 16 144 ) ( -8528 17 144 ) ( -8527 16 144 ) scenes/tutorial2_scene/platform_material_1 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -8592 -80 -16 ) ( -8591 -80 -16 ) ( -8592 -80 -15 ) scenes/tutorial2_scene/platform_material_1 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -8432 16 0 ) ( -8432 16 1 ) ( -8432 17 0 ) scenes/tutorial2_scene/platform_material_1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8070.399999999998 24 0 ) ( -8070.399999999998 -40 0 ) ( -8070.399999999998 -40 -16 ) scenes/tutorial2_scene/platform_material_1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8070.399999999998 -40 0 ) ( -7840 -160 0 ) ( -7840 -160 -16 ) scenes/tutorial2_scene/platform_material_1 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8070.399999999998 24 0 ) ( -8070.399999999998 24 -16 ) ( -7840 144 -16 ) scenes/tutorial2_scene/platform_material_1 [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -7840 -160 -8 ) ( -7840 144 -8 ) ( -8070.399999999998 24 -8 ) scenes/tutorial2_scene/platform_material_1 [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -8070.399999999998 24 0 ) ( -7840 144 0 ) ( -7840 -160 0 ) scenes/tutorial2_scene/platform_material_1 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -7840 -160 0 ) ( -7840 144 0 ) ( -7840 144 -16 ) scenes/tutorial2_scene/platform_material_1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
 // entity 4
@@ -440,7 +368,7 @@
 // entity 5
 {
 "classname" "StartPoint"
-"origin" "-8545 1 1"
+"origin" "-8369 -7 1"
 }
 // entity 6
 {
@@ -5416,4 +5344,411 @@
 "id" "kick"
 "number" "3"
 "number_of_steps" "8"
+}
+// entity 152
+{
+"classname" "static_body_group"
+// brush 0
+{
+( -8384 -32 0 ) ( -8384 16 -16 ) ( -8384 16 0 ) scenes/tutorial2_scene/platform_material_1 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8070.399999999998 -40 0 ) ( -8182.399999999998 -40 -16 ) ( -8182.399999999998 -40 0 ) scenes/tutorial2_scene/platform_material_1 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8070.399999999998 16 48 ) ( -8182.399999999998 16 48 ) ( -8182.399999999998 -32 48 ) scenes/tutorial2_scene/platform_material_1 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -8070.399999999998 16 56 ) ( -8182.399999999998 -32 56 ) ( -8182.399999999998 16 56 ) scenes/tutorial2_scene/platform_material_1 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -8070.399999999998 24 0 ) ( -8182.399999999998 24 0 ) ( -8182.399999999998 24 -16 ) scenes/tutorial2_scene/platform_material_1 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8070.399999999998 16 0 ) ( -8070.399999999998 -32 -16 ) ( -8070.399999999998 -32 0 ) scenes/tutorial2_scene/platform_material_1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+// brush 1
+{
+( -8384 -32 0 ) ( -8384 16 -16 ) ( -8384 16 0 ) scenes/tutorial2_scene/platform_material_1 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8070.399999999998 -40 0 ) ( -8182.399999999998 -40 -16 ) ( -8182.399999999998 -40 0 ) scenes/tutorial2_scene/platform_material_1 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8070.399999999998 16 -8 ) ( -8182.399999999998 -32 -8 ) ( -8070.399999999998 -32 -8 ) scenes/tutorial2_scene/platform_material_1 [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -8070.399999999998 16 48 ) ( -8182.399999999998 -32 48 ) ( -8182.399999999998 16 48 ) scenes/tutorial2_scene/platform_material_1 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -8070.399999999998 -32 0 ) ( -8182.399999999998 -32 0 ) ( -8182.399999999998 -32 -16 ) scenes/tutorial2_scene/platform_material_1 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8070.399999999998 16 0 ) ( -8070.399999999998 -32 -16 ) ( -8070.399999999998 -32 0 ) scenes/tutorial2_scene/platform_material_1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+// brush 2
+{
+( -8384 -32 0 ) ( -8384 16 -16 ) ( -8384 16 0 ) scenes/tutorial2_scene/platform_material_1 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8070.399999999998 16 0 ) ( -8070.399999999998 16 -16 ) ( -8182.399999999998 16 -16 ) scenes/tutorial2_scene/platform_material_1 [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8070.399999999998 16 -8 ) ( -8182.399999999998 -32 -8 ) ( -8070.399999999998 -32 -8 ) scenes/tutorial2_scene/platform_material_1 [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -8070.399999999998 16 48 ) ( -8182.399999999998 -32 48 ) ( -8182.399999999998 16 48 ) scenes/tutorial2_scene/platform_material_1 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -8070.399999999998 24 0 ) ( -8182.399999999998 24 -16 ) ( -8070.399999999998 24 -16 ) scenes/tutorial2_scene/platform_material_1 [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8070.399999999998 16 0 ) ( -8070.399999999998 -32 -16 ) ( -8070.399999999998 -32 0 ) scenes/tutorial2_scene/platform_material_1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+// brush 3
+{
+( -8384 -32 0 ) ( -8384 16 -16 ) ( -8384 16 0 ) scenes/tutorial2_scene/platform_material_1 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8070.399999999998 -32 0 ) ( -8182.399999999998 -32 -16 ) ( -8182.399999999998 -32 0 ) scenes/tutorial2_scene/platform_material_1 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8070.399999999998 16 -8 ) ( -8182.399999999998 -32 -8 ) ( -8070.399999999998 -32 -8 ) scenes/tutorial2_scene/platform_material_1 [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -8070.399999999998 16 0 ) ( -8182.399999999998 -32 0 ) ( -8182.399999999998 16 0 ) scenes/tutorial2_scene/platform_material_1 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -8070.399999999998 16 0 ) ( -8182.399999999998 16 -16 ) ( -8070.399999999998 16 -16 ) scenes/tutorial2_scene/platform_material_1 [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8070.399999999998 16 0 ) ( -8070.399999999998 -32 -16 ) ( -8070.399999999998 -32 0 ) scenes/tutorial2_scene/platform_material_1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+// brush 4
+{
+( -8392 -32 0 ) ( -8392 16 -16 ) ( -8392 16 0 ) scenes/tutorial2_scene/platform_material_1 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8070.399999999998 -40 0 ) ( -8182.399999999998 -40 -16 ) ( -8182.399999999998 -40 0 ) scenes/tutorial2_scene/platform_material_1 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8070.399999999998 16 -8 ) ( -8182.399999999998 16 -8 ) ( -8182.399999999998 -32 -8 ) scenes/tutorial2_scene/platform_material_1 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -8070.399999999998 16 56 ) ( -8182.399999999998 -32 56 ) ( -8182.399999999998 16 56 ) scenes/tutorial2_scene/platform_material_1 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -8070.399999999998 24 0 ) ( -8182.399999999998 24 0 ) ( -8182.399999999998 24 -16 ) scenes/tutorial2_scene/platform_material_1 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8384 -32 0 ) ( -8384 16 0 ) ( -8384 16 -16 ) scenes/tutorial2_scene/platform_material_1 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+}
+// entity 153
+{
+"classname" "sequencer_spatial_modify_param"
+"fade_in_time" "1"
+"fade_out_time" "3"
+"id" "kick"
+"max_param" "1"
+"min_param" "0"
+"number" "7"
+"number_of_steps" "8"
+// brush 0
+{
+( -8364 -32 48 ) ( -8364 -28 0 ) ( -8364 -28 48 ) scenes/tutorial2_scene/cool_material_2 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8360 -32 48 ) ( -8364 -32 0 ) ( -8364 -32 48 ) scenes/tutorial2_scene/cool_material_2 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8360 -28 0 ) ( -8364 -32 0 ) ( -8360 -32 0 ) scenes/tutorial2_scene/cool_material_2 [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -8360 -28 47 ) ( -8364 -32 47 ) ( -8364 -28 47 ) scenes/tutorial2_scene/cool_material_2 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -8360 -31 48 ) ( -8364 -31 0 ) ( -8360 -31 0 ) scenes/tutorial2_scene/cool_material_2 [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8360 -28 48 ) ( -8360 -32 0 ) ( -8360 -32 48 ) scenes/tutorial2_scene/cool_material_2 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+// brush 1
+{
+( -8364 12 48 ) ( -8364 16 0 ) ( -8364 16 48 ) scenes/tutorial2_scene/cool_material_2 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8360 -32 48 ) ( -8364 -32 0 ) ( -8364 -32 48 ) scenes/tutorial2_scene/cool_material_2 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8360 16 47 ) ( -8364 16 47 ) ( -8364 12 47 ) scenes/tutorial2_scene/cool_material_2 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -8360 16 48 ) ( -8364 12 48 ) ( -8364 16 48 ) scenes/tutorial2_scene/cool_material_2 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -8360 16 48 ) ( -8364 16 0 ) ( -8360 16 0 ) scenes/tutorial2_scene/cool_material_2 [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8360 16 48 ) ( -8360 12 0 ) ( -8360 12 48 ) scenes/tutorial2_scene/cool_material_2 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+// brush 2
+{
+( -8364 12 48 ) ( -8364 16 0 ) ( -8364 16 48 ) scenes/tutorial2_scene/cool_material_2 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8360 15 48 ) ( -8364 15 0 ) ( -8364 15 48 ) scenes/tutorial2_scene/cool_material_2 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8360 16 0 ) ( -8364 12 0 ) ( -8360 12 0 ) scenes/tutorial2_scene/cool_material_2 [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -8360 16 47 ) ( -8364 12 47 ) ( -8364 16 47 ) scenes/tutorial2_scene/cool_material_2 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -8360 16 48 ) ( -8364 16 0 ) ( -8360 16 0 ) scenes/tutorial2_scene/cool_material_2 [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8360 16 48 ) ( -8360 12 0 ) ( -8360 12 48 ) scenes/tutorial2_scene/cool_material_2 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+}
+// entity 154
+{
+"classname" "sequencer_spatial_modify_param"
+"fade_in_time" "1"
+"fade_out_time" "3"
+"id" "kick"
+"max_param" "1"
+"min_param" "0"
+"number" "6"
+"number_of_steps" "8"
+// brush 0
+{
+( -8324 -32 48 ) ( -8324 -28 0 ) ( -8324 -28 48 ) scenes/tutorial2_scene/cool_material_2 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8320 -32 48 ) ( -8324 -32 0 ) ( -8324 -32 48 ) scenes/tutorial2_scene/cool_material_2 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8320 -28 0 ) ( -8324 -32 0 ) ( -8320 -32 0 ) scenes/tutorial2_scene/cool_material_2 [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -8320 -28 47 ) ( -8324 -32 47 ) ( -8324 -28 47 ) scenes/tutorial2_scene/cool_material_2 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -8320 -31 48 ) ( -8324 -31 0 ) ( -8320 -31 0 ) scenes/tutorial2_scene/cool_material_2 [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8320 -28 48 ) ( -8320 -32 0 ) ( -8320 -32 48 ) scenes/tutorial2_scene/cool_material_2 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+// brush 1
+{
+( -8324 12 48 ) ( -8324 16 0 ) ( -8324 16 48 ) scenes/tutorial2_scene/cool_material_2 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8320 -32 48 ) ( -8324 -32 0 ) ( -8324 -32 48 ) scenes/tutorial2_scene/cool_material_2 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8320 16 47 ) ( -8324 16 47 ) ( -8324 12 47 ) scenes/tutorial2_scene/cool_material_2 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -8320 16 48 ) ( -8324 12 48 ) ( -8324 16 48 ) scenes/tutorial2_scene/cool_material_2 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -8320 16 48 ) ( -8324 16 0 ) ( -8320 16 0 ) scenes/tutorial2_scene/cool_material_2 [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8320 16 48 ) ( -8320 12 0 ) ( -8320 12 48 ) scenes/tutorial2_scene/cool_material_2 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+// brush 2
+{
+( -8324 12 48 ) ( -8324 16 0 ) ( -8324 16 48 ) scenes/tutorial2_scene/cool_material_2 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8320 15 48 ) ( -8324 15 0 ) ( -8324 15 48 ) scenes/tutorial2_scene/cool_material_2 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8320 16 0 ) ( -8324 12 0 ) ( -8320 12 0 ) scenes/tutorial2_scene/cool_material_2 [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -8320 16 47 ) ( -8324 12 47 ) ( -8324 16 47 ) scenes/tutorial2_scene/cool_material_2 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -8320 16 48 ) ( -8324 16 0 ) ( -8320 16 0 ) scenes/tutorial2_scene/cool_material_2 [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8320 16 48 ) ( -8320 12 0 ) ( -8320 12 48 ) scenes/tutorial2_scene/cool_material_2 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+}
+// entity 155
+{
+"classname" "sequencer_spatial_modify_param"
+"fade_in_time" "1"
+"fade_out_time" "3"
+"id" "kick"
+"max_param" "1"
+"min_param" "0"
+"number" "5"
+"number_of_steps" "8"
+// brush 0
+{
+( -8284 -32 48 ) ( -8284 -28 0 ) ( -8284 -28 48 ) scenes/tutorial2_scene/cool_material_2 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8280 -32 48 ) ( -8284 -32 0 ) ( -8284 -32 48 ) scenes/tutorial2_scene/cool_material_2 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8280 -28 0 ) ( -8284 -32 0 ) ( -8280 -32 0 ) scenes/tutorial2_scene/cool_material_2 [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -8280 -28 47 ) ( -8284 -32 47 ) ( -8284 -28 47 ) scenes/tutorial2_scene/cool_material_2 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -8280 -31 48 ) ( -8284 -31 0 ) ( -8280 -31 0 ) scenes/tutorial2_scene/cool_material_2 [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8280 -28 48 ) ( -8280 -32 0 ) ( -8280 -32 48 ) scenes/tutorial2_scene/cool_material_2 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+// brush 1
+{
+( -8284 12 48 ) ( -8284 16 0 ) ( -8284 16 48 ) scenes/tutorial2_scene/cool_material_2 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8280 -32 48 ) ( -8284 -32 0 ) ( -8284 -32 48 ) scenes/tutorial2_scene/cool_material_2 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8280 16 47 ) ( -8284 16 47 ) ( -8284 12 47 ) scenes/tutorial2_scene/cool_material_2 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -8280 16 48 ) ( -8284 12 48 ) ( -8284 16 48 ) scenes/tutorial2_scene/cool_material_2 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -8280 16 48 ) ( -8284 16 0 ) ( -8280 16 0 ) scenes/tutorial2_scene/cool_material_2 [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8280 16 48 ) ( -8280 12 0 ) ( -8280 12 48 ) scenes/tutorial2_scene/cool_material_2 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+// brush 2
+{
+( -8284 12 48 ) ( -8284 16 0 ) ( -8284 16 48 ) scenes/tutorial2_scene/cool_material_2 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8280 15 48 ) ( -8284 15 0 ) ( -8284 15 48 ) scenes/tutorial2_scene/cool_material_2 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8280 16 0 ) ( -8284 12 0 ) ( -8280 12 0 ) scenes/tutorial2_scene/cool_material_2 [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -8280 16 47 ) ( -8284 12 47 ) ( -8284 16 47 ) scenes/tutorial2_scene/cool_material_2 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -8280 16 48 ) ( -8284 16 0 ) ( -8280 16 0 ) scenes/tutorial2_scene/cool_material_2 [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8280 16 48 ) ( -8280 12 0 ) ( -8280 12 48 ) scenes/tutorial2_scene/cool_material_2 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+}
+// entity 156
+{
+"classname" "sequencer_spatial_modify_param"
+"fade_in_time" "1"
+"fade_out_time" "3"
+"id" "kick"
+"max_param" "1"
+"min_param" "0"
+"number" "4"
+"number_of_steps" "8"
+// brush 0
+{
+( -8244 -32 48 ) ( -8244 -28 0 ) ( -8244 -28 48 ) scenes/tutorial2_scene/cool_material_2 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8240 -32 48 ) ( -8244 -32 0 ) ( -8244 -32 48 ) scenes/tutorial2_scene/cool_material_2 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8240 -28 0 ) ( -8244 -32 0 ) ( -8240 -32 0 ) scenes/tutorial2_scene/cool_material_2 [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -8240 -28 47 ) ( -8244 -32 47 ) ( -8244 -28 47 ) scenes/tutorial2_scene/cool_material_2 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -8240 -31 48 ) ( -8244 -31 0 ) ( -8240 -31 0 ) scenes/tutorial2_scene/cool_material_2 [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8240 -28 48 ) ( -8240 -32 0 ) ( -8240 -32 48 ) scenes/tutorial2_scene/cool_material_2 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+// brush 1
+{
+( -8244 12 48 ) ( -8244 16 0 ) ( -8244 16 48 ) scenes/tutorial2_scene/cool_material_2 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8240 -32 48 ) ( -8244 -32 0 ) ( -8244 -32 48 ) scenes/tutorial2_scene/cool_material_2 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8240 16 47 ) ( -8244 16 47 ) ( -8244 12 47 ) scenes/tutorial2_scene/cool_material_2 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -8240 16 48 ) ( -8244 12 48 ) ( -8244 16 48 ) scenes/tutorial2_scene/cool_material_2 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -8240 16 48 ) ( -8244 16 0 ) ( -8240 16 0 ) scenes/tutorial2_scene/cool_material_2 [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8240 16 48 ) ( -8240 12 0 ) ( -8240 12 48 ) scenes/tutorial2_scene/cool_material_2 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+// brush 2
+{
+( -8244 12 48 ) ( -8244 16 0 ) ( -8244 16 48 ) scenes/tutorial2_scene/cool_material_2 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8240 15 48 ) ( -8244 15 0 ) ( -8244 15 48 ) scenes/tutorial2_scene/cool_material_2 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8240 16 0 ) ( -8244 12 0 ) ( -8240 12 0 ) scenes/tutorial2_scene/cool_material_2 [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -8240 16 47 ) ( -8244 12 47 ) ( -8244 16 47 ) scenes/tutorial2_scene/cool_material_2 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -8240 16 48 ) ( -8244 16 0 ) ( -8240 16 0 ) scenes/tutorial2_scene/cool_material_2 [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8240 16 48 ) ( -8240 12 0 ) ( -8240 12 48 ) scenes/tutorial2_scene/cool_material_2 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+}
+// entity 157
+{
+"classname" "sequencer_spatial_modify_param"
+"fade_in_time" "1"
+"fade_out_time" "3"
+"id" "kick"
+"max_param" "1"
+"min_param" "0"
+"number" "3"
+"number_of_steps" "8"
+// brush 0
+{
+( -8204 -32 48 ) ( -8204 -28 0 ) ( -8204 -28 48 ) scenes/tutorial2_scene/cool_material_2 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8200 -32 48 ) ( -8204 -32 0 ) ( -8204 -32 48 ) scenes/tutorial2_scene/cool_material_2 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8200 -28 0 ) ( -8204 -32 0 ) ( -8200 -32 0 ) scenes/tutorial2_scene/cool_material_2 [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -8200 -28 47 ) ( -8204 -32 47 ) ( -8204 -28 47 ) scenes/tutorial2_scene/cool_material_2 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -8200 -31 48 ) ( -8204 -31 0 ) ( -8200 -31 0 ) scenes/tutorial2_scene/cool_material_2 [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8200 -28 48 ) ( -8200 -32 0 ) ( -8200 -32 48 ) scenes/tutorial2_scene/cool_material_2 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+// brush 1
+{
+( -8204 12 48 ) ( -8204 16 0 ) ( -8204 16 48 ) scenes/tutorial2_scene/cool_material_2 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8200 -32 48 ) ( -8204 -32 0 ) ( -8204 -32 48 ) scenes/tutorial2_scene/cool_material_2 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8200 16 47 ) ( -8204 16 47 ) ( -8204 12 47 ) scenes/tutorial2_scene/cool_material_2 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -8200 16 48 ) ( -8204 12 48 ) ( -8204 16 48 ) scenes/tutorial2_scene/cool_material_2 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -8200 16 48 ) ( -8204 16 0 ) ( -8200 16 0 ) scenes/tutorial2_scene/cool_material_2 [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8200 16 48 ) ( -8200 12 0 ) ( -8200 12 48 ) scenes/tutorial2_scene/cool_material_2 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+// brush 2
+{
+( -8204 12 48 ) ( -8204 16 0 ) ( -8204 16 48 ) scenes/tutorial2_scene/cool_material_2 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8200 15 48 ) ( -8204 15 0 ) ( -8204 15 48 ) scenes/tutorial2_scene/cool_material_2 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8200 16 0 ) ( -8204 12 0 ) ( -8200 12 0 ) scenes/tutorial2_scene/cool_material_2 [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -8200 16 47 ) ( -8204 12 47 ) ( -8204 16 47 ) scenes/tutorial2_scene/cool_material_2 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -8200 16 48 ) ( -8204 16 0 ) ( -8200 16 0 ) scenes/tutorial2_scene/cool_material_2 [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8200 16 48 ) ( -8200 12 0 ) ( -8200 12 48 ) scenes/tutorial2_scene/cool_material_2 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+}
+// entity 158
+{
+"classname" "sequencer_spatial_modify_param"
+"fade_in_time" "1"
+"fade_out_time" "3"
+"id" "kick"
+"max_param" "1"
+"min_param" "0"
+"number" "2"
+"number_of_steps" "8"
+// brush 0
+{
+( -8164 -32 48 ) ( -8164 -28 0 ) ( -8164 -28 48 ) scenes/tutorial2_scene/cool_material_2 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8160 -32 48 ) ( -8164 -32 0 ) ( -8164 -32 48 ) scenes/tutorial2_scene/cool_material_2 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8160 -28 0 ) ( -8164 -32 0 ) ( -8160 -32 0 ) scenes/tutorial2_scene/cool_material_2 [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -8160 -28 47 ) ( -8164 -32 47 ) ( -8164 -28 47 ) scenes/tutorial2_scene/cool_material_2 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -8160 -31 48 ) ( -8164 -31 0 ) ( -8160 -31 0 ) scenes/tutorial2_scene/cool_material_2 [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8160 -28 48 ) ( -8160 -32 0 ) ( -8160 -32 48 ) scenes/tutorial2_scene/cool_material_2 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+// brush 1
+{
+( -8164 12 48 ) ( -8164 16 0 ) ( -8164 16 48 ) scenes/tutorial2_scene/cool_material_2 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8160 -32 48 ) ( -8164 -32 0 ) ( -8164 -32 48 ) scenes/tutorial2_scene/cool_material_2 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8160 16 47 ) ( -8164 16 47 ) ( -8164 12 47 ) scenes/tutorial2_scene/cool_material_2 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -8160 16 48 ) ( -8164 12 48 ) ( -8164 16 48 ) scenes/tutorial2_scene/cool_material_2 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -8160 16 48 ) ( -8164 16 0 ) ( -8160 16 0 ) scenes/tutorial2_scene/cool_material_2 [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8160 16 48 ) ( -8160 12 0 ) ( -8160 12 48 ) scenes/tutorial2_scene/cool_material_2 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+// brush 2
+{
+( -8164 12 48 ) ( -8164 16 0 ) ( -8164 16 48 ) scenes/tutorial2_scene/cool_material_2 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8160 15 48 ) ( -8164 15 0 ) ( -8164 15 48 ) scenes/tutorial2_scene/cool_material_2 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8160 16 0 ) ( -8164 12 0 ) ( -8160 12 0 ) scenes/tutorial2_scene/cool_material_2 [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -8160 16 47 ) ( -8164 12 47 ) ( -8164 16 47 ) scenes/tutorial2_scene/cool_material_2 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -8160 16 48 ) ( -8164 16 0 ) ( -8160 16 0 ) scenes/tutorial2_scene/cool_material_2 [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8160 16 48 ) ( -8160 12 0 ) ( -8160 12 48 ) scenes/tutorial2_scene/cool_material_2 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+}
+// entity 159
+{
+"classname" "sequencer_spatial_modify_param"
+"fade_in_time" "1"
+"fade_out_time" "3"
+"id" "kick"
+"max_param" "1"
+"min_param" "0"
+"number" "1"
+"number_of_steps" "8"
+// brush 0
+{
+( -8124 -32 48 ) ( -8124 -28 0 ) ( -8124 -28 48 ) scenes/tutorial2_scene/cool_material_2 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8120 -32 48 ) ( -8124 -32 0 ) ( -8124 -32 48 ) scenes/tutorial2_scene/cool_material_2 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8120 -28 0 ) ( -8124 -32 0 ) ( -8120 -32 0 ) scenes/tutorial2_scene/cool_material_2 [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -8120 -28 47 ) ( -8124 -32 47 ) ( -8124 -28 47 ) scenes/tutorial2_scene/cool_material_2 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -8120 -31 48 ) ( -8124 -31 0 ) ( -8120 -31 0 ) scenes/tutorial2_scene/cool_material_2 [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8120 -28 48 ) ( -8120 -32 0 ) ( -8120 -32 48 ) scenes/tutorial2_scene/cool_material_2 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+// brush 1
+{
+( -8124 12 48 ) ( -8124 16 0 ) ( -8124 16 48 ) scenes/tutorial2_scene/cool_material_2 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8120 -32 48 ) ( -8124 -32 0 ) ( -8124 -32 48 ) scenes/tutorial2_scene/cool_material_2 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8120 16 47 ) ( -8124 16 47 ) ( -8124 12 47 ) scenes/tutorial2_scene/cool_material_2 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -8120 16 48 ) ( -8124 12 48 ) ( -8124 16 48 ) scenes/tutorial2_scene/cool_material_2 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -8120 16 48 ) ( -8124 16 0 ) ( -8120 16 0 ) scenes/tutorial2_scene/cool_material_2 [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8120 16 48 ) ( -8120 12 0 ) ( -8120 12 48 ) scenes/tutorial2_scene/cool_material_2 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+// brush 2
+{
+( -8124 12 48 ) ( -8124 16 0 ) ( -8124 16 48 ) scenes/tutorial2_scene/cool_material_2 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8120 15 48 ) ( -8124 15 0 ) ( -8124 15 48 ) scenes/tutorial2_scene/cool_material_2 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8120 16 0 ) ( -8124 12 0 ) ( -8120 12 0 ) scenes/tutorial2_scene/cool_material_2 [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -8120 16 47 ) ( -8124 12 47 ) ( -8124 16 47 ) scenes/tutorial2_scene/cool_material_2 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -8120 16 48 ) ( -8124 16 0 ) ( -8120 16 0 ) scenes/tutorial2_scene/cool_material_2 [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8120 16 48 ) ( -8120 12 0 ) ( -8120 12 48 ) scenes/tutorial2_scene/cool_material_2 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+}
+// entity 160
+{
+"classname" "sequencer_spatial_modify_param"
+"fade_in_time" "1"
+"fade_out_time" "3"
+"id" "kick"
+"max_param" "1"
+"min_param" "0"
+"number" "0"
+"number_of_steps" "8"
+// brush 0
+{
+( -8084 -32 48 ) ( -8084 -28 0 ) ( -8084 -28 48 ) scenes/tutorial2_scene/cool_material_2 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8080 -32 48 ) ( -8084 -32 0 ) ( -8084 -32 48 ) scenes/tutorial2_scene/cool_material_2 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8080 -28 0 ) ( -8084 -32 0 ) ( -8080 -32 0 ) scenes/tutorial2_scene/cool_material_2 [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -8080 -28 47 ) ( -8084 -32 47 ) ( -8084 -28 47 ) scenes/tutorial2_scene/cool_material_2 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -8080 -31 48 ) ( -8084 -31 0 ) ( -8080 -31 0 ) scenes/tutorial2_scene/cool_material_2 [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8080 -28 48 ) ( -8080 -32 0 ) ( -8080 -32 48 ) scenes/tutorial2_scene/cool_material_2 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+// brush 1
+{
+( -8084 12 48 ) ( -8084 16 0 ) ( -8084 16 48 ) scenes/tutorial2_scene/cool_material_2 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8080 -32 48 ) ( -8084 -32 0 ) ( -8084 -32 48 ) scenes/tutorial2_scene/cool_material_2 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8080 16 47 ) ( -8084 16 47 ) ( -8084 12 47 ) scenes/tutorial2_scene/cool_material_2 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -8080 16 48 ) ( -8084 12 48 ) ( -8084 16 48 ) scenes/tutorial2_scene/cool_material_2 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -8080 16 48 ) ( -8084 16 0 ) ( -8080 16 0 ) scenes/tutorial2_scene/cool_material_2 [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8080 16 48 ) ( -8080 12 0 ) ( -8080 12 48 ) scenes/tutorial2_scene/cool_material_2 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+// brush 2
+{
+( -8084 12 48 ) ( -8084 16 0 ) ( -8084 16 48 ) scenes/tutorial2_scene/cool_material_2 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8080 15 48 ) ( -8084 15 0 ) ( -8084 15 48 ) scenes/tutorial2_scene/cool_material_2 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8080 16 0 ) ( -8084 12 0 ) ( -8080 12 0 ) scenes/tutorial2_scene/cool_material_2 [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -8080 16 47 ) ( -8084 12 47 ) ( -8084 16 47 ) scenes/tutorial2_scene/cool_material_2 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -8080 16 48 ) ( -8084 16 0 ) ( -8080 16 0 ) scenes/tutorial2_scene/cool_material_2 [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8080 16 48 ) ( -8080 12 0 ) ( -8080 12 48 ) scenes/tutorial2_scene/cool_material_2 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+}
+// entity 161
+{
+"classname" "StandardDoor"
+"collision_layer" "2"
+"collision_mask" "5"
+"free_on_open" "1"
+"open_position" "-48 0 0"
+"open_time" "0.5"
+"targetname" "start_door"
+// brush 0
+{
+( -8080 -32 48 ) ( -8080 -8 0 ) ( -8080 -8 48 ) scenes/tutorial2_scene/platform_material_1 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8072 -32 48 ) ( -8080 -32 0 ) ( -8080 -32 48 ) scenes/tutorial2_scene/platform_material_1 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8072 -8 0 ) ( -8080 -32 0 ) ( -8072 -32 0 ) scenes/tutorial2_scene/platform_material_1 [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -8072 -8 48 ) ( -8080 -32 48 ) ( -8080 -8 48 ) scenes/tutorial2_scene/platform_material_1 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -8072 -8 48 ) ( -8080 -8 0 ) ( -8072 -8 0 ) scenes/tutorial2_scene/platform_material_1 [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8072 -8 48 ) ( -8072 -32 0 ) ( -8072 -32 48 ) scenes/tutorial2_scene/platform_material_1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+}
+// entity 162
+{
+"classname" "StandardDoor"
+"open_position" "48 0 0"
+"collision_layer" "2"
+"collision_mask" "5"
+"free_on_open" "1"
+"targetname" "start_door"
+"open_time" "0.5"
+// brush 0
+{
+( -8080 -8 48 ) ( -8080 16 0 ) ( -8080 16 48 ) scenes/tutorial2_scene/platform_material_1 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8072 -8 48 ) ( -8080 -8 0 ) ( -8080 -8 48 ) scenes/tutorial2_scene/platform_material_1 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8072 16 0 ) ( -8080 -8 0 ) ( -8072 -8 0 ) scenes/tutorial2_scene/platform_material_1 [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -8072 16 48 ) ( -8080 -8 48 ) ( -8080 16 48 ) scenes/tutorial2_scene/platform_material_1 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -8072 16 48 ) ( -8080 16 0 ) ( -8072 16 0 ) scenes/tutorial2_scene/platform_material_1 [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8072 16 48 ) ( -8072 -8 0 ) ( -8072 -8 48 ) scenes/tutorial2_scene/platform_material_1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+}
+// entity 163
+{
+"classname" "AreaOpenDoor"
+"collision_layer" "2"
+"collision_mask" "5"
+"target" "start_door"
+// brush 0
+{
+( -8112 -32 32 ) ( -8112 16 0 ) ( -8112 16 32 ) common/material_override/Transparent [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8104 -32 32 ) ( -8112 -32 0 ) ( -8112 -32 32 ) common/material_override/Transparent [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8104 16 0 ) ( -8112 -32 0 ) ( -8104 -32 0 ) common/material_override/Transparent [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -8104 16 48 ) ( -8112 -32 48 ) ( -8112 16 48 ) common/material_override/Transparent [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -8104 16 32 ) ( -8112 16 0 ) ( -8104 16 0 ) common/material_override/Transparent [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8104 16 32 ) ( -8104 -32 0 ) ( -8104 -32 32 ) common/material_override/Transparent [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
 }
