@@ -31,9 +31,11 @@ func set_next_scene(next_scene_path: String) -> void:
 
 ##### PROTECTED METHODS #####
 func _unpause():
-	StandardSongManager.apply_effect(
-		_create_filter_auto_effect(), {StandardSongManager.get_current().name: {"fade_in": true}}
-	)
+	if StandardSongManager.get_current() != null:
+		StandardSongManager.apply_effect(
+			_create_filter_auto_effect(),
+			{StandardSongManager.get_current().name: {"fade_in": true}}
+		)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	get_tree().paused = false
 	get_node(_paths.root_ui).hide()
@@ -49,10 +51,11 @@ func _create_filter_auto_effect() -> EffectManager:
 func _on_SignalManager_end_reached() -> void:
 	if VariableManager.end_level_enabled:
 		PauseMenu.ENABLED = false
-		StandardSongManager.apply_effect(
-			_create_filter_auto_effect(),
-			{StandardSongManager.get_current().name: {"fade_in": false}}
-		)
+		if StandardSongManager.get_current() != null:
+			StandardSongManager.apply_effect(
+				_create_filter_auto_effect(),
+				{StandardSongManager.get_current().name: {"fade_in": false}}
+			)
 		yield(get_tree().create_timer(0.1), "timeout")  # waits a little before pausing, to at least update the time in VariableManager. # OPTIMIZATION : this is pretty dirty, create a special signal to tell when the time was updated instead ?
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		VariableManager.pause_enabled = false

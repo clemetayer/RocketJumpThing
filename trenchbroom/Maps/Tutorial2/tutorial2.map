@@ -174,7 +174,7 @@
 // entity 1
 {
 "classname" "player"
-"origin" "-8367 -7 2"
+"origin" "-8367 -7 3"
 "angle" "0"
 }
 // entity 2
@@ -368,7 +368,7 @@
 // entity 5
 {
 "classname" "StartPoint"
-"origin" "-8369 -7 1"
+"origin" "-8369 -7 2"
 }
 // entity 6
 {
@@ -1481,12 +1481,12 @@
 "spawn_rotation" "0"
 // brush 0
 {
-( -832 448 128 ) ( -832 576 0 ) ( -832 576 128 ) entities/checkpoint/checkpoint_1 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -816 448 128 ) ( -832 448 0 ) ( -832 448 128 ) entities/checkpoint/checkpoint_1 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -816 576 0 ) ( -832 448 0 ) ( -816 448 0 ) entities/checkpoint/checkpoint_1 [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -816 576 128 ) ( -832 448 128 ) ( -832 576 128 ) entities/checkpoint/checkpoint_1 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -816 576 128 ) ( -832 576 0 ) ( -816 576 0 ) entities/checkpoint/checkpoint_1 [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -816 576 128 ) ( -816 448 0 ) ( -816 448 128 ) entities/checkpoint/checkpoint_1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -384 464 128 ) ( -384 592 0 ) ( -384 592 128 ) entities/checkpoint/checkpoint_1 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -368 464 128 ) ( -384 464 0 ) ( -384 464 128 ) entities/checkpoint/checkpoint_1 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -368 592 0 ) ( -384 464 0 ) ( -368 464 0 ) entities/checkpoint/checkpoint_1 [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -368 592 128 ) ( -384 464 128 ) ( -384 592 128 ) entities/checkpoint/checkpoint_1 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -368 592 128 ) ( -384 592 0 ) ( -368 592 0 ) entities/checkpoint/checkpoint_1 [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -368 592 128 ) ( -368 464 0 ) ( -368 464 128 ) entities/checkpoint/checkpoint_1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
 // entity 36
@@ -2693,7 +2693,7 @@
 ( 816 -1376 1312 ) ( 816 -1936 1312 ) ( 816 -1936 1296 ) scenes/tutorial2_scene/cool_material_3 [ 2.220446049250312e-16 2.220446049250313e-16 1 0 ] [ -4.9303806576313227e-32 1 -2.2204460492503136e-16 0 ] 0 1 1
 ( 992 -1808 1024 ) ( 1120 -1808 992 ) ( 992 -1808 992 ) scenes/tutorial2_scene/cool_material_3 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
 ( 992 -1936.7272727272725 -80 ) ( 992 -1376 -80 ) ( 808 -1376 -80 ) scenes/tutorial2_scene/cool_material_3 [ 2.2204460492503126e-16 1 -2.220446049250313e-16 0 ] [ 1 -2.220446049250313e-16 -2.2204460492503126e-16 0 ] 0 1 1
-( 816 -1360 1024 ) ( 944 -1504 1024 ) ( 816 -1504 1024 ) scenes/tutorial2_scene/cool_material_3 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 816 -1360 1040 ) ( 944 -1504 1040 ) ( 816 -1504 1040 ) scenes/tutorial2_scene/cool_material_3 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
 ( 992 -1360 1296 ) ( 992 -1360 1312 ) ( 808 -1360 1312 ) scenes/tutorial2_scene/cool_material_3 [ 1 -2.220446049250313e-16 0 0 ] [ 0 0 -1 0 ] 0 1 1
 ( 1152 -1936.7272727272725 1296 ) ( 1152 -1936.7272727272725 1312 ) ( 1152 -1376 1312 ) scenes/tutorial2_scene/cool_material_3 [ -2.220446049250313e-16 2.2204460492503126e-16 1 0 ] [ 0 -1 2.2204460492503126e-16 0 ] 0 1 1
 }
@@ -5751,4 +5751,135 @@
 ( -8104 16 32 ) ( -8112 16 0 ) ( -8104 16 0 ) common/material_override/Transparent [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
 ( -8104 16 32 ) ( -8104 -32 0 ) ( -8104 -32 32 ) common/material_override/Transparent [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
+}
+// entity 164
+{
+"classname" "EndPoint"
+// brush 0
+{
+( 3600 448 1872 ) ( 3600 576 1792 ) ( 3600 576 1872 ) entities/checkpoint/end_level [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 3616 448 1872 ) ( 3600 448 1792 ) ( 3600 448 1872 ) entities/checkpoint/end_level [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 3616 576 1792 ) ( 3600 448 1792 ) ( 3616 448 1792 ) entities/checkpoint/end_level [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 3616 576 2032 ) ( 3600 448 2032 ) ( 3600 576 2032 ) entities/checkpoint/end_level [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 3616 576 1872 ) ( 3600 576 1792 ) ( 3616 576 1792 ) entities/checkpoint/end_level [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 3616 576 1872 ) ( 3616 448 1792 ) ( 3616 448 1872 ) entities/checkpoint/end_level [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+}
+// entity 165
+{
+"classname" "TriggerSongAnimationChange"
+"animation" "part_2"
+"collision_layer" "2"
+"collision_mask" "5"
+// brush 0
+{
+( -8064 -48 48 ) ( -8064 32 0 ) ( -8064 32 48 ) common/material_override/Transparent [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8048 -48 48 ) ( -8064 -48 0 ) ( -8064 -48 48 ) common/material_override/Transparent [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8048 32 0 ) ( -8064 -48 0 ) ( -8048 -48 0 ) common/material_override/Transparent [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -8048 32 64 ) ( -8064 -48 64 ) ( -8064 32 64 ) common/material_override/Transparent [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -8048 32 48 ) ( -8064 32 0 ) ( -8048 32 0 ) common/material_override/Transparent [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8056 32 48 ) ( -8056 -48 0 ) ( -8056 -48 48 ) common/material_override/Transparent [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+}
+// entity 166
+{
+"classname" "TriggerSongAnimationChange"
+"animation" "part_3"
+"collision_layer" "2"
+"collision_mask" "5"
+// brush 0
+{
+( -4864 720 0 ) ( -4856 512 416 ) ( -4864 304 0 ) common/material_override/Transparent [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -4856 512 416 ) ( -4848 512 416 ) ( -4856 304 0 ) common/material_override/Transparent [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -4856 304 0 ) ( -4856 720 0 ) ( -4864 720 0 ) common/material_override/Transparent [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -4856 720 0 ) ( -4848 512 416 ) ( -4856 512 416 ) common/material_override/Transparent [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -4856 304 0 ) ( -4848 512 416 ) ( -4856 720 0 ) common/material_override/Transparent [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+}
+// entity 167
+{
+"classname" "TriggerSongAnimationChange"
+"animation" "part_4"
+"collision_layer" "2"
+"collision_mask" "5"
+// brush 0
+{
+( -1136 720 0 ) ( -1128 512 416 ) ( -1136 304 0 ) common/material_override/Transparent [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -1128 512 416 ) ( -1120 512 416 ) ( -1128 304 0 ) common/material_override/Transparent [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -1128 304 0 ) ( -1128 720 0 ) ( -1136 720 0 ) common/material_override/Transparent [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -1128 720 0 ) ( -1120 512 416 ) ( -1128 512 416 ) common/material_override/Transparent [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -1128 304 0 ) ( -1120 512 416 ) ( -1128 720 0 ) common/material_override/Transparent [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+}
+// entity 168
+{
+"classname" "sequencer_particles_tutorial_2"
+"origin" "-256 -96 784"
+"id" "kick"
+"number" "0"
+"number_of_steps" "8"
+}
+// entity 169
+{
+"classname" "sequencer_particles_tutorial_2"
+"origin" "464 2016 688"
+"id" "kick"
+"number" "5"
+"number_of_steps" "8"
+}
+// entity 170
+{
+"classname" "sequencer_particles_tutorial_2"
+"origin" "4896 2608 688"
+"id" "kick"
+"number" "5"
+"number_of_steps" "8"
+}
+// entity 171
+{
+"classname" "sequencer_particles_tutorial_2"
+"origin" "-512 1184 448"
+"id" "kick"
+"number" "2"
+"number_of_steps" "8"
+}
+// entity 172
+{
+"classname" "sequencer_particles_tutorial_2"
+"origin" "1424 1632 1184"
+"id" "kick"
+"number" "0"
+"number_of_steps" "8"
+}
+// entity 173
+{
+"classname" "sequencer_particles_tutorial_2"
+"origin" "-128 -2048 1632"
+"id" "kick"
+"number" "1"
+"number_of_steps" "8"
+}
+// entity 174
+{
+"classname" "sequencer_particles_tutorial_2"
+"origin" "3728 -1376 1088"
+"id" "kick"
+"number" "5"
+"number_of_steps" "8"
+}
+// entity 175
+{
+"classname" "sequencer_particles_tutorial_2"
+"origin" "5744 -32 1056"
+"id" "kick"
+"number" "3"
+"number_of_steps" "8"
+}
+// entity 176
+{
+"classname" "sequencer_particles_tutorial_2"
+"origin" "3792 -1104 3024"
+"id" "kick"
+"number" "3"
+"number_of_steps" "8"
 }

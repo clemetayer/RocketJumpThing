@@ -46,18 +46,22 @@ func _process(_delta):
 
 ##### PROTECTED METHODS #####
 func _pause():
-	StandardSongManager.apply_effect(
-		_create_filter_auto_effect(), {StandardSongManager.get_current().name: {"fade_in": false}}
-	)
+	if StandardSongManager.get_current() != null:
+		StandardSongManager.apply_effect(
+			_create_filter_auto_effect(),
+			{StandardSongManager.get_current().name: {"fade_in": false}}
+		)
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	get_tree().paused = true
 	get_node(_paths.root_ui).show()
 
 
 func _unpause():
-	StandardSongManager.apply_effect(
-		_create_filter_auto_effect(), {StandardSongManager.get_current().name: {"fade_in": true}}
-	)
+	if StandardSongManager.get_current() != null:
+		StandardSongManager.apply_effect(
+			_create_filter_auto_effect(),
+			{StandardSongManager.get_current().name: {"fade_in": true}}
+		)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	get_tree().paused = false
 	get_node(_paths.root_ui).hide()
