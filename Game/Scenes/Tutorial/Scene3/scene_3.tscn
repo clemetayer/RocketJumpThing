@@ -1,4 +1,4 @@
-[gd_scene load_steps=701 format=2]
+[gd_scene load_steps=700 format=2]
 
 [ext_resource path="res://addons/qodot/src/nodes/qodot_map.gd" type="Script" id=1]
 [ext_resource path="res://RocketJumpThing_fgd.tres" type="Resource" id=2]
@@ -35,31 +35,7 @@
 [ext_resource path="res://Game/Common/MapElements/DeathGrid/DeathGrid.gd" type="Script" id=33]
 [ext_resource path="res://Game/Common/MapElements/DeathGrid/DeathGridMaterial.gd" type="Script" id=34]
 [ext_resource path="res://Game/Common/MapElements/DeathGrid/V1.gdshader" type="Shader" id=35]
-
-[sub_resource type="ProceduralSky" id=12]
-sky_top_color = Color( 0.192157, 0.0627451, 0.411765, 1 )
-sky_horizon_color = Color( 1, 0.360784, 0.945098, 1 )
-ground_bottom_color = Color( 0.521569, 0.184314, 0.317647, 1 )
-ground_horizon_color = Color( 0.808594, 0.341125, 0.768443, 1 )
-ground_curve = 0.0336359
-sun_color = Color( 1, 0.7, 0.975, 1 )
-sun_latitude = -175.0
-sun_angle_min = 15.0
-
-[sub_resource type="Environment" id=13]
-background_mode = 2
-background_sky = SubResource( 12 )
-ambient_light_color = Color( 1, 0, 0.913725, 1 )
-ambient_light_energy = 0.1
-ambient_light_sky_contribution = 0.3
-tonemap_mode = 3
-tonemap_exposure = 0.8
-tonemap_white = 1.1
-ss_reflections_enabled = true
-dof_blur_far_distance = 4096.0
-dof_blur_far_quality = 0
-glow_enabled = true
-glow_strength = 1.1
+[ext_resource path="res://Game/Scenes/Tutorial/Scene3/scene_3_env.tres" type="Environment" id=36]
 
 [sub_resource type="BoxShape" id=1752]
 margin = 1.0
@@ -4592,7 +4568,7 @@ ENABLE_ROCKETS = false
 ENABLE_SLIDE = false
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource( 13 )
+environment = ExtResource( 36 )
 
 [node name="AdditionalThings" type="Spatial" parent="."]
 

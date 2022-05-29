@@ -1,0 +1,107 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://Game/Common/MapElements/BoostPads/Vertical/vertical_boost_pad.gd" type="Script" id=1]
+[ext_resource path="res://Game/Common/MapElements/Particles/regular_polygon_on_cube.tres" type="Shader" id=2]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 15, 15, 15 )
+
+[sub_resource type="Gradient" id=7]
+colors = PoolColorArray( 0, 1, 1, 1, 0, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=8]
+gradient = SubResource( 7 )
+
+[sub_resource type="ParticlesMaterial" id=5]
+emission_shape = 2
+emission_box_extents = Vector3( 15, 15, 15 )
+direction = Vector3( 0, 1, 0 )
+spread = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 15.0
+initial_velocity_random = 0.5
+color_ramp = SubResource( 8 )
+
+[sub_resource type="SpatialMaterial" id=9]
+flags_transparent = true
+flags_unshaded = true
+flags_disable_ambient_light = true
+vertex_color_use_as_albedo = true
+
+[sub_resource type="PrismMesh" id=6]
+material = SubResource( 9 )
+size = Vector3( 1.5, 1.5, 0.375 )
+
+[sub_resource type="Gradient" id=15]
+colors = PoolColorArray( 0, 1, 1, 1, 0, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=16]
+gradient = SubResource( 15 )
+
+[sub_resource type="Curve" id=13]
+_data = [ Vector2( 0, 0.509091 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=14]
+curve = SubResource( 13 )
+
+[sub_resource type="ParticlesMaterial" id=10]
+direction = Vector3( 0, 1, 0 )
+spread = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 15.0
+scale = 2.0
+scale_curve = SubResource( 14 )
+color_ramp = SubResource( 16 )
+
+[sub_resource type="ShaderMaterial" id=17]
+shader = ExtResource( 2 )
+shader_param/sides = 4
+shader_param/max_size = 0.32
+shader_param/min_size = 0.3
+shader_param/epsilon = 0.01
+shader_param/intensity = 1.0
+shader_param/size_divider = 1.0
+
+[sub_resource type="CubeMesh" id=12]
+material = SubResource( 17 )
+size = Vector3( 60, 0, 60 )
+
+[sub_resource type="SpatialMaterial" id=19]
+albedo_color = Color( 0, 1, 1, 1 )
+emission_enabled = true
+emission = Color( 0, 1, 1, 1 )
+emission_energy = 1.0
+emission_operator = 0
+emission_on_uv2 = false
+
+[sub_resource type="CubeMesh" id=18]
+material = SubResource( 19 )
+size = Vector3( 22.5, 1.5, 22.5 )
+
+[node name="VerticalBoostPad" type="Area"]
+transform = Transform( 0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 0, 0, 1, 0, 0, 0 )
+collision_layer = 2
+script = ExtResource( 1 )
+properties = null
+
+[node name="Collision" type="CollisionShape" parent="."]
+shape = SubResource( 1 )
+
+[node name="TriangleParticles" type="Particles" parent="."]
+amount = 10
+visibility_aabb = AABB( -1, -1, -1, 2, 2, 2 )
+process_material = SubResource( 5 )
+draw_pass_1 = SubResource( 6 )
+
+[node name="UpSquares" type="Particles" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0 )
+amount = 6
+lifetime = 1.5
+visibility_aabb = AABB( -1, -1, -1, 2, 2, 2 )
+process_material = SubResource( 10 )
+draw_pass_1 = SubResource( 12 )
+
+[node name="LightBumperMesh" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0 )
+mesh = SubResource( 18 )
+material/0 = null
