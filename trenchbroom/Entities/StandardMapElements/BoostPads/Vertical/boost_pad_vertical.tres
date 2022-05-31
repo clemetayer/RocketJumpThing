@@ -1,20 +1,18 @@
-[gd_resource type="Resource" load_steps=3 format=2]
+[gd_resource type="Resource" load_steps=4 format=2]
 
 [ext_resource path="res://addons/qodot/src/resources/game-definitions/fgd/qodot_fgd_point_class.gd" type="Script" id=1]
 [ext_resource path="res://Game/Common/MapElements/BoostPads/Vertical/vertical_boost_pad.tscn" type="PackedScene" id=2]
+[ext_resource path="res://trenchbroom/Entities/StandardMapElements/BoostPads/Vertical/boost_vertical.tres" type="Resource" id=3]
 
 [resource]
 script = ExtResource( 1 )
 class_options = "----------------------------------------------------------------"
-classname = "BoostPad_Vertical"
+classname = "boost_pad_vertical"
 description = "A boost pad that pushes the player up"
 qodot_internal = false
-base_classes = [  ]
+base_classes = [ ExtResource( 3 ) ]
 class_properties = {
-"angle": Vector3( 0, 0, 0 ),
-"color": Color( 1, 1, 1, 1 ),
-"force": 1.0,
-"size": Vector3( 1, 1, 1 )
+"color": Color( 1, 1, 1, 1 )
 }
 class_property_descriptions = {
 "angle": "Angle of the boost pad (in degrees)",
@@ -23,8 +21,7 @@ class_property_descriptions = {
 "size": "Size of the boost pad"
 }
 meta_properties = {
-"color": Color( 0.8, 0.8, 0.8, 1 ),
-"size": AABB( -2, -2, -2, 2, 2, 2 )
+"color": Color( 0.8, 0.8, 0.8, 1 )
 }
 node_options = "----------------------------------------------------------------"
 node_class = ""

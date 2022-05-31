@@ -1,0 +1,108 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Game/Common/MapElements/BoostPads/Vertical/vertical_boost_area.gd" type="Script" id=1]
+
+[sub_resource type="BoxShape" id=19]
+
+[sub_resource type="Gradient" id=7]
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=20]
+gradient = SubResource( 7 )
+
+[sub_resource type="ParticlesMaterial" id=21]
+emission_shape = 2
+emission_box_extents = Vector3( 1, 1, 1 )
+direction = Vector3( 0, 1, 0 )
+spread = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 1.0
+initial_velocity_random = 0.5
+color_ramp = SubResource( 20 )
+
+[sub_resource type="SpatialMaterial" id=9]
+flags_transparent = true
+flags_unshaded = true
+flags_disable_ambient_light = true
+vertex_color_use_as_albedo = true
+
+[sub_resource type="PrismMesh" id=6]
+material = SubResource( 9 )
+size = Vector3( 0.1, 0.1, 0.025 )
+
+[sub_resource type="GradientTexture" id=22]
+gradient = SubResource( 7 )
+
+[sub_resource type="ParticlesMaterial" id=23]
+direction = Vector3( 0, 1, 0 )
+spread = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 1.0
+color_ramp = SubResource( 22 )
+
+[sub_resource type="Shader" id=17]
+code = "shader_type spatial;
+
+uniform int sides = 3;
+uniform float max_size : hint_range(0.0,0.5) = 0.45;
+uniform float min_size : hint_range(0.0,0.5) = 0.3;
+uniform float epsilon = 0.02;
+uniform float intensity = 1.0;
+uniform float size_divider = 1.0;
+
+const float PI = 3.1415;
+
+void fragment(){
+	vec2 uv = UV;
+	uv.x = fract(uv.x * (3.0/size_divider));
+	uv.y = fract(uv.y * (2.0/size_divider));
+	vec2 c_UV = (uv - 0.5)*2.0;
+	float a = atan(c_UV.x,c_UV.y)+PI;
+	float r = 2.0*PI/float(sides);
+	// Shaping function that modulate the distance
+	float d = cos(floor(0.5 + a/r) * r - a) * length(c_UV);
+	ALBEDO = COLOR.rgb;
+	ALPHA = (1.0 - smoothstep(max_size,max_size + epsilon,d)) - (1.0 - smoothstep(min_size,min_size + epsilon,d));
+	ALPHA *= COLOR.a;
+	EMISSION = ALBEDO * intensity;
+}
+
+//void light(){
+//	DIFFUSE_LIGHT += ALBEDO * intensity;
+//}"
+
+[sub_resource type="ShaderMaterial" id=18]
+shader = SubResource( 17 )
+shader_param/sides = 4
+shader_param/max_size = 0.5
+shader_param/min_size = 0.47
+shader_param/epsilon = 0.01
+shader_param/intensity = 1.0
+shader_param/size_divider = 1.0
+
+[sub_resource type="CubeMesh" id=12]
+material = SubResource( 18 )
+size = Vector3( 4, 0, 4 )
+
+[node name="VerticalBoostPad" type="Area"]
+collision_layer = 2
+script = ExtResource( 1 )
+properties = {
+}
+
+[node name="Collision" type="CollisionShape" parent="."]
+shape = SubResource( 19 )
+
+[node name="TriangleParticles" type="Particles" parent="."]
+amount = 10
+visibility_aabb = AABB( -1, -1, -1, 2, 2, 2 )
+process_material = SubResource( 21 )
+draw_pass_1 = SubResource( 6 )
+
+[node name="UpSquares" type="Particles" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0 )
+amount = 6
+lifetime = 1.5
+visibility_aabb = AABB( -1, -1, -1, 2, 2, 2 )
+process_material = SubResource( 23 )
+draw_pass_1 = SubResource( 12 )
