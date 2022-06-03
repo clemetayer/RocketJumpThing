@@ -20,7 +20,7 @@ enum bus_effects { filter }  # effect indexes in a bus
 export(NodePath) var ANIMATION_PLAYER
 export(String) var SONG_SEND_TO = "Master"  # where the song bus should send
 export(String) var ANIMATION  # Animation that should play
-export(bool) var ALLOW_RECURSIVE_INIT = false # If it should enable the search for AudioStream recursively on init (can be usefull for organisation purposes)
+export(bool) var ALLOW_RECURSIVE_INIT = false  # If it should enable the search for AudioStream recursively on init (can be usefull for organisation purposes)
 
 #==== PRIVATE ====
 var _tracks: Dictionary = {}  # track infos
@@ -122,13 +122,14 @@ func step_sequencer_emit_step(name: String) -> void:
 func _init_tracks():
 	var elements = []  # used to remove elements that are not in the song children
 	for child in get_children():
-		_init_track(child) # inits the tracks in (at least) the root
+		_init_track(child)  # inits the tracks in (at least) the root
 	# special case of the song itself
 	if not _tracks.has(name):
 		_tracks[name] = {"bus": "", "volume": 0.0}
 
-# inits a track recursively. allow 
-func _init_track(child : Node) -> Array:
+
+# inits a track recursively. allow
+func _init_track(child: Node) -> Array:
 	var elements = []
 	if child is AudioStreamPlayer:
 		elements.append(child.name)
@@ -144,13 +145,14 @@ func _init_track(child : Node) -> Array:
 					and not _tracks[child.name].playing_in_animation.has(anim_name)
 				):
 					_tracks[child.name].playing_in_animation.append(anim_name)
-		if child.get_child_count() > 0 and ALLOW_RECURSIVE_INIT: # search recursively in the children of the node
+		if child.get_child_count() > 0 and ALLOW_RECURSIVE_INIT:  # search recursively in the children of the node
 			for rec_child in child.get_children():
 				elements.append_array(_init_track(rec_child))
-	elif child.get_child_count() > 0 and ALLOW_RECURSIVE_INIT: # search recursively in the children of the node
+	elif child.get_child_count() > 0 and ALLOW_RECURSIVE_INIT:  # search recursively in the children of the node
 		for rec_child in child.get_children():
 			elements.append_array(_init_track(rec_child))
 	return elements
+
 
 # initialises the buses for the song
 func _init_buses():

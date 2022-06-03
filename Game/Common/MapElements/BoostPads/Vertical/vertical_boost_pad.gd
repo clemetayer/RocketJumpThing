@@ -48,7 +48,6 @@ func _duplicate_common_elements() -> void:
 # sets the extents of the different boxes used (particle boxes, collision, etc.)
 func _set_extents() -> void:
 	._set_extents()
-	Logger.debug("size = %s" % _size)
 	get_node(NODE_PATHS.triangle_particles).process_material.emission_box_extents = _size
 	get_node(NODE_PATHS.triangle_particles).draw_pass_1.size = (Vector3(
 		_size.x / 10.0, _size.y / 10.0, _size.z / 40.0

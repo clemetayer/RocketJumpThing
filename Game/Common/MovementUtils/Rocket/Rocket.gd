@@ -10,30 +10,21 @@ class_name Rocket
 
 ##### VARIABLES #####
 #---- CONSTANTS -----
-const SPEED := 100.0  # travel speed of the rocket
-const EXPLOSION_RADIUS := 5.0  # explosion radius
-const EXPLOSION_DECAY := 0.1  # how much time the explosion remains
-const EXPLOSION_POWER := 15  # power of the explosion
+const SCENE_PATHS = {"explosion": "res://Game/Common/MovementUtils/Rocket/RocketExplosion.tscn"}
+const SPEED := 200.0  # travel speed of the rocket
 const RAYCAST_DISTANCE := 200  # maximum distance to detect a floor
 const RAYCAST_PLAN_EXPLODE_DISTANCE := 5  # Distance from a floor where the explosion should be planned (since it's imminent), to be sure that is will explode (high speed makes collision weird)
 
 #---- EXPORTS -----
-export (Vector3) var START_POS = Vector3(0, 0, 0)
-export (Vector3) var DIRECTION = Vector3(0, 0, 0)  # direction (normalized) where the rocket should travel
-export (Vector3) var UP_VECTOR = Vector3(0, 1, 0)  # up vector 
-export (float) var SPEED_PERCENTAGE = 0.0  # How fast the rocket will travel, between MIN and MAX_SPEED (SPEED_PERCENTAGE between 0.0 and 1.0) 
-
-#---- STANDARD -----
-#==== PUBLIC ====
-# var public_var # Optionnal comment
+export(Vector3) var START_POS = Vector3(0, 0, 0)
+export(Vector3) var DIRECTION = Vector3(0, 0, 0)  # direction (normalized) where the rocket should travel
+export(Vector3) var UP_VECTOR = Vector3(0, 1, 0)  # up vector
+export(float) var SPEED_PERCENTAGE = 0.0  # How fast the rocket will travel, between MIN and MAX_SPEED (SPEED_PERCENTAGE between 0.0 and 1.0)
 
 #==== PRIVATE ====
 var _translate := false
 var _expl_planned := false  # if the explosion has been already planned
 var _speed := 0.0  # travel speed of the rocket
-
-#==== ONREADY ====
-# onready var onready_var # Optionnal comment
 
 
 ##### PROCESSING #####
@@ -50,9 +41,6 @@ func _process(delta):
 	_check_raycast_distance()
 	if _translate:
 		translate_object_local(Vector3(0, 0, 1) * _speed * delta)
-
-
-##### PUBLIC METHODS #####
 
 
 ##### PROTECTED METHODS #####
@@ -97,29 +85,13 @@ func _explode(col_point: Vector3) -> void:
 	_translate = false
 	$RayCast.enabled = false
 	transform.origin = col_point
-	if get_node_or_null("MeshInstance") != null and is_instance_valid($MeshInstance):
-		$MeshInstance.queue_free()
-	var area := Area.new()
-	area.collision_layer = int(pow(2, 3))  # layer mask set to "explosive"
-	area.collision_mask = int(pow(2, 0))  # can collide with player
-	var collision := CollisionShape.new()
-	var shape := SphereShape.new()
-	shape.radius = EXPLOSION_RADIUS
-	collision.shape = shape
-	area.add_child(collision)
-	add_child(area)
-	var _err = area.connect("body_entered", self, "interact_with_body", [area])
-	yield(get_tree().create_timer(EXPLOSION_DECAY), "timeout")
+	var explosion = load(SCENE_PATHS.explosion).instance()
+	explosion.EXPLOSION_POSITION = global_transform.origin
+	get_tree().get_current_scene().add_child(explosion)
 	queue_free()
 
 
 ##### SIGNAL MANAGEMENT #####
-func interact_with_body(body, area):
-	if body.is_in_group("player"):
-		var vector = (body.global_transform.origin - area.global_transform.origin) * EXPLOSION_POWER
-		body.add_velocity_vector(vector)
-
-
 # Additional area to make sure the rocket WILL explode
 func _on_CloseAreaCheck_body_entered(_body: Node):
 	if not _expl_planned:

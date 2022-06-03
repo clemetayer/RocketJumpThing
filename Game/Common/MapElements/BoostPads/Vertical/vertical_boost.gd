@@ -73,9 +73,6 @@ func _set_extents() -> void:
 func _on_timer_timeout() -> void:
 	if _player_body != null:
 		var vect = (to_global(Vector3.UP) - to_global(Vector3.ZERO)).normalized()  # Up vector converted to the global transform and normalized
-		var rotated_vec := Vector3.UP.rotated(Vector3.RIGHT, deg2rad(_angle.x)).rotated(Vector3.UP, deg2rad(_angle.y)).rotated(
-			Vector3.BACK, deg2rad(_angle.z)
-		)  # Not so great
 		_player_body.add_velocity_vector(vect * _force)
 
 
