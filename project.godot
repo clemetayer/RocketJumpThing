@@ -249,7 +249,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/qodot/src/import_plugins/quake_wad_import_plugin.gd"
 }, {
-"base": "Spatial",
+"base": "Area",
 "class": "Rocket",
 "language": "GDScript",
 "path": "res://Game/Common/MovementUtils/Rocket/Rocket.gd"

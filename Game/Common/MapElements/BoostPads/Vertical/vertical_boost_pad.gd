@@ -3,6 +3,9 @@ extends VerticalBoost
 # Area that pushes the player up like a bumper
 
 ##### VARIABLES #####
+#---- CONSTANTS -----
+const ROCKET_BOOST_COLOR := Color.white  # Color of the boosted boost pad
+
 #---- STANDARD -----
 #==== PRIVATE ====
 var _color := Color.white  # general color of the bumper
@@ -73,3 +76,36 @@ func _set_colors() -> void:
 	)
 	get_node(NODE_PATHS.mesh).mesh.material.albedo_color = _color
 	get_node(NODE_PATHS.mesh).mesh.material.emission = _color
+
+
+# sets the properties of the tween when a rocket interacts with the area
+func _set_rocket_tween_properties() -> void:
+	._set_rocket_tween_properties()
+	onready_rocket_tween.interpolate_property(
+		get_node(NODE_PATHS.triangle_particles),
+		"process_material:color_ramp:gradient:colors[0]",
+		ROCKET_BOOST_COLOR,
+		_color,
+		ROCKET_BOOST_DECAY
+	)
+	onready_rocket_tween.interpolate_property(
+		get_node(NODE_PATHS.square_particles),
+		"process_material:color_ramp:gradient:colors[0]",
+		ROCKET_BOOST_COLOR,
+		_color,
+		ROCKET_BOOST_DECAY
+	)
+	onready_rocket_tween.interpolate_property(
+		get_node(NODE_PATHS.mesh),
+		"mesh:material:albedo_color",
+		ROCKET_BOOST_COLOR,
+		_color,
+		ROCKET_BOOST_DECAY
+	)
+	onready_rocket_tween.interpolate_property(
+		get_node(NODE_PATHS.mesh),
+		"mesh:material:emission",
+		ROCKET_BOOST_COLOR,
+		_color,
+		ROCKET_BOOST_DECAY
+	)

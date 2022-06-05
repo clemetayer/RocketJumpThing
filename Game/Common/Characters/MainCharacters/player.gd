@@ -53,8 +53,8 @@ const SLIDE_FRICTION := 0.1  # Friction when sliding on the ground. Equivalent t
 const AIR_MOVE_TOWARD := 750  # When pressing forward in the air, how much it should stick to the aim direction
 
 #~~~~~ PROJECTILES ~~~~~
-const ROCKET_DELAY := 1.0  # Time before you can shoot another rocket
-const ROCKET_START_OFFSET := Vector3(0, -0.5, 0)  # offest position from the player to throw the rocket
+const ROCKET_DELAY := 0.75  # Time before you can shoot another rocket
+const ROCKET_START_OFFSET := Vector3(0, 0, 0)  # offest position from the player to throw the rocket
 const ROCKET_SCENE_PATH := "res://Game/Common/MovementUtils/Rocket/Rocket.tscn"  # Path to the rocket scene
 
 #---- EXPORTS -----

@@ -65,3 +65,8 @@ func _set_colors() -> void:
 	get_node(NODE_PATHS.square_particles).process_material.color_ramp.gradient.colors[1] = Color(
 		_color.r, _color.g, _color.b, 0.0
 	)
+
+
+# disables the boost when interacting with a rocket
+func _on_area_entered(area: Node) -> void:
+	pass

@@ -1,4 +1,4 @@
-extends Spatial
+extends Area
 class_name Rocket
 # A rocket, to rocket jump mostly
 
@@ -74,9 +74,10 @@ func _get_distance_to_collision(raycast: RayCast) -> float:
 
 # plans an explosion, since the rocket is close to the floor (to make sure it explodes)
 func _plan_explosion(distance: float) -> void:
-	_expl_planned = true
-	yield(get_tree().create_timer(distance / _speed), "timeout")
-	_explode($RayCast.get_collision_point())
+	if not _expl_planned:
+		_expl_planned = true
+		yield(get_tree().create_timer(distance / _speed), "timeout")
+		_explode($RayCast.get_collision_point())
 
 
 # Explosion of the rocket
@@ -92,9 +93,8 @@ func _explode(col_point: Vector3) -> void:
 
 
 ##### SIGNAL MANAGEMENT #####
-# Additional area to make sure the rocket WILL explode
-func _on_CloseAreaCheck_body_entered(_body: Node):
-	if not _expl_planned:
+func _on_Rocket_body_entered(body: Node):
+	if not _expl_planned and get_node_or_null("CloseAreaCheck/CollisionShape") != null:
 		_expl_planned = true
 		$RayCast.transform.origin.z = -100  # steps back the raycast to get the exact collision point
 		$CloseAreaCheck/CollisionShape.disabled = true  # disables the area

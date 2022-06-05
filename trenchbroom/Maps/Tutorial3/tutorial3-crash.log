@@ -1,0 +1,49 @@
+Renderer info: NVIDIA GeForce GTX 1650/PCIe/SSE2 version 4.6.0 NVIDIA 470.129.06 from NVIDIA Corporation
+Depth buffer bits: 24
+Multisampling enabled
+Adding file system path /app/share/TrenchBroom/defaults/assets
+Adding file system path /home/clemetayer/Projects/RocketJumpThing/trenchbroom/.
+Loading document from /home/clemetayer/Projects/RocketJumpThing/trenchbroom/Maps/Tutorial3/tutorial3.map
+Unquoted float default value 0 (line 3, column 88)
+Solid entity definition must not have a size (line 1, column 13)
+Solid entity definition must not have a size (line 9, column 13)
+Solid entity definition must not have a size (line 11, column 13)
+Unquoted float default value 0.5 (line 21, column 59)
+Solid entity definition must not have a size (line 16, column 13)
+Solid entity definition must not have a size (line 23, column 13)
+Solid entity definition must not have a size (line 43, column 13)
+Unquoted float default value 0.2 (line 52, column 70)
+Unquoted float default value 0.4 (line 53, column 94)
+Unquoted float default value 16 (line 54, column 50)
+Unquoted float default value 1 (line 55, column 50)
+Unquoted float default value 0.2 (line 59, column 70)
+Unquoted float default value 0.4 (line 60, column 94)
+Unquoted float default value 1 (line 61, column 73)
+Unquoted float default value 0 (line 62, column 73)
+Solid entity definition must not have a size (line 58, column 13)
+Unquoted float default value 1 (line 69, column 43)
+Unquoted float default value 150 (line 70, column 46)
+Unquoted float default value 0.5 (line 72, column 53)
+Solid entity definition must not have a size (line 78, column 13)
+Solid entity definition must not have a size (line 81, column 13)
+Solid entity definition must not have a size (line 83, column 13)
+Solid entity definition must not have a size (line 89, column 13)
+Unquoted float default value 1 (line 99, column 41)
+Solid entity definition must not have a size (line 110, column 13)
+Solid entity definition must not have a size (line 115, column 13)
+Solid entity definition must not have a size (line 120, column 13)
+Unquoted float default value 0 (line 132, column 64)
+Solid entity definition must not have a size (line 128, column 13)
+Solid entity definition must not have a size (line 135, column 13)
+Unquoted float default value 1 (line 148, column 83)
+Unquoted float default value 0 (line 149, column 84)
+Solid entity definition must not have a size (line 138, column 13)
+Solid entity definition must not have a size (line 152, column 13)
+Unquoted float default value 0 (line 184, column 37)
+Unquoted float default value 0 (line 188, column 63)
+Duplicate class info 'worldspawn' (line 156, column 13)
+Loaded entity definition file RocketJumpThing_fgd.fgd
+Loaded texture collection 'textures/common/material_override' in 9ms
+Loaded texture collection 'textures/entities/checkpoint' in 15ms
+Loaded /home/clemetayer/Projects/RocketJumpThing/trenchbroom/Maps/Tutorial3/tutorial3.map in 317ms
+Saved /home/clemetayer/Projects/RocketJumpThing/trenchbroom/Maps/Tutorial3/tutorial3.map in 103ms
