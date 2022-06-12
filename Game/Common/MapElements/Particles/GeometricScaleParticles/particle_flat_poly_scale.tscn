@@ -1,0 +1,42 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Game/Common/MapElements/Particles/regular_polygon_on_cube.tres" type="Shader" id=1]
+[ext_resource path="res://Game/Common/MapElements/Particles/GeometricScaleParticles/particle_flat_poly_scale.gd" type="Script" id=2]
+
+[sub_resource type="Gradient" id=3]
+colors = PoolColorArray( 1, 0.862745, 0, 1, 0, 1, 0.12549, 0 )
+
+[sub_resource type="GradientTexture" id=4]
+gradient = SubResource( 3 )
+
+[sub_resource type="Curve" id=5]
+_data = [ Vector2( 0, 0.247727 ), 0.0, -0.0604166, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=6]
+curve = SubResource( 5 )
+
+[sub_resource type="ParticlesMaterial" id=7]
+direction = Vector3( 0, 0, 0 )
+gravity = Vector3( 0, 0, 0 )
+scale_curve = SubResource( 6 )
+color_ramp = SubResource( 4 )
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 1 )
+shader_param/sides = 3
+shader_param/max_size = 0.45
+shader_param/min_size = 0.43
+shader_param/epsilon = 0.02
+shader_param/intensity = 3.0
+shader_param/size_divider = 1.0
+
+[sub_resource type="CubeMesh" id=2]
+material = SubResource( 1 )
+size = Vector3( 5, 0, 5 )
+
+[node name="ParticleFlatPolyScale" type="Particles"]
+amount = 4
+lifetime = 3.0
+process_material = SubResource( 7 )
+draw_pass_1 = SubResource( 2 )
+script = ExtResource( 2 )

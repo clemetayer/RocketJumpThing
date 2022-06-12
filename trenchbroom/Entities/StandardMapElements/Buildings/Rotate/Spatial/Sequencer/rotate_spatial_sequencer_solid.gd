@@ -27,7 +27,7 @@ func _process(delta):
 func _ready_func():
 	._ready_func()
 	for child in get_children():
-		if child is MeshInstance:
+		if child is MeshInstance and child.mesh != null:
 			material = child.mesh.surface_get_material(0)
 			material = material.duplicate()  # duplicates the material, so that will truly be a "step"
 			if properties.has("albedo"):
