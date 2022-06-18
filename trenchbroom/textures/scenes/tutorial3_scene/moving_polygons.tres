@@ -1,0 +1,86 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type spatial;
+
+const float TWO_PI = 6.28318530718;
+
+uniform bool left_to_right = true;
+uniform vec4 back_color_1 : hint_color;
+uniform vec4 back_color_2 : hint_color;
+uniform vec4 color_1 : hint_color;
+uniform vec4 color_2 : hint_color;
+uniform float epsilon = 0.01;
+uniform float intensity = 1.0;
+uniform int number_of_polygons = 12;
+uniform float size = 1.0;
+const vec2 uv1_scale = vec2(1.0/5.0);
+const int poly_sides = 3;
+const float outer_size = 0.05;
+const float inner_size = 0.04; 
+const float max_velocity = 2.0;
+const float min_velocity = 0.1;
+const float angular_velocity = 2.0;
+
+
+float random (vec2 uv) {
+    return fract(sin(dot(uv.xy,
+        vec2(12.9898,78.233))) * 43758.5453123);
+}
+
+float polygon(vec2 uv, int sides, vec2 center_pos, float rand_angular_vel)
+{
+	float angle = atan(center_pos.x - uv.x, center_pos.y - uv.y);
+	angle = mod(angle + uv.x * rand_angular_vel, TWO_PI);
+	float radius = TWO_PI / float(sides);
+	
+	float dist = cos(floor(0.5 + angle / radius) * radius - angle) * length(center_pos - uv) * size;
+	float alpha = (1.0 - smoothstep(outer_size,outer_size + epsilon,dist)) - (1.0 - smoothstep(inner_size,inner_size + epsilon,dist));
+	return alpha;
+}
+
+vec4 back_color(vec2 uv){
+	float mix_amount = smoothstep(0.0,1.0,uv.y + sin(TIME)/2.0 + 0.5);
+	return mix(back_color_1,back_color_2, mix_amount);
+}
+
+void vertex(){
+	UV *= uv1_scale;
+}
+
+void fragment(){
+	vec2 uv = UV;
+	uv.x = fract(uv.x * 3.0);
+	uv.y = fract(uv.y * 2.0);
+	vec4 color = back_color(UV);
+	ALPHA = color.a;
+	float left_to_right_val = 1.0;
+	if(!left_to_right)
+		left_to_right_val = -1.0;
+	for(int i = 0; i < number_of_polygons; i++){
+		float rand_x = random(vec2(float(i)/float(number_of_polygons)));
+		float rand_y = random(vec2(float(i)/float(number_of_polygons),0.0));
+		float rand_vel = max(min_velocity,random(vec2(0.0,float(i)/float(number_of_polygons))) * max_velocity);
+		vec2 pos = vec2(0);
+		pos.x = mod(TIME * rand_vel * left_to_right_val, 1.0) ;
+		pos.y = rand_y;
+		float square = polygon(uv, poly_sides, pos, rand_vel * angular_velocity);
+		color += square * mix(color_1,color_2, rand_x);
+		ALPHA += square * mix(color_1,color_2, rand_x).a;
+	}
+	ALBEDO = color.rgb;
+	EMISSION = ALBEDO * intensity;
+}
+"
+
+[resource]
+shader = SubResource( 1 )
+shader_param/left_to_right = true
+shader_param/back_color_1 = Color( 0.0509804, 0.207843, 0.152941, 1 )
+shader_param/back_color_2 = Color( 0.356863, 0.262745, 0, 1 )
+shader_param/color_1 = Color( 0.14902, 0.682353, 0.501961, 1 )
+shader_param/color_2 = Color( 1, 0.745098, 0, 1 )
+shader_param/epsilon = 0.01
+shader_param/intensity = 4.0
+shader_param/number_of_polygons = 15
+shader_param/size = 1.25

@@ -6,7 +6,7 @@ code = "shader_type spatial;
 uniform vec4 back_color  : hint_color;
 uniform vec4 window_color_1 : hint_color;
 uniform vec4 window_color_2 : hint_color;
-const vec2 uv1_scale = vec2(1.0/20.0);
+const vec2 uv1_scale = vec2(1.0/15.0);
 const float window_size = 0.6;
 const float intensity = 5.0;
 const float ss_e = 0.33;
