@@ -355,8 +355,8 @@ points = PoolVector3Array( -16, 4, -32, -16, -4, -32, 32, -4, -4.54747e-13, 32, 
 
 [sub_resource type="ArrayMesh" id=349]
 surfaces/0 = {
-"aabb": AABB( -40, -40, -4, 80, 80, 8 ),
-"array_data": PoolByteArray( 0, 0, 32, 194, 0, 0, 32, 66, 0, 0, 128, 192, 127, 127, 129, 63, 102, 58, 194, 65, 0, 0, 32, 194, 0, 0, 32, 194, 0, 0, 128, 192, 127, 127, 129, 63, 102, 58, 122, 68, 0, 0, 32, 66, 0, 0, 32, 194, 0, 0, 128, 192, 127, 127, 129, 63, 102, 186, 122, 68, 0, 0, 32, 66, 0, 0, 32, 66, 0, 0, 128, 192, 127, 127, 129, 63, 102, 186, 194, 65, 0, 0, 32, 194, 0, 0, 32, 66, 0, 0, 128, 192, 129, 0, 0, 63, 168, 80, 194, 65, 0, 0, 32, 194, 0, 0, 32, 66, 0, 0, 128, 64, 129, 0, 0, 63, 174, 80, 194, 65, 0, 0, 32, 194, 0, 0, 32, 194, 0, 0, 128, 64, 129, 0, 0, 63, 174, 80, 122, 68, 0, 0, 32, 194, 0, 0, 32, 194, 0, 0, 128, 192, 129, 0, 0, 63, 168, 80, 122, 68, 0, 0, 32, 66, 0, 0, 32, 194, 0, 0, 128, 192, 0, 129, 127, 127, 168, 208, 102, 186, 0, 0, 32, 194, 0, 0, 32, 194, 0, 0, 128, 192, 0, 129, 127, 127, 168, 208, 102, 58, 0, 0, 32, 194, 0, 0, 32, 194, 0, 0, 128, 64, 0, 129, 127, 127, 174, 208, 102, 58, 0, 0, 32, 66, 0, 0, 32, 194, 0, 0, 128, 64, 0, 129, 127, 127, 174, 208, 102, 186, 0, 0, 32, 66, 0, 0, 32, 66, 0, 0, 128, 192, 0, 127, 0, 63, 168, 80, 102, 186, 0, 0, 32, 66, 0, 0, 32, 66, 0, 0, 128, 64, 0, 127, 0, 63, 174, 80, 102, 186, 0, 0, 32, 194, 0, 0, 32, 66, 0, 0, 128, 64, 0, 127, 0, 63, 174, 80, 102, 58, 0, 0, 32, 194, 0, 0, 32, 66, 0, 0, 128, 192, 0, 127, 0, 63, 168, 80, 102, 58, 0, 0, 32, 66, 0, 0, 32, 66, 0, 0, 128, 192, 127, 0, 127, 127, 168, 208, 194, 65, 0, 0, 32, 66, 0, 0, 32, 194, 0, 0, 128, 192, 127, 0, 127, 127, 168, 208, 122, 68, 0, 0, 32, 66, 0, 0, 32, 194, 0, 0, 128, 64, 127, 0, 127, 127, 174, 208, 122, 68, 0, 0, 32, 66, 0, 0, 32, 66, 0, 0, 128, 64, 127, 0, 127, 127, 174, 208, 194, 65, 0, 0, 32, 194, 0, 0, 32, 66, 0, 0, 128, 64, 0, 0, 127, 63, 102, 186, 194, 65, 0, 0, 32, 66, 0, 0, 32, 66, 0, 0, 128, 64, 0, 0, 127, 63, 102, 58, 194, 65, 0, 0, 32, 66, 0, 0, 32, 194, 0, 0, 128, 64, 0, 0, 127, 63, 102, 58, 122, 68, 0, 0, 32, 194, 0, 0, 32, 194, 0, 0, 128, 64, 0, 0, 127, 63, 102, 186, 122, 68 ),
+"aabb": AABB( -392, -216, -12, 784, 432, 24 ),
+"array_data": PoolByteArray( 0, 0, 196, 195, 0, 0, 88, 67, 0, 0, 64, 193, 127, 127, 129, 63, 174, 71, 40, 196, 0, 0, 196, 195, 0, 0, 88, 195, 0, 0, 64, 193, 127, 127, 129, 63, 174, 71, 122, 68, 0, 0, 196, 67, 0, 0, 88, 195, 0, 0, 64, 193, 127, 127, 129, 63, 0, 200, 122, 68, 0, 0, 196, 67, 0, 0, 88, 67, 0, 0, 64, 193, 127, 127, 129, 63, 0, 200, 40, 196, 0, 0, 196, 195, 0, 0, 88, 67, 0, 0, 64, 193, 129, 0, 0, 63, 153, 76, 40, 196, 0, 0, 196, 195, 0, 0, 88, 67, 0, 0, 64, 65, 129, 0, 0, 63, 184, 76, 40, 196, 0, 0, 196, 195, 0, 0, 88, 195, 0, 0, 64, 65, 129, 0, 0, 63, 184, 76, 122, 68, 0, 0, 196, 195, 0, 0, 88, 195, 0, 0, 64, 193, 129, 0, 0, 63, 153, 76, 122, 68, 0, 0, 196, 67, 0, 0, 88, 195, 0, 0, 64, 193, 0, 129, 127, 127, 153, 204, 0, 200, 0, 0, 196, 195, 0, 0, 88, 195, 0, 0, 64, 193, 0, 129, 127, 127, 153, 204, 174, 71, 0, 0, 196, 195, 0, 0, 88, 195, 0, 0, 64, 65, 0, 129, 127, 127, 184, 204, 174, 71, 0, 0, 196, 67, 0, 0, 88, 195, 0, 0, 64, 65, 0, 129, 127, 127, 184, 204, 0, 200, 0, 0, 196, 67, 0, 0, 88, 67, 0, 0, 64, 193, 0, 127, 0, 63, 153, 76, 0, 200, 0, 0, 196, 67, 0, 0, 88, 67, 0, 0, 64, 65, 0, 127, 0, 63, 184, 76, 0, 200, 0, 0, 196, 195, 0, 0, 88, 67, 0, 0, 64, 65, 0, 127, 0, 63, 184, 76, 174, 71, 0, 0, 196, 195, 0, 0, 88, 67, 0, 0, 64, 193, 0, 127, 0, 63, 153, 76, 174, 71, 0, 0, 196, 67, 0, 0, 88, 67, 0, 0, 64, 193, 127, 0, 127, 127, 153, 204, 40, 196, 0, 0, 196, 67, 0, 0, 88, 195, 0, 0, 64, 193, 127, 0, 127, 127, 153, 204, 122, 68, 0, 0, 196, 67, 0, 0, 88, 195, 0, 0, 64, 65, 127, 0, 127, 127, 184, 204, 122, 68, 0, 0, 196, 67, 0, 0, 88, 67, 0, 0, 64, 65, 127, 0, 127, 127, 184, 204, 40, 196, 0, 0, 196, 195, 0, 0, 88, 67, 0, 0, 64, 65, 0, 0, 127, 63, 174, 199, 40, 196, 0, 0, 196, 67, 0, 0, 88, 67, 0, 0, 64, 65, 0, 0, 127, 63, 0, 72, 40, 196, 0, 0, 196, 67, 0, 0, 88, 195, 0, 0, 64, 65, 0, 0, 127, 63, 0, 72, 122, 68, 0, 0, 196, 195, 0, 0, 88, 195, 0, 0, 64, 65, 0, 0, 127, 63, 174, 199, 122, 68 ),
 "array_index_data": PoolByteArray( 0, 0, 1, 0, 2, 0, 0, 0, 2, 0, 3, 0, 4, 0, 5, 0, 6, 0, 4, 0, 6, 0, 7, 0, 8, 0, 9, 0, 10, 0, 8, 0, 10, 0, 11, 0, 12, 0, 13, 0, 14, 0, 12, 0, 14, 0, 15, 0, 16, 0, 17, 0, 18, 0, 16, 0, 18, 0, 19, 0, 20, 0, 21, 0, 22, 0, 20, 0, 22, 0, 23, 0 ),
 "blend_shape_data": [  ],
 "format": 2194711,
@@ -368,7 +368,7 @@ surfaces/0 = {
 }
 
 [sub_resource type="ConvexPolygonShape" id=350]
-points = PoolVector3Array( -40, 40, -4, -40, -40, -4, 40, -40, -4, 40, 40, -4, -40, 40, 4, -40, -40, 4, 40, -40, 4, 40, 40, 4 )
+points = PoolVector3Array( -392, 216, -12, -392, -216, -12, 392, -216, -12, 392, 216, -12, -392, 216, 12, -392, -216, 12, 392, -216, 12, 392, 216, 12 )
 
 [sub_resource type="ArrayMesh" id=351]
 surfaces/0 = {
@@ -2741,10 +2741,12 @@ material/0 = null
 shape = SubResource( 348 )
 
 [node name="entity_7_CheckpointSolidClass" type="Area" parent="QodotMap"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -184, 1868 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8, -8, 932 )
 script = ExtResource( 6 )
 properties = {
-"classname": "CheckpointSolidClass"
+"classname": "CheckpointSolidClass",
+"spawn_position": Vector3( 0, -216, 0 ),
+"spawn_rotation": 0.0
 }
 
 [node name="entity_7_mesh_instance" type="MeshInstance" parent="QodotMap/entity_7_CheckpointSolidClass"]
@@ -2817,7 +2819,9 @@ shape = SubResource( 358 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -120, 2756 )
 script = ExtResource( 6 )
 properties = {
-"classname": "CheckpointSolidClass"
+"classname": "CheckpointSolidClass",
+"spawn_position": Vector3( 0, -32, 0 ),
+"spawn_rotation": 0.0
 }
 
 [node name="entity_11_mesh_instance" type="MeshInstance" parent="QodotMap/entity_11_CheckpointSolidClass"]
@@ -2898,7 +2902,9 @@ shape = SubResource( 370 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 104, 3648 )
 script = ExtResource( 6 )
 properties = {
-"classname": "CheckpointSolidClass"
+"classname": "CheckpointSolidClass",
+"spawn_position": Vector3( 0, -32, 0 ),
+"spawn_rotation": 90.0
 }
 
 [node name="entity_15_mesh_instance" type="MeshInstance" parent="QodotMap/entity_15_CheckpointSolidClass"]
@@ -3013,7 +3019,9 @@ shape = SubResource( 397 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1748, 56, 3632 )
 script = ExtResource( 6 )
 properties = {
-"classname": "CheckpointSolidClass"
+"classname": "CheckpointSolidClass",
+"spawn_position": Vector3( 0, -32, 0 ),
+"spawn_rotation": 90.0
 }
 
 [node name="entity_18_mesh_instance" type="MeshInstance" parent="QodotMap/entity_18_CheckpointSolidClass"]
@@ -3106,7 +3114,9 @@ shape = SubResource( 421 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 196, 80, -3040 )
 script = ExtResource( 6 )
 properties = {
-"classname": "CheckpointSolidClass"
+"classname": "CheckpointSolidClass",
+"spawn_position": Vector3( 0, -32, 0 ),
+"spawn_rotation": -90.0
 }
 
 [node name="entity_20_mesh_instance" type="MeshInstance" parent="QodotMap/entity_20_CheckpointSolidClass"]
@@ -3156,7 +3166,9 @@ shape = SubResource( 431 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -544, 272, -2484 )
 script = ExtResource( 6 )
 properties = {
-"classname": "CheckpointSolidClass"
+"classname": "CheckpointSolidClass",
+"spawn_position": Vector3( 0, -32, 0 ),
+"spawn_rotation": 0.0
 }
 
 [node name="entity_22_mesh_instance" type="MeshInstance" parent="QodotMap/entity_22_CheckpointSolidClass"]
@@ -3327,7 +3339,9 @@ shape = SubResource( 464 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2336, 264, 4756 )
 script = ExtResource( 6 )
 properties = {
-"classname": "CheckpointSolidClass"
+"classname": "CheckpointSolidClass",
+"spawn_position": Vector3( 0, -32, 0 ),
+"spawn_rotation": 0.0
 }
 
 [node name="entity_28_mesh_instance" type="MeshInstance" parent="QodotMap/entity_28_CheckpointSolidClass"]
@@ -3439,7 +3453,9 @@ shape = SubResource( 478 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1172, 472, 5248 )
 script = ExtResource( 6 )
 properties = {
-"classname": "CheckpointSolidClass"
+"classname": "CheckpointSolidClass",
+"spawn_position": Vector3( 0, -32, 0 ),
+"spawn_rotation": -90.0
 }
 
 [node name="entity_34_mesh_instance" type="MeshInstance" parent="QodotMap/entity_34_CheckpointSolidClass"]
@@ -3589,7 +3605,9 @@ shape = SubResource( 499 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 252, 312, -2176 )
 script = ExtResource( 6 )
 properties = {
-"classname": "CheckpointSolidClass"
+"classname": "CheckpointSolidClass",
+"spawn_position": Vector3( 0, -32, 0 ),
+"spawn_rotation": 90.0
 }
 
 [node name="entity_42_mesh_instance" type="MeshInstance" parent="QodotMap/entity_42_CheckpointSolidClass"]
@@ -3765,7 +3783,7 @@ properties = {
 }
 
 [node name="entity_58_RotateSpatialSequencerSolid" type="Spatial" parent="QodotMap"]
-transform = Transform( 0.95808, 0.148963, 0.243863, -0.235638, 0.894518, 0.379251, -0.161633, -0.420913, 0.892316, 1024, 40, -656 )
+transform = Transform( 0.272986, -0.672277, 0.688127, -0.57964, -0.685819, -0.440075, 0.767784, -0.278733, -0.576899, 1024, 40, -656 )
 script = ExtResource( 16 )
 properties = {
 "albedo": Color( 1, 0.745098, 0, 1 ),
@@ -3786,7 +3804,7 @@ mesh = SubResource( 502 )
 material/0 = null
 
 [node name="entity_59_RotateSpatialSequencerSolid" type="Spatial" parent="QodotMap"]
-transform = Transform( 0.603239, 0.744534, 0.284955, -0.477361, 0.051191, 0.876858, 0.638478, -0.665145, 0.386435, 1024, 40, -656 )
+transform = Transform( 0.316725, -0.151152, 0.936393, 0.632733, -0.701796, -0.3273, 0.706631, 0.696153, -0.126638, 1024, 40, -656 )
 script = ExtResource( 16 )
 properties = {
 "albedo": Color( 0.14902, 0.682353, 0.501961, 1 ),
@@ -3875,7 +3893,7 @@ shape = SubResource( 516 )
 shape = SubResource( 517 )
 
 [node name="entity_62_RotateSpatialSequencerSolid" type="Spatial" parent="QodotMap"]
-transform = Transform( 0.406288, 0.0767557, -0.910326, 0.896369, 0.15878, 0.4135, 0.176348, -0.98417, -0.00431378, -768, 760, -1520 )
+transform = Transform( 0.161192, 0.9617, -0.221687, 0.461666, -0.272009, -0.844319, -0.872284, 0.0337539, -0.487831, -768, 760, -1520 )
 script = ExtResource( 16 )
 properties = {
 "albedo": Color( 0.14902, 0.682353, 0.501961, 1 ),
@@ -4195,7 +4213,7 @@ mesh = SubResource( 535 )
 material/0 = null
 
 [node name="entity_78_RotateSpatialSequencerSolid" type="Spatial" parent="QodotMap"]
-transform = Transform( 0.791574, 0.00521815, 0.610594, 0.564885, 0.373393, -0.735426, -0.23186, 0.927311, 0.29271, -1000, -136, 1312 )
+transform = Transform( 0.489429, 0.732369, 0.473381, 0.743955, -0.633873, 0.211492, 0.454956, 0.248665, -0.855088, -1000, -136, 1312 )
 script = ExtResource( 16 )
 properties = {
 "albedo": Color( 1, 0.745098, 0, 1 ),
@@ -4216,7 +4234,7 @@ mesh = SubResource( 536 )
 material/0 = null
 
 [node name="entity_79_RotateSpatialSequencerSolid" type="Spatial" parent="QodotMap"]
-transform = Transform( 0.160792, -0.16905, -0.97199, 0.434137, -0.872216, 0.223514, -0.885927, -0.458101, -0.0668772, 2560, 1112, 2812 )
+transform = Transform( 0.157557, -0.187839, -0.969476, 0.490642, -0.837098, 0.241928, -0.856993, -0.513785, -0.0397288, 2560, 1112, 2812 )
 script = ExtResource( 16 )
 properties = {
 "albedo": Color( 1, 0.745098, 0, 1 ),
@@ -4237,7 +4255,7 @@ mesh = SubResource( 537 )
 material/0 = null
 
 [node name="entity_80_RotateSpatialSequencerSolid" type="Spatial" parent="QodotMap"]
-transform = Transform( 0.469859, 0.654168, -0.592233, -0.882381, 0.341459, -0.322848, -0.0090135, 0.674462, 0.737896, 24, 1632, 6512 )
+transform = Transform( -0.131222, -0.868466, -0.478061, 0.367138, -0.490515, 0.790316, -0.920861, -0.0718073, 0.383215, 24, 1632, 6512 )
 script = ExtResource( 16 )
 properties = {
 "albedo": Color( 0.14902, 0.682353, 0.501961, 1 ),
@@ -4258,7 +4276,7 @@ mesh = SubResource( 538 )
 material/0 = null
 
 [node name="entity_81_RotateSpatialSequencerSolid" type="Spatial" parent="QodotMap"]
-transform = Transform( 0.996109, -0.0509005, 0.0672882, 0.0430602, 0.992349, 0.112646, -0.0725448, -0.109332, 0.990989, 276, 608, -1600 )
+transform = Transform( 0.537151, -0.770749, -0.34265, -0.75878, -0.618966, 0.202795, -0.368395, 0.151065, -0.91731, 276, 608, -1600 )
 script = ExtResource( 16 )
 properties = {
 "albedo": Color( 0.14902, 0.682353, 0.501961, 1 ),
@@ -4945,7 +4963,7 @@ material/0 = null
 shape = SubResource( 617 )
 
 [node name="entity_118_RotateSpatialSequencerSolid" type="Spatial" parent="QodotMap"]
-transform = Transform( 0.236778, 0.928309, -0.285606, -0.53137, 0.369879, 0.761726, 0.812999, -0.0286192, 0.581019, -4, -784, -992 )
+transform = Transform( 0.581439, 0.757317, -0.297311, -0.494206, 0.619048, 0.610355, 0.646283, -0.207952, 0.734213, -4, -784, -992 )
 script = ExtResource( 16 )
 properties = {
 "albedo": Color( 0.14902, 0.682353, 0.501961, 1 ),
