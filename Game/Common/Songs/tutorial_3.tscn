@@ -1,6 +1,6 @@
 [gd_scene load_steps=19 format=2]
 
-[ext_resource path="res://Game/Common/Utils/SongManager/Interfaces/song.gd" type="Script" id=1]
+[ext_resource path="res://Game/Common/Utils/SongManager/templates/Songs/SongAnimationPlayer/song_animation_player.gd" type="Script" id=1]
 [ext_resource path="res://Misc/Audio/BGM/Tutorial3/GateFun.wav" type="AudioStream" id=2]
 [ext_resource path="res://Misc/Audio/BGM/Tutorial3/supersaw.wav" type="AudioStream" id=3]
 [ext_resource path="res://Misc/Audio/BGM/Tutorial3/supersaw_2.wav" type="AudioStream" id=4]
@@ -944,6 +944,10 @@ tracks/7/keys = {
 
 [node name="Tutorial3" type="Node"]
 script = ExtResource( 1 )
+ANIMATION_PLAYER = NodePath("AnimationPlayer")
+SONG_SEND_TO = "BGM"
+ANIMATION = "part_1"
+ALLOW_RECURSIVE_INIT = true
 
 [node name="Lead" type="Node" parent="."]
 

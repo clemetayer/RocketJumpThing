@@ -7,6 +7,7 @@ class_name SongAnimationPlayer
 - Evil ugly way to modify the volume of tracks/songs. By first interpolating the tracks you want, then calling a function that updates ALL tracks
 	- Because Tween.interpolate_method only takes ONE parameter that can't be an array. Probably a better way will be available with Godot 4.0 and lambda expressions
 - The songs should be imported with a correct loop value, and in the editor, the play value of the tracks should be set clearly (i.e, when you want a track to stop after playing, put a stop value at the end, otherwise, it will loop) 
+- REFACTOR : Might be better to use the animation player animation variable instead of "ANIMATION"
 """
 
 ##### SIGNALS #####
@@ -20,7 +21,7 @@ enum bus_effects { filter }  # effect indexes in a bus
 export(NodePath) var ANIMATION_PLAYER
 export(String) var SONG_SEND_TO = "Master"  # where the song bus should send
 export(String) var ANIMATION  # Animation that should play
-export(bool) var ALLOW_RECURSIVE_INIT = false  # If it should enable the search for AudioStream recursively on init (can be usefull for organisation purposes)
+export(bool) var ALLOW_RECURSIVE_INIT = false  # If it should enable the search for AudioStream in recursive children nodes on init (can be usefull for organisation purposes) # OPTIMIZATION : make this option true by default ?
 
 #==== PRIVATE ====
 var _tracks: Dictionary = {}  # track infos
@@ -31,6 +32,9 @@ var _buses_cleared := true  # if the buses have been cleared or not
 ##### PROCESSING #####
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	FunctionUtils.log_connect(
+		get_node(ANIMATION_PLAYER), self, "animation_started", "_on_animation_started"
+	)
 	_init_tracks()
 	_init_buses()
 
@@ -339,6 +343,11 @@ func _on_parent_effect_done() -> void:
 			should_clear_buses = false
 	if should_clear_buses:
 		_clear_buses()
+
+
+# Keeps track of the AnimationPlayer's automatic transitions
+func _on_animation_started(name: String) -> void:
+	ANIMATION = name  # forces the current animation to be the real one
 
 
 ##### DEBUG #####
