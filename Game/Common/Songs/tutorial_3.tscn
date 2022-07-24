@@ -57,6 +57,65 @@ tracks/1/keys = {
 } ],
 "times": PoolRealArray( 0 )
 }
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"values": [ {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+} ]
+}
 
 [sub_resource type="Animation" id=2]
 resource_name = "part_2"
@@ -115,6 +174,65 @@ tracks/2/keys = {
 "stream": ExtResource( 5 )
 } ],
 "times": PoolRealArray( 0 )
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"values": [ {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+} ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -281,6 +399,113 @@ tracks/5/keys = {
 } ],
 "times": PoolRealArray( 0, 4, 8, 12 )
 }
+tracks/6/type = "method"
+tracks/6/path = NodePath(".")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10, 10.5, 11, 11.5, 12, 12.5, 13, 13.5, 14, 14.5, 15, 15.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"values": [ {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+} ]
+}
 
 [sub_resource type="Animation" id=4]
 resource_name = "part_4"
@@ -444,6 +669,209 @@ tracks/4/keys = {
 "stream": ExtResource( 3 )
 } ],
 "times": PoolRealArray( 0 )
+}
+tracks/5/type = "method"
+tracks/5/path = NodePath(".")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0.0214359, 0.521436, 1.02144, 1.52144, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10, 10.5, 11, 11.5, 12, 12.5, 13, 13.5, 14, 14.5, 15, 15.5, 16, 16.5, 17, 17.5, 17.9786, 18.4786, 18.9786, 19.4786, 19.9786, 20.4786, 20.9786, 21.4786, 21.9786, 22.4786, 22.9786, 23.4786, 23.9786, 24.4786, 24.9786, 25.4786, 25.9786, 26.4786, 26.9786, 27.4786, 27.9786, 28.4786, 28.9786, 29.4786, 29.9786, 30.4786, 30.9786, 31.4786 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"values": [ {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+} ]
 }
 
 [sub_resource type="Animation" id=5]
@@ -634,6 +1062,209 @@ tracks/5/keys = {
 "stream": ExtResource( 7 )
 } ],
 "times": PoolRealArray( 0, 8, 16, 24 )
+}
+tracks/6/type = "method"
+tracks/6/path = NodePath(".")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0.0214359, 0.521436, 1.02144, 1.52144, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10, 10.5, 11, 11.5, 12, 12.5, 13, 13.5, 14, 14.5, 15, 15.5, 16, 16.5, 17, 17.5, 17.9786, 18.4786, 18.9786, 19.4786, 19.9786, 20.4786, 20.9786, 21.4786, 21.9786, 22.4786, 22.9786, 23.4786, 23.9786, 24.4786, 24.9786, 25.4786, 25.9786, 26.4786, 26.9786, 27.4786, 27.9786, 28.4786, 28.9786, 29.4786, 29.9786, 30.4786, 30.9786, 31.4786 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"values": [ {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+} ]
 }
 
 [sub_resource type="Animation" id=6]
@@ -941,6 +1572,209 @@ tracks/7/keys = {
 } ],
 "times": PoolRealArray( 0, 4, 8, 12, 16, 20, 24, 28 )
 }
+tracks/8/type = "method"
+tracks/8/path = NodePath(".")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0.0214359, 0.521436, 1.02144, 1.52144, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10, 10.5, 11, 11.5, 12, 12.5, 13, 13.5, 14, 14.5, 15, 15.5, 16, 16.5, 17, 17.5, 17.9786, 18.4786, 18.9786, 19.4786, 19.9786, 20.4786, 20.9786, 21.4786, 21.9786, 22.4786, 22.9786, 23.4786, 23.9786, 24.4786, 24.9786, 25.4786, 25.9786, 26.4786, 26.9786, 27.4786, 27.9786, 28.4786, 28.9786, 29.4786, 29.9786, 30.4786, 30.9786, 31.4786 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"values": [ {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+} ]
+}
 
 [node name="Tutorial3" type="Node"]
 script = ExtResource( 1 )
@@ -1009,3 +1843,5 @@ anims/part_4 = SubResource( 4 )
 anims/part_5 = SubResource( 5 )
 anims/part_6 = SubResource( 6 )
 next/part_1 = "part_2"
+
+[node name="Node" type="Node" parent="."]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=383 format=2]
+[gd_scene load_steps=401 format=2]
 
 [ext_resource path="res://addons/qodot/src/nodes/qodot_map.gd" type="Script" id=1]
 [ext_resource path="res://Game/Common/Characters/MainCharacters/Player.tscn" type="PackedScene" id=2]
@@ -9,7 +9,6 @@
 [ext_resource path="res://Game/Common/MapElements/Checkpoint/StartPoint.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Game/Common/MapElements/BoostPads/Vertical/vertical_boost_pad.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Game/Scenes/Tutorial/Scene4/scene_4.gd" type="Script" id=9]
-[ext_resource path="res://trenchbroom/textures/scenes/tutorial3_scene/Sequencer1.tres" type="Material" id=10]
 [ext_resource path="res://trenchbroom/textures/entities/checkpoint/end_level.tres" type="Material" id=11]
 [ext_resource path="res://Game/Common/MapElements/BoostPads/Vertical/vertical_boost_area.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Game/Common/MapElements/Utils/area_enable_ability.gd" type="Script" id=13]
@@ -1341,6 +1340,15 @@ surfaces/0 = {
 [sub_resource type="ConvexPolygonShape" id=501]
 points = PoolVector3Array( -4, 32, -32, -4, -32, -32, 4, -32, -32, 4, 32, -32, -4, 32, 32, -4, -32, 32, 4, -32, 32, 4, 32, 32 )
 
+[sub_resource type="SpatialMaterial" id=627]
+flags_do_not_receive_shadows = true
+albedo_color = Color( 1, 0.745098, 0, 1 )
+emission_enabled = true
+emission = Color( 1, 0.745098, 0, 1 )
+emission_energy = 1.0
+emission_operator = 0
+emission_on_uv2 = false
+
 [sub_resource type="ArrayMesh" id=502]
 surfaces/0 = {
 "aabb": AABB( -56, -56, -56, 112, 112, 112 ),
@@ -1349,11 +1357,20 @@ surfaces/0 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 432,
-"material": ExtResource( 10 ),
+"material": SubResource( 627 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 372
 }
+
+[sub_resource type="SpatialMaterial" id=628]
+flags_do_not_receive_shadows = true
+albedo_color = Color( 0.14902, 0.682353, 0.501961, 1 )
+emission_enabled = true
+emission = Color( 0.14902, 0.682353, 0.501961, 1 )
+emission_energy = 1.0
+emission_operator = 0
+emission_on_uv2 = false
 
 [sub_resource type="ArrayMesh" id=503]
 surfaces/0 = {
@@ -1363,7 +1380,7 @@ surfaces/0 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 432,
-"material": ExtResource( 10 ),
+"material": SubResource( 628 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 372
@@ -1457,6 +1474,15 @@ points = PoolVector3Array( -17.4815, -99.1111, -87.5556, -17.4815, 100.889, -87.
 [sub_resource type="ConvexPolygonShape" id=517]
 points = PoolVector3Array( -81.4815, 100.889, -407.556, -81.4815, -99.1111, -407.556, -17.4815, -99.1111, -407.556, -17.4815, 100.889, -407.556, -81.4815, 100.889, -87.5556, -81.4815, -99.1111, -87.5556, -17.4815, -99.1111, -87.5556, -17.4815, 100.889, -87.5556 )
 
+[sub_resource type="SpatialMaterial" id=629]
+flags_do_not_receive_shadows = true
+albedo_color = Color( 0.14902, 0.682353, 0.501961, 1 )
+emission_enabled = true
+emission = Color( 0.14902, 0.682353, 0.501961, 1 )
+emission_energy = 1.0
+emission_operator = 0
+emission_on_uv2 = false
+
 [sub_resource type="ArrayMesh" id=518]
 surfaces/0 = {
 "aabb": AABB( -128, -128, -128, 256, 256, 256 ),
@@ -1465,7 +1491,7 @@ surfaces/0 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 432,
-"material": ExtResource( 10 ),
+"material": SubResource( 629 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 372
@@ -1522,6 +1548,15 @@ surfaces/0 = {
 [sub_resource type="ConvexPolygonShape" id=524]
 points = PoolVector3Array( -72, 8, -72, -72, -8, -72, 72, -8, -72, 72, 8, -72, -72, 8, 72, -72, -8, 72, 72, -8, 72, 72, 8, 72 )
 
+[sub_resource type="SpatialMaterial" id=630]
+flags_do_not_receive_shadows = true
+albedo_color = Color( 0.14902, 0.682353, 0.501961, 1 )
+emission_enabled = true
+emission = Color( 0.14902, 0.682353, 0.501961, 1 )
+emission_energy = 1.0
+emission_operator = 0
+emission_on_uv2 = false
+
 [sub_resource type="ArrayMesh" id=525]
 surfaces/0 = {
 "aabb": AABB( -872, -802, -176, 1744, 1616, 352 ),
@@ -1530,11 +1565,20 @@ surfaces/0 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 72,
-"material": ExtResource( 10 ),
+"material": SubResource( 630 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 48
 }
+
+[sub_resource type="SpatialMaterial" id=631]
+flags_do_not_receive_shadows = true
+albedo_color = Color( 0.4, 0.701961, 0.352941, 1 )
+emission_enabled = true
+emission = Color( 0.4, 0.701961, 0.352941, 1 )
+emission_energy = 1.0
+emission_operator = 0
+emission_on_uv2 = false
 
 [sub_resource type="ArrayMesh" id=526]
 surfaces/0 = {
@@ -1544,11 +1588,20 @@ surfaces/0 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 72,
-"material": ExtResource( 10 ),
+"material": SubResource( 631 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 48
 }
+
+[sub_resource type="SpatialMaterial" id=632]
+flags_do_not_receive_shadows = true
+albedo_color = Color( 0.717647, 0.713726, 0.176471, 1 )
+emission_enabled = true
+emission = Color( 0.717647, 0.713726, 0.176471, 1 )
+emission_energy = 1.0
+emission_operator = 0
+emission_on_uv2 = false
 
 [sub_resource type="ArrayMesh" id=527]
 surfaces/0 = {
@@ -1558,11 +1611,20 @@ surfaces/0 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 72,
-"material": ExtResource( 10 ),
+"material": SubResource( 632 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 48
 }
+
+[sub_resource type="SpatialMaterial" id=633]
+flags_do_not_receive_shadows = true
+albedo_color = Color( 1, 0.745098, 0, 1 )
+emission_enabled = true
+emission = Color( 1, 0.745098, 0, 1 )
+emission_energy = 1.0
+emission_operator = 0
+emission_on_uv2 = false
 
 [sub_resource type="ArrayMesh" id=528]
 surfaces/0 = {
@@ -1572,11 +1634,20 @@ surfaces/0 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 72,
-"material": ExtResource( 10 ),
+"material": SubResource( 633 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 48
 }
+
+[sub_resource type="SpatialMaterial" id=634]
+flags_do_not_receive_shadows = true
+albedo_color = Color( 0.14902, 0.682353, 0.501961, 1 )
+emission_enabled = true
+emission = Color( 0.14902, 0.682353, 0.501961, 1 )
+emission_energy = 1.0
+emission_operator = 0
+emission_on_uv2 = false
 
 [sub_resource type="ArrayMesh" id=529]
 surfaces/0 = {
@@ -1586,11 +1657,20 @@ surfaces/0 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 36,
-"material": ExtResource( 10 ),
+"material": SubResource( 634 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 24
 }
+
+[sub_resource type="SpatialMaterial" id=635]
+flags_do_not_receive_shadows = true
+albedo_color = Color( 0.14902, 0.682353, 0.501961, 1 )
+emission_enabled = true
+emission = Color( 0.14902, 0.682353, 0.501961, 1 )
+emission_energy = 1.0
+emission_operator = 0
+emission_on_uv2 = false
 
 [sub_resource type="ArrayMesh" id=530]
 surfaces/0 = {
@@ -1600,11 +1680,20 @@ surfaces/0 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 36,
-"material": ExtResource( 10 ),
+"material": SubResource( 635 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 24
 }
+
+[sub_resource type="SpatialMaterial" id=636]
+flags_do_not_receive_shadows = true
+albedo_color = Color( 0.14902, 0.682353, 0.501961, 1 )
+emission_enabled = true
+emission = Color( 0.14902, 0.682353, 0.501961, 1 )
+emission_energy = 1.0
+emission_operator = 0
+emission_on_uv2 = false
 
 [sub_resource type="ArrayMesh" id=531]
 surfaces/0 = {
@@ -1614,11 +1703,20 @@ surfaces/0 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 36,
-"material": ExtResource( 10 ),
+"material": SubResource( 636 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 24
 }
+
+[sub_resource type="SpatialMaterial" id=637]
+flags_do_not_receive_shadows = true
+albedo_color = Color( 0.14902, 0.682353, 0.501961, 1 )
+emission_enabled = true
+emission = Color( 0.14902, 0.682353, 0.501961, 1 )
+emission_energy = 1.0
+emission_operator = 0
+emission_on_uv2 = false
 
 [sub_resource type="ArrayMesh" id=532]
 surfaces/0 = {
@@ -1628,11 +1726,20 @@ surfaces/0 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 72,
-"material": ExtResource( 10 ),
+"material": SubResource( 637 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 48
 }
+
+[sub_resource type="SpatialMaterial" id=638]
+flags_do_not_receive_shadows = true
+albedo_color = Color( 0.4, 0.701961, 0.352941, 1 )
+emission_enabled = true
+emission = Color( 0.4, 0.701961, 0.352941, 1 )
+emission_energy = 1.0
+emission_operator = 0
+emission_on_uv2 = false
 
 [sub_resource type="ArrayMesh" id=533]
 surfaces/0 = {
@@ -1642,11 +1749,20 @@ surfaces/0 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 72,
-"material": ExtResource( 10 ),
+"material": SubResource( 638 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 48
 }
+
+[sub_resource type="SpatialMaterial" id=639]
+flags_do_not_receive_shadows = true
+albedo_color = Color( 0.717647, 0.713726, 0.176471, 1 )
+emission_enabled = true
+emission = Color( 0.717647, 0.713726, 0.176471, 1 )
+emission_energy = 1.0
+emission_operator = 0
+emission_on_uv2 = false
 
 [sub_resource type="ArrayMesh" id=534]
 surfaces/0 = {
@@ -1656,11 +1772,20 @@ surfaces/0 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 72,
-"material": ExtResource( 10 ),
+"material": SubResource( 639 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 48
 }
+
+[sub_resource type="SpatialMaterial" id=640]
+flags_do_not_receive_shadows = true
+albedo_color = Color( 1, 0.745098, 0, 1 )
+emission_enabled = true
+emission = Color( 1, 0.745098, 0, 1 )
+emission_energy = 1.0
+emission_operator = 0
+emission_on_uv2 = false
 
 [sub_resource type="ArrayMesh" id=535]
 surfaces/0 = {
@@ -1670,11 +1795,20 @@ surfaces/0 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 72,
-"material": ExtResource( 10 ),
+"material": SubResource( 640 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 48
 }
+
+[sub_resource type="SpatialMaterial" id=641]
+flags_do_not_receive_shadows = true
+albedo_color = Color( 1, 0.745098, 0, 1 )
+emission_enabled = true
+emission = Color( 1, 0.745098, 0, 1 )
+emission_energy = 1.0
+emission_operator = 0
+emission_on_uv2 = false
 
 [sub_resource type="ArrayMesh" id=536]
 surfaces/0 = {
@@ -1684,11 +1818,20 @@ surfaces/0 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 432,
-"material": ExtResource( 10 ),
+"material": SubResource( 641 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 372
 }
+
+[sub_resource type="SpatialMaterial" id=642]
+flags_do_not_receive_shadows = true
+albedo_color = Color( 1, 0.745098, 0, 1 )
+emission_enabled = true
+emission = Color( 1, 0.745098, 0, 1 )
+emission_energy = 1.0
+emission_operator = 0
+emission_on_uv2 = false
 
 [sub_resource type="ArrayMesh" id=537]
 surfaces/0 = {
@@ -1698,11 +1841,20 @@ surfaces/0 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 432,
-"material": ExtResource( 10 ),
+"material": SubResource( 642 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 372
 }
+
+[sub_resource type="SpatialMaterial" id=643]
+flags_do_not_receive_shadows = true
+albedo_color = Color( 0.14902, 0.682353, 0.501961, 1 )
+emission_enabled = true
+emission = Color( 0.14902, 0.682353, 0.501961, 1 )
+emission_energy = 1.0
+emission_operator = 0
+emission_on_uv2 = false
 
 [sub_resource type="ArrayMesh" id=538]
 surfaces/0 = {
@@ -1712,11 +1864,20 @@ surfaces/0 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 432,
-"material": ExtResource( 10 ),
+"material": SubResource( 643 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 372
 }
+
+[sub_resource type="SpatialMaterial" id=644]
+flags_do_not_receive_shadows = true
+albedo_color = Color( 0.14902, 0.682353, 0.501961, 1 )
+emission_enabled = true
+emission = Color( 0.14902, 0.682353, 0.501961, 1 )
+emission_energy = 1.0
+emission_operator = 0
+emission_on_uv2 = false
 
 [sub_resource type="ArrayMesh" id=539]
 surfaces/0 = {
@@ -1726,7 +1887,7 @@ surfaces/0 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 432,
-"material": ExtResource( 10 ),
+"material": SubResource( 644 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 372
@@ -2362,6 +2523,15 @@ surfaces/0 = {
 [sub_resource type="ConvexPolygonShape" id=617]
 points = PoolVector3Array( -128, 936, -152, -128, -936, -152, 128, -936, -152, 128, 936, -152, -128, 936, 152, -128, -936, 152, 128, -936, 152, 128, 936, 152 )
 
+[sub_resource type="SpatialMaterial" id=645]
+flags_do_not_receive_shadows = true
+albedo_color = Color( 0.14902, 0.682353, 0.501961, 1 )
+emission_enabled = true
+emission = Color( 0.14902, 0.682353, 0.501961, 1 )
+emission_energy = 1.0
+emission_operator = 0
+emission_on_uv2 = false
+
 [sub_resource type="ArrayMesh" id=618]
 surfaces/0 = {
 "aabb": AABB( -188, -188, -188, 376, 376, 376 ),
@@ -2370,7 +2540,7 @@ surfaces/0 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 432,
-"material": ExtResource( 10 ),
+"material": SubResource( 645 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 372
@@ -2480,7 +2650,6 @@ omni_attenuation = 0.406126
 
 [node name="KickTimer" type="Timer" parent="AdditionalThings/Timers"]
 wait_time = 0.5
-autostart = true
 
 [node name="Particles" type="Node" parent="AdditionalThings"]
 
@@ -3687,7 +3856,7 @@ material/0 = null
 shape = SubResource( 501 )
 
 [node name="entity_43_boost_area_vertical" parent="QodotMap" instance=ExtResource( 12 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 528, -736 )
+transform = Transform( -7.5904e-09, 4.30473e-08, 1, 0.984808, 0.173648, 0, -0.173648, 0.984808, -4.37114e-08, 0, 528, -736 )
 properties = {
 "angle": Vector3( 0, 90, 80 ),
 "classname": "boost_area_vertical",
@@ -3709,7 +3878,7 @@ properties = {
 }
 
 [node name="entity_45_boost_area_vertical" parent="QodotMap" instance=ExtResource( 12 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 544, 512, -1216 )
+transform = Transform( 0.173648, -0.984808, 0, 0.984808, 0.173648, 0, 0, 0, 1, 544, 512, -1216 )
 properties = {
 "angle": Vector3( 0, 0, 80 ),
 "classname": "boost_area_vertical",
@@ -3720,7 +3889,7 @@ properties = {
 }
 
 [node name="entity_46_boost_pad_vertical" parent="QodotMap" instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 974, 434, 5250 )
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 974, 434, 5250 )
 properties = {
 "angle": Vector3( 0, 90, 0 ),
 "classname": "boost_pad_vertical",
@@ -3753,7 +3922,7 @@ properties = {
 }
 
 [node name="entity_49_boost_pad_vertical" parent="QodotMap" instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1614, 226, 5250 )
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1614, 226, 5250 )
 properties = {
 "angle": Vector3( 0, 90, 0 ),
 "classname": "boost_pad_vertical",
@@ -3823,7 +3992,7 @@ properties = {
 }
 
 [node name="entity_55_boost_pad_vertical" parent="QodotMap" instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 526, -70, -3040 )
+transform = Transform( 0.866025, -0.5, 0, 0.5, 0.866025, 0, 0, 0, 1, 526, -70, -3040 )
 properties = {
 "angle": Vector3( 0, 0, 30 ),
 "classname": "boost_pad_vertical",
@@ -3852,7 +4021,7 @@ properties = {
 }
 
 [node name="entity_58_RotateSpatialSequencerSolid" type="Spatial" parent="QodotMap"]
-transform = Transform( 0.999955, -0.00166585, 0.00913488, 0.00173522, 0.999965, -0.0076055, -0.00912087, 0.0076209, 0.999926, 1024, 40, -656 )
+transform = Transform( 0.897027, 0.252048, 0.362651, -0.387607, 0.842855, 0.372818, -0.211662, -0.475079, 0.85389, 1024, 40, -656 )
 script = ExtResource( 16 )
 properties = {
 "albedo": Color( 1, 0.745098, 0, 1 ),
@@ -3873,7 +4042,7 @@ mesh = SubResource( 502 )
 material/0 = null
 
 [node name="entity_59_RotateSpatialSequencerSolid" type="Spatial" parent="QodotMap"]
-transform = Transform( 0.577391, 0.735052, 0.355399, -0.438945, -0.0875672, 0.894232, 0.688433, -0.672324, 0.272088, 1024, 40, -656 )
+transform = Transform( 0.362398, 0.587825, 0.723075, -0.159032, -0.725383, 0.669432, 0.918198, -0.357624, -0.169355, 1024, 40, -656 )
 script = ExtResource( 16 )
 properties = {
 "albedo": Color( 0.14902, 0.682353, 0.501961, 1 ),
@@ -3962,7 +4131,7 @@ shape = SubResource( 516 )
 shape = SubResource( 517 )
 
 [node name="entity_62_RotateSpatialSequencerSolid" type="Spatial" parent="QodotMap"]
-transform = Transform( 0.734432, -0.146982, -0.662571, 0.596731, 0.604895, 0.527264, 0.323291, -0.782619, 0.531963, -768, 760, -1520 )
+transform = Transform( 0.592122, 0.758092, 0.272977, -0.152442, 0.438002, -0.885885, -0.791208, 0.483014, 0.37494, -768, 760, -1520 )
 script = ExtResource( 16 )
 properties = {
 "albedo": Color( 0.14902, 0.682353, 0.501961, 1 ),
@@ -4282,7 +4451,7 @@ mesh = SubResource( 535 )
 material/0 = null
 
 [node name="entity_78_RotateSpatialSequencerSolid" type="Spatial" parent="QodotMap"]
-transform = Transform( 0.992357, 0.0831355, -0.0911421, -0.0604842, 0.971805, 0.227875, 0.107519, -0.220621, 0.969411, -1000, -136, 1312 )
+transform = Transform( 0.902557, -0.0827149, 0.421756, 0.355332, 0.695511, -0.623922, -0.241782, 0.713217, 0.657353, -1000, -136, 1312 )
 script = ExtResource( 16 )
 properties = {
 "albedo": Color( 1, 0.745098, 0, 1 ),
@@ -4303,7 +4472,7 @@ mesh = SubResource( 536 )
 material/0 = null
 
 [node name="entity_79_RotateSpatialSequencerSolid" type="Spatial" parent="QodotMap"]
-transform = Transform( 0.667047, 0.693305, -0.272698, -0.579165, 0.252333, -0.775167, -0.468619, 0.675013, 0.56986, 2560, 1112, 2812 )
+transform = Transform( 0.163078, -0.136297, -0.976683, 0.456794, -0.8669, 0.197257, -0.873971, -0.478541, -0.0791595, 2560, 1112, 2812 )
 script = ExtResource( 16 )
 properties = {
 "albedo": Color( 1, 0.745098, 0, 1 ),
@@ -4324,7 +4493,7 @@ mesh = SubResource( 537 )
 material/0 = null
 
 [node name="entity_80_RotateSpatialSequencerSolid" type="Spatial" parent="QodotMap"]
-transform = Transform( -0.0328001, 0.436811, -0.898951, -0.917565, -0.369728, -0.146176, -0.396222, 0.820053, 0.412932, 24, 1632, 6512 )
+transform = Transform( 0.315263, 0.605017, -0.730984, -0.934656, 0.0651321, -0.349186, -0.163702, 0.793395, 0.586107, 24, 1632, 6512 )
 script = ExtResource( 16 )
 properties = {
 "albedo": Color( 0.14902, 0.682353, 0.501961, 1 ),
@@ -4345,7 +4514,7 @@ mesh = SubResource( 538 )
 material/0 = null
 
 [node name="entity_81_RotateSpatialSequencerSolid" type="Spatial" parent="QodotMap"]
-transform = Transform( 0.997681, -0.0394762, 0.0553557, 0.0315142, 0.98993, 0.137959, -0.0602446, -0.135895, 0.988884, 276, 608, -1600 )
+transform = Transform( 0.880584, -0.421215, 0.215566, 0.0406774, 0.521197, 0.852036, -0.471417, -0.741754, 0.47625, 276, 608, -1600 )
 script = ExtResource( 16 )
 properties = {
 "albedo": Color( 0.14902, 0.682353, 0.501961, 1 ),
@@ -5032,7 +5201,7 @@ material/0 = null
 shape = SubResource( 617 )
 
 [node name="entity_118_RotateSpatialSequencerSolid" type="Spatial" parent="QodotMap"]
-transform = Transform( 0.0558302, 0.991706, -0.115728, -0.359739, 0.128103, 0.924212, 0.931376, -0.00996738, 0.363909, -4, -784, -992 )
+transform = Transform( -0.474093, 0.658187, 0.584473, 0.432962, -0.403641, 0.805731, 0.766402, 0.635173, -0.0936457, -4, -784, -992 )
 script = ExtResource( 16 )
 properties = {
 "albedo": Color( 0.14902, 0.682353, 0.501961, 1 ),
