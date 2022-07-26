@@ -318,25 +318,30 @@ func _reset_bus(name: String) -> void:
 func _on_parent_effect_done() -> void:
 	if ANIMATION != _update_track_infos.animation:
 		var common_track_name = _get_same_track(_update_track_infos.animation)
-		var animation_time = _get_animation_time_from_track_time(
-			_update_track_infos.animation, common_track_name
-		)  # global time in the animation, depending on the common track
-		if _update_track_infos.fade_out.size() > 0:
-			var to_stop: Array = _update_track_infos.fade_out.pop_front()
-			if to_stop.has(name):  # stop all the tracks
-				for track in _tracks.keys():
-					if track != name:
+		if common_track_name != null:
+			var animation_time = _get_animation_time_from_track_time(
+				_update_track_infos.animation, common_track_name
+			)  # global time in the animation, depending on the common track
+			if _update_track_infos.fade_out.size() > 0:
+				var to_stop: Array = _update_track_infos.fade_out.pop_front()
+				if to_stop.has(name):  # stop all the tracks
+					for track in _tracks.keys():
+						if track != name:
+							_reset_bus(_tracks[track].bus)
+							_tracks[track].volume = 0.0
+					_reset_bus(_tracks[name].bus)  # Resets the global song bus
+					_tracks[name].volume = 0.0
+				else:
+					for track in to_stop:
 						_reset_bus(_tracks[track].bus)
 						_tracks[track].volume = 0.0
-				_reset_bus(_tracks[name].bus)  # Resets the global song bus
-				_tracks[name].volume = 0.0
-			else:
-				for track in to_stop:
-					_reset_bus(_tracks[track].bus)
-					_tracks[track].volume = 0.0
-		ANIMATION = _update_track_infos.animation
-		get_node(ANIMATION_PLAYER).play(_update_track_infos.animation)
-		get_node(ANIMATION_PLAYER).seek(animation_time)
+			ANIMATION = _update_track_infos.animation
+			get_node(ANIMATION_PLAYER).play(_update_track_infos.animation)
+			get_node(ANIMATION_PLAYER).seek(animation_time)
+		else:
+			Logger.warn(
+				"Pas de piste en commun entre %s et %s" % [ANIMATION, _update_track_infos.animation]
+			)
 	var should_clear_buses = true
 	for track in get_children():
 		if track is AudioStreamPlayer and track.playing:  # not everything is stopped

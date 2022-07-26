@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: c.lemetayer@laposte.net\n"
 "POT-Creation-Date: 2021-12-19\n"
-"PO-Revision-Date: 2022-05-05\n"
+"PO-Revision-Date: 2022-07-25\n"
 "Last-Translator: Corentin Le Métayer <c.lemetayer@laposte.net>\n"
 "Language: fr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -72,3 +72,16 @@ msgstr "##movement_jump## pendant une glissade pour faire un saut accéléré."
 
 msgid "tutorial_wall_ride_1"
 msgstr "##movement_slide## pour wallride\n##movement_jump## en wallride pour sauter."
+
+msgid "tutorial_rockets_1"
+msgstr "##shoot## pour ##rocket_icon##"
+
+msgid "tutorial_rockets_2"
+msgstr "##rocket_icon## aux pieds pour ##rocket_jump_icon##"
+
+msgid "tutorial_rockets_3"
+msgstr "##rocket_jump_icon## sur le mur pour escalader"
+
+msgid "tutorial_rockets_4"
+msgstr "##rocket_icon## + ##boost_pad## = ##boost_pad_enhanced##"
+ 

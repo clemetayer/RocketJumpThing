@@ -624,12 +624,12 @@
 "collision_mask" "5"
 // brush 0
 {
-( 2368 -56 -128 ) ( 2368 56 -224 ) ( 2368 56 -128 ) common/material_override/Transparent [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 2432 -56 -128 ) ( 2368 -56 -224 ) ( 2368 -56 -128 ) common/material_override/Transparent [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 2432 56 -224 ) ( 2368 -56 -224 ) ( 2432 -56 -224 ) common/material_override/Transparent [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( 2432 56 -112 ) ( 2368 -56 -112 ) ( 2368 56 -112 ) common/material_override/Transparent [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( 2432 56 -128 ) ( 2368 56 -224 ) ( 2432 56 -224 ) common/material_override/Transparent [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 2432 56 -128 ) ( 2432 -56 -224 ) ( 2432 -56 -128 ) common/material_override/Transparent [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -1008 -24 528 ) ( -1008 88 432 ) ( -1008 88 528 ) common/material_override/Transparent [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -976 -24 528 ) ( -1040 -24 432 ) ( -1040 -24 528 ) common/material_override/Transparent [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -976 88 352 ) ( -1040 -24 352 ) ( -976 -24 352 ) common/material_override/Transparent [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -976 88 672 ) ( -1040 -24 672 ) ( -1040 88 672 ) common/material_override/Transparent [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -976 208 528 ) ( -1040 208 432 ) ( -976 208 432 ) common/material_override/Transparent [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -976 88 528 ) ( -976 -24 432 ) ( -976 -24 528 ) common/material_override/Transparent [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
 // entity 9
@@ -4684,5 +4684,77 @@
 ( 2856 -16 -48 ) ( 2864 -80 -48 ) ( 2856 -80 -48 ) common/material_override/Transparent [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
 ( 2856 64 8 ) ( 2864 64 -48 ) ( 2864 64 8 ) common/material_override/Transparent [ 1 2.220446049250313e-16 0 0 ] [ 0 0 -1 0 ] 0 1 1
 ( 2880 -16 8 ) ( 2880 -80 -48 ) ( 2880 -80 8 ) common/material_override/Transparent [ 2.220446049250313e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+}
+// entity 123
+{
+"classname" "TutorialTrigger"
+"animation" "part_4"
+"collision_layer" "2"
+"collision_mask" "5"
+"key" "tutorial_rockets_1"
+"time" "0.75"
+// brush 0
+{
+( -984 32 552 ) ( -984 -32 496 ) ( -984 32 496 ) common/material_override/Transparent [ -2.220446049250313e-16 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -976 -32 552 ) ( -984 -32 496 ) ( -984 -32 552 ) common/material_override/Transparent [ -1 -2.220446049250313e-16 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -984 32 352 ) ( -976 -32 352 ) ( -976 32 352 ) common/material_override/Transparent [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -984 32 672 ) ( -976 -32 672 ) ( -984 -32 672 ) common/material_override/Transparent [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -984 208 552 ) ( -976 208 496 ) ( -976 208 552 ) common/material_override/Transparent [ 1 2.220446049250313e-16 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -944 32 552 ) ( -944 -32 496 ) ( -944 -32 552 ) common/material_override/Transparent [ 2.220446049250313e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+}
+// entity 124
+{
+"classname" "TutorialTrigger"
+"animation" "part_4"
+"collision_layer" "2"
+"collision_mask" "5"
+"key" "tutorial_rockets_2"
+"time" "0.75"
+// brush 0
+{
+( 2576 -48 -40 ) ( 2576 -112 -96 ) ( 2576 -48 -96 ) common/material_override/Transparent [ -2.220446049250313e-16 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 2560 -64 -40 ) ( 2552 -64 -96 ) ( 2552 -64 -40 ) common/material_override/Transparent [ -1 -2.220446049250313e-16 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 2552 -48 -224 ) ( 2560 -112 -224 ) ( 2560 -48 -224 ) common/material_override/Transparent [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 2552 -48 -128 ) ( 2560 -112 -128 ) ( 2552 -112 -128 ) common/material_override/Transparent [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 2552 64 -40 ) ( 2560 64 -96 ) ( 2560 64 -40 ) common/material_override/Transparent [ 1 2.220446049250313e-16 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 2592 -48 -40 ) ( 2592 -112 -96 ) ( 2592 -112 -40 ) common/material_override/Transparent [ 2.220446049250313e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+}
+// entity 125
+{
+"classname" "TutorialTrigger"
+"animation" "part_4"
+"collision_layer" "2"
+"collision_mask" "5"
+"key" "tutorial_rockets_3"
+"time" "1"
+// brush 0
+{
+( 4384 2272 200 ) ( 4384 2208 144 ) ( 4384 2272 144 ) common/material_override/Transparent [ -2.220446049250313e-16 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 4368 2272 200 ) ( 4360 2272 144 ) ( 4360 2272 200 ) common/material_override/Transparent [ -1 -2.220446049250313e-16 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 4360 2272 16 ) ( 4368 2208 16 ) ( 4368 2272 16 ) common/material_override/Transparent [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 4360 2272 112 ) ( 4368 2208 112 ) ( 4360 2208 112 ) common/material_override/Transparent [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 4360 2384 200 ) ( 4368 2384 144 ) ( 4368 2384 200 ) common/material_override/Transparent [ 1 2.220446049250313e-16 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 4400 2272 200 ) ( 4400 2208 144 ) ( 4400 2208 200 ) common/material_override/Transparent [ 2.220446049250313e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+}
+// entity 126
+{
+"classname" "TutorialTrigger"
+"animation" "part_4"
+"collision_layer" "2"
+"collision_mask" "5"
+"key" "tutorial_rockets_4"
+"time" "1"
+// brush 0
+{
+( 5184 1832 408 ) ( 5184 1840 352 ) ( 5184 1840 408 ) common/material_override/Transparent [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 5312 1856 408 ) ( 5376 1856 352 ) ( 5312 1856 352 ) common/material_override/Transparent [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 5312 1832 224 ) ( 5376 1840 224 ) ( 5312 1840 224 ) common/material_override/Transparent [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 5312 1832 352 ) ( 5376 1840 352 ) ( 5376 1832 352 ) common/material_override/Transparent [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 5312 1872 408 ) ( 5376 1872 352 ) ( 5376 1872 408 ) common/material_override/Transparent [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 5312 1840 408 ) ( 5312 1832 352 ) ( 5312 1832 408 ) common/material_override/Transparent [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }

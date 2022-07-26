@@ -1,6 +1,8 @@
 extends CanvasLayer
 # Script to prompt tutorial messages to the player
 
+# REFACTOR : maybe improve this with a dictionary containing everything, and more generic methods
+
 ##### VARIABLES #####
 #---- CONSTANTS -----
 const ENGINE_SLOW_DOWN_AMOUNT = 0.125  # How much the engine will slow down to display the tutorial
@@ -16,14 +18,24 @@ const REPLACE_STRING := [  # substrings that can be replaced in texts
 	"##mouse_strafe_right##",
 	"##mouse_strafe_left_right##",
 	"##restart##",
-	"##restart_last_cp##"
+	"##restart_last_cp##",
+	"##shoot##",
+	"##rocket_icon##",
+	"##rocket_jump_icon##",
+	"##boost_pad##",
+	"##boost_pad_enhanced##"
 ]
 const PATHS = {
 	"wasd_elements_path": "res://Misc/UI/Icons/wasd_element.tscn",
 	"single_key_path": "res://Misc/UI/Icons/single_key.tscn",
+	"enhanced_boost_pad": "res://Misc/UI/Icons/enhanced_boost_pad.tscn",
 	"mouse_icon_path": "res://Misc/UI/Icons/Kenney/mouse.png",
 	"l_arrow_icon_path": "res://Misc/UI/Icons/Kenney/arrowLeft.png",
-	"r_arrow_icon_path": "res://Misc/UI/Icons/Kenney/arrowRight.png"
+	"r_arrow_icon_path": "res://Misc/UI/Icons/Kenney/arrowRight.png",
+	"shoot": "res://Misc/UI/Icons/Kenney/mouse_l_click.png",
+	"rocket": "res://Misc/UI/Icons/Kenney/rocket.png",
+	"rocket_jump": "res://Misc/UI/Icons/Kenney/rocket_jump.png",
+	"boost_pad": "res://Misc/UI/Icons/Kenney/boost_pad.png",
 }
 
 
@@ -142,6 +154,27 @@ func _handle_str_part(part: String):
 				wasd_element_scene.emphase_keys = {"W": true, "A": true, "S": true, "D": true}
 		wasd_element_scene.set_emphasis()
 		return wasd_element_scene
+	if (
+		part == "shoot"
+		or part == "rocket_icon"
+		or part == "rocket_jump_icon"
+		or part == "boost_pad"
+	):
+		match part:
+			"shoot":
+				return _create_texture_rect_from_path(PATHS.shoot)
+			"rocket_icon":
+				return _create_texture_rect_from_path(PATHS.rocket)
+			"rocket_jump_icon":
+				return _create_texture_rect_from_path(PATHS.rocket_jump)
+			"boost_pad":
+				return _create_texture_rect_from_path(PATHS.boost_pad)
+	if part == "boost_pad_enhanced":
+		var vbox := VBoxContainer.new()
+		match part:
+			"boost_pad_enhanced":  # TODO : Ajouter un center container
+				return load(PATHS.enhanced_boost_pad).instance()
+		return vbox
 	if (
 		part == "mouse_strafe_left"
 		or part == "mouse_strafe_right"
