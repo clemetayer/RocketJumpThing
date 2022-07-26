@@ -4566,6 +4566,7 @@ PATHS = {
 }
 ENABLE_ROCKETS = false
 ENABLE_SLIDE = false
+NEXT_SCENE_PATH = "res://Game/Scenes/Tutorial/Scene4/scene_4.tscn"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource( 36 )

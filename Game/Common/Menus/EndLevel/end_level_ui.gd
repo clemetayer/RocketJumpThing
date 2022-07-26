@@ -26,6 +26,7 @@ func _ready():
 
 ##### PUBLIC METHODS #####
 func set_next_scene(next_scene_path: String) -> void:
+	get_node(_paths.next_scene_button).disabled = (next_scene_path == null or next_scene_path == "")
 	_paths.next_scene = next_scene_path
 
 

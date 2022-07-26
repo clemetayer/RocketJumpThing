@@ -3921,7 +3921,7 @@ properties = {
 }
 
 [node name="entity_58_RotateSpatialSequencerSolid" type="Spatial" parent="QodotMap"]
-transform = Transform( 0.833455, -0.531003, -0.152928, 0.242366, 0.599987, -0.762413, 0.496599, 0.598372, 0.62876, 1024, 40, -656 )
+transform = Transform( 0.935966, 0.213962, 0.279776, -0.315319, 0.863015, 0.39474, -0.156944, -0.457673, 0.875184, 1024, 40, -656 )
 script = ExtResource( 16 )
 properties = {
 "albedo": Color( 1, 0.745098, 0, 1 ),
@@ -3942,7 +3942,7 @@ mesh = SubResource( 502 )
 material/0 = null
 
 [node name="entity_59_RotateSpatialSequencerSolid" type="Spatial" parent="QodotMap"]
-transform = Transform( 0.732903, 0.657197, 0.175909, -0.472037, 0.30502, 0.827128, 0.489931, -0.689241, 0.533772, 1024, 40, -656 )
+transform = Transform( 0.998791, 0.00666355, -0.0513688, -0.00507794, 0.999625, 0.0306376, 0.0515974, -0.0303254, 0.998333, 1024, 40, -656 )
 script = ExtResource( 16 )
 properties = {
 "albedo": Color( 0.14902, 0.682353, 0.501961, 1 ),
@@ -4031,7 +4031,7 @@ shape = SubResource( 516 )
 shape = SubResource( 517 )
 
 [node name="entity_62_RotateSpatialSequencerSolid" type="Spatial" parent="QodotMap"]
-transform = Transform( 0.850773, 0.435788, 0.293724, -0.180563, 0.767274, -0.615376, -0.493541, 0.470509, 0.731463, -768, 760, -1520 )
+transform = Transform( 0.657579, -0.117606, -0.744278, 0.690513, 0.48947, 0.532732, 0.301617, -0.864172, 0.403036, -768, 760, -1520 )
 script = ExtResource( 16 )
 properties = {
 "albedo": Color( 0.14902, 0.682353, 0.501961, 1 ),
@@ -4351,7 +4351,7 @@ mesh = SubResource( 535 )
 material/0 = null
 
 [node name="entity_78_RotateSpatialSequencerSolid" type="Spatial" parent="QodotMap"]
-transform = Transform( 0.875314, 0.417375, -0.244175, -0.0528549, 0.584516, 0.809658, 0.480656, -0.695799, 0.533696, -1000, -136, 1312 )
+transform = Transform( 0.997066, 0.0473009, -0.0578095, -0.0376315, 0.986542, 0.158216, 0.0645232, -0.155599, 0.985571, -1000, -136, 1312 )
 script = ExtResource( 16 )
 properties = {
 "albedo": Color( 1, 0.745098, 0, 1 ),
@@ -4372,7 +4372,7 @@ mesh = SubResource( 536 )
 material/0 = null
 
 [node name="entity_79_RotateSpatialSequencerSolid" type="Spatial" parent="QodotMap"]
-transform = Transform( 0.711224, 0.664559, -0.229171, -0.566718, 0.349167, -0.746264, -0.415919, 0.660637, 0.624955, 2560, 1112, 2812 )
+transform = Transform( 0.298462, 0.693525, -0.655443, -0.51898, -0.458339, -0.721288, -0.800769, 0.555544, 0.223153, 2560, 1112, 2812 )
 script = ExtResource( 16 )
 properties = {
 "albedo": Color( 1, 0.745098, 0, 1 ),
@@ -4393,7 +4393,7 @@ mesh = SubResource( 537 )
 material/0 = null
 
 [node name="entity_80_RotateSpatialSequencerSolid" type="Spatial" parent="QodotMap"]
-transform = Transform( 0.471433, 0.627699, -0.61947, -0.880743, 0.299116, -0.367179, -0.0451849, 0.718695, 0.693855, 24, 1632, 6512 )
+transform = Transform( -0.161712, 0.391855, -0.905895, -0.868402, -0.492787, -0.0581473, -0.469115, 0.777141, 0.419892, 24, 1632, 6512 )
 script = ExtResource( 16 )
 properties = {
 "albedo": Color( 0.14902, 0.682353, 0.501961, 1 ),
@@ -4414,7 +4414,7 @@ mesh = SubResource( 538 )
 material/0 = null
 
 [node name="entity_81_RotateSpatialSequencerSolid" type="Spatial" parent="QodotMap"]
-transform = Transform( 0.89022, -0.360701, 0.278211, -0.00636896, 0.600827, 0.799353, -0.455484, -0.713372, 0.532571, 276, 608, -1600 )
+transform = Transform( 0.667184, -0.361396, -0.651206, -0.742279, -0.251268, -0.621029, 0.0608103, 0.897804, -0.435937, 276, 608, -1600 )
 script = ExtResource( 16 )
 properties = {
 "albedo": Color( 0.14902, 0.682353, 0.501961, 1 ),
@@ -5101,7 +5101,7 @@ material/0 = null
 shape = SubResource( 617 )
 
 [node name="entity_118_RotateSpatialSequencerSolid" type="Spatial" parent="QodotMap"]
-transform = Transform( 0.131558, -0.359365, 0.923877, 0.976057, 0.209805, -0.0573793, -0.173213, 0.909306, 0.378362, -4, -784, -992 )
+transform = Transform( 0.188059, 0.972301, -0.139348, -0.47487, 0.214193, 0.853678, 0.859812, -0.094363, 0.501957, -4, -784, -992 )
 script = ExtResource( 16 )
 properties = {
 "albedo": Color( 0.14902, 0.682353, 0.501961, 1 ),
