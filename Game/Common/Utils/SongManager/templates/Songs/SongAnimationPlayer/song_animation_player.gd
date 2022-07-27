@@ -39,6 +39,13 @@ func _ready():
 	_init_buses()
 
 
+# COMMENT IF YOU DON'T CHANGE Engine.time_scale
+func _process(_delta):
+	var anim_player = get_node(ANIMATION_PLAYER)
+	if anim_player.is_playing():
+		anim_player.playback_speed = 1.0 / Engine.time_scale  # HACK : when using a slowmotion effect, to avoid having the animation be slowed down too
+
+
 ##### PUBLIC METHODS #####
 # plays the song, returns an array to give to the EffectManager as a parameter
 func play() -> Array:
