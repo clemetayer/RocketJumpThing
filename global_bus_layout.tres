@@ -1,7 +1,15 @@
-[gd_resource type="AudioBusLayout" format=2]
+[gd_resource type="AudioBusLayout" load_steps=2 format=2]
+
+[sub_resource type="AudioEffectFilter" id=1]
+resource_name = "Filter"
+cutoff_hz = 1.0
+gain = 0.0
+db = 3
 
 [resource]
-bus/0/volume_db = 0.0672607
+bus/0/volume_db = -0.130497
+bus/0/effect/0/effect = SubResource( 1 )
+bus/0/effect/0/enabled = true
 bus/1/name = "BGM"
 bus/1/solo = false
 bus/1/mute = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Game/Common/Characters/MainCharacters/player.gd" type="Script" id=1]
 [ext_resource path="res://Game/Common/Characters/player_UI.tscn" type="PackedScene" id=2]
@@ -13,51 +13,70 @@ top_radius = 0.6
 bottom_radius = 0.6
 height = 3.0
 
+[sub_resource type="CylinderShape" id=6]
+radius = 0.7
+height = 0.33
+
 [sub_resource type="CylinderShape" id=5]
 height = 3.0
 
 [sub_resource type="SphereShape" id=3]
 
-[node name="Player" type="KinematicBody" groups=["player"]]
+[node name="Player" type="RigidBody" groups=["player"]]
 collision_mask = 2
-collision/safe_margin = 1.0
+mode = 2
+custom_integrator = true
 script = ExtResource( 1 )
 PATHS = {
 "UI": NodePath("PlayerUI"),
-"camera": NodePath("RotationHelper/Camera"),
+"camera": NodePath("GlobalRotation/RotationHelper/ThirdPersonCamera"),
+"floor_detection_area": NodePath("GlobalRotation/Areas/FloorDetection"),
+"global_rotation_helper": NodePath("GlobalRotation"),
 "jump_sound": NodePath("Sounds/JumpSound"),
-"rotation_helper": NodePath("RotationHelper"),
+"rotation_helper": NodePath("GlobalRotation/RotationHelper"),
 "run_sound": NodePath("Sounds/RunSound")
 }
 
-[node name="Body" type="MeshInstance" parent="."]
+[node name="GlobalRotation" type="Spatial" parent="."]
+
+[node name="Body" type="MeshInstance" parent="GlobalRotation"]
 mesh = SubResource( 4 )
+skeleton = NodePath("../..")
 material/0 = null
 
-[node name="RayCasts" type="Spatial" parent="."]
+[node name="Areas" type="Spatial" parent="GlobalRotation"]
 
-[node name="RayCastWallPlus" type="RayCast" parent="RayCasts"]
+[node name="FloorDetection" type="Area" parent="GlobalRotation/Areas"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.5, 0 )
+collision_layer = 2
+
+[node name="CollisionShape" type="CollisionShape" parent="GlobalRotation/Areas/FloorDetection"]
+shape = SubResource( 6 )
+
+[node name="RayCasts" type="Spatial" parent="GlobalRotation"]
+
+[node name="RayCastWallPlus" type="RayCast" parent="GlobalRotation/RayCasts"]
 enabled = true
-cast_to = Vector3( 5, 0, 0 )
+cast_to = Vector3( 3, 0, 0 )
 collision_mask = 2
 
-[node name="RayCastWallMinus" type="RayCast" parent="RayCasts"]
+[node name="RayCastWallMinus" type="RayCast" parent="GlobalRotation/RayCasts"]
 enabled = true
-cast_to = Vector3( -5, 0, 0 )
+cast_to = Vector3( -3, 0, 0 )
 collision_mask = 2
 
-[node name="RotationHelper" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0.71 )
+[node name="RotationHelper" type="Spatial" parent="GlobalRotation"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.40428, 0.709967 )
 
-[node name="Camera" type="Camera" parent="RotationHelper"]
+[node name="Camera" type="Camera" parent="GlobalRotation/RotationHelper"]
 transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0 )
 current = true
 fov = 90.0
 far = 8192.0
 
-[node name="ThirdPersonCamera" type="Camera" parent="RotationHelper"]
+[node name="ThirdPersonCamera" type="Camera" parent="GlobalRotation/RotationHelper"]
 transform = Transform( -1, -2.99003e-08, 8.21506e-08, 0, 0.939693, 0.34202, -8.74228e-08, 0.34202, -0.939693, 0, 3.62379, -6.16924 )
-far = 8192.0
+far = 500.0
 
 [node name="PlayerCollision" type="CollisionShape" parent="."]
 shape = SubResource( 5 )
