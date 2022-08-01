@@ -117,7 +117,7 @@ func _on_respawn_player_on_last_cp() -> void:
 		var player: Player = get_node(PATHS.player)
 		player.transform.origin = _last_cp.get_spawn_point()
 		player.rotation_degrees.y = _last_cp.get_spawn_rotation()
-		player.vel = Vector3()
+		player.reset_velocity()
 		if _last_cp is StartPoint:  # if restart at the beginning of the level, restart the chronometer
 			SignalManager.emit_start_level_chronometer()
 			if null != PATHS.bgm.path and PATHS.bgm.path != "":
