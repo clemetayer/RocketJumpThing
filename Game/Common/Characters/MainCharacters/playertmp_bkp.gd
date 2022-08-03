@@ -1,6 +1,6 @@
 # tool
-extends KinematicBody
-class_name Player
+extends RigidBody
+class_name PlayerBKP
 # Script for the player
 
 """
@@ -26,8 +26,8 @@ const SOUND_MAX_SPEED := 250  # Treshold for the pitch run sound to be maxed
 
 #~~~~ MOVEMENT ~~~~~
 #==== GLOBAL =====
-const GRAVITY := -80  # Gravity applied to the player
-const JUMP_POWER := 33  # Power applied when jumping
+const GRAVITY := -100  # Gravity applied to the player
+const JUMP_POWER := 7  # Power applied when jumping
 const MAX_SLOPE_ANGLE := PI / 4  # Max slope angle where you stop sliding
 const STOP_SPEED := 1.0  # Minimum speed to consider the player "stopped"
 
@@ -59,8 +59,10 @@ const ROCKET_SCENE_PATH := "res://Game/Common/MovementUtils/Rocket/Rocket.tscn" 
 
 #---- EXPORTS -----
 export(Dictionary) var PATHS = {
+	"floor_detection_area": NodePath("."),
 	"camera": NodePath("."),
 	"rotation_helper": NodePath("."),
+	"global_rotation_helper": NodePath("."),
 	"UI": NodePath("."),
 	"run_sound": NodePath("."),
 	"jump_sound": NodePath(".")
@@ -79,15 +81,19 @@ var dir := Vector3()  # wished direction by the player
 var current_speed := 0.0  # current speed of the player
 var camera  # camera node
 var rotation_helper  # rotation helper node
+var global_rotation_helper  # global rotation helper
 
 #==== PRIVATE ====
 var _add_velocity_vector_queue := []  # queue to add the vector to the velocity on the next process (used to make external elements interact with the player velocity)
-var _override_velocity_vector = null  # vector that should override the player's movement
 var _slide := false  # used to buffer a slide when in air
 var _RC_wall_direction := 0  # 1 if the raycasts aims for the right wall, -1 if the raycast aims for the left wall, 0 if not aiming for any wall
 var _charge_shot_time := 0  # time when the shot key was pressed (as unix timestamp, millis)
 var _wall_ride_lock := false  # lock for the wall ride to avoid sticking to the wall when jumping
+var _is_on_floor := false  # true if the character is on the floor
 var _mix_to_direction_amount := 1.0  # when in air and pressing forward, how much the velocity should stick to the direction
+
+#==== ONREADY ====
+# onready var onready_var # Optionnal comment
 
 
 ##### PROCESSING #####
@@ -95,17 +101,34 @@ var _mix_to_direction_amount := 1.0  # when in air and pressing forward, how muc
 func _ready():
 	camera = get_node(PATHS.camera)
 	rotation_helper = get_node(PATHS.rotation_helper)
+	global_rotation_helper = get_node(PATHS.global_rotation_helper)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	$Timers/UpdateSpeed.start()
 	get_node(PATHS.run_sound).play()
 
 
-func _process(delta):
+func _process(_delta):
 	_process_sounds()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame. Remove the "_" to use it.
 func _physics_process(delta):
+	# DebugDraw.set_text("current_speed", current_speed)
+	# DebugDraw.draw_line_3d(self.transform.origin, self.transform.origin + dir, Color(0, 1, 1))
+	# DebugDraw.draw_line_3d(
+	# 	self.translation, self.transform.origin + Vector3(vel.x, 0, vel.z), Color(0, 1, 0)
+	# )
+#	DebugDraw.draw_line_3d(
+#		self.transform.origin, self.transform.origin + self.transform.basis.x, Color(1, 0, 0)
+#	)
+#	DebugDraw.draw_line_3d(
+#		self.transform.origin, self.transform.origin + self.transform.basis.y, Color(0, 1, 0)
+#	)
+#	DebugDraw.draw_line_3d(
+#		self.transform.origin, self.transform.origin + self.transform.basis.z, Color(0, 0, 1)
+#	)
+	_is_on_floor = _check_is_on_floor()
+	DebugDraw.set_text("is_on_floor", _is_on_floor)
 	get_node(PATHS.camera).fov = (
 		MIN_FOV
 		+ (MAX_FOV - MIN_FOV) * ease(min(1, current_speed / FOV_MAX_SPEED), 1.6)
@@ -122,7 +145,7 @@ func _physics_process(delta):
 func _input(event):
 	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		rotation_helper.rotate_x(deg2rad(event.relative.y * mouse_sensitivity))
-		self.rotate_y(deg2rad(event.relative.x * mouse_sensitivity * -1))
+		global_rotation_helper.rotate_y(deg2rad(event.relative.x * mouse_sensitivity * -1))
 		var camera_rot = rotation_helper.rotation_degrees
 		camera_rot.x = clamp(camera_rot.x, -90, 90)
 		rotation_helper.rotation_degrees = camera_rot
@@ -132,10 +155,6 @@ func _input(event):
 # Adds some vector to move the player (to be queued)
 func add_velocity_vector(vector: Vector3) -> void:
 	_add_velocity_vector_queue.append(vector)
-
-
-func override_velocity_vector(vector: Vector3) -> void:
-	_override_velocity_vector = vector
 
 
 # toggles a player ability
@@ -166,6 +185,10 @@ func update_properties() -> void:
 func _set_UI_data() -> void:
 	var ui := get_node(PATHS.UI)
 	ui.set_speed(current_speed)
+
+
+func _integrate_forces(state: PhysicsDirectBodyState) -> void:
+	linear_velocity = vel
 
 
 #---- Process collision -----
@@ -201,7 +224,6 @@ func _process_input(_delta):
 	# Shooting
 	if Input.is_action_pressed("action_shoot") and not states.has("shooting") and ROCKETS_ENABLED:
 		_shoot(cam_xform)
-
 	# Slide
 	if Input.is_action_just_pressed("movement_slide") and SLIDE_ENABLED:
 		_slide = true
@@ -239,29 +261,39 @@ func _process_movement(delta):
 
 	# Wall ride wall check
 	if _RC_wall_direction == 0:  # First contact with wall
-		if $RayCasts/RayCastWallMinus.is_colliding():
+		if $GlobalRotation/RayCasts/RayCastWallMinus.is_colliding():
 			_RC_wall_direction = -1
-		elif $RayCasts/RayCastWallPlus.is_colliding():
+		elif $GlobalRotation/RayCasts/RayCastWallPlus.is_colliding():
 			_RC_wall_direction = 1
 
 	# Movement process
-	if not is_on_floor() and _slide and _RC_wall_direction != 0 and !_wall_ride_lock:
+	if not _is_on_floor and _slide and _RC_wall_direction != 0 and !_wall_ride_lock:
 		_wall_ride_movement(delta)
 	else:
 		_reset_wallride_raycasts()
-		if is_on_floor():
+		if _is_on_floor:
 			_ground_movement(delta)
 		else:
 			_air_movement(delta)
 	_add_movement_queue_to_vel()
-	if _override_velocity_vector != null:
-		vel = _override_velocity_vector
-		_override_velocity_vector = null
-
-	# Move and slide + update speed
-	var snap = Vector3.ZERO if Input.is_action_pressed("movement_jump") else -get_floor_normal()
-	vel = move_and_slide_with_snap(vel, snap, Vector3.UP, true, 4, MAX_SLOPE_ANGLE, false)
+	# vel = move_and_slide(vel, Vector3.UP, true, 4, deg2rad(MAX_SLOPE_ANGLE))
 	current_speed = vel.length()
+
+
+# verifies if the player is on the floor (to update the _is_on_floor value)
+# OPTIMIZATION : maybe a bit unefficient,
+func _check_is_on_floor() -> bool:
+	var collisions = get_node(PATHS.floor_detection_area).get_overlapping_bodies()
+	for col in collisions:
+		if not col.is_in_group("player"):
+			return true
+	return false
+
+	# for i in range(state.get_contact_count()):  # if at least one contact has an angle from the up vector inferior to the max slope angle, then we are on floor
+	# 	DebugDraw.set_text("contact_normal", state.get_contact_local_normal(i).angle_to(Vector3.UP))
+	# 	if state.get_contact_local_normal(i).angle_to(Vector3.UP) <= PI / 8:
+	# 		return true
+	# return false
 
 
 # wall ride movement management
@@ -285,20 +317,20 @@ func _wall_ride_movement(delta: float) -> void:
 				states.remove("wall_riding")
 				$Timers/WallRideJumpLock.start()  # to avoid sticking and accelerating back on the wall after jumping
 				_wall_ride_lock = true
-				if Input.is_action_pressed("movement_forward"):
-					var tween = get_node("WallJumpMixMovement")
-					if tween.is_active():
-						tween.stop_all()
-					tween.interpolate_property(
-						self,
-						"_mix_to_direction_amount",
-						0.0,
-						1.0,
-						WALL_JUMP_MIX_DIRECTION_TIME,
-						Tween.TRANS_QUART,
-						Tween.EASE_IN
-					)
-					tween.start()
+			if Input.is_action_pressed("movement_forward"):
+				var tween = get_node("WallJumpMixMovement")
+				if tween.is_active():
+					tween.stop_all()
+				tween.interpolate_property(
+					self,
+					"_mix_to_direction_amount",
+					0.0,
+					1.0,
+					WALL_JUMP_MIX_DIRECTION_TIME,
+					Tween.TRANS_QUART,
+					Tween.EASE_IN
+				)
+				tween.start()
 			vel += (
 				wall_fw.rotated(Vector3.UP, WALL_JUMP_ANGLE * -_RC_wall_direction)
 				* WALL_JUMP_BOOST
@@ -311,6 +343,7 @@ func _wall_ride_movement(delta: float) -> void:
 				states.append("wall_riding")
 			var vel_dir = Vector3(wall_fw.x, WALL_RIDE_ASCEND_AMOUNT * delta, wall_fw.z).normalized()
 			vel = vel_dir * vel.length()
+		# DebugDraw.draw_line_3d(transform.origin, transform.origin + vel, Color(0, 1, 1))
 	else:
 		_RC_wall_direction = 0
 
@@ -337,7 +370,7 @@ func _keep_wallride_raycasts_perpendicular() -> void:
 
 # resets the wallride raycasts to their standard rotation value
 func _reset_wallride_raycasts() -> void:
-	$RayCasts.rotation = Vector3(0, 0, 0)
+	$GlobalRotation/RayCasts.rotation = Vector3(0, 0, 0)
 
 
 # movement management when on the ground
@@ -361,7 +394,7 @@ func _apply_friction(delta: float):
 		vel.z = 0
 		return  # no need to compute things further, the player is stopped
 	var control := 0.0
-	if is_on_floor() && !Input.is_action_pressed("movement_jump"):
+	if _is_on_floor && !Input.is_action_pressed("movement_jump"):
 		var friction := SLIDE_FRICTION if _slide else GROUND_FRICTION
 		control = GROUND_DECCELERATION if current_speed < GROUND_DECCELERATION else current_speed
 		drop += control * friction * delta
@@ -386,7 +419,7 @@ func _accelerate(wish_dir: Vector3, wish_speed: float, accel: float, delta: floa
 func _slide_jump():
 	vel += Vector3(vel.x, 0, vel.z).normalized() * SLIDE_SPEED_BONUS_JUMP
 	_slide = false
-	self.rotate_object_local(Vector3(1, 0, 0), PI / 4)
+	global_rotation_helper.rotate_object_local(Vector3(1, 0, 0), PI / 4)
 	rotation_helper.rotate_object_local(Vector3(1, 0, 0), -PI / 4)
 	states.erase("sliding")
 
@@ -417,26 +450,26 @@ func _add_movement_queue_to_vel():
 # updates the states
 func _process_states():
 	if _slide:
-		if not states.has("sliding") and is_on_floor():
-			self.rotate_object_local(Vector3(1, 0, 0), -PI / 4)
+		if not states.has("sliding") and _is_on_floor:
+			global_rotation_helper.rotate_object_local(Vector3(1, 0, 0), -PI / 4)
 			rotation_helper.rotate_object_local(Vector3(1, 0, 0), PI / 4)
 			states.append("sliding")
-	if not is_on_floor() and not states.has("in_air"):
+	if not _is_on_floor and not states.has("in_air"):
 		states.append("in_air")
-	elif is_on_floor() and states.has("in_air"):
-		vel -= get_floor_velocity()  # HACK : to avoid adding speed by just jumping on a moving platform. probably some scenarios where this won't be ideal
+	elif _is_on_floor and states.has("in_air"):
+		# vel -= get_floor_velocity()  # HACK : to avoid adding speed by just jumping on a moving platform. probably some scenarios where this won't be ideal
 		states.erase("in_air")
 	if current_speed != 0 and not states.has("moving"):
 		states.append("moving")
 	if states.has("sliding") and (not Input.is_action_pressed("movement_slide")):
-		self.rotate_object_local(Vector3(1, 0, 0), PI / 4)
+		global_rotation_helper.rotate_object_local(Vector3(1, 0, 0), PI / 4)
 		rotation_helper.rotate_object_local(Vector3(1, 0, 0), -PI / 4)
 		states.erase("sliding")
 	if (
 		states.has("wall_riding")
 		and (
 			not Input.is_action_pressed("movement_slide")
-			or is_on_floor()
+			or _is_on_floor
 			or _RC_wall_direction == 0
 		)
 	):
@@ -461,11 +494,11 @@ func _on_WallRideJumpLock_timeout():
 func _debug_process_movement(_delta: float):
 	var rc: RayCast
 	var rc_dir := 0
-	if $RayCasts/RayCastWallMinus.is_colliding():
-		rc = $RayCasts/RayCastWallMinus
+	if $GlobalRotation/RayCasts/RayCastWallMinus.is_colliding():
+		rc = $GlobalRotation/RayCasts/RayCastWallMinus
 		rc_dir = -1
-	elif $RayCasts/RayCastWallPlus.is_colliding():
-		rc = $RayCasts/RayCastWallPlus
+	elif $GlobalRotation/RayCasts/RayCastWallPlus.is_colliding():
+		rc = $GlobalRotation/RayCasts/RayCastWallPlus
 		rc_dir = 1
 	if rc != null:
 		var wall_normal = rc.get_collision_normal().normalized()  # normal of the wall, should be the aligned with the player x axis

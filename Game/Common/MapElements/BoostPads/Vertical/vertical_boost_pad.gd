@@ -25,7 +25,11 @@ func _init_func() -> void:
 
 # ready function to override if necessary
 func _ready_func() -> void:
-	._ready_func()
+	add_child(onready_rocket_tween)
+	_set_TB_params()
+	_duplicate_common_elements()
+	rotation_degrees = _angle
+	_set_extents()
 	_set_colors()
 
 
@@ -109,3 +113,14 @@ func _set_rocket_tween_properties() -> void:
 		_color,
 		ROCKET_BOOST_DECAY
 	)
+
+
+##### SIGNAL MANAGEMENT #####
+func _on_body_entered(body: Node) -> void:
+	if body.is_in_group("player"):
+		var vect = (to_global(Vector3.UP) - to_global(Vector3.ZERO)).normalized()  # Up vector converted to the global transform and normalized
+		body.override_velocity_vector(vect * _force * _boost_multiplier)
+
+
+func _on_body_exited(_body: Node) -> void:
+	pass
