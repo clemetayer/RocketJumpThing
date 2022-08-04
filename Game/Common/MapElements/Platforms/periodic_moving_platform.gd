@@ -30,6 +30,8 @@ var _wait_time := 0  # time to wait after reaching a point
 var _transition_type := Tween.TRANS_LINEAR  # Tween transition type
 var _ease := Tween.EASE_IN  # Tween ease
 var _desired_pos := false
+var _velocity := Vector3.ZERO  # current platform velocity
+var _last_delta := 0.00  # last delta of _process. be careful and avoid divisions by zero
 
 #==== ONREADY ====
 onready var onready_translation := self.translation  # keeps a record of the original position of the platform
@@ -70,7 +72,20 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame. Remove the "_" to use it.
 func _process(delta):
 	var delta_dist = onready_desired_pos - self.translation
-	move_and_slide(delta_dist / delta)
+	_velocity = delta_dist / delta
+	_last_delta = delta
+	move_and_slide(_velocity)
+
+
+##### PUBLIC METHODS #####
+# returns the current platform velocity (with a reference delta time)
+func get_velocity() -> Vector3:
+	return _velocity
+
+
+# returns the last delta used to compute velocity, to match accurately the travel distance of the player and the platform which might have different deltas
+func get_delta() -> float:
+	return _last_delta
 
 
 ##### PROTECTED METHODS #####
