@@ -4725,7 +4725,7 @@ shape = SubResource( 1787 )
 shape = SubResource( 1788 )
 
 [node name="entity_1_player" parent="QodotMap" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 505, 3, -5439 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 3, -8367 )
 PATHS = {
 "UI": NodePath("PlayerUI"),
 "camera": NodePath("GlobalRotation/RotationHelper/Camera"),
@@ -4738,7 +4738,7 @@ PATHS = {
 properties = {
 "angle": 0.0,
 "classname": "player",
-"origin": "-5439 505 3"
+"origin": "-8367 -7 3"
 }
 
 [node name="entity_2_static_body_group" type="StaticBody" parent="QodotMap"]

@@ -70,12 +70,12 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.40428, 0.709967 )
 
 [node name="Camera" type="Camera" parent="GlobalRotation/RotationHelper"]
 transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0 )
-current = true
 fov = 90.0
 far = 8192.0
 
 [node name="ThirdPersonCamera" type="Camera" parent="GlobalRotation/RotationHelper"]
 transform = Transform( -1, -2.99003e-08, 8.21506e-08, 0, 0.939693, 0.34202, -8.74228e-08, 0.34202, -0.939693, 0, 3.62379, -6.16924 )
+current = true
 far = 8192.0
 
 [node name="PlayerCollision" type="CollisionShape" parent="."]

@@ -97,6 +97,7 @@ var _wall_ride_lock := false  # lock for the wall ride to avoid sticking to the 
 var _is_on_floor := false  # true if the character is on the floor
 var _mix_to_direction_amount := 1.0  # when in air and pressing forward, how much the velocity should stick to the direction
 var _integrate_forces_delta := 0.0  # approximation of the delta for the integrate_forces
+var _floor_reaction := Vector3.ZERO  # floor reaction, especially usefull on moving platforms
 
 #==== ONREADY ====
 # onready var onready_var # Optionnal comment
@@ -152,7 +153,9 @@ func _physics_process(delta):
 
 
 func _integrate_forces(_state: PhysicsDirectBodyState):
+	linear_velocity -= _floor_reaction
 	_process_movement(_integrate_forces_delta)
+	_apply_floor_reaction(_integrate_forces_delta)
 	_integrate_forces_delta = 0.0
 	current_speed = Vector3(linear_velocity.x, 0, linear_velocity.z).length()
 	if _reset_velocity_flag:
@@ -372,20 +375,17 @@ func _keep_wallride_raycasts_perpendicular() -> void:
 		wall_normal_vect = rc.get_collision_normal()
 		raycast_dir_vect = rc.global_transform.origin - rc.get_collision_point()
 		angle = wall_normal_vect.signed_angle_to(raycast_dir_vect, Vector3.UP)
-		Logger.debug("angle %s" % angle)
 		$GlobalRotation/RayCasts.rotate_y(-angle)
 	elif _RC_wall_direction == 1:  # left raycast
 		rc = $GlobalRotation/RayCasts/RayCastWallPlus
 		wall_normal_vect = rc.get_collision_normal()
 		raycast_dir_vect = rc.global_transform.origin - rc.get_collision_point()
 		angle = wall_normal_vect.signed_angle_to(raycast_dir_vect, Vector3.UP)
-		Logger.debug("angle %s" % angle)
 		$GlobalRotation/RayCasts.rotate_y(-angle)
 
 
 # resets the wallride raycasts to their standard rotation value
 func _reset_wallride_raycasts() -> void:
-	Logger.debug("aled")
 	$GlobalRotation/RayCasts.rotation = Vector3(0, 0, 0)
 
 
@@ -397,7 +397,6 @@ func _ground_movement(delta: float) -> void:
 	)
 	if Input.is_action_pressed("movement_jump") and not _jumping_flag:
 		linear_velocity.y += JUMP_POWER
-		print("jumping pow = %s, jumping_flag = %s" % [linear_velocity.y, _jumping_flag])
 		_jumping_flag = true
 		if states.has("sliding"):
 			_slide_jump()
@@ -419,9 +418,9 @@ func _apply_friction(delta: float) -> void:
 			speed_multiplier = float(abs(current_speed - drop) / current_speed)
 	linear_velocity.x *= speed_multiplier
 	linear_velocity.z *= speed_multiplier
-	_apply_floor_reaction(delta)
 
 
+# Applies the floor reaction to the player, usefull on moving platforms. Be sure to remove the _floor_reaction at the start of integrate forces to avoid
 func _apply_floor_reaction(delta: float) -> void:
 	for collision in get_node(PATHS.floor_detection_area).get_overlapping_bodies():
 		if collision is PeriodicMovingPlatform:  # TODO : create a group of floors with reaction ?
@@ -430,12 +429,9 @@ func _apply_floor_reaction(delta: float) -> void:
 				var player_ref_vel = collision.get_velocity() * delta / collision.get_delta()
 				var linear_player_vel = Vector3(player_ref_vel.x, 0, player_ref_vel.z)  # don't keep the y axis since this will be processed by the rigidbody anyway and avoid making the platform drag or push the player
 				linear_velocity += linear_player_vel
-				Logger.debug(
-					(
-						"in collision with moving platform, linear_vel = %s, collision_vel = %s, player_vel = %s"
-						% [linear_velocity, collision_ref_vel, player_ref_vel]
-					)
-				)
+				_floor_reaction = linear_player_vel
+				return  # just use the first moving platform, because why not, it is simpler
+	_floor_reaction = Vector3.ZERO  # If no collision with (a moving) floor, remove the floor reaction
 
 
 # accelerates the player, enables strafing
