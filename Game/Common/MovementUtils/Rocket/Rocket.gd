@@ -33,6 +33,15 @@ func _ready():
 	transform.origin = START_POS
 	_speed = SPEED
 	look_at(START_POS - DIRECTION, UP_VECTOR)
+	print("direction = %s" % DIRECTION)
+	if (START_POS - DIRECTION).cross(UP_VECTOR) != Vector3.ZERO:  # vectors are not colinear
+		look_at(START_POS - DIRECTION, UP_VECTOR)
+	else:  # Very specific case to avoid an error where the vector and up vector are aligned
+		if DIRECTION.y > 0:
+			self.transform = self.transform.rotated(Vector3.RIGHT, PI / 2.0)
+		else:
+			self.transform = self.transform.rotated(Vector3.RIGHT, -PI / 2.0)
+
 	_translate = true
 
 
