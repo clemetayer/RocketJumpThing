@@ -37,9 +37,9 @@ func _ready():
 		fmod((target - self.global_transform.origin).angle_to(UP_VECTOR), PI), 0, pow(10, -4)
 	):  # vectors are aligned with y axis, do not use "look_at"
 		if (target - self.global_transform.origin).y > 0:  # shoot straight down
-			rotate_object_local(Vector3.RIGHT, -PI / 2)
-		else:  # shoot straight up
 			rotate_object_local(Vector3.RIGHT, PI / 2)
+		else:  # shoot straight up
+			rotate_object_local(Vector3.RIGHT, -PI / 2)
 	else:  # vectors are not aligned, it is safe to use "look_at"
 		look_at(START_POS - DIRECTION, UP_VECTOR)
 	_translate = true

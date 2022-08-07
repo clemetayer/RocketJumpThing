@@ -2694,6 +2694,7 @@ PATHS = {
 "player": NodePath("QodotMap/entity_43_player"),
 "start_point": NodePath("QodotMap/entity_44_StartPoint")
 }
+ENABLE_ROCKETS = false
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource( 5 )
@@ -3947,7 +3948,7 @@ properties = {
 }
 
 [node name="entity_45_RotateSpatialSequencerSolid" type="Spatial" parent="QodotMap"]
-transform = Transform( 0.557185, -0.18043, 0.810857, -0.796631, -0.391647, 0.459615, 0.235154, -0.901888, -0.361474, 1024, 40, -656 )
+transform = Transform( 0.973163, -0.069431, -0.219777, 0.06131, 0.996922, -0.0410229, 0.22278, 0.0259918, 0.974376, 1024, 40, -656 )
 script = ExtResource( 16 )
 properties = {
 "albedo": Color( 1, 0.745098, 0, 1 ),
@@ -3968,7 +3969,7 @@ mesh = SubResource( 502 )
 material/0 = null
 
 [node name="entity_46_RotateSpatialSequencerSolid" type="Spatial" parent="QodotMap"]
-transform = Transform( 0.97214, -0.225307, -0.0832634, 0.227862, 0.974459, 0.0183157, 0.0778945, -0.036596, 0.997454, 1024, 40, -656 )
+transform = Transform( 0.296664, 0.0275042, 0.956155, 0.122485, -0.993338, -0.00941046, 0.948809, 0.11979, -0.296718, 1024, 40, -656 )
 script = ExtResource( 16 )
 properties = {
 "albedo": Color( 0.14902, 0.682353, 0.501961, 1 ),
@@ -4057,7 +4058,7 @@ shape = SubResource( 516 )
 shape = SubResource( 517 )
 
 [node name="entity_49_RotateSpatialSequencerSolid" type="Spatial" parent="QodotMap"]
-transform = Transform( 0.413908, 0.905927, 0.10117, 0.217339, 0.00965352, -0.97723, -0.885234, 0.426105, -0.192724, -768, 760, -1520 )
+transform = Transform( 0.709945, 0.622576, 0.332829, -0.0124423, 0.482824, -0.877019, -0.70581, 0.617906, 0.350108, -768, 760, -1520 )
 script = ExtResource( 16 )
 properties = {
 "albedo": Color( 0.14902, 0.682353, 0.501961, 1 ),
@@ -4377,7 +4378,7 @@ mesh = SubResource( 535 )
 material/0 = null
 
 [node name="entity_65_RotateSpatialSequencerSolid" type="Spatial" parent="QodotMap"]
-transform = Transform( 0.758055, 0.636663, 0.117766, 0.216183, -0.419725, 0.877976, 0.610308, -0.642038, -0.457187, -1000, -136, 1312 )
+transform = Transform( 0.599844, -0.0134737, 0.795955, 0.783437, -0.166867, -0.593158, 0.141328, 0.982547, -0.0898196, -1000, -136, 1312 )
 script = ExtResource( 16 )
 properties = {
 "albedo": Color( 1, 0.745098, 0, 1 ),
@@ -4398,7 +4399,7 @@ mesh = SubResource( 536 )
 material/0 = null
 
 [node name="entity_66_RotateSpatialSequencerSolid" type="Spatial" parent="QodotMap"]
-transform = Transform( 0.803793, -0.191101, -0.556378, 0.569853, 0.487535, 0.655864, 0.146685, -0.847522, 0.502601, 2560, 1112, 2812 )
+transform = Transform( 0.899733, 0.0198757, -0.426442, 0.265142, 0.753966, 0.594529, 0.334911, -0.650616, 0.675754, 2560, 1112, 2812 )
 script = ExtResource( 16 )
 properties = {
 "albedo": Color( 1, 0.745098, 0, 1 ),
@@ -4419,7 +4420,7 @@ mesh = SubResource( 537 )
 material/0 = null
 
 [node name="entity_67_RotateSpatialSequencerSolid" type="Spatial" parent="QodotMap"]
-transform = Transform( -0.290563, 0.211675, -0.935341, -0.701502, -0.713284, 0.0564951, -0.653839, 0.67121, 0.354943, 24, 1632, 6512 )
+transform = Transform( 0.834089, 0.493141, -0.255773, -0.554556, 0.76636, -0.331003, 0.0327817, 0.417002, 0.910676, 24, 1632, 6512 )
 script = ExtResource( 16 )
 properties = {
 "albedo": Color( 0.14902, 0.682353, 0.501961, 1 ),
@@ -4440,7 +4441,7 @@ mesh = SubResource( 538 )
 material/0 = null
 
 [node name="entity_68_RotateSpatialSequencerSolid" type="Spatial" parent="QodotMap"]
-transform = Transform( 0.732279, -0.616658, 0.280521, -0.319486, 0.0503004, 0.943479, -0.597406, -0.782305, -0.160528, 276, 608, -1600 )
+transform = Transform( 0.675965, -0.71528, 0.162655, -0.453653, -0.233443, 0.85687, -0.576427, -0.654562, -0.483424, 276, 608, -1600 )
 script = ExtResource( 16 )
 properties = {
 "albedo": Color( 0.14902, 0.682353, 0.501961, 1 ),
@@ -5127,7 +5128,7 @@ material/0 = null
 shape = SubResource( 617 )
 
 [node name="entity_105_RotateSpatialSequencerSolid" type="Spatial" parent="QodotMap"]
-transform = Transform( 0.288667, 0.948411, 0.133562, -0.718588, 0.122146, 0.68518, 0.633304, -0.293743, 0.71649, -4, -784, -992 )
+transform = Transform( -0.604212, 0.660154, 0.447122, -0.0874152, -0.612506, 0.78617, 0.792567, 0.435681, 0.427516, -4, -784, -992 )
 script = ExtResource( 16 )
 properties = {
 "albedo": Color( 0.14902, 0.682353, 0.501961, 1 ),
