@@ -153,14 +153,15 @@ func _physics_process(delta):
 
 
 func _integrate_forces(_state: PhysicsDirectBodyState):
+	_reset_linear_vel_to_current_speed()  # resets the linear velocity to current speed on integrate force to avoid weird speed losses
 	linear_velocity -= _floor_reaction
 	_process_movement(_integrate_forces_delta)
 	_apply_floor_reaction(_integrate_forces_delta)
 	_integrate_forces_delta = 0.0
-	current_speed = Vector3(linear_velocity.x, 0, linear_velocity.z).length()
 	if _reset_velocity_flag:
 		linear_velocity = Vector3.ZERO
 		_reset_velocity_flag = false
+	current_speed = Vector3(linear_velocity.x, 0, linear_velocity.z).length()
 
 
 # when an input is pressed
@@ -279,6 +280,15 @@ func _process_sounds() -> void:
 
 
 #---- Process movement -----
+# resets the velocity to current speed, to avoid the speed loss between two iterations of _integrate_forces
+# Note to future self : this might create some weird collision behaviours
+func _reset_linear_vel_to_current_speed() -> void:
+	var linear_vec = Vector3(linear_velocity.x, 0, linear_velocity.z)
+	if current_speed > 0:
+		var diff = (current_speed - linear_vec.length()) / current_speed
+		linear_velocity += linear_vec * diff
+
+
 # process for the movement
 func _process_movement(delta):
 	# _debug_process_movement(delta)
