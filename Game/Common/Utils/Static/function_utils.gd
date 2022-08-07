@@ -18,3 +18,9 @@ static func log_connect(caller, receiver, caller_signal_name: String, receiver_f
 				]
 			)
 		)
+
+
+#### Maths and vectors #####
+# chacks if a value is between an epsilon (strictly)
+static func check_in_epsilon(value: float, compare: float, epsilon: float) -> bool:
+	return value < compare + epsilon && value > compare - epsilon

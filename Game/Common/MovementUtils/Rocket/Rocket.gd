@@ -32,15 +32,16 @@ var _speed := 0.0  # travel speed of the rocket
 func _ready():
 	transform.origin = START_POS
 	_speed = SPEED
-	look_at(START_POS - DIRECTION, UP_VECTOR)
-	if (START_POS - DIRECTION).cross(UP_VECTOR) != Vector3.ZERO:  # vectors are not colinear
+	var target: Vector3 = START_POS - DIRECTION
+	if FunctionUtils.check_in_epsilon(
+		fmod((target - self.global_transform.origin).angle_to(UP_VECTOR), PI), 0, pow(10, -4)
+	):  # vectors are aligned with y axis, do not use "look_at"
+		if (target - self.global_transform.origin).y > 0:  # shoot straight down
+			rotate_object_local(Vector3.RIGHT, -PI / 2)
+		else:  # shoot straight up
+			rotate_object_local(Vector3.RIGHT, PI / 2)
+	else:  # vectors are not aligned, it is safe to use "look_at"
 		look_at(START_POS - DIRECTION, UP_VECTOR)
-	else:  # Very specific case to avoid an error where the vector and up vector are aligned
-		if DIRECTION.y > 0:
-			self.transform = self.transform.rotated(Vector3.RIGHT, PI / 2.0)
-		else:
-			self.transform = self.transform.rotated(Vector3.RIGHT, -PI / 2.0)
-
 	_translate = true
 
 
@@ -101,9 +102,9 @@ func _explode(col_point: Vector3) -> void:
 
 
 ##### SIGNAL MANAGEMENT #####
-func _on_Rocket_body_entered(body: Node):
-	if not _expl_planned and get_node_or_null("CloseAreaCheck/CollisionShape") != null:
+func _on_Rocket_body_entered(_body: Node):
+	if not _expl_planned:
 		_expl_planned = true
 		$RayCast.transform.origin.z = -100  # steps back the raycast to get the exact collision point
-		$CloseAreaCheck/CollisionShape.disabled = true  # disables the area
-		_explode(transform.origin)
+		if $RayCast.is_colliding():
+			_explode($RayCast.get_collision_point())
