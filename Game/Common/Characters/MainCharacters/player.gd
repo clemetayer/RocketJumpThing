@@ -42,7 +42,7 @@ const AIR_ACCELERATION := 0.75  # Acceleration in air to get to the AIR_TARGET_S
 
 #==== WALL RIDE =====
 const WALL_RIDE_ASCEND_AMOUNT := 10.0  # How much the player ascend during a wall ride
-const WALL_RIDE_WALL_DISTANCE := 0.25  # distance from the wall normal, to avoid possibly getting stuck in it on some cases
+const WALL_RIDE_WALL_DISTANCE := 1.0  # distance from the wall normal, to avoid possibly getting stuck in it on some cases
 const WALL_JUMP_BOOST := 130.0  # How much speed is given to the player when jumping while wall riding
 const WALL_JUMP_UP_BOOST := 40.0  # The up vector that is added when jumping off a wall
 const WALL_JUMP_ANGLE := PI / 4  # Angle from the wall forward vector when wall jumping
@@ -63,6 +63,13 @@ const ROCKET_SCENE_PATH := "res://Game/Common/MovementUtils/Rocket/Rocket.tscn" 
 
 #---- EXPORTS -----
 export(Dictionary) var PATHS = {
+	"raycasts":{
+		"root":NodePath("."),
+		"front":NodePath("."),
+		"back":NodePath("."),
+		"right":NodePath("."),
+		"left":NodePath(".")
+	},
 	"floor_detection_area": NodePath("."),
 	"camera": NodePath("."),
 	"rotation_helper": NodePath("."),
@@ -91,7 +98,7 @@ var _jumping_flag := false
 var _reset_velocity_flag := false  # flag to completely reset the velocity
 var _add_velocity_vector_queue := []  # queue to add the vector to the velocity on the next process (used to make external elements interact with the player velocity)
 var _slide := false  # used to buffer a slide when in air
-var _RC_wall_direction := 0  # 1 if the raycasts aims for the right wall, -1 if the raycast aims for the left wall, 0 if not aiming for any wall
+var _RC_wall_direction := Vector2.ZERO  # x for left-right, y for front-left. To, as much as possible, keep using the same raycast
 var _charge_shot_time := 0  # time when the shot key was pressed (as unix timestamp, millis)
 var _wall_ride_lock := false  # lock for the wall ride to avoid sticking to the wall when jumping
 var _is_on_floor := false  # true if the character is on the floor
@@ -139,6 +146,12 @@ func _physics_process(delta):
 	# )
 	_is_on_floor = _check_is_on_floor()
 	_jumping_flag = _jumping_flag and _is_on_floor
+	_find_raycast_direction()
+	# Movement process
+	if not _is_on_floor and _slide and _RC_wall_direction != Vector2.ZERO and !_wall_ride_lock:
+		var rc : RayCast = _get_raycast_from_direction(_RC_wall_direction)
+		if rc != null and rc.is_colliding():  # if on an "acceptable" wall
+			_keep_wallride_raycasts_perpendicular(rc)
 	DebugDraw.set_text("is_on_floor", _is_on_floor)
 	DebugDraw.set_text("_jumping_flag", _jumping_flag)
 	get_node(PATHS.camera).fov = (
@@ -292,16 +305,8 @@ func _reset_linear_vel_to_current_speed() -> void:
 # process for the movement
 func _process_movement(delta):
 	# _debug_process_movement(delta)
-
-	# Wall ride wall check
-	if _RC_wall_direction == 0:  # First contact with wall
-		if $GlobalRotation/RayCasts/RayCastWallMinus.is_colliding():
-			_RC_wall_direction = -1
-		elif $GlobalRotation/RayCasts/RayCastWallPlus.is_colliding():
-			_RC_wall_direction = 1
-
 	# Movement process
-	if not _is_on_floor and _slide and _RC_wall_direction != 0 and !_wall_ride_lock:
+	if not _is_on_floor and _slide and _RC_wall_direction != Vector2.ZERO and !_wall_ride_lock:
 		_wall_ride_movement(delta)
 	else:
 		_reset_wallride_raycasts()
@@ -324,79 +329,105 @@ func _check_is_on_floor() -> bool:
 
 # wall ride movement management
 func _wall_ride_movement(delta: float) -> void:
-	var rc: RayCast = (
-		$GlobalRotation/RayCasts/RayCastWallPlus
-		if _RC_wall_direction == 1
-		else $GlobalRotation/RayCasts/RayCastWallMinus if _RC_wall_direction == -1 else null
-	)
+	var rc : RayCast = _get_raycast_from_direction(_RC_wall_direction)
 	if rc != null and rc.is_colliding():  # if on an "acceptable" wall
 		if not states.has("wall_riding"):  # first contact with the wall, snap the player to it
-			transform.origin = (
-				rc.get_collision_point()
-				+ rc.get_collision_normal() * WALL_RIDE_WALL_DISTANCE
-			)  # keep a small distance from the wall to avoid getting stuck in it
-			states.append("wall_riding")
-		var wall_normal = rc.get_collision_normal().normalized()  # normal of the wall, should be the aligned with the player x axis
-		var wall_fw = (wall_normal.cross(Vector3.UP) * -_RC_wall_direction).normalized()  # Forward direction, where the player should translate to (perpendicular to wall_normal and wall_up)
+			_init_first_wall_collision(rc)
+		var wall_fw = get_raycast_forward_vector(rc)
+		DebugDraw.draw_line_3d(rc.get_collision_point(), rc.get_collision_point() + wall_fw, Color(0,255,0,1)) # Ok
 		if Input.is_action_pressed("movement_jump"):
-			if states.has("wall_riding"):
-				states.remove("wall_riding")
-				$Timers/WallRideJumpLock.start()  # to avoid sticking and accelerating back on the wall after jumping
-				_wall_ride_lock = true
-			if Input.is_action_pressed("movement_forward"):
-				var tween = get_node("WallJumpMixMovement")
-				if tween.is_active():
-					tween.stop_all()
-				tween.interpolate_property(
-					self,
-					"_mix_to_direction_amount",
-					0.0,
-					1.0,
-					WALL_JUMP_MIX_DIRECTION_TIME,
-					Tween.TRANS_QUART,
-					Tween.EASE_IN
-				)
-				tween.start()
-			linear_velocity += (
-				wall_fw.rotated(Vector3.UP, WALL_JUMP_ANGLE * -_RC_wall_direction)
-				* WALL_JUMP_BOOST
-			)
-			linear_velocity += Vector3.UP * WALL_JUMP_UP_BOOST
-			get_node(PATHS.jump_sound).play()
+			_wall_jump(wall_fw)
 		else:
-			_keep_wallride_raycasts_perpendicular()
-			if not states.has("wall_riding"):
-				states.append("wall_riding")
-			var vel_dir = Vector3(wall_fw.x, WALL_RIDE_ASCEND_AMOUNT * delta, wall_fw.z).normalized()
-			linear_velocity = vel_dir * linear_velocity.length()
+			_wall_ride(rc, wall_fw, delta)
 		# DebugDraw.draw_line_3d(transform.origin, transform.origin + vel, Color(0, 1, 1))
 	else:
-		_RC_wall_direction = 0
+		_RC_wall_direction = Vector2.ZERO
 
+# Finds the raycast direction to the wall 
+func _find_raycast_direction() -> void:
+	# Wall ride wall check
+	if _RC_wall_direction == Vector2.ZERO:  # First contact with wall
+		if get_node(PATHS.raycasts.left).is_colliding():
+			_RC_wall_direction.x = 1
+		elif get_node(PATHS.raycasts.right).is_colliding():
+			_RC_wall_direction.x = -1
+		elif get_node(PATHS.raycasts.front).is_colliding():
+			_RC_wall_direction.x = 1
+		elif get_node(PATHS.raycasts.back).is_colliding():
+			_RC_wall_direction.x = -1
+
+# returns the raycast corresponding to the direction in parameter
+func _get_raycast_from_direction(direction : Vector2):
+	match(direction):
+		Vector2(1,0):
+			return get_node(PATHS.raycasts.left)
+		Vector2(-1,0):
+			return get_node(PATHS.raycasts.right)
+		Vector2(0,1):
+			return get_node(PATHS.raycasts.front)
+		Vector2(0,-1):
+			return get_node(PATHS.raycasts.back)
+		_:
+			return null
+
+# initializes the first wall collision with the player
+func _init_first_wall_collision(rc : RayCast) -> void:
+	transform.origin = (
+		rc.get_collision_point()
+		+ rc.get_collision_normal().normalized() * WALL_RIDE_WALL_DISTANCE
+	)  # keep a small distance from the wall to avoid getting stuck in it
+	states.append("wall_riding")
+
+# returns the normalized forward vector colliding with the raycast
+func get_raycast_forward_vector(rc : RayCast) -> Vector3:
+	var wall_normal = rc.get_collision_normal().normalized()  # normal of the wall, should be the aligned with the player x axis
+	return (wall_normal.cross(Vector3.UP) * (-_RC_wall_direction.x + _RC_wall_direction.y)).normalized()  # Forward direction, where the player should translate to (perpendicular to wall_normal and wall_up)
+
+func _wall_jump(wall_fw : Vector3) -> void:
+	if states.has("wall_riding"):
+		states.remove("wall_riding")
+		$Timers/WallRideJumpLock.start()  # to avoid sticking and accelerating back on the wall after jumping
+		_wall_ride_lock = true
+	if Input.is_action_pressed("movement_forward"): # to avoid sticking and accelerating back on the wall after jumping
+		var tween = get_node("WallJumpMixMovement")
+		if tween.is_active():
+			tween.stop_all()
+		tween.interpolate_property(
+			self,
+			"_mix_to_direction_amount",
+			0.0,
+			1.0,
+			WALL_JUMP_MIX_DIRECTION_TIME,
+			Tween.TRANS_QUART,
+			Tween.EASE_IN
+		)
+		tween.start()
+	linear_velocity += (
+		wall_fw.rotated(Vector3.UP, WALL_JUMP_ANGLE * (-_RC_wall_direction.x + _RC_wall_direction.y))
+		* WALL_JUMP_BOOST
+	) # up boost
+	linear_velocity += Vector3.UP * WALL_JUMP_UP_BOOST # wall opposite boost
+	get_node(PATHS.jump_sound).play()
+
+func _wall_ride(rc: RayCast, wall_fw : Vector3, delta : float) -> void:
+	if not states.has("wall_riding"):
+		states.append("wall_riding")
+	var vel_dir = Vector3(wall_fw.x, WALL_RIDE_ASCEND_AMOUNT * delta, wall_fw.z).normalized()
+	linear_velocity = vel_dir * linear_velocity.length()
 
 # sets the wallride raycast rotations to stay perpendicular to the wall it is colliding with
-func _keep_wallride_raycasts_perpendicular() -> void:
-	var rc: RayCast
+func _keep_wallride_raycasts_perpendicular(rc : RayCast) -> void:
 	var wall_normal_vect: Vector3  # normal of the wall returned by the raycast
 	var raycast_dir_vect: Vector3  # direction to the raycast from the collision point
 	var angle: float  # angle between wall_normal_vect and raycast_dir_vect
-	if _RC_wall_direction == -1:  # right raycast
-		rc = $GlobalRotation/RayCasts/RayCastWallMinus
-		wall_normal_vect = rc.get_collision_normal()
-		raycast_dir_vect = rc.global_transform.origin - rc.get_collision_point()
-		angle = wall_normal_vect.signed_angle_to(raycast_dir_vect, Vector3.UP)
-		$GlobalRotation/RayCasts.rotate_y(-angle)
-	elif _RC_wall_direction == 1:  # left raycast
-		rc = $GlobalRotation/RayCasts/RayCastWallPlus
-		wall_normal_vect = rc.get_collision_normal()
-		raycast_dir_vect = rc.global_transform.origin - rc.get_collision_point()
-		angle = wall_normal_vect.signed_angle_to(raycast_dir_vect, Vector3.UP)
-		$GlobalRotation/RayCasts.rotate_y(-angle)
-
+	wall_normal_vect = rc.get_collision_normal()
+	raycast_dir_vect = rc.global_transform.origin - rc.get_collision_point()
+	angle = wall_normal_vect.signed_angle_to(raycast_dir_vect, Vector3.UP)
+	get_node(PATHS.raycasts.root).rotate_y(-angle)
 
 # resets the wallride raycasts to their standard rotation value
 func _reset_wallride_raycasts() -> void:
-	$GlobalRotation/RayCasts.rotation = Vector3(0, 0, 0)
+	get_node(PATHS.raycasts.root).rotation = Vector3(0, 0, 0)
 
 
 # movement management when on the ground
@@ -435,7 +466,6 @@ func _apply_floor_reaction(delta: float) -> void:
 	for collision in get_node(PATHS.floor_detection_area).get_overlapping_bodies():
 		if collision is PeriodicMovingPlatform:  # TODO : create a group of floors with reaction ?
 			if collision.get_delta() > 0.0:  # avoid divisions by zero
-				var collision_ref_vel = collision.get_velocity()
 				var player_ref_vel = collision.get_velocity() * delta / collision.get_delta()
 				var linear_player_vel = Vector3(player_ref_vel.x, 0, player_ref_vel.z)  # don't keep the y axis since this will be processed by the rigidbody anyway and avoid making the platform drag or push the player
 				linear_velocity += linear_player_vel
@@ -515,7 +545,7 @@ func _process_states():
 		and (
 			not Input.is_action_pressed("movement_slide")
 			or _is_on_floor
-			or _RC_wall_direction == 0
+			or _RC_wall_direction == Vector2.ZERO
 		)
 	):
 		states.erase("wall_riding")

@@ -33,6 +33,13 @@ PATHS = {
 "floor_detection_area": NodePath("FloorDetection"),
 "global_rotation_helper": NodePath("GlobalRotation"),
 "jump_sound": NodePath("Sounds/JumpSound"),
+"raycasts": {
+"back": NodePath("GlobalRotation/RayCasts/RayCastWallBack"),
+"front": NodePath("GlobalRotation/RayCasts/RayCastWallFront"),
+"left": NodePath("GlobalRotation/RayCasts/RayCastWallLeft"),
+"right": NodePath("GlobalRotation/RayCasts/RayCastWallRight"),
+"root": NodePath("GlobalRotation/RayCasts")
+},
 "rotation_helper": NodePath("GlobalRotation/RotationHelper"),
 "run_sound": NodePath("Sounds/RunSound")
 }
@@ -53,18 +60,6 @@ material/0 = null
 
 [node name="Areas" type="Spatial" parent="GlobalRotation"]
 
-[node name="RayCasts" type="Spatial" parent="GlobalRotation"]
-
-[node name="RayCastWallPlus" type="RayCast" parent="GlobalRotation/RayCasts"]
-enabled = true
-cast_to = Vector3( 3, 0, 0 )
-collision_mask = 2
-
-[node name="RayCastWallMinus" type="RayCast" parent="GlobalRotation/RayCasts"]
-enabled = true
-cast_to = Vector3( -3, 0, 0 )
-collision_mask = 2
-
 [node name="RotationHelper" type="Spatial" parent="GlobalRotation"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.40428, 0.709967 )
 
@@ -77,6 +72,28 @@ far = 8192.0
 transform = Transform( -1, -2.99003e-08, 8.21506e-08, 0, 0.939693, 0.34202, -8.74228e-08, 0.34202, -0.939693, 0, 3.62379, -6.16924 )
 current = true
 far = 8192.0
+
+[node name="RayCasts" type="Spatial" parent="GlobalRotation"]
+
+[node name="RayCastWallFront" type="RayCast" parent="GlobalRotation/RayCasts"]
+enabled = true
+cast_to = Vector3( 0, 0, 3 )
+collision_mask = 2
+
+[node name="RayCastWallBack" type="RayCast" parent="GlobalRotation/RayCasts"]
+enabled = true
+cast_to = Vector3( 0, 0, -3 )
+collision_mask = 2
+
+[node name="RayCastWallLeft" type="RayCast" parent="GlobalRotation/RayCasts"]
+enabled = true
+cast_to = Vector3( 3, 0, 0 )
+collision_mask = 2
+
+[node name="RayCastWallRight" type="RayCast" parent="GlobalRotation/RayCasts"]
+enabled = true
+cast_to = Vector3( -3, 0, 0 )
+collision_mask = 2
 
 [node name="PlayerCollision" type="CollisionShape" parent="."]
 shape = SubResource( 5 )

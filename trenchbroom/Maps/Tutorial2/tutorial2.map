@@ -174,7 +174,7 @@
 // entity 1
 {
 "classname" "player"
-"origin" "-8367 -7 3"
+"origin" "-5279 505 3"
 "angle" "0"
 }
 // entity 2
@@ -5840,4 +5840,19 @@
 "id" "kick"
 "number" "3"
 "number_of_steps" "8"
+}
+// entity 176
+{
+"classname" "CheckpointSolidClass"
+"spawn_position" "0 -32 0"
+"spawn_rotation" "0"
+// brush 0
+{
+( -5168 480 64 ) ( -5168 544 0 ) ( -5168 544 64 ) entities/checkpoint/checkpoint_1 [ 2.220446049250313e-16 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -5160 368 64 ) ( -5168 368 0 ) ( -5168 368 64 ) entities/checkpoint/checkpoint_1 [ -1 2.220446049250313e-16 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -5160 480 0 ) ( -5168 544 0 ) ( -5168 480 0 ) entities/checkpoint/checkpoint_1 [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -5160 480 64 ) ( -5168 544 64 ) ( -5160 544 64 ) entities/checkpoint/checkpoint_1 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -5168 656 64 ) ( -5160 656 0 ) ( -5160 656 64 ) entities/checkpoint/checkpoint_1 [ 1 -2.220446049250313e-16 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -5160 480 64 ) ( -5160 544 0 ) ( -5160 480 0 ) entities/checkpoint/checkpoint_1 [ -2.220446049250313e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
 }
