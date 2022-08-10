@@ -321,7 +321,7 @@ func _process_movement(delta):
 			_air_movement(delta)
 	_add_movement_queue_to_vel()
 	if _override_velocity_vector != null:
-		vel = _override_velocity_vector
+		linear_velocity = _override_velocity_vector
 		_override_velocity_vector = null
 
 
