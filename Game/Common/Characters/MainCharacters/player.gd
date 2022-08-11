@@ -35,6 +35,7 @@ const GRAVITY := -100.0  # Gravity applied to the player
 const JUMP_POWER := 40.0  # Power applied when jumping
 const MAX_SLOPE_ANGLE := PI / 4  # Max slope angle where you stop sliding
 const STOP_SPEED := 1.0  # Minimum speed to consider the player "stopped"
+const HANDLE_DEPENETRATION_MAX_SPEED := 10.0 # Speed where the depenetration glitch is detected
 
 #==== AIR =====
 const AIR_TARGET_SPEED := 110.0  # Target acceleration when just pressing forward in the air
@@ -315,6 +316,7 @@ func _process_movement(delta):
 		_wall_ride_movement(delta)
 	else:
 		_reset_wallride_raycasts()
+		_handle_depenetration_glitch()
 		if _is_on_floor:
 			_ground_movement(delta)
 		else:
@@ -346,7 +348,7 @@ func _wall_ride_movement(delta: float) -> void:
 		if Input.is_action_pressed("movement_jump"):
 			_wall_jump(wall_fw)
 		else:
-			_wall_ride(rc, wall_fw, delta)
+			_wall_ride(wall_fw, delta)
 		# DebugDraw.draw_line_3d(transform.origin, transform.origin + vel, Color(0, 1, 1))
 	else:
 		_RC_wall_direction = Vector2.ZERO
@@ -417,7 +419,7 @@ func _wall_jump(wall_fw : Vector3) -> void:
 	linear_velocity += Vector3.UP * WALL_JUMP_UP_BOOST # wall opposite boost
 	get_node(PATHS.jump_sound).play()
 
-func _wall_ride(rc: RayCast, wall_fw : Vector3, delta : float) -> void:
+func _wall_ride(wall_fw : Vector3, delta : float) -> void:
 	if not states.has("wall_riding"):
 		states.append("wall_riding")
 	var vel_dir = Vector3(wall_fw.x, WALL_RIDE_ASCEND_AMOUNT * delta, wall_fw.z).normalized()
@@ -451,6 +453,12 @@ func _ground_movement(delta: float) -> void:
 			_slide_jump()
 		get_node(PATHS.jump_sound).play()
 
+# HACK : Method to avoid a depenetration issue when landing and not moving (a way too high velocity was added)
+func _handle_depenetration_glitch() -> void:
+	if FunctionUtils.check_in_epsilon(current_speed,0.0,STOP_SPEED):
+		if Vector3(linear_velocity.x,0,linear_velocity.z).length() >= HANDLE_DEPENETRATION_MAX_SPEED: # Depenetration glitch. Forces the linear velocity to 0
+			linear_velocity.x = 0.0 
+			linear_velocity.z = 0.0 
 
 # applies friction, mostly for when on floor
 func _apply_friction(delta: float) -> void:
