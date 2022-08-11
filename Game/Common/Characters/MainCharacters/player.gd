@@ -6,11 +6,6 @@ class_name Player
 """
 - TODO : Use a rigid body instead ? Meh actually, it tends to go through floors, and there is a respawn possibility if you're stuck in a wall
 - TODO : Explode the rockets on right click ? charge rocket on right click ?
-
-- FIXME : Jumping on second part of first level makes jumping twice
-- FIXME : Moving platforms not working
-- FIXME : Wall jumping not quite working
-	- Still a bit shaky
 """
 
 ##### SIGNALS #####
@@ -169,7 +164,8 @@ func _physics_process(delta):
 
 func _integrate_forces(_state: PhysicsDirectBodyState):
 	_reset_linear_vel_to_current_speed()  # resets the linear velocity to current speed on integrate force to avoid weird speed losses
-	linear_velocity -= _floor_reaction
+	if _is_on_floor: # Don't remove the platform velocity on jump
+		linear_velocity -= _floor_reaction
 	_process_movement(_integrate_forces_delta)
 	_apply_floor_reaction(_integrate_forces_delta)
 	_integrate_forces_delta = 0.0
@@ -299,7 +295,7 @@ func _process_sounds() -> void:
 
 
 #---- Process movement -----
-# resets the velocity to current speed, to avoid the speed loss between two iterations of _integrate_forces
+# HACK : resets the velocity to current speed, to avoid the speed loss between two iterations of _integrate_forces
 # Note to future self : this might create some weird collision behaviours
 func _reset_linear_vel_to_current_speed() -> void:
 	var linear_vec = Vector3(linear_velocity.x, 0, linear_velocity.z)
@@ -483,9 +479,8 @@ func _apply_floor_reaction(delta: float) -> void:
 		if collision is PeriodicMovingPlatform:  # TODO : create a group of floors with reaction ?
 			if collision.get_delta() > 0.0:  # avoid divisions by zero
 				var player_ref_vel = collision.get_velocity() * delta / collision.get_delta()
-				var linear_player_vel = Vector3(player_ref_vel.x, 0, player_ref_vel.z)  # don't keep the y axis since this will be processed by the rigidbody anyway and avoid making the platform drag or push the player
-				linear_velocity += linear_player_vel
-				_floor_reaction = linear_player_vel
+				linear_velocity += player_ref_vel
+				_floor_reaction = player_ref_vel
 				return  # just use the first moving platform, because why not, it is simpler
 	_floor_reaction = Vector3.ZERO  # If no collision with (a moving) floor, remove the floor reaction
 
