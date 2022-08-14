@@ -1,0 +1,12 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://trenchbroom/Entities/StandardMapElements/tutorial_2/geometric_shape_emitter.tres" type="Resource" id=1]
+[ext_resource path="res://addons/qodot/src/resources/game-definitions/fgd/qodot_fgd_file.gd" type="Script" id=5]
+
+[resource]
+script = ExtResource( 5 )
+export_file = false
+target_folder = "/home/clemetayer/.TrenchBroom/games/RocketJumpThing"
+fgd_name = "tutorial_2_fgd"
+base_fgd_files = [  ]
+entity_definitions = [ ExtResource( 1 ) ]

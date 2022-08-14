@@ -5,7 +5,7 @@
 "mapversion" "220"
 "classname" "worldspawn"
 "_tb_textures" "textures/common/material_override;textures/entities/DeathMesh;textures/entities/checkpoint;textures/scenes/tutorial2_scene"
-"_tb_def" "builtin:RocketJumpThing_fgd.fgd"
+"_tb_def" "builtin:tutorial_2_fgd.fgd"
 // brush 0
 {
 ( 560 -1920 1312 ) ( 560 -1920 1313 ) ( 560 -1921 1312 ) common/material_override/Transparent [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -174,7 +174,7 @@
 // entity 1
 {
 "classname" "player"
-"origin" "-5903 -23 3"
+"origin" "-8367 -7 3"
 "angle" "0"
 }
 // entity 2
@@ -5840,4 +5840,126 @@
 "id" "kick"
 "number" "3"
 "number_of_steps" "8"
+}
+// entity 176
+{
+"classname" "emitter_GeometricShape"
+"origin" "-6320 1120 -272"
+"angle" "0 30 0"
+"scale" "40"
+}
+// entity 177
+{
+"classname" "emitter_GeometricShape"
+"origin" "-8496 -608 -384"
+"angle" "0 0 0"
+"scale" "40"
+}
+// entity 178
+{
+"classname" "emitter_GeometricShape"
+"origin" "-8496 544 -384"
+"angle" "0 0 0"
+"scale" "40"
+}
+// entity 179
+{
+"classname" "emitter_GeometricShape"
+"origin" "-5440 -576 -272"
+"angle" "0 90 0"
+"scale" "80"
+}
+// entity 180
+{
+"classname" "static_body_group"
+"collision_layer" "2"
+"collision_mask" "5"
+// brush 0
+{
+( -9344 384 1048 ) ( -9344 -32 1048 ) ( -9344 -32 1032 ) scenes/tutorial2_scene/cool_material_3 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -6092 -256 1032 ) ( -6092 -256 1048 ) ( -3556 -256 1048 ) scenes/tutorial2_scene/cool_material_3 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -6092 384 -1520 ) ( -6092 -32 -1520 ) ( -3556 -32 -1520 ) scenes/tutorial2_scene/cool_material_3 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -9344 -256 960 ) ( -9024 -256 960 ) ( -9024 -384 960 ) scenes/tutorial2_scene/cool_material_3 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -6092 16 1032 ) ( -3556 16 1048 ) ( -6092 16 1048 ) scenes/tutorial2_scene/cool_material_3 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -9024 384 1048 ) ( -9024 -32 1032 ) ( -9024 -32 1048 ) scenes/tutorial2_scene/cool_material_3 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+}
+// entity 181
+{
+"classname" "static_body_group"
+"collision_layer" "2"
+"collision_mask" "5"
+// brush 0
+{
+( -10000 -384 1096 ) ( -10000 -800 1096 ) ( -10000 -800 1080 ) scenes/tutorial2_scene/cool_material_3 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -6748 -1024 1080 ) ( -6748 -1024 1096 ) ( -4212 -1024 1096 ) scenes/tutorial2_scene/cool_material_3 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -6748 -384 -1472 ) ( -6748 -800 -1472 ) ( -4212 -800 -1472 ) scenes/tutorial2_scene/cool_material_3 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -10000 -1024 1008 ) ( -9680 -1024 1008 ) ( -9680 -1152 1008 ) scenes/tutorial2_scene/cool_material_3 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -6748 -752 1080 ) ( -4212 -752 1096 ) ( -6748 -752 1096 ) scenes/tutorial2_scene/cool_material_3 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -9680 -384 1096 ) ( -9680 -800 1080 ) ( -9680 -800 1096 ) scenes/tutorial2_scene/cool_material_3 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+}
+// entity 182
+{
+"classname" "static_body_group"
+"collision_layer" "2"
+"collision_mask" "5"
+// brush 0
+{
+( -9472 1840 904 ) ( -9472 1424 904 ) ( -9472 1424 888 ) scenes/tutorial2_scene/cool_material_3 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -6220 1200 888 ) ( -6220 1200 904 ) ( -3684 1200 904 ) scenes/tutorial2_scene/cool_material_3 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -6220 1840 -1664 ) ( -6220 1424 -1664 ) ( -3684 1424 -1664 ) scenes/tutorial2_scene/cool_material_3 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -9472 1200 816 ) ( -9152 1200 816 ) ( -9152 1072 816 ) scenes/tutorial2_scene/cool_material_3 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -6220 1472 888 ) ( -3684 1472 904 ) ( -6220 1472 904 ) scenes/tutorial2_scene/cool_material_3 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -9152 1840 904 ) ( -9152 1424 888 ) ( -9152 1424 904 ) scenes/tutorial2_scene/cool_material_3 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+}
+// entity 183
+{
+"classname" "emitter_GeometricShape"
+"origin" "-752 1376 -208"
+"angle" "0 0 0"
+"scale" "40"
+}
+// entity 184
+{
+"classname" "emitter_GeometricShape"
+"origin" "1168 -576 464"
+"angle" "0 0 0"
+"scale" "60"
+}
+// entity 185
+{
+"classname" "emitter_GeometricShape"
+"origin" "224 -2112 944"
+"angle" "0 0 0"
+"scale" "60"
+}
+// entity 186
+{
+"classname" "emitter_GeometricShape"
+"origin" "3616 2432 -320"
+"angle" "0 0 0"
+"scale" "60"
+}
+// entity 187
+{
+"classname" "emitter_GeometricShape"
+"origin" "5904 2848 -768"
+"angle" "0 0 0"
+"scale" "60"
+}
+// entity 188
+{
+"classname" "emitter_GeometricShape"
+"origin" "5216 -1136 384"
+"angle" "0 0 0"
+"scale" "60"
+}
+// entity 189
+{
+"classname" "emitter_GeometricShape"
+"origin" "-6320 160 -240"
+"angle" "0 0 0"
+"scale" "30"
 }

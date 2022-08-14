@@ -1,0 +1,47 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Game/Common/MapElements/Particles/regular_polygon_on_cube.tres" type="Shader" id=1]
+[ext_resource path="res://Game/Scenes/Tutorial/Scene3/geometric_shape_emitter.gd" type="Script" id=2]
+
+[sub_resource type="Gradient" id=2412]
+offsets = PoolRealArray( 0, 0.753304, 1 )
+colors = PoolColorArray( 1, 0, 1, 1, 0, 1, 0.958984, 1, 0, 0.996078, 1, 1 )
+
+[sub_resource type="GradientTexture" id=2413]
+gradient = SubResource( 2412 )
+
+[sub_resource type="Curve" id=2416]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.5, 0.325 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=2417]
+curve = SubResource( 2416 )
+
+[sub_resource type="ParticlesMaterial" id=2407]
+direction = Vector3( 0, -1, 0 )
+spread = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = -5.0
+scale = 2.5
+scale_curve = SubResource( 2417 )
+color_ramp = SubResource( 2413 )
+
+[sub_resource type="ShaderMaterial" id=2408]
+shader = ExtResource( 1 )
+shader_param/sides = 3
+shader_param/max_size = 0.45
+shader_param/min_size = 0.35
+shader_param/epsilon = 0.02
+shader_param/intensity = 2.0
+shader_param/size_divider = 1.0
+
+[sub_resource type="CubeMesh" id=2409]
+material = SubResource( 2408 )
+size = Vector3( 5, 0, 5 )
+
+[node name="GeometricShapeEmitter" type="Particles"]
+transform = Transform( 40, 0, 0, 0, 40, 0, 0, 0, 40, 0, 0, 0 )
+amount = 16
+lifetime = 8.0
+process_material = SubResource( 2407 )
+draw_pass_1 = SubResource( 2409 )
+script = ExtResource( 2 )
