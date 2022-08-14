@@ -27,8 +27,8 @@ PATHS = {
 "camera": NodePath("RotationHelper/Camera"),
 "jump_sound": NodePath("Sounds/JumpSound"),
 "raycasts": {
-"left": NodePath("RayCasts/RayCastWallPlus"),
-"right": NodePath("RayCasts/RayCastWallMinus"),
+"left": NodePath("RayCasts/left"),
+"right": NodePath("RayCasts/right"),
 "root": NodePath("RayCasts")
 },
 "rotation_helper": NodePath("RotationHelper"),
@@ -41,12 +41,12 @@ material/0 = null
 
 [node name="RayCasts" type="Spatial" parent="."]
 
-[node name="RayCastWallPlus" type="RayCast" parent="RayCasts"]
+[node name="left" type="RayCast" parent="RayCasts"]
 enabled = true
 cast_to = Vector3( 5, 0, 0 )
 collision_mask = 3
 
-[node name="RayCastWallMinus" type="RayCast" parent="RayCasts"]
+[node name="right" type="RayCast" parent="RayCasts"]
 enabled = true
 cast_to = Vector3( -5, 0, 0 )
 collision_mask = 3
