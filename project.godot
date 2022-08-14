@@ -144,11 +144,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Game/Common/Characters/MainCharacters/player.gd"
 }, {
-"base": "RigidBody",
-"class": "PlayerBKP",
-"language": "GDScript",
-"path": "res://Game/Common/Characters/MainCharacters/playertmp_bkp.gd"
-}, {
 "base": "Reference",
 "class": "QodotDependencies",
 "language": "GDScript",
@@ -392,7 +387,6 @@ _global_script_class_icons={
 "PhysicsBall": "",
 "PhysicsEntity": "",
 "Player": "",
-"PlayerBKP": "",
 "QodotDependencies": "",
 "QodotEntity": "",
 "QodotFGDBaseClass": "",

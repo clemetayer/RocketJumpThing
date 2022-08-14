@@ -26,6 +26,11 @@ PATHS = {
 "UI": NodePath("PlayerUI"),
 "camera": NodePath("RotationHelper/Camera"),
 "jump_sound": NodePath("Sounds/JumpSound"),
+"raycasts": {
+"left": NodePath("RayCasts/RayCastWallPlus"),
+"right": NodePath("RayCasts/RayCastWallMinus"),
+"root": NodePath("RayCasts")
+},
 "rotation_helper": NodePath("RotationHelper"),
 "run_sound": NodePath("Sounds/RunSound")
 }
@@ -39,24 +44,24 @@ material/0 = null
 [node name="RayCastWallPlus" type="RayCast" parent="RayCasts"]
 enabled = true
 cast_to = Vector3( 5, 0, 0 )
-collision_mask = 2
+collision_mask = 3
 
 [node name="RayCastWallMinus" type="RayCast" parent="RayCasts"]
 enabled = true
 cast_to = Vector3( -5, 0, 0 )
-collision_mask = 2
+collision_mask = 3
 
 [node name="RotationHelper" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0.71 )
 
 [node name="Camera" type="Camera" parent="RotationHelper"]
 transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0 )
-current = true
 fov = 90.0
 far = 8192.0
 
 [node name="ThirdPersonCamera" type="Camera" parent="RotationHelper"]
 transform = Transform( -1, -2.99003e-08, 8.21506e-08, 0, 0.939693, 0.34202, -8.74228e-08, 0.34202, -0.939693, 0, 3.62379, -6.16924 )
+current = true
 far = 8192.0
 
 [node name="PlayerCollision" type="CollisionShape" parent="."]
