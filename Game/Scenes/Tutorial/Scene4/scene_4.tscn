@@ -1,4 +1,4 @@
-[gd_scene load_steps=415 format=2]
+[gd_scene load_steps=430 format=2]
 
 [ext_resource path="res://addons/qodot/src/nodes/qodot_map.gd" type="Script" id=1]
 [ext_resource path="res://Game/Common/Characters/MainCharacters/Player.tscn" type="PackedScene" id=2]
@@ -28,6 +28,67 @@
 [ext_resource path="res://trenchbroom/textures/scenes/tutorial3_scene/Speedlines.tres" type="Material" id=26]
 [ext_resource path="res://trenchbroom/textures/scenes/tutorial3_scene/moving_polygons_2.tres" type="Material" id=27]
 [ext_resource path="res://trenchbroom/Entities/StandardMapElements/Lights/OmniLight.tscn" type="PackedScene" id=28]
+[ext_resource path="res://Game/Common/MapElements/DeathGrid/DeathGrid.gd" type="Script" id=29]
+[ext_resource path="res://Game/Common/MapElements/DeathGrid/DeathGridMaterial.gd" type="Script" id=30]
+[ext_resource path="res://Game/Common/MapElements/DeathGrid/V1.gdshader" type="Shader" id=31]
+
+[sub_resource type="BoxShape" id=655]
+extents = Vector3( 2700, 2000, 4096 )
+
+[sub_resource type="BoxShape" id=656]
+extents = Vector3( 2700, 2000, 2000 )
+
+[sub_resource type="ShaderMaterial" id=663]
+shader = ExtResource( 31 )
+shader_param/size = Vector2( 1, 1 )
+shader_param/target_pos = Vector3( 0, 0, 0 )
+shader_param/color = Color( 1, 0, 0, 1 )
+shader_param/max_tgt_dist = 150.0
+
+[sub_resource type="PlaneMesh" id=662]
+material = SubResource( 663 )
+size = Vector2( 5400, 12192 )
+
+[sub_resource type="PlaneMesh" id=664]
+material = SubResource( 663 )
+size = Vector2( 5400, 12192 )
+
+[sub_resource type="ShaderMaterial" id=666]
+shader = ExtResource( 31 )
+shader_param/size = Vector2( 1, 1 )
+shader_param/target_pos = Vector3( 0, 0, 0 )
+shader_param/color = Color( 1, 0, 0, 1 )
+shader_param/max_tgt_dist = 150.0
+
+[sub_resource type="PlaneMesh" id=665]
+material = SubResource( 666 )
+size = Vector2( 5400, 4000 )
+
+[sub_resource type="PlaneMesh" id=667]
+material = SubResource( 666 )
+size = Vector2( 5400, 4000 )
+
+[sub_resource type="ShaderMaterial" id=669]
+shader = ExtResource( 31 )
+shader_param/size = Vector2( 1, 1 )
+shader_param/target_pos = Vector3( 0, 0, 0 )
+shader_param/color = Color( 1, 0, 0, 1 )
+shader_param/max_tgt_dist = 150.0
+
+[sub_resource type="PlaneMesh" id=668]
+material = SubResource( 669 )
+size = Vector2( 12192, 4000 )
+
+[sub_resource type="ShaderMaterial" id=671]
+shader = ExtResource( 31 )
+shader_param/size = Vector2( 1, 1 )
+shader_param/target_pos = Vector3( 0, 0, 0 )
+shader_param/color = Color( 1, 0, 0, 1 )
+shader_param/max_tgt_dist = 150.0
+
+[sub_resource type="PlaneMesh" id=670]
+material = SubResource( 671 )
+size = Vector2( 12192, 4000 )
 
 [sub_resource type="Gradient" id=273]
 offsets = PoolRealArray( 0, 0.133333, 0.833333, 1 )
@@ -2879,6 +2940,63 @@ shadow_enabled = true
 
 [node name="AdditionalThings" type="Node" parent="."]
 
+[node name="DeathGrid" type="Node" parent="AdditionalThings"]
+
+[node name="DeathGrid" type="Area" parent="AdditionalThings/DeathGrid"]
+script = ExtResource( 29 )
+
+[node name="CollisionShape" type="CollisionShape" parent="AdditionalThings/DeathGrid/DeathGrid"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1500, 213.024 )
+shape = SubResource( 655 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="AdditionalThings/DeathGrid/DeathGrid"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1500, 6280.01 )
+shape = SubResource( 656 )
+
+[node name="Meshes" type="Spatial" parent="AdditionalThings/DeathGrid/DeathGrid"]
+
+[node name="Up" type="MeshInstance" parent="AdditionalThings/DeathGrid/DeathGrid/Meshes"]
+transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 3500, 2180 )
+mesh = SubResource( 662 )
+material/0 = null
+script = ExtResource( 30 )
+target = NodePath("../../../../../QodotMap/entity_42_player")
+
+[node name="Down" type="MeshInstance" parent="AdditionalThings/DeathGrid/DeathGrid/Meshes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -500, 2180 )
+mesh = SubResource( 664 )
+material/0 = null
+script = ExtResource( 30 )
+target = NodePath("../../../../../QodotMap/entity_42_player")
+
+[node name="Front" type="MeshInstance" parent="AdditionalThings/DeathGrid/DeathGrid/Meshes"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 1500, 8275 )
+mesh = SubResource( 665 )
+material/0 = null
+script = ExtResource( 30 )
+target = NodePath("../../../../../QodotMap/entity_42_player")
+
+[node name="Back" type="MeshInstance" parent="AdditionalThings/DeathGrid/DeathGrid/Meshes"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1500, -3875 )
+mesh = SubResource( 667 )
+material/0 = null
+script = ExtResource( 30 )
+target = NodePath("../../../../../QodotMap/entity_42_player")
+
+[node name="Right" type="MeshInstance" parent="AdditionalThings/DeathGrid/DeathGrid/Meshes"]
+transform = Transform( -4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, 2700, 1500, 2180 )
+mesh = SubResource( 668 )
+material/0 = null
+script = ExtResource( 30 )
+target = NodePath("../../../../../QodotMap/entity_42_player")
+
+[node name="Left" type="MeshInstance" parent="AdditionalThings/DeathGrid/DeathGrid/Meshes"]
+transform = Transform( -4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, -2700, 1500, 2180 )
+mesh = SubResource( 670 )
+material/0 = null
+script = ExtResource( 30 )
+target = NodePath("../../../../../QodotMap/entity_42_player")
+
 [node name="Lights" type="Node" parent="AdditionalThings"]
 
 [node name="ExampleLightColor" type="OmniLight" parent="AdditionalThings/Lights"]
@@ -5427,7 +5545,7 @@ properties = {
 }
 
 [node name="entity_117_rotate_spatial_sequencer_solid_transparent" type="Spatial" parent="QodotMap"]
-transform = Transform( 0.136238, 0.950574, -0.279007, 0.516911, -0.308465, -0.798531, -0.845127, -0.0354301, -0.533387, -768, 760, -1520 )
+transform = Transform( 0.149674, 0.884034, -0.439518, 0.547513, -0.444727, -0.706965, -0.821485, -0.134822, -0.551773, -768, 760, -1520 )
 script = ExtResource( 16 )
 properties = {
 "albedo": Color( 0.14902, 0.682353, 0.501961, 1 ),
@@ -5448,7 +5566,7 @@ mesh = SubResource( 623 )
 material/0 = null
 
 [node name="entity_118_rotate_spatial_sequencer_solid_transparent" type="Spatial" parent="QodotMap"]
-transform = Transform( 0.538502, -0.74603, -0.391725, -0.782043, -0.61558, 0.0972849, -0.313716, 0.253959, -0.914922, 260, 608, -1824 )
+transform = Transform( 0.474971, -0.794386, -0.369834, -0.82075, -0.550123, 0.128636, -0.306728, 0.24329, -0.916171, 260, 608, -1824 )
 script = ExtResource( 16 )
 properties = {
 "albedo": Color( 0.14902, 0.682353, 0.501961, 1 ),
@@ -5469,7 +5587,7 @@ mesh = SubResource( 624 )
 material/0 = null
 
 [node name="entity_119_rotate_spatial_sequencer_solid_transparent" type="Spatial" parent="QodotMap"]
-transform = Transform( 0.716072, 0.636378, -0.286808, -0.45686, 0.737935, 0.496716, 0.527746, -0.224654, 0.819152, -4, -784, -992 )
+transform = Transform( 0.0975148, -0.464, 0.877315, 0.961899, -0.172796, -0.198398, 0.24419, 0.865623, 0.430532, -4, -784, -992 )
 script = ExtResource( 16 )
 properties = {
 "albedo": Color( 0.14902, 0.682353, 0.501961, 1 ),
@@ -5490,7 +5608,7 @@ mesh = SubResource( 625 )
 material/0 = null
 
 [node name="entity_120_rotate_spatial_sequencer_solid_transparent" type="Spatial" parent="QodotMap"]
-transform = Transform( 0.271477, -0.622622, 0.73392, -0.635853, -0.688466, -0.348858, 0.722487, -0.37196, -0.582799, 1024, 40, -656 )
+transform = Transform( 0.935388, 0.130835, 0.322667, -0.249583, 0.897006, 0.358613, -0.242527, -0.416911, 0.873448, 1024, 40, -656 )
 script = ExtResource( 16 )
 properties = {
 "albedo": Color( 1, 0.745098, 0, 1 ),
@@ -5511,7 +5629,7 @@ mesh = SubResource( 626 )
 material/0 = null
 
 [node name="entity_121_rotate_spatial_sequencer_solid_transparent" type="Spatial" parent="QodotMap"]
-transform = Transform( 0.358358, -0.223834, 0.906352, 0.682595, -0.599489, -0.417939, 0.636897, 0.768445, -0.0620432, 1024, 40, -656 )
+transform = Transform( 0.350229, -0.463439, 0.810926, 0.728328, -0.40642, -0.546619, 0.584852, 0.783877, 0.196148, 1024, 40, -656 )
 script = ExtResource( 16 )
 properties = {
 "albedo": Color( 0.14902, 0.682353, 0.501961, 1 ),
@@ -5532,7 +5650,7 @@ mesh = SubResource( 627 )
 material/0 = null
 
 [node name="entity_122_rotate_spatial_sequencer_solid_transparent" type="Spatial" parent="QodotMap"]
-transform = Transform( 0.492467, 0.697558, 0.520465, 0.773492, -0.624928, 0.105681, 0.398973, 0.350533, -0.847315, -1000, -136, 1312 )
+transform = Transform( 0.597713, 0.340902, 0.721471, 0.796223, -0.195294, -0.56671, -0.0521843, 0.915958, -0.38917, -1000, -136, 1312 )
 script = ExtResource( 16 )
 properties = {
 "albedo": Color( 1, 0.745098, 0, 1 ),
@@ -5553,7 +5671,7 @@ mesh = SubResource( 628 )
 material/0 = null
 
 [node name="entity_123_rotate_spatial_sequencer_solid_transparent" type="Spatial" parent="QodotMap"]
-transform = Transform( 0.195038, -0.267808, -0.943522, 0.563079, -0.75709, 0.331287, -0.803054, -0.595892, 0.00313571, 2560, 1112, 2812 )
+transform = Transform( 0.92269, -0.366379, -0.0767803, 0.366462, 0.842516, 0.383925, -0.0762779, -0.384052, 0.915519, 2560, 1112, 2812 )
 script = ExtResource( 16 )
 properties = {
 "albedo": Color( 1, 0.745098, 0, 1 ),
@@ -5574,7 +5692,7 @@ mesh = SubResource( 629 )
 material/0 = null
 
 [node name="entity_124_rotate_spatial_sequencer_solid_transparent" type="Spatial" parent="QodotMap"]
-transform = Transform( -0.0375349, -0.915374, -0.400845, 0.45655, -0.372524, 0.80795, -0.888903, -0.152679, 0.431898, 24, 1632, 6512 )
+transform = Transform( 0.0083119, -0.885331, -0.460009, 0.358334, -0.426536, 0.827639, -0.931221, -0.171945, 0.314786, 24, 1632, 6512 )
 script = ExtResource( 16 )
 properties = {
 "albedo": Color( 0.14902, 0.682353, 0.501961, 1 ),
@@ -5595,7 +5713,7 @@ mesh = SubResource( 630 )
 material/0 = null
 
 [node name="entity_125_rotate_spatial_sequencer_solid_transparent" type="Spatial" parent="QodotMap"]
-transform = Transform( 0.271477, -0.622622, 0.73392, -0.635853, -0.688466, -0.348858, 0.722487, -0.37196, -0.582799, 728, 368, -2736 )
+transform = Transform( 0.935388, 0.130835, 0.322667, -0.249583, 0.897006, 0.358613, -0.242527, -0.416911, 0.873448, 728, 368, -2736 )
 script = ExtResource( 16 )
 properties = {
 "albedo": Color( 1, 0.745098, 0, 1 ),
@@ -5616,7 +5734,7 @@ mesh = SubResource( 631 )
 material/0 = null
 
 [node name="entity_126_rotate_spatial_sequencer_solid_transparent" type="Spatial" parent="QodotMap"]
-transform = Transform( 0.271477, -0.622622, 0.73392, -0.635853, -0.688466, -0.348858, 0.722487, -0.37196, -0.582799, -520, 432, -1824 )
+transform = Transform( 0.935388, 0.130835, 0.322667, -0.249583, 0.897006, 0.358613, -0.242527, -0.416911, 0.873448, -520, 432, -1824 )
 script = ExtResource( 16 )
 properties = {
 "albedo": Color( 1, 0.745098, 0, 1 ),
@@ -5655,7 +5773,7 @@ material/0 = null
 shape = SubResource( 634 )
 
 [node name="entity_128_rotate_spatial_sequencer_solid_transparent" type="Spatial" parent="QodotMap"]
-transform = Transform( 0.716072, 0.636378, -0.286808, -0.45686, 0.737935, 0.496716, 0.527746, -0.224654, 0.819152, 1068, 448, 4608 )
+transform = Transform( 0.0975148, -0.464, 0.877315, 0.961899, -0.172796, -0.198398, 0.24419, 0.865623, 0.430532, 1068, 448, 4608 )
 script = ExtResource( 16 )
 properties = {
 "albedo": Color( 0.14902, 0.682353, 0.501961, 1 ),
