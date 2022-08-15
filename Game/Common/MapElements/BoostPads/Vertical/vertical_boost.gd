@@ -20,7 +20,6 @@ var _size := Vector3(1, 1, 1)  # size of the bumper
 var _boost_multiplier := 1.0  # boost multiplier
 
 #==== ONREADY ====
-onready var onready_timer := Timer.new()  # timer for adding push vectors to the player (to avoid using _process to much)
 onready var onready_rocket_tween := Tween.new()  # tween for the boost bonus when a rocket enters the area
 
 
@@ -45,10 +44,7 @@ func _init_func() -> void:
 
 # ready function to override if necessary
 func _ready_func() -> void:
-	add_child(onready_timer)
 	add_child(onready_rocket_tween)
-	onready_timer.wait_time = TIMER_TIMEOUT
-	FunctionUtils.log_connect(onready_timer, self, "timeout", "_on_timer_timeout")
 	_set_TB_params()
 	_duplicate_common_elements()
 	rotation_degrees = _angle
@@ -91,15 +87,8 @@ func _on_timer_timeout() -> void:
 
 func _on_body_entered(body: Node) -> void:
 	if body.is_in_group("player"):
-		_player_body = body
-		_on_timer_timeout()
-		onready_timer.start()
-
-
-func _on_body_exited(body: Node) -> void:
-	if body.is_in_group("player"):
-		_player_body = null
-		onready_timer.stop()
+		var vect = (to_global(Vector3.UP) - to_global(Vector3.ZERO)).normalized()  # Up vector converted to the global transform and normalized
+		body.override_velocity_vector(vect * _force * _boost_multiplier)
 
 
 func _on_area_entered(area: Node) -> void:
