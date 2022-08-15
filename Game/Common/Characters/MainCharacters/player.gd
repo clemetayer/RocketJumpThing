@@ -107,11 +107,11 @@ func _process(delta):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame. Remove the "_" to use it.
 func _physics_process(delta):
-	get_node(PATHS.camera).fov = (
-		MIN_FOV
-		+ (MAX_FOV - MIN_FOV) * ease(min(1, current_speed / FOV_MAX_SPEED), 1.6)
-	)
-	DebugDraw.set_text("fov", get_node(PATHS.camera).fov)
+	# get_node(PATHS.camera).fov = (
+	# 	MIN_FOV
+	# 	+ (MAX_FOV - MIN_FOV) * ease(min(1, current_speed / FOV_MAX_SPEED), 1.6)
+	# )
+	# DebugDraw.set_text("fov", get_node(PATHS.camera).fov)
 	_set_UI_data()
 	_process_collision()
 	_process_input(delta)
@@ -125,7 +125,7 @@ func _input(event):
 		rotation_helper.rotate_x(deg2rad(event.relative.y * mouse_sensitivity))
 		self.rotate_y(deg2rad(event.relative.x * mouse_sensitivity * -1))
 		var camera_rot = rotation_helper.rotation_degrees
-		camera_rot.x = clamp(camera_rot.x, -90, 90)
+		camera_rot.x = clamp(camera_rot.x, -89, 89)
 		rotation_helper.rotation_degrees = camera_rot
 
 
