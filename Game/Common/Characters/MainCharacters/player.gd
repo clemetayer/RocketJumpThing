@@ -259,7 +259,7 @@ func _process_movement(delta):
 	# Move and slide + update speed
 	var snap = Vector3.ZERO if Input.is_action_pressed("movement_jump") else -get_floor_normal()
 	vel = move_and_slide_with_snap(vel, snap, Vector3.UP, true, 4, MAX_SLOPE_ANGLE, false)
-	current_speed = vel.length()
+	current_speed = Vector3(vel.x, 0, vel.z).length()
 
 
 func _find_wall_direction() -> void:
