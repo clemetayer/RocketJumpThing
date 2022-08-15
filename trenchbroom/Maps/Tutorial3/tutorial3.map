@@ -1985,9 +1985,10 @@
 "classname" "particle_flat_poly_scale"
 "origin" "464 0 432"
 "angle" "90 0 0"
-"color" "38 174 128"
+"color" "255 190 0"
 "sides" "3"
 "size" "2000 0 2000"
+"color_out" "38 174 128"
 }
 // entity 47
 {
@@ -5942,4 +5943,64 @@
 ( 3470.7692307692287 -181.84615384615364 -8 ) ( 3470.7692307692287 -181.84615384615364 0 ) ( 3422.7692307692287 -149.84615384615364 0 ) scenes/tutorial3_scene/Sequencer1 [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
 ( 3416.923076923076 -213.3846153846158 0 ) ( 3464.923076923076 -181.38461538461578 0 ) ( 3464.923076923076 -181.38461538461578 -8 ) scenes/tutorial3_scene/Sequencer1 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
+}
+// entity 148
+{
+"classname" "OmniLightEntity"
+"origin" "2446 -2 -50"
+"color" "38 174 128"
+"energy" "1"
+"range" "300"
+"shadow_mode" "1"
+"specular" "0.5"
+}
+// entity 149
+{
+"classname" "OmniLightEntity"
+"origin" "2750 -2 -2"
+"color" "38 174 128"
+"energy" "1"
+"range" "300"
+"shadow_mode" "1"
+"specular" "0.5"
+}
+// entity 150
+{
+"classname" "OmniLightEntity"
+"origin" "5278 30 878"
+"color" "38 174 128"
+"energy" "1"
+"range" "600"
+"shadow_mode" "1"
+"specular" "0.5"
+}
+// entity 151
+{
+"classname" "OmniLightEntity"
+"origin" "5294 -194 1262"
+"color" "38 174 128"
+"energy" "1"
+"range" "600"
+"shadow_mode" "1"
+"specular" "0.5"
+}
+// entity 152
+{
+"classname" "OmniLightEntity"
+"origin" "2862 78 -2"
+"color" "38 174 128"
+"energy" "1"
+"range" "300"
+"shadow_mode" "1"
+"specular" "0.5"
+}
+// entity 153
+{
+"classname" "OmniLightEntity"
+"origin" "4398 2334 166"
+"color" "38 174 128"
+"energy" "1"
+"range" "300"
+"shadow_mode" "1"
+"specular" "0.5"
 }

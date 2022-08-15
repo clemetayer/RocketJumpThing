@@ -1,4 +1,4 @@
-[gd_scene load_steps=414 format=2]
+[gd_scene load_steps=415 format=2]
 
 [ext_resource path="res://addons/qodot/src/nodes/qodot_map.gd" type="Script" id=1]
 [ext_resource path="res://Game/Common/Characters/MainCharacters/Player.tscn" type="PackedScene" id=2]
@@ -27,6 +27,7 @@
 [ext_resource path="res://trenchbroom/textures/scenes/tutorial3_scene/Sequencer1.tres" type="Material" id=25]
 [ext_resource path="res://trenchbroom/textures/scenes/tutorial3_scene/Speedlines.tres" type="Material" id=26]
 [ext_resource path="res://trenchbroom/textures/scenes/tutorial3_scene/moving_polygons_2.tres" type="Material" id=27]
+[ext_resource path="res://trenchbroom/Entities/StandardMapElements/Lights/OmniLight.tscn" type="PackedScene" id=28]
 
 [sub_resource type="Gradient" id=273]
 offsets = PoolRealArray( 0, 0.133333, 0.833333, 1 )
@@ -4182,7 +4183,8 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 432, 464 )
 properties = {
 "angle": Vector3( 90, 0, 0 ),
 "classname": "particle_flat_poly_scale",
-"color": Color( 0.14902, 0.682353, 0.501961, 1 ),
+"color": Color( 1, 0.745098, 0, 1 ),
+"color_out": Color( 0.14902, 0.682353, 0.501961, 1 ),
 "origin": "464 0 432",
 "sides": 3,
 "size": Vector3( 2000, 0, 2000 )
@@ -5425,7 +5427,7 @@ properties = {
 }
 
 [node name="entity_117_rotate_spatial_sequencer_solid_transparent" type="Spatial" parent="QodotMap"]
-transform = Transform( 0.80829, 0.503118, 0.305841, -0.175581, 0.70178, -0.690416, -0.561994, 0.504357, 0.655581, -768, 760, -1520 )
+transform = Transform( 0.136238, 0.950574, -0.279007, 0.516911, -0.308465, -0.798531, -0.845127, -0.0354301, -0.533387, -768, 760, -1520 )
 script = ExtResource( 16 )
 properties = {
 "albedo": Color( 0.14902, 0.682353, 0.501961, 1 ),
@@ -5446,7 +5448,7 @@ mesh = SubResource( 623 )
 material/0 = null
 
 [node name="entity_118_rotate_spatial_sequencer_solid_transparent" type="Spatial" parent="QodotMap"]
-transform = Transform( 0.86015, -0.424186, 0.283207, -0.0426998, 0.493425, 0.868738, -0.508248, -0.759339, 0.406308, 260, 608, -1824 )
+transform = Transform( 0.538502, -0.74603, -0.391725, -0.782043, -0.61558, 0.0972849, -0.313716, 0.253959, -0.914922, 260, 608, -1824 )
 script = ExtResource( 16 )
 properties = {
 "albedo": Color( 0.14902, 0.682353, 0.501961, 1 ),
@@ -5467,7 +5469,7 @@ mesh = SubResource( 624 )
 material/0 = null
 
 [node name="entity_119_rotate_spatial_sequencer_solid_transparent" type="Spatial" parent="QodotMap"]
-transform = Transform( -0.0514466, -0.254789, 0.965626, 0.996876, 0.0448992, 0.0649584, -0.0599063, 0.965953, 0.251683, -4, -784, -992 )
+transform = Transform( 0.716072, 0.636378, -0.286808, -0.45686, 0.737935, 0.496716, 0.527746, -0.224654, 0.819152, -4, -784, -992 )
 script = ExtResource( 16 )
 properties = {
 "albedo": Color( 0.14902, 0.682353, 0.501961, 1 ),
@@ -5488,7 +5490,7 @@ mesh = SubResource( 625 )
 material/0 = null
 
 [node name="entity_120_rotate_spatial_sequencer_solid_transparent" type="Spatial" parent="QodotMap"]
-transform = Transform( 0.787707, -0.601562, -0.132818, 0.234116, 0.491731, -0.838683, 0.569831, 0.629542, 0.528175, 1024, 40, -656 )
+transform = Transform( 0.271477, -0.622622, 0.73392, -0.635853, -0.688466, -0.348858, 0.722487, -0.37196, -0.582799, 1024, 40, -656 )
 script = ExtResource( 16 )
 properties = {
 "albedo": Color( 1, 0.745098, 0, 1 ),
@@ -5509,7 +5511,7 @@ mesh = SubResource( 626 )
 material/0 = null
 
 [node name="entity_121_rotate_spatial_sequencer_solid_transparent" type="Spatial" parent="QodotMap"]
-transform = Transform( 0.664761, 0.702828, 0.253228, -0.470752, 0.130894, 0.872501, 0.580072, -0.699212, 0.417871, 1024, 40, -656 )
+transform = Transform( 0.358358, -0.223834, 0.906352, 0.682595, -0.599489, -0.417939, 0.636897, 0.768445, -0.0620432, 1024, 40, -656 )
 script = ExtResource( 16 )
 properties = {
 "albedo": Color( 0.14902, 0.682353, 0.501961, 1 ),
@@ -5530,7 +5532,7 @@ mesh = SubResource( 627 )
 material/0 = null
 
 [node name="entity_122_rotate_spatial_sequencer_solid_transparent" type="Spatial" parent="QodotMap"]
-transform = Transform( 0.841317, 0.484295, -0.240088, -0.0211109, 0.473264, 0.880667, 0.540128, -0.735852, 0.408389, -1000, -136, 1312 )
+transform = Transform( 0.492467, 0.697558, 0.520465, 0.773492, -0.624928, 0.105681, 0.398973, 0.350533, -0.847315, -1000, -136, 1312 )
 script = ExtResource( 16 )
 properties = {
 "albedo": Color( 1, 0.745098, 0, 1 ),
@@ -5551,7 +5553,7 @@ mesh = SubResource( 628 )
 material/0 = null
 
 [node name="entity_123_rotate_spatial_sequencer_solid_transparent" type="Spatial" parent="QodotMap"]
-transform = Transform( 0.636292, 0.707797, -0.306845, -0.58444, 0.18265, -0.790611, -0.503547, 0.682393, 0.529885, 2560, 1112, 2812 )
+transform = Transform( 0.195038, -0.267808, -0.943522, 0.563079, -0.75709, 0.331287, -0.803054, -0.595892, 0.00313571, 2560, 1112, 2812 )
 script = ExtResource( 16 )
 properties = {
 "albedo": Color( 1, 0.745098, 0, 1 ),
@@ -5572,7 +5574,7 @@ mesh = SubResource( 629 )
 material/0 = null
 
 [node name="entity_124_rotate_spatial_sequencer_solid_transparent" type="Spatial" parent="QodotMap"]
-transform = Transform( 0.340009, 0.618374, -0.708523, -0.932762, 0.125795, -0.337829, -0.119776, 0.77575, 0.619568, 24, 1632, 6512 )
+transform = Transform( -0.0375349, -0.915374, -0.400845, 0.45655, -0.372524, 0.80795, -0.888903, -0.152679, 0.431898, 24, 1632, 6512 )
 script = ExtResource( 16 )
 properties = {
 "albedo": Color( 0.14902, 0.682353, 0.501961, 1 ),
@@ -5593,7 +5595,7 @@ mesh = SubResource( 630 )
 material/0 = null
 
 [node name="entity_125_rotate_spatial_sequencer_solid_transparent" type="Spatial" parent="QodotMap"]
-transform = Transform( 0.787707, -0.601562, -0.132818, 0.234116, 0.491731, -0.838683, 0.569831, 0.629542, 0.528175, 728, 368, -2736 )
+transform = Transform( 0.271477, -0.622622, 0.73392, -0.635853, -0.688466, -0.348858, 0.722487, -0.37196, -0.582799, 728, 368, -2736 )
 script = ExtResource( 16 )
 properties = {
 "albedo": Color( 1, 0.745098, 0, 1 ),
@@ -5614,7 +5616,7 @@ mesh = SubResource( 631 )
 material/0 = null
 
 [node name="entity_126_rotate_spatial_sequencer_solid_transparent" type="Spatial" parent="QodotMap"]
-transform = Transform( 0.787707, -0.601562, -0.132818, 0.234116, 0.491731, -0.838683, 0.569831, 0.629542, 0.528175, -520, 432, -1824 )
+transform = Transform( 0.271477, -0.622622, 0.73392, -0.635853, -0.688466, -0.348858, 0.722487, -0.37196, -0.582799, -520, 432, -1824 )
 script = ExtResource( 16 )
 properties = {
 "albedo": Color( 1, 0.745098, 0, 1 ),
@@ -5653,7 +5655,7 @@ material/0 = null
 shape = SubResource( 634 )
 
 [node name="entity_128_rotate_spatial_sequencer_solid_transparent" type="Spatial" parent="QodotMap"]
-transform = Transform( -0.0514466, -0.254789, 0.965626, 0.996876, 0.0448992, 0.0649584, -0.0599063, 0.965953, 0.251683, 1068, 448, 4608 )
+transform = Transform( 0.716072, 0.636378, -0.286808, -0.45686, 0.737935, 0.496716, 0.527746, -0.224654, 0.819152, 1068, 448, 4608 )
 script = ExtResource( 16 )
 properties = {
 "albedo": Color( 0.14902, 0.682353, 0.501961, 1 ),
@@ -6090,5 +6092,89 @@ properties = {
 [node name="entity_147_mesh_instance" type="MeshInstance" parent="QodotMap/entity_147_SpatialStepSequencer1"]
 mesh = SubResource( 654 )
 material/0 = null
+
+[node name="entity_148_OmniLightEntity" parent="QodotMap" instance=ExtResource( 28 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -50, 2446 )
+light_color = Color( 0.14902, 0.682353, 0.501961, 1 )
+omni_range = 300.0
+properties = {
+"classname": "OmniLightEntity",
+"color": Color( 0.14902, 0.682353, 0.501961, 1 ),
+"energy": 1.0,
+"origin": "2446 -2 -50",
+"range": 300.0,
+"shadow_mode": 1,
+"specular": 0.5
+}
+
+[node name="entity_149_OmniLightEntity" parent="QodotMap" instance=ExtResource( 28 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -2, 2750 )
+light_color = Color( 0.14902, 0.682353, 0.501961, 1 )
+omni_range = 300.0
+properties = {
+"classname": "OmniLightEntity",
+"color": Color( 0.14902, 0.682353, 0.501961, 1 ),
+"energy": 1.0,
+"origin": "2750 -2 -2",
+"range": 300.0,
+"shadow_mode": 1,
+"specular": 0.5
+}
+
+[node name="entity_150_OmniLightEntity" parent="QodotMap" instance=ExtResource( 28 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 878, 5278 )
+light_color = Color( 0.14902, 0.682353, 0.501961, 1 )
+omni_range = 600.0
+properties = {
+"classname": "OmniLightEntity",
+"color": Color( 0.14902, 0.682353, 0.501961, 1 ),
+"energy": 1.0,
+"origin": "5278 30 878",
+"range": 600.0,
+"shadow_mode": 1,
+"specular": 0.5
+}
+
+[node name="entity_151_OmniLightEntity" parent="QodotMap" instance=ExtResource( 28 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -194, 1262, 5294 )
+light_color = Color( 0.14902, 0.682353, 0.501961, 1 )
+omni_range = 600.0
+properties = {
+"classname": "OmniLightEntity",
+"color": Color( 0.14902, 0.682353, 0.501961, 1 ),
+"energy": 1.0,
+"origin": "5294 -194 1262",
+"range": 600.0,
+"shadow_mode": 1,
+"specular": 0.5
+}
+
+[node name="entity_152_OmniLightEntity" parent="QodotMap" instance=ExtResource( 28 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 78, -2, 2862 )
+light_color = Color( 0.14902, 0.682353, 0.501961, 1 )
+omni_range = 300.0
+properties = {
+"classname": "OmniLightEntity",
+"color": Color( 0.14902, 0.682353, 0.501961, 1 ),
+"energy": 1.0,
+"origin": "2862 78 -2",
+"range": 300.0,
+"shadow_mode": 1,
+"specular": 0.5
+}
+
+[node name="entity_153_OmniLightEntity" parent="QodotMap" instance=ExtResource( 28 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2334, 166, 4398 )
+light_color = Color( 0.14902, 0.682353, 0.501961, 1 )
+omni_range = 300.0
+properties = {
+"classname": "OmniLightEntity",
+"color": Color( 0.14902, 0.682353, 0.501961, 1 ),
+"energy": 1.0,
+"origin": "4398 2334 166",
+"range": 300.0,
+"shadow_mode": 1,
+"specular": 0.5
+}
 
 [connection signal="timeout" from="AdditionalThings/Timers/KickTimer" to="." method="_on_KickTimer_timeout"]

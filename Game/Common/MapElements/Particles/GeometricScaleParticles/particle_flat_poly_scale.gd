@@ -8,7 +8,8 @@ export(Dictionary) var properties
 #---- STANDARD -----
 #==== PUBLIC ====
 var _size := Vector3.ONE  # size of the mesh
-var _color := Color.white  # color of the mesh (goes to transparent)
+var _color := Color.white  # inner color of the mesh
+var _color_out := Color.white  # outer color of the mesh gradient (goes to transparent)
 var _sides := 3  # number of sides of the polygon
 var _angle := Vector3.ZERO  # direction of the particle emitter
 
@@ -22,7 +23,8 @@ func _ready():
 	draw_pass_1.size = Vector3(_size.x, 0, _size.z)
 	draw_pass_1.material.set_shader_param("sides", _sides)
 	process_material.color_ramp.gradient.colors[0] = _color
-	process_material.color_ramp.gradient.colors[1] = Color(_color.r, _color.g, _color.b, 0)
+	_color_out.a = 0.0  # forces the outer part to be transparent
+	process_material.color_ramp.gradient.colors[1] = _color_out
 
 
 ##### PROTECTED METHODS #####
@@ -35,6 +37,8 @@ func _set_trench_params() -> void:
 		_sides = properties["sides"]
 	if properties.has("angle"):
 		_angle = properties["angle"]
+	if properties.has("color_out"):
+		_color_out = properties["color_out"]
 
 
 # makes some elements unique to avoid modifying other same particles
