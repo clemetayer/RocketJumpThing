@@ -5,7 +5,7 @@
 "mapversion" "220"
 "classname" "worldspawn"
 "_tb_textures" "textures/common/material_override;textures/entities/DeathMesh;textures/entities/checkpoint;textures/scenes/tutorial2_scene"
-"_tb_def" "builtin:tutorial_2_fgd.fgd"
+"_tb_def" "builtin:MapElements_fgd.fgd"
 // brush 0
 {
 ( 560 -1920 1312 ) ( 560 -1920 1313 ) ( 560 -1921 1312 ) common/material_override/Transparent [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -2181,6 +2181,8 @@
 "collision_mask" "5"
 "travel_time" "1.5"
 "point1" "-64 0 0"
+"path_color" "0 255 255"
+"path_emission" "2"
 // brush 0
 {
 ( 3108 -1136 632 ) ( 3108 -720 616 ) ( 3108 -720 632 ) scenes/tutorial2_scene/platform_material_1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -2234,6 +2236,8 @@
 "collision_mask" "5"
 "travel_time" "1.5"
 "point1" "64 0 0"
+"path_color" "0 255 255"
+"path_emission" "2"
 // brush 0
 {
 ( 2996 -1200 632 ) ( 2996 -784 616 ) ( 2996 -784 632 ) scenes/tutorial2_scene/platform_material_1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -2287,6 +2291,8 @@
 "collision_mask" "5"
 "travel_time" "1.5"
 "point1" "-64 0 0"
+"path_color" "0 255 255"
+"path_emission" "2"
 // brush 0
 {
 ( 2884 -1136 632 ) ( 2884 -720 616 ) ( 2884 -720 632 ) scenes/tutorial2_scene/platform_material_1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -2340,6 +2346,8 @@
 "collision_mask" "5"
 "travel_time" "1.5"
 "point1" "64 0 0"
+"path_color" "0 255 255"
+"path_emission" "2"
 // brush 0
 {
 ( 2772 -1200 632 ) ( 2772 -784 616 ) ( 2772 -784 632 ) scenes/tutorial2_scene/platform_material_1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -3444,6 +3452,8 @@
 "trans_type" "1"
 "travel_time" "3"
 "wait_time" "5"
+"path_color" "0 255 255"
+"path_emission" "2"
 // brush 0
 {
 ( -7390 168 32 ) ( -7390 104 32 ) ( -7390 104 24 ) scenes/tutorial2_scene/platform_material_2 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -3502,6 +3512,8 @@
 "travel_time" "3"
 "wait_time" "3"
 "point3" "250 32 0"
+"path_color" "0 255 255"
+"path_emission" "2"
 // brush 0
 {
 ( -7390 712 64 ) ( -7390 648 64 ) ( -7390 648 56 ) scenes/tutorial2_scene/platform_material_2 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -3560,6 +3572,8 @@
 "travel_time" "3"
 "wait_time" "3"
 "point3" "250 -32 0"
+"path_color" "0 255 255"
+"path_emission" "2"
 // brush 0
 {
 ( -6848 712 192 ) ( -6848 648 192 ) ( -6848 648 184 ) scenes/tutorial2_scene/platform_material_2 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -3618,6 +3632,8 @@
 "travel_time" "4"
 "wait_time" "0"
 "point3" "0 0 0"
+"path_color" "0 255 255"
+"path_emission" "2"
 // brush 0
 {
 ( -6910 200 192 ) ( -6910 136 192 ) ( -6910 136 184 ) scenes/tutorial2_scene/platform_material_1 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -3676,6 +3692,8 @@
 "travel_time" "4"
 "wait_time" "0"
 "point3" "0 0 0"
+"path_color" "0 255 255"
+"path_emission" "2"
 // brush 0
 {
 ( -6784 104 192 ) ( -6784 40 192 ) ( -6784 40 184 ) scenes/tutorial2_scene/platform_material_2 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -3734,6 +3752,8 @@
 "travel_time" "4"
 "wait_time" "0"
 "point3" "0 0 0"
+"path_color" "0 255 255"
+"path_emission" "2"
 // brush 0
 {
 ( -6910 8 192 ) ( -6910 -56 192 ) ( -6910 -56 184 ) scenes/tutorial2_scene/platform_material_2 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -3789,6 +3809,8 @@
 "point1" "64 0 0"
 "travel_time" "2"
 "trans_type" "0"
+"path_color" "0 255 255"
+"path_emission" "2"
 // brush 0
 {
 ( -6416 -848 120 ) ( -6416 -847 120 ) ( -6416 -848 121 ) scenes/tutorial2_scene/platform_material_2 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -3842,6 +3864,8 @@
 "collision_layer" "2"
 "collision_mask" "5"
 "travel_time" "3"
+"path_color" "0 255 255"
+"path_emission" "2"
 // brush 0
 {
 ( -6112 -640 24 ) ( -6112 -639 24 ) ( -6112 -640 25 ) scenes/tutorial2_scene/platform_material_2 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -3895,6 +3919,8 @@
 "collision_mask" "5"
 "point1" "0 0 128"
 "travel_time" "4"
+"path_color" "0 255 255"
+"path_emission" "2"
 // brush 0
 {
 ( -5876 -336 24 ) ( -5876 -335 24 ) ( -5876 -336 25 ) scenes/tutorial2_scene/platform_material_2 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -3953,6 +3979,8 @@
 "travel_time" "4"
 "wait_time" "0"
 "point3" "0 0 0"
+"path_color" "0 255 255"
+"path_emission" "2"
 // brush 0
 {
 ( -6784 296 192 ) ( -6784 232 192 ) ( -6784 232 184 ) scenes/tutorial2_scene/platform_material_2 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -4006,6 +4034,8 @@
 "collision_mask" "5"
 "point1" "64 0 0"
 "travel_time" "2"
+"path_color" "0 255 255"
+"path_emission" "2"
 // brush 0
 {
 ( 1296 1072 104 ) ( 1296 1488 88 ) ( 1296 1488 104 ) scenes/tutorial2_scene/platform_material_2 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -4059,6 +4089,8 @@
 "collision_mask" "5"
 "point1" "0 64 0"
 "travel_time" "3"
+"path_color" "0 255 255"
+"path_emission" "2"
 // brush 0
 {
 ( 1988 1040 72 ) ( 1988 1456 56 ) ( 1988 1456 72 ) scenes/tutorial2_scene/platform_material_2 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -4115,6 +4147,8 @@
 "point2" "64 0 64"
 "point3" "64 0 0"
 "wait_time" "0"
+"path_color" "0 255 255"
+"path_emission" "2"
 // brush 0
 {
 ( 5288 1968 384 ) ( 5288 2416 368 ) ( 5288 2416 384 ) scenes/tutorial2_scene/platform_material_2 [ 2.220446049250313e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -4171,6 +4205,8 @@
 "point3" "0 0 64"
 "travel_time" "3"
 "wait_time" "0"
+"path_emission" "2"
+"path_color" "0 255 255"
 // brush 0
 {
 ( 5056 2688 416 ) ( 5056 2240 416 ) ( 5056 2240 400 ) scenes/tutorial2_scene/platform_material_2 [ 2.220446049250313e-16 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
