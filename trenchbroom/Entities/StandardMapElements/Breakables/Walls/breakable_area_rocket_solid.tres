@@ -1,0 +1,39 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://addons/qodot/src/resources/game-definitions/fgd/qodot_fgd_solid_class.gd" type="Script" id=1]
+[ext_resource path="res://Game/Common/MapElements/Breakables/Walls/breakable_area_rocket.gd" type="Script" id=2]
+
+[resource]
+script = ExtResource( 1 )
+class_options = "----------------------------------------------------------------"
+classname = "solid_area_breakable_rocket"
+description = "An area used to trigger the break of a wall if a rocket touches it"
+qodot_internal = false
+base_classes = [  ]
+class_properties = {
+"collision_layer": 2,
+"collision_mask": 5,
+"scale": Vector3( 2, 2, 1 ),
+"text_direction": Vector3( 0, 0, 0 )
+}
+class_property_descriptions = {
+"collision_layer": "Collision layer",
+"collision_mask": "Collision mask",
+"scale": "Pretty much the size of the text",
+"text_direction": "direction where the text (or icon will be facing)"
+}
+meta_properties = {
+"color": Color( 0.8, 0.8, 0.8, 1 ),
+"size": AABB( -8, -8, -8, 8, 8, 8 )
+}
+node_options = "----------------------------------------------------------------"
+node_class = "Area"
+transient_node = false
+spawn = "----------------------------------------------------------------"
+spawn_type = 2
+visual_build = "----------------------------------------------------------------"
+build_visuals = false
+collision_build = "----------------------------------------------------------------"
+collision_shape_type = 1
+scripting = "----------------------------------------------------------------"
+script_class = ExtResource( 2 )
