@@ -14,6 +14,7 @@ class_properties = {
 "color": Color( 1, 1, 1, 1 ),
 "energy": 1.0,
 "range": 150.0,
+"shadow_enabled": false,
 "shadow_mode": 1,
 "specular": 0.5
 }
@@ -21,6 +22,7 @@ class_property_descriptions = {
 "color": "color of the light",
 "energy": "energy of the light",
 "range": "range of the omni light",
+"shadow_enabled": "if the light should compute shadows or not",
 "shadow_mode": "shadow mode : 0 = dual paraboid, 1 = cube",
 "specular": "Specular value of the light"
 }

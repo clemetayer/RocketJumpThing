@@ -4,7 +4,7 @@ extends OmniLight
 
 ##### VARIABLES #####
 #---- EXPORTS -----
-export (Dictionary) var properties setget set_properties
+export(Dictionary) var properties setget set_properties
 
 
 ##### PROTECTED METHODS #####
@@ -16,20 +16,23 @@ func set_properties(new_properties: Dictionary) -> void:
 
 
 func update_properties():
-	if 'energy' in properties:
-		set_param(Light.PARAM_ENERGY, properties['energy'])
+	if "energy" in properties:
+		set_param(Light.PARAM_ENERGY, properties["energy"])
 
-	if 'range' in properties:
-		set_param(Light.PARAM_RANGE, properties['range'])
+	if "range" in properties:
+		set_param(Light.PARAM_RANGE, properties["range"])
 
-	if 'specular' in properties:
-		set_param(Light.PARAM_SPECULAR, properties['specular'])
+	if "specular" in properties:
+		set_param(Light.PARAM_SPECULAR, properties["specular"])
 
-	if 'shadow_mode' in properties:
-		omni_shadow_mode = properties['shadow_mode']
+	if "shadow_mode" in properties:
+		omni_shadow_mode = properties["shadow_mode"]
 
-	if 'color' in properties:
-		set_color(properties['color'])
+	if "color" in properties:
+		set_color(properties["color"])
+
+	if "shadow_enabled" in properties:
+		shadow_enabled = properties["shadow_enabled"]
 
 	set_shadow(true)
 	set_bake_mode(Light.BAKE_INDIRECT)
