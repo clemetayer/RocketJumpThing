@@ -223,10 +223,7 @@ func _handle_str_part(part: String):
 
 func _create_texture_rect_from_path(path: String) -> TextureRect:
 	var texture_rect := TextureRect.new()
-	var texture := ImageTexture.new()
-	var image := Image.new()
-	image.load(path)
-	texture.create_from_image(image)
+	var texture: StreamTexture = load(path)
 	texture_rect.texture = texture
 	return texture_rect
 
