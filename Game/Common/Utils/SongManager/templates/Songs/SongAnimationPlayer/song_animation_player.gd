@@ -22,6 +22,7 @@ export(NodePath) var ANIMATION_PLAYER
 export(String) var SONG_SEND_TO = "Master"  # where the song bus should send
 export(String) var ANIMATION  # Animation that should play
 export(bool) var ALLOW_RECURSIVE_INIT = false  # If it should enable the search for AudioStream in recursive children nodes on init (can be usefull for organisation purposes) # OPTIMIZATION : make this option true by default ?
+export(Dictionary) var TRACK_CUSTOM_EFFECTS = {}  # Custom buses for tracks. Should be like {"track_name":[AudioEffect]}. Usefull to handle loops with reverbs or delay
 
 #==== PRIVATE ====
 var _tracks: Dictionary = {}  # track infos
@@ -173,7 +174,7 @@ func _init_buses():
 	# inits the track buses
 	for track_name in _tracks.keys():
 		if track_name != name:  # not root of the song
-			_create_bus("%s:%s" % [name, track_name], name)
+			_create_bus("%s:%s" % [name, track_name], name)  # TODO : make 2 parameters, one for song and one for track ?
 			_tracks[track_name].bus = "%s:%s" % [name, track_name]
 			get_node(_tracks[track_name].path).bus = "%s:%s" % [name, track_name]
 	_buses_cleared = false
@@ -189,6 +190,27 @@ func _clear_buses():
 # Creates a bus with a specific name
 # WARNING : If the bus already exists
 func _create_bus(name: String, send_to: String):
+	_create_default_bus(name, send_to)
+	var track_name := name.split(":")[name.split(":").size() - 1]  # track name is the last element of the bus name splitted by ':' (<song>:<track>)
+	if TRACK_CUSTOM_EFFECTS.has(track_name):
+		var custom_name := name + "_custom_"
+		var last_bus_name := name  # first bus is the default bus
+		# creates a bus for EACH effect, especially to avoid issues when stacking some effects (like Delay -> Reverb destroying the sound, at least on my PC)
+		for effect_idx in range(TRACK_CUSTOM_EFFECTS[track_name].size()):
+			AudioServer.add_bus_effect(
+				AudioServer.get_bus_index(name),
+				TRACK_CUSTOM_EFFECTS[track_name][effect_idx].duplicate()
+			)
+		# 	var custom_name_idx := custom_name + str(effect_idx)
+		# 	_add_custom_bus_effect(custom_name_idx, TRACK_CUSTOM_EFFECTS[track_name][effect_idx])
+		# 	# inserts the custom bus into the sidechain
+		# 	AudioServer.set_bus_send(AudioServer.get_bus_index(last_bus_name), custom_name_idx)
+		# 	last_bus_name = custom_name_idx
+		# AudioServer.set_bus_send(AudioServer.get_bus_index(last_bus_name), send_to)
+
+
+# Creates a default bus, with default effects for transitions
+func _create_default_bus(name: String, send_to: String):
 	# removes the bus if it already exists
 	if AudioServer.get_bus_index(name) != -1:
 		AudioServer.remove_bus(AudioServer.get_bus_index(name))
@@ -200,6 +222,18 @@ func _create_bus(name: String, send_to: String):
 	var filter = AudioEffectFilter.new()
 	filter.cutoff_hz = 20000
 	AudioServer.add_bus_effect(AudioServer.get_bus_index(name), filter, bus_effects.filter)
+
+
+# adds an additional bus
+func _add_custom_bus_effect(name: String, effect: AudioEffect):
+	# removes the bus if it already exists
+	if AudioServer.get_bus_index(name) != -1:
+		AudioServer.remove_bus(AudioServer.get_bus_index(name))
+	# initializes the bus
+	AudioServer.add_bus()
+	AudioServer.set_bus_name(AudioServer.bus_count - 1, name)
+	# Add the custom effects
+	AudioServer.add_bus_effect(AudioServer.get_bus_index(name), effect, 0)
 
 
 # returns an array of effects that can be applied to a track
@@ -347,14 +381,28 @@ func _on_parent_effect_done() -> void:
 			get_node(ANIMATION_PLAYER).seek(animation_time)
 		else:
 			Logger.warn(
-				"Pas de piste en commun entre %s et %s" % [ANIMATION, _update_track_infos.animation]
+				"No common track between %s and %s" % [ANIMATION, _update_track_infos.animation]
 			)
 	var should_clear_buses = true
 	for track in get_children():
 		if track is AudioStreamPlayer and track.playing:  # not everything is stopped
 			should_clear_buses = false
+		else:
+			should_clear_buses = should_clear_buses and _recur_check_clear_buses(track)
 	if should_clear_buses:
 		_clear_buses()
+
+
+# recursively checks the nodes for audio stream players before clear buses
+func _recur_check_clear_buses(node: Node) -> bool:
+	var children := node.get_children()
+	var should_clear_buses := true
+	for child in children:
+		if child is AudioStreamPlayer and child.playing:  # not everything is stopped
+			should_clear_buses = false
+		else:
+			should_clear_buses = should_clear_buses and _recur_check_clear_buses(child)
+	return should_clear_buses
 
 
 # Keeps track of the AnimationPlayer's automatic transitions
@@ -371,7 +419,7 @@ func _print_buses():
 			bus_effects.append(AudioServer.get_bus_effect(bus_idx, effect_idx))
 		Logger.debug(
 			(
-				"bus N°%d : %s, has effects : %s and sends to %s. Volume is %d"
+				"bus N°%d : %s, has effects : %s and sends to %s. Volume is %d db"
 				% [
 					bus_idx,
 					AudioServer.get_bus_name(bus_idx),
@@ -385,4 +433,4 @@ func _print_buses():
 
 # prints the track infos
 func _print_track_infos():
-	print(_tracks)
+	Logger.debug("%s" % _tracks)

@@ -59,12 +59,22 @@ const ROCKET_SCENE_PATH := "res://Game/Common/MovementUtils/Rocket/Rocket.tscn" 
 
 #---- EXPORTS -----
 export(Dictionary) var PATHS = {
-	"raycasts": {"root": NodePath("."), "left": NodePath("."), "right": NodePath(".")},
-	"camera": NodePath("."),
-	"rotation_helper": NodePath("."),
-	"UI": NodePath("."),
-	"run_sound": NodePath("."),
-	"jump_sound": NodePath(".")
+	"raycasts":
+	{
+		"root": NodePath("RayCasts"),
+		"left": NodePath("RayCasts/left"),
+		"right": NodePath("RayCasts/right")
+	},
+	"camera": NodePath("RotationHelper/Camera"),
+	"rotation_helper": NodePath("RotationHelper"),
+	"UI": NodePath("PlayerUI"),
+	"run_sound":
+	{
+		"pitch": NodePath("Sounds/Run/Pitch"),
+		"unpitch": NodePath("Sounds/Run/Pitch"),
+	},
+	"jump_sound": NodePath("Sounds/JumpSound"),
+	"wall_ride": NodePath("Sounds/WallRide")
 }
 export(bool) var ROCKETS_ENABLED = true
 export(bool) var SLIDE_ENABLED = true
@@ -98,7 +108,8 @@ func _ready():
 	rotation_helper = get_node(PATHS.rotation_helper)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	$Timers/UpdateSpeed.start()
-	get_node(PATHS.run_sound).play()
+	get_node(PATHS.run_sound.pitch).play()
+	get_node(PATHS.run_sound.unpitch).play()
 
 
 func _process(delta):
@@ -226,11 +237,30 @@ func _shoot(cam_xform: Transform) -> void:
 #---- Process sounds -----
 func _process_sounds() -> void:
 	if (current_speed / SOUND_MAX_SPEED) * 4.0 > 0.0:
-		if !get_node(PATHS.run_sound).playing:
-			get_node(PATHS.run_sound).play()
-		get_node(PATHS.run_sound).pitch_scale = (current_speed / SOUND_MAX_SPEED) * 4.0
-	elif get_node(PATHS.run_sound).playing:
-		get_node(PATHS.run_sound).stop()
+		if !get_node(PATHS.run_sound.pitch).playing:
+			get_node(PATHS.run_sound.pitch).play()
+		if !get_node(PATHS.run_sound.unpitch).playing:
+			get_node(PATHS.run_sound.unpitch).play()
+		get_node(PATHS.run_sound.pitch).pitch_scale = clamp(
+			current_speed / (SOUND_MAX_SPEED / 3.0), 0.0, 4.0
+		)
+		get_node(PATHS.run_sound.unpitch).volume_db = clamp(
+			linear2db(current_speed / (SOUND_MAX_SPEED / 2.0)), -72.0, 0.0
+		)
+	elif get_node(PATHS.run_sound.pitch).playing:
+		get_node(PATHS.run_sound.pitch).stop()
+	elif get_node(PATHS.run_sound.unpitch).playing:
+		get_node(PATHS.run_sound.unpitch).stop()
+	if (
+		(states.has("wall_riding") or states.has("sliding"))
+		and not get_node(PATHS.wall_ride).playing
+	):
+		get_node(PATHS.wall_ride).play()
+	elif (
+		!(states.has("wall_riding") or states.has("sliding"))
+		and get_node(PATHS.wall_ride).playing
+	):
+		get_node(PATHS.wall_ride).stop()
 
 
 #---- Process movement -----

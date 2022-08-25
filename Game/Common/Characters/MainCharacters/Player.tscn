@@ -1,12 +1,14 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Game/Common/Characters/MainCharacters/player.gd" type="Script" id=1]
 [ext_resource path="res://Game/Common/Characters/player_UI.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Game/Common/Characters/tutorial_hints.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Game/Common/Characters/checkpoint_UI.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Game/Common/Characters/chronometer_UI.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Misc/Audio/FX/RunSound/RunNoise.wav" type="AudioStream" id=6]
+[ext_resource path="res://Misc/Audio/FX/RunSound/RunSound_pitch_loop.wav" type="AudioStream" id=6]
 [ext_resource path="res://Misc/Audio/FX/JumpSound/JumpSound.wav" type="AudioStream" id=7]
+[ext_resource path="res://Misc/Audio/FX/RunSound/RunSound_unpitch.wav" type="AudioStream" id=8]
+[ext_resource path="res://Misc/Audio/FX/WallRideSound/WallRideSound.wav" type="AudioStream" id=9]
 
 [sub_resource type="CylinderMesh" id=4]
 top_radius = 0.6
@@ -22,18 +24,6 @@ height = 3.0
 collision_mask = 2
 collision/safe_margin = 1.0
 script = ExtResource( 1 )
-PATHS = {
-"UI": NodePath("PlayerUI"),
-"camera": NodePath("RotationHelper/Camera"),
-"jump_sound": NodePath("Sounds/JumpSound"),
-"raycasts": {
-"left": NodePath("RayCasts/left"),
-"right": NodePath("RayCasts/right"),
-"root": NodePath("RayCasts")
-},
-"rotation_helper": NodePath("RotationHelper"),
-"run_sound": NodePath("Sounds/RunSound")
-}
 
 [node name="Body" type="MeshInstance" parent="."]
 mesh = SubResource( 4 )
@@ -98,14 +88,26 @@ wait_time = 0.1
 
 [node name="Sounds" type="Node" parent="."]
 
-[node name="RunSound" type="AudioStreamPlayer" parent="Sounds"]
+[node name="Run" type="Node" parent="Sounds"]
+
+[node name="Pitch" type="AudioStreamPlayer" parent="Sounds/Run"]
 stream = ExtResource( 6 )
-volume_db = -20.0
+volume_db = -10.0
+bus = "FX"
+
+[node name="Unpitch" type="AudioStreamPlayer" parent="Sounds/Run"]
+stream = ExtResource( 8 )
+volume_db = 5.0
 bus = "FX"
 
 [node name="JumpSound" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource( 7 )
+bus = "FX"
+
+[node name="WallRide" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 9 )
 volume_db = -5.0
+pitch_scale = 0.7
 bus = "FX"
 
 [connection signal="timeout" from="Timers/WallRideJumpLock" to="." method="_on_WallRideJumpLock_timeout"]

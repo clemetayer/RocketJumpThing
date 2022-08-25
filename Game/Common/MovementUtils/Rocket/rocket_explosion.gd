@@ -4,7 +4,10 @@ extends Area
 ##### VARIABLES #####
 #---- CONSTANTS -----
 const NODE_PATHS = {
-	"collision": @"CollisionShape", "timer": @"ExplosionDecay", "animation": @"ExplosionAnimation"
+	"collision": @"CollisionShape",
+	"timer": @"ExplosionDecay",
+	"animation": @"ExplosionAnimation",
+	"explosion_audio": @"ExplosionAudio"
 }
 const ANIMATIONS = {"explode": "explode"}
 const EXPLOSION_POWER := 15  # power of the explosion
@@ -30,6 +33,7 @@ func _ready():
 ##### PROTECTED METHODS #####
 # triggers the explosion method
 func _explode() -> void:
+	get_node(NODE_PATHS.explosion_audio).play()
 	global_transform.origin = EXPLOSION_POSITION
 	get_node(NODE_PATHS.animation).play(ANIMATIONS.explode)
 	get_node(NODE_PATHS.timer).start()

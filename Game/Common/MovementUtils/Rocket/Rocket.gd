@@ -10,7 +10,10 @@ class_name Rocket
 
 ##### VARIABLES #####
 #---- CONSTANTS -----
-const SCENE_PATHS = {"explosion": "res://Game/Common/MovementUtils/Rocket/RocketExplosion.tscn"}
+const SCENE_PATHS = {
+	"explosion": "res://Game/Common/MovementUtils/Rocket/RocketExplosion.tscn",
+	"trail_sound": @"TrailSound"
+}
 const SPEED := 200.0  # travel speed of the rocket
 const RAYCAST_DISTANCE := 200  # maximum distance to detect a floor
 const RAYCAST_PLAN_EXPLODE_DISTANCE := 5  # Distance from a floor where the explosion should be planned (since it's imminent), to be sure that is will explode (high speed makes collision weird)
@@ -43,6 +46,7 @@ func _ready():
 	else:  # vectors are not aligned, it is safe to use "look_at"
 		look_at(START_POS - DIRECTION, UP_VECTOR)
 	_translate = true
+	get_node(SCENE_PATHS.trail_sound).play()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -59,7 +63,11 @@ func _check_raycast_distance() -> void:
 	raycast.cast_to = Vector3(0, 0, 1) * RAYCAST_DISTANCE
 	if raycast.is_colliding():
 		var distance = _get_distance_to_collision(raycast)
-		if distance <= RAYCAST_PLAN_EXPLODE_DISTANCE and not _expl_planned:
+		if (
+			not raycast.get_collider() is Player
+			and distance <= RAYCAST_PLAN_EXPLODE_DISTANCE
+			and not _expl_planned
+		):
 			_plan_explosion(distance)
 
 
@@ -102,8 +110,8 @@ func _explode(col_point: Vector3) -> void:
 
 
 ##### SIGNAL MANAGEMENT #####
-func _on_Rocket_body_entered(_body: Node):
-	if not _expl_planned:
+func _on_Rocket_body_entered(body: Node):
+	if not body is Player and not _expl_planned:
 		_expl_planned = true
 		$RayCast.transform.origin.z = -100  # steps back the raycast to get the exact collision point
 		if $RayCast.is_colliding():

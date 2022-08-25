@@ -8,6 +8,7 @@ extends RigidBody
 #---- CONSTANTS -----
 const SPEED_DIVIDER := .055  # Speed divider to prevent the wall from exploding too much, or not enough
 const BREAK_WALL_SOUND_PATH := "res://Misc/Audio/FX/BreakWall/BreakWall.wav"  # Path to the break wall sound
+const BREAK_WALL_SOUND_VOLUME_DB := -18.0  # Volume of the break wall sound
 
 #---- EXPORTS -----
 export(Dictionary) var properties setget set_properties
@@ -46,7 +47,7 @@ func update_properties() -> void:
 func _add_break_wall_sound() -> void:
 	var sound := AudioStreamPlayer.new()
 	sound.stream = load(BREAK_WALL_SOUND_PATH)
-	sound.volume_db = -28
+	sound.volume_db = BREAK_WALL_SOUND_VOLUME_DB
 	add_child(sound)
 	_break_wall_sound = sound
 
