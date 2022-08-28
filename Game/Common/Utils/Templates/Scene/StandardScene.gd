@@ -30,6 +30,11 @@ var _last_cp: Checkpoint
 #==== ONREADY ====
 # onready var onready_var # Optionnal comment
 
+#==== TESTING =====
+var signal_manager = SignalManager  # variable used to mock the signal manager for the tests
+var variable_manager = VariableManager  # variable used to mock the variable manager for the tests
+var song_manager = StandardSongManager  # variable used to mock the standard song manager for the tests
+
 
 ##### PROCESSING #####
 # Called when the object is initialized.
@@ -39,19 +44,13 @@ func _init():
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	PauseMenu.ENABLED = true
-	VariableManager.pause_enabled = true
-	VariableManager.end_level_enabled = true
+	_init_pause()
+	_init_end_level()
+	_init_song()
 	_last_cp = get_node(PATHS.start_point).get_checkpoint()
 	get_node(PATHS.player).ROCKETS_ENABLED = ENABLE_ROCKETS
 	get_node(PATHS.player).SLIDE_ENABLED = ENABLE_SLIDE
-	SignalManager.emit_start_level_chronometer()
-	# init end level ui
-	if NEXT_SCENE_PATH != null:
-		EndLevelUi.set_next_scene(NEXT_SCENE_PATH)
-	# init song
-	if null != PATHS.bgm.path and PATHS.bgm.path != "":
-		_change_song_anim(PATHS.bgm.animation)
+	signal_manager.emit_start_level_chronometer()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame. Remove the "_" to use it.
@@ -62,18 +61,28 @@ func _process(_delta):
 		_on_respawn_player_on_last_cp()
 
 
-##### PUBLIC METHODS #####
-# checks if the scene is valid, intended to be used as a guard before entering the scene
-# actually might be a bit complex to implement
-func check_scene_validity() -> bool:
-	# TODO : Check node paths, etc. But maybe a bit complex to implement (and useless ?)
-	return true
-
-
 ##### PROTECTED METHODS #####
+func _init_pause() -> void:
+	PauseMenu.ENABLED = true
+	variable_manager.pause_enabled = true
+
+
+func _init_end_level() -> void:
+	variable_manager.end_level_enabled = true
+	# init end level ui
+	if NEXT_SCENE_PATH != null:
+		EndLevelUi.set_next_scene(NEXT_SCENE_PATH)
+
+
+func _init_song() -> void:
+	# init song
+	if null != PATHS.bgm.path and PATHS.bgm.path != "":
+		_change_song_anim(PATHS.bgm.animation)
+
+
 # Connects the autoload signals on init
 func _connect_autoload_signals() -> void:
-	if SignalManager.connect("checkpoint_triggered", self, "_on_checkpoint_triggered") != OK:
+	if signal_manager.connect("checkpoint_triggered", self, "_on_checkpoint_triggered") != OK:
 		Logger.error(
 			(
 				"Error connecting %s to %s in %s"
@@ -81,7 +90,7 @@ func _connect_autoload_signals() -> void:
 			)
 		)
 	if (
-		SignalManager.connect("respawn_player_on_last_cp", self, "_on_respawn_player_on_last_cp")
+		signal_manager.connect("respawn_player_on_last_cp", self, "_on_respawn_player_on_last_cp")
 		!= OK
 	):
 		Logger.error(
@@ -93,7 +102,6 @@ func _connect_autoload_signals() -> void:
 
 
 func _restart() -> void:
-	SignalManager.emit_start_level_chronometer()  # restarts the chronometer
 	_last_cp = get_node(PATHS.start_point).get_checkpoint()
 	_on_respawn_player_on_last_cp()
 
@@ -104,7 +112,7 @@ func _change_song_anim(anim_name: String) -> void:
 	song_instance.ANIMATION = anim_name
 	var effect = VolumeEffectManager.new()
 	effect.TIME = 1.0
-	StandardSongManager.add_to_queue(song_instance, effect)
+	song_manager.add_to_queue(song_instance, effect)
 
 
 ##### SIGNAL MANAGEMENT #####
@@ -114,13 +122,16 @@ func _on_checkpoint_triggered(checkpoint: Checkpoint) -> void:
 
 func _on_respawn_player_on_last_cp() -> void:
 	if _last_cp != null:
-		var player: Player = get_node(PATHS.player)
-		player.transform.origin = _last_cp.get_spawn_point()
-		player.rotation_degrees.y = _last_cp.get_spawn_rotation()
-		player.vel = Vector3()
-		if _last_cp is StartPoint:  # if restart at the beginning of the level, restart the chronometer
-			SignalManager.emit_start_level_chronometer()
-			if null != PATHS.bgm.path and PATHS.bgm.path != "":
-				_change_song_anim(PATHS.bgm.animation)
-		elif null != PATHS.bgm.path and PATHS.bgm.path != "":
-			_change_song_anim(_last_cp.song_animation)
+		var player: Player = get_node_or_null(PATHS.player)
+		if player != null:
+			player.transform.origin = _last_cp.get_spawn_point()
+			player.rotation_degrees.y = _last_cp.get_spawn_rotation()
+			player.vel = Vector3()
+			if _last_cp is StartPoint:  # if restart at the beginning of the level, restart the chronometer
+				signal_manager.emit_start_level_chronometer()
+				if null != PATHS.bgm.path and PATHS.bgm.path != "":
+					_change_song_anim(PATHS.bgm.animation)
+			elif null != PATHS.bgm.path and PATHS.bgm.path != "":
+				_change_song_anim(_last_cp.song_animation)
+		else:
+			pass  # TODO : log here

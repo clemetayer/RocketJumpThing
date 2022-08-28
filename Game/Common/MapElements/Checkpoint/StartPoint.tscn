@@ -2,5 +2,5 @@
 
 [ext_resource path="res://Game/Common/MapElements/Checkpoint/StartPoint.gd" type="Script" id=2]
 
-[node name="StartPoint" type="Area"]
+[node name="StartPoint" type="Area" groups=["start_point"]]
 script = ExtResource( 2 )
