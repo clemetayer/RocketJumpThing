@@ -60,7 +60,10 @@ func play() -> Array:
 func stop() -> Array:
 	if _buses_cleared:
 		_init_buses()
-	if not get_parent().is_connected("effect_done", self, "_on_parent_effect_done"):
+	if (
+		get_parent() != null
+		and not get_parent().is_connected("effect_done", self, "_on_parent_effect_done")
+	):
 		var _err = get_parent().connect("effect_done", self, "_on_parent_effect_done")
 	if not _update_track_infos.fade_out.has(name):
 		_update_track_infos.fade_out.push_back(name)  # name just means to stop all tracks, setups the stop of the song
@@ -74,29 +77,39 @@ func update(song: Song) -> Array:
 		_init_buses()
 	if ANIMATION != song.ANIMATION:
 		var common_track_name = _get_same_track(song.ANIMATION)
+		var animation_time: float
+		var time_tracks: Dictionary
 		if common_track_name != null:  # has a common track, base the other tracks on this one for the transition
-			var animation_time = _get_animation_time_from_track_time(
-				song.ANIMATION, common_track_name
-			)  # global time in the animation, depending on the common track
-			var time_tracks = _get_track_play_times(song.ANIMATION, animation_time)  # play time for each track on new animation
-			for track in _tracks:
-				if track != name:  # not the root
-					if (
-						_tracks[track].playing_in_animation.has(ANIMATION)
-						and not _tracks[track].playing_in_animation.has(song.ANIMATION)
-					):  # current track playing should fade out
-						effect_array.append_array(_get_track_effect_array(track, false))
-						stop_array.append(track)
-						_remove_track_from_stop_queue(track)
-					elif (
-						not _tracks[track].playing_in_animation.has(ANIMATION)
-						and _tracks[track].playing_in_animation.has(song.ANIMATION)
-					):  # new track should fade in (even if it is not currently playing)
-						effect_array.append_array(_get_track_effect_array(track, true))
-						if time_tracks.has(track):  # if not stopped, play the sound immediately at the correct position
-							get_node(_tracks[track].path).play(time_tracks[track])
-			if not get_parent().is_connected("effect_done", self, "_on_parent_effect_done"):
-				var _err = get_parent().connect("effect_done", self, "_on_parent_effect_done")
+			animation_time = _get_animation_time_from_track_time(song.ANIMATION, common_track_name)  # global time in the animation, depending on the common track
+			time_tracks = _get_track_play_times(song.ANIMATION, animation_time)  # play time for each track on new animation
+		else:
+			var anim_player := get_node(ANIMATION_PLAYER)
+			animation_time = fmod(
+				anim_player.current_animation_position,
+				anim_player.get_animation(song.ANIMATION).length
+			)
+			time_tracks = _get_track_play_times(song.ANIMATION, animation_time)  # play time for each track on new animation
+		for track in _tracks:
+			if track != name:  # not the root
+				if (
+					_tracks[track].playing_in_animation.has(ANIMATION)
+					and not _tracks[track].playing_in_animation.has(song.ANIMATION)
+				):  # current track playing should fade out
+					effect_array.append_array(_get_track_effect_array(track, false))
+					stop_array.append(track)
+					_remove_track_from_stop_queue(track)
+				elif (
+					not _tracks[track].playing_in_animation.has(ANIMATION)
+					and _tracks[track].playing_in_animation.has(song.ANIMATION)
+				):  # new track should fade in (even if it is not currently playing)
+					effect_array.append_array(_get_track_effect_array(track, true))
+					if time_tracks.has(track):  # if not stopped, play the sound immediately at the correct position
+						get_node(_tracks[track].path).play(time_tracks[track])
+		if (
+			get_parent() != null
+			and not get_parent().is_connected("effect_done", self, "_on_parent_effect_done")
+		):
+			var _err = get_parent().connect("effect_done", self, "_on_parent_effect_done")
 		_update_track_infos.animation = song.ANIMATION
 		_update_track_infos.fade_out.push_back(stop_array)
 	return effect_array
@@ -192,21 +205,14 @@ func _clear_buses():
 func _create_bus(name: String, send_to: String):
 	_create_default_bus(name, send_to)
 	var track_name := name.split(":")[name.split(":").size() - 1]  # track name is the last element of the bus name splitted by ':' (<song>:<track>)
+	# Adds the custom track effects
+	# REFACTOR : create a specific method ?
 	if TRACK_CUSTOM_EFFECTS.has(track_name):
-		var custom_name := name + "_custom_"
-		var last_bus_name := name  # first bus is the default bus
-		# creates a bus for EACH effect, especially to avoid issues when stacking some effects (like Delay -> Reverb destroying the sound, at least on my PC)
 		for effect_idx in range(TRACK_CUSTOM_EFFECTS[track_name].size()):
 			AudioServer.add_bus_effect(
 				AudioServer.get_bus_index(name),
 				TRACK_CUSTOM_EFFECTS[track_name][effect_idx].duplicate()
 			)
-		# 	var custom_name_idx := custom_name + str(effect_idx)
-		# 	_add_custom_bus_effect(custom_name_idx, TRACK_CUSTOM_EFFECTS[track_name][effect_idx])
-		# 	# inserts the custom bus into the sidechain
-		# 	AudioServer.set_bus_send(AudioServer.get_bus_index(last_bus_name), custom_name_idx)
-		# 	last_bus_name = custom_name_idx
-		# AudioServer.set_bus_send(AudioServer.get_bus_index(last_bus_name), send_to)
 
 
 # Creates a default bus, with default effects for transitions
@@ -222,18 +228,6 @@ func _create_default_bus(name: String, send_to: String):
 	var filter = AudioEffectFilter.new()
 	filter.cutoff_hz = 20000
 	AudioServer.add_bus_effect(AudioServer.get_bus_index(name), filter, bus_effects.filter)
-
-
-# adds an additional bus
-func _add_custom_bus_effect(name: String, effect: AudioEffect):
-	# removes the bus if it already exists
-	if AudioServer.get_bus_index(name) != -1:
-		AudioServer.remove_bus(AudioServer.get_bus_index(name))
-	# initializes the bus
-	AudioServer.add_bus()
-	AudioServer.set_bus_name(AudioServer.bus_count - 1, name)
-	# Add the custom effects
-	AudioServer.add_bus_effect(AudioServer.get_bus_index(name), effect, 0)
 
 
 # returns an array of effects that can be applied to a track
@@ -283,6 +277,7 @@ func _get_same_track(new_animation: String):
 
 
 # returns the animation time where the track matches the play_time
+# TODO : hard to unit test, since track_get_key_time returns bad values on test execution
 func _get_animation_time_from_track_time(animation: String, track: String) -> float:
 	var anim: Animation = get_node(ANIMATION_PLAYER).get_animation(animation)
 	for track_idx in range(anim.get_track_count()):
@@ -300,7 +295,7 @@ func _get_animation_time_from_track_time(animation: String, track: String) -> fl
 					or anim.track_get_type(track_idx) == Animation.TYPE_AUDIO
 				)
 				and anim.track_get_key_value(track_idx, key_idx)
-			):  # value of the key is playing == true or is an audio key
+			):  # value of the key is playing == true or is an audio key and track actually exists
 				return (
 					anim.track_get_key_time(track_idx, key_idx)
 					+ get_node(_tracks[track].path).get_playback_position()
@@ -338,7 +333,7 @@ func _remove_track_from_stop_queue(track: String):
 	for stop_idx in range(_update_track_infos.fade_out.size()):
 		if _update_track_infos.fade_out[stop_idx].has(name):  # cancels the stop of the entire song
 			for track in _tracks.keys():
-				if track == name:  # just save a line execution (i know, that's useless)
+				if track == name:
 					_update_track_infos.fade_out[stop_idx].erase(name)
 				else:
 					_update_track_infos.fade_out[stop_idx].append(track)
@@ -383,13 +378,7 @@ func _on_parent_effect_done() -> void:
 			Logger.warn(
 				"No common track between %s and %s" % [ANIMATION, _update_track_infos.animation]
 			)
-	var should_clear_buses = true
-	for track in get_children():
-		if track is AudioStreamPlayer and track.playing:  # not everything is stopped
-			should_clear_buses = false
-		else:
-			should_clear_buses = should_clear_buses and _recur_check_clear_buses(track)
-	if should_clear_buses:
+	if _recur_check_clear_buses(self):
 		_clear_buses()
 
 
