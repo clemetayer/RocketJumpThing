@@ -224,14 +224,20 @@ func _process_input(_delta):
 # Shoots a rocket
 func _shoot(cam_xform: Transform) -> void:
 	states.append("shooting")
+	var rocket := _init_rocket(cam_xform)
+	if get_parent():
+		get_parent().add_child(rocket)
+	var _err = get_tree().create_timer(ROCKET_DELAY).connect(
+		"timeout", self, "remove_shooting_state"
+	)
+
+
+func _init_rocket(cam_xform: Transform) -> Area:
 	var rocket = load(ROCKET_SCENE_PATH).instance()
 	rocket.START_POS = transform.origin + transform.basis * ROCKET_START_OFFSET
 	rocket.DIRECTION = -cam_xform.basis.z
 	rocket.UP_VECTOR = Vector3(0, 1, 0)
-	get_parent().add_child(rocket)
-	var _err = get_tree().create_timer(ROCKET_DELAY).connect(
-		"timeout", self, "remove_shooting_state"
-	)
+	return rocket
 
 
 #---- Process sounds -----
@@ -282,14 +288,18 @@ func _process_movement(delta):
 		else:
 			_air_movement(delta)
 	_add_movement_queue_to_vel()
-	if _override_velocity_vector != null:
-		vel = _override_velocity_vector
-		_override_velocity_vector = null
-
+	_override_velocity()
 	# Move and slide + update speed
 	var snap = Vector3.ZERO if Input.is_action_pressed("movement_jump") else -get_floor_normal()
 	vel = move_and_slide_with_snap(vel, snap, Vector3.UP, true, 4, MAX_SLOPE_ANGLE, false)
 	current_speed = Vector3(vel.x, 0, vel.z).length()
+
+
+# overrides the velocity with the _override_velocity_vector value
+func _override_velocity():
+	if _override_velocity_vector != null:
+		vel = _override_velocity_vector
+		_override_velocity_vector = null
 
 
 func _find_wall_direction() -> void:
@@ -337,6 +347,7 @@ func _init_wall_riding(rc: RayCast) -> void:
 # returns the vector aligned with the wall, to a forward direction of the player
 func _get_wall_fw_vector(rc: RayCast) -> Vector3:
 	var wall_normal = rc.get_collision_normal().normalized()  # normal of the wall, should be the aligned with the player x axis
+	# FIXME : probably an issue if the player tries to wall_ride backwards
 	return (wall_normal.cross(Vector3.UP) * -_RC_wall_direction).normalized()  # Forward direction, where the player should translate to (perpendicular to wall_normal and wall_up)
 
 
@@ -346,7 +357,8 @@ func _wall_jump(wall_fw: Vector3) -> void:
 		_init_wall_ride_lock()
 	vel += (wall_fw.rotated(Vector3.UP, WALL_JUMP_ANGLE * -_RC_wall_direction) * WALL_JUMP_BOOST)
 	vel += Vector3.UP * WALL_JUMP_UP_BOOST
-	get_node(PATHS.jump_sound).play()
+	if not get_node(PATHS.jump_sound).playing:
+		get_node(PATHS.jump_sound).play()
 
 
 func _wall_ride(rc: RayCast, wall_fw: Vector3, delta: float) -> void:
@@ -383,7 +395,7 @@ func _keep_wallride_raycasts_perpendicular(rc: RayCast) -> void:
 	var raycast_dir_vect: Vector3  # direction to the raycast from the collision point
 	var angle: float  # angle between wall_normal_vect and raycast_dir_vect
 	wall_normal_vect = rc.get_collision_normal()
-	raycast_dir_vect = rc.global_transform.origin - rc.get_collision_point()
+	raycast_dir_vect = rc.get_global_transform().origin - rc.get_collision_point()
 	angle = wall_normal_vect.signed_angle_to(raycast_dir_vect, Vector3.UP)
 	get_node(PATHS.raycasts.root).rotate_y(-angle)
 
@@ -400,10 +412,24 @@ func _ground_movement(delta: float) -> void:
 		Vector3(dir.x, 0, dir.z).normalized(), GROUND_TARGET_SPEED, GROUND_ACCELERATION, delta
 	)
 	if Input.is_action_pressed("movement_jump"):
-		vel.y += JUMP_POWER
-		if states.has("sliding"):
-			_slide_jump()
-		get_node(PATHS.jump_sound).play()
+		_ground_jump()
+
+
+# when jumping and on the ground
+func _ground_jump() -> void:
+	vel.y += JUMP_POWER  # FIXME : delta not used here ?
+	if states.has("sliding"):
+		_slide_jump()
+	get_node(PATHS.jump_sound).play()
+
+
+# Executed when jumping while sliding
+func _slide_jump():
+	vel += Vector3(vel.x, 0, vel.z).normalized() * SLIDE_SPEED_BONUS_JUMP
+	_slide = false
+	self.rotate_object_local(Vector3(1, 0, 0), PI / 4)
+	rotation_helper.rotate_object_local(Vector3(1, 0, 0), -PI / 4)
+	states.erase("sliding")
 
 
 # applies friction, mostly for when on floor
@@ -414,9 +440,9 @@ func _apply_friction(delta: float):
 		vel.z = 0
 		return  # no need to compute things further, the player is stopped
 	var control := 0.0
-	if is_on_floor() && !Input.is_action_pressed("movement_jump"):
+	if !Input.is_action_pressed("movement_jump"):
 		var friction := SLIDE_FRICTION if _slide else GROUND_FRICTION
-		control = GROUND_DECCELERATION if current_speed < GROUND_DECCELERATION else current_speed
+		control = current_speed
 		drop += control * friction * delta
 	var speed_multiplier := 1.0  # more like a "de"multiplier in most cases
 	if current_speed > 0:
@@ -433,15 +459,6 @@ func _accelerate(wish_dir: Vector3, wish_speed: float, accel: float, delta: floa
 		var accel_amount := clamp(accel * delta * wish_speed, 0.0, add_speed)  # acceleration amount
 		vel.x += accel_amount * wish_dir.x
 		vel.z += accel_amount * wish_dir.z
-
-
-# Executed when jumping while sliding
-func _slide_jump():
-	vel += Vector3(vel.x, 0, vel.z).normalized() * SLIDE_SPEED_BONUS_JUMP
-	_slide = false
-	self.rotate_object_local(Vector3(1, 0, 0), PI / 4)
-	rotation_helper.rotate_object_local(Vector3(1, 0, 0), -PI / 4)
-	states.erase("sliding")
 
 
 # movement management when in the air

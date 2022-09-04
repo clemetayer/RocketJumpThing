@@ -15,7 +15,8 @@ var global_utilities: GlobalTestUtilities
 ##### TESTS #####
 #---- PRE/POST -----
 func before():
-	element_instance = load(element_path).instance()
+	if element_instance == null:
+		element_instance = load(element_path).instance()
 	global_utilities = GlobalTestUtilities.new()
 
 

@@ -12,8 +12,8 @@ const SONG_ANIMATION_PLAYER := "SongAnimationPlayer"
 const PATHS = {  # paths to the tracks of the song animation player
 	"track_1": TRACK_1, "track_2": "SubTracks/" + TRACK_2, "animation_player": "AnimationPlayer"
 }
+const song_anim_player_path = "res://test/UnitTests/ToolsTests/SongManager/song_animation_player_mock.tscn"
 var s_a_p: SongAnimationPlayer
-var song_anim_player_path = "res://test/UnitTests/ToolsTests/SongManager/song_animation_player_mock.tscn"
 
 
 ##### PROCESSING #####

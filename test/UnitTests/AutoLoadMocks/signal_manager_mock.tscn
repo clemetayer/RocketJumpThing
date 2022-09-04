@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=2]
-
-[ext_resource path="res://test/UnitTests/AutoLoadMocks/signal_manager_mock.gd" type="Script" id=1]
-
-[node name="SignalManagerMock" type="Node"]
-script = ExtResource( 1 )
