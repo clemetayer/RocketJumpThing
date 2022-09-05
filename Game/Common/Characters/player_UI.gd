@@ -14,5 +14,5 @@ func set_speed(pspeed: float):
 ##### PROTECTED METHODS #####
 func _set_speed_text() -> void:
 	$Screen/MarginScreen/CenterScreen/SpeedContainer/SpeedText.bbcode_text = TextUtils.BBCode_center_text(
-		"Speed : %d" % speed
+		"%s : %d" % [tr("player_ui_speed"), speed]
 	)

@@ -1,26 +1,33 @@
 extends CanvasLayer
 # Script to control the chronometer of the scene
 
-# TEST : Minutes > 60
-
 ##### VARIABLES #####
 #---- STANDARD -----
 #==== PRIVATE ====
-var _last_time := 0
+var _last_time := 0  # in milliseconds
 var _timer_stopped := false
 
 
 ##### PROCESSING #####
 # Called when the object is initialized.
 func _init():
+	_connect_signals()
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame. Remove the "_" to use it.
+func _process(delta):
+	_update_timer(delta)
+
+
+##### PROTECTED METHODS #####
+func _connect_signals() -> void:
 	FunctionUtils.log_connect(
 		SignalManager, self, "start_level_chronometer", "_on_SignalManager_start_level_chronometer"
 	)
 	FunctionUtils.log_connect(SignalManager, self, "end_reached", "_on_SignalManager_end_reached")
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame. Remove the "_" to use it.
-func _process(delta):
+func _update_timer(delta: float) -> void:
 	if !_timer_stopped:
 		_last_time += delta * 1000
 		var millis = _last_time % 1000
