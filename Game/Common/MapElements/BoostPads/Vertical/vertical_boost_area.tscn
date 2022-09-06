@@ -84,7 +84,7 @@ shader_param/size_divider = 1.0
 material = SubResource( 18 )
 size = Vector3( 4, 0, 4 )
 
-[node name="VerticalBoostPad" type="Area"]
+[node name="VerticalBoostArea" type="Area"]
 collision_layer = 2
 script = ExtResource( 1 )
 properties = {

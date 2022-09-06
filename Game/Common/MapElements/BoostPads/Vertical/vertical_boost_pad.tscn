@@ -77,7 +77,6 @@ material = SubResource( 19 )
 size = Vector3( 1.5, 0.1, 1.5 )
 
 [node name="VerticalBoostPad" type="Area"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 collision_layer = 2
 script = ExtResource( 1 )
 properties = {

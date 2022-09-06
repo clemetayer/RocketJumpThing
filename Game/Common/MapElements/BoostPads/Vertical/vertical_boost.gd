@@ -37,9 +37,7 @@ func _ready():
 ##### PROTECTED METHODS #####
 # init function to override if necessary
 func _init_func() -> void:
-	FunctionUtils.log_connect(self, self, "body_entered", "_on_body_entered")
-	FunctionUtils.log_connect(self, self, "body_exited", "_on_body_exited")
-	FunctionUtils.log_connect(self, self, "area_entered", "_on_area_entered")
+	_connect_signals()
 
 
 # ready function to override if necessary
@@ -79,10 +77,10 @@ func _set_rocket_tween_properties() -> void:
 
 
 ##### SIGNAL MANAGEMENT #####
-func _on_timer_timeout() -> void:
-	if _player_body != null:
-		var vect = (to_global(Vector3.UP) - to_global(Vector3.ZERO)).normalized()  # Up vector converted to the global transform and normalized
-		_player_body.add_velocity_vector(vect * _force * _boost_multiplier)
+func _connect_signals() -> void:
+	FunctionUtils.log_connect(self, self, "body_entered", "_on_body_entered")
+	FunctionUtils.log_connect(self, self, "body_exited", "_on_body_exited")
+	FunctionUtils.log_connect(self, self, "area_entered", "_on_area_entered")
 
 
 func _on_body_entered(body: Node) -> void:
