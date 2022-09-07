@@ -5,10 +5,14 @@ extends Collidable
 ##### PROCESSING #####
 # Called when the object is initialized.
 func _init():
-	FunctionUtils.log_connect(self, self, "body_entered", "_on_body_entered")
+	_connect_signals()
 
 
 ##### SIGNAL MANAGEMENT #####
+func _connect_signals() -> void:
+	FunctionUtils.log_connect(self, self, "body_entered", "_on_body_entered")
+
+
 func _on_body_entered(body: Node):
-	if body.is_in_group("player"):
+	if body.is_in_group("player"):  # REFACTOR : create a global check is player
 		SignalManager.emit_respawn_player_on_last_cp()
