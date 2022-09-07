@@ -21,17 +21,7 @@ var _spawn_rotation: float
 ##### PROCESSING #####
 # Called when the object is initialized.
 func _init():
-	if connect("body_entered", self, "_on_Checkpoint_body_entered") != OK:
-		Logger.error(
-			(
-				"Error connecting %s to %s in %s"
-				% [
-					"body_entered",
-					"_on_Checkpoint_body_entered",
-					DebugUtils.print_stack_trace(get_stack())
-				]
-			)
-		)
+	_connect_signals()
 
 
 ##### PUBLIC METHODS #####
@@ -63,6 +53,20 @@ func update_properties() -> void:
 		_spawn_position = properties.spawn_position
 	if "spawn_rotation" in properties:
 		_spawn_rotation = properties.spawn_rotation
+
+
+func _connect_signals() -> void:
+	if connect("body_entered", self, "_on_Checkpoint_body_entered") != OK:
+		Logger.error(
+			(
+				"Error connecting %s to %s in %s"
+				% [
+					"body_entered",
+					"_on_Checkpoint_body_entered",
+					DebugUtils.print_stack_trace(get_stack())
+				]
+			)
+		)
 
 
 ##### SIGNAL MANAGEMENT #####

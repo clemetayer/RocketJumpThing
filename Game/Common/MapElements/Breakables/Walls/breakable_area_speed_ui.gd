@@ -13,6 +13,12 @@ export(float) var SPEED = 0  # Speed to show on the Sprite3D
 ##### PROCESSING #####
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	_connect_signals()
+	_init_label()
+
+
+##### PROTECTED METHODS #####
+func _connect_signals() -> void:
 	if (
 		SignalManager.connect("speed_updated", self, "_on_breakable_area_speed_ui_speed_updated")
 		!= OK
@@ -27,9 +33,13 @@ func _ready():
 				]
 			)
 		)
+
+
+func _init_label() -> void:
 	$Label.text = str(SPEED)
 	size = $Label.rect_size
 
 
+##### SIGNAL MANAGEMENT #####
 func _on_breakable_area_speed_ui_speed_updated(speed: float):
 	$Label.set("custom_colors/font_color", COLOR_OK if speed >= SPEED else COLOR_NOK)

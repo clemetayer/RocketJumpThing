@@ -6,25 +6,15 @@ extends RigidBody
 
 ##### VARIABLES #####
 #---- CONSTANTS -----
-const SPEED_DIVIDER := .055  # Speed divider to prevent the wall from exploding too much, or not enough
-const BREAK_WALL_SOUND_PATH := "res://Misc/Audio/FX/BreakWall/BreakWall.wav"  # Path to the break wall sound
-const BREAK_WALL_SOUND_VOLUME_DB := -18.0  # Volume of the break wall sound
-
+const SPEED_DIVIDER := .055  # Speed divider to prevent the wall from exploding too much, or not enough # TODO : Why.
 #---- EXPORTS -----
 export(Dictionary) var properties setget set_properties
-
-#---- STANDARD -----
-#==== PRIVATE ====
-var _break_wall_sound: AudioStreamPlayer
 
 
 ##### PROCESSING #####
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	_add_break_wall_sound()
-	weight = 100
-	mode = MODE_STATIC
-	set_use_continuous_collision_detection(true)
+	_init_body()
 
 
 ##### PROTECTED METHODS #####
@@ -43,13 +33,10 @@ func update_properties() -> void:
 
 
 #==== Other things =====
-# adds a break wall sound to the scene
-func _add_break_wall_sound() -> void:
-	var sound := AudioStreamPlayer.new()
-	sound.stream = load(BREAK_WALL_SOUND_PATH)
-	sound.volume_db = BREAK_WALL_SOUND_VOLUME_DB
-	add_child(sound)
-	_break_wall_sound = sound
+func _init_body() -> void:
+	weight = 100
+	mode = MODE_STATIC
+	set_use_continuous_collision_detection(true)
 
 
 ##### SIGNAL MANAGEMENT #####
@@ -63,6 +50,6 @@ func use(parameters: Dictionary) -> void:
 			/ SPEED_DIVIDER
 		)
 	)
-	_break_wall_sound.play()
-	yield(get_tree().create_timer(30.0), "timeout")
+	if get_tree() != null:  # for test purposes
+		yield(get_tree().create_timer(30.0), "timeout")  # REFACTOR : magic float here
 	queue_free()
