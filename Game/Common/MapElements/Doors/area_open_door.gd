@@ -9,6 +9,11 @@ signal trigger
 ##### PROCESSING #####
 # Called when the object is initialized.
 func _init():
+	_connect_signals()
+
+
+##### PROTECTED METHODS #####
+func _connect_signals() -> void:
 	if connect("body_entered", self, "_on_area_open_door_body_entered") != OK:
 		Logger.error(
 			(
