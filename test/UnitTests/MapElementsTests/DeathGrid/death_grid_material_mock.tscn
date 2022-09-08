@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Game/Common/MapElements/DeathGrid/V1.gdshader" type="Shader" id=1]
+[ext_resource path="res://Game/Common/MapElements/DeathGrid/DeathGridMaterial.gd" type="Script" id=2]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 1 )
+shader_param/size = Vector2( 1, 1 )
+shader_param/target_pos = Vector3( 0, 0, 0 )
+shader_param/color = Color( 1, 0, 0, 1 )
+shader_param/max_tgt_dist = 150.0
+
+[sub_resource type="CubeMesh" id=2]
+material = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance"]
+mesh = SubResource( 2 )
+material/0 = null
+script = ExtResource( 2 )

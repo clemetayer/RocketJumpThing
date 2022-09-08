@@ -5,6 +5,11 @@ class_name DeathGrid
 ##### PROCESSING #####
 # Called when the object is initialized.
 func _init():
+	_connect_signals()
+
+
+#==== PRIVATE ====
+func _connect_signals() -> void:
 	if connect("body_exited", self, "_on_body_exited") != OK:
 		Logger.error(
 			(
