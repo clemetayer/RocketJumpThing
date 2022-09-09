@@ -52,6 +52,20 @@ func _step_function() -> void:
 	emitting = true
 
 
+func _connect_signals() -> void:
+	if SignalManager.connect("sequencer_step", self, "_on_SignalManager_sequencer_step") != OK:
+		Logger.error(
+			(
+				"Error connecting %s to %s in %s"
+				% [
+					"sequencer_step",
+					"_on_SignalManager_sequencer_step",
+					DebugUtils.print_stack_trace(get_stack())
+				]
+			)
+		)
+
+
 ##### SIGNAL MANAGEMENT #####
 func _on_SignalManager_sequencer_step(id: String) -> void:
 	if id == _id:
