@@ -98,13 +98,19 @@ func update_properties() -> void:
 
 
 #==== Other =====
+# for test purposes
+func _set_translation(p_translation: Vector3) -> void:
+	translation = p_translation
+
+
 # adds (all) the path meshes to the parent
 func _create_show_path_meshes() -> void:
 	for pos_idx in range(1, _pos_array.size()):
 		var mesh = _create_show_path_mesh(_pos_array[pos_idx - 1], _pos_array[pos_idx])
 		var mid_pos = (_pos_array[pos_idx - 1] - _pos_array[pos_idx]) / 2.0  # middle position, since a cylinder mesh starts at the middle
 		mesh.transform.origin += self.transform.origin - mid_pos + _pos_array[pos_idx - 1]  # adds the position of the platform in the world
-		get_parent().call_deferred("add_child", mesh)
+		if get_parent() != null:
+			get_parent().call_deferred("add_child", mesh)
 
 
 # adds (one) path mesh to the parent
