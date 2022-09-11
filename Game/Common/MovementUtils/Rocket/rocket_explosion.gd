@@ -19,6 +19,12 @@ export(Vector3) var EXPLOSION_POSITION
 ##### PROCESSING #####
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	_connect_signals()
+	_explode()
+
+
+##### PROTECTED METHODS #####
+func _connect_signals() -> void:
 	FunctionUtils.log_connect(get_node(NODE_PATHS.timer), self, "timeout", "_on_Timer_timeout")
 	FunctionUtils.log_connect(
 		get_node(NODE_PATHS.animation),
@@ -27,10 +33,8 @@ func _ready():
 		"_on_AnimationPlayer_animation_finished"
 	)
 	FunctionUtils.log_connect(self, self, "body_entered", "_on_body_entered")
-	_explode()
 
 
-##### PROTECTED METHODS #####
 # triggers the explosion method
 func _explode() -> void:
 	get_node(NODE_PATHS.explosion_audio).play()

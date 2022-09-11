@@ -27,12 +27,25 @@ export(float) var SPEED_PERCENTAGE = 0.0  # How fast the rocket will travel, bet
 #==== PRIVATE ====
 var _translate := false
 var _expl_planned := false  # if the explosion has been already planned
-var _speed := 0.0  # travel speed of the rocket
+var _speed := 0.0  # travel speed of the rocket # kept as a private variable in case I add something that makes the rocket speed vary
 
 
 ##### PROCESSING #####
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	_init_rocket()
+	_play_rocket_sound()
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	_check_raycast_distance($RayCast)
+	if _translate:
+		translate_object_local(Vector3(0, 0, 1) * _speed * delta)
+
+
+##### PROTECTED METHODS #####
+func _init_rocket() -> void:
 	transform.origin = START_POS
 	_speed = SPEED
 	var target: Vector3 = START_POS - DIRECTION
@@ -46,20 +59,14 @@ func _ready():
 	else:  # vectors are not aligned, it is safe to use "look_at"
 		look_at(START_POS - DIRECTION, UP_VECTOR)
 	_translate = true
+
+
+func _play_rocket_sound() -> void:
 	get_node(SCENE_PATHS.trail_sound).play()
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	_check_raycast_distance()
-	if _translate:
-		translate_object_local(Vector3(0, 0, 1) * _speed * delta)
-
-
-##### PROTECTED METHODS #####
 # checks the raycast distance from the closest "floor", to explode if needed
-func _check_raycast_distance() -> void:
-	var raycast = $RayCast
+func _check_raycast_distance(raycast: RayCast) -> void:
 	raycast.cast_to = Vector3(0, 0, 1) * RAYCAST_DISTANCE
 	if raycast.is_colliding():
 		var distance = _get_distance_to_collision(raycast)
@@ -68,7 +75,7 @@ func _check_raycast_distance() -> void:
 			and distance <= RAYCAST_PLAN_EXPLODE_DISTANCE
 			and not _expl_planned
 		):
-			_plan_explosion(distance)
+			_plan_explosion(distance, raycast)
 
 
 # returns the distance from the rocket position to the collision point (using the normal)
@@ -84,24 +91,25 @@ func _get_distance_to_collision(raycast: RayCast) -> float:
 		* (cos(angle_to_normal) * self.transform.origin.distance_to(col_point))
 	)
 	DebugDraw.draw_line_3d(
-		$RayCast.get_collision_point(), $RayCast.get_collision_point() + normal_vect, Color(1, 1, 1)
+		raycast.get_collision_point(), raycast.get_collision_point() + normal_vect, Color(1, 1, 1)
 	)
 	return normal_vect.length()
 
 
 # plans an explosion, since the rocket is close to the floor (to make sure it explodes)
-func _plan_explosion(distance: float) -> void:
+func _plan_explosion(distance: float, raycast: RayCast) -> void:
 	if not _expl_planned:
 		_expl_planned = true
 		yield(get_tree().create_timer(distance / _speed), "timeout")
-		_explode($RayCast.get_collision_point())
+		_explode(raycast)
 
 
 # Explosion of the rocket
 # FIXME : Not exploding sometimes, the collision probably doesn't operate well...
-func _explode(col_point: Vector3) -> void:
+func _explode(raycast) -> void:
 	_translate = false
-	$RayCast.enabled = false
+	var col_point = raycast.get_collision_point()
+	raycast.enabled = false
 	transform.origin = col_point
 	var explosion = load(SCENE_PATHS.explosion).instance()
 	explosion.EXPLOSION_POSITION = global_transform.origin
@@ -115,4 +123,4 @@ func _on_Rocket_body_entered(body: Node):
 		_expl_planned = true
 		$RayCast.transform.origin.z = -100  # steps back the raycast to get the exact collision point
 		if $RayCast.is_colliding():
-			_explode($RayCast.get_collision_point())
+			_explode($RayCast)
