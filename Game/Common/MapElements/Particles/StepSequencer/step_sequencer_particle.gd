@@ -39,6 +39,7 @@ func _ready():
 #==== Other =====
 # made to override _ready
 func _ready_func():
+	_connect_signals()
 	if "id" in properties:
 		self._id = properties.id
 	if "number_of_steps" in properties:

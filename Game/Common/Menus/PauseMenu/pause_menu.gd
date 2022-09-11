@@ -38,12 +38,6 @@ func _process(_delta):
 			_pause()
 
 
-##### PUBLIC METHODS #####
-# Methods that are intended to be "visible" to other nodes or scripts
-# func public_method(arg : int) -> void:
-#     pass
-
-
 ##### PROTECTED METHODS #####
 func _pause():
 	if StandardSongManager.get_current() != null:
@@ -67,9 +61,9 @@ func _unpause():
 	get_node(_paths.root_ui).hide()
 
 
-func _create_filter_auto_effect() -> EffectManager:
+func _create_filter_auto_effect() -> EffectManager:  # REFACTOR : make a global method (it is used somewhere else, and might be used again)
 	var effect = HalfFilterEffectManager.new()
-	effect.TIME = 1.0
+	effect.TIME = FADE_IN_TIME
 	return effect
 
 

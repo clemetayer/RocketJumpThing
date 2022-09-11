@@ -21,7 +21,7 @@ var _paths := {
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	get_node(_paths.root_ui).hide()
-	FunctionUtils.log_connect(SignalManager, self, "end_reached", "_on_SignalManager_end_reached")
+	_connect_signals()
 
 
 ##### PUBLIC METHODS #####
@@ -31,6 +31,10 @@ func set_next_scene(next_scene_path: String) -> void:
 
 
 ##### PROTECTED METHODS #####
+func _connect_signals() -> void:
+	FunctionUtils.log_connect(SignalManager, self, "end_reached", "_on_SignalManager_end_reached")
+
+
 func _unpause():
 	if StandardSongManager.get_current() != null:
 		StandardSongManager.apply_effect(
@@ -44,7 +48,7 @@ func _unpause():
 
 func _create_filter_auto_effect() -> EffectManager:
 	var effect = HalfFilterEffectManager.new()
-	effect.TIME = 1.0
+	effect.TIME = FADE_IN_TIME
 	return effect
 
 

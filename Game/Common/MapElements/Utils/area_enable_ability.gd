@@ -10,6 +10,7 @@ var _abilities := {}
 ##### PROCESSING #####
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	_connect_signals()
 	# trenchbroom init
 	if properties.has("abilities"):
 		var json = JSON.parse(properties["abilities"].c_unescape())  # I don't especially like danger, but it's more convenient this way
