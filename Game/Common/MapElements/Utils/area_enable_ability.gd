@@ -10,8 +10,6 @@ var _abilities := {}
 ##### PROCESSING #####
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	# init
-	FunctionUtils.log_connect(self, self, "body_entered", "_on_body_entered")
 	# trenchbroom init
 	if properties.has("abilities"):
 		var json = JSON.parse(properties["abilities"].c_unescape())  # I don't especially like danger, but it's more convenient this way
@@ -30,6 +28,11 @@ func _ready():
 					]
 				)
 			)
+
+
+##### PROTECTED METHODS #####
+func _connect_signals() -> void:
+	FunctionUtils.log_connect(self, self, "body_entered", "_on_body_entered")
 
 
 ##### SIGNAL MANAGEMENT #####

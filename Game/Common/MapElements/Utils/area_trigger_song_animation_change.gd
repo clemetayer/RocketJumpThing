@@ -9,7 +9,7 @@ export(Dictionary) var properties setget set_properties
 ##### PROCESSING #####
 # Called when the object is initialized.
 func _init():
-	FunctionUtils.log_connect(self, self, "body_entered", "_on_body_entered")
+	_connect_signals()
 
 
 ##### PROTECTED METHODS #####
@@ -25,6 +25,11 @@ func update_properties() -> void:
 		self.collision_layer = properties.collision_layer
 	if "collision_mask" in properties and is_inside_tree():
 		self.collision_mask = properties.collision_mask
+
+
+#==== Other things =====
+func _connect_signals() -> void:
+	FunctionUtils.log_connect(self, self, "body_entered", "_on_body_entered")
 
 
 ##### SIGNAL MANAGEMENT #####
