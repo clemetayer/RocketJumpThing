@@ -3,7 +3,7 @@ extends Node2D
 
 ##### VARIABLES #####
 #---- CONSTANTS -----
-const PATHS := {"tutorial_scene": "res://Game/Scenes/Tutorial/Scene2/Scene2.tscn"}
+const PATHS := {"tutorial_scene": "res://Game/Scenes/Tutorial/Tutorial1/tutorial_1.tscn"}
 
 
 ##### PROCESSING #####

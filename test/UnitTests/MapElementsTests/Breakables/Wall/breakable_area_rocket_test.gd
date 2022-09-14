@@ -19,6 +19,7 @@ func before():
 
 func after():
 	breakable_area.free()
+	.after()
 
 
 #---- TESTS -----

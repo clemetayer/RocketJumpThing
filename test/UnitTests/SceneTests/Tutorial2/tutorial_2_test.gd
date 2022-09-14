@@ -10,7 +10,7 @@ extends StandardSceneTest
 ##### TESTS #####
 #---- PRE/POST -----
 func before():
-	scene_path = "res://Game/Scenes/Tutorial/Scene3/scene_3.tscn"
+	scene_path = "res://Game/Scenes/Tutorial/Tutorial2/tutorial_2.tscn"
 	.before()
 
 

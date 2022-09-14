@@ -20,6 +20,7 @@ func before():
 func after():
 	if is_instance_valid(breakable_wall):
 		breakable_wall.free()
+	.after()
 
 
 #---- TESTS -----

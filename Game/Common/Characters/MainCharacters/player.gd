@@ -55,7 +55,7 @@ const AIR_MOVE_TOWARD := 750  # When pressing forward in the air, how much it sh
 #~~~~~ PROJECTILES ~~~~~
 const ROCKET_DELAY := 0.75  # Time before you can shoot another rocket
 const ROCKET_START_OFFSET := Vector3(0, 0, 0)  # offest position from the player to throw the rocket
-const ROCKET_SCENE_PATH := "res://Game/Common/MovementUtils/Rocket/Rocket.tscn"  # Path to the rocket scene
+const ROCKET_SCENE_PATH := "res://Game/Common/MovementUtils/Rocket/rocket.tscn"  # Path to the rocket scene
 
 #---- EXPORTS -----
 export(Dictionary) var PATHS = {

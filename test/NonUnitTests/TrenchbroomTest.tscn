@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://addons/qodot/src/nodes/qodot_map.gd" type="Script" id=1]
-[ext_resource path="res://Game/Common/Characters/MainCharacters/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Game/Common/Characters/MainCharacters/player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://RocketJumpThing_fgd.tres" type="Resource" id=3]
 [ext_resource path="res://trenchbroom/textures/test/icon_test.png" type="Texture" id=4]
 

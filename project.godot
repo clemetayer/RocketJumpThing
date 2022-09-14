@@ -47,7 +47,7 @@ _global_script_classes=[ {
 "base": "Area",
 "class": "Checkpoint",
 "language": "GDScript",
-"path": "res://Game/Common/MapElements/Checkpoint/Checkpoint.gd"
+"path": "res://Game/Common/MapElements/Checkpoint/checkpoint.gd"
 }, {
 "base": "Reference",
 "class": "CmdArgumentParser",
@@ -102,7 +102,7 @@ _global_script_classes=[ {
 "base": "Area",
 "class": "DeathGrid",
 "language": "GDScript",
-"path": "res://Game/Common/MapElements/DeathGrid/DeathGrid.gd"
+"path": "res://Game/Common/MapElements/DeathGrid/death_grid.gd"
 }, {
 "base": "Reference",
 "class": "DebugUtils",
@@ -907,7 +907,7 @@ _global_script_classes=[ {
 "base": "Area",
 "class": "Rocket",
 "language": "GDScript",
-"path": "res://Game/Common/MovementUtils/Rocket/Rocket.gd"
+"path": "res://Game/Common/MovementUtils/Rocket/rocket.gd"
 }, {
 "base": "Node",
 "class": "SequencerBaseEntity",
@@ -957,7 +957,7 @@ _global_script_classes=[ {
 "base": "Node",
 "class": "StandardScene",
 "language": "GDScript",
-"path": "res://Game/Common/Utils/Templates/Scene/StandardScene.gd"
+"path": "res://Game/Common/Utils/Templates/Scene/standard_scene.gd"
 }, {
 "base": "GlobalTests",
 "class": "StandardSceneTest",
@@ -967,7 +967,7 @@ _global_script_classes=[ {
 "base": "Checkpoint",
 "class": "StartPoint",
 "language": "GDScript",
-"path": "res://Game/Common/MapElements/Checkpoint/StartPoint.gd"
+"path": "res://Game/Common/MapElements/Checkpoint/start_point.gd"
 }, {
 "base": "Collidable",
 "class": "StaticBodyGroupSolidEntity",

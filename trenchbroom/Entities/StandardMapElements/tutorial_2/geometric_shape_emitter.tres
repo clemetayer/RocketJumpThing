@@ -1,7 +1,7 @@
 [gd_resource type="Resource" load_steps=3 format=2]
 
 [ext_resource path="res://addons/qodot/src/resources/game-definitions/fgd/qodot_fgd_point_class.gd" type="Script" id=1]
-[ext_resource path="res://Game/Scenes/Tutorial/Scene3/geometric_shape_emitter.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Game/Scenes/Tutorial/Tutorial2/geometric_shape_emitter.tscn" type="PackedScene" id=2]
 
 [resource]
 script = ExtResource( 1 )

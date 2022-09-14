@@ -5,7 +5,7 @@ extends GlobalTests
 # tests the rocket explosion
 
 ##### VARIABLES #####
-const rocket_explosion_path := "res://Game/Common/MovementUtils/Rocket/RocketExplosion.tscn"
+const rocket_explosion_path := "res://Game/Common/MovementUtils/Rocket/rocket_explosion.tscn"
 var rocket_explosion
 
 

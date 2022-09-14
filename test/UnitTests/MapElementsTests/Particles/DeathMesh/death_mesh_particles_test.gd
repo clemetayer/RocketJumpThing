@@ -5,7 +5,7 @@ extends GlobalTests
 # tests the death mesh particles (mostly not crashing)
 
 ##### VARIABLES #####
-const death_mesh_particles_path := "res://Game/Common/MapElements/Particles/DeathMesh/DeathMeshParticles.tscn"
+const death_mesh_particles_path := "res://Game/Common/MapElements/Particles/DeathMesh/death_mesh_particles.tscn"
 
 
 ##### TESTS #####

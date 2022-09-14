@@ -10,7 +10,7 @@ extends StandardSceneTest
 ##### TESTS #####
 #---- PRE/POST -----
 func before():
-	scene_path = "res://Game/Scenes/Tutorial/Scene2/Scene2.tscn"
+	scene_path = "res://Game/Scenes/Tutorial/Tutorial1/tutorial_1.tscn"
 	.before()
 
 
@@ -18,7 +18,7 @@ func before():
 #==== ACTUAL TESTS =====
 # tests if the song name and animation are correct for tutorial 1
 func test_song() -> void:
-	assert_str(scene_instance.PATHS.bgm.path).is_equal("res://Game/Common/Songs/Tutorial1.tscn")
+	assert_str(scene_instance.PATHS.bgm.path).is_equal("res://Game/Common/Songs/tutorial_1.tscn")
 	assert_str(scene_instance.PATHS.bgm.animation).is_equal("part1")
 
 

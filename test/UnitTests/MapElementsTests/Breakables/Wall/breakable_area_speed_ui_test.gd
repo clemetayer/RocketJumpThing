@@ -19,6 +19,7 @@ func before():
 
 func after():
 	breakable_area_speed_ui.free()
+	.after()
 
 
 #---- TESTS -----
