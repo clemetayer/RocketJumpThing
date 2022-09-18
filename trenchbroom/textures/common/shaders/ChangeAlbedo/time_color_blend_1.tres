@@ -3,6 +3,7 @@
 [resource]
 code = "shader_type spatial;
 
+//---- Other parameters ----
 uniform vec4 color_1 : hint_color = vec4(1.0,1.0,1.0,1.0);
 uniform vec4 color_2 : hint_color = vec4(0.0,0.0,0.0,1.0);
 uniform float speed = 1.0;

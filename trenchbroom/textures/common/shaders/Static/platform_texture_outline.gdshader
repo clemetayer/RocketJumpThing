@@ -1,5 +1,6 @@
 shader_type spatial;
 
+//---- Other parameters ----
 uniform vec4 inner_color : hint_color = vec4(1,1,1,1);
 uniform vec4 outer_color : hint_color = vec4(1,1,1,1);
 uniform float outer_size = 0.1;

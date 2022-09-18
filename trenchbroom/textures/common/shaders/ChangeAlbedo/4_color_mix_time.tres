@@ -3,6 +3,7 @@
 [resource]
 code = "shader_type spatial;
 
+//---- Other parameters ----
 uniform float intensity = 4.0;
 uniform vec4 cos_col_1 : hint_color;
 uniform vec4 cos_col_2 : hint_color;

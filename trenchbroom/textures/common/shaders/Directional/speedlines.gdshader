@@ -1,6 +1,7 @@
 // heavily inspired from https://godotshaders.com/shader/speedlines/
 shader_type spatial;
 
+//---- Other parameters ----
 uniform sampler2D noise;
 uniform vec4 material_color: hint_color;
 uniform vec4 line_color_a: hint_color = vec4(1.0, 1.0, 1.0, 1.0);

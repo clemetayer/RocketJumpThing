@@ -1,5 +1,6 @@
 shader_type spatial;
 
+//---- Other parameters ----
 uniform float max_size = 0.05;
 uniform float width = 0.01;
 uniform float ss_e = 0.1; // smoothstep epsilon

@@ -11,7 +11,7 @@
 [ext_resource path="res://addons/qodot/game_definitions/fgd/point_classes/light.gd" type="Script" id=10]
 [ext_resource path="res://trenchbroom/textures/scenes/tutorial_scene/LightGuide.tres" type="Material" id=11]
 [ext_resource path="res://trenchbroom/textures/scenes/tutorial_scene/Floor.tres" type="Material" id=12]
-[ext_resource path="res://trenchbroom/Entities/StandardMapElements/Buildings/static_body_group_solid_class.gd" type="Script" id=13]
+[ext_resource path="res://Game/Common/MapElements/static_body_group_solid_class.gd" type="Script" id=13]
 [ext_resource path="res://Game/Scenes/Tutorial/OldTestThing/Scene1.lmbake" type="BakedLightmapData" id=14]
 [ext_resource path="res://trenchbroom/textures/entities/checkpoint/checkpoint_1.tres" type="Material" id=15]
 

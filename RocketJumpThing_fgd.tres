@@ -8,7 +8,7 @@
 [ext_resource path="res://addons/qodot/game_definitions/fgd/base_classes/light_base_class.tres" type="Resource" id=6]
 [ext_resource path="res://addons/qodot/game_definitions/fgd/point_classes/light_point_class.tres" type="Resource" id=7]
 [ext_resource path="res://trenchbroom/Entities/Player/player_point_class.tres" type="Resource" id=8]
-[ext_resource path="res://trenchbroom/Entities/StandardMapElements/MapElements_fgd.tres" type="Resource" id=9]
+[ext_resource path="res://trenchbroom/Entities/MapElements/MapElements_fgd.tres" type="Resource" id=9]
 
 [resource]
 script = ExtResource( 5 )

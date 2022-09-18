@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=6 format=2]
+
+[ext_resource path="res://trenchbroom/Entities/MapElements/Breakables/breakable_wall_solid.tres" type="Resource" id=1]
+[ext_resource path="res://addons/qodot/src/resources/game-definitions/fgd/qodot_fgd_file.gd" type="Script" id=2]
+[ext_resource path="res://trenchbroom/Entities/MapElements/Breakables/breakable_area_rocket_solid.tres" type="Resource" id=3]
+[ext_resource path="res://trenchbroom/Entities/MapElements/Breakables/breakable_area_speed_solid.tres" type="Resource" id=4]
+[ext_resource path="res://trenchbroom/Entities/BaseClasses/base_classes_fgd.tres" type="Resource" id=5]
+
+[resource]
+script = ExtResource( 2 )
+export_file = false
+target_folder = "/home/clemetayer/.TrenchBroom/games/RocketJumpThing"
+fgd_name = "breakables_fgd"
+base_fgd_files = [ ExtResource( 5 ) ]
+entity_definitions = [ ExtResource( 1 ), ExtResource( 4 ), ExtResource( 3 ) ]

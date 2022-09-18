@@ -1,0 +1,23 @@
+[gd_resource type="Resource" load_steps=14 format=2]
+
+[ext_resource path="res://addons/qodot/src/resources/game-definitions/fgd/qodot_fgd_file.gd" type="Script" id=1]
+[ext_resource path="res://trenchbroom/Entities/MapElements/RythmElements/Sequencers/Particles/Tutorial2/sequencer_particles_tutorial_2.tres" type="Resource" id=2]
+[ext_resource path="res://trenchbroom/Entities/MapElements/RythmElements/Sequencers/ModifySpatialMaterialParam/Pulse/Static/modify_spatial_material_param_pulse_static.tres" type="Resource" id=3]
+[ext_resource path="res://trenchbroom/Entities/MapElements/RythmElements/Sequencers/ModifySpatialMaterialParam/Tween/Static/modify_spatial_material_param_tween_static.tres" type="Resource" id=4]
+[ext_resource path="res://trenchbroom/Entities/MapElements/RythmElements/Sequencers/ModifyShaderParam/Tween/Spatial/modify_shader_param_tween_spatial.tres" type="Resource" id=5]
+[ext_resource path="res://trenchbroom/Entities/MapElements/RythmElements/Sequencers/ModifyShaderParam/modify_shader_param.tres" type="Resource" id=6]
+[ext_resource path="res://trenchbroom/Entities/MapElements/RythmElements/Sequencers/ModifyShaderParam/Tween/Static/modify_shader_param_tween_static.tres" type="Resource" id=7]
+[ext_resource path="res://trenchbroom/Entities/MapElements/RythmElements/Sequencers/ModifySpatialMaterialParam/Pulse/Spatial/modify_spatial_material_param_pulse_spatial.tres" type="Resource" id=8]
+[ext_resource path="res://trenchbroom/Entities/BaseClasses/base_classes_fgd.tres" type="Resource" id=9]
+[ext_resource path="res://trenchbroom/Entities/MapElements/RythmElements/Sequencers/ModifyShaderParam/Pulse/Static/modify_shader_param_pulse_static.tres" type="Resource" id=10]
+[ext_resource path="res://trenchbroom/Entities/MapElements/RythmElements/Sequencers/ModifyShaderParam/Pulse/Spatial/modify_shader_param_pulse_spatial.tres" type="Resource" id=11]
+[ext_resource path="res://trenchbroom/Entities/MapElements/RythmElements/Sequencers/ModifySpatialMaterialParam/Tween/Spatial/modify_spatial_material_param_tween_spatial.tres" type="Resource" id=12]
+[ext_resource path="res://trenchbroom/Entities/MapElements/RythmElements/Sequencers/ModifySpatialMaterialParam/modify_spatial_material_param.tres" type="Resource" id=13]
+
+[resource]
+script = ExtResource( 1 )
+export_file = false
+target_folder = "/home/clemetayer/.TrenchBroom/games/RocketJumpThing"
+fgd_name = "sequencer_fgd"
+base_fgd_files = [ ExtResource( 9 ) ]
+entity_definitions = [ ExtResource( 6 ), ExtResource( 13 ), ExtResource( 11 ), ExtResource( 10 ), ExtResource( 5 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 3 ), ExtResource( 12 ), ExtResource( 4 ), ExtResource( 2 ) ]

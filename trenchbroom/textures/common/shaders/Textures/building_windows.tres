@@ -3,6 +3,7 @@
 [resource]
 code = "shader_type spatial;
 
+//---- Other parameters ----
 uniform vec4 back_color  : hint_color;
 uniform vec4 window_color_1 : hint_color;
 uniform vec4 window_color_2 : hint_color;

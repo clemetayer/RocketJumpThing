@@ -1,0 +1,54 @@
+[gd_resource type="Resource" load_steps=4 format=2]
+
+[ext_resource path="res://addons/qodot/src/resources/game-definitions/fgd/qodot_fgd_solid_class.gd" type="Script" id=1]
+[ext_resource path="res://Game/Common/MapElements/Platforms/periodic_moving_platform.gd" type="Script" id=2]
+[ext_resource path="res://trenchbroom/Entities/BaseClasses/collidable.tres" type="Resource" id=3]
+
+[resource]
+script = ExtResource( 1 )
+class_options = "----------------------------------------------------------------"
+classname = "MapElements_Platforms_PeriodicMoving"
+description = "A platform that moves periodically between points"
+qodot_internal = false
+base_classes = [ ExtResource( 3 ) ]
+class_properties = {
+"ease": 0,
+"path_color": Color( 1, 1, 1, 1 ),
+"path_emission": 0.0,
+"point1": Vector3( 0, 0, 0 ),
+"point2": Vector3( 0, 0, 0 ),
+"point3": Vector3( 0, 0, 0 ),
+"point4": Vector3( 0, 0, 0 ),
+"point5": Vector3( 0, 0, 0 ),
+"trans_type": 0,
+"travel_time": 1.0,
+"wait_time": 0.0
+}
+class_property_descriptions = {
+"ease": "See Godot Tween doc enum",
+"path_color": "color of the path line",
+"path_emission": "emission intensity of the path line",
+"point1": "First point for the platform to go (use 0,0,0 to ignore)",
+"point2": "Second point for the platform to go (use 0,0,0 to ignore)",
+"point3": "Third point for the platform to go (use 0,0,0 to ignore)",
+"point4": "Fourth point for the platform to go (use 0,0,0 to ignore)",
+"point5": "First point for the platform to go (use 0,0,0 to ignore)",
+"trans_type": "See Godot Tween doc enum",
+"travel_time": "Time it takes for the platform to reach the next point",
+"wait_time": "Wait time of the platform before moving to the next point"
+}
+meta_properties = {
+"color": Color( 0.8, 0.8, 0.8, 1 ),
+"size": AABB( -8, -8, -8, 8, 8, 8 )
+}
+node_options = "----------------------------------------------------------------"
+node_class = "KinematicBody"
+transient_node = true
+spawn = "----------------------------------------------------------------"
+spawn_type = 2
+visual_build = "----------------------------------------------------------------"
+build_visuals = true
+collision_build = "----------------------------------------------------------------"
+collision_shape_type = 1
+scripting = "----------------------------------------------------------------"
+script_class = ExtResource( 2 )

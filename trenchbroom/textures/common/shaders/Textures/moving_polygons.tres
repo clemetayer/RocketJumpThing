@@ -5,6 +5,7 @@ code = "shader_type spatial;
 
 const float TWO_PI = 6.28318530718;
 
+//---- Other parameters ----
 uniform bool left_to_right = true;
 uniform vec4 back_color : hint_color;
 uniform vec4 color_1 : hint_color;
