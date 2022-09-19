@@ -1,0 +1,25 @@
+[gd_resource type="Resource" load_steps=16 format=2]
+
+[ext_resource path="res://trenchbroom/Entities/Scenes/Tutorial2/geometric_shape_emitter.tres" type="Resource" id=1]
+[ext_resource path="res://trenchbroom/Entities/MapElements/area_death.tres" type="Resource" id=2]
+[ext_resource path="res://trenchbroom/Entities/MapElements/Platforms/platforms_fgd.tres" type="Resource" id=3]
+[ext_resource path="res://trenchbroom/Entities/MapElements/enable_ability_area.tres" type="Resource" id=4]
+[ext_resource path="res://addons/qodot/src/resources/game-definitions/fgd/qodot_fgd_file.gd" type="Script" id=5]
+[ext_resource path="res://trenchbroom/Entities/MapElements/trigger_song_animation_change.tres" type="Resource" id=6]
+[ext_resource path="res://trenchbroom/Entities/MapElements/Lights/light_fgd.tres" type="Resource" id=7]
+[ext_resource path="res://trenchbroom/Entities/MapElements/static_body_group_solid_class.tres" type="Resource" id=8]
+[ext_resource path="res://trenchbroom/Entities/MapElements/Checkpoints/checkpoints_fgd.tres" type="Resource" id=9]
+[ext_resource path="res://trenchbroom/Entities/MapElements/spatial_solid_entity.tres" type="Resource" id=10]
+[ext_resource path="res://trenchbroom/Entities/MapElements/Doors/doors_fgd.tres" type="Resource" id=11]
+[ext_resource path="res://trenchbroom/Entities/MapElements/RythmElements/Sequencers/sequencer_fgd.tres" type="Resource" id=12]
+[ext_resource path="res://trenchbroom/Entities/MapElements/tutorial_trigger.tres" type="Resource" id=13]
+[ext_resource path="res://trenchbroom/Entities/Player/player_point_class.tres" type="Resource" id=14]
+[ext_resource path="res://trenchbroom/Entities/BaseClasses/base_trenchbroom_fgd.tres" type="Resource" id=15]
+
+[resource]
+script = ExtResource( 5 )
+export_file = false
+target_folder = "/home/clemetayer/.TrenchBroom/games/RocketJumpThing"
+fgd_name = "tutorial_2_fgd"
+base_fgd_files = [ ExtResource( 9 ), ExtResource( 11 ), ExtResource( 7 ), ExtResource( 3 ), ExtResource( 12 ), ExtResource( 15 ) ]
+entity_definitions = [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 4 ), ExtResource( 10 ), ExtResource( 8 ), ExtResource( 6 ), ExtResource( 13 ), ExtResource( 14 ) ]
