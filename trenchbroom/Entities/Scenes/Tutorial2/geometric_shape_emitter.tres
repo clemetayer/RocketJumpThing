@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource( 1 )
 class_options = "----------------------------------------------------------------"
-classname = "emitter_GeometricShape"
+classname = "Emitter_GeometricShapes"
 description = "A geometric shape emitter for the tutorial 2 level"
 qodot_internal = false
 base_classes = [  ]

@@ -5,7 +5,7 @@
 [resource]
 script = ExtResource( 1 )
 class_options = "----------------------------------------------------------------"
-classname = "Collidable"
+classname = "BaseClasses_Collidable"
 description = "Something you can collide with"
 qodot_internal = false
 base_classes = [  ]

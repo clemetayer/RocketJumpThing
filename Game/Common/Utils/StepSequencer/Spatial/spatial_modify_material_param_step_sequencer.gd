@@ -6,6 +6,7 @@ class_name SpatialModifyMaterialParamStepSequencer
 """
 {
   "duplicate_material":"bool", # if each material should be duplicated to be computed independantly (a bit heavier in performances, but avoid creating potential duplicated materials)
+  "*":{}, # Parameters at start
   "signal_name": [ # Array of steps
 	{ # Parameters to interact at step index, specified in children classes
 		...
@@ -33,14 +34,15 @@ var _material: Material
 ##### PROCESSING #####
 # Called when the object is initialized.
 func _init():
-	update_properties()
 	_connect_signals()
-	_init_step_indexes()
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	update_properties()
+	_init_step_indexes()
 	_get_material_in_children_and_duplicate()
+	_set_start_parameters()
 
 
 ##### PUBLIC METHODS #####
@@ -52,11 +54,17 @@ func _ready():
 ##### PROTECTED METHODS #####
 #==== Qodot =====
 func update_properties() -> void:
-	if "params" in properties:
-		self._params = properties["params"]
+	if "params_path" in properties:
+		self._params = FunctionUtils.load_json(properties["params_path"])
 
 
 #==== Other things =====
+func _set_start_parameters() -> void:
+	if _params.has("*"):
+		for key in _params["*"].keys():
+			_material.set(key, _params["*"][key])
+
+
 func _init_step_indexes() -> void:
 	for key in _params.keys():
 		_step_indexes[key] = 0
@@ -89,4 +97,4 @@ func _step(_parameters: Dictionary) -> void:
 func _on_SignalManager_sequencer_step(id: String) -> void:
 	if id in _step_indexes and id in _params and _material != null:
 		_step(_params[id][_step_indexes[id]])
-		_step_indexes[id] = (_step_indexes[id] + 1) % _params[_step_indexes[id].size()]
+		_step_indexes[id] = (_step_indexes[id] + 1) % _params[id].size()

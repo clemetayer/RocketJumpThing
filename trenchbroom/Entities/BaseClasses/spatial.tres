@@ -5,7 +5,7 @@
 [resource]
 script = ExtResource( 1 )
 class_options = "----------------------------------------------------------------"
-classname = "Spatial"
+classname = "BaseClasses_Spatial"
 description = "A base class for spatial nodes"
 qodot_internal = false
 base_classes = [  ]

@@ -1,82 +1,116 @@
 extends SpatialModifyMaterialParamStepSequencer
 class_name SpatialModifyMaterialParamStepSequencerPulse
-# A step sequencer for making shader parameters go in and out at each step (pulse)
+# A step sequencer for making spatial_material parameters go in and out at each step (pulse)
 # Use this template :
 """
 {
+  "duplicate_material": true,
+  "*":{}, # Parameters at start
   "signal_name": [ # Array of steps
-	{ # param names in the shader
-	  "shader_param_1": { # Tween values for the shader parameter name
-		"intial_value": "var",
+	{ # param names in the spatial_material
+	  "spatial_material_param_1": { # Tween values for the spatial_material parameter name
+		"initial_value": "var",
 		"final_value": "var",
-		"duration": "float",
-		"trans_type": "int",
-		"ease_type": "int",
-		"delay": "float"
+		"duration_in": "float",
+		"duration_out": "float",
+		"trans_type_in": "int",
+		"trans_type_out": "int",
+		"ease_type_in": "int",
+		"ease_type_out": "int",
+		"delay_in": "float",
+		"delay_out": "float"
 	  },
-	  "shader_param_2": {
-		"intial_value": "var",
+	  "spatial_material_param_2": {
+		"initial_value": "var",
 		"final_value": "var",
-		"duration": "float",
-		"trans_type": "int",
-		"ease_type": "int",
-		"delay": "float"
+		"duration_in": "float",
+		"duration_out": "float",
+		"trans_type_in": "int",
+		"trans_type_out": "int",
+		"ease_type_in": "int",
+		"ease_type_out": "int",
+		"delay_in": "float",
+		"delay_out": "float"
 	  }
 	},
 	{
-	  "shader_param_1": {
-		"intial_value": "var",
+	  "spatial_material_param_1": {
+		"initial_value": "var",
 		"final_value": "var",
-		"duration": "float",
-		"trans_type": "int",
-		"ease_type": "int",
-		"delay": "float"
+		"duration_in": "float",
+		"duration_out": "float",
+		"trans_type_in": "int",
+		"trans_type_out": "int",
+		"ease_type_in": "int",
+		"ease_type_out": "int",
+		"delay_in": "float",
+		"delay_out": "float"
 	  },
-	  "shader_param_2": {
-		"intial_value": "var",
+	  "spatial_material_param_2": {
+		"initial_value": "var",
 		"final_value": "var",
-		"duration": "float",
-		"trans_type": "int",
-		"ease_type": "int",
-		"delay": "float"
+		"duration_in": "float",
+		"duration_out": "float",
+		"trans_type_in": "int",
+		"trans_type_out": "int",
+		"ease_type_in": "int",
+		"ease_type_out": "int",
+		"delay_in": "float",
+		"delay_out": "float"
 	  }
 	}
   ],
   "signal_name_2": [
 	{
-	  "shader_param_1": {
-		"intial_value": "var",
+	  "spatial_material_param_1": {
+		"initial_value": "var",
 		"final_value": "var",
-		"duration": "float",
-		"trans_type": "int",
-		"ease_type": "int",
-		"delay": "float"
+		"duration_in": "float",
+		"duration_out": "float",
+		"trans_type_in": "int",
+		"trans_type_out": "int",
+		"ease_type_in": "int",
+		"ease_type_out": "int",
+		"delay_in": "float",
+		"delay_out": "float"
 	  },
-	  "shader_param_2": {
-		"intial_value": "var",
+	  "spatial_material_param_2": {
+		"initial_value": "var",
 		"final_value": "var",
-		"duration": "float",
-		"trans_type": "int",
-		"ease_type": "int",
-		"delay": "float"
+		"duration_in": "float",
+		"duration_out": "float",
+		"trans_type_in": "int",
+		"trans_type_out": "int",
+		"ease_type_in": "int",
+		"ease_type_out": "int",
+		"delay_in": "float",
+		"delay_out": "float"
 	  }
 	},
 	{
-	  "shader_param_1": {
-		"intial_value": "var",
+	  "spatial_material_param_1": {
+		"initial_value": "var",
 		"final_value": "var",
-		"duration": "float",
-		"trans_type": "int",
-		"ease_type": "int",
-		"delay": "float"
+		"duration_in": "float",
+		"duration_out": "float",
+		"trans_type_in": "int",
+		"trans_type_out": "int",
+		"ease_type_in": "int",
+		"ease_type_out": "int",
+		"delay_in": "float",
+		"delay_out": "float"
 	  },
-	  "shader_param_2": {
-		"intial_value": "var",
+	  "spatial_material_param_2": {
+		"initial_value": "var",
 		"final_value": "var",
-		"duration": "float",
-		"trans_type": "int",
-		"ease_type": "int",
-		"delay": "float"
+		"duration_in": "float",
+		"duration_out": "float",
+		"trans_type_in": "int",
+		"trans_type_out": "int",
+		"ease_type_in": "int",
+		"ease_type_out": "int",
+		"delay_in": "float",
+		"delay_out": "float"
 	  }
 	}
   ]
@@ -95,10 +129,10 @@ func _step(params: Dictionary) -> void:
 			key,
 			params[key].initial_value,
 			params[key].final_value,
-			params[key].duration,
-			params[key].trans_type,
-			params[key].ease_type,
-			params[key].delay
+			params[key].duration_in,
+			params[key].trans_type_in,
+			params[key].ease_type_in,
+			params[key].delay_in
 		):
 			Logger.error(
 				(
@@ -117,10 +151,10 @@ func _step(params: Dictionary) -> void:
 			key,
 			params[key].final_value,
 			params[key].initial_value,
-			params[key].duration,
-			params[key].trans_type,
-			params[key].ease_type,
-			params[key].delay
+			params[key].duration_out,
+			params[key].trans_type_out,
+			params[key].ease_type_out,
+			params[key].delay_out
 		):
 			Logger.error(
 				(

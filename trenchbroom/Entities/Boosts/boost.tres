@@ -1,0 +1,29 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://trenchbroom/Entities/BaseClasses/collidable.tres" type="Resource" id=1]
+[ext_resource path="res://addons/qodot/src/resources/game-definitions/fgd/qodot_fgd_base_class.gd" type="Script" id=2]
+
+[resource]
+script = ExtResource( 2 )
+class_options = "----------------------------------------------------------------"
+classname = "Boost"
+description = "A base class for every kind of vertical boost"
+qodot_internal = false
+base_classes = [ ExtResource( 1 ) ]
+class_properties = {
+"angle": Vector3( 0, 0, 0 ),
+"force": 1.0,
+"size": Vector3( 0, 0, 0 )
+}
+class_property_descriptions = {
+"angle": "angle of the boost (in degrees)",
+"force": "force of the boost",
+"size": "size of the boost collision"
+}
+meta_properties = {
+"color": Color( 0.8, 0.8, 0.8, 1 ),
+"size": AABB( -2, -2, -2, 2, 2, 2 )
+}
+node_options = "----------------------------------------------------------------"
+node_class = "Area"
+transient_node = false

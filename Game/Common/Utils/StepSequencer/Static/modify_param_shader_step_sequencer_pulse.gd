@@ -3,79 +3,113 @@ extends StaticBodyModifyMaterialParamStepSequencer
 # Use this template :
 """
 {
+  "duplicate_material": true,
+  "*":{}, # Parameters at start
   "signal_name": [ # Array of steps
 	{ # param names in the shader
 	  "shader_param_1": { # Tween values for the shader parameter name
-		"intial_value": "var",
+		"initial_value": "var",
 		"final_value": "var",
-		"duration": "float",
-		"trans_type": "int",
-		"ease_type": "int",
-		"delay": "float"
+		"duration_in": "float",
+		"duration_out": "float",
+		"trans_type_in": "int",
+		"trans_type_out": "int",
+		"ease_type_in": "int",
+		"ease_type_out": "int",
+		"delay_in": "float",
+		"delay_out": "float"
 	  },
 	  "shader_param_2": {
-		"intial_value": "var",
+		"initial_value": "var",
 		"final_value": "var",
-		"duration": "float",
-		"trans_type": "int",
-		"ease_type": "int",
-		"delay": "float"
+		"duration_in": "float",
+		"duration_out": "float",
+		"trans_type_in": "int",
+		"trans_type_out": "int",
+		"ease_type_in": "int",
+		"ease_type_out": "int",
+		"delay_in": "float",
+		"delay_out": "float"
 	  }
 	},
 	{
 	  "shader_param_1": {
-		"intial_value": "var",
+		"initial_value": "var",
 		"final_value": "var",
-		"duration": "float",
-		"trans_type": "int",
-		"ease_type": "int",
-		"delay": "float"
+		"duration_in": "float",
+		"duration_out": "float",
+		"trans_type_in": "int",
+		"trans_type_out": "int",
+		"ease_type_in": "int",
+		"ease_type_out": "int",
+		"delay_in": "float",
+		"delay_out": "float"
 	  },
 	  "shader_param_2": {
-		"intial_value": "var",
+		"initial_value": "var",
 		"final_value": "var",
-		"duration": "float",
-		"trans_type": "int",
-		"ease_type": "int",
-		"delay": "float"
+		"duration_in": "float",
+		"duration_out": "float",
+		"trans_type_in": "int",
+		"trans_type_out": "int",
+		"ease_type_in": "int",
+		"ease_type_out": "int",
+		"delay_in": "float",
+		"delay_out": "float"
 	  }
 	}
   ],
   "signal_name_2": [
 	{
 	  "shader_param_1": {
-		"intial_value": "var",
+		"initial_value": "var",
 		"final_value": "var",
-		"duration": "float",
-		"trans_type": "int",
-		"ease_type": "int",
-		"delay": "float"
+		"duration_in": "float",
+		"duration_out": "float",
+		"trans_type_in": "int",
+		"trans_type_out": "int",
+		"ease_type_in": "int",
+		"ease_type_out": "int",
+		"delay_in": "float",
+		"delay_out": "float"
 	  },
 	  "shader_param_2": {
-		"intial_value": "var",
+		"initial_value": "var",
 		"final_value": "var",
-		"duration": "float",
-		"trans_type": "int",
-		"ease_type": "int",
-		"delay": "float"
+		"duration_in": "float",
+		"duration_out": "float",
+		"trans_type_in": "int",
+		"trans_type_out": "int",
+		"ease_type_in": "int",
+		"ease_type_out": "int",
+		"delay_in": "float",
+		"delay_out": "float"
 	  }
 	},
 	{
 	  "shader_param_1": {
-		"intial_value": "var",
+		"initial_value": "var",
 		"final_value": "var",
-		"duration": "float",
-		"trans_type": "int",
-		"ease_type": "int",
-		"delay": "float"
+		"duration_in": "float",
+		"duration_out": "float",
+		"trans_type_in": "int",
+		"trans_type_out": "int",
+		"ease_type_in": "int",
+		"ease_type_out": "int",
+		"delay_in": "float",
+		"delay_out": "float"
 	  },
 	  "shader_param_2": {
-		"intial_value": "var",
+		"initial_value": "var",
 		"final_value": "var",
-		"duration": "float",
-		"trans_type": "int",
-		"ease_type": "int",
-		"delay": "float"
+		"duration_in": "float",
+		"duration_out": "float",
+		"trans_type_in": "int",
+		"trans_type_out": "int",
+		"ease_type_in": "int",
+		"ease_type_out": "int",
+		"delay_in": "float",
+		"delay_out": "float"
 	  }
 	}
   ]

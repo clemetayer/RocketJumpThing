@@ -33,13 +33,13 @@ var _material: Material
 ##### PROCESSING #####
 # Called when the object is initialized.
 func _init():
-	update_properties()
 	_connect_signals()
 	_init_step_indexes()
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	update_properties()
 	_get_material_in_children_and_duplicate()
 
 ##### PROTECTED METHODS #####

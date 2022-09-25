@@ -3,10 +3,12 @@ extends StaticBodyModifyMaterialParamStepSequencer
 # Use this template :
 """
 {
+  "duplicate_material": true,
+  "*":{}, # Parameters at start
   "signal_name": [ # Array of steps
 	{ # param names in the shader
 	  "spatial_material_param_1": { # Tween values for the shader parameter name
-		"intial_value": "var",
+		"initial_value": "var",
 		"final_value": "var",
 		"duration": "float",
 		"trans_type": "int",
@@ -14,7 +16,7 @@ extends StaticBodyModifyMaterialParamStepSequencer
 		"delay": "float"
 	  },
 	  "spatial_material_param_2": {
-		"intial_value": "var",
+		"initial_value": "var",
 		"final_value": "var",
 		"duration": "float",
 		"trans_type": "int",
@@ -24,7 +26,7 @@ extends StaticBodyModifyMaterialParamStepSequencer
 	},
 	{
 	  "spatial_material_param_1": {
-		"intial_value": "var",
+		"initial_value": "var",
 		"final_value": "var",
 		"duration": "float",
 		"trans_type": "int",
@@ -32,7 +34,7 @@ extends StaticBodyModifyMaterialParamStepSequencer
 		"delay": "float"
 	  },
 	  "spatial_material_param_2": {
-		"intial_value": "var",
+		"initial_value": "var",
 		"final_value": "var",
 		"duration": "float",
 		"trans_type": "int",
@@ -44,7 +46,7 @@ extends StaticBodyModifyMaterialParamStepSequencer
   "signal_name_2": [
 	{
 	  "spatial_material_param_1": {
-		"intial_value": "var",
+		"initial_value": "var",
 		"final_value": "var",
 		"duration": "float",
 		"trans_type": "int",
@@ -52,7 +54,7 @@ extends StaticBodyModifyMaterialParamStepSequencer
 		"delay": "float"
 	  },
 	  "spatial_material_param_2": {
-		"intial_value": "var",
+		"initial_value": "var",
 		"final_value": "var",
 		"duration": "float",
 		"trans_type": "int",
@@ -62,7 +64,7 @@ extends StaticBodyModifyMaterialParamStepSequencer
 	},
 	{
 	  "spatial_material_param_1": {
-		"intial_value": "var",
+		"initial_value": "var",
 		"final_value": "var",
 		"duration": "float",
 		"trans_type": "int",
@@ -70,7 +72,7 @@ extends StaticBodyModifyMaterialParamStepSequencer
 		"delay": "float"
 	  },
 	  "spatial_material_param_2": {
-		"intial_value": "var",
+		"initial_value": "var",
 		"final_value": "var",
 		"duration": "float",
 		"trans_type": "int",
