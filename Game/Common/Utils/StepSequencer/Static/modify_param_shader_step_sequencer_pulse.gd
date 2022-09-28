@@ -121,6 +121,13 @@ const SHADER_PARAMETER_PATH := "shader_param/"
 
 
 ##### PROTECTED METHODS #####
+# overriden from parent
+func _set_start_parameters() -> void:
+	if _params.has("*"):
+		for key in _params["*"].keys():
+			_material.set_shader_param(key, _params["*"][key])
+
+
 # function to execute at each step
 func _step(params: Dictionary) -> void:
 	var tween := Tween.new()
@@ -131,10 +138,10 @@ func _step(params: Dictionary) -> void:
 			SHADER_PARAMETER_PATH + key,
 			params[key].initial_value,
 			params[key].final_value,
-			params[key].duration,
-			params[key].trans_type,
-			params[key].ease_type,
-			params[key].delay
+			params[key].duration_in,
+			params[key].trans_type_in,
+			params[key].ease_type_in,
+			params[key].delay_in
 		):
 			Logger.error(
 				(
@@ -153,10 +160,10 @@ func _step(params: Dictionary) -> void:
 			SHADER_PARAMETER_PATH + key,
 			params[key].final_value,
 			params[key].initial_value,
-			params[key].duration,
-			params[key].trans_type,
-			params[key].ease_type,
-			params[key].delay
+			params[key].duration_out,
+			params[key].trans_type_out,
+			params[key].ease_type_out,
+			params[key].delay_out
 		):
 			Logger.error(
 				(

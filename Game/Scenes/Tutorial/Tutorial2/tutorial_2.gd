@@ -51,5 +51,5 @@ extends StandardScene
 
 
 ##### SIGNAL MANAGEMENT #####
-func _on_KickTempTimer_timeout():
-	SignalManager.emit_sequencer_step("kick")
+func _on_LightTunnelTimer_timeout():
+	SignalManager.emit_sequencer_step("light_tunnel")

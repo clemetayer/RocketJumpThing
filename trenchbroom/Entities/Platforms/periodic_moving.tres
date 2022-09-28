@@ -43,7 +43,7 @@ meta_properties = {
 }
 node_options = "----------------------------------------------------------------"
 node_class = "KinematicBody"
-transient_node = true
+transient_node = false
 spawn = "----------------------------------------------------------------"
 spawn_type = 2
 visual_build = "----------------------------------------------------------------"

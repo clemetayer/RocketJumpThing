@@ -1,8 +1,7 @@
-[gd_scene load_steps=497 format=2]
+[gd_scene load_steps=494 format=2]
 
 [ext_resource path="res://addons/qodot/src/nodes/qodot_map.gd" type="Script" id=1]
 [ext_resource path="res://Game/Common/Characters/MainCharacters/player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://RocketJumpThing_fgd.tres" type="Resource" id=3]
 [ext_resource path="res://Game/Common/MapElements/static_body_group_solid_class.gd" type="Script" id=4]
 [ext_resource path="res://Game/Common/Environments/scene_4.tres" type="Environment" id=5]
 [ext_resource path="res://Game/Common/MapElements/Checkpoint/checkpoint.gd" type="Script" id=6]
@@ -15,10 +14,8 @@
 [ext_resource path="res://Game/Common/MapElements/Utils/area_enable_ability.gd" type="Script" id=13]
 [ext_resource path="res://Game/Common/MapElements/Checkpoint/end_point.gd" type="Script" id=14]
 [ext_resource path="res://trenchbroom/textures/entities/checkpoint/checkpoint_1.tres" type="Material" id=15]
-[ext_resource path="res://trenchbroom/Entities/MapElements/Scenery/Rotate/Spatial/Sequencer/rotate_spatial_sequencer_solid_transparent.gd" type="Script" id=16]
 [ext_resource path="res://trenchbroom/textures/common/material_override/Transparent.tres" type="Material" id=17]
 [ext_resource path="res://Game/Common/MapElements/Particles/GeometricScaleParticles/particle_flat_poly_scale.tscn" type="PackedScene" id=18]
-[ext_resource path="res://trenchbroom/Entities/MapElements/RythmElements/Sequencers/Spatial_bkp/BasicSequencer/sequencer1.gd" type="Script" id=19]
 [ext_resource path="res://Game/Scenes/Tutorial/Tutorial3/rain.gd" type="Script" id=20]
 [ext_resource path="res://trenchbroom/textures/scenes/tutorial3_scene/cool_material.tres" type="Material" id=21]
 [ext_resource path="res://trenchbroom/textures/scenes/tutorial3_scene/moving_polygons.tres" type="Material" id=22]
@@ -3646,7 +3643,7 @@ PLAYER = NodePath("../../../QodotMap/entity_42_player")
 script = ExtResource( 1 )
 map_file = "/home/clemetayer/Projects/RocketJumpThing/trenchbroom/Maps/Tutorial3/tutorial3.map"
 inverse_scale_factor = 1.0
-entity_fgd = ExtResource( 3 )
+entity_fgd = null
 base_texture_dir = "res://trenchbroom/textures"
 texture_file_extensions = PoolStringArray( "png" )
 worldspawn_layers = [  ]
@@ -4970,21 +4967,6 @@ shape = SubResource( 916 )
 
 [node name="entity_50_SpatialStepSequencer1" type="Spatial" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 306, 2688 )
-script = ExtResource( 19 )
-properties = {
-"albedo": Color( 0.14902, 0.682353, 0.501961, 1 ),
-"classname": "SpatialStepSequencer1",
-"collision_layer": "2",
-"collision_mask": "5",
-"emission_color": Color( 0.14902, 0.682353, 0.501961, 1 ),
-"fade_in_time": 0.2,
-"fade_out_time": 0.4,
-"id": "kick",
-"max_intensity": 3.0,
-"min_intensity": 1.0,
-"number": "3",
-"number_of_steps": "4"
-}
 
 [node name="entity_50_mesh_instance" type="MeshInstance" parent="QodotMap/entity_50_SpatialStepSequencer1"]
 mesh = SubResource( 917 )
@@ -4992,21 +4974,6 @@ material/0 = null
 
 [node name="entity_51_SpatialStepSequencer1" type="Spatial" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 146, 2472 )
-script = ExtResource( 19 )
-properties = {
-"albedo": Color( 0.4, 0.701961, 0.352941, 1 ),
-"classname": "SpatialStepSequencer1",
-"collision_layer": "2",
-"collision_mask": "5",
-"emission_color": Color( 0.4, 0.701961, 0.352941, 1 ),
-"fade_in_time": 0.2,
-"fade_out_time": 0.4,
-"id": "kick",
-"max_intensity": 3.0,
-"min_intensity": 1.0,
-"number": "2",
-"number_of_steps": "4"
-}
 
 [node name="entity_51_mesh_instance" type="MeshInstance" parent="QodotMap/entity_51_SpatialStepSequencer1"]
 mesh = SubResource( 918 )
@@ -5014,21 +4981,6 @@ material/0 = null
 
 [node name="entity_52_SpatialStepSequencer1" type="Spatial" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -14, 2392 )
-script = ExtResource( 19 )
-properties = {
-"albedo": Color( 0.717647, 0.713726, 0.176471, 1 ),
-"classname": "SpatialStepSequencer1",
-"collision_layer": "2",
-"collision_mask": "5",
-"emission_color": Color( 0.717647, 0.713726, 0.176471, 1 ),
-"fade_in_time": 0.2,
-"fade_out_time": 0.4,
-"id": "kick",
-"max_intensity": 3.0,
-"min_intensity": 1.0,
-"number": "1",
-"number_of_steps": "4"
-}
 
 [node name="entity_52_mesh_instance" type="MeshInstance" parent="QodotMap/entity_52_SpatialStepSequencer1"]
 mesh = SubResource( 919 )
@@ -5036,21 +4988,6 @@ material/0 = null
 
 [node name="entity_53_SpatialStepSequencer1" type="Spatial" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -172, 2312 )
-script = ExtResource( 19 )
-properties = {
-"albedo": Color( 1, 0.745098, 0, 1 ),
-"classname": "SpatialStepSequencer1",
-"collision_layer": "2",
-"collision_mask": "5",
-"emission_color": Color( 1, 0.745098, 0, 1 ),
-"fade_in_time": 0.2,
-"fade_out_time": 0.4,
-"id": "kick",
-"max_intensity": 3.0,
-"min_intensity": 1.0,
-"number": "0",
-"number_of_steps": "4"
-}
 
 [node name="entity_53_mesh_instance" type="MeshInstance" parent="QodotMap/entity_53_SpatialStepSequencer1"]
 mesh = SubResource( 920 )
@@ -5058,21 +4995,6 @@ material/0 = null
 
 [node name="entity_54_SpatialStepSequencer1" type="Spatial" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -465, 306, 2872 )
-script = ExtResource( 19 )
-properties = {
-"albedo": Color( 0.14902, 0.682353, 0.501961, 1 ),
-"classname": "SpatialStepSequencer1",
-"collision_layer": "2",
-"collision_mask": "5",
-"emission_color": Color( 0.14902, 0.682353, 0.501961, 1 ),
-"fade_in_time": 0.2,
-"fade_out_time": 0.4,
-"id": "kick",
-"max_intensity": 1.0,
-"min_intensity": 0.1,
-"number": "3",
-"number_of_steps": "4"
-}
 
 [node name="entity_54_mesh_instance" type="MeshInstance" parent="QodotMap/entity_54_SpatialStepSequencer1"]
 mesh = SubResource( 921 )
@@ -5080,21 +5002,6 @@ material/0 = null
 
 [node name="entity_55_SpatialStepSequencer1" type="Spatial" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -465, 306, 2872 )
-script = ExtResource( 19 )
-properties = {
-"albedo": Color( 0.14902, 0.682353, 0.501961, 1 ),
-"classname": "SpatialStepSequencer1",
-"collision_layer": "2",
-"collision_mask": "5",
-"emission_color": Color( 0.14902, 0.682353, 0.501961, 1 ),
-"fade_in_time": 0.2,
-"fade_out_time": 0.4,
-"id": "kick",
-"max_intensity": 1.0,
-"min_intensity": 0.1,
-"number": "3",
-"number_of_steps": "4"
-}
 
 [node name="entity_55_mesh_instance" type="MeshInstance" parent="QodotMap/entity_55_SpatialStepSequencer1"]
 mesh = SubResource( 922 )
@@ -5102,21 +5009,6 @@ material/0 = null
 
 [node name="entity_56_SpatialStepSequencer1" type="Spatial" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 465, 306, 2872 )
-script = ExtResource( 19 )
-properties = {
-"albedo": Color( 0.14902, 0.682353, 0.501961, 1 ),
-"classname": "SpatialStepSequencer1",
-"collision_layer": "2",
-"collision_mask": "5",
-"emission_color": Color( 0.14902, 0.682353, 0.501961, 1 ),
-"fade_in_time": 0.2,
-"fade_out_time": 0.4,
-"id": "kick",
-"max_intensity": 1.0,
-"min_intensity": 0.1,
-"number": "3",
-"number_of_steps": "4"
-}
 
 [node name="entity_56_mesh_instance" type="MeshInstance" parent="QodotMap/entity_56_SpatialStepSequencer1"]
 mesh = SubResource( 923 )
@@ -5124,19 +5016,6 @@ material/0 = null
 
 [node name="entity_57_SpatialStepSequencer1" type="Spatial" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 196, -3452 )
-script = ExtResource( 19 )
-properties = {
-"albedo": Color( 0.14902, 0.682353, 0.501961, 1 ),
-"classname": "SpatialStepSequencer1",
-"emission_color": Color( 0.14902, 0.682353, 0.501961, 1 ),
-"fade_in_time": 0.2,
-"fade_out_time": 0.4,
-"id": "kick",
-"max_intensity": 3.0,
-"min_intensity": 1.0,
-"number": "3",
-"number_of_steps": "4"
-}
 
 [node name="entity_57_mesh_instance" type="MeshInstance" parent="QodotMap/entity_57_SpatialStepSequencer1"]
 mesh = SubResource( 924 )
@@ -5144,19 +5023,6 @@ material/0 = null
 
 [node name="entity_58_SpatialStepSequencer1" type="Spatial" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 132, -3516 )
-script = ExtResource( 19 )
-properties = {
-"albedo": Color( 0.4, 0.701961, 0.352941, 1 ),
-"classname": "SpatialStepSequencer1",
-"emission_color": Color( 0.4, 0.701961, 0.352941, 1 ),
-"fade_in_time": 0.2,
-"fade_out_time": 0.4,
-"id": "kick",
-"max_intensity": 3.0,
-"min_intensity": 1.0,
-"number": "2",
-"number_of_steps": "4"
-}
 
 [node name="entity_58_mesh_instance" type="MeshInstance" parent="QodotMap/entity_58_SpatialStepSequencer1"]
 mesh = SubResource( 925 )
@@ -5164,19 +5030,6 @@ material/0 = null
 
 [node name="entity_59_SpatialStepSequencer1" type="Spatial" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 68, -3580 )
-script = ExtResource( 19 )
-properties = {
-"albedo": Color( 0.717647, 0.713726, 0.176471, 1 ),
-"classname": "SpatialStepSequencer1",
-"emission_color": Color( 0.717647, 0.713726, 0.176471, 1 ),
-"fade_in_time": 0.2,
-"fade_out_time": 0.4,
-"id": "kick",
-"max_intensity": 3.0,
-"min_intensity": 1.0,
-"number": "1",
-"number_of_steps": "4"
-}
 
 [node name="entity_59_mesh_instance" type="MeshInstance" parent="QodotMap/entity_59_SpatialStepSequencer1"]
 mesh = SubResource( 926 )
@@ -5184,19 +5037,6 @@ material/0 = null
 
 [node name="entity_60_SpatialStepSequencer1" type="Spatial" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, -3640 )
-script = ExtResource( 19 )
-properties = {
-"albedo": Color( 1, 0.745098, 0, 1 ),
-"classname": "SpatialStepSequencer1",
-"emission_color": Color( 1, 0.745098, 0, 1 ),
-"fade_in_time": 0.2,
-"fade_out_time": 0.4,
-"id": "kick",
-"max_intensity": 3.0,
-"min_intensity": 1.0,
-"number": "0",
-"number_of_steps": "4"
-}
 
 [node name="entity_60_mesh_instance" type="MeshInstance" parent="QodotMap/entity_60_SpatialStepSequencer1"]
 mesh = SubResource( 927 )
@@ -6152,20 +5992,6 @@ properties = {
 
 [node name="entity_117_rotate_spatial_sequencer_solid_transparent" type="Spatial" parent="QodotMap"]
 transform = Transform( 0.749442, -0.123296, -0.65044, 0.572347, 0.614405, 0.543019, 0.332706, -0.779263, 0.531044, -768, 760, -1520 )
-script = ExtResource( 16 )
-properties = {
-"albedo": Color( 0.14902, 0.682353, 0.501961, 1 ),
-"classname": "rotate_spatial_sequencer_solid_transparent",
-"emission_color": Color( 0.14902, 0.682353, 0.501961, 1 ),
-"fade_in_time": 0.2,
-"fade_out_time": 0.4,
-"id": "kick",
-"max_fade_amount": 1.0,
-"min_fade_amount": 0.0,
-"number": "0",
-"number_of_steps": "2",
-"rotation_speeds": Vector3( 1, 0.75, -0.56 )
-}
 
 [node name="entity_117_mesh_instance" type="MeshInstance" parent="QodotMap/entity_117_rotate_spatial_sequencer_solid_transparent"]
 mesh = SubResource( 1020 )
@@ -6173,20 +5999,6 @@ material/0 = null
 
 [node name="entity_118_rotate_spatial_sequencer_solid_transparent" type="Spatial" parent="QodotMap"]
 transform = Transform( 0.864731, -0.41877, 0.27688, -0.0416051, 0.489807, 0.870707, -0.500298, -0.764524, 0.40617, 260, 608, -1824 )
-script = ExtResource( 16 )
-properties = {
-"albedo": Color( 0.14902, 0.682353, 0.501961, 1 ),
-"classname": "rotate_spatial_sequencer_solid_transparent",
-"emission_color": Color( 0.14902, 0.682353, 0.501961, 1 ),
-"fade_in_time": 0.2,
-"fade_out_time": 0.4,
-"id": "kick",
-"max_fade_amount": 1.0,
-"min_fade_amount": 0.0,
-"number": "0",
-"number_of_steps": "2",
-"rotation_speeds": Vector3( -1.5, 0.75, 0.33 )
-}
 
 [node name="entity_118_mesh_instance" type="MeshInstance" parent="QodotMap/entity_118_rotate_spatial_sequencer_solid_transparent"]
 mesh = SubResource( 1021 )
@@ -6194,20 +6006,6 @@ material/0 = null
 
 [node name="entity_119_rotate_spatial_sequencer_solid_transparent" type="Spatial" parent="QodotMap"]
 transform = Transform( 0.0360146, -0.268903, 0.962418, 0.977757, 0.20827, 0.0215998, -0.206269, 0.9403, 0.270439, -4, -784, -992 )
-script = ExtResource( 16 )
-properties = {
-"albedo": Color( 0.14902, 0.682353, 0.501961, 1 ),
-"classname": "rotate_spatial_sequencer_solid_transparent",
-"emission_color": Color( 0.14902, 0.682353, 0.501961, 1 ),
-"fade_in_time": 0.2,
-"fade_out_time": 0.4,
-"id": "kick",
-"max_fade_amount": 1.0,
-"min_fade_amount": 0.0,
-"number": "0",
-"number_of_steps": "2",
-"rotation_speeds": Vector3( 1.43, 1.5, 2 )
-}
 
 [node name="entity_119_mesh_instance" type="MeshInstance" parent="QodotMap/entity_119_rotate_spatial_sequencer_solid_transparent"]
 mesh = SubResource( 1022 )
@@ -6215,20 +6013,6 @@ material/0 = null
 
 [node name="entity_120_rotate_spatial_sequencer_solid_transparent" type="Spatial" parent="QodotMap"]
 transform = Transform( 0.303965, -0.386597, 0.870657, -0.802053, -0.596967, 0.0149274, 0.514021, -0.702889, -0.491535, 1024, 40, -656 )
-script = ExtResource( 16 )
-properties = {
-"albedo": Color( 1, 0.745098, 0, 1 ),
-"classname": "rotate_spatial_sequencer_solid_transparent",
-"emission_color": Color( 1, 0.745098, 0, 1 ),
-"fade_in_time": 0.2,
-"fade_out_time": 0.4,
-"id": "kick",
-"max_fade_amount": 1.0,
-"min_fade_amount": 0.0,
-"number": "1",
-"number_of_steps": "2",
-"rotation_speeds": Vector3( 1.33, -0.67, 0.75 )
-}
 
 [node name="entity_120_mesh_instance" type="MeshInstance" parent="QodotMap/entity_120_rotate_spatial_sequencer_solid_transparent"]
 mesh = SubResource( 1023 )
@@ -6236,20 +6020,6 @@ material/0 = null
 
 [node name="entity_121_rotate_spatial_sequencer_solid_transparent" type="Spatial" parent="QodotMap"]
 transform = Transform( 0.494583, -0.326981, 0.805208, 0.754051, -0.299133, -0.584623, 0.432068, 0.896358, 0.0986357, 1024, 40, -656 )
-script = ExtResource( 16 )
-properties = {
-"albedo": Color( 0.14902, 0.682353, 0.501961, 1 ),
-"classname": "rotate_spatial_sequencer_solid_transparent",
-"emission_color": Color( 0.14902, 0.682353, 0.501961, 1 ),
-"fade_in_time": 0.2,
-"fade_out_time": 0.4,
-"id": "kick",
-"max_fade_amount": 1.0,
-"min_fade_amount": 0.0,
-"number": "0",
-"number_of_steps": "2",
-"rotation_speeds": Vector3( -1.66, -0.4, -1.25 )
-}
 
 [node name="entity_121_mesh_instance" type="MeshInstance" parent="QodotMap/entity_121_rotate_spatial_sequencer_solid_transparent"]
 mesh = SubResource( 1024 )
@@ -6257,20 +6027,6 @@ material/0 = null
 
 [node name="entity_122_rotate_spatial_sequencer_solid_transparent" type="Spatial" parent="QodotMap"]
 transform = Transform( 0.595873, 0.416004, 0.686787, 0.802368, -0.341146, -0.489496, 0.0306725, 0.842814, -0.537122, -1000, -136, 1312 )
-script = ExtResource( 16 )
-properties = {
-"albedo": Color( 1, 0.745098, 0, 1 ),
-"classname": "rotate_spatial_sequencer_solid_transparent",
-"emission_color": Color( 1, 0.745098, 0, 1 ),
-"fade_in_time": 0.2,
-"fade_out_time": 0.4,
-"id": "kick",
-"max_fade_amount": 1.0,
-"min_fade_amount": 0.0,
-"number": "1",
-"number_of_steps": "2",
-"rotation_speeds": Vector3( -1.5, -0.75, -0.45 )
-}
 
 [node name="entity_122_mesh_instance" type="MeshInstance" parent="QodotMap/entity_122_rotate_spatial_sequencer_solid_transparent"]
 mesh = SubResource( 1025 )
@@ -6278,20 +6034,6 @@ material/0 = null
 
 [node name="entity_123_rotate_spatial_sequencer_solid_transparent" type="Spatial" parent="QodotMap"]
 transform = Transform( 0.852679, 0.515805, -0.0813154, -0.466789, 0.683146, -0.561379, -0.234044, 0.516707, 0.823384, 2560, 1112, 2812 )
-script = ExtResource( 16 )
-properties = {
-"albedo": Color( 1, 0.745098, 0, 1 ),
-"classname": "rotate_spatial_sequencer_solid_transparent",
-"emission_color": Color( 1, 0.745098, 0, 1 ),
-"fade_in_time": 0.2,
-"fade_out_time": 0.4,
-"id": "kick",
-"max_fade_amount": 1.0,
-"min_fade_amount": 0.0,
-"number": "1",
-"number_of_steps": "2",
-"rotation_speeds": Vector3( 1.5, 0.25, -1.33 )
-}
 
 [node name="entity_123_mesh_instance" type="MeshInstance" parent="QodotMap/entity_123_rotate_spatial_sequencer_solid_transparent"]
 mesh = SubResource( 1026 )
@@ -6299,20 +6041,6 @@ material/0 = null
 
 [node name="entity_124_rotate_spatial_sequencer_solid_transparent" type="Spatial" parent="QodotMap"]
 transform = Transform( 0.185461, 0.618896, -0.763195, -0.962234, -0.0429182, -0.268629, -0.199027, 0.784228, 0.587608, 24, 1632, 6512 )
-script = ExtResource( 16 )
-properties = {
-"albedo": Color( 0.14902, 0.682353, 0.501961, 1 ),
-"classname": "rotate_spatial_sequencer_solid_transparent",
-"emission_color": Color( 0.14902, 0.682353, 0.501961, 1 ),
-"fade_in_time": 0.2,
-"fade_out_time": 0.4,
-"id": "kick",
-"max_fade_amount": 1.0,
-"min_fade_amount": 0.0,
-"number": "0",
-"number_of_steps": "2",
-"rotation_speeds": Vector3( 1.25, -0.6, -1.75 )
-}
 
 [node name="entity_124_mesh_instance" type="MeshInstance" parent="QodotMap/entity_124_rotate_spatial_sequencer_solid_transparent"]
 mesh = SubResource( 1027 )
@@ -6320,20 +6048,6 @@ material/0 = null
 
 [node name="entity_125_rotate_spatial_sequencer_solid_transparent" type="Spatial" parent="QodotMap"]
 transform = Transform( 0.303965, -0.386597, 0.870657, -0.802053, -0.596967, 0.0149274, 0.514021, -0.702889, -0.491535, 728, 368, -2736 )
-script = ExtResource( 16 )
-properties = {
-"albedo": Color( 1, 0.745098, 0, 1 ),
-"classname": "rotate_spatial_sequencer_solid_transparent",
-"emission_color": Color( 1, 0.745098, 0, 1 ),
-"fade_in_time": 0.2,
-"fade_out_time": 0.4,
-"id": "kick",
-"max_fade_amount": 1.0,
-"min_fade_amount": 0.0,
-"number": "1",
-"number_of_steps": "2",
-"rotation_speeds": Vector3( 1.33, -0.67, 0.75 )
-}
 
 [node name="entity_125_mesh_instance" type="MeshInstance" parent="QodotMap/entity_125_rotate_spatial_sequencer_solid_transparent"]
 mesh = SubResource( 1028 )
@@ -6341,20 +6055,6 @@ material/0 = null
 
 [node name="entity_126_rotate_spatial_sequencer_solid_transparent" type="Spatial" parent="QodotMap"]
 transform = Transform( 0.303965, -0.386597, 0.870657, -0.802053, -0.596967, 0.0149274, 0.514021, -0.702889, -0.491535, -520, 432, -1824 )
-script = ExtResource( 16 )
-properties = {
-"albedo": Color( 1, 0.745098, 0, 1 ),
-"classname": "rotate_spatial_sequencer_solid_transparent",
-"emission_color": Color( 1, 0.745098, 0, 1 ),
-"fade_in_time": 0.2,
-"fade_out_time": 0.4,
-"id": "kick",
-"max_fade_amount": 1.0,
-"min_fade_amount": 0.0,
-"number": "1",
-"number_of_steps": "2",
-"rotation_speeds": Vector3( 1.33, -0.67, 0.75 )
-}
 
 [node name="entity_126_mesh_instance" type="MeshInstance" parent="QodotMap/entity_126_rotate_spatial_sequencer_solid_transparent"]
 mesh = SubResource( 1029 )
@@ -6380,20 +6080,6 @@ shape = SubResource( 1031 )
 
 [node name="entity_128_rotate_spatial_sequencer_solid_transparent" type="Spatial" parent="QodotMap"]
 transform = Transform( 0.0360146, -0.268903, 0.962418, 0.977757, 0.20827, 0.0215998, -0.206269, 0.9403, 0.270439, 1068, 448, 4608 )
-script = ExtResource( 16 )
-properties = {
-"albedo": Color( 0.14902, 0.682353, 0.501961, 1 ),
-"classname": "rotate_spatial_sequencer_solid_transparent",
-"emission_color": Color( 0.14902, 0.682353, 0.501961, 1 ),
-"fade_in_time": 0.2,
-"fade_out_time": 0.4,
-"id": "kick",
-"max_fade_amount": 1.0,
-"min_fade_amount": 0.0,
-"number": "0",
-"number_of_steps": "2",
-"rotation_speeds": Vector3( 1.43, 1.5, 2 )
-}
 
 [node name="entity_128_mesh_instance" type="MeshInstance" parent="QodotMap/entity_128_rotate_spatial_sequencer_solid_transparent"]
 mesh = SubResource( 1032 )
@@ -6401,21 +6087,6 @@ material/0 = null
 
 [node name="entity_129_SpatialStepSequencer1" type="Spatial" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.11863e-14, -47.5, -3199.67 )
-script = ExtResource( 19 )
-properties = {
-"albedo": Color( 0.14902, 0.682353, 0.501961, 1 ),
-"classname": "SpatialStepSequencer1",
-"collision_layer": "2",
-"collision_mask": "5",
-"emission_color": Color( 0.14902, 0.682353, 0.501961, 1 ),
-"fade_in_time": 0.2,
-"fade_out_time": 0.4,
-"id": "kick",
-"max_intensity": 6.0,
-"min_intensity": 1.0,
-"number": "0",
-"number_of_steps": "3"
-}
 
 [node name="entity_129_mesh_instance" type="MeshInstance" parent="QodotMap/entity_129_SpatialStepSequencer1"]
 mesh = SubResource( 1033 )
@@ -6423,21 +6094,6 @@ material/0 = null
 
 [node name="entity_130_SpatialStepSequencer1" type="Spatial" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 43.2152, -55.5, -3073.4 )
-script = ExtResource( 19 )
-properties = {
-"albedo": Color( 1, 0.745098, 0, 1 ),
-"classname": "SpatialStepSequencer1",
-"collision_layer": "2",
-"collision_mask": "5",
-"emission_color": Color( 1, 0.745098, 0, 1 ),
-"fade_in_time": 0.2,
-"fade_out_time": 0.4,
-"id": "kick",
-"max_intensity": 6.0,
-"min_intensity": 1.0,
-"number": "1",
-"number_of_steps": "3"
-}
 
 [node name="entity_130_mesh_instance" type="MeshInstance" parent="QodotMap/entity_130_SpatialStepSequencer1"]
 mesh = SubResource( 1034 )
@@ -6445,21 +6101,6 @@ material/0 = null
 
 [node name="entity_131_SpatialStepSequencer1" type="Spatial" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 148.333, -63.5, -3040 )
-script = ExtResource( 19 )
-properties = {
-"albedo": Color( 0.14902, 0.682353, 0.501961, 1 ),
-"classname": "SpatialStepSequencer1",
-"collision_layer": "2",
-"collision_mask": "5",
-"emission_color": Color( 0.14902, 0.682353, 0.501961, 1 ),
-"fade_in_time": 0.2,
-"fade_out_time": 0.4,
-"id": "kick",
-"max_intensity": 6.0,
-"min_intensity": 1.0,
-"number": "2",
-"number_of_steps": "3"
-}
 
 [node name="entity_131_mesh_instance" type="MeshInstance" parent="QodotMap/entity_131_SpatialStepSequencer1"]
 mesh = SubResource( 1035 )
@@ -6467,21 +6108,6 @@ material/0 = null
 
 [node name="entity_132_SpatialStepSequencer1" type="Spatial" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 352, -76, -3040 )
-script = ExtResource( 19 )
-properties = {
-"albedo": Color( 0.14902, 0.682353, 0.501961, 1 ),
-"classname": "SpatialStepSequencer1",
-"collision_layer": "2",
-"collision_mask": "5",
-"emission_color": Color( 0.14902, 0.682353, 0.501961, 1 ),
-"fade_in_time": 0.2,
-"fade_out_time": 0.4,
-"id": "kick",
-"max_intensity": 4.0,
-"min_intensity": 0.5,
-"number": "0",
-"number_of_steps": "1"
-}
 
 [node name="entity_132_mesh_instance" type="MeshInstance" parent="QodotMap/entity_132_SpatialStepSequencer1"]
 mesh = SubResource( 1036 )
@@ -6489,21 +6115,6 @@ material/0 = null
 
 [node name="entity_133_SpatialStepSequencer1" type="Spatial" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 160, 44, -3040 )
-script = ExtResource( 19 )
-properties = {
-"albedo": Color( 1, 0.745098, 0, 1 ),
-"classname": "SpatialStepSequencer1",
-"collision_layer": "2",
-"collision_mask": "5",
-"emission_color": Color( 1, 0.745098, 0, 1 ),
-"fade_in_time": 0.2,
-"fade_out_time": 0.4,
-"id": "kick",
-"max_intensity": 4.0,
-"min_intensity": 0.5,
-"number": "0",
-"number_of_steps": "1"
-}
 
 [node name="entity_133_mesh_instance" type="MeshInstance" parent="QodotMap/entity_133_SpatialStepSequencer1"]
 mesh = SubResource( 1037 )
@@ -6511,21 +6122,6 @@ material/0 = null
 
 [node name="entity_134_SpatialStepSequencer1" type="Spatial" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -544, 218, -2408 )
-script = ExtResource( 19 )
-properties = {
-"albedo": Color( 0.14902, 0.682353, 0.501961, 1 ),
-"classname": "SpatialStepSequencer1",
-"collision_layer": "2",
-"collision_mask": "5",
-"emission_color": Color( 0.14902, 0.682353, 0.501961, 1 ),
-"fade_in_time": 0.2,
-"fade_out_time": 0.4,
-"id": "kick",
-"max_intensity": 4.0,
-"min_intensity": 0.5,
-"number": "0",
-"number_of_steps": "1"
-}
 
 [node name="entity_134_mesh_instance" type="MeshInstance" parent="QodotMap/entity_134_SpatialStepSequencer1"]
 mesh = SubResource( 1038 )
@@ -6533,21 +6129,6 @@ material/0 = null
 
 [node name="entity_135_SpatialStepSequencer1" type="Spatial" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -432, 128, -2176 )
-script = ExtResource( 19 )
-properties = {
-"albedo": Color( 0.14902, 0.682353, 0.501961, 1 ),
-"classname": "SpatialStepSequencer1",
-"collision_layer": "2",
-"collision_mask": "5",
-"emission_color": Color( 0.14902, 0.682353, 0.501961, 1 ),
-"fade_in_time": 0.2,
-"fade_out_time": 0.4,
-"id": "kick",
-"max_intensity": 4.0,
-"min_intensity": 0.5,
-"number": "0",
-"number_of_steps": "1"
-}
 
 [node name="entity_135_mesh_instance" type="MeshInstance" parent="QodotMap/entity_135_SpatialStepSequencer1"]
 mesh = SubResource( 1039 )
@@ -6555,21 +6136,6 @@ material/0 = null
 
 [node name="entity_136_SpatialStepSequencer1" type="Spatial" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 284, 276, -2176 )
-script = ExtResource( 19 )
-properties = {
-"albedo": Color( 1, 0.745098, 0, 1 ),
-"classname": "SpatialStepSequencer1",
-"collision_layer": "2",
-"collision_mask": "5",
-"emission_color": Color( 1, 0.745098, 0, 1 ),
-"fade_in_time": 0.2,
-"fade_out_time": 0.4,
-"id": "kick",
-"max_intensity": 4.0,
-"min_intensity": 0.5,
-"number": "0",
-"number_of_steps": "1"
-}
 
 [node name="entity_136_mesh_instance" type="MeshInstance" parent="QodotMap/entity_136_SpatialStepSequencer1"]
 mesh = SubResource( 1040 )
@@ -6577,21 +6143,6 @@ material/0 = null
 
 [node name="entity_137_SpatialStepSequencer1" type="Spatial" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, -228, 1648 )
-script = ExtResource( 19 )
-properties = {
-"albedo": Color( 0.14902, 0.682353, 0.501961, 1 ),
-"classname": "SpatialStepSequencer1",
-"collision_layer": "2",
-"collision_mask": "5",
-"emission_color": Color( 0.14902, 0.682353, 0.501961, 1 ),
-"fade_in_time": 0.2,
-"fade_out_time": 0.4,
-"id": "kick",
-"max_intensity": 4.0,
-"min_intensity": 0.5,
-"number": "0",
-"number_of_steps": "1"
-}
 
 [node name="entity_137_mesh_instance" type="MeshInstance" parent="QodotMap/entity_137_SpatialStepSequencer1"]
 mesh = SubResource( 1041 )
@@ -6599,21 +6150,6 @@ material/0 = null
 
 [node name="entity_138_SpatialStepSequencer1" type="Spatial" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 60, 3647 )
-script = ExtResource( 19 )
-properties = {
-"albedo": Color( 1, 0.745098, 0, 1 ),
-"classname": "SpatialStepSequencer1",
-"collision_layer": "2",
-"collision_mask": "5",
-"emission_color": Color( 1, 0.745098, 0, 1 ),
-"fade_in_time": 0.2,
-"fade_out_time": 0.4,
-"id": "kick",
-"max_intensity": 4.0,
-"min_intensity": 0.5,
-"number": "0",
-"number_of_steps": "1"
-}
 
 [node name="entity_138_mesh_instance" type="MeshInstance" parent="QodotMap/entity_138_SpatialStepSequencer1"]
 mesh = SubResource( 1042 )
@@ -6621,21 +6157,6 @@ material/0 = null
 
 [node name="entity_139_SpatialStepSequencer1" type="Spatial" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1168, 76, 3631 )
-script = ExtResource( 19 )
-properties = {
-"albedo": Color( 1, 0.745098, 0, 1 ),
-"classname": "SpatialStepSequencer1",
-"collision_layer": "2",
-"collision_mask": "5",
-"emission_color": Color( 1, 0.745098, 0, 1 ),
-"fade_in_time": 0.2,
-"fade_out_time": 0.4,
-"id": "kick",
-"max_intensity": 4.0,
-"min_intensity": 0.5,
-"number": "0",
-"number_of_steps": "1"
-}
 
 [node name="entity_139_mesh_instance" type="MeshInstance" parent="QodotMap/entity_139_SpatialStepSequencer1"]
 mesh = SubResource( 1043 )
@@ -6643,21 +6164,6 @@ material/0 = null
 
 [node name="entity_140_SpatialStepSequencer1" type="Spatial" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1780, 12, 3631 )
-script = ExtResource( 19 )
-properties = {
-"albedo": Color( 0.14902, 0.682353, 0.501961, 1 ),
-"classname": "SpatialStepSequencer1",
-"collision_layer": "2",
-"collision_mask": "5",
-"emission_color": Color( 0.14902, 0.682353, 0.501961, 1 ),
-"fade_in_time": 0.2,
-"fade_out_time": 0.4,
-"id": "kick",
-"max_intensity": 4.0,
-"min_intensity": 0.5,
-"number": "0",
-"number_of_steps": "1"
-}
 
 [node name="entity_140_mesh_instance" type="MeshInstance" parent="QodotMap/entity_140_SpatialStepSequencer1"]
 mesh = SubResource( 1044 )
@@ -6665,21 +6171,6 @@ material/0 = null
 
 [node name="entity_141_SpatialStepSequencer1" type="Spatial" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2335, 12, 4120 )
-script = ExtResource( 19 )
-properties = {
-"albedo": Color( 0.14902, 0.682353, 0.501961, 1 ),
-"classname": "SpatialStepSequencer1",
-"collision_layer": "2",
-"collision_mask": "5",
-"emission_color": Color( 0.14902, 0.682353, 0.501961, 1 ),
-"fade_in_time": 0.2,
-"fade_out_time": 0.4,
-"id": "kick",
-"max_intensity": 4.0,
-"min_intensity": 0.5,
-"number": "0",
-"number_of_steps": "1"
-}
 
 [node name="entity_141_mesh_instance" type="MeshInstance" parent="QodotMap/entity_141_SpatialStepSequencer1"]
 mesh = SubResource( 1045 )
@@ -6687,21 +6178,6 @@ material/0 = null
 
 [node name="entity_142_SpatialStepSequencer1" type="Spatial" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2335, 220, 4768 )
-script = ExtResource( 19 )
-properties = {
-"albedo": Color( 1, 0.745098, 0, 1 ),
-"classname": "SpatialStepSequencer1",
-"collision_layer": "2",
-"collision_mask": "5",
-"emission_color": Color( 1, 0.745098, 0, 1 ),
-"fade_in_time": 0.2,
-"fade_out_time": 0.4,
-"id": "kick",
-"max_intensity": 4.0,
-"min_intensity": 0.5,
-"number": "0",
-"number_of_steps": "1"
-}
 
 [node name="entity_142_mesh_instance" type="MeshInstance" parent="QodotMap/entity_142_SpatialStepSequencer1"]
 mesh = SubResource( 1046 )
@@ -6709,21 +6185,6 @@ material/0 = null
 
 [node name="entity_143_SpatialStepSequencer1" type="Spatial" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1848, 220, 5249 )
-script = ExtResource( 19 )
-properties = {
-"albedo": Color( 1, 0.745098, 0, 1 ),
-"classname": "SpatialStepSequencer1",
-"collision_layer": "2",
-"collision_mask": "5",
-"emission_color": Color( 1, 0.745098, 0, 1 ),
-"fade_in_time": 0.2,
-"fade_out_time": 0.4,
-"id": "kick",
-"max_intensity": 4.0,
-"min_intensity": 0.5,
-"number": "0",
-"number_of_steps": "1"
-}
 
 [node name="entity_143_mesh_instance" type="MeshInstance" parent="QodotMap/entity_143_SpatialStepSequencer1"]
 mesh = SubResource( 1047 )
@@ -6731,21 +6192,6 @@ material/0 = null
 
 [node name="entity_144_SpatialStepSequencer1" type="Spatial" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1184, 428, 5249 )
-script = ExtResource( 19 )
-properties = {
-"albedo": Color( 0.14902, 0.682353, 0.501961, 1 ),
-"classname": "SpatialStepSequencer1",
-"collision_layer": "2",
-"collision_mask": "5",
-"emission_color": Color( 0.14902, 0.682353, 0.501961, 1 ),
-"fade_in_time": 0.2,
-"fade_out_time": 0.4,
-"id": "kick",
-"max_intensity": 4.0,
-"min_intensity": 0.5,
-"number": "0",
-"number_of_steps": "1"
-}
 
 [node name="entity_144_mesh_instance" type="MeshInstance" parent="QodotMap/entity_144_SpatialStepSequencer1"]
 mesh = SubResource( 1048 )
@@ -6753,21 +6199,6 @@ material/0 = null
 
 [node name="entity_145_SpatialStepSequencer1" type="Spatial" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.66667, -127.5, 3047.17 )
-script = ExtResource( 19 )
-properties = {
-"albedo": Color( 0.14902, 0.682353, 0.501961, 1 ),
-"classname": "SpatialStepSequencer1",
-"collision_layer": "2",
-"collision_mask": "5",
-"emission_color": Color( 0.14902, 0.682353, 0.501961, 1 ),
-"fade_in_time": 0.2,
-"fade_out_time": 0.4,
-"id": "kick",
-"max_intensity": 6.0,
-"min_intensity": 1.0,
-"number": "0",
-"number_of_steps": "3"
-}
 
 [node name="entity_145_mesh_instance" type="MeshInstance" parent="QodotMap/entity_145_SpatialStepSequencer1"]
 mesh = SubResource( 1049 )
@@ -6775,21 +6206,6 @@ material/0 = null
 
 [node name="entity_146_SpatialStepSequencer1" type="Spatial" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -133.667, -63.5, 3251.17 )
-script = ExtResource( 19 )
-properties = {
-"albedo": Color( 1, 0.745098, 0, 1 ),
-"classname": "SpatialStepSequencer1",
-"collision_layer": "2",
-"collision_mask": "5",
-"emission_color": Color( 1, 0.745098, 0, 1 ),
-"fade_in_time": 0.2,
-"fade_out_time": 0.4,
-"id": "kick",
-"max_intensity": 6.0,
-"min_intensity": 1.0,
-"number": "0",
-"number_of_steps": "3"
-}
 
 [node name="entity_146_mesh_instance" type="MeshInstance" parent="QodotMap/entity_146_SpatialStepSequencer1"]
 mesh = SubResource( 1050 )
@@ -6797,21 +6213,6 @@ material/0 = null
 
 [node name="entity_147_SpatialStepSequencer1" type="Spatial" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -179.667, 0.5, 3445.17 )
-script = ExtResource( 19 )
-properties = {
-"albedo": Color( 0.14902, 0.682353, 0.501961, 1 ),
-"classname": "SpatialStepSequencer1",
-"collision_layer": "2",
-"collision_mask": "5",
-"emission_color": Color( 0.14902, 0.682353, 0.501961, 1 ),
-"fade_in_time": 0.2,
-"fade_out_time": 0.4,
-"id": "kick",
-"max_intensity": 6.0,
-"min_intensity": 1.0,
-"number": "0",
-"number_of_steps": "3"
-}
 
 [node name="entity_147_mesh_instance" type="MeshInstance" parent="QodotMap/entity_147_SpatialStepSequencer1"]
 mesh = SubResource( 1051 )

@@ -86,6 +86,13 @@ extends StaticBodyModifyMaterialParamStepSequencer
 
 
 ##### PROTECTED METHODS #####
+# overriden from parent
+func _set_start_parameters() -> void:
+	if _params.has("*"):
+		for key in _params["*"].keys():
+			_material.set(key, _params["*"][key])
+
+
 # function to execute at each step
 func _step(params: Dictionary) -> void:
 	var tween := Tween.new()

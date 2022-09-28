@@ -59,10 +59,9 @@ func update_properties() -> void:
 
 
 #==== Other things =====
+# sets the parameters at start (override this)
 func _set_start_parameters() -> void:
-	if _params.has("*"):
-		for key in _params["*"].keys():
-			_material.set(key, _params["*"][key])
+	pass
 
 
 func _init_step_indexes() -> void:
