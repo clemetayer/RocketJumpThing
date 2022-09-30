@@ -96,4 +96,4 @@ func _step(_parameters: Dictionary) -> void:
 func _on_SignalManager_sequencer_step(id: String) -> void:
 	if id in _step_indexes and id in _params and _material != null:
 		_step(_params[id][_step_indexes[id]])
-		_step_indexes[id] = (_step_indexes[id] + 1) % _params[_step_indexes[id].size()]
+		_step_indexes[id] = (_step_indexes[id] + 1) % _params[id].size()
