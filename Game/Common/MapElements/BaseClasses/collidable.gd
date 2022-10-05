@@ -3,20 +3,25 @@ class_name Collidable
 # a standard class for everything that can be collided with
 
 ##### VARIABLES #####
+#---- CONSTANTS -----
+const TB_COLLIDABLE_MAPPER := [
+	["collision_layer", "collision_layer"], ["collision_layer", "collision_mask"]
+]  # mapper for TrenchBroom parameters
 #---- EXPORTS -----
-export (Dictionary) var properties setget set_properties
+export(Dictionary) var properties
+
+
+##### PROCESSING #####
+# Called when the object is initialized.
+func _init():
+	_init_func()
 
 
 ##### PROTECTED METHODS #####
-#==== Qodot =====
-func set_properties(new_properties: Dictionary) -> void:
-	if properties != new_properties:
-		properties = new_properties
-		update_properties()
+func _set_TB_params() -> void:
+	TrenchBroomEntityUtils._map_trenchbroom_properties(self, properties, TB_COLLIDABLE_MAPPER)
 
 
-func update_properties() -> void:
-	if 'collision_layer' in properties and is_inside_tree():
-		self.collision_layer = properties.collision_layer
-	if 'collision_mask' in properties and is_inside_tree():
-		self.collision_mask = properties.collision_mask
+# init function to override
+func _init_func() -> void:
+	_set_TB_params()

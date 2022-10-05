@@ -4,19 +4,23 @@ class_name PeriodicMovingPlatform
 # code for a platform that moves periodically between a maximum of 5 points (use Vector3(0,0,0) to use less points)
 # Note : the collision safe margin of the colliding entity needs to be rather large (like 1 maybe), so that the platform can go against gravity with a kinematic body on it
 
-##### SIGNALS #####
-# Node signals
-
-##### ENUMS #####
-# enumerations
-
 ##### VARIABLES #####
 #---- CONSTANTS -----
+const TB_PERIODIC_MOVING_PLATFORM_MAPPER := [
+	["collision_layer", "collision_layer"],
+	["collision_layer", "collision_mask"],
+	["wait_time", "_wait_time"],
+	["travel_time", "_travel_time"],
+	["trans_type", "_trans_type"],
+	["ease", "_ease"],
+	["path_color", "path_color"],
+	["path_emission", "_path_emission"]
+]  # mapper for TrenchBroom parameters
 const PATH_TRANSPARENCY = 1.0  # alpha value of the material showing the path of the platform
 const PATH_MESH_RADIUS = 0.125  # radius of the cylinder mesh
 
 #---- EXPORTS -----
-export(Dictionary) var properties setget set_properties
+export(Dictionary) var properties
 
 #---- STANDARD -----
 #==== PUBLIC ====
@@ -54,21 +58,7 @@ func _ready():
 	add_child(_tween)
 	_pos_array.append(Vector3(0, 0, 0))
 	# importing trenchbroom params
-	for i in range(0, 5):
-		if properties.has("point%d" % i) and properties["point%d" % i] != Vector3(0, 0, 0):
-			_pos_array.append(properties["point%d" % i])
-	if properties.has("wait_time"):
-		_wait_time = properties["wait_time"]
-	if properties.has("travel_time"):
-		_travel_time = properties["travel_time"]
-	if properties.has("trans_type"):
-		_transition_type = properties["trans_type"]
-	if properties.has("ease"):
-		_ease = properties["ease"]
-	if properties.has("path_color"):
-		_path_color = properties["path_color"]
-	if properties.has("path_emission"):
-		_path_emission = properties["path_emission"]
+	_set_TB_params()
 	# sets the path meshes
 	_create_show_path_meshes()
 	# sets the first step
@@ -83,18 +73,14 @@ func _process(delta):
 
 
 ##### PROTECTED METHODS #####
-#==== Qodot =====
-func set_properties(new_properties: Dictionary) -> void:
-	if properties != new_properties:
-		properties = new_properties
-		update_properties()
-
-
-func update_properties() -> void:
-	if "collision_layer" in properties and is_inside_tree():
-		self.collision_layer = properties.collision_layer
-	if "collision_mask" in properties and is_inside_tree():
-		self.collision_mask = properties.collision_mask
+func _set_TB_params() -> void:
+	TrenchBroomEntityUtils._map_trenchbroom_properties(
+		self, properties, TB_PERIODIC_MOVING_PLATFORM_MAPPER
+	)
+	# special mapper for the array of points
+	for i in range(0, 5):
+		if properties.has("point%d" % i) and properties["point%d" % i] != Vector3(0, 0, 0):
+			_pos_array.append(properties["point%d" % i])
 
 
 #==== Other =====

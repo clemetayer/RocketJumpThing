@@ -20,6 +20,8 @@ class_name ParticlesStepSequencer
 """
 
 ##### VARIABLES #####
+#---- CONSTANTS -----
+const TB_PARTICLES_STEP_SEQUENCER_MAPPER := [["params", "_params"]]  # mapper for TrenchBroom parameters
 #---- EXPORTS -----
 export(Dictionary) var properties
 
@@ -35,21 +37,21 @@ var _material: Material
 func _init():
 	_connect_signals()
 	_init_step_indexes()
+	_set_TB_params()
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	update_properties()
 	_get_material_in_children_and_duplicate()
 
+
 ##### PROTECTED METHODS #####
-#==== Qodot =====
-func update_properties() -> void:
-	if "params" in properties:
-		self._params = properties["params"]
+func _set_TB_params() -> void:
+	TrenchBroomEntityUtils._map_trenchbroom_properties(
+		self, properties, TB_PARTICLES_STEP_SEQUENCER_MAPPER
+	)
 
 
-#==== Other things =====
 func _init_step_indexes() -> void:
 	for key in _params.keys():
 		if key != "duplicate_material":

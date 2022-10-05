@@ -3,44 +3,26 @@ extends OmniLight
 # A basic script for the omni light entity
 
 ##### VARIABLES #####
+#---- CONSTANTS -----
+const TB_OMNI_LIGHT_MAPPER := [
+	["energy", "light_energy"],
+	["range", "omni_range"],
+	["specular", "light_specular"],
+	["shadow_mode", "omni_shadow_mode"],
+	["shadow_enabled", "shadow_enabled"],
+	["color", "light_color"]
+]  # mapper for TrenchBroom parameters
+
 #---- EXPORTS -----
-export(Dictionary) var properties setget set_properties
+export(Dictionary) var properties
+
+
+##### PROCESSING #####
+# Called when the object is initialized.
+func _init():
+	_set_TB_params()
 
 
 ##### PROTECTED METHODS #####
-#==== Qodot =====
-func set_properties(new_properties: Dictionary) -> void:
-	if properties != new_properties:
-		properties = new_properties
-		update_properties()
-
-
-func update_properties():
-	if "energy" in properties:
-		set_param(Light.PARAM_ENERGY, properties["energy"])
-
-	if "range" in properties:
-		set_param(Light.PARAM_RANGE, properties["range"])
-
-	if "specular" in properties:
-		set_param(Light.PARAM_SPECULAR, properties["specular"])
-
-	if "shadow_mode" in properties:
-		omni_shadow_mode = properties["shadow_mode"]
-
-	if "color" in properties:
-		set_color(properties["color"])
-
-	if "shadow_enabled" in properties:
-		shadow_enabled = properties["shadow_enabled"]
-
-	set_shadow(true)
-	set_bake_mode(Light.BAKE_INDIRECT)
-	set_shadow_reverse_cull_face(true)
-
-	if is_inside_tree():
-		var tree = get_tree()
-		if tree:
-			var edited_scene_root = tree.get_edited_scene_root()
-			if edited_scene_root:
-				set_owner(edited_scene_root)
+func _set_TB_params() -> void:
+	TrenchBroomEntityUtils._map_trenchbroom_properties(self, properties, TB_OMNI_LIGHT_MAPPER)

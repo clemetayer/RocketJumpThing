@@ -5,6 +5,7 @@ extends VerticalBoost
 ##### VARIABLES #####
 #---- CONSTANTS -----
 const ROCKET_BOOST_COLOR := Color.white  # Color of the boosted boost pad
+const TB_VBOOST_PAD_MAPPER := [["color", "color"]]  # mapper for TrenchBroom parameters
 
 #---- STANDARD -----
 #==== PRIVATE ====
@@ -35,8 +36,7 @@ func _ready_func() -> void:
 
 func _set_TB_params() -> void:
 	._set_TB_params()
-	if "color" in properties:
-		_color = properties["color"]
+	TrenchBroomEntityUtils._map_trenchbroom_properties(self, properties, TB_VBOOST_AREA_MAPPER)
 
 
 # makes some elements unique to avoid modifying other boosts (for example the collision shape)

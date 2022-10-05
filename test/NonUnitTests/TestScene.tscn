@@ -1,6 +1,6 @@
 [gd_scene load_steps=28 format=2]
 
-[ext_resource path="res://Game/Common/Characters/MainCharacters/player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Game/Common/MapElements/Characters/MainCharacters/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
 
 [sub_resource type="SpatialMaterial" id=1]

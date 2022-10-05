@@ -3,11 +3,13 @@ extends Area
 class_name Checkpoint
 # Checkpoint to respawn after a death
 
-# TODO : look at the correct direction on respawn
-
 ##### VARIABLES #####
+#---- CONSTANTS -----
+const TB_CHECKPOINT_MAPPER := [
+	["spawn_position", "_spawn_position"], ["spawn_rotation", "_spawn_rotation"]
+]  # mapper for TrenchBroom parameters
 #---- EXPORTS -----
-export(Dictionary) var properties setget set_properties
+export(Dictionary) var properties
 
 #---- STANDARD -----
 #==== PUBLIC ====
@@ -22,6 +24,7 @@ var _spawn_rotation: float
 # Called when the object is initialized.
 func _init():
 	_connect_signals()
+	_set_TB_params()
 
 
 ##### PUBLIC METHODS #####
@@ -42,17 +45,8 @@ func get_spawn_rotation() -> float:
 
 
 ##### PROTECTED METHODS #####
-func set_properties(new_properties: Dictionary) -> void:
-	if properties != new_properties:
-		properties = new_properties
-		update_properties()
-
-
-func update_properties() -> void:
-	if "spawn_position" in properties:
-		_spawn_position = properties.spawn_position
-	if "spawn_rotation" in properties:
-		_spawn_rotation = properties.spawn_rotation
+func _set_TB_params() -> void:
+	TrenchBroomEntityUtils._map_trenchbroom_properties(self, properties, TB_CHECKPOINT_MAPPER)
 
 
 func _connect_signals() -> void:

@@ -11,20 +11,19 @@ signal trigger(parameters)
 const UI_PATH := "res://Game/Common/MapElements/Breakables/Walls/breakable_area_speed_ui.tscn"
 const BREAK_WALL_SOUND_PATH := "res://Misc/Audio/FX/BreakWall/BreakWall.wav"  # Path to the break wall sound
 const BREAK_WALL_SOUND_VOLUME_DB := -18.0  # Volume of the break wall sound
-
+const TB_BREAKABLE_AREA_SPEED_MAPPER := [
+	["treshold", "_treshold"], ["text_direction", "_text_direction"], ["scale", "_text_direction"]
+]  # mapper for TrenchBroom parameters
 #---- STANDARD -----
 #==== PRIVATE ====
 var _treshold := 100.0  # treshold speed for the wall to break (greater or equal)
 var _ui_load := preload(UI_PATH)
 var _break_wall_sound: AudioStreamPlayer
+var _sprite_text_direction: Vector3
+var _sprite_scale: float
 
 
 ##### PROCESSING #####
-# Called when the object is initialized.
-func _init():
-	_connect_signals()
-
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	_add_ui_sprite()
@@ -32,25 +31,28 @@ func _ready():
 
 
 ##### PROTECTED METHODS #####
-#==== Qodot =====
-func update_properties() -> void:
-	.update_properties()
+func _init_func() -> void:
+	._init_func()
+	_connect_signals()
+
+
+func _set_TB_params() -> void:
+	._set_TB_params()
+	TrenchBroomEntityUtils._map_trenchbroom_properties(
+		self, properties, TB_BREAKABLE_AREA_SPEED_MAPPER
+	)
 
 
 #==== Other things =====
 func _add_ui_sprite() -> void:
-	if "treshold" in properties:
-		self._treshold = properties.treshold
 	var ui := _ui_load.instance()
 	ui.SPEED = _treshold
 	add_child(ui)
 	var sprite := Sprite3D.new()
-	if "text_direction" in properties:
-		sprite.rotation_degrees = properties.text_direction
+	sprite.rotation_degrees = _sprite_text_direction
 	sprite.scale = Vector3(15, 15, 1)
 	add_child(sprite)
-	if "scale" in properties:
-		sprite.scale = properties.scale
+	sprite.scale = _sprite_scale
 	sprite.texture = ui.get_texture()
 	sprite.texture.flags = Texture.FLAG_FILTER
 	sprite.flip_v = true

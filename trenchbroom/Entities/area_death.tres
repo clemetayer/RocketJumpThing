@@ -1,7 +1,8 @@
-[gd_resource type="Resource" load_steps=3 format=2]
+[gd_resource type="Resource" load_steps=4 format=2]
 
 [ext_resource path="res://addons/qodot/src/resources/game-definitions/fgd/qodot_fgd_solid_class.gd" type="Script" id=1]
 [ext_resource path="res://Game/Common/MapElements/DeathArea/death_area.gd" type="Script" id=2]
+[ext_resource path="res://trenchbroom/Entities/BaseClasses/collidable.tres" type="Resource" id=3]
 
 [resource]
 script = ExtResource( 1 )
@@ -9,14 +10,10 @@ class_options = "---------------------------------------------------------------
 classname = "AreaDeath"
 description = "An area, but for D E A T H"
 qodot_internal = false
-base_classes = [  ]
+base_classes = [ ExtResource( 3 ) ]
 class_properties = {
-"collision_layer": 2,
-"collision_mask": 5
 }
 class_property_descriptions = {
-"collision_layer": "Collision layer",
-"collision_mask": "Collision mask"
 }
 meta_properties = {
 "color": Color( 0.8, 0.8, 0.8, 1 ),

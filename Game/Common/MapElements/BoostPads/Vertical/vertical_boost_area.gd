@@ -3,6 +3,8 @@ extends VerticalBoost
 # Area that pushes the player Up like a cool vortex
 
 ##### VARIABLES #####
+#---- CONSTANTS -----
+const TB_VBOOST_AREA_MAPPER := [["color", "color"]]  # mapper for TrenchBroom parameters
 #---- STANDARD -----
 #==== PRIVATE ====
 var _color := Color.white  # general color of the bumper
@@ -27,8 +29,7 @@ func _ready_func() -> void:
 
 func _set_TB_params() -> void:
 	._set_TB_params()
-	if "color" in properties:
-		_color = properties["color"]
+	TrenchBroomEntityUtils._map_trenchbroom_properties(self, properties, TB_VBOOST_AREA_MAPPER)
 
 
 # makes some elements unique to avoid modifying other boosts (for example the collision shape)

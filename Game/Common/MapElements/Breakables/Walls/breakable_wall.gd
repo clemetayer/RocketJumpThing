@@ -7,32 +7,27 @@ extends RigidBody
 ##### VARIABLES #####
 #---- CONSTANTS -----
 const SPEED_DIVIDER := .055  # Speed divider to prevent the wall from exploding too much, or not enough # TODO : Why.
+const TB_BREAKABLE_WALL_MAPPER := [
+	["collision_layer", "collision_layer"], ["collision_layer", "collision_mask"]
+]  # mapper for TrenchBroom parameters
 #---- EXPORTS -----
-export(Dictionary) var properties setget set_properties
+export(Dictionary) var properties
 
 
 ##### PROCESSING #####
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	_set_TB_params()
 	_init_body()
 
 
 ##### PROTECTED METHODS #####
-#==== Qodot =====
-func set_properties(new_properties: Dictionary) -> void:
-	if properties != new_properties:
-		properties = new_properties
-		update_properties()
 
 
-func update_properties() -> void:
-	if "collision_layer" in properties and is_inside_tree():
-		self.collision_layer = properties.collision_layer
-	if "collision_mask" in properties and is_inside_tree():
-		self.collision_mask = properties.collision_mask
+func _set_TB_params() -> void:
+	TrenchBroomEntityUtils._map_trenchbroom_properties(self, properties, TB_BREAKABLE_WALL_MAPPER)
 
 
-#==== Other things =====
 func _init_body() -> void:
 	weight = 100
 	mode = MODE_STATIC

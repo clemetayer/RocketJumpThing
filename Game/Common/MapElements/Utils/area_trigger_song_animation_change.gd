@@ -1,40 +1,35 @@
-extends Area
+extends Collidable
 # Changes the global song animation to the one in parameters on triggered
 
 ##### VARIABLES #####
-#---- EXPORTS -----
-export(Dictionary) var properties setget set_properties
-
-
-##### PROCESSING #####
-# Called when the object is initialized.
-func _init():
-	_connect_signals()
+#---- CONSTANTS -----
+const TB_AREA_TRIGGER_SONG_ANIMATION_CHANGE_MAPPER := [["animation", "_animation"]]  # mapper for TrenchBroom parameters
+#---- STANDARD -----
+#==== PRIVATE ====
+var _animation: String
 
 
 ##### PROTECTED METHODS #####
-#==== Qodot =====
-func set_properties(new_properties: Dictionary) -> void:
-	if properties != new_properties:
-		properties = new_properties
-		update_properties()
+func _set_TB_params() -> void:
+	._set_TB_params()
+	TrenchBroomEntityUtils._map_trenchbroom_properties(
+		self, properties, TB_AREA_TRIGGER_SONG_ANIMATION_CHANGE_MAPPER
+	)
 
 
-func update_properties() -> void:
-	if "collision_layer" in properties and is_inside_tree():
-		self.collision_layer = properties.collision_layer
-	if "collision_mask" in properties and is_inside_tree():
-		self.collision_mask = properties.collision_mask
+# init function to override
+func _init_func() -> void:
+	._init_func()
+	_connect_signals()
 
 
-#==== Other things =====
 func _connect_signals() -> void:
 	FunctionUtils.log_connect(self, self, "body_entered", "_on_body_entered")
 
 
 ##### SIGNAL MANAGEMENT #####
 func _on_body_entered(body: Node) -> void:
-	if properties.has("animation") and body.is_in_group("player"):
+	if body.is_in_group("player"):
 		var song_instance = StandardSongManager.get_current().duplicate()
 		song_instance.ANIMATION = properties.animation
 		var effect = FilterEffectManager.new()

@@ -21,6 +21,8 @@ class_name StaticBodyModifyMaterialParamStepSequencer
 """
 
 ##### VARIABLES #####
+#---- CONSTANTS -----
+const TB_SPATIAL_MODIFY_MATERIAL_PARAM_STEP_SEQUENCER_MAPPER := [["params_path", "_params_path"]]  # mapper for TrenchBroom parameters
 #---- EXPORTS -----
 export(Dictionary) var properties
 
@@ -35,11 +37,11 @@ var _material: Material
 # Called when the object is initialized.
 func _init():
 	_connect_signals()
+	_set_TB_params()
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	update_properties()
 	_init_step_indexes()
 	_get_material_in_children_and_duplicate()
 	_set_start_parameters()
@@ -52,13 +54,12 @@ func _ready():
 
 
 ##### PROTECTED METHODS #####
-#==== Qodot =====
-func update_properties() -> void:
-	if "params_path" in properties:
-		self._params = FunctionUtils.load_json(properties["params_path"])
+func _set_TB_params() -> void:
+	TrenchBroomEntityUtils._map_trenchbroom_properties(
+		self, properties, TB_SPATIAL_MODIFY_MATERIAL_PARAM_STEP_SEQUENCER_MAPPER
+	)
 
 
-#==== Other things =====
 # sets the parameters at start (override this)
 func _set_start_parameters() -> void:
 	pass

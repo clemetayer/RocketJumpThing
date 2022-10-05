@@ -6,6 +6,7 @@ class_name VerticalBoost
 ##### VARIABLES #####
 #---- CONSTANTS -----
 var NODE_PATHS = {"collision": null}  # to complete in subclasses (written as a var just to be accessible for the subclass, but expected as a const)
+const TB_VBOOST_MAPPER := [["angle", "angle"], ["force", "force"], ["size", "size"]]  # mapper for TrenchBroom parameters
 const TIMER_TIMEOUT := 0.05  # timeout time before adding a new push vector to the player
 const ROCKET_POWER_MULTIPLIER := 2.0  # boost multiplier when a rocket enters this area
 const ROCKET_BOOST_DECAY := 0.75  # how long the boost will fade back to a normal value (Note : should be <= to the rocket shoot timeout to avoid adding power indefinitely)
@@ -50,12 +51,7 @@ func _ready_func() -> void:
 
 
 func _set_TB_params() -> void:
-	if "angle" in properties:
-		_angle = properties["angle"]
-	if "force" in properties:
-		_force = properties["force"]
-	if "size" in properties:
-		_size = properties["size"]
+	TrenchBroomEntityUtils._map_trenchbroom_properties(self, properties, TB_VBOOST_MAPPER)
 
 
 # makes some elements unique to avoid modifying other boosts (for example the collision shape)

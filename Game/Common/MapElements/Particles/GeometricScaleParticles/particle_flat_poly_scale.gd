@@ -2,6 +2,14 @@ extends Particles
 # A simple particle emitter of flat polygons that are scaling up
 
 ##### VARIABLES #####
+#---- CONSTANTS -----
+const TB_PARTICLE_FLAT_POLY_MAPPER := [
+	["size", "_size"],
+	["sides", "_sides"],
+	["color", "_color"],
+	["angle", "_angle"],
+	["color_out", "_color_out"]
+]  # mapper for TrenchBroom parameters
 #---- EXPORTS -----
 export(Dictionary) var properties
 
@@ -18,7 +26,7 @@ var _angle := Vector3.ZERO  # direction of the particle emitter
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	_duplicate_common_elements()
-	_set_trench_params()
+	_set_TB_params()
 	rotation_degrees = _angle
 	draw_pass_1.size = Vector3(_size.x, 0, _size.z)
 	draw_pass_1.material.set_shader_param("sides", _sides)
@@ -28,17 +36,10 @@ func _ready():
 
 
 ##### PROTECTED METHODS #####
-func _set_trench_params() -> void:
-	if properties.has("size"):
-		_size = properties["size"]
-	if properties.has("color"):
-		_color = properties["color"]
-	if properties.has("sides"):
-		_sides = properties["sides"]
-	if properties.has("angle"):
-		_angle = properties["angle"]
-	if properties.has("color_out"):
-		_color_out = properties["color_out"]
+func _set_TB_params() -> void:
+	TrenchBroomEntityUtils._map_trenchbroom_properties(
+		self, properties, TB_PARTICLE_FLAT_POLY_MAPPER
+	)
 
 
 # makes some elements unique to avoid modifying other same particles

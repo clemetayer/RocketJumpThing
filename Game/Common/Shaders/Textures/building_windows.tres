@@ -1,0 +1,46 @@
+[gd_resource type="Shader" format=2]
+
+[resource]
+code = "shader_type spatial;
+
+//---- Other parameters ----
+uniform vec4 back_color  : hint_color;
+uniform vec4 window_color_1 : hint_color;
+uniform vec4 window_color_2 : hint_color;
+const vec2 uv1_scale = vec2(1.0/500.0);
+const float window_size = 0.6;
+const float intensity = 5.0;
+const float ss_e = 0.33;
+
+float random (vec2 uv) {
+    return fract(sin(dot(uv.xy,
+        vec2(12.9898,78.233))) * 43758.5453123);
+}
+
+
+float square(vec2 uv)
+{
+	uv = uv * 2.0 - 1.0;
+	
+	vec2 abs_uv = abs(uv.xy);
+	float square = step(window_size/2.0, max(abs_uv.x, abs_uv.y));
+	return 1.0 - square;
+}
+
+
+void vertex(){
+	UV *= uv1_scale;
+}
+
+void fragment(){
+	vec2 uv = fract(UV * 10.0);
+	float window = square(uv);
+	vec4 window_color = mix(window_color_1,window_color_2,(sin(UV.x + TIME / 3.0) / 2.0 + 0.5)  * (sin(UV.y + TIME / 2.0) / 2.0 + 0.5));
+	if(window > 0.0){
+		ALBEDO = window_color.rgb * window;
+		EMISSION = ALBEDO * intensity * window * max(sin(UV.x + TIME / 1.5) * sin(UV.y + TIME),0.1);
+	}
+	else{
+		ALBEDO = back_color.rgb;
+	}
+}"

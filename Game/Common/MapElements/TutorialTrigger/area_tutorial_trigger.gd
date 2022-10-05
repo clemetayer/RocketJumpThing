@@ -4,6 +4,8 @@ extends Collidable
 # TODO : maybe for hints that are before the checkpoint, free these ? (so if the player goes back, he/she doesn't trigger the tutorial anymore)
 
 ##### VARIABLES #####
+#---- CONSTANTS -----
+const TB_AREA_TUTORIAL_MAPPER := [["key", "_key"], ["time", "_time"]]  # mapper for TrenchBroom parameters
 #---- STANDARD -----
 #==== PRIVATE ====
 var _key: String
@@ -42,15 +44,12 @@ func _init():
 		)
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	if "key" in properties:
-		self._key = properties.key
-	if "time" in properties:
-		self._time = properties.time
-
-
 ##### PROTECTED METHODS #####
+func _set_TB_params() -> void:
+	._set_TB_params()
+	TrenchBroomEntityUtils._map_trenchbroom_properties(self, properties, TB_AREA_TUTORIAL_MAPPER)
+
+
 # enables or disables collisions
 func _enable_collisions(enabled: bool) -> void:
 	for child in get_children():
