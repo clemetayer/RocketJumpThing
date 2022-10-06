@@ -14,5 +14,5 @@ func _connect_signals() -> void:
 
 
 func _on_body_entered(body: Node):
-	if body.is_in_group("player"):  # REFACTOR : create a global check is player
+	if FunctionUtils.is_player(body):  # REFACTOR : create a global check is player
 		SignalManager.emit_respawn_player_on_last_cp()

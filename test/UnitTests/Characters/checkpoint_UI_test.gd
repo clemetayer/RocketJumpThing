@@ -5,7 +5,7 @@ extends GlobalTests
 # Tests the checkpoint
 
 ##### VARIABLES #####
-const checkpoint_ui_path := "res://Game/Common/Characters/checkpoint_UI.tscn"
+const checkpoint_ui_path := "res://Game/Common/MapElements/Characters/checkpoint_UI.tscn"
 var checkpoint_ui: CanvasLayer
 
 

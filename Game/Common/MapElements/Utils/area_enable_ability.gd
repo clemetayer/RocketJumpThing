@@ -28,6 +28,6 @@ func _connect_signals() -> void:
 
 ##### SIGNAL MANAGEMENT #####
 func _on_body_entered(body: Node) -> void:
-	if body.is_in_group("player"):
+	if FunctionUtils.is_player(body):
 		body.toggle_ability("slide", _slide)
 		body.toggle_ability("rockets", _rockets)

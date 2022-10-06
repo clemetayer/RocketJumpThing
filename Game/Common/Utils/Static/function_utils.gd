@@ -65,3 +65,8 @@ static func _json_data_to_objects(dict: Dictionary) -> Dictionary:
 			if regex.search(dict[key]) != null:
 				dict[key] = Color(dict[key])
 	return dict
+
+
+#### Body identification #####
+static func is_player(body: Node) -> bool:
+	return body.is_in_group("player")

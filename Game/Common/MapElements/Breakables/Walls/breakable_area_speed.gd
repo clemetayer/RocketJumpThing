@@ -83,7 +83,7 @@ func _add_break_wall_sound() -> void:
 
 ##### SIGNAL MANAGEMENT #####
 func _on_breakable_area_speed_body_entered(body):
-	if body.is_in_group("player") and body.current_speed >= _treshold:
+	if FunctionUtils.is_player(body) and body.current_speed >= _treshold:
 		emit_signal("trigger", {"position": body.transform.origin, "speed": body.current_speed})
 		CameraUtils.start_camera_shake(0.6, 13, 0.6, 2.5)
 		if _break_wall_sound != null:

@@ -66,7 +66,7 @@ func _connect_signals() -> void:
 ##### SIGNAL MANAGEMENT #####
 # Functions that should be triggered when a specific signal is received
 func _on_Checkpoint_body_entered(body: Node):
-	if body.is_in_group("player"):
+	if FunctionUtils.is_player(body):
 		SignalManager.emit_checkpoint_triggered(self)
 		if (
 			(song_animation == null or song_animation == "")

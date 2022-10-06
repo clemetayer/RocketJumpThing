@@ -29,7 +29,7 @@ func _connect_signals() -> void:
 
 ##### SIGNAL MANAGEMENT #####
 func _on_body_entered(body: Node) -> void:
-	if body.is_in_group("player"):
+	if FunctionUtils.is_player(body):
 		var song_instance = StandardSongManager.get_current().duplicate()
 		song_instance.ANIMATION = properties.animation
 		var effect = FilterEffectManager.new()

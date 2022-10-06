@@ -45,7 +45,7 @@ func _explode() -> void:
 
 ##### SIGNAL MANAGEMENT #####
 func _on_body_entered(body: Node) -> void:
-	if body.is_in_group("player"):
+	if FunctionUtils.is_player(body):
 		var vector = (body.global_transform.origin - global_transform.origin) * EXPLOSION_POWER
 		body.add_velocity_vector(vector)
 

@@ -6,7 +6,7 @@ extends GlobalTests
 # TODO : test in more depth after the refactor
 
 ##### VARIABLES #####
-const tutorial_hints_path := "res://Game/Common/Characters/tutorial_hints.tscn"
+const tutorial_hints_path := "res://Game/Common/MapElements/Characters/tutorial_hints.tscn"
 var tutorial_hints: CanvasLayer
 
 

@@ -5,7 +5,7 @@ extends GlobalTests
 # tests the chronometer ui
 
 ##### VARIABLES #####
-const chronometer_ui_path := "res://Game/Common/Characters/chronometer_UI.tscn"
+const chronometer_ui_path := "res://Game/Common/MapElements/Characters/chronometer_UI.tscn"
 var chronometer_ui: CanvasLayer
 
 

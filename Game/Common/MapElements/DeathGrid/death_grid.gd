@@ -21,5 +21,5 @@ func _connect_signals() -> void:
 
 ##### SIGNAL MANAGEMENT #####
 func _on_body_exited(body: Node):
-	if body.is_in_group("player"):
+	if FunctionUtils.is_player(body):
 		SignalManager.emit_respawn_player_on_last_cp()

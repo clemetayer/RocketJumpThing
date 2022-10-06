@@ -5,7 +5,7 @@ extends GlobalTests
 # tests the player UI
 
 ##### VARIABLES #####
-const player_ui_path := "res://Game/Common/Characters/player_UI.tscn"
+const player_ui_path := "res://Game/Common/MapElements/Characters/player_UI.tscn"
 var player_ui: CanvasLayer
 
 

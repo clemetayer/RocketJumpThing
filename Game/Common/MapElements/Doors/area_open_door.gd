@@ -29,6 +29,6 @@ func _connect_signals() -> void:
 
 ##### SIGNAL MANAGEMENT #####
 func _on_area_open_door_body_entered(body):
-	if body.is_in_group("player"):
+	if FunctionUtils.is_player(body):
 		emit_signal("trigger")
 		self.queue_free()  # Optionnal ?

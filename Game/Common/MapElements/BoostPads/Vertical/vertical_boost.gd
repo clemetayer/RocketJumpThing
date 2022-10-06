@@ -80,7 +80,7 @@ func _connect_signals() -> void:
 
 
 func _on_body_entered(body: Node) -> void:
-	if body.is_in_group("player"):
+	if FunctionUtils.is_player(body):
 		var vect = (to_global(Vector3.UP) - to_global(Vector3.ZERO)).normalized()  # Up vector converted to the global transform and normalized
 		body.override_velocity_vector(vect * _force * _boost_multiplier)
 

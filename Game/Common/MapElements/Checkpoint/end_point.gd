@@ -22,6 +22,6 @@ func _connect_signals() -> void:
 
 ##### SIGNAL MANAGEMENT #####
 func _on_EndPoint_body_entered(body: Node):
-	if body.is_in_group("player"):
+	if FunctionUtils.is_player(body):
 		VariableManager.scene_unloading = true
 		SignalManager.emit_end_reached()

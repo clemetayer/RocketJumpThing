@@ -15,8 +15,8 @@ static func _map_trenchbroom_properties(object: Object, properties: Dictionary, 
 static func _map_trenchbroom_property(object: Object, properties: Dictionary, mapper: Array) -> void:
 	if mapper.size() == 2:
 		if mapper[0] is String and mapper[1] is String:
-			if mapper[0] in properties and mapper[1] in self:
-				self.set(mapper[1], properties[mapper[0]])
+			if mapper[0] in properties and mapper[1] in object:
+				object.set(mapper[1], properties[mapper[0]])
 			else:
 				Logger.error(
 					(

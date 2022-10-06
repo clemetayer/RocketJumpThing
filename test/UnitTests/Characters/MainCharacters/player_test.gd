@@ -5,7 +5,7 @@ extends GlobalTests
 # Tests the player
 
 ##### VARIABLES #####
-const player_path = "res://Game/Common/Characters/MainCharacters/player.tscn"
+const player_path = "res://Game/Common/MapElements/Characters/MainCharacters/player.tscn"
 var player: Player
 
 

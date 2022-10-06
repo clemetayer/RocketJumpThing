@@ -59,7 +59,7 @@ func _enable_collisions(enabled: bool) -> void:
 
 ##### SIGNAL MANAGEMENT #####
 func _on_area_tutorial_trigger_body_entered(body):
-	if body.is_in_group("player"):
+	if FunctionUtils.is_player(body):
 		SignalManager.emit_trigger_tutorial(_key, _time)
 		_enable_collisions(false)
 
