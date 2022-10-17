@@ -1,4 +1,3 @@
-tool
 extends Area
 class_name Checkpoint
 # Checkpoint to respawn after a death
@@ -24,6 +23,10 @@ var _spawn_rotation: float
 # Called when the object is initialized.
 func _init():
 	_connect_signals()
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
 	_set_TB_params()
 
 

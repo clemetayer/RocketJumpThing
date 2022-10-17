@@ -11,8 +11,8 @@ var _rockets: bool
 
 
 ##### PROCESSING #####
-# Called when the node enters the scene tree for the first time.
-func _ready():
+# Called when the object is initialized.
+func _init():
 	_connect_signals()
 
 

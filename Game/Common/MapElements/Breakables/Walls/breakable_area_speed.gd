@@ -1,39 +1,32 @@
-extends Collidable
+extends BreakableArea
 # Area to check the speed before breaking the associated wall
-# TODO : update entity
-# REFACTOR : Make a common class, dammit past me >:(
-
-##### SIGNALS #####
-signal trigger(parameters)
 
 ##### VARIABLES #####
 #---- CONSTANTS -----
-const UI_PATH := "res://Game/Common/MapElements/Breakables/Walls/breakable_area_speed_ui.tscn"
-const BREAK_WALL_SOUND_PATH := "res://Misc/Audio/FX/BreakWall/BreakWall.wav"  # Path to the break wall sound
-const BREAK_WALL_SOUND_VOLUME_DB := -18.0  # Volume of the break wall sound
 const TB_BREAKABLE_AREA_SPEED_MAPPER := [
-	["treshold", "_treshold"], ["text_direction", "_text_direction"], ["scale", "_text_direction"]
+	["treshold", "_treshold"],
+	["text_direction", "_sprite_text_direction"],
+	["scale", "_sprite_scale"]
 ]  # mapper for TrenchBroom parameters
+const UI_PATH := "res://Game/Common/MapElements/Breakables/Walls/breakable_area_speed_ui.tscn"
+
 #---- STANDARD -----
 #==== PRIVATE ====
 var _treshold := 100.0  # treshold speed for the wall to break (greater or equal)
 var _ui_load := preload(UI_PATH)
-var _break_wall_sound: AudioStreamPlayer
 var _sprite_text_direction: Vector3
-var _sprite_scale: float
+var _sprite_scale: Vector3
 
 
 ##### PROCESSING #####
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	_add_ui_sprite()
-	_add_break_wall_sound()
+func _init():
+	_connect_signals()
 
 
 ##### PROTECTED METHODS #####
-func _init_func() -> void:
-	._init_func()
-	_connect_signals()
+func _ready_func() -> void:
+	._ready_func()
+	_add_ui_sprite()
 
 
 func _set_TB_params() -> void:
@@ -43,7 +36,10 @@ func _set_TB_params() -> void:
 	)
 
 
-#==== Other things =====
+func _connect_signals() -> void:
+	FunctionUtils.log_connect(self, self, "body_entered", "_on_breakable_area_speed_body_entered")
+
+
 func _add_ui_sprite() -> void:
 	var ui := _ui_load.instance()
 	ui.SPEED = _treshold
@@ -56,29 +52,6 @@ func _add_ui_sprite() -> void:
 	sprite.texture = ui.get_texture()
 	sprite.texture.flags = Texture.FLAG_FILTER
 	sprite.flip_v = true
-
-
-func _connect_signals() -> void:
-	if connect("body_entered", self, "_on_breakable_area_speed_body_entered") != OK:
-		Logger.error(
-			(
-				"Error connecting %s to %s in %s"
-				% [
-					"body_entered",
-					"_on_breakable_area_speed_body_entered",
-					DebugUtils.print_stack_trace(get_stack())
-				]
-			)
-		)
-
-
-# adds a break wall sound to the scene
-func _add_break_wall_sound() -> void:
-	var sound := AudioStreamPlayer.new()
-	sound.stream = load(BREAK_WALL_SOUND_PATH)
-	sound.volume_db = BREAK_WALL_SOUND_VOLUME_DB
-	get_parent().add_child(sound)
-	_break_wall_sound = sound
 
 
 ##### SIGNAL MANAGEMENT #####

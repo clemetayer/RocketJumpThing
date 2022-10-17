@@ -13,8 +13,8 @@ export(Dictionary) var properties
 
 ##### PROCESSING #####
 # Called when the object is initialized.
-func _init():
-	_init_func()
+func _ready():
+	_ready_func()
 
 
 ##### PROTECTED METHODS #####
@@ -23,5 +23,5 @@ func _set_TB_params() -> void:
 
 
 # init function to override
-func _init_func() -> void:
+func _ready_func() -> void:
 	_set_TB_params()

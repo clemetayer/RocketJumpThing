@@ -64,9 +64,6 @@ func _init_pause() -> void:
 
 func _init_end_level() -> void:
 	VariableManager.end_level_enabled = true
-	# init end level ui
-	if NEXT_SCENE_PATH != null:
-		EndLevelUi.set_next_scene(NEXT_SCENE_PATH)
 
 
 func _init_song() -> void:
@@ -129,4 +126,6 @@ func _on_respawn_player_on_last_cp() -> void:
 			elif null != PATHS.bgm.path and PATHS.bgm.path != "":
 				_change_song_anim(_last_cp.song_animation)
 		else:
-			pass  # TODO : log here
+			Logger.error("Player is null at %s" % DebugUtils.print_stack_trace(get_stack()))
+	else:
+		Logger.error("_last_cp is null at %s" % DebugUtils.print_stack_trace(get_stack()))

@@ -59,12 +59,26 @@ static func _json_data_to_objects(dict: Dictionary) -> Dictionary:
 	for key in dict:
 		if dict[key] is Dictionary and not dict[key] is Array:
 			dict[key] = _json_data_to_objects(dict[key])
-		elif dict[key] is String:
-			var regex = RegEx.new()
-			log_regex_compile(regex, REGEX_COLOR_PATTERN)
-			if regex.search(dict[key]) != null:
-				dict[key] = Color(dict[key])
+		elif dict[key] is Array:
+			for array_idx in range(0,dict[key].size() - 1):
+				if dict[key][array_idx] is Dictionary:
+					dict[key][array_idx] = _json_data_to_objects(dict[key][array_idx])
+				else:
+					dict[key][array_idx] = _map_to_object(dict[key][array_idx])
+		else:
+			dict[key] = _map_to_object(dict[key])
 	return dict
+
+
+# converts a string or json element with a specific regexp to an object
+static func _map_to_object(el):
+	if el is String:
+		var regex = RegEx.new()
+		log_regex_compile(regex, REGEX_COLOR_PATTERN)
+		if regex.search(el) != null:
+			return Color(el)
+	else:
+		return el
 
 
 #### Body identification #####

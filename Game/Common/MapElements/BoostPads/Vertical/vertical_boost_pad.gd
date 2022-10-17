@@ -26,6 +26,7 @@ func _init_func() -> void:
 
 # ready function to override if necessary
 func _ready_func() -> void:
+	._ready_func()
 	add_child(onready_rocket_tween)
 	_set_TB_params()
 	_duplicate_common_elements()

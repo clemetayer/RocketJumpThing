@@ -22,8 +22,6 @@ func _ready():
 
 
 ##### PROTECTED METHODS #####
-
-
 func _set_TB_params() -> void:
 	TrenchBroomEntityUtils._map_trenchbroom_properties(self, properties, TB_BREAKABLE_WALL_MAPPER)
 

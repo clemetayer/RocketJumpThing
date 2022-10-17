@@ -11,8 +11,6 @@ var _paths := {
 	"label": "./UI/CenterContainer/VBoxContainer/Time",
 	"tween": "./OpacityTween",
 	"root_ui": "./UI",
-	"main_menu_scene": "res://Game/Common/Menus/MainMenu/main_menu.tscn",
-	"next_scene": null,
 	"next_scene_button": "./UI/CenterContainer/VBoxContainer/Buttons/NextButton"
 }
 
@@ -22,12 +20,6 @@ var _paths := {
 func _ready():
 	get_node(_paths.root_ui).hide()
 	_connect_signals()
-
-
-##### PUBLIC METHODS #####
-func set_next_scene(next_scene_path: String) -> void:
-	get_node(_paths.next_scene_button).disabled = (next_scene_path == null or next_scene_path == "")
-	_paths.next_scene = next_scene_path
 
 
 ##### PROTECTED METHODS #####
@@ -64,8 +56,7 @@ func _on_SignalManager_end_reached() -> void:
 		yield(get_tree().create_timer(0.1), "timeout")  # waits a little before pausing, to at least update the time in VariableManager. # OPTIMIZATION : this is pretty dirty, create a special signal to tell when the time was updated instead ?
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		VariableManager.pause_enabled = false
-		if _paths.next_scene == null:
-			get_node(_paths.next_scene_button).disabled = true
+		get_node(_paths.next_scene_button).disabled = not ScenesManager.has_next_level()
 		var tween: Tween = get_node(_paths.tween)
 		var millis = VariableManager.chronometer.level % 1000
 		var seconds = floor((VariableManager.chronometer.level / 1000) % 60)
@@ -81,7 +72,7 @@ func _on_SignalManager_end_reached() -> void:
 
 func _on_NextButton_pressed():
 	_unpause()
-	get_tree().change_scene(_paths.next_scene)
+	ScenesManager.next_level()
 
 
 func _on_RestartButton_pressed():
@@ -91,4 +82,4 @@ func _on_RestartButton_pressed():
 
 func _on_MainMenuButton_pressed():
 	_unpause()
-	get_tree().change_scene(_paths.main_menu_scene)
+	ScenesManager.load_main_menu()

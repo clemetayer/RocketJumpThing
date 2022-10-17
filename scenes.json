@@ -1,0 +1,10 @@
+{
+  "main_menu": "res://Game/Common/Menus/MainMenu/main_menu.tscn",
+  "game_scenes": {
+    "Proof of concept": [
+      "res://Game/Scenes/Tutorial/Tutorial1/tutorial_1.tscn",
+      "res://Game/Scenes/Tutorial/Tutorial2/tutorial_2.tscn",
+      "res://Game/Scenes/Tutorial/Tutorial3/tutorial_3.tscn"
+    ]
+  }
+}

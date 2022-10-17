@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=30 format=2]
+[gd_resource type="Resource" load_steps=27 format=2]
 
 [ext_resource path="res://trenchbroom/Entities/Scenes/Tutorial2/geometric_shape_emitter.tres" type="Resource" id=1]
 [ext_resource path="res://trenchbroom/Entities/area_death.tres" type="Resource" id=2]
@@ -11,12 +11,11 @@
 [ext_resource path="res://addons/qodot/game_definitions/fgd/solid_classes/illusionary_solid_class.tres" type="Resource" id=9]
 [ext_resource path="res://trenchbroom/Entities/spatial_solid_entity.tres" type="Resource" id=10]
 [ext_resource path="res://addons/qodot/game_definitions/fgd/solid_classes/group_solid_class.tres" type="Resource" id=11]
-[ext_resource path="res://trenchbroom/Entities/RythmElements/Sequencers/ModifyShaderParam/modify_shader_param.tres" type="Resource" id=12]
+[ext_resource path="res://trenchbroom/Entities/RythmElements/Sequencers/static.tres" type="Resource" id=12]
 [ext_resource path="res://trenchbroom/Entities/tutorial_trigger.tres" type="Resource" id=13]
 [ext_resource path="res://trenchbroom/Entities/Player/player_point_class.tres" type="Resource" id=14]
-[ext_resource path="res://trenchbroom/Entities/RythmElements/Sequencers/ModifyShaderParam/Pulse/Spatial/modify_shader_param_pulse_spatial.tres" type="Resource" id=15]
-[ext_resource path="res://trenchbroom/Entities/RythmElements/Sequencers/ModifySpatialMaterialParam/Pulse/Static/modify_spatial_material_param_pulse_static.tres" type="Resource" id=16]
-[ext_resource path="res://trenchbroom/Entities/RythmElements/Sequencers/ModifySpatialMaterialParam/modify_spatial_material_param.tres" type="Resource" id=17]
+[ext_resource path="res://trenchbroom/Entities/RythmElements/Sequencers/base.tres" type="Resource" id=15]
+[ext_resource path="res://trenchbroom/Entities/RythmElements/Sequencers/spatial.tres" type="Resource" id=16]
 [ext_resource path="res://trenchbroom/Entities/RythmElements/Sequencers/Particles/Tutorial2/sequencer_particles_tutorial_2.tres" type="Resource" id=18]
 [ext_resource path="res://trenchbroom/Entities/Checkpoints/checkpoint.tres" type="Resource" id=19]
 [ext_resource path="res://trenchbroom/Entities/Lights/omni_light.tres" type="Resource" id=20]
@@ -27,8 +26,6 @@
 [ext_resource path="res://trenchbroom/Entities/BaseClasses/spatial.tres" type="Resource" id=25]
 [ext_resource path="res://trenchbroom/Entities/Checkpoints/end.tres" type="Resource" id=26]
 [ext_resource path="res://trenchbroom/Entities/Doors/area_open.tres" type="Resource" id=27]
-[ext_resource path="res://trenchbroom/Entities/RythmElements/Sequencers/ModifyShaderParam/Pulse/Static/modify_shader_param_pulse_static.tres" type="Resource" id=28]
-[ext_resource path="res://trenchbroom/Entities/RythmElements/Sequencers/ModifySpatialMaterialParam/Pulse/Spatial/modify_spatial_material_param_pulse_spatial.tres" type="Resource" id=29]
 
 [resource]
 script = ExtResource( 5 )
@@ -36,4 +33,4 @@ export_file = false
 target_folder = "/home/clemetayer/.TrenchBroom/games/RocketJumpThing"
 fgd_name = "tutorial_2_fgd"
 base_fgd_files = [  ]
-entity_definitions = [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 4 ), ExtResource( 10 ), ExtResource( 8 ), ExtResource( 6 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 9 ), ExtResource( 3 ), ExtResource( 11 ), ExtResource( 7 ), ExtResource( 21 ), ExtResource( 25 ), ExtResource( 19 ), ExtResource( 26 ), ExtResource( 24 ), ExtResource( 27 ), ExtResource( 22 ), ExtResource( 20 ), ExtResource( 23 ), ExtResource( 17 ), ExtResource( 16 ), ExtResource( 29 ), ExtResource( 18 ), ExtResource( 12 ), ExtResource( 28 ), ExtResource( 15 ) ]
+entity_definitions = [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 4 ), ExtResource( 10 ), ExtResource( 8 ), ExtResource( 6 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 9 ), ExtResource( 3 ), ExtResource( 11 ), ExtResource( 7 ), ExtResource( 21 ), ExtResource( 25 ), ExtResource( 19 ), ExtResource( 26 ), ExtResource( 24 ), ExtResource( 27 ), ExtResource( 22 ), ExtResource( 20 ), ExtResource( 23 ), ExtResource( 18 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 12 ) ]

@@ -1,4 +1,4 @@
-extends SpatialModifyMaterialParamStepSequencerPulse
+extends SpatialStepSequencer
 # A solid entity that is like a sequencer, but rotates at the same time
 
 ##### VARIABLES #####

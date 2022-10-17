@@ -17,8 +17,6 @@ class_properties = {
 "treshold": 0
 }
 class_property_descriptions = {
-"collision_layer": "Collision layer",
-"collision_mask": "Collision mask",
 "font_size": "Font size of the speed displayed on the label",
 "scale": "Pretty much the size of the text",
 "treshold": "Speed treshold to trigger the 'Trigger' signal"

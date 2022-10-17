@@ -1,0 +1,30 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://addons/qodot/src/resources/game-definitions/fgd/qodot_fgd_base_class.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+class_options = "----------------------------------------------------------------"
+classname = "RythmElements_Sequencers_Base"
+description = "a base class for the step sequencers"
+qodot_internal = false
+base_classes = [  ]
+class_properties = {
+"active_on_signals": "",
+"active_on_steps": "",
+"init_index": 0,
+"params_path": ""
+}
+class_property_descriptions = {
+"active_on_signals": "Signal names, separated by commas where the entity should trigger its step function",
+"active_on_steps": "Steps, separated by commas where the entity should trigger its step function",
+"init_index": "Index of the corresponding start parameter in the json file",
+"params_path": "Path to the json step sequencer parameter file"
+}
+meta_properties = {
+"color": Color( 0.8, 0.8, 0.8, 1 ),
+"size": AABB( -8, -8, -8, 8, 8, 8 )
+}
+node_options = "----------------------------------------------------------------"
+node_class = "Node"
+transient_node = false

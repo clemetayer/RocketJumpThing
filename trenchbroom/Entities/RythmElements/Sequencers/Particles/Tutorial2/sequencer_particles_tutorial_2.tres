@@ -1,6 +1,7 @@
-[gd_resource type="Resource" load_steps=3 format=2]
+[gd_resource type="Resource" load_steps=4 format=2]
 
 [ext_resource path="res://addons/qodot/src/resources/game-definitions/fgd/qodot_fgd_point_class.gd" type="Script" id=1]
+[ext_resource path="res://trenchbroom/Entities/RythmElements/Sequencers/base.tres" type="Resource" id=2]
 [ext_resource path="res://Game/Common/Utils/StepSequencer/Particles/Tutorial2/step_sequencer_1.tscn" type="PackedScene" id=3]
 
 [resource]
@@ -9,7 +10,7 @@ class_options = "---------------------------------------------------------------
 classname = "SequencerParticlesTutorial2"
 description = "A sequencer that emits particles"
 qodot_internal = false
-base_classes = [  ]
+base_classes = [ ExtResource( 2 ) ]
 class_properties = {
 }
 class_property_descriptions = {

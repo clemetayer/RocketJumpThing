@@ -9,18 +9,18 @@ const TB_AREA_TRIGGER_SONG_ANIMATION_CHANGE_MAPPER := [["animation", "_animation
 var _animation: String
 
 
+##### PROCESSING #####
+# Called when the object is initialized.
+func _init():
+	_connect_signals()
+
+
 ##### PROTECTED METHODS #####
 func _set_TB_params() -> void:
 	._set_TB_params()
 	TrenchBroomEntityUtils._map_trenchbroom_properties(
 		self, properties, TB_AREA_TRIGGER_SONG_ANIMATION_CHANGE_MAPPER
 	)
-
-
-# init function to override
-func _init_func() -> void:
-	._init_func()
-	_connect_signals()
 
 
 func _connect_signals() -> void:

@@ -20,7 +20,7 @@ static func _map_trenchbroom_property(object: Object, properties: Dictionary, ma
 			else:
 				Logger.error(
 					(
-						"One of the property of the mapper %s is either not in self or _properties, at"
+						"One of the property of the mapper %s is either not in self or _properties, at %s"
 						% [mapper, DebugUtils.print_stack_trace(get_stack())]
 					)
 				)

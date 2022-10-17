@@ -1,4 +1,3 @@
-tool
 extends OmniLight
 # A basic script for the omni light entity
 
@@ -19,7 +18,7 @@ export(Dictionary) var properties
 
 ##### PROCESSING #####
 # Called when the object is initialized.
-func _init():
+func _ready():
 	_set_TB_params()
 
 

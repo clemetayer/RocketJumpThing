@@ -1,0 +1,9 @@
+{
+  "duplicate_material": true,
+  "kick": [
+    { "0": { "emitting": true } },
+    { "0": { "emitting": true } },
+    { "0": { "emitting": true } },
+    { "0": { "emitting": true } }
+  ]
+}

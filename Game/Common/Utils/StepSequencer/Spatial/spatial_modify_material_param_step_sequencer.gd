@@ -3,6 +3,7 @@ class_name SpatialModifyMaterialParamStepSequencer
 # base class to send the trenchbroom specified parameters to the shader
 # override _step in children classes
 # Note : Don't be afraid to duplicate materials for each step, so that they will be treated simultaneously
+# Note to (maybe) angry future self : Making a base class might be a bad idea, since it would lose the static/spatial extends
 """
 {
   "duplicate_material":"bool", # if each material should be duplicated to be computed independantly (a bit heavier in performances, but avoid creating potential duplicated materials)
@@ -21,52 +22,43 @@ class_name SpatialModifyMaterialParamStepSequencer
 """
 
 ##### VARIABLES #####
-#---- CONSTANTS -----
-const TB_SPATIAL_MODIFY_MATERIAL_PARAM_STEP_SEQUENCER_MAPPER := [["params_path", "_params_path"]]  # mapper for TrenchBroom parameters
 #---- EXPORTS -----
 export(Dictionary) var properties
 
 #---- STANDARD -----
 #==== PRIVATE ====
+var _params_path: String
 var _params = {}  # Parameters specified in Trenchbroom
 var _step_indexes = {}  # To keep in track the indexes corresponding to different signals
+var _active_on_steps: String
+var _active_on_signals: String
 var _material: Material
+var _active_on_steps_array = []  # array of indexes where the effect should be active
+var _active_on_signals_array = []  # array of signals where the effect should be active
+var _init_index: int  # index of the init element in the json
 
 
 ##### PROCESSING #####
 # Called when the object is initialized.
 func _init():
-	_connect_signals()
-	_set_TB_params()
+	StepSequencerCommon.connect_signals(self)
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	_init_step_indexes()
+	_set_TB_params()
+	_active_on_steps_array = StepSequencerCommon.parse_active_on_steps(_active_on_steps)
+	_active_on_signals_array = StepSequencerCommon.parse_active_on_signals(_active_on_signals)
+	_params = FunctionUtils.load_json(_params_path)
+	_step_indexes = StepSequencerCommon.init_step_indexes(_params)
 	_get_material_in_children_and_duplicate()
-	_set_start_parameters()
+	StepSequencerCommon.set_start_parameters(self, _params, _init_index)
 
 
 ##### PROTECTED METHODS #####
 func _set_TB_params() -> void:
 	TrenchBroomEntityUtils._map_trenchbroom_properties(
-		self, properties, TB_SPATIAL_MODIFY_MATERIAL_PARAM_STEP_SEQUENCER_MAPPER
-	)
-
-
-# sets the parameters at start (override this)
-func _set_start_parameters() -> void:
-	pass
-
-
-func _init_step_indexes() -> void:
-	for key in _params.keys():
-		_step_indexes[key] = 0
-
-
-func _connect_signals() -> void:
-	FunctionUtils.log_connect(
-		SignalManager, self, "sequencer_step", "_on_SignalManager_sequencer_step"
+		self, properties, StepSequencerCommon.TB_STEP_SEQUENCER_PARAM_MAPPER
 	)
 
 
@@ -89,6 +81,12 @@ func _step(_parameters: Dictionary) -> void:
 
 ##### SIGNAL MANAGEMENT #####
 func _on_SignalManager_sequencer_step(id: String) -> void:
-	if id in _step_indexes and id in _params and _material != null:
-		_step(_params[id][_step_indexes[id]])
-		_step_indexes[id] = (_step_indexes[id] + 1) % _params[id].size()
+	_step_indexes = StepSequencerCommon.process_sequencer_step(
+		self,
+		id,
+		_params,
+		_step_indexes,
+		_active_on_signals_array,
+		_material != null,
+		_active_on_steps_array
+	)

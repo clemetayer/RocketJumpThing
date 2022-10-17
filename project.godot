@@ -34,6 +34,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Game/Common/MapElements/Doors/area_open_door.gd"
 }, {
+"base": "Collidable",
+"class": "BreakableArea",
+"language": "GDScript",
+"path": "res://Game/Common/MapElements/Breakables/Walls/breakable_area.gd"
+}, {
 "base": "ValueProvider",
 "class": "CallBackValueProvider",
 "language": "GDScript",
@@ -722,7 +727,7 @@ _global_script_classes=[ {
 "base": "Particles",
 "class": "ParticlesStepSequencer",
 "language": "GDScript",
-"path": "res://Game/Common/Utils/StepSequencer/Particles/particles_step_sequencer.gd"
+"path": "res://Game/Common/Utils/StepSequencer/Particles/particles_bkp_step_sequencer.gd"
 }, {
 "base": "Layout",
 "class": "PatternLayout",
@@ -949,10 +954,10 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Game/Common/Utils/StepSequencer/Spatial/spatial_modify_material_param_step_sequencer.gd"
 }, {
-"base": "SpatialModifyMaterialParamStepSequencer",
-"class": "SpatialModifyMaterialParamStepSequencerPulse",
+"base": "Spatial",
+"class": "SpatialStepSequencer",
 "language": "GDScript",
-"path": "res://Game/Common/Utils/StepSequencer/Spatial/modify_param_spatial_material_step_sequencer_pulse.gd"
+"path": "res://Game/Common/Utils/StepSequencer/Spatial/spatial_step_sequencer.gd"
 }, {
 "base": "Collidable",
 "class": "StandardDoor",
@@ -979,15 +984,30 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Game/Common/MapElements/static_body_group_solid_class.gd"
 }, {
-"base": "StaticBody",
-"class": "StaticBodyModifyMaterialParamStepSequencer",
+"base": "Reference",
+"class": "StepSequencerCommon",
 "language": "GDScript",
-"path": "res://Game/Common/Utils/StepSequencer/Static/static_body_modify_material_param_step_sequencer.gd"
+"path": "res://Game/Common/Utils/StepSequencer/step_sequencer_common.gd"
 }, {
 "base": "GlobalTests",
 "class": "StepSequencerStepParticleTest",
 "language": "GDScript",
 "path": "res://test/UnitTests/MapElementsTests/Particles/StepSequencer/step_sequencer_particle_test.gd"
+}, {
+"base": "Node",
+"class": "StepperPulse",
+"language": "GDScript",
+"path": "res://Game/Common/Utils/StepSequencer/stepper_pulse.gd"
+}, {
+"base": "Node",
+"class": "StepperSetParam",
+"language": "GDScript",
+"path": "res://Game/Common/Utils/StepSequencer/stepper_set_param.gd"
+}, {
+"base": "Node",
+"class": "StepperTween",
+"language": "GDScript",
+"path": "res://Game/Common/Utils/StepSequencer/stepper_tween.gd"
 }, {
 "base": "Fuzzer",
 "class": "StringFuzzer",
@@ -1090,6 +1110,7 @@ _global_script_class_icons={
 "AnyClazzArgumentMatcher": "",
 "Appender": "",
 "AreaOpenDoor": "",
+"BreakableArea": "",
 "CallBackValueProvider": "",
 "ChainedArgumentMatcher": "",
 "Checkpoint": "",
@@ -1273,14 +1294,17 @@ _global_script_class_icons={
 "SongManager": "",
 "SongSimple": "",
 "SpatialModifyMaterialParamStepSequencer": "",
-"SpatialModifyMaterialParamStepSequencerPulse": "",
+"SpatialStepSequencer": "",
 "StandardDoor": "",
 "StandardScene": "",
 "StandardSceneTest": "",
 "StartPoint": "",
 "StaticBodyGroupSolidEntity": "",
-"StaticBodyModifyMaterialParamStepSequencer": "",
+"StepSequencerCommon": "",
 "StepSequencerStepParticleTest": "",
+"StepperPulse": "",
+"StepperSetParam": "",
+"StepperTween": "",
 "StringFuzzer": "",
 "TextUtils": "",
 "TimeUnit": "",
@@ -1322,6 +1346,7 @@ DebugDraw="*res://Game/Common/Utils/Debug/debug_draw.gd"
 CameraUtils="*res://Game/Common/Utils/Camera/camera_utils.gd"
 EndLevelUi="*res://Game/Common/Menus/EndLevel/end_level_ui.tscn"
 PauseMenu="*res://Game/Common/Menus/PauseMenu/pause_menu.tscn"
+ScenesManager="*res://Game/Common/Utils/Managers/scenes_manager.gd"
 
 [debug]
 

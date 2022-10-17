@@ -1050,8 +1050,6 @@
 // entity 2
 {
 "classname" "Breakables_Area_Speed"
-"_tb_def" "builtin:RocketJumpThing_fgd.fgd"
-"_tb_textures" "textures/scenes/tutorial_scene"
 "collision_layer" "2"
 "collision_mask" "5"
 "treshold" "100"
@@ -2355,6 +2353,8 @@
 "classname" "Checkpoints_Checkpoint"
 "spawn_position" "0 -5 0"
 "spawn_rotation" "0"
+"collision_layer" "2"
+"collision_mask" "5"
 // brush 0
 {
 ( 852 -1446 320 ) ( 852 -1568 320 ) ( 852 -1568 260 ) entities/checkpoint/checkpoint_1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -3804,10 +3804,10 @@
 // entity 15
 {
 "classname" "StaticBodyGroup"
-"_tb_def" "builtin:RocketJumpThing_fgd.fgd"
-"_tb_textures" "textures/scenes/tutorial_scene"
 "collision_layer" "2"
 "collision_mask" "5"
+"_tb_def" "builtin:RocketJumpThing_fgd.fgd"
+"_tb_textures" "textures/scenes/tutorial_scene"
 // brush 0
 {
 ( -848 2782 260 ) ( -848 2780 260 ) ( -848 2780 258 ) scenes/tutorial_scene/Floor [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -3906,6 +3906,8 @@
 // entity 21
 {
 "classname" "StaticBodyGroup"
+"collision_layer" "2"
+"collision_mask" "5"
 // brush 0
 {
 ( -992 3044 292 ) ( -992 2782 292 ) ( -992 2782 290 ) scenes/tutorial_scene/wall [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -5021,6 +5023,8 @@
 // entity 54
 {
 "classname" "StaticBodyGroup"
+"collision_layer" "2"
+"collision_mask" "5"
 // brush 0
 {
 ( 336 -592 816 ) ( 336 -832 816 ) ( 336 -832 -128 ) scenes/tutorial_scene/Hexagon1 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -5034,6 +5038,8 @@
 // entity 55
 {
 "classname" "StaticBodyGroup"
+"collision_layer" "2"
+"collision_mask" "5"
 // brush 0
 {
 ( -275 10 -191 ) ( -275 10 897 ) ( -275 -150 753 ) scenes/tutorial_scene/Hexagon1 [ 0 1.0000000000000002 0 0 ] [ 0 0 -1.0000000000000002 0 ] 0 1 1
@@ -5047,6 +5053,8 @@
 // entity 56
 {
 "classname" "StaticBodyGroup"
+"collision_layer" "2"
+"collision_mask" "5"
 // brush 0
 {
 ( -420 -641 430.44751381215974 ) ( -420 -801 574.4475138121597 ) ( -420 -801 -513.5524861878403 ) scenes/tutorial_scene/Hexagon1 [ 0 -1.0000000000000002 0 0 ] [ 0 0 -1.0000000000000002 0 ] 0 1 1
@@ -5060,6 +5068,8 @@
 // entity 57
 {
 "classname" "StaticBodyGroup"
+"collision_layer" "2"
+"collision_mask" "5"
 // brush 0
 {
 ( 501 180 -274 ) ( 501 180 814 ) ( 501 20 670 ) scenes/tutorial_scene/Hexagon1 [ 0 1.0000000000000002 0 0 ] [ 0 0 -1.0000000000000002 0 ] 0 1 1
@@ -5073,6 +5083,8 @@
 // entity 58
 {
 "classname" "StaticBodyGroup"
+"collision_layer" "2"
+"collision_mask" "5"
 // brush 0
 {
 ( -595 762 -258 ) ( -595 762 830 ) ( -595 602 686 ) scenes/tutorial_scene/Hexagon1 [ 0 1.0000000000000002 0 0 ] [ 0 0 -1.0000000000000002 0 ] 0 1 1
@@ -5086,6 +5098,8 @@
 // entity 59
 {
 "classname" "StaticBodyGroup"
+"collision_layer" "2"
+"collision_mask" "5"
 // brush 0
 {
 ( -1345 84 510.44751381215974 ) ( -1345 -156 510.44751381215974 ) ( -1345 -156 -577.5524861878403 ) scenes/tutorial_scene/Hexagon1 [ 0 1.0000000000000002 0 0 ] [ 0 0 -1.0000000000000002 0 ] 0 1 1
@@ -5099,6 +5113,8 @@
 // entity 60
 {
 "classname" "StaticBodyGroup"
+"collision_layer" "2"
+"collision_mask" "5"
 // brush 0
 {
 ( -1601 -476 910.4475138121597 ) ( -1601 -716 910.4475138121597 ) ( -1601 -716 -177.55248618784026 ) scenes/tutorial_scene/Hexagon1 [ 0 1.0000000000000002 0 0 ] [ 0 0 -1.0000000000000002 0 ] 0 1 1
@@ -5112,6 +5128,8 @@
 // entity 61
 {
 "classname" "StaticBodyGroup"
+"collision_layer" "2"
+"collision_mask" "5"
 // brush 0
 {
 ( -1172 -1681 702.4475138121597 ) ( -1172 -1841 846.4475138121597 ) ( -1172 -1841 -241.55248618784026 ) scenes/tutorial_scene/Hexagon1 [ 0 1.0000000000000002 0 0 ] [ 0 0 -1.0000000000000002 0 ] 0 1 1
@@ -5125,6 +5143,8 @@
 // entity 62
 {
 "classname" "StaticBodyGroup"
+"collision_layer" "2"
+"collision_mask" "5"
 // brush 0
 {
 ( -2188 -303 -577.5524861878403 ) ( -2188 -303 510.44751381215974 ) ( -2188 -463 366.44751381215974 ) scenes/tutorial_scene/Hexagon1 [ 0 1.0000000000000002 0 0 ] [ 0 0 -1.0000000000000002 0 ] 0 1 1
@@ -5138,6 +5158,8 @@
 // entity 63
 {
 "classname" "StaticBodyGroup"
+"collision_layer" "2"
+"collision_mask" "5"
 // brush 0
 {
 ( -1729 516 718.4475138121597 ) ( -1729 276 718.4475138121597 ) ( -1729 276 -369.55248618784026 ) scenes/tutorial_scene/Hexagon1 [ 0 1.0000000000000002 0 0 ] [ 0 0 -1.0000000000000002 0 ] 0 1 1
@@ -5151,6 +5173,8 @@
 // entity 64
 {
 "classname" "StaticBodyGroup"
+"collision_layer" "2"
+"collision_mask" "5"
 // brush 0
 {
 ( 1296 -2000 320 ) ( 1296 -2240 320 ) ( 1296 -2240 -624 ) scenes/tutorial_scene/Hexagon1 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -5164,6 +5188,8 @@
 // entity 65
 {
 "classname" "StaticBodyGroup"
+"collision_layer" "2"
+"collision_mask" "5"
 // brush 0
 {
 ( 1408 -1312 -464 ) ( 1408 -1312 624 ) ( 1408 -1472 480 ) scenes/tutorial_scene/Hexagon1 [ 0 1.0000000000000002 0 0 ] [ 0 0 -1.0000000000000002 0 ] 0 1 1
@@ -5177,6 +5203,8 @@
 // entity 66
 {
 "classname" "StaticBodyGroup"
+"collision_layer" "2"
+"collision_mask" "5"
 // brush 0
 {
 ( 2096 -1936 -416 ) ( 2096 -1936 672 ) ( 2096 -2096 528 ) scenes/tutorial_scene/Hexagon1 [ 0 1.0000000000000002 0 0 ] [ 0 0 -1.0000000000000002 0 ] 0 1 1
@@ -5190,6 +5218,8 @@
 // entity 67
 {
 "classname" "StaticBodyGroup"
+"collision_layer" "2"
+"collision_mask" "5"
 // brush 0
 {
 ( 2272 -960 272 ) ( 2272 -1200 272 ) ( 2272 -1200 -672 ) scenes/tutorial_scene/Hexagon1 [ 0 1.0000000000000002 0 0 ] [ 0 0 -1.0000000000000002 0 ] 0 1 1
@@ -5203,6 +5233,8 @@
 // entity 68
 {
 "classname" "StaticBodyGroup"
+"collision_layer" "2"
+"collision_mask" "5"
 // brush 0
 {
 ( 656 -1984 480 ) ( 656 -2144 624 ) ( 656 -2144 -464 ) scenes/tutorial_scene/Hexagon1 [ 0 1.0000000000000002 0 0 ] [ 0 0 -1.0000000000000002 0 ] 0 1 1
@@ -5216,6 +5248,8 @@
 // entity 69
 {
 "classname" "StaticBodyGroup"
+"collision_layer" "2"
+"collision_mask" "5"
 // brush 0
 {
 ( 1712 -432 160 ) ( 1712 -672 160 ) ( 1712 -672 -784 ) scenes/tutorial_scene/Hexagon1 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -5228,10 +5262,14 @@
 }
 // entity 70
 {
-"classname" "RythmElements_Sequencers_ModifySpatialMaterialParam_Pulse_Spatial"
+"classname" "RythmElements_Sequencers_Spatial"
+"active_on_signals" "kick"
 "collision_layer" "2"
 "collision_mask" "5"
-"params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_tunnel_lights_s_1.json"
+"active_on_signals" "kick"
+"active_on_steps" "0"
+"init_index" "0"
+"params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_tunnel_lights.json"
 // brush 0
 {
 ( -886.8571428571429 2768 224 ) ( -914.2857142857143 2752 272 ) ( -886.8571428571429 2752 224 ) scenes/tutorial_scene/Sequencer1 [ 0 -1 0 0 ] [ 0.49613893835683404 0 -0.8682431421244591 0 ] 0 1 1
@@ -5271,10 +5309,14 @@
 }
 // entity 71
 {
-"classname" "RythmElements_Sequencers_ModifySpatialMaterialParam_Pulse_Spatial"
+"classname" "RythmElements_Sequencers_Spatial"
+"active_on_signals" "kick"
 "collision_layer" "2"
 "collision_mask" "5"
-"params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_tunnel_lights_s_2.json"
+"active_on_signals" "kick"
+"active_on_steps" "1"
+"init_index" "0"
+"params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_tunnel_lights.json"
 // brush 0
 {
 ( -886.8571428571429 2416 224 ) ( -914.2857142857143 2400 272 ) ( -886.8571428571429 2400 224 ) scenes/tutorial_scene/Sequencer1 [ 0 -1 0 0 ] [ 0.49613893835683404 0 -0.8682431421244591 0 ] 0 1 1
@@ -5314,10 +5356,14 @@
 }
 // entity 72
 {
-"classname" "RythmElements_Sequencers_ModifySpatialMaterialParam_Pulse_Spatial"
+"classname" "RythmElements_Sequencers_Spatial"
+"active_on_signals" "kick"
 "collision_layer" "2"
 "collision_mask" "5"
-"params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_tunnel_lights_s_3.json"
+"active_on_signals" "kick"
+"active_on_steps" "2"
+"init_index" "0"
+"params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_tunnel_lights.json"
 // brush 0
 {
 ( -886.8571428571429 2064 224 ) ( -914.2857142857143 2048 272 ) ( -886.8571428571429 2048 224 ) scenes/tutorial_scene/Sequencer1 [ 0 -1 0 0 ] [ 0.49613893835683404 0 -0.8682431421244591 0 ] 0 1 1
@@ -5357,10 +5403,14 @@
 }
 // entity 73
 {
-"classname" "RythmElements_Sequencers_ModifySpatialMaterialParam_Pulse_Spatial"
+"classname" "RythmElements_Sequencers_Spatial"
+"active_on_signals" "kick"
 "collision_layer" "2"
 "collision_mask" "5"
-"params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_tunnel_lights_s_4.json"
+"active_on_signals" "kick"
+"active_on_steps" "3"
+"init_index" "0"
+"params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_tunnel_lights.json"
 // brush 0
 {
 ( -886.8571428571429 1712 224 ) ( -914.2857142857143 1696 272 ) ( -886.8571428571429 1696 224 ) scenes/tutorial_scene/Sequencer1 [ 0 -1 0 0 ] [ 0.49613893835683404 0 -0.8682431421244591 0 ] 0 1 1
@@ -5400,10 +5450,14 @@
 }
 // entity 74
 {
-"classname" "RythmElements_Sequencers_ModifySpatialMaterialParam_Pulse_Spatial"
+"classname" "RythmElements_Sequencers_Spatial"
+"active_on_signals" "kick"
 "collision_layer" "2"
 "collision_mask" "5"
-"params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_tunnel_lights_s_1.json"
+"active_on_signals" "kick"
+"active_on_steps" "0"
+"init_index" "0"
+"params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_tunnel_lights.json"
 // brush 0
 {
 ( -886.8571428571429 1360 224 ) ( -914.2857142857143 1344 272 ) ( -886.8571428571429 1344 224 ) scenes/tutorial_scene/Sequencer1 [ 0 -1 0 0 ] [ 0.49613893835683404 0 -0.8682431421244591 0 ] 0 1 1
@@ -5443,10 +5497,14 @@
 }
 // entity 75
 {
-"classname" "RythmElements_Sequencers_ModifySpatialMaterialParam_Pulse_Spatial"
+"classname" "RythmElements_Sequencers_Spatial"
+"active_on_signals" "kick"
 "collision_layer" "2"
 "collision_mask" "5"
-"params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_tunnel_lights_s_2.json"
+"active_on_signals" "kick"
+"active_on_steps" "1"
+"init_index" "0"
+"params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_tunnel_lights.json"
 // brush 0
 {
 ( -886.8571428571429 1008 224 ) ( -914.2857142857143 992 272 ) ( -886.8571428571429 992 224 ) scenes/tutorial_scene/Sequencer1 [ 0 -1 0 0 ] [ 0.49613893835683404 0 -0.8682431421244591 0 ] 0 1 1
@@ -5486,10 +5544,14 @@
 }
 // entity 76
 {
-"classname" "RythmElements_Sequencers_ModifySpatialMaterialParam_Pulse_Spatial"
+"classname" "RythmElements_Sequencers_Spatial"
+"active_on_signals" "kick"
 "collision_layer" "2"
 "collision_mask" "5"
-"params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_tunnel_lights_s_3.json"
+"active_on_signals" "kick"
+"active_on_steps" "2"
+"init_index" "0"
+"params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_tunnel_lights.json"
 // brush 0
 {
 ( -886.8571428571429 656 224 ) ( -914.2857142857143 640 272 ) ( -886.8571428571429 640 224 ) scenes/tutorial_scene/Sequencer1 [ 0 -1 0 0 ] [ 0.49613893835683404 0 -0.8682431421244591 0 ] 0 1 1
@@ -5529,10 +5591,14 @@
 }
 // entity 77
 {
-"classname" "RythmElements_Sequencers_ModifySpatialMaterialParam_Pulse_Spatial"
+"classname" "RythmElements_Sequencers_Spatial"
+"active_on_signals" "kick"
 "collision_layer" "2"
 "collision_mask" "5"
-"params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_tunnel_lights_s_4.json"
+"active_on_signals" "kick"
+"active_on_steps" "3"
+"init_index" "0"
+"params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_tunnel_lights.json"
 // brush 0
 {
 ( -886.8571428571429 304 224 ) ( -914.2857142857143 288 272 ) ( -886.8571428571429 288 224 ) scenes/tutorial_scene/Sequencer1 [ 0 -1 0 0 ] [ 0.49613893835683404 0 -0.8682431421244591 0 ] 0 1 1
@@ -5572,10 +5638,14 @@
 }
 // entity 78
 {
-"classname" "RythmElements_Sequencers_ModifySpatialMaterialParam_Pulse_Spatial"
+"classname" "RythmElements_Sequencers_Spatial"
+"active_on_signals" "kick"
 "collision_layer" "2"
 "collision_mask" "5"
-"params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_tunnel_lights_s_1.json"
+"active_on_signals" "kick"
+"active_on_steps" "0"
+"init_index" "0"
+"params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_tunnel_lights.json"
 // brush 0
 {
 ( -886.8571428571429 -400 224 ) ( -914.2857142857143 -416 272 ) ( -886.8571428571429 -416 224 ) scenes/tutorial_scene/Sequencer1 [ 0 -1 0 0 ] [ 0.49613893835683404 0 -0.8682431421244591 0 ] 0 1 1
@@ -5615,10 +5685,14 @@
 }
 // entity 79
 {
-"classname" "RythmElements_Sequencers_ModifySpatialMaterialParam_Pulse_Spatial"
+"classname" "RythmElements_Sequencers_Spatial"
+"active_on_signals" "kick"
 "collision_layer" "2"
 "collision_mask" "5"
-"params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_tunnel_lights_s_2.json"
+"active_on_signals" "kick"
+"active_on_steps" "1"
+"init_index" "0"
+"params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_tunnel_lights.json"
 // brush 0
 {
 ( -886.8571428571429 -752 224 ) ( -914.2857142857143 -768 272 ) ( -886.8571428571429 -768 224 ) scenes/tutorial_scene/Sequencer1 [ 0 -1 0 0 ] [ 0.49613893835683404 0 -0.8682431421244591 0 ] 0 1 1
@@ -5658,10 +5732,14 @@
 }
 // entity 80
 {
-"classname" "RythmElements_Sequencers_ModifySpatialMaterialParam_Pulse_Spatial"
+"classname" "RythmElements_Sequencers_Spatial"
+"active_on_signals" "kick"
 "collision_layer" "2"
 "collision_mask" "5"
-"params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_tunnel_lights_s_3.json"
+"active_on_signals" "kick"
+"active_on_steps" "2"
+"init_index" "0"
+"params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_tunnel_lights.json"
 // brush 0
 {
 ( -687.8428722365016 -1024.2185191156805 319.58913853770497 ) ( -721.8428722365018 -1008.2185191156805 367.58913853770497 ) ( -716.7228722365016 -1024.2185191156805 367.58913853770497 ) scenes/tutorial_scene/Sequencer1 [ 0.30477572710379014 -0.9524241471993222 0 0 ] [ 0.4735393538735088 0.15153259323952634 -0.8676395297121748 0 ] 0 1 1
@@ -5701,10 +5779,14 @@
 }
 // entity 81
 {
-"classname" "RythmElements_Sequencers_ModifySpatialMaterialParam_Pulse_Spatial"
+"classname" "RythmElements_Sequencers_Spatial"
+"active_on_signals" "kick"
 "collision_layer" "2"
 "collision_mask" "5"
-"params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_tunnel_lights_s_4.json"
+"active_on_signals" "kick"
+"active_on_steps" "3"
+"init_index" "0"
+"params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_tunnel_lights.json"
 // brush 0
 {
 ( -528.3862802677648 -1290.9670996364753 367.6827588590396 ) ( -528 -1259.2708333333337 320 ) ( -528 -1290.479166666667 368 ) scenes/tutorial_scene/Sequencer1 [ -0.4862358188914577 -0.873827630844295 0 0 ] [ -0.263400722108776 0.14656765395186194 -0.9534872743815843 0 ] 0 1 1
@@ -5744,10 +5826,14 @@
 }
 // entity 82
 {
-"classname" "RythmElements_Sequencers_ModifySpatialMaterialParam_Pulse_Spatial"
+"classname" "RythmElements_Sequencers_Spatial"
+"active_on_signals" "kick"
 "collision_layer" "2"
 "collision_mask" "5"
-"params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_tunnel_lights_s_1.json"
+"active_on_signals" "kick"
+"active_on_steps" "0"
+"init_index" "0"
+"params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_tunnel_lights.json"
 // brush 0
 {
 ( -160 -1549.5454545454547 368 ) ( -159.84864727133743 -1571.516290901811 319.6240206026081 ) ( -159.84864727133743 -1548.7526545381747 367.6240206026081 ) scenes/tutorial_scene/Sequencer1 [ -0.1539969730700773 -0.9880713194325873 0 0 ] [ 0.07196904974253213 -0.01121681764980724 -0.9973437917192687 0 ] 0 1 1
@@ -5787,10 +5873,14 @@
 }
 // entity 83
 {
-"classname" "RythmElements_Sequencers_ModifySpatialMaterialParam_Pulse_Spatial"
+"classname" "RythmElements_Sequencers_Spatial"
+"active_on_signals" "kick"
 "collision_layer" "2"
 "collision_mask" "5"
-"params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_tunnel_lights_s_2.json"
+"active_on_signals" "kick"
+"active_on_steps" "1"
+"init_index" "0"
+"params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_tunnel_lights.json"
 // brush 0
 {
 ( 176 -1430.6673511293634 320 ) ( 176.00169691164825 -1453.493747102068 367.62123517917706 ) ( 176.00169691164825 -1431.493747102068 319.62123517917706 ) scenes/tutorial_scene/Sequencer1 [ 0.0016969151178666583 -0.9999985602385049 0 0 ] [ 0.0007777514073464436 1.3197800212367062e-06 -0.9999996975504576 0 ] 0 1 1
@@ -5830,10 +5920,14 @@
 }
 // entity 84
 {
-"classname" "RythmElements_Sequencers_ModifySpatialMaterialParam_Pulse_Spatial"
+"classname" "RythmElements_Sequencers_Spatial"
+"active_on_signals" "kick"
 "collision_layer" "2"
 "collision_mask" "5"
-"params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_tunnel_lights_s_3.json"
+"active_on_signals" "kick"
+"active_on_steps" "2"
+"init_index" "0"
+"params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_tunnel_lights.json"
 // brush 0
 {
 ( 480 -1430.6673511293634 320 ) ( 480.00169691164825 -1453.493747102068 367.62123517917706 ) ( 480.00169691164825 -1431.493747102068 319.62123517917706 ) scenes/tutorial_scene/Sequencer1 [ 0.0016969151178666583 -0.9999985602385049 0 0 ] [ 0.0007777514073464436 1.3197800212367062e-06 -0.9999996975504576 0 ] 0 1 1
@@ -5873,10 +5967,14 @@
 }
 // entity 85
 {
-"classname" "RythmElements_Sequencers_ModifySpatialMaterialParam_Pulse_Spatial"
+"classname" "RythmElements_Sequencers_Spatial"
+"active_on_signals" "kick"
 "collision_layer" "2"
 "collision_mask" "5"
-"params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_tunnel_lights_s_1.json"
+"active_on_signals" "kick"
+"active_on_steps" "0"
+"init_index" "0"
+"params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_tunnel_lights.json"
 // brush 0
 {
 ( 998.6344969199179 -1360 320 ) ( 1020.6673511293634 -1376 368 ) ( 998.6673511293634 -1376 320 ) scenes/tutorial_scene/Sequencer1 [ -0.0018666596285634024 0.909063239111912 0.41665398459295966 0 ] [ -0.0008555505260874341 0.41665310620525514 -0.9090651555982169 0 ] 0 1 1
@@ -5916,10 +6014,14 @@
 }
 // entity 86
 {
-"classname" "RythmElements_Sequencers_ModifySpatialMaterialParam_Pulse_Spatial"
+"classname" "RythmElements_Sequencers_Spatial"
+"active_on_signals" "kick"
 "collision_layer" "2"
 "collision_mask" "5"
-"params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_tunnel_lights_s_2.json"
+"active_on_signals" "kick"
+"active_on_steps" "1"
+"init_index" "0"
+"params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_tunnel_lights.json"
 // brush 0
 {
 ( 998.6344969199179 -1056 320 ) ( 1020.6673511293634 -1072 368 ) ( 998.6673511293634 -1072 320 ) scenes/tutorial_scene/Sequencer1 [ -0.0018666596285634024 0.909063239111912 0.41665398459295966 0 ] [ -0.0008555505260874341 0.41665310620525514 -0.9090651555982169 0 ] 0 1 1
@@ -5959,8 +6061,11 @@
 }
 // entity 87
 {
-"classname" "RythmElements_Sequencers_ModifySpatialMaterialParam_Pulse_Spatial"
-"params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_tunnel_lights_s_3.json"
+"classname" "RythmElements_Sequencers_Spatial"
+"active_on_signals" "kick"
+"active_on_steps" "2"
+"init_index" "0"
+"params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_tunnel_lights.json"
 // brush 0
 {
 ( 996.6344969199179 -672 320 ) ( 1018.6673511293634 -688 368 ) ( 996.6673511293634 -688 320 ) scenes/tutorial_scene/Sequencer1 [ -0.0018666596285634024 0.909063239111912 0.41665398459295966 0 ] [ -0.0008555505260874341 0.41665310620525514 -0.9090651555982169 0 ] 0 1 1
@@ -6000,10 +6105,14 @@
 }
 // entity 88
 {
-"classname" "RythmElements_Sequencers_ModifySpatialMaterialParam_Pulse_Spatial"
+"classname" "RythmElements_Sequencers_Spatial"
+"active_on_signals" "kick"
 "collision_layer" "2"
 "collision_mask" "5"
-"params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_tunnel_lights_s_4.json"
+"active_on_signals" "kick"
+"active_on_steps" "3"
+"init_index" "0"
+"params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_tunnel_lights.json"
 // brush 0
 {
 ( 1062.1012244897959 -272 272 ) ( 1093.7703401360543 -256 224 ) ( 1070.2078911564624 -256 272 ) scenes/tutorial_scene/Sequencer1 [ -0.45196479318866506 -0.8920357760302706 0 0 ] [ 0.3578097380408579 -0.1812902672740325 -0.9160273087385783 0 ] 0 1 1
@@ -6043,8 +6152,11 @@
 }
 // entity 89
 {
-"classname" "RythmElements_Sequencers_ModifySpatialMaterialParam_Pulse_Spatial"
-"params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_tunnel_lights_s_1.json"
+"classname" "RythmElements_Sequencers_Spatial"
+"active_on_signals" "kick"
+"active_on_steps" "0"
+"init_index" "0"
+"params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_tunnel_lights.json"
 // brush 0
 {
 ( 1487.802995684584 -76.36174728291935 224.36827745494105 ) ( 1488 -99.9494984434452 272 ) ( 1488 -77.13663092355587 224 ) scenes/tutorial_scene/Sequencer1 [ 0.20307051424546177 -0.9791641160929478 0 0 ] [ 0.09406491985042817 0.019508283986860626 -0.9953749131404812 0 ] 0 1 1
@@ -6084,10 +6196,14 @@
 }
 // entity 90
 {
-"classname" "RythmElements_Sequencers_ModifySpatialMaterialParam_Pulse_Spatial"
+"classname" "RythmElements_Sequencers_Spatial"
+"active_on_signals" "kick"
 "collision_layer" "2"
 "collision_mask" "5"
-"params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_tunnel_lights_s_2.json"
+"active_on_signals" "kick"
+"active_on_steps" "1"
+"init_index" "0"
+"params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_tunnel_lights.json"
 // brush 0
 {
 ( 1856 82.09090909090918 320 ) ( 1856.1462586996918 51.95315290927073 383.6313061945268 ) ( 1856.1462586996918 81.2864862426041 319.6313061945268 ) scenes/tutorial_scene/Sequencer1 [ 0.1485864272986625 -0.988899425433456 0 0 ] [ 0.06719050882123971 0.010095665340033188 -0.9976890863719443 0 ] 0 1 1
@@ -6127,8 +6243,11 @@
 }
 // entity 91
 {
-"classname" "RythmElements_Sequencers_ModifySpatialMaterialParam_Pulse_Spatial"
-"params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_tunnel_lights_s_3.json"
+"classname" "RythmElements_Sequencers_Spatial"
+"active_on_signals" "kick"
+"active_on_steps" "2"
+"init_index" "0"
+"params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_tunnel_lights.json"
 // brush 0
 {
 ( 2208 138.7575757575758 336 ) ( 2208.1462586996918 93.95315290927073 431.6313061945268 ) ( 2208.1462586996918 137.95315290927073 335.6313061945268 ) scenes/tutorial_scene/Sequencer1 [ 0.1485864272986625 -0.988899425433456 0 0 ] [ 0.06719050882123963 0.010095665340033175 -0.9976890863719444 0 ] 0 1 1
@@ -6168,10 +6287,14 @@
 }
 // entity 92
 {
-"classname" "RythmElements_Sequencers_ModifySpatialMaterialParam_Pulse_Spatial"
+"classname" "RythmElements_Sequencers_Spatial"
+"active_on_signals" "kick"
 "collision_layer" "2"
 "collision_mask" "5"
-"params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_tunnel_lights_s_4.json"
+"active_on_signals" "kick"
+"active_on_steps" "3"
+"init_index" "0"
+"params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_tunnel_lights.json"
 // brush 0
 {
 ( 2576 213 320 ) ( 2576.1462586996918 138.86224381836166 479.6313061945268 ) ( 2576.1462586996918 212.19557715169498 319.6313061945268 ) scenes/tutorial_scene/Sequencer1 [ 0.14858642729866253 -0.988899425433456 0 0 ] [ 0.06719050882123963 0.010095665340033177 -0.9976890863719444 0 ] 0 1 1
@@ -6211,8 +6334,11 @@
 }
 // entity 93
 {
-"classname" "RythmElements_Sequencers_ModifySpatialMaterialParam_Pulse_Spatial"
-"params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_tunnel_lights_s_1.json"
+"classname" "RythmElements_Sequencers_Spatial"
+"active_on_signals" "kick"
+"active_on_steps" "0"
+"init_index" "0"
+"params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_tunnel_lights.json"
 // brush 0
 {
 ( 2976 285.8488394649161 320 ) ( 2976.147172146165 190.8295457030813 527.634244668704 ) ( 2976.147172146165 285.041327843962 319.634244668704 ) scenes/tutorial_scene/Sequencer1 [ 0.1495283079187574 -0.988757445044513 0 0 ] [ 0.06681304858247762 0.01010403729600423 -0.997714350387643 0 ] 0 1 1
@@ -13522,6 +13648,7 @@
 "energy" ".5"
 "range" "150"
 "specular" "0.5"
+"shadow_enabled" "0"
 "shadow_mode" "1"
 }
 // entity 111
@@ -13532,6 +13659,7 @@
 "energy" ".5"
 "range" "150"
 "specular" "0.5"
+"shadow_enabled" "0"
 "shadow_mode" "1"
 }
 // entity 112
@@ -13542,6 +13670,7 @@
 "energy" ".5"
 "range" "150"
 "specular" "0.5"
+"shadow_enabled" "0"
 "shadow_mode" "1"
 }
 // entity 113
@@ -13552,6 +13681,7 @@
 "energy" ".5"
 "range" "150"
 "specular" "0.5"
+"shadow_enabled" "0"
 "shadow_mode" "1"
 }
 // entity 114
@@ -13562,6 +13692,7 @@
 "energy" "1"
 "range" "150"
 "specular" "0.5"
+"shadow_enabled" "0"
 "shadow_mode" "1"
 }
 // entity 115
@@ -13572,6 +13703,7 @@
 "energy" ".5"
 "range" "150"
 "specular" "0"
+"shadow_enabled" "0"
 "shadow_mode" "0"
 }
 // entity 116
@@ -13582,6 +13714,7 @@
 "energy" ".5"
 "range" "150"
 "specular" "0"
+"shadow_enabled" "0"
 "shadow_mode" "0"
 }
 // entity 117
@@ -13592,6 +13725,7 @@
 "energy" ".5"
 "range" "150"
 "specular" "0"
+"shadow_enabled" "0"
 "shadow_mode" "0"
 }
 // entity 118
@@ -13602,6 +13736,7 @@
 "energy" ".5"
 "range" "150"
 "specular" "0"
+"shadow_enabled" "0"
 "shadow_mode" "0"
 }
 // entity 119
@@ -13612,6 +13747,7 @@
 "energy" ".5"
 "range" "150"
 "specular" "0"
+"shadow_enabled" "0"
 "shadow_mode" "0"
 }
 // entity 120
@@ -13622,6 +13758,7 @@
 "energy" ".5"
 "range" "150"
 "specular" "0"
+"shadow_enabled" "0"
 "shadow_mode" "0"
 }
 // entity 121
@@ -13632,6 +13769,7 @@
 "energy" ".5"
 "range" "150"
 "specular" "0"
+"shadow_enabled" "0"
 "shadow_mode" "0"
 }
 // entity 122
@@ -13642,6 +13780,7 @@
 "energy" ".5"
 "range" "150"
 "specular" "0"
+"shadow_enabled" "0"
 "shadow_mode" "0"
 }
 // entity 123
@@ -13652,6 +13791,7 @@
 "energy" ".5"
 "range" "150"
 "shadow_mode" "0"
+"shadow_enabled" "0"
 "specular" "0"
 }
 // entity 124
@@ -13662,6 +13802,7 @@
 "energy" ".5"
 "range" "150"
 "shadow_mode" "0"
+"shadow_enabled" "0"
 "specular" "0"
 }
 // entity 125
@@ -13672,6 +13813,7 @@
 "energy" ".5"
 "range" "150"
 "shadow_mode" "0"
+"shadow_enabled" "0"
 "specular" "0"
 }
 // entity 126
@@ -13682,6 +13824,7 @@
 "energy" ".5"
 "range" "150"
 "shadow_mode" "0"
+"shadow_enabled" "0"
 "specular" "0"
 }
 // entity 127
@@ -13692,6 +13835,7 @@
 "energy" ".5"
 "range" "150"
 "shadow_mode" "0"
+"shadow_enabled" "0"
 "specular" "0"
 }
 // entity 128
@@ -13702,6 +13846,7 @@
 "energy" ".5"
 "range" "150"
 "shadow_mode" "0"
+"shadow_enabled" "0"
 "specular" "0"
 }
 // entity 129
@@ -13712,6 +13857,7 @@
 "energy" ".5"
 "range" "150"
 "shadow_mode" "0"
+"shadow_enabled" "0"
 "specular" "0"
 }
 // entity 130
@@ -13722,6 +13868,7 @@
 "energy" ".5"
 "range" "150"
 "shadow_mode" "0"
+"shadow_enabled" "0"
 "specular" "0"
 }
 // entity 131
@@ -13732,6 +13879,7 @@
 "energy" ".5"
 "range" "150"
 "shadow_mode" "0"
+"shadow_enabled" "0"
 "specular" "0"
 }
 // entity 132
@@ -13742,6 +13890,7 @@
 "energy" ".5"
 "range" "150"
 "shadow_mode" "0"
+"shadow_enabled" "0"
 "specular" "0"
 }
 // entity 133
@@ -13752,6 +13901,7 @@
 "energy" ".5"
 "range" "150"
 "shadow_mode" "0"
+"shadow_enabled" "0"
 "specular" "0"
 }
 // entity 134
@@ -13762,6 +13912,7 @@
 "energy" ".5"
 "range" "150"
 "shadow_mode" "0"
+"shadow_enabled" "0"
 "specular" "0"
 }
 // entity 135
@@ -13772,6 +13923,7 @@
 "energy" ".5"
 "range" "175"
 "shadow_mode" "0"
+"shadow_enabled" "0"
 "specular" "0"
 }
 // entity 136
@@ -13782,6 +13934,7 @@
 "energy" ".5"
 "range" "250"
 "shadow_mode" "0"
+"shadow_enabled" "0"
 "specular" "0"
 }
 // entity 137
@@ -13850,6 +14003,8 @@
 // entity 140
 {
 "classname" "Checkpoints_Start"
+"spawn_position" "0 0 0"
+"spawn_rotation" "0"
 "origin" "-957.5 2888.5 270"
 "angle" "0"
 }
@@ -14241,8 +14396,11 @@
 }
 // entity 157
 {
-"classname" "RythmElements_Sequencers_ModifySpatialMaterialParam_Pulse_Spatial"
-"params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_place_lights_s_2.json"
+"classname" "RythmElements_Sequencers_Spatial"
+"active_on_signals" "kick"
+"active_on_steps" "1"
+"init_index" "1"
+"params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_place_lights.json"
 // brush 0
 {
 ( 11484.12644344909 -1616 187.53408911117003 ) ( 13116.410386864743 34.637949643958564 2899.5338188790556 ) ( 11484.126443448511 -1664 187.53408911152118 ) scenes/tutorial_scene/Sequencer1 [ 0 -1 0 0 ] [ 0.5155632173237562 0 0.8568515442845257 0.03564453 ] 0 1 1
@@ -14268,8 +14426,11 @@
 }
 // entity 158
 {
-"classname" "RythmElements_Sequencers_ModifySpatialMaterialParam_Pulse_Spatial"
-"params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_place_lights_s_3.json"
+"classname" "RythmElements_Sequencers_Spatial"
+"active_on_signals" "kick"
+"active_on_steps" "2"
+"init_index" "2"
+"params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_place_lights.json"
 // brush 0
 {
 ( 12554.589709324558 16 1957.2929362384602 ) ( 12570.589720284395 0 1989.2929543592659 ) ( 11484.130562557573 -1039.9960570477997 187.54092012000183 ) scenes/tutorial_scene/Sequencer1 [ 0 -1 0 0 ] [ 0.5155632173237562 0 0.8568515442845257 0.03564453 ] 0 1 1
@@ -14295,8 +14456,11 @@
 }
 // entity 159
 {
-"classname" "RythmElements_Sequencers_ModifySpatialMaterialParam_Pulse_Spatial"
-"params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_place_lights_s_4.json"
+"classname" "RythmElements_Sequencers_Spatial"
+"active_on_signals" "kick"
+"active_on_steps" "3"
+"init_index" "3"
+"params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_place_lights.json"
 // brush 0
 {
 ( 11979.40348698864 16 1003.4209469103885 ) ( 11995.403488670043 0 1035.420960638723 ) ( 11484.128394386007 -463.9982087356693 187.5373244877866 ) scenes/tutorial_scene/Sequencer1 [ 0 -1 0 0 ] [ 0.5155632173237562 0 0.8568515442845257 0.03564453 ] 0 1 1
@@ -14322,8 +14486,12 @@
 }
 // entity 160
 {
-"classname" "RythmElements_Sequencers_ModifySpatialMaterialParam_Pulse_Spatial"
-"params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_place_lights_s_1.json"
+"classname" "RythmElements_Sequencers_Spatial"
+"active_on_signals" "kick"
+
+"active_on_steps" "0"
+"init_index" "0"
+"params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_place_lights.json"
 // brush 0
 {
 ( 13720.940002775955 16 3891.534089118324 ) ( 13736.940002770749 0 3923.5340891141313 ) ( 11484.126443449266 -2192 187.53408911103907 ) scenes/tutorial_scene/Sequencer1 [ 0 -1 0 0 ] [ 0.5155632173237562 0 0.8568515442845257 0.03564453 ] 0 1 1
@@ -14355,6 +14523,7 @@
 "energy" ".5"
 "range" "150"
 "shadow_mode" "0"
+"shadow_enabled" "0"
 "specular" "0"
 }
 // entity 162
@@ -14364,6 +14533,7 @@
 "color" "0 255 200"
 "energy" ".5"
 "range" "150"
+"shadow_enabled" "0"
 "specular" "0"
 "shadow_mode" "0"
 }
@@ -14375,6 +14545,7 @@
 "energy" ".5"
 "range" "150"
 "specular" "0"
+"shadow_enabled" "0"
 "shadow_mode" "0"
 }
 // entity 164
@@ -14385,6 +14556,7 @@
 "energy" ".5"
 "range" "150"
 "specular" "0"
+"shadow_enabled" "0"
 "shadow_mode" "0"
 }
 // entity 165
@@ -14395,6 +14567,7 @@
 "energy" "1"
 "range" "200"
 "shadow_mode" "1"
+"shadow_enabled" "0"
 "specular" "0.5"
 }
 // entity 166
@@ -14405,6 +14578,7 @@
 "energy" ".5"
 "range" "400"
 "shadow_mode" "1"
+"shadow_enabled" "0"
 "specular" "0.5"
 }
 // entity 167
@@ -14415,12 +14589,16 @@
 "energy" "1"
 "range" "400"
 "shadow_mode" "1"
+"shadow_enabled" "0"
 "specular" "0.5"
 }
 // entity 168
 {
-"classname" "RythmElements_Sequencers_ModifySpatialMaterialParam_Pulse_Spatial"
-"params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_place_lights_s_2.json"
+"classname" "RythmElements_Sequencers_Spatial"
+"active_on_signals" "kick"
+"active_on_steps" "1"
+"init_index" "1"
+"params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_place_lights.json"
 // brush 0
 {
 ( 3664 -218 261 ) ( 3664 -250 260 ) ( 3664 -218 260 ) scenes/tutorial_scene/Sequencer1 [ -2.220446049250313e-16 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -14460,8 +14638,11 @@
 }
 // entity 169
 {
-"classname" "RythmElements_Sequencers_ModifySpatialMaterialParam_Pulse_Spatial"
-"params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_place_lights_s_3.json"
+"classname" "RythmElements_Sequencers_Spatial"
+"active_on_signals" "kick"
+"active_on_steps" "2"
+"init_index" "2"
+"params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_place_lights.json"
 // brush 0
 {
 ( 4016 -334 261 ) ( 4016 338 260 ) ( 4016 338 261 ) scenes/tutorial_scene/Sequencer1 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -14501,8 +14682,11 @@
 }
 // entity 170
 {
-"classname" "RythmElements_Sequencers_ModifySpatialMaterialParam_Pulse_Spatial"
-"params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_place_lights_s_4.json"
+"classname" "RythmElements_Sequencers_Spatial"
+"active_on_signals" "kick"
+"active_on_steps" "3"
+"init_index" "3"
+"params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_place_lights.json"
 // brush 0
 {
 ( 3888 22 261 ) ( 3888 -10 260 ) ( 3888 22 260 ) scenes/tutorial_scene/Sequencer1 [ -2.220446049250313e-16 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -14515,8 +14699,11 @@
 }
 // entity 171
 {
-"classname" "RythmElements_Sequencers_ModifySpatialMaterialParam_Pulse_Spatial"
-"params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_place_lights_s_1.json"
+"classname" "RythmElements_Sequencers_Spatial"
+"active_on_signals" "kick"
+"active_on_steps" "0"
+"init_index" "0"
+"params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_place_lights.json"
 // brush 0
 {
 ( 4224 -334 261 ) ( 4224 338 260 ) ( 4224 338 261 ) scenes/tutorial_scene/Sequencer1 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -14556,8 +14743,11 @@
 }
 // entity 172
 {
-"classname" "RythmElements_Sequencers_ModifySpatialMaterialParam_Pulse_Spatial"
-"params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_tunnel_lights_s_1.json"
+"classname" "RythmElements_Sequencers_Spatial"
+"active_on_signals" "kick"
+"active_on_steps" "0"
+"init_index" "0"
+"params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_tunnel_lights.json"
 // brush 0
 {
 ( 4272 518 261 ) ( 4272 486 260 ) ( 4272 518 260 ) scenes/tutorial_scene/Sequencer1 [ -2.220446049250313e-16 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -14570,8 +14760,11 @@
 }
 // entity 173
 {
-"classname" "RythmElements_Sequencers_ModifySpatialMaterialParam_Pulse_Spatial"
-"params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_tunnel_lights_s_2.json"
+"classname" "RythmElements_Sequencers_Spatial"
+"active_on_signals" "kick"
+"active_on_steps" "1"
+"init_index" "0"
+"params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_tunnel_lights.json"
 // brush 0
 {
 ( 4272 1046 279 ) ( 4272 1014 278 ) ( 4272 1046 278 ) scenes/tutorial_scene/Sequencer1 [ -2.220446049250313e-16 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -14584,8 +14777,11 @@
 }
 // entity 174
 {
-"classname" "RythmElements_Sequencers_ModifySpatialMaterialParam_Pulse_Spatial"
-"params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_tunnel_lights_s_3.json"
+"classname" "RythmElements_Sequencers_Spatial"
+"active_on_signals" "kick"
+"active_on_steps" "2"
+"init_index" "0"
+"params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_tunnel_lights.json"
 // brush 0
 {
 ( 3792 1046 375 ) ( 3792 1014 374 ) ( 3792 1046 374 ) scenes/tutorial_scene/Sequencer1 [ -2.220446049250313e-16 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -14598,8 +14794,11 @@
 }
 // entity 175
 {
-"classname" "RythmElements_Sequencers_ModifySpatialMaterialParam_Pulse_Spatial"
-"params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_tunnel_lights_s_4.json"
+"classname" "RythmElements_Sequencers_Spatial"
+"active_on_signals" "kick"
+"active_on_steps" "3"
+"init_index" "0"
+"params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_tunnel_lights.json"
 // brush 0
 {
 ( 3792 438 455 ) ( 3792 406 454 ) ( 3792 438 454 ) scenes/tutorial_scene/Sequencer1 [ -2.220446049250313e-16 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -14612,8 +14811,11 @@
 }
 // entity 176
 {
-"classname" "RythmElements_Sequencers_ModifySpatialMaterialParam_Pulse_Spatial"
-"params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_tunnel_lights_s_1.json"
+"classname" "RythmElements_Sequencers_Spatial"
+"active_on_signals" "kick"
+"active_on_steps" "0"
+"init_index" "0"
+"params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_tunnel_lights.json"
 // brush 0
 {
 ( 3888 230 455 ) ( 3888 198 454 ) ( 3888 230 454 ) scenes/tutorial_scene/Sequencer1 [ -2.220446049250313e-16 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -14626,8 +14828,11 @@
 }
 // entity 177
 {
-"classname" "RythmElements_Sequencers_ModifySpatialMaterialParam_Pulse_Spatial"
-"params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_tunnel_lights_s_2.json"
+"classname" "RythmElements_Sequencers_Spatial"
+"active_on_signals" "kick"
+"active_on_steps" "1"
+"init_index" "0"
+"params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_tunnel_lights.json"
 // brush 0
 {
 ( 3776 6 455 ) ( 3776 -26 454 ) ( 3776 6 454 ) scenes/tutorial_scene/Sequencer1 [ -2.220446049250313e-16 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -14640,8 +14845,11 @@
 }
 // entity 178
 {
-"classname" "RythmElements_Sequencers_ModifySpatialMaterialParam_Pulse_Spatial"
-"params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_tunnel_lights_s_3.json"
+"classname" "RythmElements_Sequencers_Spatial"
+"active_on_signals" "kick"
+"active_on_steps" "2"
+"init_index" "0"
+"params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_tunnel_lights.json"
 // brush 0
 {
 ( 3888 -186 455 ) ( 3888 -218 454 ) ( 3888 -186 454 ) scenes/tutorial_scene/Sequencer1 [ -2.220446049250313e-16 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -14654,8 +14862,11 @@
 }
 // entity 179
 {
-"classname" "RythmElements_Sequencers_ModifySpatialMaterialParam_Pulse_Spatial"
-"params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_tunnel_lights_s_4.json"
+"classname" "RythmElements_Sequencers_Spatial"
+"active_on_signals" "kick"
+"active_on_steps" "3"
+"init_index" "0"
+"params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_tunnel_lights.json"
 // brush 0
 {
 ( 3792 -378 455 ) ( 3792 -410 454 ) ( 3792 -378 454 ) scenes/tutorial_scene/Sequencer1 [ -2.220446049250313e-16 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -14674,6 +14885,7 @@
 "energy" ".5"
 "range" "250"
 "shadow_mode" "1"
+"shadow_enabled" "0"
 "specular" "0.5"
 }
 // entity 181
@@ -14684,6 +14896,7 @@
 "energy" ".5"
 "range" "250"
 "shadow_mode" "1"
+"shadow_enabled" "0"
 "specular" "0.5"
 }
 // entity 182
@@ -14694,6 +14907,7 @@
 "energy" ".5"
 "range" "250"
 "shadow_mode" "1"
+"shadow_enabled" "0"
 "specular" "0.5"
 }
 // entity 183
@@ -14704,6 +14918,7 @@
 "energy" ".5"
 "range" "250"
 "shadow_mode" "1"
+"shadow_enabled" "0"
 "specular" "0.5"
 }
 // entity 184
@@ -14714,6 +14929,7 @@
 "energy" ".5"
 "range" "250"
 "shadow_mode" "1"
+"shadow_enabled" "0"
 "specular" "0.5"
 }
 // entity 185
@@ -14724,6 +14940,7 @@
 "energy" ".5"
 "range" "250"
 "shadow_mode" "1"
+"shadow_enabled" "0"
 "specular" "0.5"
 }
 // entity 186
@@ -14734,6 +14951,7 @@
 "energy" ".5"
 "range" "250"
 "shadow_mode" "1"
+"shadow_enabled" "0"
 "specular" "0.5"
 }
 // entity 187
@@ -14743,6 +14961,7 @@
 "color" "0 0 255"
 "energy" ".5"
 "range" "250"
+"shadow_enabled" "0"
 "shadow_mode" "1"
 "specular" "0.5"
 }
@@ -14753,6 +14972,7 @@
 "color" "110 210 255"
 "energy" "1"
 "range" "250"
+"shadow_enabled" "0"
 "shadow_mode" "1"
 "specular" "0.5"
 }
@@ -14763,13 +14983,17 @@
 "color" "110 210 255"
 "energy" "1"
 "range" "500"
+"shadow_enabled" "0"
 "shadow_mode" "1"
 "specular" "0.5"
 }
 // entity 190
 {
-"classname" "RythmElements_Sequencers_ModifySpatialMaterialParam_Pulse_Spatial"
-"params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_place_lights_s_1.json"
+"classname" "RythmElements_Sequencers_Spatial"
+"active_on_signals" "kick"
+"active_on_steps" "0"
+"init_index" "0"
+"params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_place_lights.json"
 // brush 0
 {
 ( 7248 1056 -245 ) ( 7248 1072 -246 ) ( 7248 1072 -245 ) scenes/tutorial_scene/Sequencer1 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -14809,8 +15033,11 @@
 }
 // entity 191
 {
-"classname" "RythmElements_Sequencers_ModifySpatialMaterialParam_Pulse_Spatial"
-"params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_place_lights_s_3.json"
+"classname" "RythmElements_Sequencers_Spatial"
+"active_on_signals" "kick"
+"active_on_steps" "2"
+"init_index" "2"
+"params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_place_lights.json"
 // brush 0
 {
 ( 7411.805826175842 1225.4314575050903 -245.3349223256645 ) ( 7411.805826175838 1140.911688245431 -245.66507767433447 ) ( 7411.805826175842 1225.4314575050903 -245.66507767433447 ) scenes/tutorial_scene/Sequencer1 [ -2.220446049250313e-16 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -14850,8 +15077,11 @@
 }
 // entity 192
 {
-"classname" "RythmElements_Sequencers_ModifySpatialMaterialParam_Pulse_Spatial"
-"params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_place_lights_s_4.json"
+"classname" "RythmElements_Sequencers_Spatial"
+"active_on_signals" "kick"
+"active_on_steps" "3"
+"init_index" "3"
+"params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_place_lights.json"
 // brush 0
 {
 ( 7372.485281374235 1187.5147186257634 -245.39016504294491 ) ( 7372.48528137423 1180.4852813742295 -245.60983495705594 ) ( 7372.485281374235 1187.5147186257634 -245.60983495705594 ) scenes/tutorial_scene/Sequencer1 [ -2.220446049250313e-16 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -14864,8 +15094,11 @@
 }
 // entity 193
 {
-"classname" "RythmElements_Sequencers_ModifySpatialMaterialParam_Pulse_Spatial"
-"params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_place_lights_s_2.json"
+"classname" "RythmElements_Sequencers_Spatial"
+"active_on_signals" "kick"
+"active_on_steps" "1"
+"init_index" "1"
+"params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_place_lights.json"
 // brush 0
 {
 ( 7311.798989873221 1110.627416997967 -245.21338834764828 ) ( 7311.798989873223 1119.7989898732221 -245.78661165235195 ) ( 7311.798989873223 1119.7989898732221 -245.21338834764828 ) scenes/tutorial_scene/Sequencer1 [ 2.7755575615628914e-16 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -14905,8 +15138,11 @@
 }
 // entity 194
 {
-"classname" "RythmElements_Sequencers_ModifySpatialMaterialParam_Pulse_Spatial"
-"params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_place_lights_s_1.json"
+"classname" "RythmElements_Sequencers_Spatial"
+"active_on_signals" "kick"
+"active_on_steps" "0"
+"init_index" "0"
+"params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_place_lights.json"
 // brush 0
 {
 ( 7632 942 -293 ) ( 7632 958 -294 ) ( 7632 958 -293 ) scenes/tutorial_scene/Sequencer1 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -14946,8 +15182,11 @@
 }
 // entity 195
 {
-"classname" "RythmElements_Sequencers_ModifySpatialMaterialParam_Pulse_Spatial"
-"params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_place_lights_s_2.json"
+"classname" "RythmElements_Sequencers_Spatial"
+"active_on_signals" "kick"
+"active_on_steps" "1"
+"init_index" "1"
+"params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_place_lights.json"
 // brush 0
 {
 ( 7824.20101012678 1143.3725830020367 -293.2133883476482 ) ( 7824.201010126781 996.6274169979679 -293.7866116523519 ) ( 7824.20101012678 1143.3725830020367 -293.7866116523519 ) scenes/tutorial_scene/Sequencer1 [ -2.220446049250313e-16 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -14987,8 +15226,11 @@
 }
 // entity 196
 {
-"classname" "RythmElements_Sequencers_ModifySpatialMaterialParam_Pulse_Spatial"
-"params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_place_lights_s_3.json"
+"classname" "RythmElements_Sequencers_Spatial"
+"active_on_signals" "kick"
+"active_on_steps" "2"
+"init_index" "2"
+"params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_place_lights.json"
 // brush 0
 {
 ( 7795.805826175842 1111.4314575050903 -293.3349223256645 ) ( 7795.805826175838 1026.911688245431 -293.66507767433444 ) ( 7795.805826175842 1111.4314575050903 -293.66507767433444 ) scenes/tutorial_scene/Sequencer1 [ -2.220446049250313e-16 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -15028,8 +15270,11 @@
 }
 // entity 197
 {
-"classname" "RythmElements_Sequencers_ModifySpatialMaterialParam_Pulse_Spatial"
-"params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_place_lights_s_4.json"
+"classname" "RythmElements_Sequencers_Spatial"
+"active_on_signals" "kick"
+"active_on_steps" "3"
+"init_index" "3"
+"params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_place_lights.json"
 // brush 0
 {
 ( 7756.485281374235 1073.5147186257634 -293.3901650429449 ) ( 7756.48528137423 1066.4852813742295 -293.6098349570559 ) ( 7756.485281374235 1073.5147186257634 -293.6098349570559 ) scenes/tutorial_scene/Sequencer1 [ -2.220446049250313e-16 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -16996,6 +17241,7 @@
 "energy" "1"
 "range" "500"
 "shadow_mode" "1"
+"shadow_enabled" "0"
 "specular" "0.5"
 }
 // entity 200
@@ -17006,6 +17252,7 @@
 "energy" "1"
 "range" "500"
 "shadow_mode" "1"
+"shadow_enabled" "0"
 "specular" "0.5"
 }
 // entity 201
@@ -17016,6 +17263,7 @@
 "energy" "1"
 "range" "500"
 "shadow_mode" "1"
+"shadow_enabled" "0"
 "specular" "0.5"
 }
 // entity 202
@@ -17026,6 +17274,7 @@
 "energy" "1"
 "range" "500"
 "shadow_mode" "1"
+"shadow_enabled" "0"
 "specular" "0.5"
 }
 // entity 203
@@ -17036,6 +17285,7 @@
 "energy" "1"
 "range" "500"
 "shadow_mode" "1"
+"shadow_enabled" "0"
 "specular" "0.5"
 }
 // entity 204
@@ -17046,6 +17296,7 @@
 "energy" "1"
 "range" "500"
 "shadow_mode" "1"
+"shadow_enabled" "0"
 "specular" "0.5"
 }
 // entity 205
@@ -17056,6 +17307,7 @@
 "energy" "1"
 "range" "500"
 "shadow_mode" "1"
+"shadow_enabled" "0"
 "specular" "0.5"
 }
 // entity 206
@@ -17066,6 +17318,7 @@
 "energy" "1"
 "range" "500"
 "shadow_mode" "1"
+"shadow_enabled" "0"
 "specular" "0.5"
 }
 // entity 207
@@ -17076,6 +17329,7 @@
 "energy" "1"
 "range" "500"
 "shadow_mode" "1"
+"shadow_enabled" "0"
 "specular" "0.5"
 }
 // entity 208
@@ -17086,6 +17340,7 @@
 "energy" "1"
 "range" "500"
 "shadow_mode" "1"
+"shadow_enabled" "0"
 "specular" "0.5"
 }
 // entity 209
@@ -17096,6 +17351,7 @@
 "energy" "1"
 "range" "500"
 "shadow_mode" "1"
+"shadow_enabled" "0"
 "specular" "0.5"
 }
 // entity 210
@@ -17106,6 +17362,7 @@
 "energy" "1"
 "range" "500"
 "shadow_mode" "1"
+"shadow_enabled" "0"
 "specular" "0.5"
 }
 // entity 211
@@ -17116,6 +17373,7 @@
 "energy" "1"
 "range" "500"
 "shadow_mode" "1"
+"shadow_enabled" "0"
 "specular" "0.5"
 }
 // entity 212
@@ -17126,6 +17384,7 @@
 "energy" "1"
 "range" "500"
 "shadow_mode" "1"
+"shadow_enabled" "0"
 "specular" "0.5"
 }
 // entity 213
@@ -17136,11 +17395,14 @@
 "energy" "1"
 "range" "500"
 "shadow_mode" "1"
+"shadow_enabled" "0"
 "specular" "0.5"
 }
 // entity 214
 {
 "classname" "StaticBodyGroup"
+"collision_layer" "2"
+"collision_mask" "5"
 // brush 0
 {
 ( 3308 1237 854 ) ( 3308 997 854 ) ( 3308 997 -234 ) scenes/tutorial_scene/Hexagon1 [ -4.440892098500626e-16 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -17608,6 +17870,8 @@
 // entity 216
 {
 "classname" "StaticBodyGroup"
+"collision_layer" "2"
+"collision_mask" "5"
 // brush 0
 {
 ( 3237 684 -450 ) ( 3237 684 638 ) ( 3237 524 494 ) scenes/tutorial_scene/Hexagon1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -18075,6 +18339,8 @@
 // entity 218
 {
 "classname" "StaticBodyGroup"
+"collision_layer" "2"
+"collision_mask" "5"
 // brush 0
 {
 ( 2857.8715369815045 1959.334523779156 542 ) ( 3027.5771644662755 1789.6288962943845 542 ) ( 3027.5771644662755 1789.6288962943845 -546 ) scenes/tutorial_scene/Hexagon1 [ 1.1102230246251565e-16 1.0000000000000002 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -18542,6 +18808,8 @@
 // entity 220
 {
 "classname" "StaticBodyGroup"
+"collision_layer" "2"
+"collision_mask" "5"
 // brush 0
 {
 ( 4949 1492 -546 ) ( 4949 1492 542 ) ( 4949 1332 398 ) scenes/tutorial_scene/Hexagon1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -19009,6 +19277,8 @@
 // entity 222
 {
 "classname" "StaticBodyGroup"
+"collision_layer" "2"
+"collision_mask" "5"
 // brush 0
 {
 ( 3933 1700 -146 ) ( 3933 1700 942 ) ( 3933 1540 798 ) scenes/tutorial_scene/Hexagon1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -19476,6 +19746,8 @@
 // entity 224
 {
 "classname" "StaticBodyGroup"
+"collision_layer" "2"
+"collision_mask" "5"
 // brush 0
 {
 ( 3947 -1692 934 ) ( 3947 -1852 1078 ) ( 3947 -1852 -10 ) scenes/tutorial_scene/Hexagon1 [ 3.3306690738754696e-16 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -19943,6 +20215,8 @@
 // entity 226
 {
 "classname" "StaticBodyGroup"
+"collision_layer" "2"
+"collision_mask" "5"
 // brush 0
 {
 ( 4476 -2459 542 ) ( 4476 -2699 542 ) ( 4476 -2699 -546 ) scenes/tutorial_scene/Hexagon1 [ 1.1102230246251565e-16 1.0000000000000002 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -20410,6 +20684,8 @@
 // entity 228
 {
 "classname" "StaticBodyGroup"
+"collision_layer" "2"
+"collision_mask" "5"
 // brush 0
 {
 ( 4836 -1891 390 ) ( 4836 -2131 390 ) ( 4836 -2131 -698 ) scenes/tutorial_scene/Hexagon1 [ 1.1102230246251565e-16 1.0000000000000002 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -20877,6 +21153,8 @@
 // entity 230
 {
 "classname" "StaticBodyGroup"
+"collision_layer" "2"
+"collision_mask" "5"
 // brush 0
 {
 ( 5515 -1660 182 ) ( 5515 -1820 326 ) ( 5515 -1820 -762 ) scenes/tutorial_scene/Hexagon1 [ 3.3306690738754696e-16 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -21344,6 +21622,8 @@
 // entity 232
 {
 "classname" "StaticBodyGroup"
+"collision_layer" "2"
+"collision_mask" "5"
 // brush 0
 {
 ( 6204 -1939 294 ) ( 6204 -2179 294 ) ( 6204 -2179 -794 ) scenes/tutorial_scene/Hexagon1 [ 1.1102230246251565e-16 1.0000000000000002 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -21811,6 +22091,8 @@
 // entity 234
 {
 "classname" "StaticBodyGroup"
+"collision_layer" "2"
+"collision_mask" "5"
 // brush 0
 {
 ( 7091 -980 102 ) ( 7091 -1140 246 ) ( 7091 -1140 -842 ) scenes/tutorial_scene/Hexagon1 [ 3.3306690738754696e-16 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -22278,6 +22560,8 @@
 // entity 236
 {
 "classname" "StaticBodyGroup"
+"collision_layer" "2"
+"collision_mask" "5"
 // brush 0
 {
 ( 6740 -293 246 ) ( 6740 -533 246 ) ( 6740 -533 -698 ) scenes/tutorial_scene/Hexagon1 [ -1.1102230246251565e-16 -1.0000000000000002 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -22745,6 +23029,8 @@
 // entity 238
 {
 "classname" "StaticBodyGroup"
+"collision_layer" "2"
+"collision_mask" "5"
 // brush 0
 {
 ( 6383.528391230995 -1436.9913780286488 374 ) ( 6496.665476220843 -1550.1284630184964 518 ) ( 6496.665476220843 -1550.1284630184964 -570 ) scenes/tutorial_scene/Hexagon1 [ 1.0000000000000002 -1.1102230246251565e-16 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -23212,6 +23498,8 @@
 // entity 240
 {
 "classname" "StaticBodyGroup"
+"collision_layer" "2"
+"collision_mask" "5"
 // brush 0
 {
 ( 7472.675027757221 332.31793068761726 6 ) ( 7392.675027757221 193.75386608210647 150 ) ( 7392.675027757221 193.75386608210647 -938 ) scenes/tutorial_scene/Hexagon1 [ 3.3306690738754696e-16 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -23679,6 +23967,8 @@
 // entity 242
 {
 "classname" "StaticBodyGroup"
+"collision_layer" "2"
+"collision_mask" "5"
 // brush 0
 {
 ( 8204 -2395 542 ) ( 8204 -2635 542 ) ( 8204 -2635 -546 ) scenes/tutorial_scene/Hexagon1 [ 1.1102230246251565e-16 1.0000000000000002 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -24146,6 +24436,8 @@
 // entity 244
 {
 "classname" "StaticBodyGroup"
+"collision_layer" "2"
+"collision_mask" "5"
 // brush 0
 {
 ( 7763.008621971351 -1543.528391230996 142 ) ( 7649.871536981504 -1656.6654762208445 286 ) ( 7649.871536981504 -1656.6654762208445 -802 ) scenes/tutorial_scene/Hexagon1 [ 3.3306690738754696e-16 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -24613,6 +24905,8 @@
 // entity 246
 {
 "classname" "StaticBodyGroup"
+"collision_layer" "2"
+"collision_mask" "5"
 // brush 0
 {
 ( 9081.506612105453 -1417.2151981830557 398 ) ( 8911.800984620682 -1586.920825667828 398 ) ( 8911.800984620682 -1586.920825667828 -546 ) scenes/tutorial_scene/Hexagon1 [ -1.1102230246251565e-16 -1.0000000000000002 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -25080,6 +25374,8 @@
 // entity 248
 {
 "classname" "StaticBodyGroup"
+"collision_layer" "2"
+"collision_mask" "5"
 // brush 0
 {
 ( 9428 -581 342 ) ( 9428 -821 342 ) ( 9428 -821 -602 ) scenes/tutorial_scene/Hexagon1 [ -1.1102230246251565e-16 -1.0000000000000002 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -25547,6 +25843,8 @@
 // entity 250
 {
 "classname" "StaticBodyGroup"
+"collision_layer" "2"
+"collision_mask" "5"
 // brush 0
 {
 ( 8579 -612 398 ) ( 8579 -772 542 ) ( 8579 -772 -546 ) scenes/tutorial_scene/Hexagon1 [ 3.3306690738754696e-16 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -26014,6 +26312,8 @@
 // entity 252
 {
 "classname" "StaticBodyGroup"
+"collision_layer" "2"
+"collision_mask" "5"
 // brush 0
 {
 ( 4285 1700 -466 ) ( 4285 1700 622 ) ( 4285 1540 478 ) scenes/tutorial_scene/Hexagon1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -26481,6 +26781,8 @@
 // entity 254
 {
 "classname" "StaticBodyGroup"
+"collision_layer" "2"
+"collision_mask" "5"
 // brush 0
 {
 ( 3581 1700 -354 ) ( 3581 1700 734 ) ( 3581 1540 590 ) scenes/tutorial_scene/Hexagon1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -26948,6 +27250,8 @@
 // entity 256
 {
 "classname" "StaticBodyGroup"
+"collision_layer" "2"
+"collision_mask" "5"
 // brush 0
 {
 ( 4947 1652 254 ) ( 4947 1492 398 ) ( 4947 1492 -690 ) scenes/tutorial_scene/Hexagon1 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -27415,6 +27719,8 @@
 // entity 258
 {
 "classname" "StaticBodyGroup"
+"collision_layer" "2"
+"collision_mask" "5"
 // brush 0
 {
 ( 5572 1547 -146 ) ( 5572 1307 -146 ) ( 5572 1307 -1090 ) scenes/tutorial_scene/Hexagon1 [ -2.220446049250313e-16 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -27882,6 +28188,8 @@
 // entity 260
 {
 "classname" "StaticBodyGroup"
+"collision_layer" "2"
+"collision_mask" "5"
 // brush 0
 {
 ( 3254.8244184429277 -1340.9476211469077 638 ) ( 3374.8244184429277 -1548.7937180551735 638 ) ( 3374.8244184429277 -1548.7937180551735 -450 ) scenes/tutorial_scene/Hexagon1 [ 2.220446049250313e-16 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -28349,6 +28657,8 @@
 // entity 262
 {
 "classname" "StaticBodyGroup"
+"collision_layer" "2"
+"collision_mask" "5"
 // brush 0
 {
 ( 3013.343145750508 -726.3431457505067 134 ) ( 3013.3431457505076 -886.3431457505071 278 ) ( 3013.3431457505076 -886.3431457505071 -810 ) scenes/tutorial_scene/Hexagon1 [ 2.7755575615628914e-16 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -28816,6 +29126,8 @@
 // entity 264
 {
 "classname" "StaticBodyGroup"
+"collision_layer" "2"
+"collision_mask" "5"
 // brush 0
 {
 ( 3460 -2387 1030 ) ( 3460 -2627 1030 ) ( 3460 -2627 -58 ) scenes/tutorial_scene/Hexagon1 [ 1.1102230246251565e-16 1.0000000000000002 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -29283,6 +29595,8 @@
 // entity 266
 {
 "classname" "StaticBodyGroup"
+"collision_layer" "2"
+"collision_mask" "5"
 // brush 0
 {
 ( 7484 -315 158 ) ( 7484 -555 158 ) ( 7484 -555 -930 ) scenes/tutorial_scene/Hexagon1 [ 1.1102230246251565e-16 1.0000000000000002 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -31698,6 +32012,8 @@
 // entity 269
 {
 "classname" "StaticBodyGroup"
+"collision_layer" "2"
+"collision_mask" "5"
 // brush 0
 {
 ( 6805 1892 -802 ) ( 6805 1892 286 ) ( 6805 1732 142 ) scenes/tutorial_scene/Hexagon1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -32165,6 +32481,8 @@
 // entity 271
 {
 "classname" "StaticBodyGroup"
+"collision_layer" "2"
+"collision_mask" "5"
 // brush 0
 {
 ( 7539.285750543877 2097.234018715768 -18 ) ( 7708.991378028649 1927.528391230997 -18 ) ( 7708.991378028649 1927.528391230997 -962 ) scenes/tutorial_scene/Hexagon1 [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -32632,6 +32950,8 @@
 // entity 273
 {
 "classname" "StaticBodyGroup"
+"collision_layer" "2"
+"collision_mask" "5"
 // brush 0
 {
 ( 9140 1179 142 ) ( 9140 939 142 ) ( 9140 939 -802 ) scenes/tutorial_scene/Hexagon1 [ -2.220446049250313e-16 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -33553,6 +33873,8 @@
 // entity 276
 {
 "classname" "StaticBodyGroup"
+"collision_layer" "2"
+"collision_mask" "5"
 // brush 0
 {
 ( 8325 1956 -802 ) ( 8325 1956 286 ) ( 8325 1796 142 ) scenes/tutorial_scene/Hexagon1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -34020,6 +34342,8 @@
 // entity 278
 {
 "classname" "StaticBodyGroup"
+"collision_layer" "2"
+"collision_mask" "5"
 // brush 0
 {
 ( 6597 2740 -1090 ) ( 6597 2740 -2 ) ( 6597 2580 -146 ) scenes/tutorial_scene/Hexagon1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -34487,6 +34811,8 @@
 // entity 280
 {
 "classname" "StaticBodyGroup"
+"collision_layer" "2"
+"collision_mask" "5"
 // brush 0
 {
 ( 5851.478875334515 2251.2461339178926 -1090 ) ( 5851.478875334515 2251.2461339178926 -2 ) ( 5931.478875334515 2112.6820693123827 -146 ) scenes/tutorial_scene/Hexagon1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -34954,6 +35280,8 @@
 // entity 282
 {
 "classname" "StaticBodyGroup"
+"collision_layer" "2"
+"collision_mask" "5"
 // brush 0
 {
 ( 8076 2629 -2 ) ( 8076 2389 -2 ) ( 8076 2389 -1090 ) scenes/tutorial_scene/Hexagon1 [ 2.220446049250313e-16 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -35421,6 +35749,8 @@
 // entity 284
 {
 "classname" "StaticBodyGroup"
+"collision_layer" "2"
+"collision_mask" "5"
 // brush 0
 {
 ( 8723.285750543875 1569.2340187157697 -34 ) ( 8892.991378028646 1399.528391230997 -34 ) ( 8892.991378028646 1399.528391230997 -978 ) scenes/tutorial_scene/Hexagon1 [ -2.220446049250313e-16 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -35900,6 +36230,8 @@
 // entity 289
 {
 "classname" "Checkpoints_End"
+"spawn_position" "0 0 0"
+"spawn_rotation" "0"
 "collision_layer" "2"
 "collision_mask" "5"
 // brush 0
@@ -35914,42 +36246,14 @@
 }
 // entity 290
 {
-"classname" "TriggerSongAnimationChange"
-"animation" "part2"
+"classname" "RythmElements_Sequencers_Spatial"
+"active_on_signals" "kick"
 "collision_layer" "2"
 "collision_mask" "5"
-// brush 0
-{
-( -848 2784 292 ) ( -848 2848 260 ) ( -848 2848 292 ) common/material_override/Transparent [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -776 2784 292 ) ( -848 2784 260 ) ( -848 2784 292 ) common/material_override/Transparent [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -776 2848 260 ) ( -848 2784 260 ) ( -776 2784 260 ) common/material_override/Transparent [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -776 2848 292 ) ( -848 2784 292 ) ( -848 2848 292 ) common/material_override/Transparent [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -776 2848 292 ) ( -848 2848 260 ) ( -776 2848 260 ) common/material_override/Transparent [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -784 2848 292 ) ( -784 2784 260 ) ( -784 2784 292 ) common/material_override/Transparent [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-}
-}
-// entity 291
-{
-"classname" "TriggerSongAnimationChange"
-"animation" "part3"
-"collision_layer" "2"
-"collision_mask" "5"
-// brush 0
-{
-( 2560 -112 420 ) ( 2560 176 260 ) ( 2560 176 420 ) common/material_override/Transparent [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 2624 -112 420 ) ( 2576 -112 260 ) ( 2576 -112 420 ) common/material_override/Transparent [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 2624 176 260 ) ( 2576 -112 260 ) ( 2624 -112 260 ) common/material_override/Transparent [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( 2624 176 448 ) ( 2576 -112 448 ) ( 2576 176 448 ) common/material_override/Transparent [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( 2624 112 420 ) ( 2576 112 260 ) ( 2624 112 260 ) common/material_override/Transparent [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 2624 176 420 ) ( 2624 -112 260 ) ( 2624 -112 420 ) common/material_override/Transparent [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-}
-}
-// entity 292
-{
-"classname" "RythmElements_Sequencers_ModifySpatialMaterialParam_Pulse_Spatial"
-"collision_layer" "2"
-"collision_mask" "5"
-"params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_tunnel_lights_s_4.json"
+"active_on_signals" "kick"
+"active_on_steps" "3"
+"init_index" "0"
+"params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_tunnel_lights.json"
 // brush 0
 {
 ( 784 -1428.6673511293634 320 ) ( 784.0016969116482 -1451.493747102068 367.62123517917706 ) ( 784.0016969116482 -1429.493747102068 319.62123517917706 ) scenes/tutorial_scene/Sequencer1 [ 0.0016969151178666583 -0.9999985602385049 0 0 ] [ 0.0007777514073464436 1.3197800212367062e-06 -0.9999996975504576 0 ] 0 1 1
@@ -35987,11 +36291,14 @@
 ( 800 -1558.6344969199179 368 ) ( 799.9983030883518 -1579.8081009472132 319.62123517917706 ) ( 800 -1580.6344969199179 320 ) scenes/tutorial_scene/Sequencer1 [ -0.0016969151178666544 0.9999985602385049 0 0 ] [ -0.0007777514073464418 -1.3197800212367e-06 -0.9999996975504576 0 ] 0 1 1
 }
 }
-// entity 293
+// entity 291
 {
 "classname" "Scenery_Rotate_Spatial_Sequencer_RotateSpatialSequencerSolid"
 "rotation_speeds" "0.5 0.75 0.6"
-"params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_cube_s_1.json"
+"active_on_signals" "kick"
+"active_on_steps" "0"
+"init_index" "0"
+"params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_cube.json"
 // brush 0
 {
 ( 5243 280 62 ) ( 5243 282.1875 62 ) ( 5243 280 64.1875 ) scenes/tutorial_scene/Light1 [ -2.220446049250313e-16 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -36099,5 +36406,37 @@
 ( 5768 -280 27 ) ( 5765.8125 -280 27 ) ( 5768 -277.8125 27 ) scenes/tutorial_scene/Light1 [ 2.220446049250313e-16 -1 0 0 ] [ 1 2.220446049250313e-16 -2.2204460492503128e-16 0 ] 0 1 1
 ( 5733 -245 -638 ) ( 5730.8125 -245 -638 ) ( 5733 -245 -640.1875 ) scenes/tutorial_scene/Light1 [ 1 2.220446049250313e-16 0 0 ] [ 0 0 -1 0 ] 0 1 1
 ( 5768 -280 62 ) ( 5768 -277.8125 62 ) ( 5768 -280 59.8125 ) scenes/tutorial_scene/Light1 [ -2.220446049250313e-16 0 1 0 ] [ 0 -1 0 0 ] 0 1 1
+}
+}
+// entity 292
+{
+"classname" "TriggerSongAnimationChange"
+"animation" "part2"
+"collision_layer" "2"
+"collision_mask" "5"
+// brush 0
+{
+( -848 2784 292 ) ( -848 2864 260 ) ( -848 2864 292 ) common/material_override/Transparent [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -784 2784 292 ) ( -848 2784 260 ) ( -848 2784 292 ) common/material_override/Transparent [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -784 2864 260 ) ( -848 2784 260 ) ( -784 2784 260 ) common/material_override/Transparent [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -784 2864 292 ) ( -848 2784 292 ) ( -848 2864 292 ) common/material_override/Transparent [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -784 2848 292 ) ( -848 2848 260 ) ( -784 2848 260 ) common/material_override/Transparent [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -784 2864 292 ) ( -784 2784 260 ) ( -784 2784 292 ) common/material_override/Transparent [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+}
+// entity 293
+{
+"classname" "TriggerSongAnimationChange"
+"animation" "part3"
+"collision_layer" "2"
+"collision_mask" "5"
+// brush 0
+{
+( 2560 -112 356 ) ( 2560 112 260 ) ( 2560 112 356 ) common/material_override/Transparent [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 2592 -112 356 ) ( 2560 -112 260 ) ( 2560 -112 356 ) common/material_override/Transparent [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 2592 112 260 ) ( 2560 -112 260 ) ( 2592 -112 260 ) common/material_override/Transparent [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 2592 112 356 ) ( 2560 -112 356 ) ( 2560 112 356 ) common/material_override/Transparent [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 2592 112 356 ) ( 2560 112 260 ) ( 2592 112 260 ) common/material_override/Transparent [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 2624 112 356 ) ( 2624 -112 260 ) ( 2624 -112 356 ) common/material_override/Transparent [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }

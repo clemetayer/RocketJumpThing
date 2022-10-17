@@ -16,8 +16,6 @@ class_properties = {
 "text_direction": Vector3( 0, 0, 0 )
 }
 class_property_descriptions = {
-"collision_layer": "Collision layer",
-"collision_mask": "Collision mask",
 "scale": "Pretty much the size of the text",
 "text_direction": "direction where the text (or icon will be facing)"
 }

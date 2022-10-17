@@ -30,7 +30,7 @@ func _init_global_variables() -> void:
 
 ##### SIGNAL MANAGEMENT #####
 func _on_PlayButton_pressed():
-	get_tree().change_scene(PATHS.tutorial_scene)
+	ScenesManager.load_level("Proof of concept")
 
 
 func _on_OptionsButton_pressed():
