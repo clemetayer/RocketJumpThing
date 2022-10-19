@@ -7,7 +7,7 @@
 [resource]
 script = ExtResource( 1 )
 class_options = "----------------------------------------------------------------"
-classname = "SequencerParticlesTutorial2"
+classname = "RythmElements_Sequencers_SequencerParticlesTutorial2"
 description = "A sequencer that emits particles"
 qodot_internal = false
 base_classes = [ ExtResource( 2 ) ]

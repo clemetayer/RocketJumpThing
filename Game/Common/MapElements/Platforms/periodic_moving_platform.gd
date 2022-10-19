@@ -7,13 +7,11 @@ class_name PeriodicMovingPlatform
 ##### VARIABLES #####
 #---- CONSTANTS -----
 const TB_PERIODIC_MOVING_PLATFORM_MAPPER := [
-	["collision_layer", "collision_layer"],
-	["collision_layer", "collision_mask"],
 	["wait_time", "_wait_time"],
 	["travel_time", "_travel_time"],
 	["trans_type", "_trans_type"],
 	["ease", "_ease"],
-	["path_color", "path_color"],
+	["path_color", "_path_color"],
 	["path_emission", "_path_emission"]
 ]  # mapper for TrenchBroom parameters
 const PATH_TRANSPARENCY = 1.0  # alpha value of the material showing the path of the platform
@@ -37,6 +35,7 @@ var _ease := Tween.EASE_IN  # Tween ease
 var _desired_pos := false
 var _path_color := Color.white  # color of the platform path
 var _path_emission := 2.0  # emission intensity of the  platform path
+var _trans_type: int  # transition move type
 
 #==== ONREADY ====
 onready var onready_translation := self.translation  # keeps a record of the original position of the platform
@@ -74,6 +73,9 @@ func _process(delta):
 
 ##### PROTECTED METHODS #####
 func _set_TB_params() -> void:
+	TrenchBroomEntityUtils._map_trenchbroom_properties(
+		self, properties, Collidable.TB_COLLIDABLE_MAPPER
+	)
 	TrenchBroomEntityUtils._map_trenchbroom_properties(
 		self, properties, TB_PERIODIC_MOVING_PLATFORM_MAPPER
 	)

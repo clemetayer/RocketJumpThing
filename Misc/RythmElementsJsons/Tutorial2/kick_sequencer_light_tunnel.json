@@ -1,6 +1,7 @@
 {
   "duplicate_material": true,
-  "kick": [
+  "*": [{}],
+  "light_tunnel": [
     {
       "2": {
         "material:shader_param/step_param": {

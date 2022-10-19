@@ -724,11 +724,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/qodot/example_scenes/2-miscallaneous/1-runtime-map-building/orbit_arm.gd"
 }, {
-"base": "Particles",
-"class": "ParticlesStepSequencer",
-"language": "GDScript",
-"path": "res://Game/Common/Utils/StepSequencer/Particles/particles_bkp_step_sequencer.gd"
-}, {
 "base": "Layout",
 "class": "PatternLayout",
 "language": "GDScript",
@@ -1248,7 +1243,6 @@ _global_script_class_icons={
 "LocalTime": "",
 "Message": "",
 "OrbitArm": "",
-"ParticlesStepSequencer": "",
 "PatternLayout": "",
 "PeriodicMovingPlatform": "",
 "PhysicsBall": "",

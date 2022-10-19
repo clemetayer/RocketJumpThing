@@ -1,10 +1,9 @@
-tool
 extends VerticalBoost
 # Area that pushes the player Up like a cool vortex
 
 ##### VARIABLES #####
 #---- CONSTANTS -----
-const TB_VBOOST_AREA_MAPPER := [["color", "color"]]  # mapper for TrenchBroom parameters
+const TB_VBOOST_AREA_MAPPER := [["color", "_color"]]  # mapper for TrenchBroom parameters
 #---- STANDARD -----
 #==== PRIVATE ====
 var _color := Color.white  # general color of the bumper

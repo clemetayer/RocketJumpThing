@@ -153,7 +153,7 @@ func override_velocity_vector(vector: Vector3) -> void:
 # toggles a player ability
 func toggle_ability(name: String, enabled: bool) -> void:
 	match name:
-		"sliding":
+		"slide":
 			SLIDE_ENABLED = enabled
 		"rockets":
 			ROCKETS_ENABLED = enabled

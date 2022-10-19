@@ -372,6 +372,8 @@
 // entity 5
 {
 "classname" "Checkpoints_Start"
+"spawn_position" "0 0 0"
+"spawn_rotation" "0"
 "origin" "-8369 -7 2"
 }
 // entity 6
@@ -425,6 +427,8 @@
 // entity 8
 {
 "classname" "Checkpoints_Checkpoint"
+"collision_layer" "2"
+"collision_mask" "5"
 "spawn_rotation" "90"
 "spawn_position" "0 -32 0"
 // brush 0
@@ -473,6 +477,8 @@
 // entity 10
 {
 "classname" "Checkpoints_Checkpoint"
+"collision_layer" "2"
+"collision_mask" "5"
 "spawn_position" "0 -32 0"
 "spawn_rotation" "-90"
 // brush 0
@@ -521,6 +527,8 @@
 // entity 12
 {
 "classname" "Checkpoints_Checkpoint"
+"collision_layer" "2"
+"collision_mask" "5"
 "spawn_position" "0 -32 0"
 "spawn_rotation" "-90"
 // brush 0
@@ -766,6 +774,8 @@
 // entity 15
 {
 "classname" "Checkpoints_Checkpoint"
+"collision_layer" "2"
+"collision_mask" "5"
 "spawn_position" "0 -32 0"
 "spawn_rotation" "90"
 // brush 0
@@ -1476,6 +1486,8 @@
 // entity 34
 {
 "classname" "Checkpoints_Checkpoint"
+"collision_layer" "2"
+"collision_mask" "5"
 "spawn_position" "0 -64 0"
 "spawn_rotation" "0"
 // brush 0
@@ -1569,6 +1581,8 @@
 // entity 36
 {
 "classname" "Checkpoints_Checkpoint"
+"collision_layer" "2"
+"collision_mask" "5"
 "spawn_position" "0 -64 0"
 "spawn_rotation" "0"
 // brush 0
@@ -1623,6 +1637,8 @@
 // entity 39
 {
 "classname" "Checkpoints_Checkpoint"
+"collision_layer" "2"
+"collision_mask" "5"
 "spawn_position" "0 -64 0"
 "spawn_rotation" "0"
 // brush 0
@@ -1704,6 +1720,8 @@
 // entity 42
 {
 "classname" "Checkpoints_Checkpoint"
+"collision_layer" "2"
+"collision_mask" "5"
 "spawn_position" "0 -64 0"
 "spawn_rotation" "0"
 // brush 0
@@ -1930,6 +1948,8 @@
 // entity 46
 {
 "classname" "Checkpoints_Checkpoint"
+"collision_layer" "2"
+"collision_mask" "5"
 "spawn_position" "0 -64 0"
 "spawn_rotation" "-90"
 // brush 0
@@ -2077,6 +2097,8 @@
 // entity 51
 {
 "classname" "Checkpoints_Checkpoint"
+"collision_layer" "2"
+"collision_mask" "5"
 "spawn_position" "0 -64 0"
 "spawn_rotation" "180"
 // brush 0
@@ -2182,6 +2204,9 @@
 "point1" "-64 0 0"
 "path_color" "0 255 255"
 "path_emission" "2"
+"trans_type" "1"
+"wait_time" "0"
+"ease" "0"
 // brush 0
 {
 ( 3108 -1136 632 ) ( 3108 -720 616 ) ( 3108 -720 632 ) scenes/tutorial2_scene/platform_material_1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -2237,6 +2262,9 @@
 "point1" "64 0 0"
 "path_color" "0 255 255"
 "path_emission" "2"
+"trans_type" "1"
+"wait_time" "0"
+"ease" "0"
 // brush 0
 {
 ( 2996 -1200 632 ) ( 2996 -784 616 ) ( 2996 -784 632 ) scenes/tutorial2_scene/platform_material_1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -2292,6 +2320,9 @@
 "point1" "-64 0 0"
 "path_color" "0 255 255"
 "path_emission" "2"
+"trans_type" "1"
+"ease" "0"
+"wait_time" "0"
 // brush 0
 {
 ( 2884 -1136 632 ) ( 2884 -720 616 ) ( 2884 -720 632 ) scenes/tutorial2_scene/platform_material_1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -2347,6 +2378,9 @@
 "point1" "64 0 0"
 "path_color" "0 255 255"
 "path_emission" "2"
+"trans_type" "1"
+"wait_time" "0"
+"ease" "0"
 // brush 0
 {
 ( 2772 -1200 632 ) ( 2772 -784 616 ) ( 2772 -784 632 ) scenes/tutorial2_scene/platform_material_1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -2480,6 +2514,8 @@
 // entity 60
 {
 "classname" "Checkpoints_Checkpoint"
+"collision_layer" "2"
+"collision_mask" "5"
 "spawn_position" "0 -64 0"
 "spawn_rotation" "180"
 // brush 0
@@ -2495,6 +2531,8 @@
 // entity 61
 {
 "classname" "Checkpoints_Checkpoint"
+"collision_layer" "2"
+"collision_mask" "5"
 "spawn_position" "0 -64 0"
 "spawn_rotation" "90"
 // brush 0
@@ -2693,6 +2731,8 @@
 // entity 67
 {
 "classname" "Checkpoints_Checkpoint"
+"collision_layer" "2"
+"collision_mask" "5"
 "spawn_position" "0 -64 0"
 "spawn_rotation" "90"
 // brush 0
@@ -3765,6 +3805,7 @@
 "trans_type" "0"
 "path_color" "0 255 255"
 "path_emission" "2"
+"wait_time" "0"
 // brush 0
 {
 ( -6416 -848 120 ) ( -6416 -847 120 ) ( -6416 -848 121 ) scenes/tutorial2_scene/platform_material_2 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -3820,6 +3861,9 @@
 "travel_time" "3"
 "path_color" "0 255 255"
 "path_emission" "2"
+"trans_type" "1"
+"wait_time" "0"
+"ease" "0"
 // brush 0
 {
 ( -6112 -640 24 ) ( -6112 -639 24 ) ( -6112 -640 25 ) scenes/tutorial2_scene/platform_material_2 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -3875,6 +3919,9 @@
 "travel_time" "4"
 "path_color" "0 255 255"
 "path_emission" "2"
+"trans_type" "1"
+"wait_time" "0"
+"ease" "0"
 // brush 0
 {
 ( -5876 -336 24 ) ( -5876 -335 24 ) ( -5876 -336 25 ) scenes/tutorial2_scene/platform_material_2 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -3990,6 +4037,9 @@
 "travel_time" "2"
 "path_color" "0 255 255"
 "path_emission" "2"
+"trans_type" "1"
+"wait_time" "0"
+"ease" "0"
 // brush 0
 {
 ( 1296 1072 104 ) ( 1296 1488 88 ) ( 1296 1488 104 ) scenes/tutorial2_scene/platform_material_2 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -4045,6 +4095,9 @@
 "travel_time" "3"
 "path_color" "0 255 255"
 "path_emission" "2"
+"trans_type" "1"
+"wait_time" "0"
+"ease" "0"
 // brush 0
 {
 ( 1988 1040 72 ) ( 1988 1456 56 ) ( 1988 1456 72 ) scenes/tutorial2_scene/platform_material_2 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -4103,6 +4156,8 @@
 "wait_time" "0"
 "path_color" "0 255 255"
 "path_emission" "2"
+"trans_type" "1"
+"ease" "0"
 // brush 0
 {
 ( 5288 1968 384 ) ( 5288 2416 368 ) ( 5288 2416 384 ) scenes/tutorial2_scene/platform_material_2 [ 2.220446049250313e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -4161,6 +4216,8 @@
 "wait_time" "0"
 "path_emission" "2"
 "path_color" "0 255 255"
+"trans_type" "1"
+"ease" "0"
 // brush 0
 {
 ( 5056 2688 416 ) ( 5056 2240 416 ) ( 5056 2240 400 ) scenes/tutorial2_scene/platform_material_2 [ 2.220446049250313e-16 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -4209,8 +4266,11 @@
 }
 // entity 92
 {
-"classname" "RythmElements_Sequencers_ModifyShaderParam_Pulse_Spatial"
-"params_path" "res://Misc/RythmElementsJsons/Tutorial2/kick_sequencer_bars_s_1.json"
+"classname" "RythmElements_Sequencers_Spatial"
+"active_on_signals" "kick"
+"active_on_steps" "0"
+"init_index" "0"
+"params_path" "res://Misc/RythmElementsJsons/Tutorial2/kick_sequencer_bars.json"
 // brush 0
 {
 ( -4912 1920 1344 ) ( -4912 1984 448 ) ( -4912 1984 1344 ) scenes/tutorial2_scene/cool_material_2 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -4223,8 +4283,11 @@
 }
 // entity 93
 {
-"classname" "RythmElements_Sequencers_ModifyShaderParam_Pulse_Spatial"
-"params_path" "res://Misc/RythmElementsJsons/Tutorial2/kick_sequencer_bars_s_3.json"
+"classname" "RythmElements_Sequencers_Spatial"
+"active_on_signals" "kick"
+"active_on_steps" "2"
+"init_index" "0"
+"params_path" "res://Misc/RythmElementsJsons/Tutorial2/kick_sequencer_bars.json"
 // brush 0
 {
 ( -4912 1328 576 ) ( -4912 1392 -320 ) ( -4912 1392 576 ) scenes/tutorial2_scene/cool_material_2 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -4237,8 +4300,11 @@
 }
 // entity 94
 {
-"classname" "RythmElements_Sequencers_ModifyShaderParam_Pulse_Spatial"
-"params_path" "res://Misc/RythmElementsJsons/Tutorial2/kick_sequencer_bars_s_2.json"
+"classname" "RythmElements_Sequencers_Spatial"
+"active_on_signals" "kick"
+"active_on_steps" "1"
+"init_index" "0"
+"params_path" "res://Misc/RythmElementsJsons/Tutorial2/kick_sequencer_bars.json"
 // brush 0
 {
 ( -4912 752 1600 ) ( -4912 816 704 ) ( -4912 816 1600 ) scenes/tutorial2_scene/cool_material_2 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -4251,8 +4317,11 @@
 }
 // entity 95
 {
-"classname" "RythmElements_Sequencers_ModifyShaderParam_Pulse_Spatial"
-"params_path" "res://Misc/RythmElementsJsons/Tutorial2/kick_sequencer_bars_s_4.json"
+"classname" "RythmElements_Sequencers_Spatial"
+"active_on_signals" "kick"
+"active_on_steps" "3"
+"init_index" "0"
+"params_path" "res://Misc/RythmElementsJsons/Tutorial2/kick_sequencer_bars.json"
 // brush 0
 {
 ( -4912 112 704 ) ( -4912 176 -192 ) ( -4912 176 704 ) scenes/tutorial2_scene/cool_material_2 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -4265,8 +4334,11 @@
 }
 // entity 96
 {
-"classname" "RythmElements_Sequencers_ModifyShaderParam_Pulse_Spatial"
-"params_path" "res://Misc/RythmElementsJsons/Tutorial2/kick_sequencer_bars_s_6.json"
+"classname" "RythmElements_Sequencers_Spatial"
+"active_on_signals" "kick"
+"active_on_steps" "5"
+"init_index" "0"
+"params_path" "res://Misc/RythmElementsJsons/Tutorial2/kick_sequencer_bars.json"
 // brush 0
 {
 ( -4912 -464 1232 ) ( -4912 -400 336 ) ( -4912 -400 1232 ) scenes/tutorial2_scene/cool_material_2 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -4279,8 +4351,11 @@
 }
 // entity 97
 {
-"classname" "RythmElements_Sequencers_ModifyShaderParam_Pulse_Spatial"
-"params_path" "res://Misc/RythmElementsJsons/Tutorial2/kick_sequencer_bars_s_5.json"
+"classname" "RythmElements_Sequencers_Spatial"
+"active_on_signals" "kick"
+"active_on_steps" "4"
+"init_index" "0"
+"params_path" "res://Misc/RythmElementsJsons/Tutorial2/kick_sequencer_bars.json"
 // brush 0
 {
 ( -4912 -1040 576 ) ( -4912 -976 -320 ) ( -4912 -976 576 ) scenes/tutorial2_scene/cool_material_2 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -4293,8 +4368,11 @@
 }
 // entity 98
 {
-"classname" "RythmElements_Sequencers_ModifyShaderParam_Pulse_Spatial"
-"params_path" "res://Misc/RythmElementsJsons/Tutorial2/kick_sequencer_bars_s_5.json"
+"classname" "RythmElements_Sequencers_Spatial"
+"active_on_signals" "kick"
+"active_on_steps" "4"
+"init_index" "0"
+"params_path" "res://Misc/RythmElementsJsons/Tutorial2/kick_sequencer_bars.json"
 // brush 0
 {
 ( -1092 1936 1344 ) ( -1092 2000 448 ) ( -1092 2000 1344 ) scenes/tutorial2_scene/cool_material_2 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -4307,8 +4385,11 @@
 }
 // entity 99
 {
-"classname" "RythmElements_Sequencers_ModifyShaderParam_Pulse_Spatial"
-"params_path" "res://Misc/RythmElementsJsons/Tutorial2/kick_sequencer_bars_s_6.json"
+"classname" "RythmElements_Sequencers_Spatial"
+"active_on_signals" "kick"
+"active_on_steps" "5"
+"init_index" "0"
+"params_path" "res://Misc/RythmElementsJsons/Tutorial2/kick_sequencer_bars.json"
 // brush 0
 {
 ( -1092 1344 576 ) ( -1092 1408 -320 ) ( -1092 1408 576 ) scenes/tutorial2_scene/cool_material_2 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -4321,8 +4402,11 @@
 }
 // entity 100
 {
-"classname" "RythmElements_Sequencers_ModifyShaderParam_Pulse_Spatial"
-"params_path" "res://Misc/RythmElementsJsons/Tutorial2/kick_sequencer_bars_s_4.json"
+"classname" "RythmElements_Sequencers_Spatial"
+"active_on_signals" "kick"
+"active_on_steps" "3"
+"init_index" "0"
+"params_path" "res://Misc/RythmElementsJsons/Tutorial2/kick_sequencer_bars.json"
 // brush 0
 {
 ( -1092 768 1600 ) ( -1092 832 704 ) ( -1092 832 1600 ) scenes/tutorial2_scene/cool_material_2 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -4335,8 +4419,11 @@
 }
 // entity 101
 {
-"classname" "RythmElements_Sequencers_ModifyShaderParam_Pulse_Spatial"
-"params_path" "res://Misc/RythmElementsJsons/Tutorial2/kick_sequencer_bars_s_2.json"
+"classname" "RythmElements_Sequencers_Spatial"
+"active_on_signals" "kick"
+"active_on_steps" "1"
+"init_index" "0"
+"params_path" "res://Misc/RythmElementsJsons/Tutorial2/kick_sequencer_bars.json"
 // brush 0
 {
 ( -1092 128 704 ) ( -1092 192 -192 ) ( -1092 192 704 ) scenes/tutorial2_scene/cool_material_2 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -4349,8 +4436,11 @@
 }
 // entity 102
 {
-"classname" "RythmElements_Sequencers_ModifyShaderParam_Pulse_Spatial"
-"params_path" "res://Misc/RythmElementsJsons/Tutorial2/kick_sequencer_bars_s_3.json"
+"classname" "RythmElements_Sequencers_Spatial"
+"active_on_signals" "kick"
+"active_on_steps" "2"
+"init_index" "0"
+"params_path" "res://Misc/RythmElementsJsons/Tutorial2/kick_sequencer_bars.json"
 // brush 0
 {
 ( -1092 -448 1232 ) ( -1092 -384 336 ) ( -1092 -384 1232 ) scenes/tutorial2_scene/cool_material_2 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -4363,8 +4453,11 @@
 }
 // entity 103
 {
-"classname" "RythmElements_Sequencers_ModifyShaderParam_Pulse_Spatial"
-"params_path" "res://Misc/RythmElementsJsons/Tutorial2/kick_sequencer_bars_s_1.json"
+"classname" "RythmElements_Sequencers_Spatial"
+"active_on_signals" "kick"
+"active_on_steps" "0"
+"init_index" "0"
+"params_path" "res://Misc/RythmElementsJsons/Tutorial2/kick_sequencer_bars.json"
 // brush 0
 {
 ( -1092 -1024 576 ) ( -1092 -960 -320 ) ( -1092 -960 576 ) scenes/tutorial2_scene/cool_material_2 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -5147,67 +5240,75 @@
 }
 // entity 141
 {
-"classname" "SequencerParticlesTutorial2"
+"classname" "RythmElements_Sequencers_SequencerParticlesTutorial2"
 "origin" "1872 -1024 880"
-"id" "kick"
-"number" "1"
-"number_of_steps" "8"
+"active_on_signals" "kick"
+"active_on_steps" "1"
+"init_index" "0"
+"params_path" "res://Misc/RythmElementsJsons/Tutorial2/particles.json"
 }
 // entity 142
 {
-"classname" "SequencerParticlesTutorial2"
+"classname" "RythmElements_Sequencers_SequencerParticlesTutorial2"
 "origin" "880 208 128"
-"id" "kick"
-"number" "4"
-"number_of_steps" "8"
+"active_on_signals" "kick"
+"active_on_steps" "4"
+"init_index" "0"
+"params_path" "res://Misc/RythmElementsJsons/Tutorial2/particles.json"
 }
 // entity 143
 {
-"classname" "SequencerParticlesTutorial2"
+"classname" "RythmElements_Sequencers_SequencerParticlesTutorial2"
 "origin" "3312 2160 496"
-"id" "kick"
-"number" "6"
-"number_of_steps" "8"
+"active_on_signals" "kick"
+"active_on_steps" "6"
+"init_index" "0"
+"params_path" "res://Misc/RythmElementsJsons/Tutorial2/particles.json"
 }
 // entity 144
 {
-"classname" "SequencerParticlesTutorial2"
+"classname" "RythmElements_Sequencers_SequencerParticlesTutorial2"
 "origin" "2448 -144 1520"
-"id" "kick"
-"number" "7"
-"number_of_steps" "8"
+"active_on_signals" "kick"
+"active_on_steps" "7"
+"init_index" "0"
+"params_path" "res://Misc/RythmElementsJsons/Tutorial2/particles.json"
 }
 // entity 145
 {
-"classname" "SequencerParticlesTutorial2"
+"classname" "RythmElements_Sequencers_SequencerParticlesTutorial2"
 "origin" "448 416 176"
-"id" "kick"
-"number" "0"
-"number_of_steps" "8"
+"active_on_signals" "kick"
+"active_on_steps" "0"
+"init_index" "0"
+"params_path" "res://Misc/RythmElementsJsons/Tutorial2/particles.json"
 }
 // entity 146
 {
-"classname" "SequencerParticlesTutorial2"
+"classname" "RythmElements_Sequencers_SequencerParticlesTutorial2"
 "origin" "1152 -448 1632"
-"id" "kick"
-"number" "5"
-"number_of_steps" "8"
+"active_on_signals" "kick"
+"active_on_steps" "5"
+"init_index" "0"
+"params_path" "res://Misc/RythmElementsJsons/Tutorial2/particles.json"
 }
 // entity 147
 {
-"classname" "SequencerParticlesTutorial2"
+"classname" "RythmElements_Sequencers_SequencerParticlesTutorial2"
 "origin" "1552 752 224"
-"id" "kick"
-"number" "2"
-"number_of_steps" "8"
+"active_on_signals" "kick"
+"active_on_steps" "2"
+"init_index" "0"
+"params_path" "res://Misc/RythmElementsJsons/Tutorial2/particles.json"
 }
 // entity 148
 {
-"classname" "SequencerParticlesTutorial2"
+"classname" "RythmElements_Sequencers_SequencerParticlesTutorial2"
 "origin" "2224 528 1136"
-"id" "kick"
-"number" "3"
-"number_of_steps" "8"
+"active_on_signals" "kick"
+"active_on_steps" "3"
+"init_index" "0"
+"params_path" "res://Misc/RythmElementsJsons/Tutorial2/particles.json"
 }
 // entity 149
 {
@@ -5262,8 +5363,11 @@
 }
 // entity 150
 {
-"classname" "RythmElements_Sequencers_ModifyShaderParam_Pulse_Spatial"
-"params_path" "res://Misc/RythmElementsJsons/Tutorial2/kick_sequencer_light_tunnel_s_1.json"
+"classname" "RythmElements_Sequencers_Spatial"
+"active_on_signals" "light_tunnel"
+"active_on_steps" "0"
+"init_index" "0"
+"params_path" "res://Misc/RythmElementsJsons/Tutorial2/kick_sequencer_light_tunnel.json"
 // brush 0
 {
 ( -8364 -32 48 ) ( -8364 -28 0 ) ( -8364 -28 48 ) scenes/tutorial2_scene/cool_material_2 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -5285,8 +5389,11 @@
 }
 // entity 151
 {
-"classname" "RythmElements_Sequencers_ModifyShaderParam_Pulse_Spatial"
-"params_path" "res://Misc/RythmElementsJsons/Tutorial2/kick_sequencer_light_tunnel_s_2.json"
+"classname" "RythmElements_Sequencers_Spatial"
+"active_on_signals" "light_tunnel"
+"active_on_steps" "1"
+"init_index" "0"
+"params_path" "res://Misc/RythmElementsJsons/Tutorial2/kick_sequencer_light_tunnel.json"
 // brush 0
 {
 ( -8324 -32 48 ) ( -8324 -28 0 ) ( -8324 -28 48 ) scenes/tutorial2_scene/cool_material_2 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -5308,8 +5415,11 @@
 }
 // entity 152
 {
-"classname" "RythmElements_Sequencers_ModifyShaderParam_Pulse_Spatial"
-"params_path" "res://Misc/RythmElementsJsons/Tutorial2/kick_sequencer_light_tunnel_s_3.json"
+"classname" "RythmElements_Sequencers_Spatial"
+"active_on_signals" "light_tunnel"
+"active_on_steps" "2"
+"init_index" "0"
+"params_path" "res://Misc/RythmElementsJsons/Tutorial2/kick_sequencer_light_tunnel.json"
 // brush 0
 {
 ( -8284 -32 48 ) ( -8284 -28 0 ) ( -8284 -28 48 ) scenes/tutorial2_scene/cool_material_2 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -5331,8 +5441,11 @@
 }
 // entity 153
 {
-"classname" "RythmElements_Sequencers_ModifyShaderParam_Pulse_Spatial"
-"params_path" "res://Misc/RythmElementsJsons/Tutorial2/kick_sequencer_light_tunnel_s_4.json"
+"classname" "RythmElements_Sequencers_Spatial"
+"active_on_signals" "light_tunnel"
+"active_on_steps" "3"
+"init_index" "0"
+"params_path" "res://Misc/RythmElementsJsons/Tutorial2/kick_sequencer_light_tunnel.json"
 // brush 0
 {
 ( -8244 -32 48 ) ( -8244 -28 0 ) ( -8244 -28 48 ) scenes/tutorial2_scene/cool_material_2 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -5354,8 +5467,11 @@
 }
 // entity 154
 {
-"classname" "RythmElements_Sequencers_ModifyShaderParam_Pulse_Spatial"
-"params_path" "res://Misc/RythmElementsJsons/Tutorial2/kick_sequencer_light_tunnel_s_5.json"
+"classname" "RythmElements_Sequencers_Spatial"
+"active_on_signals" "light_tunnel"
+"active_on_steps" "4"
+"init_index" "0"
+"params_path" "res://Misc/RythmElementsJsons/Tutorial2/kick_sequencer_light_tunnel.json"
 // brush 0
 {
 ( -8204 -32 48 ) ( -8204 -28 0 ) ( -8204 -28 48 ) scenes/tutorial2_scene/cool_material_2 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -5377,8 +5493,11 @@
 }
 // entity 155
 {
-"classname" "RythmElements_Sequencers_ModifyShaderParam_Pulse_Spatial"
-"params_path" "res://Misc/RythmElementsJsons/Tutorial2/kick_sequencer_light_tunnel_s_6.json"
+"classname" "RythmElements_Sequencers_Spatial"
+"active_on_signals" "light_tunnel"
+"active_on_steps" "5"
+"init_index" "0"
+"params_path" "res://Misc/RythmElementsJsons/Tutorial2/kick_sequencer_light_tunnel.json"
 // brush 0
 {
 ( -8164 -32 48 ) ( -8164 -28 0 ) ( -8164 -28 48 ) scenes/tutorial2_scene/cool_material_2 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -5400,8 +5519,11 @@
 }
 // entity 156
 {
-"classname" "RythmElements_Sequencers_ModifyShaderParam_Pulse_Spatial"
-"params_path" "res://Misc/RythmElementsJsons/Tutorial2/kick_sequencer_light_tunnel_s_1.json"
+"classname" "RythmElements_Sequencers_Spatial"
+"active_on_signals" "light_tunnel"
+"active_on_steps" "6"
+"init_index" "0"
+"params_path" "res://Misc/RythmElementsJsons/Tutorial2/kick_sequencer_light_tunnel.json"
 // brush 0
 {
 ( -8124 -32 48 ) ( -8124 -28 0 ) ( -8124 -28 48 ) scenes/tutorial2_scene/cool_material_2 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -5423,38 +5545,26 @@
 }
 // entity 157
 {
-"classname" "RythmElements_Sequencers_ModifyShaderParam_Pulse_Spatial"
-"fade_in_time" "1"
-"fade_out_time" "3"
-"id" "kick"
-"max_param" "1"
-"min_param" "0"
-"number" "0"
-"number_of_steps" "8"
+"classname" "RythmElements_Sequencers_Spatial"
+"active_on_signals" "light_tunnel"
+"active_on_steps" "0"
+"init_index" "0"
+"params_path" "res://Misc/RythmElementsJsons/Tutorial2/kick_sequencer_light_tunnel.json"
 // brush 0
 {
 ( -8084 -32 48 ) ( -8084 -28 0 ) ( -8084 -28 48 ) scenes/tutorial2_scene/cool_material_2 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 ( -8080 -32 48 ) ( -8084 -32 0 ) ( -8084 -32 48 ) scenes/tutorial2_scene/cool_material_2 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -8080 -28 0 ) ( -8084 -32 0 ) ( -8080 -32 0 ) scenes/tutorial2_scene/cool_material_2 [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -8080 -28 47 ) ( -8084 -32 47 ) ( -8084 -28 47 ) scenes/tutorial2_scene/cool_material_2 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -8080 -28 4 ) ( -8084 -32 4 ) ( -8080 -32 4 ) scenes/tutorial2_scene/cool_material_2 [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -8080 -28 44 ) ( -8084 -32 44 ) ( -8084 -28 44 ) scenes/tutorial2_scene/cool_material_2 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
 ( -8080 -31 48 ) ( -8084 -31 0 ) ( -8080 -31 0 ) scenes/tutorial2_scene/cool_material_2 [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
 ( -8080 -28 48 ) ( -8080 -32 0 ) ( -8080 -32 48 ) scenes/tutorial2_scene/cool_material_2 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 // brush 1
 {
 ( -8084 12 48 ) ( -8084 16 0 ) ( -8084 16 48 ) scenes/tutorial2_scene/cool_material_2 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -8080 -32 48 ) ( -8084 -32 0 ) ( -8084 -32 48 ) scenes/tutorial2_scene/cool_material_2 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -8080 16 47 ) ( -8084 16 47 ) ( -8084 12 47 ) scenes/tutorial2_scene/cool_material_2 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -8080 16 48 ) ( -8084 12 48 ) ( -8084 16 48 ) scenes/tutorial2_scene/cool_material_2 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -8080 16 48 ) ( -8084 16 0 ) ( -8080 16 0 ) scenes/tutorial2_scene/cool_material_2 [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -8080 16 48 ) ( -8080 12 0 ) ( -8080 12 48 ) scenes/tutorial2_scene/cool_material_2 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-}
-// brush 2
-{
-( -8084 12 48 ) ( -8084 16 0 ) ( -8084 16 48 ) scenes/tutorial2_scene/cool_material_2 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 ( -8080 15 48 ) ( -8084 15 0 ) ( -8084 15 48 ) scenes/tutorial2_scene/cool_material_2 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -8080 16 0 ) ( -8084 12 0 ) ( -8080 12 0 ) scenes/tutorial2_scene/cool_material_2 [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -8080 16 47 ) ( -8084 12 47 ) ( -8084 16 47 ) scenes/tutorial2_scene/cool_material_2 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -8080 16 4 ) ( -8084 12 4 ) ( -8080 12 4 ) scenes/tutorial2_scene/cool_material_2 [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -8080 16 44 ) ( -8084 12 44 ) ( -8084 16 44 ) scenes/tutorial2_scene/cool_material_2 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
 ( -8080 16 48 ) ( -8084 16 0 ) ( -8080 16 0 ) scenes/tutorial2_scene/cool_material_2 [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
 ( -8080 16 48 ) ( -8080 12 0 ) ( -8080 12 48 ) scenes/tutorial2_scene/cool_material_2 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
@@ -5516,6 +5626,10 @@
 // entity 161
 {
 "classname" "Checkpoints_End"
+"spawn_position" "0 0 0"
+"spawn_rotation" "0"
+"collision_layer" "2"
+"collision_mask" "5"
 // brush 0
 {
 ( 3600 448 1872 ) ( 3600 576 1792 ) ( 3600 576 1872 ) entities/checkpoint/end_level [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -5574,100 +5688,109 @@
 }
 // entity 165
 {
-"classname" "SequencerParticlesTutorial2"
+"classname" "RythmElements_Sequencers_SequencerParticlesTutorial2"
 "origin" "-256 -96 784"
-"id" "kick"
-"number" "0"
-"number_of_steps" "8"
+"active_on_signals" "kick"
+"active_on_steps" "0"
+"init_index" "0"
+"params_path" "res://Misc/RythmElementsJsons/Tutorial2/particles.json"
 }
 // entity 166
 {
-"classname" "SequencerParticlesTutorial2"
+"classname" "RythmElements_Sequencers_SequencerParticlesTutorial2"
 "origin" "464 2016 688"
-"id" "kick"
-"number" "5"
-"number_of_steps" "8"
+"active_on_signals" "kick"
+"active_on_steps" "5"
+"init_index" "0"
+"params_path" "res://Misc/RythmElementsJsons/Tutorial2/particles.json"
 }
 // entity 167
 {
-"classname" "SequencerParticlesTutorial2"
+"classname" "RythmElements_Sequencers_SequencerParticlesTutorial2"
 "origin" "4896 2608 688"
-"id" "kick"
-"number" "5"
-"number_of_steps" "8"
+"active_on_signals" "kick"
+"active_on_steps" "5"
+"init_index" "0"
+"params_path" "res://Misc/RythmElementsJsons/Tutorial2/particles.json"
 }
 // entity 168
 {
-"classname" "SequencerParticlesTutorial2"
+"classname" "RythmElements_Sequencers_SequencerParticlesTutorial2"
 "origin" "-512 1184 448"
-"id" "kick"
-"number" "2"
-"number_of_steps" "8"
+"active_on_signals" "kick"
+"active_on_steps" "2"
+"init_index" "0"
+"params_path" "res://Misc/RythmElementsJsons/Tutorial2/particles.json"
 }
 // entity 169
 {
-"classname" "SequencerParticlesTutorial2"
+"classname" "RythmElements_Sequencers_SequencerParticlesTutorial2"
 "origin" "1424 1632 1184"
-"id" "kick"
-"number" "0"
-"number_of_steps" "8"
+"active_on_signals" "kick"
+"active_on_steps" "0"
+"init_index" "0"
+"params_path" "res://Misc/RythmElementsJsons/Tutorial2/particles.json"
 }
 // entity 170
 {
-"classname" "SequencerParticlesTutorial2"
+"classname" "RythmElements_Sequencers_SequencerParticlesTutorial2"
 "origin" "-128 -2048 1632"
-"id" "kick"
-"number" "1"
-"number_of_steps" "8"
+"active_on_signals" "kick"
+"active_on_steps" "1"
+"init_index" "0"
+"params_path" "res://Misc/RythmElementsJsons/Tutorial2/particles.json"
 }
 // entity 171
 {
-"classname" "SequencerParticlesTutorial2"
+"classname" "RythmElements_Sequencers_SequencerParticlesTutorial2"
 "origin" "3728 -1376 1088"
-"id" "kick"
-"number" "5"
-"number_of_steps" "8"
+"active_on_signals" "kick"
+"active_on_steps" "5"
+"init_index" "0"
+"params_path" "res://Misc/RythmElementsJsons/Tutorial2/particles.json"
 }
 // entity 172
 {
-"classname" "SequencerParticlesTutorial2"
+"classname" "RythmElements_Sequencers_SequencerParticlesTutorial2"
 "origin" "5744 -32 1056"
-"id" "kick"
-"number" "3"
-"number_of_steps" "8"
+"active_on_signals" "kick"
+"active_on_steps" "3"
+"init_index" "0"
+"params_path" "res://Misc/RythmElementsJsons/Tutorial2/particles.json"
 }
 // entity 173
 {
-"classname" "SequencerParticlesTutorial2"
+"classname" "RythmElements_Sequencers_SequencerParticlesTutorial2"
 "origin" "3792 -1104 3024"
-"id" "kick"
-"number" "3"
-"number_of_steps" "8"
+"active_on_signals" "kick"
+"active_on_steps" "3"
+"init_index" "0"
+"params_path" "res://Misc/RythmElementsJsons/Tutorial2/particles.json"
 }
 // entity 174
 {
-"classname" "Emitter_GeometricShape"
+"classname" "Emitter_GeometricShapes"
 "origin" "-6320 1120 -272"
 "angle" "0 30 0"
 "scale" "40"
 }
 // entity 175
 {
-"classname" "Emitter_GeometricShape"
+"classname" "Emitter_GeometricShapes"
 "origin" "-8496 -608 -384"
 "angle" "0 0 0"
 "scale" "40"
 }
 // entity 176
 {
-"classname" "Emitter_GeometricShape"
+"classname" "Emitter_GeometricShapes"
 "origin" "-8496 544 -384"
 "angle" "0 0 0"
 "scale" "40"
 }
 // entity 177
 {
-"classname" "Emitter_GeometricShape"
+"classname" "Emitter_GeometricShapes"
 "origin" "-5440 -576 -272"
 "angle" "0 90 0"
 "scale" "80"
@@ -5719,49 +5842,49 @@
 }
 // entity 181
 {
-"classname" "Emitter_GeometricShape"
+"classname" "Emitter_GeometricShapes"
 "origin" "-752 1376 -208"
 "angle" "0 0 0"
 "scale" "40"
 }
 // entity 182
 {
-"classname" "Emitter_GeometricShape"
+"classname" "Emitter_GeometricShapes"
 "origin" "1168 -576 464"
 "angle" "0 0 0"
 "scale" "60"
 }
 // entity 183
 {
-"classname" "Emitter_GeometricShape"
+"classname" "Emitter_GeometricShapes"
 "origin" "224 -2112 944"
 "angle" "0 0 0"
 "scale" "60"
 }
 // entity 184
 {
-"classname" "Emitter_GeometricShape"
+"classname" "Emitter_GeometricShapes"
 "origin" "3616 2432 -320"
 "angle" "0 0 0"
 "scale" "60"
 }
 // entity 185
 {
-"classname" "Emitter_GeometricShape"
+"classname" "Emitter_GeometricShapes"
 "origin" "5904 2848 -768"
 "angle" "0 0 0"
 "scale" "60"
 }
 // entity 186
 {
-"classname" "Emitter_GeometricShape"
+"classname" "Emitter_GeometricShapes"
 "origin" "5216 -1136 384"
 "angle" "0 0 0"
 "scale" "60"
 }
 // entity 187
 {
-"classname" "Emitter_GeometricShape"
+"classname" "Emitter_GeometricShapes"
 "origin" "-6320 160 -240"
 "angle" "0 0 0"
 "scale" "30"
@@ -5781,48 +5904,48 @@
 "wait_time" "5"
 // brush 0
 {
-( -7390 168 32 ) ( -7390 104 32 ) ( -7390 104 24 ) scenes/tutorial2_scene/platform_material_1 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -7392 106 32 ) ( -7328 106 32 ) ( -7328 106 24 ) scenes/tutorial2_scene/platform_material_1 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -7328 104 24 ) ( -7328 168 24 ) ( -7392 168 24 ) scenes/tutorial2_scene/platform_material_1 [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -7392 168 28 ) ( -7328 168 28 ) ( -7328 104 28 ) scenes/tutorial2_scene/platform_material_1 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -7328 166 24 ) ( -7328 166 32 ) ( -7392 166 32 ) scenes/tutorial2_scene/platform_material_1 [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -7330 104 32 ) ( -7330 168 32 ) ( -7330 168 24 ) scenes/tutorial2_scene/platform_material_1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -7390 184 32 ) ( -7390 120 32 ) ( -7390 120 24 ) scenes/tutorial2_scene/platform_material_1 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -7392 122 32 ) ( -7328 122 32 ) ( -7328 122 24 ) scenes/tutorial2_scene/platform_material_1 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -7328 120 24 ) ( -7328 184 24 ) ( -7392 184 24 ) scenes/tutorial2_scene/platform_material_1 [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -7392 184 28 ) ( -7328 184 28 ) ( -7328 120 28 ) scenes/tutorial2_scene/platform_material_1 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -7328 182 24 ) ( -7328 182 32 ) ( -7392 182 32 ) scenes/tutorial2_scene/platform_material_1 [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -7330 120 32 ) ( -7330 184 32 ) ( -7330 184 24 ) scenes/tutorial2_scene/platform_material_1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 // brush 1
 {
-( -7330 104 32 ) ( -7330 168 24 ) ( -7330 168 32 ) scenes/tutorial2_scene/platform_material_2 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -7392 104 32 ) ( -7328 104 32 ) ( -7328 104 24 ) scenes/tutorial2_scene/platform_material_2 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -7328 104 24 ) ( -7328 168 24 ) ( -7392 168 24 ) scenes/tutorial2_scene/platform_material_2 [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -7392 168 28 ) ( -7328 168 28 ) ( -7328 104 28 ) scenes/tutorial2_scene/platform_material_2 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -7328 168 24 ) ( -7328 168 32 ) ( -7392 168 32 ) scenes/tutorial2_scene/platform_material_2 [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -7328 104 32 ) ( -7328 168 32 ) ( -7328 168 24 ) scenes/tutorial2_scene/platform_material_2 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -7330 120 32 ) ( -7330 184 24 ) ( -7330 184 32 ) scenes/tutorial2_scene/platform_material_2 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -7392 120 32 ) ( -7328 120 32 ) ( -7328 120 24 ) scenes/tutorial2_scene/platform_material_2 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -7328 120 24 ) ( -7328 184 24 ) ( -7392 184 24 ) scenes/tutorial2_scene/platform_material_2 [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -7392 184 28 ) ( -7328 184 28 ) ( -7328 120 28 ) scenes/tutorial2_scene/platform_material_2 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -7328 184 24 ) ( -7328 184 32 ) ( -7392 184 32 ) scenes/tutorial2_scene/platform_material_2 [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -7328 120 32 ) ( -7328 184 32 ) ( -7328 184 24 ) scenes/tutorial2_scene/platform_material_2 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 // brush 2
 {
-( -7390 168 32 ) ( -7390 104 32 ) ( -7390 104 24 ) scenes/tutorial2_scene/platform_material_2 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -7392 104 32 ) ( -7328 104 32 ) ( -7328 104 24 ) scenes/tutorial2_scene/platform_material_2 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -7328 104 24 ) ( -7328 168 24 ) ( -7392 168 24 ) scenes/tutorial2_scene/platform_material_2 [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -7392 168 28 ) ( -7328 168 28 ) ( -7328 104 28 ) scenes/tutorial2_scene/platform_material_2 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -7392 106 32 ) ( -7328 106 24 ) ( -7328 106 32 ) scenes/tutorial2_scene/platform_material_2 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -7330 104 32 ) ( -7330 168 32 ) ( -7330 168 24 ) scenes/tutorial2_scene/platform_material_2 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -7390 184 32 ) ( -7390 120 32 ) ( -7390 120 24 ) scenes/tutorial2_scene/platform_material_2 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -7392 120 32 ) ( -7328 120 32 ) ( -7328 120 24 ) scenes/tutorial2_scene/platform_material_2 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -7328 120 24 ) ( -7328 184 24 ) ( -7392 184 24 ) scenes/tutorial2_scene/platform_material_2 [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -7392 184 28 ) ( -7328 184 28 ) ( -7328 120 28 ) scenes/tutorial2_scene/platform_material_2 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -7392 122 32 ) ( -7328 122 24 ) ( -7328 122 32 ) scenes/tutorial2_scene/platform_material_2 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -7330 120 32 ) ( -7330 184 32 ) ( -7330 184 24 ) scenes/tutorial2_scene/platform_material_2 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 // brush 3
 {
-( -7392 168 32 ) ( -7392 104 32 ) ( -7392 104 24 ) scenes/tutorial2_scene/platform_material_2 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -7328 166 24 ) ( -7392 166 32 ) ( -7328 166 32 ) scenes/tutorial2_scene/platform_material_2 [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -7328 104 24 ) ( -7328 168 24 ) ( -7392 168 24 ) scenes/tutorial2_scene/platform_material_2 [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -7392 168 28 ) ( -7328 168 28 ) ( -7328 104 28 ) scenes/tutorial2_scene/platform_material_2 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -7328 168 24 ) ( -7328 168 32 ) ( -7392 168 32 ) scenes/tutorial2_scene/platform_material_2 [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -7330 104 32 ) ( -7330 168 32 ) ( -7330 168 24 ) scenes/tutorial2_scene/platform_material_2 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -7392 184 32 ) ( -7392 120 32 ) ( -7392 120 24 ) scenes/tutorial2_scene/platform_material_2 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -7328 182 24 ) ( -7392 182 32 ) ( -7328 182 32 ) scenes/tutorial2_scene/platform_material_2 [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -7328 120 24 ) ( -7328 184 24 ) ( -7392 184 24 ) scenes/tutorial2_scene/platform_material_2 [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -7392 184 28 ) ( -7328 184 28 ) ( -7328 120 28 ) scenes/tutorial2_scene/platform_material_2 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -7328 184 24 ) ( -7328 184 32 ) ( -7392 184 32 ) scenes/tutorial2_scene/platform_material_2 [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -7330 120 32 ) ( -7330 184 32 ) ( -7330 184 24 ) scenes/tutorial2_scene/platform_material_2 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 // brush 4
 {
-( -7392 168 32 ) ( -7392 104 32 ) ( -7392 104 24 ) scenes/tutorial2_scene/platform_material_2 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -7392 104 32 ) ( -7328 104 32 ) ( -7328 104 24 ) scenes/tutorial2_scene/platform_material_2 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -7328 104 24 ) ( -7328 168 24 ) ( -7392 168 24 ) scenes/tutorial2_scene/platform_material_2 [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -7392 168 28 ) ( -7328 168 28 ) ( -7328 104 28 ) scenes/tutorial2_scene/platform_material_2 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -7328 166 24 ) ( -7328 166 32 ) ( -7392 166 32 ) scenes/tutorial2_scene/platform_material_2 [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -7390 168 32 ) ( -7390 104 24 ) ( -7390 104 32 ) scenes/tutorial2_scene/platform_material_2 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -7392 184 32 ) ( -7392 120 32 ) ( -7392 120 24 ) scenes/tutorial2_scene/platform_material_2 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -7392 120 32 ) ( -7328 120 32 ) ( -7328 120 24 ) scenes/tutorial2_scene/platform_material_2 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -7328 120 24 ) ( -7328 184 24 ) ( -7392 184 24 ) scenes/tutorial2_scene/platform_material_2 [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -7392 184 28 ) ( -7328 184 28 ) ( -7328 120 28 ) scenes/tutorial2_scene/platform_material_2 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -7328 182 24 ) ( -7328 182 32 ) ( -7392 182 32 ) scenes/tutorial2_scene/platform_material_2 [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -7390 184 32 ) ( -7390 120 24 ) ( -7390 120 32 ) scenes/tutorial2_scene/platform_material_2 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
 // entity 189

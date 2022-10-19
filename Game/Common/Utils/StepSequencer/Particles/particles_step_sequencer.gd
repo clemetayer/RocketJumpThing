@@ -36,10 +36,6 @@ extends Particles
   ]
 }
 """
-
-##### ENUMS #####
-enum sequencer_types { SET_PARAM, TWEEN, PULSE, EMIT }
-
 ##### VARIABLES #####
 #---- EXPORTS -----
 export(Dictionary) var properties

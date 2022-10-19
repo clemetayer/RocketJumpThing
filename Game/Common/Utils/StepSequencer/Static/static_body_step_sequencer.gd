@@ -37,9 +37,6 @@ extends Collidable
 }
 """
 
-##### ENUMS #####
-enum sequencer_types { SET_PARAM, TWEEN, PULSE, EMIT }
-
 ##### VARIABLES #####
 #---- STANDARD -----
 #==== PUBLIC ====
