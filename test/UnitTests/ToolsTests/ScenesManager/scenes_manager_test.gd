@@ -25,7 +25,7 @@ func before():
 	element_path = scenes_manager_path
 	.before()
 	scenes_manager = load(scenes_manager_path).instance()
-	scenes_manager.levels = {"main_menu": "main_menu", "list1": ["l1", "l2", "l3"]}
+	scenes_manager.levels = {"main_menu": "main_menu", "game_scenes": {"list1": ["l1", "l2", "l3"]}}
 
 
 func after():

@@ -9,23 +9,12 @@ const PATHS := {"tutorial_scene": "res://Game/Scenes/Tutorial/Tutorial1/tutorial
 ##### PROCESSING #####
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	_disable_pause()
 	_enable_mouse_visible()
-	_init_global_variables()
 
 
 ##### PROTECTED METHODS #####
-func _disable_pause() -> void:
-	PauseMenu.ENABLED = false
-
-
 func _enable_mouse_visible() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-
-
-func _init_global_variables() -> void:
-	VariableManager.end_level_enabled = false
-	VariableManager.pause_enabled = false
 
 
 ##### SIGNAL MANAGEMENT #####

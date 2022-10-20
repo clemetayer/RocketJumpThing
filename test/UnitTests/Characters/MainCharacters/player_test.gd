@@ -39,7 +39,7 @@ func test_override_velocity_vector() -> void:
 func test_toggle_ability() -> void:
 	player.SLIDE_ENABLED = false
 	player.ROCKETS_ENABLED = false
-	player.toggle_ability("sliding", true)
+	player.toggle_ability("slide", true)
 	assert_bool(player.SLIDE_ENABLED).is_true()
 	player.toggle_ability("rockets", true)
 	assert_bool(player.ROCKETS_ENABLED).is_true()

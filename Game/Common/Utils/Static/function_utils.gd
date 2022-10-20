@@ -77,6 +77,8 @@ static func _map_to_object(el):
 		log_regex_compile(regex, REGEX_COLOR_PATTERN)
 		if regex.search(el) != null:
 			return Color(el)
+		else:
+			return el
 	else:
 		return el
 

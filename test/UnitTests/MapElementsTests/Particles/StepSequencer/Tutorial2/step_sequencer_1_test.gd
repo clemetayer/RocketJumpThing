@@ -8,7 +8,7 @@ extends StepSequencerStepParticleTest
 ##### TESTS #####
 #---- PRE/POST -----
 func before():
-	step_sequencer_path = "res://Game/Common/MapElements/Particles/StepSequencer/Tutorial2/step_sequencer_1.tscn"
+	step_sequencer_path = "res://Game/Common/Utils/StepSequencer/Particles/Tutorial2/step_sequencer_1.tscn"
 	.before()
 
 # uses the tests of StepSequencerStepParticleTest

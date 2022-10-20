@@ -24,11 +24,3 @@ func after_test():
 
 
 #---- TESTS -----
-# test description
-func test_name() -> void:
-	assert_not_yet_implemented()
-
-
-# test utility
-func _test_utility() -> void:
-	pass

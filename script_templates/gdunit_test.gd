@@ -10,25 +10,25 @@ const __source = '${source_resource_path}' # TestSuite generated from
 ##### TESTS #####
 #---- PRE/POST -----
 func before():
-    pass
+	pass
 
 func after():
-    pass
+	pass
 
 func after_test():
-    pass
+	pass
 
 #---- TESTS -----
 #==== ACTUAL TESTS =====
 # test description
 func test_name() -> void:
-    assert_not_yet_implemented()
+	assert_not_yet_implemented()
 
 # subtest description
 func _subtest_name() -> void:
-    assert_not_yet_implemented()
+	assert_not_yet_implemented()
 
 #==== UTILITIES =====
 # test utility
 func _test_utility() -> void:
-    pass
+	pass

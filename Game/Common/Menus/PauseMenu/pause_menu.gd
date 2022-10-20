@@ -11,9 +11,6 @@ extends CanvasLayer
 #---- CONSTANTS -----
 const FADE_IN_TIME := 0.5
 
-#---- EXPORTS -----
-export(bool) var ENABLED
-
 #---- STANDARD -----
 #==== PRIVATE ====
 var _paths := {
@@ -21,9 +18,16 @@ var _paths := {
 	"root_ui": "./UI",
 	"main_menu_scene": "res://Game/Common/Menus/MainMenu/main_menu.tscn",
 }
+var _paused := false  # boolean to tell if the menu is paused or not
+var _pause_enabled := true  # to tell if the pause menu can be shown or not
 
 
 ##### PROCESSING #####
+# Called when the object is initialized.
+func _init():
+	_connect_signals()
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	get_node(_paths.root_ui).hide()
@@ -31,14 +35,22 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame. Remove the "_" to use it.
 func _process(_delta):
-	if Input.is_action_just_pressed("pause"):
-		if get_node(_paths.root_ui).visible:
-			_unpause()
-		elif ENABLED:
-			_pause()
+	_manage_inputs()
 
 
 ##### PROTECTED METHODS #####
+func _connect_signals() -> void:
+	FunctionUtils.log_connect(SignalManager, self, "end_reached", "_on_SignalManager_end_reached")
+
+
+func _manage_inputs() -> void:
+	if Input.is_action_just_pressed("pause"):
+		if _paused:
+			_unpause()
+		else:
+			_pause()
+
+
 func _pause():
 	if StandardSongManager.get_current() != null:
 		StandardSongManager.apply_effect(
@@ -48,6 +60,7 @@ func _pause():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	get_tree().paused = true
 	get_node(_paths.root_ui).show()
+	_paused = true
 
 
 func _unpause():
@@ -59,6 +72,7 @@ func _unpause():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	get_tree().paused = false
 	get_node(_paths.root_ui).hide()
+	_paused = false
 
 
 func _create_filter_auto_effect() -> EffectManager:  # REFACTOR : make a global method (it is used somewhere else, and might be used again)
@@ -68,13 +82,17 @@ func _create_filter_auto_effect() -> EffectManager:  # REFACTOR : make a global 
 
 
 ##### SIGNAL MANAGEMENT #####
+func _on_SignalManager_end_reached() -> void:
+	_pause_enabled = false
+
+
 func _on_ResumeButton_pressed():
 	_unpause()
 
 
 func _on_MainMenuButton_pressed():
 	_unpause()
-	get_tree().change_scene(_paths.main_menu_scene)
+	ScenesManager.load_main_menu()
 
 
 func _on_OptionButton_pressed():
@@ -84,4 +102,4 @@ func _on_OptionButton_pressed():
 
 func _on_RestartButton_pressed():
 	_unpause()
-	get_tree().reload_current_scene()
+	ScenesManager.reload_current()

@@ -46,8 +46,6 @@ func _create_filter_auto_effect() -> EffectManager:
 
 ##### SIGNAL MANAGEMENT #####
 func _on_SignalManager_end_reached() -> void:
-	if VariableManager.end_level_enabled:
-		PauseMenu.ENABLED = false
 		if StandardSongManager.get_current() != null:
 			StandardSongManager.apply_effect(
 				_create_filter_auto_effect(),
@@ -55,7 +53,6 @@ func _on_SignalManager_end_reached() -> void:
 			)
 		yield(get_tree().create_timer(0.1), "timeout")  # waits a little before pausing, to at least update the time in VariableManager. # OPTIMIZATION : this is pretty dirty, create a special signal to tell when the time was updated instead ?
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		VariableManager.pause_enabled = false
 		get_node(_paths.next_scene_button).disabled = not ScenesManager.has_next_level()
 		var tween: Tween = get_node(_paths.tween)
 		var millis = VariableManager.chronometer.level % 1000
@@ -77,7 +74,7 @@ func _on_NextButton_pressed():
 
 func _on_RestartButton_pressed():
 	_unpause()
-	get_tree().reload_current_scene()
+	ScenesManager.reload_current()
 
 
 func _on_MainMenuButton_pressed():

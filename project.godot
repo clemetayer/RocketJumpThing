@@ -1338,8 +1338,6 @@ SignalManager="*res://Game/Common/Utils/Managers/signal_manager.gd"
 VariableManager="*res://Game/Common/Utils/Managers/variable_manager.gd"
 DebugDraw="*res://Game/Common/Utils/Debug/debug_draw.gd"
 CameraUtils="*res://Game/Common/Utils/Camera/camera_utils.gd"
-EndLevelUi="*res://Game/Common/Menus/EndLevel/end_level_ui.tscn"
-PauseMenu="*res://Game/Common/Menus/PauseMenu/pause_menu.tscn"
 ScenesManager="*res://Game/Common/Utils/Managers/scenes_manager.gd"
 
 [debug]

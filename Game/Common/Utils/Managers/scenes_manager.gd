@@ -54,7 +54,7 @@ func has_previous_level() -> bool:
 
 
 func load_main_menu() -> void:
-	_goto_scene(MAIN_MENU)
+	_goto_scene(levels[MAIN_MENU])
 	_current_level_list = ""  # because it is a "special" list
 	_current_level_idx = 0
 
@@ -69,6 +69,10 @@ func previous_level() -> void:
 
 func next_level() -> void:
 	_switch_to_game_scene(_current_level_list, _current_level_idx + 1)
+
+
+func reload_current() -> void:
+	_switch_to_game_scene(_current_level_list, _current_level_idx)
 
 
 ##### PROTECTED METHODS #####

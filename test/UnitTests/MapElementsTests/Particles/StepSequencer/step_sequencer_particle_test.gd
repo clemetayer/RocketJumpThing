@@ -5,8 +5,6 @@ extends GlobalTests
 class_name StepSequencerStepParticleTest
 # global tests for the step sequencer particles elements
 
-# FIXME : tests failing
-
 ##### VARIABLES #####
 var step_sequencer_path: String
 var step_sequencer
