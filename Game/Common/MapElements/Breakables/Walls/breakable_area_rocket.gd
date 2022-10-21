@@ -52,7 +52,7 @@ func _add_ui_sprite() -> void:
 
 ##### SIGNAL MANAGEMENT #####
 func _on_breakable_area_rocket_area_entered(area):
-	if area is Rocket:
+	if area.is_in_group("rocket"):
 		emit_signal("trigger", {"position": area.transform.origin, "speed": area.SPEED})
 		_break_wall_sound.play()
 		yield(_break_wall_sound, "finished")

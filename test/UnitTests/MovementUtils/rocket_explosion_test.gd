@@ -43,7 +43,7 @@ func test_explode() -> void:
 
 
 func test_on_body_entered() -> void:
-	var player := Player.new()
+	var player := load(GlobalTestUtilities.player_path).instance()
 	player.add_to_group("player")
 	rocket_explosion._on_body_entered(player)
 	assert_array(player._add_velocity_vector_queue).is_not_empty()

@@ -1,5 +1,4 @@
 extends Area
-class_name EndPoint
 # End point area of the map
 
 

@@ -33,7 +33,7 @@ func test_connect_signals() -> void:
 
 func test_on_body_entered() -> void:
 	area_enable_ability._abilities = {"rockets": true, "sliding": true}
-	var player := Player.new()
+	var player := load(GlobalTestUtilities.player_path).instance()
 	player.ROCKETS_ENABLED = false
 	player.SLIDE_ENABLED = false
 	player.add_to_group("player")

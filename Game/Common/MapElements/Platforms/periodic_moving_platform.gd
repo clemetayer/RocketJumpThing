@@ -1,5 +1,4 @@
 extends KinematicBody
-class_name PeriodicMovingPlatform
 
 # code for a platform that moves periodically between a maximum of 5 points (use Vector3(0,0,0) to use less points)
 # Note : the collision safe margin of the colliding entity needs to be rather large (like 1 maybe), so that the platform can go against gravity with a kinematic body on it

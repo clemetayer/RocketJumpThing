@@ -35,7 +35,7 @@ func test_connect_signals() -> void:
 
 
 func test_on_EndPoint_body_entered() -> void:
-	var player = Player.new()
+	var player = load(GlobalTestUtilities.player_path).instance()
 	player.add_to_group("player")
 	end_point._on_EndPoint_body_entered(player)
 	assert_bool(VariableManager.scene_unloading).is_true()

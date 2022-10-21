@@ -1,5 +1,4 @@
 extends Area
-class_name Rocket
 # A rocket, to rocket jump mostly
 
 ##### SIGNALS #####

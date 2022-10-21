@@ -31,7 +31,7 @@ func test_connect_signals() -> void:
 
 
 func test_on_area_open_door_body_entered() -> void:
-	var player := Player.new()
+	var player := load(GlobalTestUtilities.player_path).instance()
 	player.add_to_group("player")
 	area_open_door._on_area_open_door_body_entered(player)
 	assert_signal(area_open_door).is_emitted("trigger")

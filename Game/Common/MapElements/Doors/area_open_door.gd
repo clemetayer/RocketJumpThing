@@ -1,5 +1,4 @@
 extends Collidable
-class_name AreaOpenDoor
 # An area to open a door on body entered trigger
 
 ##### SIGNALS #####

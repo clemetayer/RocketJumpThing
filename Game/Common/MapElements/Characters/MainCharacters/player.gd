@@ -1,6 +1,5 @@
 # tool
 extends KinematicBody
-class_name Player
 # Script for the player
 
 """

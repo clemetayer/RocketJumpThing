@@ -33,7 +33,7 @@ func test_update_size() -> void:
 
 # TODO : complex to test because of the add_child
 # func test_update_position() -> void:
-# 	var player := Player.new()
+# 	var player := load(GlobalTestUtilities.player_path).instance()
 # 	player.get_global_transform().origin = Vector3.ONE
 # 	death_grid_material.add_child(player)
 # 	death_grid_material.target = death_grid_material.get_path_to(player)

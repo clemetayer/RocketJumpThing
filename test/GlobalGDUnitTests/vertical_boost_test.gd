@@ -51,7 +51,7 @@ func test_set_extents() -> void:
 
 
 func test_on_body_entered() -> void:
-	var player = Player.new()
+	var player = load(GlobalTestUtilities.player_path).instance()
 	player.add_to_group("player")
 	vertical_boost._force = 10
 	vertical_boost._boost_multiplier = 2
