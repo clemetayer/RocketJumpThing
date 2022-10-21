@@ -662,7 +662,7 @@ _global_script_classes=[ {
 "base": "GdUnitTestSuite",
 "class": "GlobalTests",
 "language": "GDScript",
-"path": "res://test/UnitTests/global_tests.gd"
+"path": "res://test/GlobalGDUnitTests/global_tests.gd"
 }, {
 "base": "GdUnitMonitor",
 "class": "GodotGdErrorMonitor",
@@ -967,7 +967,7 @@ _global_script_classes=[ {
 "base": "GlobalTests",
 "class": "StandardSceneTest",
 "language": "GDScript",
-"path": "res://test/UnitTests/SceneTests/standard_scene_test.gd"
+"path": "res://test/GlobalGDUnitTests/standard_scene_test.gd"
 }, {
 "base": "Checkpoint",
 "class": "StartPoint",
@@ -987,7 +987,7 @@ _global_script_classes=[ {
 "base": "GlobalTests",
 "class": "StepSequencerStepParticleTest",
 "language": "GDScript",
-"path": "res://test/UnitTests/MapElementsTests/Particles/StepSequencer/step_sequencer_particle_test.gd"
+"path": "res://test/GlobalGDUnitTests/step_sequencer_particle_test.gd"
 }, {
 "base": "Node",
 "class": "StepperPulse",
@@ -1072,7 +1072,7 @@ _global_script_classes=[ {
 "base": "GlobalTests",
 "class": "VerticalBoostTest",
 "language": "GDScript",
-"path": "res://test/UnitTests/MapElementsTests/BoostPads/vertical_boost_test.gd"
+"path": "res://test/GlobalGDUnitTests/vertical_boost_test.gd"
 }, {
 "base": "EffectManager",
 "class": "VolumeEffectManager",
