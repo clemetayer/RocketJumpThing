@@ -15,6 +15,7 @@ func before():
 	element_path = breakable_area_speed_ui_path
 	.before()
 	breakable_area_speed_ui = load(breakable_area_speed_ui_path).instance()
+	breakable_area_speed_ui._ready()
 
 
 func after():

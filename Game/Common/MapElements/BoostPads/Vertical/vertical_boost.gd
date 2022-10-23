@@ -4,7 +4,6 @@ class_name VerticalBoost
 
 ##### VARIABLES #####
 #---- CONSTANTS -----
-var NODE_PATHS = {"collision": null}  # to complete in subclasses (written as a var just to be accessible for the subclass, but expected as a const)
 const TB_VBOOST_MAPPER := [["angle", "_angle"], ["force", "_force"], ["size", "_size"]]  # mapper for TrenchBroom parameters
 const TIMER_TIMEOUT := 0.05  # timeout time before adding a new push vector to the player
 const ROCKET_POWER_MULTIPLIER := 2.0  # boost multiplier when a rocket enters this area
@@ -13,7 +12,7 @@ const ROCKET_BOOST_DECAY := 0.75  # how long the boost will fade back to a norma
 export(Dictionary) var properties
 
 #==== PRIVATE ====
-var _player_body: Player = null  # keeps an instance of the player's body
+var _player_body = null  # keeps an instance of the player's body
 var _force := 1.0  # how much the player will be pushed
 var _angle := Vector3(0, 0, 0)  # rotation of the bumper (in degrees)
 var _size := Vector3(1, 1, 1)  # size of the bumper
@@ -21,18 +20,6 @@ var _boost_multiplier := 1.0  # boost multiplier
 
 #==== ONREADY ====
 onready var onready_rocket_tween := Tween.new()  # tween for the boost bonus when a rocket enters the area
-
-
-##### PROCESSING #####
-# Called when the object is initialized.
-func _init():
-	_init_func()
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	_ready_func()
-
 
 ##### PROTECTED METHODS #####
 # init function to override if necessary
@@ -55,12 +42,17 @@ func _set_TB_params() -> void:
 
 # makes some elements unique to avoid modifying other boosts (for example the collision shape)
 func _duplicate_common_elements() -> void:
-	get_node(NODE_PATHS.collision).shape = get_node(NODE_PATHS.collision).shape.duplicate()
+	_get_collision().shape = _get_collision().shape.duplicate()
 
 
 # sets the extents of the different boxes used (particle boxes, collision, etc.)
 func _set_extents() -> void:
-	get_node(NODE_PATHS.collision).shape.extents = _size
+	_get_collision().shape.extents = _size
+
+
+# An utility func to get the collision node in children classes
+func _get_collision() -> Node:
+	return null
 
 
 # sets the properties of the tween when a rocket interacts with the area

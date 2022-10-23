@@ -6,19 +6,19 @@ extends CanvasLayer
 const FADE_IN_TIME := 0.5
 
 #---- STANDARD -----
-#==== PRIVATE ====
-var _paths := {
-	"label": "./UI/CenterContainer/VBoxContainer/Time",
-	"tween": "./OpacityTween",
-	"root_ui": "./UI",
-	"next_scene_button": "./UI/CenterContainer/VBoxContainer/Buttons/NextButton"
+#==== ONREADY ====
+onready var onready_paths := {
+	"label": $"UI/CenterContainer/VBoxContainer/Time",
+	"tween": $"OpacityTween",
+	"root_ui": $"UI",
+	"next_scene_button": $"UI/CenterContainer/VBoxContainer/Buttons/NextButton"
 }
 
 
 ##### PROCESSING #####
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	get_node(_paths.root_ui).hide()
+	onready_paths.root_ui.hide()
 	_connect_signals()
 
 
@@ -35,7 +35,7 @@ func _unpause():
 		)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	get_tree().paused = false
-	get_node(_paths.root_ui).hide()
+	onready_paths.root_ui.hide()
 
 
 func _create_filter_auto_effect() -> EffectManager:
@@ -46,25 +46,25 @@ func _create_filter_auto_effect() -> EffectManager:
 
 ##### SIGNAL MANAGEMENT #####
 func _on_SignalManager_end_reached() -> void:
-		if StandardSongManager.get_current() != null:
-			StandardSongManager.apply_effect(
-				_create_filter_auto_effect(),
-				{StandardSongManager.get_current().name: {"fade_in": false}}
-			)
-		yield(get_tree().create_timer(0.1), "timeout")  # waits a little before pausing, to at least update the time in VariableManager. # OPTIMIZATION : this is pretty dirty, create a special signal to tell when the time was updated instead ?
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		get_node(_paths.next_scene_button).disabled = not ScenesManager.has_next_level()
-		var tween: Tween = get_node(_paths.tween)
-		var millis = VariableManager.chronometer.level % 1000
-		var seconds = floor((VariableManager.chronometer.level / 1000) % 60)
-		var minutes = floor(VariableManager.chronometer.level / (1000 * 60))
-		get_node(_paths.label).set_text("%02d : %02d : %03d" % [minutes, seconds, millis])
-		tween.interpolate_property(
-			get_node(_paths.root_ui), "modulate", Color(1, 1, 1, 0), Color(1, 1, 1, 1), FADE_IN_TIME
+	if StandardSongManager.get_current() != null:
+		StandardSongManager.apply_effect(
+			_create_filter_auto_effect(),
+			{StandardSongManager.get_current().name: {"fade_in": false}}
 		)
-		tween.start()
-		get_node(_paths.root_ui).show()
-		get_tree().paused = true
+	yield(get_tree().create_timer(0.1), "timeout")  # waits a little before pausing, to at least update the time in VariableManager. # OPTIMIZATION : this is pretty dirty, create a special signal to tell when the time was updated instead ?
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	onready_paths.next_scene_button.disabled = not ScenesManager.has_next_level()
+	var tween: Tween = onready_paths.tween
+	var millis = VariableManager.chronometer.level % 1000
+	var seconds = floor((VariableManager.chronometer.level / 1000) % 60)
+	var minutes = floor(VariableManager.chronometer.level / (1000 * 60))
+	onready_paths.label.set_text("%02d : %02d : %03d" % [minutes, seconds, millis])
+	tween.interpolate_property(
+		onready_paths.root_ui, "modulate", Color(1, 1, 1, 0), Color(1, 1, 1, 1), FADE_IN_TIME
+	)
+	tween.start()
+	onready_paths.root_ui.show()
+	get_tree().paused = true
 
 
 func _on_NextButton_pressed():

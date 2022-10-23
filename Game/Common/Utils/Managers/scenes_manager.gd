@@ -28,6 +28,7 @@ var levels = {}  # Dictionnary of levels
 #==== PRIVATE ====
 var _current_level_list: String
 var _current_level_idx := 0
+var _current_scene_instance : Node = null # instance of the current scene
 
 
 ##### PROCESSING #####
@@ -57,6 +58,7 @@ func load_main_menu() -> void:
 	_goto_scene(levels[MAIN_MENU])
 	_current_level_list = ""  # because it is a "special" list
 	_current_level_idx = 0
+	_current_scene_instance = null
 
 
 func load_level(name: String, idx: int = 0) -> void:
@@ -74,6 +76,10 @@ func next_level() -> void:
 func reload_current() -> void:
 	_switch_to_game_scene(_current_level_list, _current_level_idx)
 
+func get_current() -> Node:
+	if _current_scene_instance != null:
+		return _current_scene_instance
+	return get_tree().get_current_scene() # for single scene tests, mostly
 
 ##### PROTECTED METHODS #####
 func _load_levels_json_data() -> void:
@@ -83,7 +89,7 @@ func _load_levels_json_data() -> void:
 func _switch_to_game_scene(name: String, idx: int) -> void:
 	if levels[GAME_SCENES].has(name):
 		if levels[GAME_SCENES][name].size() > 0:
-			if idx < levels[GAME_SCENES][name].size() - 1 and idx >= 0:
+			if idx < levels[GAME_SCENES][name].size() and idx >= 0:
 				_goto_scene(levels[GAME_SCENES][name][idx])
 				_current_level_list = name
 				_current_level_idx = idx
@@ -122,5 +128,6 @@ func deferred_goto_scene(path: String) -> void:
 		var current_scene = root.get_child(root.get_child_count() - 1)
 		current_scene.free()
 		var new_scene = load(path).instance()
+		_current_scene_instance = new_scene
 		get_tree().get_root().call_deferred("add_child", new_scene)
 		get_tree().set_current_scene(new_scene)

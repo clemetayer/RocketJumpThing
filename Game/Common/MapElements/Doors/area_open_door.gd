@@ -4,6 +4,10 @@ extends Collidable
 ##### SIGNALS #####
 signal trigger
 
+##### VARIABLES #####
+#---- STANDARD -----
+#==== PUBLIC ====
+var is_test := false # boolean to tell if this is a test class, to avoid errors when it frees itself during the test
 
 ##### PROCESSING #####
 # Called when the object is initialized.
@@ -30,4 +34,5 @@ func _connect_signals() -> void:
 func _on_area_open_door_body_entered(body):
 	if FunctionUtils.is_player(body):
 		emit_signal("trigger")
-		self.queue_free()  # Optionnal ?
+		if !is_test:
+			self.queue_free()  # Optionnal ?

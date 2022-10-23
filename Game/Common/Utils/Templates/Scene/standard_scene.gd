@@ -15,10 +15,7 @@ const PAUSE_MENU_PATH := "res://Game/Common/Menus/PauseMenu/pause_menu.tscn"
 
 #---- EXPORTS ----
 export(Dictionary) var PATHS = {  # various paths for the scene
-	"player": NodePath(),
-	"start_point": NodePath(),
-	"end_level_ui": "res://Game/Common/Menus/EndLevel/end_level_ui.tscn",
-	"bgm": {"path": "", "animation": ""}
+	"player": NodePath(), "start_point": NodePath(), "bgm": {"path": "", "animation": ""}
 }
 export(bool) var ENABLE_ROCKETS = true
 export(bool) var ENABLE_SLIDE = true

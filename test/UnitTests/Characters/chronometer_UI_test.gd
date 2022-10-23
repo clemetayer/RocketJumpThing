@@ -15,6 +15,7 @@ func before():
 	element_path = chronometer_ui_path
 	.before()
 	chronometer_ui = load(chronometer_ui_path).instance()
+	chronometer_ui._ready()
 
 
 func after():

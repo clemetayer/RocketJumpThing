@@ -24,11 +24,6 @@ func after():
 
 #---- TESTS -----
 #==== ACTUAL TESTS =====
-func test_disable_pause() -> void:
-	main_menu._disable_pause()
-	assert_bool(PauseMenu.ENABLED).is_false()
-
-
 func test_enable_mouse_visible() -> void:
 	main_menu._enable_mouse_visible()
 	assert_int(Input.get_mouse_mode()).is_equal(Input.MOUSE_MODE_VISIBLE)

@@ -31,7 +31,7 @@ func test_connect_signals() -> void:
 
 func test_on_body_entered() -> void:
 	area.properties = {"animation": "test"}
-	var player := load(GlobalTestUtilities.player_path).instance()
+	var player = load(GlobalTestUtilities.player_path).instance()
 	player.add_to_group("player")
 	var song = SongAnimationPlayer.new()
 	song.ANIMATION = "test2"

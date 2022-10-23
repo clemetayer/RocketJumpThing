@@ -16,6 +16,7 @@ func before():
 	element_path = vertical_boost_path
 	.before()
 	vertical_boost = load(element_path).instance()
+	vertical_boost._ready()
 
 
 func after():
@@ -45,7 +46,7 @@ func test_connect_signals() -> void:
 func test_set_extents() -> void:
 	vertical_boost._size = Vector3.ONE * 2
 	vertical_boost._set_extents()
-	assert_vector3(vertical_boost.get_node(vertical_boost.NODE_PATHS.collision).shape.extents).is_equal(
+	assert_vector3(vertical_boost.onready_paths.collision.shape.extents).is_equal(
 		Vector3.ONE * 2
 	)
 

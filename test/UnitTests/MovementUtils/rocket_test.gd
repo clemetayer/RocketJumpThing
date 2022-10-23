@@ -15,6 +15,7 @@ func before():
 	element_path = rocket_path
 	.before()
 	rocket = load(rocket_path).instance()
+	rocket._ready()
 
 
 func after():
@@ -54,7 +55,7 @@ func after():
 
 func test_play_rocket_sound() -> void:
 	rocket._play_rocket_sound()
-	assert_bool(rocket.get_node(rocket.SCENE_PATHS.trail_sound).playing).is_true()
+	assert_bool(rocket.onready_paths.trail_sound.playing).is_true()
 
 
 # Kind of redundant to test _check_raycast_distance

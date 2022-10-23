@@ -5,6 +5,9 @@ extends Viewport
 #---- CONSTANTS -----
 const COLOR_NOK := Color(1, 0, 0, 1)  # color of the text if the player speed is < to the treshold
 const COLOR_OK := Color(0, 1, 0, 1)  # color of the text if the player speed is >= to the treshold
+#---- STANDARD -----
+#==== ONREADY ====
+onready var onready_paths := {"texture_rect": $"TextureRect"}
 
 
 ##### PROCESSING #####
@@ -15,11 +18,12 @@ func _ready():
 
 ##### PROTECTED METHODS #####
 func _init_texture_rect() -> void:
-	size = $TextureRect.rect_size
-	$TextureRect.modulate = COLOR_NOK
+	if onready_paths.texture_rect != null:
+		size = onready_paths.texture_rect.rect_size
+		onready_paths.texture_rect.modulate = COLOR_NOK
 
 
 ##### PUBLIC METHODS #####
 # UNUSED for the moment ?
 func set_sprite_rocket_ok() -> void:
-	$TextureRect.modulate = COLOR_OK
+	onready_paths.texture_rect.modulate = COLOR_OK

@@ -25,15 +25,9 @@ func after():
 
 #---- TESTS -----
 #==== ACTUAL TESTS =====
-func test_step_function() -> void:
-	step_sequencer._step_function()
+func test_step() -> void:
+	step_sequencer._step({"0":{"emit":true}})
 	assert_bool(step_sequencer.emitting).is_true()
-
-
-func test_connect_signals() -> void:
-	step_sequencer._connect_signals()
-	assert_bool(SignalManager.is_connected("sequencer_step", step_sequencer, "_on_SignalManager_sequencer_step")).is_true()
-
 
 func test_on_SignalManager_sequencer_step() -> void:
 	step_sequencer._id = "test"

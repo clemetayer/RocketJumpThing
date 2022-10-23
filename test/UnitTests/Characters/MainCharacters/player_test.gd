@@ -6,7 +6,7 @@ extends GlobalTests
 
 ##### VARIABLES #####
 const player_path = "res://Game/Common/MapElements/Characters/MainCharacters/player.tscn"
-var player: Player
+var player : KinematicBody
 
 
 ##### TESTS #####
@@ -18,6 +18,7 @@ func before():
 
 func before_test():
 	player = load(player_path).instance()
+	player._ready()
 
 
 func after_test():

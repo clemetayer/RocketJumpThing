@@ -13,13 +13,11 @@ const FADE_IN_TIME := 0.5
 
 #---- STANDARD -----
 #==== PRIVATE ====
-var _paths := {
-	"tween": "./OpacityTween",
-	"root_ui": "./UI",
-	"main_menu_scene": "res://Game/Common/Menus/MainMenu/main_menu.tscn",
-}
 var _paused := false  # boolean to tell if the menu is paused or not
 var _pause_enabled := true  # to tell if the pause menu can be shown or not
+
+#==== ONREADY ====
+onready var onready_paths := {"root_ui": $"UI"}
 
 
 ##### PROCESSING #####
@@ -30,7 +28,7 @@ func _init():
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	get_node(_paths.root_ui).hide()
+	onready_paths.root_ui.hide()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame. Remove the "_" to use it.
@@ -59,7 +57,7 @@ func _pause():
 		)
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	get_tree().paused = true
-	get_node(_paths.root_ui).show()
+	onready_paths.root_ui.show()
 	_paused = true
 
 
@@ -71,7 +69,7 @@ func _unpause():
 		)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	get_tree().paused = false
-	get_node(_paths.root_ui).hide()
+	onready_paths.root_ui.hide()
 	_paused = false
 
 

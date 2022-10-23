@@ -7,6 +7,9 @@ extends CanvasLayer
 var _last_time := 0  # in milliseconds
 var _timer_stopped := false
 
+#==== ONREADY ====
+onready var onready_paths := {"rich_text_label": $"Background/CenterContainer/RichTextLabel"}
+
 
 ##### PROCESSING #####
 # Called when the object is initialized.
@@ -33,9 +36,10 @@ func _update_timer(delta: float) -> void:
 		var millis = _last_time % 1000
 		var seconds = floor((_last_time / 1000) % 60)
 		var minutes = floor(_last_time / (1000 * 60))
-		$Background/CenterContainer/RichTextLabel.set_bbcode(
-			"%02d : %02d : %03d" % [minutes, seconds, millis]
-		)
+		if onready_paths.rich_text_label != null:
+			onready_paths.rich_text_label.set_bbcode(
+				"%02d : %02d : %03d" % [minutes, seconds, millis]
+			)
 
 
 ##### SIGNAL MANAGEMENT #####

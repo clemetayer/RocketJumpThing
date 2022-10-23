@@ -15,12 +15,12 @@ func before():
 	element_path = breakable_area_ui_path
 	.before()
 	breakable_area_ui = load(breakable_area_ui_path).instance()
+	breakable_area_ui._ready()
 
 
 func after():
 	breakable_area_ui.free()
 	.after()
-
 
 #---- TESTS -----
 #==== ACTUAL TESTS =====

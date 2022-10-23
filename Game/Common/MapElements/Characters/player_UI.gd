@@ -4,6 +4,11 @@ extends CanvasLayer
 #==== PUBLIC ====
 var speed := 0.0 setget set_speed
 
+#==== ONREADY ====
+onready var onready_paths := {
+	"speed_text": $"Screen/MarginScreen/CenterScreen/SpeedContainer/SpeedText"
+}
+
 
 ##### PUBLIC METHODS #####
 func set_speed(pspeed: float):
@@ -13,6 +18,7 @@ func set_speed(pspeed: float):
 
 ##### PROTECTED METHODS #####
 func _set_speed_text() -> void:
-	$Screen/MarginScreen/CenterScreen/SpeedContainer/SpeedText.bbcode_text = TextUtils.BBCode_center_text(
-		"%s : %d" % [tr("player_ui_speed"), speed]
-	)
+	if onready_paths.speed_text != null:
+		onready_paths.speed_text.bbcode_text = TextUtils.BBCode_center_text(
+			"%s : %d" % [tr("player_ui_speed"), speed]
+		)

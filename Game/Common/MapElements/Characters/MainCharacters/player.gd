@@ -99,16 +99,34 @@ var _charge_shot_time := 0  # time when the shot key was pressed (as unix timest
 var _wall_ride_lock := false  # lock for the wall ride to avoid sticking to the wall when jumping
 var _mix_to_direction_amount := 1.0  # when in air and pressing forward, how much the velocity should stick to the direction
 
+#==== ONREADY ====
+onready var onready_paths := {
+	"raycasts": {"root": $"RayCasts", "left": $"RayCasts/left", "right": $"RayCasts/right"},
+	"camera": $"RotationHelper/Camera",
+	"rotation_helper": $"RotationHelper",
+	"UI": $"PlayerUI",
+	"run_sound":
+	{
+		"pitch": $"Sounds/Run/Pitch",
+		"unpitch": $"Sounds/Run/Pitch",
+	},
+	"jump_sound": $"Sounds/JumpSound",
+	"wall_ride": $"Sounds/WallRide",
+	"timers":
+	{"update_speed": $"Timers/UpdateSpeed", "wall_ride_jump_lock": $"Timers/WallRideJumpLock"},
+	"tweens": {"wall_jump_mix_mvt": $"WallJumpMixMovement"}
+}
+
 
 ##### PROCESSING #####
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	camera = get_node(PATHS.camera)
+	camera = onready_paths.camera
 	rotation_helper = get_node(PATHS.rotation_helper)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	$Timers/UpdateSpeed.start()
-	get_node(PATHS.run_sound.pitch).play()
-	get_node(PATHS.run_sound.unpitch).play()
+	onready_paths.timers.update_speed.start()
+	onready_paths.run_sound.pitch.play()
+	onready_paths.run_sound.unpitch.play()
 
 
 func _process(delta):
@@ -117,11 +135,11 @@ func _process(delta):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame. Remove the "_" to use it.
 func _physics_process(delta):
-	# get_node(PATHS.camera).fov = (
+	# onready_paths.camera.fov = (
 	# 	MIN_FOV
 	# 	+ (MAX_FOV - MIN_FOV) * ease(min(1, current_speed / FOV_MAX_SPEED), 1.6)
 	# )
-	# DebugDraw.set_text("fov", get_node(PATHS.camera).fov)
+	# DebugDraw.set_text("fov", onready_paths.camera.fov)
 	_set_UI_data()
 	_process_collision()
 	_process_input(delta)
@@ -242,30 +260,24 @@ func _init_rocket(cam_xform: Transform) -> Area:
 #---- Process sounds -----
 func _process_sounds() -> void:
 	if (current_speed / SOUND_MAX_SPEED) * 4.0 > 0.0:
-		if !get_node(PATHS.run_sound.pitch).playing:
-			get_node(PATHS.run_sound.pitch).play()
-		if !get_node(PATHS.run_sound.unpitch).playing:
-			get_node(PATHS.run_sound.unpitch).play()
-		get_node(PATHS.run_sound.pitch).pitch_scale = clamp(
+		if !onready_paths.run_sound.pitch.playing:
+			onready_paths.run_sound.pitch.play()
+		if !onready_paths.run_sound.unpitch.playing:
+			onready_paths.run_sound.unpitch.play()
+		onready_paths.run_sound.pitch.pitch_scale = clamp(
 			current_speed / (SOUND_MAX_SPEED / 3.0), 0.0, 4.0
 		)
-		get_node(PATHS.run_sound.unpitch).volume_db = clamp(
+		onready_paths.run_sound.unpitch.volume_db = clamp(
 			linear2db(current_speed / (SOUND_MAX_SPEED / 2.0)), -72.0, 0.0
 		)
-	elif get_node(PATHS.run_sound.pitch).playing:
-		get_node(PATHS.run_sound.pitch).stop()
-	elif get_node(PATHS.run_sound.unpitch).playing:
-		get_node(PATHS.run_sound.unpitch).stop()
-	if (
-		(states.has("wall_riding") or states.has("sliding"))
-		and not get_node(PATHS.wall_ride).playing
-	):
-		get_node(PATHS.wall_ride).play()
-	elif (
-		!(states.has("wall_riding") or states.has("sliding"))
-		and get_node(PATHS.wall_ride).playing
-	):
-		get_node(PATHS.wall_ride).stop()
+	elif onready_paths.run_sound.pitch.playing:
+		onready_paths.run_sound.pitch.stop()
+	elif onready_paths.run_sound.unpitch.playing:
+		onready_paths.run_sound.unpitch.stop()
+	if (states.has("wall_riding") or states.has("sliding")) and not onready_paths.wall_ride.playing:
+		onready_paths.wall_ride.play()
+	elif !(states.has("wall_riding") or states.has("sliding")) and onready_paths.wall_ride.playing:
+		onready_paths.wall_ride.stop()
 
 
 #---- Process movement -----
@@ -302,9 +314,9 @@ func _override_velocity():
 
 
 func _find_wall_direction() -> void:
-	if get_node(PATHS.raycasts.right).is_colliding():
+	if onready_paths.raycasts.right.is_colliding():
 		_RC_wall_direction = -1
-	elif get_node(PATHS.raycasts.left).is_colliding():
+	elif onready_paths.raycasts.left.is_colliding():
 		_RC_wall_direction = 1
 
 
@@ -327,9 +339,9 @@ func _wall_ride_movement(delta: float) -> void:
 func _find_raycast_from_direction(direction: int):
 	match direction:
 		1:
-			return get_node_or_null(PATHS.raycasts.left)
+			return onready_paths.raycasts.left
 		-1:
-			return get_node_or_null(PATHS.raycasts.right)
+			return onready_paths.raycasts.right
 		_:
 			return null
 
@@ -356,8 +368,8 @@ func _wall_jump(wall_fw: Vector3) -> void:
 		_init_wall_ride_lock()
 	vel += (wall_fw.rotated(Vector3.UP, WALL_JUMP_ANGLE * -_RC_wall_direction) * WALL_JUMP_BOOST)
 	vel += Vector3.UP * WALL_JUMP_UP_BOOST
-	if not get_node(PATHS.jump_sound).playing:
-		get_node(PATHS.jump_sound).play()
+	if not onready_paths.jump_sound.playing:
+		onready_paths.jump_sound.play()
 
 
 func _wall_ride(rc: RayCast, wall_fw: Vector3, delta: float) -> void:
@@ -370,10 +382,10 @@ func _wall_ride(rc: RayCast, wall_fw: Vector3, delta: float) -> void:
 
 func _init_wall_ride_lock() -> void:
 	states.remove("wall_riding")
-	$Timers/WallRideJumpLock.start()  # to avoid sticking and accelerating back on the wall after jumping
+	onready_paths.timers.wall_ride_jump_lock.start()  # to avoid sticking and accelerating back on the wall after jumping
 	_wall_ride_lock = true
 	if Input.is_action_pressed("movement_forward"):  # FIXME : probably creates a bug that can make the player wall jump easily to the same wall (but that might make a cool mechanic)
-		var tween = get_node("WallJumpMixMovement")
+		var tween = onready_paths.tweens.wall_jump_mix_mvt
 		if tween.is_active():
 			tween.stop_all()
 		tween.interpolate_property(
@@ -401,7 +413,7 @@ func _keep_wallride_raycasts_perpendicular(rc: RayCast) -> void:
 
 # resets the wallride raycasts to their standard rotation value
 func _reset_wallride_raycasts() -> void:
-	$RayCasts.rotation = Vector3(0, 0, 0)
+	onready_paths.raycasts.root.rotation = Vector3(0, 0, 0)
 
 
 # movement management when on the ground
@@ -419,7 +431,7 @@ func _ground_jump() -> void:
 	vel.y += JUMP_POWER  # FIXME : delta not used here ?
 	if states.has("sliding"):
 		_slide_jump()
-	get_node(PATHS.jump_sound).play()
+	onready_paths.jump_sound.play()
 
 
 # Executed when jumping while sliding
@@ -530,11 +542,11 @@ func _on_WallRideJumpLock_timeout():
 func _debug_process_movement(_delta: float):
 	var rc: RayCast
 	var rc_dir := 0
-	if $RayCasts/RayCastWallMinus.is_colliding():
-		rc = $RayCasts/RayCastWallMinus
+	if onready_paths.raycasts.left.is_colliding():
+		rc = onready_paths.raycasts.left
 		rc_dir = -1
-	elif $RayCasts/RayCastWallPlus.is_colliding():
-		rc = $RayCasts/RayCastWallPlus
+	elif onready_paths.raycasts.right.is_colliding():
+		rc = onready_paths.raycasts.right
 		rc_dir = 1
 	if rc != null:
 		var wall_normal = rc.get_collision_normal().normalized()  # normal of the wall, should be the aligned with the player x axis

@@ -10,5 +10,6 @@ extends VerticalBoostTest
 func before():
 	vertical_boost_path = "res://Game/Common/MapElements/BoostPads/Vertical/vertical_boost_pad.tscn"
 	.before()
+	
 
 # just tests from the parent, not much to do here

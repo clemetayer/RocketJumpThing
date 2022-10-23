@@ -17,12 +17,10 @@ var global_utilities: GlobalTestUtilities
 func before():
 	if element_instance == null:
 		element_instance = load(element_path).instance()
-	global_utilities = GlobalTestUtilities.new()
 
 
 func after():
 	element_instance.free()
-	global_utilities.free()
 
 
 #---- TESTS -----

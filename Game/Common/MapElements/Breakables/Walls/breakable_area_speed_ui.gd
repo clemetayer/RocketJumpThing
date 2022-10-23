@@ -8,6 +8,9 @@ const COLOR_OK := Color(0, 1, 0, 1)  # color of the text if the player speed is 
 
 #---- EXPORTS -----
 export(float) var SPEED = 0  # Speed to show on the Sprite3D
+#---- STANDARD -----
+#==== ONREADY ====
+onready var onready_paths := {"label": $"Label"}
 
 
 ##### PROCESSING #####
@@ -36,10 +39,14 @@ func _connect_signals() -> void:
 
 
 func _init_label() -> void:
-	$Label.text = str(SPEED)
-	size = $Label.rect_size
+	if onready_paths.label != null:
+		onready_paths.label.text = str(SPEED)
+		size = onready_paths.label.rect_size
 
 
 ##### SIGNAL MANAGEMENT #####
 func _on_breakable_area_speed_ui_speed_updated(speed: float):
-	$Label.set("custom_colors/font_color", COLOR_OK if speed >= SPEED else COLOR_NOK)
+	if onready_paths.label != null:
+		onready_paths.label.set(
+			"custom_colors/font_color", COLOR_OK if speed >= SPEED else COLOR_NOK
+		)

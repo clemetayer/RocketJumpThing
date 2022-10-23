@@ -3,17 +3,20 @@ extends Area
 
 ##### VARIABLES #####
 #---- CONSTANTS -----
-const NODE_PATHS = {
-	"collision": @"CollisionShape",
-	"timer": @"ExplosionDecay",
-	"animation": @"ExplosionAnimation",
-	"explosion_audio": @"ExplosionAudio"
-}
 const ANIMATIONS = {"explode": "explode"}
 const EXPLOSION_POWER := 15  # power of the explosion
 
 #---- EXPORTS -----
 export(Vector3) var EXPLOSION_POSITION
+
+#---- STANDARD -----
+#==== ONREADY ====
+onready var onready_paths := {
+	"collision": $"CollisionShape",
+	"timer": $"ExplosionDecay",
+	"animation": $"ExplosionAnimation",
+	"explosion_audio": $"ExplosionAudio"
+}
 
 
 ##### PROCESSING #####
@@ -25,9 +28,9 @@ func _ready():
 
 ##### PROTECTED METHODS #####
 func _connect_signals() -> void:
-	FunctionUtils.log_connect(get_node(NODE_PATHS.timer), self, "timeout", "_on_Timer_timeout")
+	FunctionUtils.log_connect(onready_paths.timer, self, "timeout", "_on_Timer_timeout")
 	FunctionUtils.log_connect(
-		get_node(NODE_PATHS.animation),
+		onready_paths.animation,
 		self,
 		"animation_finished",
 		"_on_AnimationPlayer_animation_finished"
@@ -37,10 +40,10 @@ func _connect_signals() -> void:
 
 # triggers the explosion method
 func _explode() -> void:
-	get_node(NODE_PATHS.explosion_audio).play()
+	onready_paths.explosion_audio.play()
 	global_transform.origin = EXPLOSION_POSITION
-	get_node(NODE_PATHS.animation).play(ANIMATIONS.explode)
-	get_node(NODE_PATHS.timer).start()
+	onready_paths.animation.play(ANIMATIONS.explode)
+	onready_paths.timer.start()
 
 
 ##### SIGNAL MANAGEMENT #####
@@ -57,4 +60,4 @@ func _on_AnimationPlayer_animation_finished(_name: String) -> void:
 
 # disables the explosion hitbox
 func _on_Timer_timeout() -> void:
-	get_node(NODE_PATHS.collision).disabled = true
+	onready_paths.collision.disabled = true

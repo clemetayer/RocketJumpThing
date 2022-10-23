@@ -15,6 +15,7 @@ func before():
 	element_path = player_ui_path
 	.before()
 	player_ui = load(player_ui_path).instance()
+	player_ui._ready()
 
 
 func after():

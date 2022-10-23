@@ -15,6 +15,7 @@ func before():
 	element_path = checkpoint_ui_path
 	.before()
 	checkpoint_ui = load(checkpoint_ui_path).instance()
+	checkpoint_ui._ready()
 
 
 func after():

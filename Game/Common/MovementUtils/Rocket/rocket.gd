@@ -9,14 +9,10 @@ extends Area
 
 ##### VARIABLES #####
 #---- CONSTANTS -----
-const SCENE_PATHS = {
-	"explosion": "res://Game/Common/MovementUtils/Rocket/rocket_explosion.tscn",
-	"trail_sound": @"TrailSound"
-}
 const SPEED := 200.0  # travel speed of the rocket
 const RAYCAST_DISTANCE := 200  # maximum distance to detect a floor
 const RAYCAST_PLAN_EXPLODE_DISTANCE := 5  # Distance from a floor where the explosion should be planned (since it's imminent), to be sure that is will explode (high speed makes collision weird)
-
+const EXPLOSION_SCENE := "res://Game/Common/MovementUtils/Rocket/rocket_explosion.tscn"
 #---- EXPORTS -----
 export(Vector3) var START_POS = Vector3(0, 0, 0)
 export(Vector3) var DIRECTION = Vector3(0, 0, 0)  # direction (normalized) where the rocket should travel
@@ -28,6 +24,9 @@ var _translate := false
 var _expl_planned := false  # if the explosion has been already planned
 var _speed := 0.0  # travel speed of the rocket # kept as a private variable in case I add something that makes the rocket speed vary
 
+#==== ONREADY ====
+onready var onready_paths := {"trail_sound": $"TrailSound", "raycast": $"RayCast"}
+
 
 ##### PROCESSING #####
 # Called when the node enters the scene tree for the first time.
@@ -38,7 +37,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	_check_raycast_distance($RayCast)
+	_check_raycast_distance(onready_paths.raycast)
 	if _translate:
 		translate_object_local(Vector3(0, 0, 1) * _speed * delta)
 
@@ -61,7 +60,7 @@ func _init_rocket() -> void:
 
 
 func _play_rocket_sound() -> void:
-	get_node(SCENE_PATHS.trail_sound).play()
+	onready_paths.trail_sound.play()
 
 
 # checks the raycast distance from the closest "floor", to explode if needed
@@ -70,7 +69,7 @@ func _check_raycast_distance(raycast: RayCast) -> void:
 	if raycast.is_colliding():
 		var distance = _get_distance_to_collision(raycast)
 		if (
-			not raycast.get_collider() is Player
+			not FunctionUtils.is_player(raycast.get_collider())
 			and distance <= RAYCAST_PLAN_EXPLODE_DISTANCE
 			and not _expl_planned
 		):
@@ -110,16 +109,16 @@ func _explode(raycast) -> void:
 	var col_point = raycast.get_collision_point()
 	raycast.enabled = false
 	transform.origin = col_point
-	var explosion = load(SCENE_PATHS.explosion).instance()
+	var explosion = load(EXPLOSION_SCENE).instance()
 	explosion.EXPLOSION_POSITION = global_transform.origin
-	get_tree().get_current_scene().add_child(explosion)
+	ScenesManager.get_current().add_child(explosion)
 	queue_free()
 
 
 ##### SIGNAL MANAGEMENT #####
 func _on_Rocket_body_entered(body: Node):
-	if not body is Player and not _expl_planned:
+	if not FunctionUtils.is_player(body) and not _expl_planned:
 		_expl_planned = true
-		$RayCast.transform.origin.z = -100  # steps back the raycast to get the exact collision point
-		if $RayCast.is_colliding():
-			_explode($RayCast)
+		onready_paths.raycast.transform.origin.z = -100  # steps back the raycast to get the exact collision point
+		if onready_paths.raycast.is_colliding():
+			_explode(onready_paths.raycast)
