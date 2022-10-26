@@ -20,8 +20,11 @@ const TB_STEP_SEQUENCER_PARAM_MAPPER := [
 
 ##### PUBLIC METHODS #####
 static func connect_signals(step_sequencer: Node) -> void:
-	FunctionUtils.log_connect(
-		SignalManager, step_sequencer, "sequencer_step", "_on_SignalManager_sequencer_step"
+	DebugUtils.log_connect(
+		SignalManager,
+		step_sequencer,
+		SignalManager.SEQUENCER_STEP,
+		"_on_SignalManager_sequencer_step"
 	)
 
 

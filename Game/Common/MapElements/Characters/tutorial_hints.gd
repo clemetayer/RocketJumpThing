@@ -19,8 +19,8 @@ onready var onready_paths := {"screen_root": $"Screen", "label": $"Screen/Center
 ##### PROCESSING #####
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	FunctionUtils.log_connect(
-		SignalManager, self, "trigger_tutorial", "_on_SignalManager_trigger_tutorial"
+	DebugUtils.log_connect(
+		SignalManager, self, SignalManager.TRIGGER_TUTORIAL, "_on_SignalManager_trigger_tutorial"
 	)
 	onready_paths.screen_root.hide()
 	onready_paths.label.set_text("")
@@ -31,73 +31,49 @@ func _ready():
 func display_tutorial(key: String, time: float) -> void:
 	var color_tween := Tween.new()  # color of the canvas
 	var engine_time_scale_tween := Tween.new()  # time scale for slow motion
-	if !color_tween.interpolate_property(
+	DebugUtils.log_tween_interpolate_property(
+		color_tween,
 		onready_paths.screen_root,
 		"modulate",
 		Color(1, 1, 1, 0.0),
 		Color(1, 1, 1, 1.0),
 		ENGINE_TUTORIAL_SHOW_TIME
-	):
-		Logger.error(
-			(
-				"Error while setting tween interpolate property %s at %s"
-				% ["modulate", DebugUtils.print_stack_trace(get_stack())]
-			)
-		)
-	if !engine_time_scale_tween.interpolate_method(
-		Engine, "set_time_scale", 1.0, ENGINE_SLOW_DOWN_AMOUNT, ENGINE_TUTORIAL_SHOW_TIME
-	):
-		Logger.error(
-			(
-				"Error while setting tween interpolate method %s at %s"
-				% ["set_time_scale", DebugUtils.print_stack_trace(get_stack())]
-			)
-		)
+	)
+	DebugUtils.log_tween_interpolate_method(
+		engine_time_scale_tween,
+		Engine,
+		"set_time_scale",
+		1.0,
+		ENGINE_SLOW_DOWN_AMOUNT,
+		ENGINE_TUTORIAL_SHOW_TIME
+	)
 	add_child(color_tween)
 	add_child(engine_time_scale_tween)
-	if !color_tween.start():
-		Logger.error(
-			"Error when starting tween at %s" % [DebugUtils.print_stack_trace(get_stack())]
-		)
-	if !engine_time_scale_tween.start():
-		Logger.error(
-			"Error when starting tween at %s" % [DebugUtils.print_stack_trace(get_stack())]
-		)
+	DebugUtils.log_tween_start(color_tween)
+	DebugUtils.log_tween_start(engine_time_scale_tween)
 	onready_paths.screen_root.show()
 	_set_tutorial_text(key)
 	# onready_paths.label.set_text(TextUtils.replace_elements(tr(key), _keys_dict))
 	yield(color_tween, "tween_all_completed")
 	yield(get_tree().create_timer(time), "timeout")
-	if !color_tween.interpolate_property(
+	DebugUtils.log_tween_interpolate_property(
+		color_tween,
 		onready_paths.screen_root,
 		"modulate",
 		Color(1, 1, 1, 1.0),
 		Color(1, 1, 1, 0.0),
 		ENGINE_TUTORIAL_SHOW_TIME
-	):
-		Logger.error(
-			(
-				"Error while setting tween interpolate property %s at %s"
-				% ["modulate", DebugUtils.print_stack_trace(get_stack())]
-			)
-		)
-	if !engine_time_scale_tween.interpolate_method(
-		Engine, "set_time_scale", ENGINE_SLOW_DOWN_AMOUNT, 1.0, ENGINE_TUTORIAL_SHOW_TIME
-	):
-		Logger.error(
-			(
-				"Error while setting tween interpolate method %s at %s"
-				% ["set_time_scale", DebugUtils.print_stack_trace(get_stack())]
-			)
-		)
-	if !color_tween.start():
-		Logger.error(
-			"Error when starting tween at %s" % [DebugUtils.print_stack_trace(get_stack())]
-		)
-	if !engine_time_scale_tween.start():
-		Logger.error(
-			"Error when starting tween at %s" % [DebugUtils.print_stack_trace(get_stack())]
-		)
+	)
+	DebugUtils.log_tween_interpolate_method(
+		engine_time_scale_tween,
+		Engine,
+		"set_time_scale",
+		ENGINE_SLOW_DOWN_AMOUNT,
+		1.0,
+		ENGINE_TUTORIAL_SHOW_TIME
+	)
+	DebugUtils.log_tween_start(color_tween)
+	DebugUtils.log_tween_start(engine_time_scale_tween)
 	yield(color_tween, "tween_all_completed")
 	color_tween.queue_free()
 	engine_time_scale_tween.queue_free()
@@ -121,15 +97,15 @@ func _replace_rocket_icon() -> Control:
 
 
 func _replace_shoot() -> Control:
-	return _match_input_type("shoot")
+	return _match_input_type(VariableManager.TR_REPLACE_TUTORIAL_ACTION_SHOOT)
 
 
 func _replace_restart_last_cp() -> Control:
-	return _match_input_type("restart_last_cp")
+	return _match_input_type(VariableManager.TR_REPLACE_TUTORIAL_RESTART_LAST_CP)
 
 
 func _replace_restart() -> Control:
-	return _match_input_type("restart")
+	return _match_input_type(VariableManager.TR_REPLACE_TUTORIAL_RESTART)
 
 
 func _replace_strafe(forward: bool, backward: bool, left: bool, right: bool) -> Control:
@@ -140,11 +116,11 @@ func _replace_strafe(forward: bool, backward: bool, left: bool, right: bool) -> 
 
 
 func _replace_slide() -> Control:
-	return _match_input_type("movement_slide")
+	return _match_input_type(VariableManager.TR_REPLACE_TUTORIAL_MVT_SLIDE)
 
 
 func _replace_jump() -> Control:
-	return _match_input_type("movement_jump")
+	return _match_input_type(VariableManager.TR_REPLACE_TUTORIAL_MVT_JUMP)
 
 
 func _replace_move_direction(forward: bool, backward: bool, left: bool, right: bool) -> CenterContainer:
@@ -156,37 +132,37 @@ func _replace_move_direction(forward: bool, backward: bool, left: bool, right: b
 func _call_replace_method(key: String) -> Control:
 	var control = Control.new()  # empty control in case it is not a recognozed string
 	match key:
-		"movement_wasd":
+		VariableManager.TR_REPLACE_TUTORIAL_MVT_WASD:
 			control = _replace_move_direction(true, true, true, true)
-		"movement_wa":
+		VariableManager.TR_REPLACE_TUTORIAL_MVT_WA:
 			control = _replace_move_direction(true, false, true, false)
-		"movement_wd":
+		VariableManager.TR_REPLACE_TUTORIAL_MVT_WD:
 			control = _replace_move_direction(true, false, false, true)
-		"movement_w":
+		VariableManager.TR_REPLACE_TUTORIAL_MVT_W:
 			control = _replace_move_direction(true, false, false, false)
-		"movement_jump":
+		VariableManager.TR_REPLACE_TUTORIAL_MVT_JUMP:
 			control = _replace_jump()
-		"movement_slide":
+		VariableManager.TR_REPLACE_TUTORIAL_MVT_SLIDE:
 			control = _replace_slide()
-		"mouse_strafe_left":
+		VariableManager.TR_REPLACE_TUTORIAL_MOUSE_STRAFE_LEFT:
 			control = _replace_strafe(false, false, true, false)
-		"mouse_strafe_right":
+		VariableManager.TR_REPLACE_TUTORIAL_MOUSE_STRAFE_RIGHT:
 			control = _replace_strafe(false, false, false, true)
-		"mouse_strafe_left_right":
+		VariableManager.TR_REPLACE_TUTORIAL_MOUSE_STRAFE_LEFT_RIGHT:
 			control = _replace_strafe(false, false, true, true)
-		"restart":
+		VariableManager.TR_REPLACE_TUTORIAL_RESTART:
 			control = _replace_restart()
-		"restart_last_cp":
+		VariableManager.TR_REPLACE_TUTORIAL_RESTART_LAST_CP:
 			control = _replace_restart_last_cp()
-		"shoot":
+		VariableManager.TR_REPLACE_TUTORIAL_ACTION_SHOOT:
 			control = _replace_shoot()
-		"rocket_icon":
+		VariableManager.TR_REPLACE_TUTORIAL_ROCKET_ICON:
 			control = _replace_rocket_icon()
-		"rocket_jump_icon":
+		VariableManager.TR_REPLACE_TUTORIAL_ROCKET_JUMP_ICON:
 			control = _replace_rocket_jump_icon()
-		"boost_pad":
+		VariableManager.TR_REPLACE_TUTORIAL_BOOST_PAD:
 			control = _replace_boost_pad(false)
-		"boost_pad_enhanced":
+		VariableManager.TR_REPLACE_TUTORIAL_BOOST_PAD_ENHANCED:
 			control = _replace_boost_pad(true)
 		_:
 			control = Label.new()
@@ -239,7 +215,7 @@ func _set_tutorial_text(key: String) -> void:
 	var key_str := tr(key)
 	var split_line := key_str.split("\n")  # splits all the \n to later put these in an HBox container
 	for line in split_line:
-		var split_array = line.split("##")
+		var split_array = line.split(VariableManager.TR_REPLACE_PATTERN)
 		var hbox := HBoxContainer.new()
 		for part in split_array:
 			hbox.add_child(_call_replace_method(part))

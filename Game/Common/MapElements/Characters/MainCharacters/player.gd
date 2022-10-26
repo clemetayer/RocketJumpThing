@@ -1,20 +1,28 @@
-# tool
 extends KinematicBody
 # Script for the player
 
 """
 - TODO : Use a rigid body instead ? Meh actually, it tends to go through floors, and there is a respawn possibility if you're stuck in a wall
 - TODO : Explode the rockets on right click ? charge rocket on right click ?
+	- Do this in the player subclasses if needed (or add resources to the player to make a 'custom' version)
 """
-
-##### SIGNALS #####
-# Node signals
-
 ##### ENUMS #####
-# enumerations
+enum states_idx {
+	MOVING,
+	WALL_RIDING,
+	SLIDING,
+	IN_AIR,
+	SHOOTING
+}  # states of the player as bitmap indexes
 
 ##### VARIABLES #####
 #---- CONSTANTS -----
+#~~~~ STATES ~~~~~
+const STATES_SIZE := 5  # How many states the player has
+
+#~~~~ TRENCHBROOM ~~~~~
+const TB_PLAYER_MAPPER := [["angle", "rotation_degrees:y"]]  # mapper for TrenchBroom parameters
+
 #~~~~ CAMERA ~~~~~
 const MIN_FOV := 80  # Min and max fov of the camera that changes depending on the character speed
 const MAX_FOV := 100
@@ -57,32 +65,14 @@ const ROCKET_START_OFFSET := Vector3(0, 0, 0)  # offest position from the player
 const ROCKET_SCENE_PATH := "res://Game/Common/MovementUtils/Rocket/rocket.tscn"  # Path to the rocket scene
 
 #---- EXPORTS -----
-export(Dictionary) var PATHS = {
-	"raycasts":
-	{
-		"root": NodePath("RayCasts"),
-		"left": NodePath("RayCasts/left"),
-		"right": NodePath("RayCasts/right")
-	},
-	"camera": NodePath("RotationHelper/Camera"),
-	"rotation_helper": NodePath("RotationHelper"),
-	"UI": NodePath("PlayerUI"),
-	"run_sound":
-	{
-		"pitch": NodePath("Sounds/Run/Pitch"),
-		"unpitch": NodePath("Sounds/Run/Pitch"),
-	},
-	"jump_sound": NodePath("Sounds/JumpSound"),
-	"wall_ride": NodePath("Sounds/WallRide")
-}
 export(bool) var ROCKETS_ENABLED = true
 export(bool) var SLIDE_ENABLED = true
-export(Dictionary) var properties setget set_properties
+export(Dictionary) var properties
 
 #---- STANDARD -----
 #==== PUBLIC ====
 var mouse_sensitivity = 0.05  # mouse sensitivity
-var states = []  # player current states # OPTIMIZATION : Use a bitmask for states, with an enum and everything
+var states := BitMap.new()  # player current states
 var input_movement_vector = Vector2()  # vector for the movement
 var vel := Vector3()  # velocity vector
 var dir := Vector3()  # wished direction by the player
@@ -103,6 +93,8 @@ var _mix_to_direction_amount := 1.0  # when in air and pressing forward, how muc
 onready var onready_paths := {
 	"raycasts": {"root": $"RayCasts", "left": $"RayCasts/left", "right": $"RayCasts/right"},
 	"camera": $"RotationHelper/Camera",
+	"player_collision": $"PlayerCollision",
+	"slide_collision": $"SlideCollision",
 	"rotation_helper": $"RotationHelper",
 	"UI": $"PlayerUI",
 	"run_sound":
@@ -119,10 +111,15 @@ onready var onready_paths := {
 
 
 ##### PROCESSING #####
+# Called when the object is initialized.
+func _init():
+	_init_states()
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	camera = onready_paths.camera
-	rotation_helper = get_node(PATHS.rotation_helper)
+	rotation_helper = onready_paths.rotation_helper
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	onready_paths.timers.update_speed.start()
 	onready_paths.run_sound.pitch.play()
@@ -170,41 +167,47 @@ func override_velocity_vector(vector: Vector3) -> void:
 # toggles a player ability
 func toggle_ability(name: String, enabled: bool) -> void:
 	match name:
-		"slide":
+		VariableManager.ABILITY_SLIDE:
 			SLIDE_ENABLED = enabled
-		"rockets":
+		VariableManager.ABILITY_ROCKETS:
 			ROCKETS_ENABLED = enabled
 
 
+# returns the value of a specific state
+func get_state_value(state_idx: int) -> bool:
+	return states.get_bit(Vector2(state_idx, 0))
+
+
+func set_state_value(state_idx: int, value: bool) -> void:
+	states.set_bit(Vector2(state_idx, 0), value)
+
+
 ##### PROTECTED METHODS #####
-#==== Qodot =====
-func set_properties(new_properties: Dictionary) -> void:
-	if properties != new_properties:
-		properties = new_properties
-		update_properties()
+#---- Trenchbroom -----
+func _set_TB_params() -> void:
+	TrenchBroomEntityUtils._map_trenchbroom_properties(self, properties, TB_PLAYER_MAPPER)
 
 
-func update_properties() -> void:
-	if "angle" in properties:
-		rotation_degrees.y = properties.angle
-
-
-#==== Others =====
 #---- UI data -----
 # sets the UI infos
 func _set_UI_data() -> void:
-	var ui := get_node(PATHS.UI)
+	var ui = onready_paths.UI
 	ui.set_speed(current_speed)
 
 
 #---- Process collision -----
 # Enables/disables some collisions depending on the states
 func _process_collision():
-	$PlayerCollision.disabled = states.has("sliding")
-	$SlideCollision.disabled = not states.has("sliding")
+	onready_paths.player_collision.disabled = get_state_value(states_idx.SLIDING)
+	onready_paths.slide_collision.disabled = not get_state_value(states_idx.SLIDING)
 
 
 #---- Process states -----
+# init states
+func _init_states() -> void:
+	states.create(Vector2(STATES_SIZE, 1))
+
+
 # Input management
 func _process_input(_delta):
 	# Camera
@@ -213,13 +216,13 @@ func _process_input(_delta):
 
 	# Standard movement
 	input_movement_vector = Vector2()
-	if Input.is_action_pressed("movement_forward"):
+	if Input.is_action_pressed(VariableManager.INPUT_MVT_FORWARD):
 		input_movement_vector.y += 1
-	if Input.is_action_pressed("movement_backward"):
+	if Input.is_action_pressed(VariableManager.INPUT_MVT_BACKWARD):
 		input_movement_vector.y -= 1
-	if Input.is_action_pressed("movement_left"):
+	if Input.is_action_pressed(VariableManager.INPUT_MVT_LEFT):
 		input_movement_vector.x -= 1
-	if Input.is_action_pressed("movement_right"):
+	if Input.is_action_pressed(VariableManager.INPUT_MVT_RIGHT):
 		input_movement_vector.x += 1
 	input_movement_vector = input_movement_vector.normalized()
 
@@ -228,24 +231,28 @@ func _process_input(_delta):
 	dir += cam_xform.basis.x * input_movement_vector.x
 
 	# Shooting
-	if Input.is_action_pressed("action_shoot") and not states.has("shooting") and ROCKETS_ENABLED:
+	if (
+		Input.is_action_pressed(VariableManager.INPUT_ACTION_SHOOT)
+		and not get_state_value(states_idx.SHOOTING)
+		and ROCKETS_ENABLED
+	):
 		_shoot(cam_xform)
 
 	# Slide
-	if Input.is_action_just_pressed("movement_slide") and SLIDE_ENABLED:
+	if Input.is_action_just_pressed(VariableManager.INPUT_MVT_SLIDE) and SLIDE_ENABLED:
 		_slide = true
-	elif Input.is_action_just_released("movement_slide"):
+	elif Input.is_action_just_released(VariableManager.INPUT_MVT_SLIDE):
 		_slide = false
 
 
 # Shoots a rocket
 func _shoot(cam_xform: Transform) -> void:
-	states.append("shooting")
+	set_state_value(states_idx.SHOOTING, true)
 	var rocket := _init_rocket(cam_xform)
 	if get_parent():
 		get_parent().add_child(rocket)
 	var _err = get_tree().create_timer(ROCKET_DELAY).connect(
-		"timeout", self, "remove_shooting_state"
+		"timeout", self, "_remove_shooting_state"
 	)
 
 
@@ -274,9 +281,15 @@ func _process_sounds() -> void:
 		onready_paths.run_sound.pitch.stop()
 	elif onready_paths.run_sound.unpitch.playing:
 		onready_paths.run_sound.unpitch.stop()
-	if (states.has("wall_riding") or states.has("sliding")) and not onready_paths.wall_ride.playing:
+	if (
+		(get_state_value(states_idx.WALL_RIDING) or get_state_value(states_idx.SLIDING))
+		and not onready_paths.wall_ride.playing
+	):
 		onready_paths.wall_ride.play()
-	elif !(states.has("wall_riding") or states.has("sliding")) and onready_paths.wall_ride.playing:
+	elif (
+		!(get_state_value(states_idx.WALL_RIDING) or get_state_value(states_idx.SLIDING))
+		and onready_paths.wall_ride.playing
+	):
 		onready_paths.wall_ride.stop()
 
 
@@ -301,7 +314,11 @@ func _process_movement(delta):
 	_add_movement_queue_to_vel()
 	_override_velocity()
 	# Move and slide + update speed
-	var snap = Vector3.ZERO if Input.is_action_pressed("movement_jump") else -get_floor_normal()
+	var snap = (
+		Vector3.ZERO
+		if Input.is_action_pressed(VariableManager.INPUT_MVT_JUMP)
+		else -get_floor_normal()
+	)
 	vel = move_and_slide_with_snap(vel, snap, Vector3.UP, true, 4, MAX_SLOPE_ANGLE, false)
 	current_speed = Vector3(vel.x, 0, vel.z).length()
 
@@ -324,10 +341,10 @@ func _find_wall_direction() -> void:
 func _wall_ride_movement(delta: float) -> void:
 	var rc: RayCast = _find_raycast_from_direction(_RC_wall_direction)
 	if rc != null and rc.is_colliding():  # if on an "acceptable" wall
-		if !states.has("wall_riding"):  # first contact with the wall, snap the player to it
+		if !get_state_value(states_idx.WALL_RIDING):  # first contact with the wall, snap the player to it
 			_init_wall_riding(rc)
 		var wall_fw = _get_wall_fw_vector(rc)
-		if Input.is_action_pressed("movement_jump"):
+		if Input.is_action_pressed(VariableManager.INPUT_MVT_JUMP):
 			_wall_jump(wall_fw)
 		else:
 			_wall_ride(rc, wall_fw, delta)
@@ -352,7 +369,7 @@ func _init_wall_riding(rc: RayCast) -> void:
 		rc.get_collision_point()
 		+ rc.get_collision_normal() * WALL_RIDE_WALL_DISTANCE
 	)  # keep a small distance from the wall to avoid getting stuck in it
-	states.append("wall_riding")
+	set_state_value(states_idx.WALL_RIDING, true)
 
 
 # returns the vector aligned with the wall, to a forward direction of the player
@@ -364,7 +381,7 @@ func _get_wall_fw_vector(rc: RayCast) -> Vector3:
 
 # wall jump
 func _wall_jump(wall_fw: Vector3) -> void:
-	if states.has("wall_riding"):
+	if get_state_value(states_idx.WALL_RIDING):
 		_init_wall_ride_lock()
 	vel += (wall_fw.rotated(Vector3.UP, WALL_JUMP_ANGLE * -_RC_wall_direction) * WALL_JUMP_BOOST)
 	vel += Vector3.UP * WALL_JUMP_UP_BOOST
@@ -374,17 +391,16 @@ func _wall_jump(wall_fw: Vector3) -> void:
 
 func _wall_ride(rc: RayCast, wall_fw: Vector3, delta: float) -> void:
 	_keep_wallride_raycasts_perpendicular(rc)
-	if not states.has("wall_riding"):
-		states.append("wall_riding")
+	set_state_value(states_idx.WALL_RIDING, true)
 	var vel_dir = Vector3(wall_fw.x, WALL_RIDE_ASCEND_AMOUNT * delta, wall_fw.z).normalized()
 	vel = vel_dir * vel.length()
 
 
 func _init_wall_ride_lock() -> void:
-	states.remove("wall_riding")
+	set_state_value(states_idx.WALL_RIDING, false)
 	onready_paths.timers.wall_ride_jump_lock.start()  # to avoid sticking and accelerating back on the wall after jumping
 	_wall_ride_lock = true
-	if Input.is_action_pressed("movement_forward"):  # FIXME : probably creates a bug that can make the player wall jump easily to the same wall (but that might make a cool mechanic)
+	if Input.is_action_pressed(VariableManager.INPUT_MVT_FORWARD):  # FIXME : probably creates a bug that can make the player wall jump easily to the same wall (but that might make a cool mechanic)
 		var tween = onready_paths.tweens.wall_jump_mix_mvt
 		if tween.is_active():
 			tween.stop_all()
@@ -408,7 +424,7 @@ func _keep_wallride_raycasts_perpendicular(rc: RayCast) -> void:
 	wall_normal_vect = rc.get_collision_normal()
 	raycast_dir_vect = rc.get_global_transform().origin - rc.get_collision_point()
 	angle = wall_normal_vect.signed_angle_to(raycast_dir_vect, Vector3.UP)
-	get_node(PATHS.raycasts.root).rotate_y(-angle)
+	onready_paths.raycasts.root.rotate_y(-angle)
 
 
 # resets the wallride raycasts to their standard rotation value
@@ -422,14 +438,14 @@ func _ground_movement(delta: float) -> void:
 	_accelerate(
 		Vector3(dir.x, 0, dir.z).normalized(), GROUND_TARGET_SPEED, GROUND_ACCELERATION, delta
 	)
-	if Input.is_action_pressed("movement_jump"):
+	if Input.is_action_pressed(VariableManager.INPUT_MVT_JUMP):
 		_ground_jump()
 
 
 # when jumping and on the ground
 func _ground_jump() -> void:
 	vel.y += JUMP_POWER  # FIXME : delta not used here ?
-	if states.has("sliding"):
+	if get_state_value(states_idx.SLIDING):
 		_slide_jump()
 	onready_paths.jump_sound.play()
 
@@ -440,7 +456,7 @@ func _slide_jump():
 	_slide = false
 	self.rotate_object_local(Vector3(1, 0, 0), PI / 4)
 	rotation_helper.rotate_object_local(Vector3(1, 0, 0), -PI / 4)
-	states.erase("sliding")
+	set_state_value(states_idx.SLIDING, false)
 
 
 # applies friction, mostly for when on floor
@@ -451,7 +467,7 @@ func _apply_friction(delta: float):
 		vel.z = 0
 		return  # no need to compute things further, the player is stopped
 	var control := 0.0
-	if !Input.is_action_pressed("movement_jump"):
+	if !Input.is_action_pressed(VariableManager.INPUT_MVT_JUMP):
 		var friction := SLIDE_FRICTION if _slide else GROUND_FRICTION
 		control = current_speed
 		drop += control * friction * delta
@@ -498,36 +514,38 @@ func _add_movement_queue_to_vel():
 # updates the states
 func _process_states():
 	if _slide:
-		if not states.has("sliding") and is_on_floor():
+		if not get_state_value(states_idx.SLIDING) and is_on_floor():
 			self.rotate_object_local(Vector3(1, 0, 0), -PI / 4)
 			rotation_helper.rotate_object_local(Vector3(1, 0, 0), PI / 4)
-			states.append("sliding")
-	if not is_on_floor() and not states.has("in_air"):
-		states.append("in_air")
-	elif is_on_floor() and states.has("in_air"):
+			set_state_value(states_idx.SLIDING, true)
+	if not is_on_floor() and not get_state_value(states_idx.IN_AIR):
+		set_state_value(states_idx.IN_AIR, true)
+	elif is_on_floor() and get_state_value(states_idx.IN_AIR):
 		vel -= get_floor_velocity()  # HACK : to avoid adding speed by just jumping on a moving platform. probably some scenarios where this won't be ideal
-		states.erase("in_air")
-	if current_speed != 0 and not states.has("moving"):
-		states.append("moving")
-	if states.has("sliding") and (not Input.is_action_pressed("movement_slide")):
+		set_state_value(states_idx.IN_AIR, false)
+	if current_speed != 0 and not get_state_value(states_idx.MOVING):
+		set_state_value(states_idx.MOVING, true)
+	if (
+		get_state_value(states_idx.SLIDING)
+		and (not Input.is_action_pressed(VariableManager.INPUT_MVT_SLIDE))
+	):
 		self.rotate_object_local(Vector3(1, 0, 0), PI / 4)
 		rotation_helper.rotate_object_local(Vector3(1, 0, 0), -PI / 4)
-		states.erase("sliding")
+		set_state_value(states_idx.SLIDING, false)
 	if (
-		states.has("wall_riding")
+		get_state_value(states_idx.WALL_RIDING)
 		and (
-			not Input.is_action_pressed("movement_slide")
+			not Input.is_action_pressed(VariableManager.INPUT_MVT_SLIDE)
 			or is_on_floor()
 			or _RC_wall_direction == 0
 		)
 	):
-		states.erase("wall_riding")
+		set_state_value(states_idx.WALL_RIDING, false)
 
 
 ##### SIGNAL MANAGEMENT #####
-func remove_shooting_state():
-	if states.has("shooting"):
-		states.erase("shooting")
+func _remove_shooting_state():
+	set_state_value(states_idx.SHOOTING, false)
 
 
 func _on_UpdateSpeed_timeout():

@@ -1,5 +1,6 @@
 extends CanvasLayer
 # Effect that appear when entering a checkpoint
+# TODO : arrivé ici
 
 ##### VARIABLES #####
 #---- CONSTANTS -----
@@ -39,22 +40,12 @@ func _init_UI() -> void:
 
 
 func _connect_signals() -> void:
-	if (
-		SignalManager.connect(
-			"checkpoint_triggered", self, "_on_SignalManager_checkpoint_triggered"
-		)
-		!= OK
-	):
-		Logger.error(
-			(
-				"Error connecting %s to %s in %s"
-				% [
-					"checkpoint_triggered",
-					"_on_SignalManager_checkpoint_triggered",
-					DebugUtils.print_stack_trace(get_stack())
-				]
-			)
-		)
+	DebugUtils.log_connect(
+		SignalManager,
+		self,
+		SignalManager.CHECKPOINT_TRIGGERED,
+		"_on_SignalManager_checkpoint_triggered"
+	)
 
 
 # displays the effect when triggering a checkpoint
@@ -62,42 +53,26 @@ func _display_effect() -> void:
 	var tween := get_node("FadeTween")
 	if not tween.is_active() and onready_paths != null:
 		var col: Color = onready_paths.root.modulate
-		if !tween.interpolate_property(
+		DebugUtils.log_tween_interpolate_property(
+			tween,
 			onready_paths.root,
 			"modulate",
 			Color(col.r, col.g, col.b, 0),
 			Color(col.r, col.g, col.b, 1),
 			ATTACK_TIME
-		):
-			Logger.error(
-				(
-					"Error while setting tween interpolate property %s at %s"
-					% ["modulate", DebugUtils.print_stack_trace(get_stack())]
-				)
-			)
-		if !tween.start():
-			Logger.error(
-				"Error when starting tween at %s" % [DebugUtils.print_stack_trace(get_stack())]
-			)
+		)
+		DebugUtils.log_tween_start(tween)
 		yield(tween, "tween_all_completed")
 		yield(get_tree().create_timer(DECAY_TIME), "timeout")
-		if !tween.interpolate_property(
+		DebugUtils.log_tween_interpolate_property(
+			tween,
 			onready_paths.root,
 			"modulate",
 			Color(col.r, col.g, col.b, 1),
 			Color(col.r, col.g, col.b, 0),
-			RELEASE_TIME
-		):
-			Logger.error(
-				(
-					"Error while setting tween interpolate property %s at %s"
-					% ["modulate", DebugUtils.print_stack_trace(get_stack())]
-				)
-			)
-		if !tween.start():
-			Logger.error(
-				"Error when starting tween at %s" % [DebugUtils.print_stack_trace(get_stack())]
-			)
+			ATTACK_TIME
+		)
+		DebugUtils.log_tween_start(tween)
 		yield(tween, "tween_all_completed")
 
 

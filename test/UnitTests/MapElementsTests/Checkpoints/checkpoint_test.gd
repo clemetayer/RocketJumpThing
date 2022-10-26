@@ -38,7 +38,7 @@ func test_on_Checkpoint_body_entered() -> void:
 	song.ANIMATION = "test"
 	StandardSongManager._current_song = song
 	checkpoint._on_Checkpoint_body_entered(player)
-	assert_signal(SignalManager).is_emitted("checkpoint_triggered", [checkpoint])
+	assert_signal(SignalManager).is_emitted(SignalManager.CHECKPOINT_TRIGGERED, [checkpoint])
 	assert_str(checkpoint.song_animation).is_equal("test")
 	player.free()
 	song.free()

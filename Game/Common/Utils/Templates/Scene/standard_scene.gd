@@ -54,9 +54,9 @@ func _process(_delta):
 
 ##### PROTECTED METHODS #####
 func _manage_inputs() -> void:
-	if Input.is_action_just_pressed("restart"):
+	if Input.is_action_just_pressed(VariableManager.INPUT_RESTART):
 		_restart()
-	elif Input.is_action_just_pressed("restart_last_cp"):
+	elif Input.is_action_just_pressed(VariableManager.INPUT_RESTART_LAST_CP):
 		_on_respawn_player_on_last_cp()
 
 
@@ -78,23 +78,15 @@ func _init_song() -> void:
 
 # Connects the autoload signals on init
 func _connect_autoload_signals() -> void:
-	if SignalManager.connect("checkpoint_triggered", self, "_on_checkpoint_triggered") != OK:
-		Logger.error(
-			(
-				"Error connecting %s to %s in %s"
-				% ["body_exited", "_on_body_exited", DebugUtils.print_stack_trace(get_stack())]
-			)
-		)
-	if (
-		SignalManager.connect("respawn_player_on_last_cp", self, "_on_respawn_player_on_last_cp")
-		!= OK
-	):
-		Logger.error(
-			(
-				"Error connecting %s to %s in %s"
-				% ["body_exited", "_on_body_exited", DebugUtils.print_stack_trace(get_stack())]
-			)
-		)
+	DebugUtils.log_connect(
+		SignalManager, self, SignalManager.CHECKPOINT_TRIGGERED, "_on_checkpoint_triggered"
+	)
+	DebugUtils.log_connect(
+		SignalManager,
+		self,
+		SignalManager.RESPAWN_PLAYER_ON_LAST_CP,
+		"_on_respawn_player_on_last_cp"
+	)
 
 
 func _restart() -> void:
@@ -123,7 +115,7 @@ func _on_respawn_player_on_last_cp() -> void:
 			player.transform.origin = _last_cp.get_spawn_point()
 			player.rotation_degrees.y = _last_cp.get_spawn_rotation()
 			player.vel = Vector3()
-			if _last_cp.is_in_group("start_point"):  # if restart at the beginning of the level, restart the chronometer
+			if FunctionUtils.is_start_point(_last_cp):  # if restart at the beginning of the level, restart the chronometer
 				SignalManager.emit_start_level_chronometer()
 				if null != PATHS.bgm.path and PATHS.bgm.path != "":
 					_change_song_anim(PATHS.bgm.animation)

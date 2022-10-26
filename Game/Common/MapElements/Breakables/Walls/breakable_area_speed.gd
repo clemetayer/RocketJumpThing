@@ -37,7 +37,7 @@ func _set_TB_params() -> void:
 
 
 func _connect_signals() -> void:
-	FunctionUtils.log_connect(self, self, "body_entered", "_on_breakable_area_speed_body_entered")
+	DebugUtils.log_connect(self, self, "body_entered", "_on_breakable_area_speed_body_entered")
 
 
 func _add_ui_sprite() -> void:

@@ -10,7 +10,7 @@ func _init():
 
 ##### SIGNAL MANAGEMENT #####
 func _connect_signals() -> void:
-	FunctionUtils.log_connect(self, self, "body_entered", "_on_body_entered")
+	DebugUtils.log_connect(self, self, "body_entered", "_on_body_entered")
 
 
 func _on_body_entered(body: Node):

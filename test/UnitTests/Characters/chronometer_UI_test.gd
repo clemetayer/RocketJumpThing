@@ -27,8 +27,8 @@ func after():
 #==== ACTUAL TESTS =====
 func test_connect_signals() -> void:
 	chronometer_ui._connect_signals()
-	assert_bool(SignalManager.is_connected("start_level_chronometer", chronometer_ui, "_on_SignalManager_start_level_chronometer")).is_true()
-	assert_bool(SignalManager.is_connected("end_reached", chronometer_ui, "_on_SignalManager_end_reached")).is_true()
+	assert_bool(SignalManager.is_connected(SignalManager.START_LEVEL_CHRONOMETER, chronometer_ui, "_on_SignalManager_start_level_chronometer")).is_true()
+	assert_bool(SignalManager.is_connected(SignalManager.END_REACHED, chronometer_ui, "_on_SignalManager_end_reached")).is_true()
 
 
 func test_update_timer() -> void:

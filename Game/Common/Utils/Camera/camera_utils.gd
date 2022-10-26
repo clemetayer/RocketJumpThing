@@ -30,8 +30,8 @@ func _ready():
 	add_child(_frequency_timer)
 	add_child(_shake_tween)
 	add_child(_amplitude_tween)
-	FunctionUtils.log_connect(_duration_timer, self, "timeout", "_on_duration_timer_timeout")
-	FunctionUtils.log_connect(_frequency_timer, self, "timeout", "_on_frequency_timer_timeout")
+	DebugUtils.log_connect(_duration_timer, self, "timeout", "_on_duration_timer_timeout")
+	DebugUtils.log_connect(_frequency_timer, self, "timeout", "_on_frequency_timer_timeout")
 
 
 ##### PUBLIC METHODS #####

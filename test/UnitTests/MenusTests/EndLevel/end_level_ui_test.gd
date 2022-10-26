@@ -26,7 +26,7 @@ func after():
 #==== ACTUAL TESTS =====
 func test_connect_signals() -> void:
 	end_level_ui._connect_signals()
-	assert_bool(SignalManager.is_connected("end_reached", end_level_ui, "_on_SignalManager_end_reached")).is_true()
+	assert_bool(SignalManager.is_connected(SignalManager.END_REACHED, end_level_ui, "_on_SignalManager_end_reached")).is_true()
 
 
 # TODO : _unpause hard to test because of the get_tree()

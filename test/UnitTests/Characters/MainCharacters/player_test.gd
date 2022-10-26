@@ -6,7 +6,7 @@ extends GlobalTests
 
 ##### VARIABLES #####
 const player_path = "res://Game/Common/MapElements/Characters/MainCharacters/player.tscn"
-var player : KinematicBody
+var player: KinematicBody
 
 
 ##### TESTS #####
@@ -40,20 +40,20 @@ func test_override_velocity_vector() -> void:
 func test_toggle_ability() -> void:
 	player.SLIDE_ENABLED = false
 	player.ROCKETS_ENABLED = false
-	player.toggle_ability("slide", true)
+	player.toggle_ability(VariableManager.ABILITY_SLIDE, true)
 	assert_bool(player.SLIDE_ENABLED).is_true()
-	player.toggle_ability("rockets", true)
+	player.toggle_ability(VariableManager.ABILITY_ROCKETS, true)
 	assert_bool(player.ROCKETS_ENABLED).is_true()
 
 
 func test_process_collision() -> void:
 	player._process_collision()
-	assert_bool(player.get_node("PlayerCollision").disabled).is_false()
-	assert_bool(player.get_node("SlideCollision").disabled).is_true()
-	player.states.append("sliding")
+	assert_bool(player.onready_paths.player_collision.disabled).is_false()
+	assert_bool(player.onready_paths.slide_collision.disabled).is_true()
+	player.set_state_value(player.states_idx.SLIDING, true)
 	player._process_collision()
-	assert_bool(player.get_node("PlayerCollision").disabled).is_true()
-	assert_bool(player.get_node("SlideCollision").disabled).is_false()
+	assert_bool(player.onready_paths.player_collision.disabled).is_true()
+	assert_bool(player.onready_paths.slide_collision.disabled).is_false()
 
 
 # TODO : Scene runner and inputs/method calls does not work really well
@@ -76,9 +76,9 @@ func test_init_rocket() -> void:
 
 func test_process_sounds() -> void:
 	# init
-	var run_sound_pitch = player.get_node(player.PATHS.run_sound.pitch)
-	var run_sound_unpitch = player.get_node(player.PATHS.run_sound.unpitch)
-	var wall_ride_sound = player.get_node(player.PATHS.wall_ride)
+	var run_sound_pitch = player.onready_paths.run_sound.pitch
+	var run_sound_unpitch = player.onready_paths.run_sound.unpitch
+	var wall_ride_sound = player.onready_paths.wall_ride
 	# tests
 	## Run below max speed
 	player.current_speed = 100.0
@@ -108,11 +108,11 @@ func test_process_sounds() -> void:
 	assert_bool(run_sound_pitch.playing).is_false()
 	assert_bool(run_sound_unpitch.playing).is_false()
 	## wall_ride playing
-	player.states.append("wall_riding")
+	player.set_state_value(player.states_idx.WALL_RIDING, true)
 	player._process_sounds()
 	assert_bool(wall_ride_sound.playing).is_true()
 	## wall_ride stop
-	player.states.remove("wall_riding")
+	player.set_state_value(player.states_idx.WALL_RIDING, false)
 	player._process_sounds()
 	assert_bool(wall_ride_sound.playing).is_false()
 
@@ -127,10 +127,10 @@ func test_override_velocity() -> void:
 func test_find_raycast_from_direction() -> void:
 	assert_object(player._find_raycast_from_direction(0)).is_null()
 	assert_object(player._find_raycast_from_direction(1)).is_equal(
-		player.get_node(player.PATHS.raycasts.left)
+		player.onready_paths.raycasts.left
 	)
 	assert_object(player._find_raycast_from_direction(-1)).is_equal(
-		player.get_node(player.PATHS.raycasts.right)
+		player.onready_paths.raycasts.right
 	)
 
 
@@ -163,7 +163,7 @@ func test_wall_jump() -> void:
 	)
 	test_vel += Vector3.UP * player.WALL_JUMP_UP_BOOST
 	assert_vector3(player.vel).is_equal(test_vel)
-	assert_bool(player.get_node(player.PATHS.jump_sound).playing).is_true()
+	assert_bool(player.onready_paths.jump_sound.playing).is_true()
 
 
 func test_wall_ride() -> void:
@@ -190,7 +190,7 @@ func test_keep_wallride_raycasts_perpendicular() -> void:
 	do_return(transform).on(rc).get_global_transform()  # raycast currently aiming at the right direction
 	do_return(Vector3.ZERO).on(rc).get_collision_point()
 	player._keep_wallride_raycasts_perpendicular(rc)
-	assert_vector3(player.get_node(player.PATHS.raycasts.root).rotation).is_equal(
+	assert_vector3(player.onready_paths.raycasts.root.rotation).is_equal(
 		Vector3(0, PI * 3.0 / 4.0, 0)
 	)  # note : since is the "inverse" angle, it is 3/4 of PI
 
@@ -198,7 +198,7 @@ func test_keep_wallride_raycasts_perpendicular() -> void:
 func test_ground_jump() -> void:
 	player._ground_jump()
 	assert_vector3(player.vel).is_equal(Vector3(0, player.JUMP_POWER, 0))
-	assert_bool(player.get_node(player.PATHS.jump_sound).playing).is_true()
+	assert_bool(player.onready_paths.jump_sound.playing).is_true()
 
 
 func test_apply_friction() -> void:

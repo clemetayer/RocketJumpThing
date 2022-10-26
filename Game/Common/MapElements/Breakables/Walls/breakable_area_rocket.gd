@@ -34,7 +34,7 @@ func _set_TB_params() -> void:
 
 
 func _connect_signals() -> void:
-	FunctionUtils.log_connect(self, self, "area_entered", "_on_breakable_area_rocket_area_entered")
+	DebugUtils.log_connect(self, self, "area_entered", "_on_breakable_area_rocket_area_entered")
 
 
 func _add_ui_sprite() -> void:
@@ -52,7 +52,7 @@ func _add_ui_sprite() -> void:
 
 ##### SIGNAL MANAGEMENT #####
 func _on_breakable_area_rocket_area_entered(area):
-	if area.is_in_group("rocket"):
+	if FunctionUtils.is_rocket(area):
 		emit_signal("trigger", {"position": area.transform.origin, "speed": area.SPEED})
 		_break_wall_sound.play()
 		yield(_break_wall_sound, "finished")

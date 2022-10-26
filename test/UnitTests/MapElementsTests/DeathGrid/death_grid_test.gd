@@ -33,5 +33,5 @@ func test_on_body_exited() -> void:
 	var player = load(GlobalTestUtilities.player_path).instance()
 	player.add_to_group("player")
 	death_grid._on_body_exited(player)
-	assert_signal(SignalManager).is_emitted("respawn_player_on_last_cp")
+	assert_signal(SignalManager).is_emitted(SignalManager.RESPAWN_PLAYER_ON_LAST_CP)
 	player.free()

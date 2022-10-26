@@ -16,7 +16,7 @@ func _add_to_end_point_group() -> void:
 
 
 func _connect_signals() -> void:
-	FunctionUtils.log_connect(self, self, "body_entered", "_on_EndPoint_body_entered")
+	DebugUtils.log_connect(self, self, "body_entered", "_on_EndPoint_body_entered")
 
 
 ##### SIGNAL MANAGEMENT #####

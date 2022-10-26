@@ -33,7 +33,7 @@ var _buses_cleared := true  # if the buses have been cleared or not
 ##### PROCESSING #####
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	FunctionUtils.log_connect(
+	DebugUtils.log_connect(
 		get_node(ANIMATION_PLAYER), self, "animation_started", "_on_animation_started"
 	)
 	_init_tracks()

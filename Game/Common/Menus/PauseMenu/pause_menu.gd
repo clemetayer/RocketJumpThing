@@ -38,7 +38,7 @@ func _process(_delta):
 
 ##### PROTECTED METHODS #####
 func _connect_signals() -> void:
-	FunctionUtils.log_connect(SignalManager, self, "end_reached", "_on_SignalManager_end_reached")
+	DebugUtils.log_connect(SignalManager, self, "end_reached", "_on_SignalManager_end_reached")
 
 
 func _manage_inputs() -> void:

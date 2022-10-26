@@ -22,20 +22,12 @@ func _ready():
 
 ##### PROTECTED METHODS #####
 func _connect_signals() -> void:
-	if (
-		SignalManager.connect("speed_updated", self, "_on_breakable_area_speed_ui_speed_updated")
-		!= OK
-	):
-		Logger.error(
-			(
-				"Error connecting %s to %s in %s"
-				% [
-					"speed_updated",
-					"_on_breakable_area_speed_ui_speed_updated",
-					DebugUtils.print_stack_trace(get_stack())
-				]
-			)
-		)
+	DebugUtils.log_connect(
+		SignalManager,
+		self,
+		SignalManager.SPEED_UPDATED,
+		"_on_breakable_area_speed_ui_speed_updated"
+	)
 
 
 func _init_label() -> void:

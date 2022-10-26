@@ -33,7 +33,15 @@ func set_emphasis(forward: bool, backward: bool, left: bool, right: bool) -> voi
 
 ##### PROTECTED METHODS #####
 func _set_keys() -> void:
-	onready_paths.forward.set_text(InputMap.get_action_list("movement_forward")[0].as_text())
-	onready_paths.left.set_text(InputMap.get_action_list("movement_left")[0].as_text())
-	onready_paths.backward.set_text(InputMap.get_action_list("movement_backward")[0].as_text())
-	onready_paths.right.set_text(InputMap.get_action_list("movement_right")[0].as_text())
+	onready_paths.forward.set_text(
+		InputMap.get_action_list(VariableManager.INPUT_MVT_FORWARD)[0].as_text()
+	)
+	onready_paths.left.set_text(
+		InputMap.get_action_list(VariableManager.INPUT_MVT_LEFT)[0].as_text()
+	)
+	onready_paths.backward.set_text(
+		InputMap.get_action_list(VariableManager.INPUT_MVT_BACKWARD)[0].as_text()
+	)
+	onready_paths.right.set_text(
+		InputMap.get_action_list(VariableManager.INPUT_MVT_RIGHT)[0].as_text()
+	)

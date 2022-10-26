@@ -21,6 +21,7 @@ var _boost_multiplier := 1.0  # boost multiplier
 #==== ONREADY ====
 onready var onready_rocket_tween := Tween.new()  # tween for the boost bonus when a rocket enters the area
 
+
 ##### PROTECTED METHODS #####
 # init function to override if necessary
 func _init_func() -> void:
@@ -65,9 +66,9 @@ func _set_rocket_tween_properties() -> void:
 
 ##### SIGNAL MANAGEMENT #####
 func _connect_signals() -> void:
-	FunctionUtils.log_connect(self, self, "body_entered", "_on_body_entered")
-	FunctionUtils.log_connect(self, self, "body_exited", "_on_body_exited")
-	FunctionUtils.log_connect(self, self, "area_entered", "_on_area_entered")
+	DebugUtils.log_connect(self, self, "body_entered", "_on_body_entered")
+	DebugUtils.log_connect(self, self, "body_exited", "_on_body_exited")
+	DebugUtils.log_connect(self, self, "area_entered", "_on_area_entered")
 
 
 func _on_body_entered(body: Node) -> void:
@@ -77,7 +78,7 @@ func _on_body_entered(body: Node) -> void:
 
 
 func _on_area_entered(area: Node) -> void:
-	if area.is_in_group("rocket"):
+	if FunctionUtils.is_rocket(area):
 		area.queue_free()
 		onready_rocket_tween.stop_all()
 		_set_rocket_tween_properties()

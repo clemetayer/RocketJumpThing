@@ -28,17 +28,9 @@ export var MATERIALS_TO_UPDATE = [] setget _set_materials  # shader materials to
 ##### PROCESSING #####
 # Called when the object is initialized.
 func _init():
-	if SignalManager.connect("speed_updated", self, "_on_SignalManager_speed_updated") != OK:
-		Logger.error(
-			(
-				"Error connecting %s to %s in %s"
-				% [
-					"speed_updated",
-					"_on_SignalManager_speed_updated",
-					DebugUtils.print_stack_trace(get_stack())
-				]
-			)
-		)
+	DebugUtils.log_connect(
+		SignalManager, self, SignalManager.SPEED_UPDATED, "_on_SignalManager_speed_updated"
+	)
 
 
 ##### PUBLIC METHODS #####

@@ -6,33 +6,6 @@ class_name FunctionUtils
 const REGEX_COLOR_PATTERN := "#[0-9a-fA-F]{6,6}"
 
 
-#### Logger #####
-# connects and logs if it fails
-# TODO : switch this to DebugUtils ?
-static func log_connect(caller, receiver, caller_signal_name: String, receiver_func_name: String):
-	if caller.connect(caller_signal_name, receiver, receiver_func_name) != OK:
-		Logger.error(
-			(
-				"Error connecting %s to %s in %s"
-				% [
-					caller_signal_name,
-					receiver_func_name,
-					DebugUtils.print_stack_trace(get_stack())
-				]
-			)
-		)
-
-
-static func log_regex_compile(regex: RegEx, pattern: String) -> void:
-	if regex.compile(pattern) != OK:
-		Logger.error(
-			(
-				"Error while compiling pattern : %s on regex, at %s"
-				% [pattern, DebugUtils.print_stack_trace(get_stack())]
-			)
-		)
-
-
 #### Maths and vectors #####
 # chacks if a value is between an epsilon (strictly)
 static func check_in_epsilon(value: float, compare: float, epsilon: float) -> bool:
@@ -60,7 +33,7 @@ static func _json_data_to_objects(dict: Dictionary) -> Dictionary:
 		if dict[key] is Dictionary and not dict[key] is Array:
 			dict[key] = _json_data_to_objects(dict[key])
 		elif dict[key] is Array:
-			for array_idx in range(0,dict[key].size() - 1):
+			for array_idx in range(0, dict[key].size() - 1):
 				if dict[key][array_idx] is Dictionary:
 					dict[key][array_idx] = _json_data_to_objects(dict[key][array_idx])
 				else:
@@ -74,7 +47,7 @@ static func _json_data_to_objects(dict: Dictionary) -> Dictionary:
 static func _map_to_object(el):
 	if el is String:
 		var regex = RegEx.new()
-		log_regex_compile(regex, REGEX_COLOR_PATTERN)
+		DebugUtils.log_regex_compile(regex, REGEX_COLOR_PATTERN)
 		if regex.search(el) != null:
 			return Color(el)
 		else:
@@ -85,4 +58,12 @@ static func _map_to_object(el):
 
 #### Body identification #####
 static func is_player(body: Node) -> bool:
-	return body.is_in_group("player")
+	return body != null && body.is_in_group("player")
+
+
+static func is_rocket(area: Area) -> bool:
+	return area != null && area.is_in_group("rocket")
+
+
+static func is_start_point(checkpoint: Area) -> bool:
+	return checkpoint != null && checkpoint.is_in_group("start_point")

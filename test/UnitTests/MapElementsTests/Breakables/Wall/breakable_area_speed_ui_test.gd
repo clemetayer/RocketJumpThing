@@ -29,7 +29,9 @@ func test_connect_signals() -> void:
 	breakable_area_speed_ui._connect_signals()
 	assert_bool(
 		SignalManager.is_connected(
-			"speed_updated", breakable_area_speed_ui, "_on_breakable_area_speed_ui_speed_updated"
+			SignalManager.SPEED_UPDATED,
+			breakable_area_speed_ui,
+			"_on_breakable_area_speed_ui_speed_updated"
 		)
 	)
 

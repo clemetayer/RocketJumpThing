@@ -53,17 +53,7 @@ func _set_TB_params() -> void:
 
 
 func _connect_signals() -> void:
-	if connect("body_entered", self, "_on_Checkpoint_body_entered") != OK:
-		Logger.error(
-			(
-				"Error connecting %s to %s in %s"
-				% [
-					"body_entered",
-					"_on_Checkpoint_body_entered",
-					DebugUtils.print_stack_trace(get_stack())
-				]
-			)
-		)
+	DebugUtils.log_connect(self,self,"body_entered","_on_Checkpoint_body_entered")
 
 
 ##### SIGNAL MANAGEMENT #####

@@ -24,10 +24,15 @@ func _process(delta):
 
 ##### PROTECTED METHODS #####
 func _connect_signals() -> void:
-	FunctionUtils.log_connect(
-		SignalManager, self, "start_level_chronometer", "_on_SignalManager_start_level_chronometer"
+	DebugUtils.log_connect(
+		SignalManager,
+		self,
+		SignalManager.START_LEVEL_CHRONOMETER,
+		"_on_SignalManager_start_level_chronometer"
 	)
-	FunctionUtils.log_connect(SignalManager, self, "end_reached", "_on_SignalManager_end_reached")
+	DebugUtils.log_connect(
+		SignalManager, self, SignalManager.END_REACHED, "_on_SignalManager_end_reached"
+	)
 
 
 func _update_timer(delta: float) -> void:

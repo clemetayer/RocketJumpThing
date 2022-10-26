@@ -28,14 +28,14 @@ func _ready():
 
 ##### PROTECTED METHODS #####
 func _connect_signals() -> void:
-	FunctionUtils.log_connect(onready_paths.timer, self, "timeout", "_on_Timer_timeout")
-	FunctionUtils.log_connect(
+	DebugUtils.log_connect(onready_paths.timer, self, "timeout", "_on_Timer_timeout")
+	DebugUtils.log_connect(
 		onready_paths.animation,
 		self,
 		"animation_finished",
 		"_on_AnimationPlayer_animation_finished"
 	)
-	FunctionUtils.log_connect(self, self, "body_entered", "_on_body_entered")
+	DebugUtils.log_connect(self, self, "body_entered", "_on_body_entered")
 
 
 # triggers the explosion method

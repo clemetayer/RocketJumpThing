@@ -52,7 +52,7 @@ func _ready():
 	# init
 	_step_idx = 0
 	_tween = Tween.new()
-	FunctionUtils.log_connect(_tween, self, "tween_all_completed", "_on_tween_all_completed")
+	DebugUtils.log_connect(_tween, self, "tween_all_completed", "_on_tween_all_completed")
 	add_child(_tween)
 	_pos_array.append(Vector3(0, 0, 0))
 	# importing trenchbroom params
