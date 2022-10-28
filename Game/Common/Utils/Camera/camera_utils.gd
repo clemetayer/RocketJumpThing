@@ -47,7 +47,8 @@ func start_camera_shake(
 		_amplitude = amplitude
 		_duration_timer.wait_time = duration
 		_frequency_timer.wait_time = 1.0 / frequency
-		_amplitude_tween.interpolate_property(
+		DebugUtils.log_tween_interpolate_property(
+			_amplitude_tween,
 			self,
 			"_amplitude",
 			amplitude,
@@ -58,7 +59,7 @@ func start_camera_shake(
 		)
 		_duration_timer.start()
 		_frequency_timer.start()
-		_amplitude_tween.start()
+		DebugUtils.log_tween_start(_amplitude_tween)
 		_new_shake()
 
 
@@ -70,7 +71,8 @@ func _new_shake() -> void:
 		rand_range(-_amplitude / 100.0, _amplitude / 100.0)
 	)
 	shake_pos *= OS.window_size
-	_shake_tween.interpolate_property(
+	DebugUtils.log_tween_interpolate_property(
+		_shake_tween,
 		_camera,
 		"h_offset",
 		_camera.h_offset,
@@ -79,7 +81,8 @@ func _new_shake() -> void:
 		SHAKE_TRANS,
 		SHAKE_EASE
 	)
-	_shake_tween.interpolate_property(
+	DebugUtils.log_tween_interpolate_property(
+		_shake_tween,
 		_camera,
 		"v_offset",
 		_camera.v_offset,
@@ -88,7 +91,7 @@ func _new_shake() -> void:
 		SHAKE_TRANS,
 		SHAKE_EASE
 	)
-	_shake_tween.start()
+	DebugUtils.log_tween_start(_shake_tween)
 
 
 ##### SIGNAL MANAGEMENT #####
@@ -96,7 +99,8 @@ func _on_duration_timer_timeout() -> void:
 	_duration_timer.stop()
 	_frequency_timer.stop()
 	# tween to reset to the original offset
-	_shake_tween.interpolate_property(
+	DebugUtils.log_tween_interpolate_property(
+		_shake_tween,
 		_camera,
 		"h_offset",
 		_camera.h_offset,
@@ -105,7 +109,8 @@ func _on_duration_timer_timeout() -> void:
 		SHAKE_TRANS,
 		SHAKE_EASE
 	)
-	_shake_tween.interpolate_property(
+	DebugUtils.log_tween_interpolate_property(
+		_shake_tween,
 		_camera,
 		"v_offset",
 		_camera.v_offset,
@@ -114,7 +119,7 @@ func _on_duration_timer_timeout() -> void:
 		SHAKE_TRANS,
 		SHAKE_EASE
 	)
-	_shake_tween.start()
+	DebugUtils.log_tween_start(_shake_tween)
 
 
 func _on_frequency_timer_timeout() -> void:

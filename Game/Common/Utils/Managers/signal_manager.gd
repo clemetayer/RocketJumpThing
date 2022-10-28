@@ -16,6 +16,7 @@ signal end_reached
 signal sequencer_step(id)
 
 ##### VARIABLES #####
+# Note : Using this in this script creates a warning that signals are declared but unused
 #==== PLAYER =====
 const RESPAWN_PLAYER_ON_LAST_CP := "respawn_player_on_last_cp"
 const TRIGGER_TUTORIAL := "trigger_tutorial"

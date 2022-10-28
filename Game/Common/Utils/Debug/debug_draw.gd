@@ -144,7 +144,7 @@ func _process_3d_lines_delayed_free(_items: Array):
 			i += 1
 
 
-func _process(delta: float):
+func _process(_delta: float):
 	if GlobalParameters.DEBUG_DRAW_ENABLED:
 		_process_3d_lines_delayed_free(_lines)
 		_process_3d_lines_delayed_free(_boxes)
@@ -159,13 +159,13 @@ func _process(delta: float):
 		for key in _texts.keys():
 			var t = _texts[key]
 			if t.frame <= Engine.get_idle_frames():
-				_texts.erase(key)
+				var _unused = _texts.erase(key)
 
 		# Update canvas
 		if _canvas_item == null:
 			_canvas_item = Node2D.new()
 			_canvas_item.position = Vector2(8, 8)
-			_canvas_item.connect("draw", self, "_on_CanvasItem_draw")
+			DebugUtils.log_connect(_canvas_item,self,"draw","_on_CanvasItem_draw")
 			add_child(_canvas_item)
 		_canvas_item.update()
 
