@@ -122,3 +122,7 @@ func _on_Rocket_body_entered(body: Node):
 		onready_paths.raycast.transform.origin.z = -100  # steps back the raycast to get the exact collision point
 		if onready_paths.raycast.is_colliding():
 			_explode(onready_paths.raycast)
+
+# Unused for now
+func _on_Rocket_area_entered(_area : Area):
+	pass

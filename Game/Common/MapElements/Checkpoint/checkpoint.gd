@@ -36,9 +36,11 @@ func get_checkpoint() -> Checkpoint:
 
 
 func get_spawn_point() -> Vector3:
-	if _spawn_position != null and _spawn_position != Vector3(0, 0, 0):
-		return global_transform.origin + _spawn_position
-	return global_transform.origin
+	if is_inside_tree():
+		if _spawn_position != null and _spawn_position != Vector3(0, 0, 0):
+			return global_transform.origin + _spawn_position
+		return global_transform.origin
+	return Vector3.ZERO
 
 
 func get_spawn_rotation() -> float:

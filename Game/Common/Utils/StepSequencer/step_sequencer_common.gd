@@ -68,7 +68,6 @@ static func process_sequencer_step(
 	params: Dictionary,
 	step_indexes: Dictionary,
 	active_on_signals_array: Array,
-	is_material_not_null: bool,
 	active_on_steps_array: Array
 ) -> Dictionary:
 	if _is_step_id_valid(id, step_indexes, params):

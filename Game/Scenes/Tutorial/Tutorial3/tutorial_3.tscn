@@ -3297,7 +3297,7 @@ script = ExtResource( 9 )
 PATHS = {
 "bgm": {
 "animation": "part_1",
-"path": "res://Game/Common/Songs/tutorial_3.tscn"
+"path": "res://Game/Common/Songs/Tutorial3/tutorial_3.tscn"
 },
 "end_level_ui": "res://Game/Common/Menus/EndLevel/end_level_ui.tscn",
 "player": NodePath("QodotMap/entity_41_Player"),
@@ -3334,42 +3334,36 @@ shape = SubResource( 656 )
 [node name="Up" type="MeshInstance" parent="AdditionalThings/DeathGrid/DeathGrid/Meshes"]
 transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 3500, 2180 )
 mesh = SubResource( 662 )
-material/0 = null
 script = ExtResource( 30 )
 target = NodePath("../../../../../QodotMap/entity_41_Player")
 
 [node name="Down" type="MeshInstance" parent="AdditionalThings/DeathGrid/DeathGrid/Meshes"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -500, 2180 )
 mesh = SubResource( 664 )
-material/0 = null
 script = ExtResource( 30 )
 target = NodePath("../../../../../QodotMap/entity_41_Player")
 
 [node name="Front" type="MeshInstance" parent="AdditionalThings/DeathGrid/DeathGrid/Meshes"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 1500, 8275 )
 mesh = SubResource( 665 )
-material/0 = null
 script = ExtResource( 30 )
 target = NodePath("../../../../../QodotMap/entity_41_Player")
 
 [node name="Back" type="MeshInstance" parent="AdditionalThings/DeathGrid/DeathGrid/Meshes"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1500, -3875 )
 mesh = SubResource( 667 )
-material/0 = null
 script = ExtResource( 30 )
 target = NodePath("../../../../../QodotMap/entity_41_Player")
 
 [node name="Right" type="MeshInstance" parent="AdditionalThings/DeathGrid/DeathGrid/Meshes"]
 transform = Transform( -4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, 2700.01, 1496.05, 2179.8 )
 mesh = SubResource( 668 )
-material/0 = null
 script = ExtResource( 30 )
 target = NodePath("../../../../../QodotMap/entity_41_Player")
 
 [node name="Left" type="MeshInstance" parent="AdditionalThings/DeathGrid/DeathGrid/Meshes"]
 transform = Transform( -4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, -2700, 1500, 2180 )
 mesh = SubResource( 670 )
-material/0 = null
 script = ExtResource( 30 )
 target = NodePath("../../../../../QodotMap/entity_41_Player")
 
@@ -3430,7 +3424,6 @@ properties = {
 
 [node name="entity_0_mesh_instance" type="MeshInstance" parent="QodotMap/entity_0_worldspawn"]
 mesh = SubResource( 672 )
-material/0 = null
 
 [node name="entity_0_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_0_worldspawn"]
 shape = SubResource( 673 )
@@ -3566,7 +3559,6 @@ properties = {
 
 [node name="entity_1_mesh_instance" type="MeshInstance" parent="QodotMap/entity_1_StaticBodyGroup"]
 mesh = SubResource( 715 )
-material/0 = null
 
 [node name="entity_1_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_1_StaticBodyGroup"]
 shape = SubResource( 716 )
@@ -3603,7 +3595,6 @@ properties = {
 
 [node name="entity_2_mesh_instance" type="MeshInstance" parent="QodotMap/entity_2_StaticBodyGroup"]
 mesh = SubResource( 724 )
-material/0 = null
 
 [node name="entity_2_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_2_StaticBodyGroup"]
 shape = SubResource( 725 )
@@ -3619,7 +3610,6 @@ properties = {
 
 [node name="entity_3_mesh_instance" type="MeshInstance" parent="QodotMap/entity_3_StaticBodyGroup"]
 mesh = SubResource( 726 )
-material/0 = null
 
 [node name="entity_3_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_3_StaticBodyGroup"]
 shape = SubResource( 727 )
@@ -3653,7 +3643,6 @@ properties = {
 
 [node name="entity_4_mesh_instance" type="MeshInstance" parent="QodotMap/entity_4_StaticBodyGroup"]
 mesh = SubResource( 734 )
-material/0 = null
 
 [node name="entity_4_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_4_StaticBodyGroup"]
 shape = SubResource( 735 )
@@ -3687,7 +3676,6 @@ properties = {
 
 [node name="entity_5_mesh_instance" type="MeshInstance" parent="QodotMap/entity_5_StaticBodyGroup"]
 mesh = SubResource( 742 )
-material/0 = null
 
 [node name="entity_5_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_5_StaticBodyGroup"]
 shape = SubResource( 743 )
@@ -3705,7 +3693,6 @@ properties = {
 
 [node name="entity_6_mesh_instance" type="MeshInstance" parent="QodotMap/entity_6_Checkpoints_Checkpoint"]
 mesh = SubResource( 744 )
-material/0 = null
 
 [node name="entity_6_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_6_Checkpoints_Checkpoint"]
 shape = SubResource( 745 )
@@ -3721,7 +3708,6 @@ properties = {
 
 [node name="entity_7_mesh_instance" type="MeshInstance" parent="QodotMap/entity_7_StaticBodyGroup"]
 mesh = SubResource( 746 )
-material/0 = null
 
 [node name="entity_7_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_7_StaticBodyGroup"]
 shape = SubResource( 747 )
@@ -3740,7 +3726,6 @@ properties = {
 
 [node name="entity_8_mesh_instance" type="MeshInstance" parent="QodotMap/entity_8_StaticBodyGroup"]
 mesh = SubResource( 749 )
-material/0 = null
 
 [node name="entity_8_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_8_StaticBodyGroup"]
 shape = SubResource( 750 )
@@ -3761,7 +3746,6 @@ properties = {
 
 [node name="entity_9_mesh_instance" type="MeshInstance" parent="QodotMap/entity_9_Checkpoints_Checkpoint"]
 mesh = SubResource( 752 )
-material/0 = null
 
 [node name="entity_9_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_9_Checkpoints_Checkpoint"]
 shape = SubResource( 753 )
@@ -3777,7 +3761,6 @@ properties = {
 
 [node name="entity_10_mesh_instance" type="MeshInstance" parent="QodotMap/entity_10_StaticBodyGroup"]
 mesh = SubResource( 754 )
-material/0 = null
 
 [node name="entity_10_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_10_StaticBodyGroup"]
 shape = SubResource( 755 )
@@ -3793,7 +3776,6 @@ properties = {
 
 [node name="entity_11_mesh_instance" type="MeshInstance" parent="QodotMap/entity_11_StaticBodyGroup"]
 mesh = SubResource( 756 )
-material/0 = null
 
 [node name="entity_11_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_11_StaticBodyGroup"]
 shape = SubResource( 757 )
@@ -3809,9 +3791,6 @@ properties = {
 
 [node name="entity_12_mesh_instance" type="MeshInstance" parent="QodotMap/entity_12_StaticBodyGroup"]
 mesh = SubResource( 758 )
-material/0 = null
-material/1 = null
-material/2 = null
 
 [node name="entity_12_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_12_StaticBodyGroup"]
 shape = SubResource( 759 )
@@ -3841,7 +3820,6 @@ properties = {
 
 [node name="entity_13_mesh_instance" type="MeshInstance" parent="QodotMap/entity_13_Checkpoints_Checkpoint"]
 mesh = SubResource( 764 )
-material/0 = null
 
 [node name="entity_13_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_13_Checkpoints_Checkpoint"]
 shape = SubResource( 765 )
@@ -3857,8 +3835,6 @@ properties = {
 
 [node name="entity_14_mesh_instance" type="MeshInstance" parent="QodotMap/entity_14_StaticBodyGroup"]
 mesh = SubResource( 766 )
-material/0 = null
-material/1 = null
 
 [node name="entity_14_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_14_StaticBodyGroup"]
 shape = SubResource( 767 )
@@ -3877,9 +3853,6 @@ properties = {
 
 [node name="entity_15_mesh_instance" type="MeshInstance" parent="QodotMap/entity_15_StaticBodyGroup"]
 mesh = SubResource( 769 )
-material/0 = null
-material/1 = null
-material/2 = null
 
 [node name="entity_15_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_15_StaticBodyGroup"]
 shape = SubResource( 770 )
@@ -3957,7 +3930,6 @@ properties = {
 
 [node name="entity_16_mesh_instance" type="MeshInstance" parent="QodotMap/entity_16_Checkpoints_Checkpoint"]
 mesh = SubResource( 791 )
-material/0 = null
 
 [node name="entity_16_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_16_Checkpoints_Checkpoint"]
 shape = SubResource( 792 )
@@ -3973,9 +3945,6 @@ properties = {
 
 [node name="entity_17_mesh_instance" type="MeshInstance" parent="QodotMap/entity_17_StaticBodyGroup"]
 mesh = SubResource( 793 )
-material/0 = null
-material/1 = null
-material/2 = null
 
 [node name="entity_17_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_17_StaticBodyGroup"]
 shape = SubResource( 794 )
@@ -4053,7 +4022,6 @@ properties = {
 
 [node name="entity_18_mesh_instance" type="MeshInstance" parent="QodotMap/entity_18_Checkpoints_Checkpoint"]
 mesh = SubResource( 815 )
-material/0 = null
 
 [node name="entity_18_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_18_Checkpoints_Checkpoint"]
 shape = SubResource( 816 )
@@ -4069,7 +4037,6 @@ properties = {
 
 [node name="entity_19_mesh_instance" type="MeshInstance" parent="QodotMap/entity_19_StaticBodyGroup"]
 mesh = SubResource( 817 )
-material/0 = null
 
 [node name="entity_19_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_19_StaticBodyGroup"]
 shape = SubResource( 818 )
@@ -4105,7 +4072,6 @@ properties = {
 
 [node name="entity_20_mesh_instance" type="MeshInstance" parent="QodotMap/entity_20_Checkpoints_Checkpoint"]
 mesh = SubResource( 825 )
-material/0 = null
 
 [node name="entity_20_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_20_Checkpoints_Checkpoint"]
 shape = SubResource( 826 )
@@ -4121,7 +4087,6 @@ properties = {
 
 [node name="entity_21_mesh_instance" type="MeshInstance" parent="QodotMap/entity_21_StaticBodyGroup"]
 mesh = SubResource( 827 )
-material/0 = null
 
 [node name="entity_21_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_21_StaticBodyGroup"]
 shape = SubResource( 828 )
@@ -4137,7 +4102,6 @@ properties = {
 
 [node name="entity_22_mesh_instance" type="MeshInstance" parent="QodotMap/entity_22_StaticBodyGroup"]
 mesh = SubResource( 829 )
-material/0 = null
 
 [node name="entity_22_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_22_StaticBodyGroup"]
 shape = SubResource( 830 )
@@ -4153,8 +4117,6 @@ properties = {
 
 [node name="entity_23_mesh_instance" type="MeshInstance" parent="QodotMap/entity_23_StaticBodyGroup"]
 mesh = SubResource( 831 )
-material/0 = null
-material/1 = null
 
 [node name="entity_23_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_23_StaticBodyGroup"]
 shape = SubResource( 832 )
@@ -4209,9 +4171,6 @@ properties = {
 
 [node name="entity_24_mesh_instance" type="MeshInstance" parent="QodotMap/entity_24_StaticBodyGroup"]
 mesh = SubResource( 846 )
-material/0 = null
-material/1 = null
-material/2 = null
 
 [node name="entity_24_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_24_StaticBodyGroup"]
 shape = SubResource( 847 )
@@ -4248,8 +4207,6 @@ properties = {
 
 [node name="entity_25_mesh_instance" type="MeshInstance" parent="QodotMap/entity_25_StaticBodyGroup"]
 mesh = SubResource( 855 )
-material/0 = null
-material/1 = null
 
 [node name="entity_25_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_25_StaticBodyGroup"]
 shape = SubResource( 856 )
@@ -4270,7 +4227,6 @@ properties = {
 
 [node name="entity_26_mesh_instance" type="MeshInstance" parent="QodotMap/entity_26_Checkpoints_Checkpoint"]
 mesh = SubResource( 858 )
-material/0 = null
 
 [node name="entity_26_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_26_Checkpoints_Checkpoint"]
 shape = SubResource( 859 )
@@ -4286,7 +4242,6 @@ properties = {
 
 [node name="entity_27_mesh_instance" type="MeshInstance" parent="QodotMap/entity_27_StaticBodyGroup"]
 mesh = SubResource( 860 )
-material/0 = null
 
 [node name="entity_27_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_27_StaticBodyGroup"]
 shape = SubResource( 861 )
@@ -4302,7 +4257,6 @@ properties = {
 
 [node name="entity_28_mesh_instance" type="MeshInstance" parent="QodotMap/entity_28_StaticBodyGroup"]
 mesh = SubResource( 862 )
-material/0 = null
 
 [node name="entity_28_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_28_StaticBodyGroup"]
 shape = SubResource( 863 )
@@ -4318,8 +4272,6 @@ properties = {
 
 [node name="entity_29_mesh_instance" type="MeshInstance" parent="QodotMap/entity_29_StaticBodyGroup"]
 mesh = SubResource( 864 )
-material/0 = null
-material/1 = null
 
 [node name="entity_29_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_29_StaticBodyGroup"]
 shape = SubResource( 865 )
@@ -4338,7 +4290,6 @@ properties = {
 
 [node name="entity_30_mesh_instance" type="MeshInstance" parent="QodotMap/entity_30_StaticBodyGroup"]
 mesh = SubResource( 867 )
-material/0 = null
 
 [node name="entity_30_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_30_StaticBodyGroup"]
 shape = SubResource( 868 )
@@ -4354,8 +4305,6 @@ properties = {
 
 [node name="entity_31_mesh_instance" type="MeshInstance" parent="QodotMap/entity_31_StaticBodyGroup"]
 mesh = SubResource( 869 )
-material/0 = null
-material/1 = null
 
 [node name="entity_31_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_31_StaticBodyGroup"]
 shape = SubResource( 870 )
@@ -4376,7 +4325,6 @@ properties = {
 
 [node name="entity_32_mesh_instance" type="MeshInstance" parent="QodotMap/entity_32_Checkpoints_Checkpoint"]
 mesh = SubResource( 872 )
-material/0 = null
 
 [node name="entity_32_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_32_Checkpoints_Checkpoint"]
 shape = SubResource( 873 )
@@ -4392,7 +4340,6 @@ properties = {
 
 [node name="entity_33_mesh_instance" type="MeshInstance" parent="QodotMap/entity_33_StaticBodyGroup"]
 mesh = SubResource( 874 )
-material/0 = null
 
 [node name="entity_33_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_33_StaticBodyGroup"]
 shape = SubResource( 875 )
@@ -4408,7 +4355,6 @@ properties = {
 
 [node name="entity_34_mesh_instance" type="MeshInstance" parent="QodotMap/entity_34_StaticBodyGroup"]
 mesh = SubResource( 876 )
-material/0 = null
 
 [node name="entity_34_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_34_StaticBodyGroup"]
 shape = SubResource( 877 )
@@ -4424,7 +4370,6 @@ properties = {
 
 [node name="entity_35_mesh_instance" type="MeshInstance" parent="QodotMap/entity_35_StaticBodyGroup"]
 mesh = SubResource( 878 )
-material/0 = null
 
 [node name="entity_35_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_35_StaticBodyGroup"]
 shape = SubResource( 879 )
@@ -4440,8 +4385,6 @@ properties = {
 
 [node name="entity_36_mesh_instance" type="MeshInstance" parent="QodotMap/entity_36_StaticBodyGroup"]
 mesh = SubResource( 880 )
-material/0 = null
-material/1 = null
 
 [node name="entity_36_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_36_StaticBodyGroup"]
 shape = SubResource( 881 )
@@ -4472,7 +4415,6 @@ properties = {
 
 [node name="entity_37_mesh_instance" type="MeshInstance" parent="QodotMap/entity_37_StaticBodyGroup"]
 mesh = SubResource( 887 )
-material/0 = null
 
 [node name="entity_37_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_37_StaticBodyGroup"]
 shape = SubResource( 888 )
@@ -4489,7 +4431,6 @@ properties = {
 
 [node name="entity_38_mesh_instance" type="MeshInstance" parent="QodotMap/entity_38_StaticBodyGroup"]
 mesh = SubResource( 889 )
-material/0 = null
 
 [node name="entity_38_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_38_StaticBodyGroup"]
 shape = SubResource( 890 )
@@ -4500,7 +4441,6 @@ script = ExtResource( 14 )
 
 [node name="entity_39_mesh_instance" type="MeshInstance" parent="QodotMap/entity_39_Checkpoints_End"]
 mesh = SubResource( 891 )
-material/0 = null
 
 [node name="entity_39_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_39_Checkpoints_End"]
 shape = SubResource( 892 )
@@ -4518,7 +4458,6 @@ properties = {
 
 [node name="entity_40_mesh_instance" type="MeshInstance" parent="QodotMap/entity_40_Checkpoints_Checkpoint"]
 mesh = SubResource( 893 )
-material/0 = null
 
 [node name="entity_40_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_40_Checkpoints_Checkpoint"]
 shape = SubResource( 894 )
@@ -4551,8 +4490,6 @@ properties = {
 
 [node name="entity_43_mesh_instance" type="MeshInstance" parent="QodotMap/entity_43_StaticBodyGroup"]
 mesh = SubResource( 895 )
-material/0 = null
-material/1 = null
 
 [node name="entity_43_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_43_StaticBodyGroup"]
 shape = SubResource( 896 )
@@ -4574,9 +4511,6 @@ properties = {
 
 [node name="entity_44_mesh_instance" type="MeshInstance" parent="QodotMap/entity_44_StaticBodyGroup"]
 mesh = SubResource( 899 )
-material/0 = null
-material/1 = null
-material/2 = null
 
 [node name="entity_44_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_44_StaticBodyGroup"]
 shape = SubResource( 900 )
@@ -4628,7 +4562,6 @@ properties = {
 
 [node name="entity_46_mesh_instance" type="MeshInstance" parent="QodotMap/entity_46_StaticBodyGroup"]
 mesh = SubResource( 909 )
-material/0 = null
 
 [node name="entity_46_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_46_StaticBodyGroup"]
 shape = SubResource( 910 )
@@ -4644,7 +4577,6 @@ properties = {
 
 [node name="entity_47_mesh_instance" type="MeshInstance" parent="QodotMap/entity_47_StaticBodyGroup"]
 mesh = SubResource( 911 )
-material/0 = null
 
 [node name="entity_47_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_47_StaticBodyGroup"]
 shape = SubResource( 912 )
@@ -4660,7 +4592,6 @@ properties = {
 
 [node name="entity_48_mesh_instance" type="MeshInstance" parent="QodotMap/entity_48_StaticBodyGroup"]
 mesh = SubResource( 913 )
-material/0 = null
 
 [node name="entity_48_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_48_StaticBodyGroup"]
 shape = SubResource( 914 )
@@ -4680,7 +4611,6 @@ properties = {
 
 [node name="entity_49_mesh_instance" type="MeshInstance" parent="QodotMap/entity_49_RythmElements_Sequencers_Static"]
 mesh = SubResource( 915 )
-material/0 = null
 
 [node name="entity_49_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_49_RythmElements_Sequencers_Static"]
 shape = SubResource( 916 )
@@ -4703,7 +4633,6 @@ properties = {
 
 [node name="entity_50_mesh_instance" type="MeshInstance" parent="QodotMap/entity_50_RythmElements_Sequencers_Static"]
 mesh = SubResource( 918 )
-material/0 = null
 
 [node name="entity_50_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_50_RythmElements_Sequencers_Static"]
 shape = SubResource( 919 )
@@ -4726,7 +4655,6 @@ properties = {
 
 [node name="entity_51_mesh_instance" type="MeshInstance" parent="QodotMap/entity_51_RythmElements_Sequencers_Static"]
 mesh = SubResource( 921 )
-material/0 = null
 
 [node name="entity_51_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_51_RythmElements_Sequencers_Static"]
 shape = SubResource( 922 )
@@ -4749,7 +4677,6 @@ properties = {
 
 [node name="entity_52_mesh_instance" type="MeshInstance" parent="QodotMap/entity_52_RythmElements_Sequencers_Static"]
 mesh = SubResource( 924 )
-material/0 = null
 
 [node name="entity_52_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_52_RythmElements_Sequencers_Static"]
 shape = SubResource( 925 )
@@ -4772,7 +4699,6 @@ properties = {
 
 [node name="entity_53_mesh_instance" type="MeshInstance" parent="QodotMap/entity_53_RythmElements_Sequencers_Static"]
 mesh = SubResource( 927 )
-material/0 = null
 
 [node name="entity_53_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_53_RythmElements_Sequencers_Static"]
 shape = SubResource( 928 )
@@ -4792,7 +4718,6 @@ properties = {
 
 [node name="entity_54_mesh_instance" type="MeshInstance" parent="QodotMap/entity_54_RythmElements_Sequencers_Static"]
 mesh = SubResource( 929 )
-material/0 = null
 
 [node name="entity_54_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_54_RythmElements_Sequencers_Static"]
 shape = SubResource( 930 )
@@ -4812,7 +4737,6 @@ properties = {
 
 [node name="entity_55_mesh_instance" type="MeshInstance" parent="QodotMap/entity_55_RythmElements_Sequencers_Static"]
 mesh = SubResource( 931 )
-material/0 = null
 
 [node name="entity_55_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_55_RythmElements_Sequencers_Static"]
 shape = SubResource( 932 )
@@ -4832,7 +4756,6 @@ properties = {
 
 [node name="entity_56_mesh_instance" type="MeshInstance" parent="QodotMap/entity_56_RythmElements_Sequencers_Static"]
 mesh = SubResource( 933 )
-material/0 = null
 
 [node name="entity_56_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_56_RythmElements_Sequencers_Static"]
 shape = SubResource( 934 )
@@ -4855,7 +4778,6 @@ properties = {
 
 [node name="entity_57_mesh_instance" type="MeshInstance" parent="QodotMap/entity_57_RythmElements_Sequencers_Static"]
 mesh = SubResource( 936 )
-material/0 = null
 
 [node name="entity_57_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_57_RythmElements_Sequencers_Static"]
 shape = SubResource( 937 )
@@ -4878,7 +4800,6 @@ properties = {
 
 [node name="entity_58_mesh_instance" type="MeshInstance" parent="QodotMap/entity_58_RythmElements_Sequencers_Static"]
 mesh = SubResource( 939 )
-material/0 = null
 
 [node name="entity_58_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_58_RythmElements_Sequencers_Static"]
 shape = SubResource( 940 )
@@ -4901,7 +4822,6 @@ properties = {
 
 [node name="entity_59_mesh_instance" type="MeshInstance" parent="QodotMap/entity_59_RythmElements_Sequencers_Static"]
 mesh = SubResource( 942 )
-material/0 = null
 
 [node name="entity_59_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_59_RythmElements_Sequencers_Static"]
 shape = SubResource( 943 )
@@ -4920,7 +4840,6 @@ properties = {
 
 [node name="entity_60_mesh_instance" type="MeshInstance" parent="QodotMap/entity_60_StaticBodyGroup"]
 mesh = SubResource( 945 )
-material/0 = null
 
 [node name="entity_60_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_60_StaticBodyGroup"]
 shape = SubResource( 946 )
@@ -4954,7 +4873,6 @@ properties = {
 
 [node name="entity_61_mesh_instance" type="MeshInstance" parent="QodotMap/entity_61_StaticBodyGroup"]
 mesh = SubResource( 953 )
-material/0 = null
 
 [node name="entity_61_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_61_StaticBodyGroup"]
 shape = SubResource( 954 )
@@ -4970,7 +4888,6 @@ properties = {
 
 [node name="entity_62_mesh_instance" type="MeshInstance" parent="QodotMap/entity_62_StaticBodyGroup"]
 mesh = SubResource( 955 )
-material/0 = null
 
 [node name="entity_62_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_62_StaticBodyGroup"]
 shape = SubResource( 956 )
@@ -4986,7 +4903,6 @@ properties = {
 
 [node name="entity_63_mesh_instance" type="MeshInstance" parent="QodotMap/entity_63_StaticBodyGroup"]
 mesh = SubResource( 957 )
-material/0 = null
 
 [node name="entity_63_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_63_StaticBodyGroup"]
 shape = SubResource( 958 )
@@ -5002,7 +4918,6 @@ properties = {
 
 [node name="entity_64_mesh_instance" type="MeshInstance" parent="QodotMap/entity_64_StaticBodyGroup"]
 mesh = SubResource( 959 )
-material/0 = null
 
 [node name="entity_64_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_64_StaticBodyGroup"]
 shape = SubResource( 960 )
@@ -5018,7 +4933,6 @@ properties = {
 
 [node name="entity_65_mesh_instance" type="MeshInstance" parent="QodotMap/entity_65_StaticBodyGroup"]
 mesh = SubResource( 961 )
-material/0 = null
 
 [node name="entity_65_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_65_StaticBodyGroup"]
 shape = SubResource( 962 )
@@ -5034,7 +4948,6 @@ properties = {
 
 [node name="entity_66_mesh_instance" type="MeshInstance" parent="QodotMap/entity_66_StaticBodyGroup"]
 mesh = SubResource( 963 )
-material/0 = null
 
 [node name="entity_66_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_66_StaticBodyGroup"]
 shape = SubResource( 964 )
@@ -5050,7 +4963,6 @@ properties = {
 
 [node name="entity_67_mesh_instance" type="MeshInstance" parent="QodotMap/entity_67_StaticBodyGroup"]
 mesh = SubResource( 965 )
-material/0 = null
 
 [node name="entity_67_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_67_StaticBodyGroup"]
 shape = SubResource( 966 )
@@ -5066,7 +4978,6 @@ properties = {
 
 [node name="entity_68_mesh_instance" type="MeshInstance" parent="QodotMap/entity_68_StaticBodyGroup"]
 mesh = SubResource( 967 )
-material/0 = null
 
 [node name="entity_68_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_68_StaticBodyGroup"]
 shape = SubResource( 968 )
@@ -5082,7 +4993,6 @@ properties = {
 
 [node name="entity_69_mesh_instance" type="MeshInstance" parent="QodotMap/entity_69_StaticBodyGroup"]
 mesh = SubResource( 969 )
-material/0 = null
 
 [node name="entity_69_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_69_StaticBodyGroup"]
 shape = SubResource( 970 )
@@ -5098,7 +5008,6 @@ properties = {
 
 [node name="entity_70_mesh_instance" type="MeshInstance" parent="QodotMap/entity_70_StaticBodyGroup"]
 mesh = SubResource( 971 )
-material/0 = null
 
 [node name="entity_70_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_70_StaticBodyGroup"]
 shape = SubResource( 972 )
@@ -5114,7 +5023,6 @@ properties = {
 
 [node name="entity_71_mesh_instance" type="MeshInstance" parent="QodotMap/entity_71_StaticBodyGroup"]
 mesh = SubResource( 973 )
-material/0 = null
 
 [node name="entity_71_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_71_StaticBodyGroup"]
 shape = SubResource( 974 )
@@ -5130,7 +5038,6 @@ properties = {
 
 [node name="entity_72_mesh_instance" type="MeshInstance" parent="QodotMap/entity_72_StaticBodyGroup"]
 mesh = SubResource( 975 )
-material/0 = null
 
 [node name="entity_72_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_72_StaticBodyGroup"]
 shape = SubResource( 976 )
@@ -5146,7 +5053,6 @@ properties = {
 
 [node name="entity_73_mesh_instance" type="MeshInstance" parent="QodotMap/entity_73_StaticBodyGroup"]
 mesh = SubResource( 977 )
-material/0 = null
 
 [node name="entity_73_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_73_StaticBodyGroup"]
 shape = SubResource( 978 )
@@ -5162,7 +5068,6 @@ properties = {
 
 [node name="entity_74_mesh_instance" type="MeshInstance" parent="QodotMap/entity_74_StaticBodyGroup"]
 mesh = SubResource( 979 )
-material/0 = null
 
 [node name="entity_74_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_74_StaticBodyGroup"]
 shape = SubResource( 980 )
@@ -5178,7 +5083,6 @@ properties = {
 
 [node name="entity_75_mesh_instance" type="MeshInstance" parent="QodotMap/entity_75_StaticBodyGroup"]
 mesh = SubResource( 981 )
-material/0 = null
 
 [node name="entity_75_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_75_StaticBodyGroup"]
 shape = SubResource( 982 )
@@ -5194,7 +5098,6 @@ properties = {
 
 [node name="entity_76_mesh_instance" type="MeshInstance" parent="QodotMap/entity_76_StaticBodyGroup"]
 mesh = SubResource( 983 )
-material/0 = null
 
 [node name="entity_76_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_76_StaticBodyGroup"]
 shape = SubResource( 984 )
@@ -5210,7 +5113,6 @@ properties = {
 
 [node name="entity_77_mesh_instance" type="MeshInstance" parent="QodotMap/entity_77_StaticBodyGroup"]
 mesh = SubResource( 985 )
-material/0 = null
 
 [node name="entity_77_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_77_StaticBodyGroup"]
 shape = SubResource( 986 )
@@ -5226,7 +5128,6 @@ properties = {
 
 [node name="entity_78_mesh_instance" type="MeshInstance" parent="QodotMap/entity_78_StaticBodyGroup"]
 mesh = SubResource( 987 )
-material/0 = null
 
 [node name="entity_78_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_78_StaticBodyGroup"]
 shape = SubResource( 988 )
@@ -5242,7 +5143,6 @@ properties = {
 
 [node name="entity_79_mesh_instance" type="MeshInstance" parent="QodotMap/entity_79_StaticBodyGroup"]
 mesh = SubResource( 989 )
-material/0 = null
 
 [node name="entity_79_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_79_StaticBodyGroup"]
 shape = SubResource( 990 )
@@ -5258,7 +5158,6 @@ properties = {
 
 [node name="entity_80_mesh_instance" type="MeshInstance" parent="QodotMap/entity_80_StaticBodyGroup"]
 mesh = SubResource( 991 )
-material/0 = null
 
 [node name="entity_80_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_80_StaticBodyGroup"]
 shape = SubResource( 992 )
@@ -5274,7 +5173,6 @@ properties = {
 
 [node name="entity_81_mesh_instance" type="MeshInstance" parent="QodotMap/entity_81_StaticBodyGroup"]
 mesh = SubResource( 993 )
-material/0 = null
 
 [node name="entity_81_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_81_StaticBodyGroup"]
 shape = SubResource( 994 )
@@ -5290,7 +5188,6 @@ properties = {
 
 [node name="entity_82_mesh_instance" type="MeshInstance" parent="QodotMap/entity_82_StaticBodyGroup"]
 mesh = SubResource( 995 )
-material/0 = null
 
 [node name="entity_82_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_82_StaticBodyGroup"]
 shape = SubResource( 996 )
@@ -5306,7 +5203,6 @@ properties = {
 
 [node name="entity_83_mesh_instance" type="MeshInstance" parent="QodotMap/entity_83_StaticBodyGroup"]
 mesh = SubResource( 997 )
-material/0 = null
 
 [node name="entity_83_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_83_StaticBodyGroup"]
 shape = SubResource( 998 )
@@ -5322,7 +5218,6 @@ properties = {
 
 [node name="entity_84_mesh_instance" type="MeshInstance" parent="QodotMap/entity_84_StaticBodyGroup"]
 mesh = SubResource( 999 )
-material/0 = null
 
 [node name="entity_84_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_84_StaticBodyGroup"]
 shape = SubResource( 1000 )
@@ -5338,7 +5233,6 @@ properties = {
 
 [node name="entity_85_mesh_instance" type="MeshInstance" parent="QodotMap/entity_85_StaticBodyGroup"]
 mesh = SubResource( 1001 )
-material/0 = null
 
 [node name="entity_85_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_85_StaticBodyGroup"]
 shape = SubResource( 1002 )
@@ -5354,7 +5248,6 @@ properties = {
 
 [node name="entity_86_mesh_instance" type="MeshInstance" parent="QodotMap/entity_86_StaticBodyGroup"]
 mesh = SubResource( 1003 )
-material/0 = null
 
 [node name="entity_86_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_86_StaticBodyGroup"]
 shape = SubResource( 1004 )
@@ -5370,7 +5263,6 @@ properties = {
 
 [node name="entity_87_mesh_instance" type="MeshInstance" parent="QodotMap/entity_87_StaticBodyGroup"]
 mesh = SubResource( 1005 )
-material/0 = null
 
 [node name="entity_87_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_87_StaticBodyGroup"]
 shape = SubResource( 1006 )
@@ -5386,7 +5278,6 @@ properties = {
 
 [node name="entity_88_mesh_instance" type="MeshInstance" parent="QodotMap/entity_88_StaticBodyGroup"]
 mesh = SubResource( 1007 )
-material/0 = null
 
 [node name="entity_88_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_88_StaticBodyGroup"]
 shape = SubResource( 1008 )
@@ -5402,7 +5293,6 @@ properties = {
 
 [node name="entity_89_mesh_instance" type="MeshInstance" parent="QodotMap/entity_89_StaticBodyGroup"]
 mesh = SubResource( 1009 )
-material/0 = null
 
 [node name="entity_89_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_89_StaticBodyGroup"]
 shape = SubResource( 1010 )
@@ -5418,7 +5308,6 @@ properties = {
 
 [node name="entity_90_mesh_instance" type="MeshInstance" parent="QodotMap/entity_90_StaticBodyGroup"]
 mesh = SubResource( 1011 )
-material/0 = null
 
 [node name="entity_90_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_90_StaticBodyGroup"]
 shape = SubResource( 1012 )
@@ -5434,7 +5323,6 @@ properties = {
 
 [node name="entity_91_mesh_instance" type="MeshInstance" parent="QodotMap/entity_91_StaticBodyGroup"]
 mesh = SubResource( 1013 )
-material/0 = null
 
 [node name="entity_91_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_91_StaticBodyGroup"]
 shape = SubResource( 1014 )
@@ -5450,7 +5338,6 @@ properties = {
 
 [node name="entity_92_mesh_instance" type="MeshInstance" parent="QodotMap/entity_92_StaticBodyGroup"]
 mesh = SubResource( 1015 )
-material/0 = null
 
 [node name="entity_92_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_92_StaticBodyGroup"]
 shape = SubResource( 1016 )
@@ -5466,7 +5353,6 @@ properties = {
 
 [node name="entity_93_mesh_instance" type="MeshInstance" parent="QodotMap/entity_93_StaticBodyGroup"]
 mesh = SubResource( 1017 )
-material/0 = null
 
 [node name="entity_93_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_93_StaticBodyGroup"]
 shape = SubResource( 1018 )
@@ -5482,7 +5368,6 @@ properties = {
 
 [node name="entity_94_mesh_instance" type="MeshInstance" parent="QodotMap/entity_94_StaticBodyGroup"]
 mesh = SubResource( 1019 )
-material/0 = null
 
 [node name="entity_94_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_94_StaticBodyGroup"]
 shape = SubResource( 1020 )
@@ -5499,7 +5384,6 @@ properties = {
 
 [node name="entity_95_mesh_instance" type="MeshInstance" parent="QodotMap/entity_95_TriggerSongAnimationChange"]
 mesh = SubResource( 1021 )
-material/0 = null
 
 [node name="entity_95_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_95_TriggerSongAnimationChange"]
 shape = SubResource( 1022 )
@@ -5516,7 +5400,6 @@ properties = {
 
 [node name="entity_96_mesh_instance" type="MeshInstance" parent="QodotMap/entity_96_TriggerSongAnimationChange"]
 mesh = SubResource( 1023 )
-material/0 = null
 
 [node name="entity_96_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_96_TriggerSongAnimationChange"]
 shape = SubResource( 1024 )
@@ -5533,7 +5416,6 @@ properties = {
 
 [node name="entity_97_mesh_instance" type="MeshInstance" parent="QodotMap/entity_97_TriggerSongAnimationChange"]
 mesh = SubResource( 1025 )
-material/0 = null
 
 [node name="entity_97_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_97_TriggerSongAnimationChange"]
 shape = SubResource( 1026 )
@@ -5550,7 +5432,6 @@ properties = {
 
 [node name="entity_98_mesh_instance" type="MeshInstance" parent="QodotMap/entity_98_TriggerSongAnimationChange"]
 mesh = SubResource( 1027 )
-material/0 = null
 
 [node name="entity_98_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_98_TriggerSongAnimationChange"]
 shape = SubResource( 1028 )
@@ -5569,7 +5450,6 @@ properties = {
 
 [node name="entity_99_mesh_instance" type="MeshInstance" parent="QodotMap/entity_99_TutorialTrigger"]
 mesh = SubResource( 1029 )
-material/0 = null
 
 [node name="entity_99_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_99_TutorialTrigger"]
 shape = SubResource( 1030 )
@@ -5588,7 +5468,6 @@ properties = {
 
 [node name="entity_100_mesh_instance" type="MeshInstance" parent="QodotMap/entity_100_TutorialTrigger"]
 mesh = SubResource( 1031 )
-material/0 = null
 
 [node name="entity_100_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_100_TutorialTrigger"]
 shape = SubResource( 1032 )
@@ -5607,7 +5486,6 @@ properties = {
 
 [node name="entity_101_mesh_instance" type="MeshInstance" parent="QodotMap/entity_101_TutorialTrigger"]
 mesh = SubResource( 1033 )
-material/0 = null
 
 [node name="entity_101_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_101_TutorialTrigger"]
 shape = SubResource( 1034 )
@@ -5626,7 +5504,6 @@ properties = {
 
 [node name="entity_102_mesh_instance" type="MeshInstance" parent="QodotMap/entity_102_TutorialTrigger"]
 mesh = SubResource( 1035 )
-material/0 = null
 
 [node name="entity_102_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_102_TutorialTrigger"]
 shape = SubResource( 1036 )
@@ -5801,7 +5678,6 @@ properties = {
 
 [node name="entity_116_mesh_instance" type="MeshInstance" parent="QodotMap/entity_116_Scenery_Rotate_Spatial_Sequencer_RotateSpatialSequencerSolid"]
 mesh = SubResource( 1037 )
-material/0 = null
 
 [node name="entity_117_Scenery_Rotate_Spatial_Sequencer_RotateSpatialSequencerSolid" type="Spatial" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 260, 608, -1824 )
@@ -5817,7 +5693,6 @@ properties = {
 
 [node name="entity_117_mesh_instance" type="MeshInstance" parent="QodotMap/entity_117_Scenery_Rotate_Spatial_Sequencer_RotateSpatialSequencerSolid"]
 mesh = SubResource( 1038 )
-material/0 = null
 
 [node name="entity_118_Scenery_Rotate_Spatial_Sequencer_RotateSpatialSequencerSolid" type="Spatial" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, -784, -992 )
@@ -5833,7 +5708,6 @@ properties = {
 
 [node name="entity_118_mesh_instance" type="MeshInstance" parent="QodotMap/entity_118_Scenery_Rotate_Spatial_Sequencer_RotateSpatialSequencerSolid"]
 mesh = SubResource( 1039 )
-material/0 = null
 
 [node name="entity_119_Scenery_Rotate_Spatial_Sequencer_RotateSpatialSequencerSolid" type="Spatial" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1024, 40, -656 )
@@ -5849,7 +5723,6 @@ properties = {
 
 [node name="entity_119_mesh_instance" type="MeshInstance" parent="QodotMap/entity_119_Scenery_Rotate_Spatial_Sequencer_RotateSpatialSequencerSolid"]
 mesh = SubResource( 1040 )
-material/0 = null
 
 [node name="entity_120_Scenery_Rotate_Spatial_Sequencer_RotateSpatialSequencerSolid" type="Spatial" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1024, 40, -656 )
@@ -5865,7 +5738,6 @@ properties = {
 
 [node name="entity_120_mesh_instance" type="MeshInstance" parent="QodotMap/entity_120_Scenery_Rotate_Spatial_Sequencer_RotateSpatialSequencerSolid"]
 mesh = SubResource( 1041 )
-material/0 = null
 
 [node name="entity_121_Scenery_Rotate_Spatial_Sequencer_RotateSpatialSequencerSolid" type="Spatial" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1000, -136, 1312 )
@@ -5881,7 +5753,6 @@ properties = {
 
 [node name="entity_121_mesh_instance" type="MeshInstance" parent="QodotMap/entity_121_Scenery_Rotate_Spatial_Sequencer_RotateSpatialSequencerSolid"]
 mesh = SubResource( 1042 )
-material/0 = null
 
 [node name="entity_122_Scenery_Rotate_Spatial_Sequencer_RotateSpatialSequencerSolid" type="Spatial" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2560, 1112, 2812 )
@@ -5897,7 +5768,6 @@ properties = {
 
 [node name="entity_122_mesh_instance" type="MeshInstance" parent="QodotMap/entity_122_Scenery_Rotate_Spatial_Sequencer_RotateSpatialSequencerSolid"]
 mesh = SubResource( 1043 )
-material/0 = null
 
 [node name="entity_123_Scenery_Rotate_Spatial_Sequencer_RotateSpatialSequencerSolid" type="Spatial" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 1632, 6512 )
@@ -5913,7 +5783,6 @@ properties = {
 
 [node name="entity_123_mesh_instance" type="MeshInstance" parent="QodotMap/entity_123_Scenery_Rotate_Spatial_Sequencer_RotateSpatialSequencerSolid"]
 mesh = SubResource( 1044 )
-material/0 = null
 
 [node name="entity_124_Scenery_Rotate_Spatial_Sequencer_RotateSpatialSequencerSolid" type="Spatial" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 728, 368, -2736 )
@@ -5929,7 +5798,6 @@ properties = {
 
 [node name="entity_124_mesh_instance" type="MeshInstance" parent="QodotMap/entity_124_Scenery_Rotate_Spatial_Sequencer_RotateSpatialSequencerSolid"]
 mesh = SubResource( 1045 )
-material/0 = null
 
 [node name="entity_125_Scenery_Rotate_Spatial_Sequencer_RotateSpatialSequencerSolid" type="Spatial" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -520, 432, -1824 )
@@ -5945,7 +5813,6 @@ properties = {
 
 [node name="entity_125_mesh_instance" type="MeshInstance" parent="QodotMap/entity_125_Scenery_Rotate_Spatial_Sequencer_RotateSpatialSequencerSolid"]
 mesh = SubResource( 1046 )
-material/0 = null
 
 [node name="entity_126_StaticBodyGroup" type="StaticBody" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1536, -360, 2080 )
@@ -5958,7 +5825,6 @@ properties = {
 
 [node name="entity_126_mesh_instance" type="MeshInstance" parent="QodotMap/entity_126_StaticBodyGroup"]
 mesh = SubResource( 1047 )
-material/0 = null
 
 [node name="entity_126_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_126_StaticBodyGroup"]
 shape = SubResource( 1048 )
@@ -5977,7 +5843,6 @@ properties = {
 
 [node name="entity_127_mesh_instance" type="MeshInstance" parent="QodotMap/entity_127_Scenery_Rotate_Spatial_Sequencer_RotateSpatialSequencerSolid"]
 mesh = SubResource( 1049 )
-material/0 = null
 
 [node name="entity_128_RythmElements_Sequencers_Static" type="StaticBody" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 352, -76, -3040 )
@@ -5994,7 +5859,6 @@ properties = {
 
 [node name="entity_128_mesh_instance" type="MeshInstance" parent="QodotMap/entity_128_RythmElements_Sequencers_Static"]
 mesh = SubResource( 1050 )
-material/0 = null
 
 [node name="entity_128_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_128_RythmElements_Sequencers_Static"]
 shape = SubResource( 1051 )
@@ -6017,7 +5881,6 @@ properties = {
 
 [node name="entity_129_mesh_instance" type="MeshInstance" parent="QodotMap/entity_129_RythmElements_Sequencers_Static"]
 mesh = SubResource( 1053 )
-material/0 = null
 
 [node name="entity_129_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_129_RythmElements_Sequencers_Static"]
 shape = SubResource( 1054 )
@@ -6040,7 +5903,6 @@ properties = {
 
 [node name="entity_130_mesh_instance" type="MeshInstance" parent="QodotMap/entity_130_RythmElements_Sequencers_Static"]
 mesh = SubResource( 1056 )
-material/0 = null
 
 [node name="entity_130_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_130_RythmElements_Sequencers_Static"]
 shape = SubResource( 1057 )
@@ -6069,7 +5931,6 @@ properties = {
 
 [node name="entity_131_mesh_instance" type="MeshInstance" parent="QodotMap/entity_131_RythmElements_Sequencers_Static"]
 mesh = SubResource( 1061 )
-material/0 = null
 
 [node name="entity_131_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_131_RythmElements_Sequencers_Static"]
 shape = SubResource( 1062 )
@@ -6092,7 +5953,6 @@ properties = {
 
 [node name="entity_132_mesh_instance" type="MeshInstance" parent="QodotMap/entity_132_RythmElements_Sequencers_Static"]
 mesh = SubResource( 1064 )
-material/0 = null
 
 [node name="entity_132_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_132_RythmElements_Sequencers_Static"]
 shape = SubResource( 1065 )
@@ -6115,7 +5975,6 @@ properties = {
 
 [node name="entity_133_mesh_instance" type="MeshInstance" parent="QodotMap/entity_133_RythmElements_Sequencers_Static"]
 mesh = SubResource( 1067 )
-material/0 = null
 
 [node name="entity_133_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_133_RythmElements_Sequencers_Static"]
 shape = SubResource( 1068 )
@@ -6144,7 +6003,6 @@ properties = {
 
 [node name="entity_134_mesh_instance" type="MeshInstance" parent="QodotMap/entity_134_RythmElements_Sequencers_Static"]
 mesh = SubResource( 1072 )
-material/0 = null
 
 [node name="entity_134_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_134_RythmElements_Sequencers_Static"]
 shape = SubResource( 1073 )
@@ -6167,7 +6025,6 @@ properties = {
 
 [node name="entity_135_mesh_instance" type="MeshInstance" parent="QodotMap/entity_135_RythmElements_Sequencers_Static"]
 mesh = SubResource( 1075 )
-material/0 = null
 
 [node name="entity_135_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_135_RythmElements_Sequencers_Static"]
 shape = SubResource( 1076 )
@@ -6190,7 +6047,6 @@ properties = {
 
 [node name="entity_136_mesh_instance" type="MeshInstance" parent="QodotMap/entity_136_RythmElements_Sequencers_Static"]
 mesh = SubResource( 1078 )
-material/0 = null
 
 [node name="entity_136_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_136_RythmElements_Sequencers_Static"]
 shape = SubResource( 1079 )
@@ -6213,7 +6069,6 @@ properties = {
 
 [node name="entity_137_mesh_instance" type="MeshInstance" parent="QodotMap/entity_137_RythmElements_Sequencers_Static"]
 mesh = SubResource( 1081 )
-material/0 = null
 
 [node name="entity_137_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_137_RythmElements_Sequencers_Static"]
 shape = SubResource( 1082 )
@@ -6236,7 +6091,6 @@ properties = {
 
 [node name="entity_138_mesh_instance" type="MeshInstance" parent="QodotMap/entity_138_RythmElements_Sequencers_Static"]
 mesh = SubResource( 1084 )
-material/0 = null
 
 [node name="entity_138_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_138_RythmElements_Sequencers_Static"]
 shape = SubResource( 1085 )
@@ -6259,7 +6113,6 @@ properties = {
 
 [node name="entity_139_mesh_instance" type="MeshInstance" parent="QodotMap/entity_139_RythmElements_Sequencers_Static"]
 mesh = SubResource( 1087 )
-material/0 = null
 
 [node name="entity_139_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_139_RythmElements_Sequencers_Static"]
 shape = SubResource( 1088 )
@@ -6282,7 +6135,6 @@ properties = {
 
 [node name="entity_140_mesh_instance" type="MeshInstance" parent="QodotMap/entity_140_RythmElements_Sequencers_Static"]
 mesh = SubResource( 1090 )
-material/0 = null
 
 [node name="entity_140_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_140_RythmElements_Sequencers_Static"]
 shape = SubResource( 1091 )
@@ -6382,7 +6234,6 @@ properties = {
 
 [node name="entity_147_mesh_instance" type="MeshInstance" parent="QodotMap/entity_147_Breakables_Wall"]
 mesh = SubResource( 1093 )
-material/0 = null
 
 [node name="entity_147_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_147_Breakables_Wall"]
 shape = SubResource( 1094 )
@@ -6401,7 +6252,6 @@ properties = {
 
 [node name="entity_148_mesh_instance" type="MeshInstance" parent="QodotMap/entity_148_Breakables_Wall"]
 mesh = SubResource( 1095 )
-material/0 = null
 
 [node name="entity_148_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_148_Breakables_Wall"]
 shape = SubResource( 1096 )
@@ -6420,7 +6270,6 @@ properties = {
 
 [node name="entity_149_mesh_instance" type="MeshInstance" parent="QodotMap/entity_149_Breakables_Wall"]
 mesh = SubResource( 1097 )
-material/0 = null
 
 [node name="entity_149_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_149_Breakables_Wall"]
 shape = SubResource( 1098 )
@@ -6439,7 +6288,6 @@ properties = {
 
 [node name="entity_150_mesh_instance" type="MeshInstance" parent="QodotMap/entity_150_Breakables_Wall"]
 mesh = SubResource( 1099 )
-material/0 = null
 
 [node name="entity_150_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_150_Breakables_Wall"]
 shape = SubResource( 1100 )
@@ -6458,7 +6306,6 @@ properties = {
 
 [node name="entity_151_mesh_instance" type="MeshInstance" parent="QodotMap/entity_151_Breakables_Wall"]
 mesh = SubResource( 1101 )
-material/0 = null
 
 [node name="entity_151_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_151_Breakables_Wall"]
 shape = SubResource( 1102 )
@@ -6477,7 +6324,6 @@ properties = {
 
 [node name="entity_152_mesh_instance" type="MeshInstance" parent="QodotMap/entity_152_Breakables_Wall"]
 mesh = SubResource( 1103 )
-material/0 = null
 
 [node name="entity_152_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_152_Breakables_Wall"]
 shape = SubResource( 1104 )
@@ -6496,7 +6342,6 @@ properties = {
 
 [node name="entity_153_mesh_instance" type="MeshInstance" parent="QodotMap/entity_153_Breakables_Wall"]
 mesh = SubResource( 1105 )
-material/0 = null
 
 [node name="entity_153_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_153_Breakables_Wall"]
 shape = SubResource( 1106 )
@@ -6515,7 +6360,6 @@ properties = {
 
 [node name="entity_154_mesh_instance" type="MeshInstance" parent="QodotMap/entity_154_Breakables_Wall"]
 mesh = SubResource( 1107 )
-material/0 = null
 
 [node name="entity_154_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_154_Breakables_Wall"]
 shape = SubResource( 1108 )
@@ -6534,7 +6378,6 @@ properties = {
 
 [node name="entity_155_mesh_instance" type="MeshInstance" parent="QodotMap/entity_155_Breakables_Wall"]
 mesh = SubResource( 1109 )
-material/0 = null
 
 [node name="entity_155_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_155_Breakables_Wall"]
 shape = SubResource( 1110 )
@@ -6553,7 +6396,6 @@ properties = {
 
 [node name="entity_156_mesh_instance" type="MeshInstance" parent="QodotMap/entity_156_Breakables_Wall"]
 mesh = SubResource( 1111 )
-material/0 = null
 
 [node name="entity_156_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_156_Breakables_Wall"]
 shape = SubResource( 1112 )
@@ -6572,7 +6414,6 @@ properties = {
 
 [node name="entity_157_mesh_instance" type="MeshInstance" parent="QodotMap/entity_157_Breakables_Wall"]
 mesh = SubResource( 1113 )
-material/0 = null
 
 [node name="entity_157_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_157_Breakables_Wall"]
 shape = SubResource( 1114 )
@@ -6591,7 +6432,6 @@ properties = {
 
 [node name="entity_158_mesh_instance" type="MeshInstance" parent="QodotMap/entity_158_Breakables_Wall"]
 mesh = SubResource( 1115 )
-material/0 = null
 
 [node name="entity_158_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_158_Breakables_Wall"]
 shape = SubResource( 1116 )
@@ -6640,7 +6480,6 @@ properties = {
 
 [node name="entity_161_mesh_instance" type="MeshInstance" parent="QodotMap/entity_161_RythmElements_Sequencers_Spatial"]
 mesh = SubResource( 1118 )
-material/0 = null
 
 [node name="entity_161_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_161_RythmElements_Sequencers_Spatial"]
 shape = SubResource( 1119 )
@@ -6660,7 +6499,6 @@ properties = {
 
 [node name="entity_162_mesh_instance" type="MeshInstance" parent="QodotMap/entity_162_RythmElements_Sequencers_Spatial"]
 mesh = SubResource( 1120 )
-material/0 = null
 
 [node name="entity_162_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_162_RythmElements_Sequencers_Spatial"]
 shape = SubResource( 1121 )
@@ -6680,7 +6518,6 @@ properties = {
 
 [node name="entity_163_mesh_instance" type="MeshInstance" parent="QodotMap/entity_163_RythmElements_Sequencers_Spatial"]
 mesh = SubResource( 1122 )
-material/0 = null
 
 [node name="entity_163_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_163_RythmElements_Sequencers_Spatial"]
 shape = SubResource( 1123 )
@@ -6700,7 +6537,6 @@ properties = {
 
 [node name="entity_164_mesh_instance" type="MeshInstance" parent="QodotMap/entity_164_RythmElements_Sequencers_Spatial"]
 mesh = SubResource( 1124 )
-material/0 = null
 
 [node name="entity_164_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_164_RythmElements_Sequencers_Spatial"]
 shape = SubResource( 1125 )
@@ -6720,7 +6556,6 @@ properties = {
 
 [node name="entity_165_mesh_instance" type="MeshInstance" parent="QodotMap/entity_165_RythmElements_Sequencers_Spatial"]
 mesh = SubResource( 1126 )
-material/0 = null
 
 [node name="entity_165_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_165_RythmElements_Sequencers_Spatial"]
 shape = SubResource( 1127 )
@@ -6740,7 +6575,6 @@ properties = {
 
 [node name="entity_166_mesh_instance" type="MeshInstance" parent="QodotMap/entity_166_RythmElements_Sequencers_Spatial"]
 mesh = SubResource( 1128 )
-material/0 = null
 
 [node name="entity_166_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_166_RythmElements_Sequencers_Spatial"]
 shape = SubResource( 1129 )
@@ -6758,7 +6592,6 @@ properties = {
 
 [node name="entity_167_mesh_instance" type="MeshInstance" parent="QodotMap/entity_167_EnableAbilityArea"]
 mesh = SubResource( 1130 )
-material/0 = null
 
 [node name="entity_167_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_167_EnableAbilityArea"]
 shape = SubResource( 1131 )

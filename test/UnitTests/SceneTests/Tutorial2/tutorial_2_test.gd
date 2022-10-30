@@ -18,7 +18,7 @@ func before():
 #==== ACTUAL TESTS =====
 # tests if the song name and animation are correct for tutorial 1
 func test_song() -> void:
-	assert_str(scene_instance.PATHS.bgm.path).is_equal("res://Game/Common/Songs/tutorial_2.tscn")
+	assert_str(scene_instance.PATHS.bgm.path).is_equal("res://Game/Common/Songs/Tutorial2/tutorial_2.tscn")
 	assert_str(scene_instance.PATHS.bgm.animation).is_equal("part_1")
 
 

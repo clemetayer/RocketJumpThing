@@ -126,7 +126,7 @@ func _ready():
 	onready_paths.run_sound.unpitch.play()
 
 
-func _process(delta):
+func _process(_delta):
 	_process_sounds()
 
 

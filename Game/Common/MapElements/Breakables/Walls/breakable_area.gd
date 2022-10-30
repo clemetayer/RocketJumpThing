@@ -3,6 +3,7 @@ class_name BreakableArea
 # Area to trigger a breakable wall break
 
 ##### SIGNALS #####
+#warning-ignore:UNUSED_SIGNAL
 signal trigger(parameters)
 
 ##### VARIABLES #####
@@ -27,5 +28,5 @@ func _add_break_wall_sound() -> void:
 	sound.stream = load(BREAK_WALL_SOUND_PATH)
 	sound.volume_db = BREAK_WALL_SOUND_VOLUME_DB
 	if get_parent() != null:  # for test purposes
-		get_parent().add_child(sound)
+		get_parent().call_deferred("add_child", sound)
 	_break_wall_sound = sound

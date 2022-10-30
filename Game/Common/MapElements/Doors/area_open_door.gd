@@ -2,12 +2,14 @@ extends Collidable
 # An area to open a door on body entered trigger
 
 ##### SIGNALS #####
+#warning-ignore:UNUSED_SIGNAL
 signal trigger
 
 ##### VARIABLES #####
 #---- STANDARD -----
 #==== PUBLIC ====
-var is_test := false # boolean to tell if this is a test class, to avoid errors when it frees itself during the test
+var is_test := false  # boolean to tell if this is a test class, to avoid errors when it frees itself during the test
+
 
 ##### PROCESSING #####
 # Called when the object is initialized.

@@ -103,6 +103,5 @@ func _on_SignalManager_sequencer_step(id: String) -> void:
 		_params,
 		_step_indexes,
 		_active_on_signals_array,
-		material != null,
 		_active_on_steps_array
 	)

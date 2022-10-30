@@ -26,10 +26,6 @@ func after():
 
 #---- TESTS -----
 #==== ACTUAL TESTS =====
-func test_init_func() -> void:
-	vertical_boost._init_func()  # not much to test in parent class
-
-
 func test_ready_func() -> void:
 	vertical_boost._angle = Vector3.ONE
 	vertical_boost._ready_func()
@@ -39,16 +35,13 @@ func test_ready_func() -> void:
 func test_connect_signals() -> void:
 	vertical_boost._connect_signals()
 	assert_bool(vertical_boost.is_connected("body_entered", vertical_boost, "_on_body_entered")).is_true()
-	assert_bool(vertical_boost.is_connected("body_exited", vertical_boost, "_on_body_exited")).is_true()
 	assert_bool(vertical_boost.is_connected("area_entered", vertical_boost, "_on_area_entered")).is_true()
 
 
 func test_set_extents() -> void:
 	vertical_boost._size = Vector3.ONE * 2
 	vertical_boost._set_extents()
-	assert_vector3(vertical_boost.onready_paths.collision.shape.extents).is_equal(
-		Vector3.ONE * 2
-	)
+	assert_vector3(vertical_boost.onready_paths.collision.shape.extents).is_equal(Vector3.ONE * 2)
 
 
 func test_on_body_entered() -> void:

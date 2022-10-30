@@ -7,7 +7,7 @@ const COLOR_NOK := Color(1, 0, 0, 1)  # color of the text if the player speed is
 const COLOR_OK := Color(0, 1, 0, 1)  # color of the text if the player speed is >= to the treshold
 
 #---- EXPORTS -----
-export(float) var SPEED = 0  # Speed to show on the Sprite3D
+export(float) var SPEED = 0.0  # Speed to show on the Sprite3D
 #---- STANDARD -----
 #==== ONREADY ====
 onready var onready_paths := {"label": $"Label"}

@@ -67,7 +67,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame. Remove the "_" to use it.
 func _process(delta):
 	var delta_dist = onready_desired_pos - self.translation
-	move_and_slide(delta_dist / delta)
+	var _unused = move_and_slide(delta_dist / delta)
 
 
 ##### PROTECTED METHODS #####
@@ -108,6 +108,7 @@ func _create_show_path_mesh(start_point: Vector3, end_point: Vector3) -> MeshIns
 	if normalized_vect == Vector3.UP or normalized_vect == -Vector3.UP:  # aligned with up vector, do not use look_at
 		mesh_instance.rotation.x = PI / 2.0
 	else:
+		# FIXME : Creates an error stating that the mesh instance is not in the tree, but since it hard to fix and is not blocking anything, it should be fine
 		mesh_instance.look_at(end_point - start_point, Vector3.UP)
 	mesh_instance.set_surface_material(0, _create_path_material())
 	return mesh_instance
@@ -134,7 +135,8 @@ func _create_path_material() -> SpatialMaterial:
 
 
 func _set_tween_to_pos_idx(idx: int) -> void:
-	_tween.interpolate_property(
+	DebugUtils.log_tween_interpolate_property(
+		_tween,
 		self,
 		"onready_desired_pos",
 		onready_desired_pos,
@@ -144,7 +146,7 @@ func _set_tween_to_pos_idx(idx: int) -> void:
 		_ease,
 		_wait_time
 	)
-	_tween.start()
+	DebugUtils.log_tween_start(_tween)
 
 
 ##### SIGNAL MANAGEMENT #####

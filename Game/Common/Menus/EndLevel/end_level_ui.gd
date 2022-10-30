@@ -55,14 +55,14 @@ func _on_SignalManager_end_reached() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	onready_paths.next_scene_button.disabled = not ScenesManager.has_next_level()
 	var tween: Tween = onready_paths.tween
-	var millis = VariableManager.chronometer.level % 1000
-	var seconds = floor((VariableManager.chronometer.level / 1000) % 60)
+	var millis = fmod(VariableManager.chronometer.level, 1000)
+	var seconds = floor(fmod(VariableManager.chronometer.level / 1000, 60))
 	var minutes = floor(VariableManager.chronometer.level / (1000 * 60))
 	onready_paths.label.set_text("%02d : %02d : %03d" % [minutes, seconds, millis])
-	tween.interpolate_property(
-		onready_paths.root_ui, "modulate", Color(1, 1, 1, 0), Color(1, 1, 1, 1), FADE_IN_TIME
+	DebugUtils.log_tween_interpolate_property(
+		tween, onready_paths.root_ui, "modulate", Color(1, 1, 1, 0), Color(1, 1, 1, 1), FADE_IN_TIME
 	)
-	tween.start()
+	DebugUtils.log_tween_start(tween)
 	onready_paths.root_ui.show()
 	get_tree().paused = true
 

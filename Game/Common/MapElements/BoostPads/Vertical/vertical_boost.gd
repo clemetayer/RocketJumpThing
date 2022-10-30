@@ -23,13 +23,9 @@ onready var onready_rocket_tween := Tween.new()  # tween for the boost bonus whe
 
 
 ##### PROTECTED METHODS #####
-# init function to override if necessary
-func _init_func() -> void:
-	_connect_signals()
-
-
 # ready function to override if necessary
 func _ready_func() -> void:
+	_connect_signals() # exceptionnaly in the ready func, for onready in children
 	add_child(onready_rocket_tween)
 	_set_TB_params()
 	_duplicate_common_elements()
@@ -59,15 +55,14 @@ func _get_collision() -> Node:
 # sets the properties of the tween when a rocket interacts with the area
 func _set_rocket_tween_properties() -> void:
 	var mult_boost = _boost_multiplier * ROCKET_POWER_MULTIPLIER
-	onready_rocket_tween.interpolate_property(
-		self, "_boost_multiplier", mult_boost, 1.0, ROCKET_BOOST_DECAY
+	DebugUtils.log_tween_interpolate_property(
+		onready_rocket_tween, self, "_boost_multiplier", mult_boost, 1.0, ROCKET_BOOST_DECAY
 	)
 
 
 ##### SIGNAL MANAGEMENT #####
 func _connect_signals() -> void:
 	DebugUtils.log_connect(self, self, "body_entered", "_on_body_entered")
-	DebugUtils.log_connect(self, self, "body_exited", "_on_body_exited")
 	DebugUtils.log_connect(self, self, "area_entered", "_on_area_entered")
 
 
@@ -80,6 +75,6 @@ func _on_body_entered(body: Node) -> void:
 func _on_area_entered(area: Node) -> void:
 	if FunctionUtils.is_rocket(area):
 		area.queue_free()
-		onready_rocket_tween.stop_all()
+		DebugUtils.log_tween_stop_all(onready_rocket_tween)
 		_set_rocket_tween_properties()
-		onready_rocket_tween.start()
+		DebugUtils.log_tween_start(onready_rocket_tween)

@@ -77,9 +77,10 @@ func reload_current() -> void:
 	_switch_to_game_scene(_current_level_list, _current_level_idx)
 
 func get_current() -> Node:
-	if _current_scene_instance != null:
-		return _current_scene_instance
-	return get_tree().get_current_scene() # for single scene tests, mostly
+	# if _current_scene_instance != null:
+	# 	return _current_scene_instance
+	# return get_tree().get_current_scene() # for single scene tests, mostly
+	return get_tree().get_current_scene()
 
 ##### PROTECTED METHODS #####
 func _load_levels_json_data() -> void:
@@ -119,15 +120,18 @@ func _switch_to_game_scene(name: String, idx: int) -> void:
 
 
 func _goto_scene(path: String) -> void:
-	call_deferred("deferred_goto_scene", path)
+	# call_deferred("deferred_goto_scene", path)
+	if get_tree() != null and get_tree().change_scene(path) != OK:
+		Logger.error("Error while changing scene to %s at %s" % [path,DebugUtils.print_stack_trace(get_stack())])
 
 
-func deferred_goto_scene(path: String) -> void:
-	if get_tree() != null:
-		var root = get_tree().get_root()
-		var current_scene = root.get_child(root.get_child_count() - 1)
-		current_scene.free()
-		var new_scene = load(path).instance()
-		_current_scene_instance = new_scene
-		get_tree().get_root().call_deferred("add_child", new_scene)
-		get_tree().set_current_scene(new_scene)
+
+# func deferred_goto_scene(path: String) -> void:
+# 	if get_tree() != null:
+# 		var root = get_tree().get_root()
+# 		var current_scene = root.get_child(root.get_child_count() - 1)
+# 		current_scene.free()
+# 		var new_scene = load(path).instance()
+# 		_current_scene_instance = new_scene
+# 		get_tree().get_root().call_deferred("add_child", new_scene)
+# 		get_tree().set_current_scene(new_scene)

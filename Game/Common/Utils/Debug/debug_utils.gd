@@ -79,6 +79,14 @@ static func log_tween_interpolate_method(
 
 static func log_tween_start(tween: Tween) -> void:
 	if !tween.start():
+		Logger.error("Error when starting tween at %s" % [print_stack_trace(get_stack())])
+
+
+static func log_tween_stop_all(tween: Tween) -> void:
+	if !tween.stop_all():
 		Logger.error(
-			"Error when starting tween at %s" % [print_stack_trace(get_stack())]
+			(
+				"Error when stopping all tween properties and methods at %s"
+				% [print_stack_trace(get_stack())]
+			)
 		)

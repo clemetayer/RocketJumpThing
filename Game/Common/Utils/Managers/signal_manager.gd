@@ -3,16 +3,23 @@ extends Node
 
 ##### SIGNALS #####
 #==== PLAYER =====
+#warning-ignore:UNUSED_SIGNAL
 signal respawn_player_on_last_cp
+#warning-ignore:UNUSED_SIGNAL
 signal trigger_tutorial(key, time)
+#warning-ignore:UNUSED_SIGNAL
 signal speed_updated(speed)
 
 #==== MAP =====
+#warning-ignore:UNUSED_SIGNAL
 signal checkpoint_triggered(checkpoint)
+#warning-ignore:UNUSED_SIGNAL
 signal start_level_chronometer
+#warning-ignore:UNUSED_SIGNAL
 signal end_reached
 
 #==== VISUALS =====
+#warning-ignore:UNUSED_SIGNAL
 signal sequencer_step(id)
 
 ##### VARIABLES #####

@@ -17,11 +17,6 @@ onready var onready_paths := {
 
 
 ##### PROTECTED METHODS #####
-# init function to override if necessary
-func _init() -> void:
-	._init_func()
-
-
 # ready function to override if necessary
 func _ready() -> void:
 	._ready_func()
@@ -72,5 +67,5 @@ func _set_colors() -> void:
 
 
 # disables the boost when interacting with a rocket
-func _on_area_entered(area: Node) -> void:
+func _on_area_entered(_area: Node) -> void:
 	pass

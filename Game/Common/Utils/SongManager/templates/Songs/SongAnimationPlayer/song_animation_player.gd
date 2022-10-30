@@ -132,9 +132,13 @@ func get_neutral_effect_data(params: Dictionary) -> Array:
 # percents is the tween completion percentage, both to make the tween recognize this, and for debug purposes
 func update_volumes(_percents: float):
 	for track in _tracks.keys():
-		AudioServer.set_bus_volume_db(
-			AudioServer.get_bus_index(_tracks[track].bus), _tracks[track].volume
-		)
+		if (
+			AudioServer.get_bus_index(_tracks[track].bus) != null
+			and AudioServer.get_bus_index(_tracks[track].bus) != -1
+		):
+			AudioServer.set_bus_volume_db(
+				AudioServer.get_bus_index(_tracks[track].bus), _tracks[track].volume
+			)
 
 
 # Triggers a specific step for the step sequencer in the SignalManager
@@ -145,15 +149,14 @@ func step_sequencer_emit_step(name: String) -> void:
 ##### PROTECTED METHODS #####
 # inits the tracks infos
 func _init_tracks():
-	var elements = []  # used to remove elements that are not in the song children
 	for child in get_children():
-		_init_track(child)  # inits the tracks in (at least) the root
+		var _unused = _init_track(child)  # inits the tracks in (at least) the root
 	# special case of the song itself
 	if not _tracks.has(name):
 		_tracks[name] = {"bus": "", "volume": 0.0}
 
 
-# inits a track recursively. allow
+# inits a track recursively.
 func _init_track(child: Node) -> Array:
 	var elements = []
 	if child is AudioStreamPlayer:
@@ -285,9 +288,11 @@ func _get_animation_time_from_track_time(animation: String, track: String) -> fl
 			get_node(anim.track_get_path(track_idx)) is AudioStreamPlayer
 			and get_node(anim.track_get_path(track_idx)).name == track
 		):  # audio track (idk, maybe there will be some other track types), and this is the common track
-			var property_name = anim.track_get_path(track_idx).get_subname(
-				anim.track_get_path(track_idx).get_subname_count() - 1
-			)  # just gets the last property
+			var property_name := ""
+			if anim.track_get_path(track_idx).get_subname_count() > 0:
+				property_name = anim.track_get_path(track_idx).get_subname(
+					anim.track_get_path(track_idx).get_subname_count() - 1
+				)  # just gets the last property
 			var key_idx = anim.track_find_key(track_idx, 0.0, false)  # closest key to start
 			if (
 				(
@@ -312,9 +317,11 @@ func _get_track_play_times(anim_name: String, anim_time: float) -> Dictionary:
 		var _type = anim.track_get_type(track_idx)
 		if get_node(anim.track_get_path(track_idx)) is AudioStreamPlayer:  # audio track (idk, maybe there will be some other track types)
 			var track_name = get_node(anim.track_get_path(track_idx)).name
-			var property_name = anim.track_get_path(track_idx).get_subname(
-				anim.track_get_path(track_idx).get_subname_count() - 1
-			)  # just gets the last property
+			var property_name := ""
+			if anim.track_get_path(track_idx).get_subname_count() > 0:
+				property_name = anim.track_get_path(track_idx).get_subname(
+					anim.track_get_path(track_idx).get_subname_count() - 1
+				)  # just gets the last property
 			var key_idx = anim.track_find_key(track_idx, anim_time, false)  # closest key to animation time
 			if (
 				(
