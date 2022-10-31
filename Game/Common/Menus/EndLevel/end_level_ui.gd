@@ -30,7 +30,7 @@ func _connect_signals() -> void:
 func _unpause():
 	if StandardSongManager.get_current() != null:
 		StandardSongManager.apply_effect(
-			_create_filter_auto_effect(),
+			FunctionUtils.create_filter_auto_effect(FADE_IN_TIME),
 			{StandardSongManager.get_current().name: {"fade_in": true}}
 		)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -38,17 +38,11 @@ func _unpause():
 	onready_paths.root_ui.hide()
 
 
-func _create_filter_auto_effect() -> EffectManager:
-	var effect = HalfFilterEffectManager.new()
-	effect.TIME = FADE_IN_TIME
-	return effect
-
-
 ##### SIGNAL MANAGEMENT #####
 func _on_SignalManager_end_reached() -> void:
 	if StandardSongManager.get_current() != null:
 		StandardSongManager.apply_effect(
-			_create_filter_auto_effect(),
+			FunctionUtils.create_filter_auto_effect(FADE_IN_TIME),
 			{StandardSongManager.get_current().name: {"fade_in": false}}
 		)
 	yield(get_tree().create_timer(0.1), "timeout")  # waits a little before pausing, to at least update the time in VariableManager. # OPTIMIZATION : this is pretty dirty, create a special signal to tell when the time was updated instead ?

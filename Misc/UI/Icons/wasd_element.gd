@@ -6,7 +6,7 @@ extends CenterContainer
 #==== ONREADY ====
 onready var onready_paths := {
 	"forward": $"WASDHBox/W/Button",
-	"backward": $"WASDHBox/S/Button",
+	"backward": $"WASDHBox/ASD/ASDVBox/S/Button",
 	"left": $"WASDHBox/ASD/ASDVBox/A/Button",
 	"right": $"WASDHBox/ASD/ASDVBox/D/Button"
 }

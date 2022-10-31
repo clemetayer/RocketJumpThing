@@ -52,7 +52,7 @@ func _manage_inputs() -> void:
 func _pause():
 	if StandardSongManager.get_current() != null:
 		StandardSongManager.apply_effect(
-			_create_filter_auto_effect(),
+			FunctionUtils.create_filter_auto_effect(FADE_IN_TIME),
 			{StandardSongManager.get_current().name: {"fade_in": false}}
 		)
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
@@ -64,19 +64,13 @@ func _pause():
 func _unpause():
 	if StandardSongManager.get_current() != null:
 		StandardSongManager.apply_effect(
-			_create_filter_auto_effect(),
+			FunctionUtils.create_filter_auto_effect(FADE_IN_TIME),
 			{StandardSongManager.get_current().name: {"fade_in": true}}
 		)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	get_tree().paused = false
 	onready_paths.root_ui.hide()
 	_paused = false
-
-
-func _create_filter_auto_effect() -> EffectManager:  # REFACTOR : make a global method (it is used somewhere else, and might be used again)
-	var effect = HalfFilterEffectManager.new()
-	effect.TIME = FADE_IN_TIME
-	return effect
 
 
 ##### SIGNAL MANAGEMENT #####

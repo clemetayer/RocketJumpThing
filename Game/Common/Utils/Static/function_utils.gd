@@ -8,8 +8,11 @@ const REGEX_COLOR_PATTERN := "#[0-9a-fA-F]{6,6}"
 
 #### Maths and vectors #####
 # chacks if a value is between an epsilon (strictly)
-static func check_in_epsilon(value: float, compare: float, epsilon: float) -> bool:
-	return value < compare + epsilon && value > compare - epsilon
+static func check_in_epsilon(value: float, compare: float, epsilon: float, equals: bool = false) -> bool:
+	return (
+		(value < compare + epsilon and value > compare - epsilon)
+		or (equals and (value == compare + epsilon or value == compare - epsilon))
+	)
 
 
 #### Read and write #####
@@ -33,9 +36,9 @@ static func _json_data_to_objects(dict: Dictionary) -> Dictionary:
 		if dict[key] is Dictionary and not dict[key] is Array:
 			dict[key] = _json_data_to_objects(dict[key])
 		elif dict[key] is Array:
-			for array_idx in range(0, dict[key].size() - 1):
+			for array_idx in range(0, dict[key].size()):
 				if dict[key][array_idx] is Dictionary:
-					dict[key][array_idx] = _json_data_to_objects(dict[key][array_idx])
+					dict[key][array_idx] = (dict[key][array_idx])
 				else:
 					dict[key][array_idx] = _map_to_object(dict[key][array_idx])
 		else:
@@ -54,6 +57,13 @@ static func _map_to_object(el):
 			return el
 	else:
 		return el
+
+
+#### Song manager #####
+static func create_filter_auto_effect(fade_time: float) -> EffectManager:
+	var effect = HalfFilterEffectManager.new()
+	effect.TIME = fade_time
+	return effect
 
 
 #### Body identification #####

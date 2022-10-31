@@ -1,0 +1,25 @@
+{
+    "obj_bool": true,
+    "obj_int": 2,
+    "obj_str": "test",
+    "obj_color": "#aaaaaa",
+    "obj_arr": [
+        "test",
+        1,
+        "#ffffff"
+    ],
+    "obj_dict": {
+        "obj_bool": true,
+        "obj_int": 2,
+        "obj_str": "test",
+        "obj_color": "#aaaaaa",
+        "obj_arr": [
+            "test",
+            1,
+            "#ffffff"
+        ],
+        "obj_recur": {
+            "obj_bool": true
+        }
+    }
+}

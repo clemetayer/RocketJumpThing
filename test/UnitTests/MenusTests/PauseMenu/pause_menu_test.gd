@@ -21,11 +21,4 @@ func after():
 	.after()
 	pause_menu.free()
 
-
 #---- TESTS -----
-#==== ACTUAL TESTS =====
-func test_create_filter_auto_effect() -> void:
-	var auto_effect = pause_menu._create_filter_auto_effect()
-	assert_bool(auto_effect is HalfFilterEffectManager)
-	assert_float(auto_effect.TIME).is_equal(pause_menu.FADE_IN_TIME)
-	auto_effect.free()
