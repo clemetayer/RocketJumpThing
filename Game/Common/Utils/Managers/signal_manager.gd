@@ -22,6 +22,16 @@ signal end_reached
 #warning-ignore:UNUSED_SIGNAL
 signal sequencer_step(id)
 
+#==== OPTIONS =====
+#warning-ignore:UNUSED_SIGNAL
+signal change_key_popup(action)
+#warning-ignore:UNUSED_SIGNAL
+signal update_keys
+#warning-ignore:UNUSED_SIGNAL
+signal save_cfg_popup(cfg_path, cfg_name, cfg)
+#warning-ignore:UNUSED_SIGNAL
+signal add_cfg_popup(cfg_path, cfg)
+
 ##### VARIABLES #####
 # Note : Using this in this script creates a warning that signals are declared but unused
 #==== PLAYER =====
@@ -36,6 +46,12 @@ const START_LEVEL_CHRONOMETER := "start_level_chronometer"
 
 #==== VISUALS =====
 const SEQUENCER_STEP := "sequencer_step"
+
+#==== OPTIONS =====
+const CHANGE_KEY_POPUP := "change_key_popup"
+const UPDATE_KEYS := "update_keys"
+const SAVE_CFG_POPUP := "save_cfg_popup"
+const ADD_CFG_POPUP := "add_cfg_popup"
 
 
 ##### PUBLIC METHODS #####
@@ -69,3 +85,20 @@ func emit_start_level_chronometer() -> void:
 #==== VISUALS =====
 func emit_sequencer_step(id: String) -> void:
 	emit_signal(SEQUENCER_STEP, id)
+
+
+#==== SETTINGS =====
+func emit_change_key_popup(action: String) -> void:
+	emit_signal(CHANGE_KEY_POPUP, action)
+
+
+func emit_update_keys() -> void:
+	emit_signal(UPDATE_KEYS)
+
+
+func emit_save_cfg_popup(cfg_path: String, cfg_name: String, cfg: ConfigFile) -> void:
+	emit_signal(SAVE_CFG_POPUP, cfg_path, cfg_name, cfg)
+
+
+func emit_add_cfg_popup(cfg_path: String, cfg: ConfigFile) -> void:
+	emit_signal(ADD_CFG_POPUP, cfg_path, cfg)

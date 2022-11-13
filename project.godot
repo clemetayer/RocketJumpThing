@@ -84,6 +84,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Game/Common/MapElements/BaseClasses/collidable.gd"
 }, {
+"base": "HBoxContainer",
+"class": "CommonEditableKey",
+"language": "GDScript",
+"path": "res://Game/Common/Menus/SettingsMenu/Controls/common_editable_key.gd"
+}, {
+"base": "VBoxContainer",
+"class": "CommonSettingsCategory",
+"language": "GDScript",
+"path": "res://Game/Common/Menus/SettingsMenu/common_category.gd"
+}, {
 "base": "Resource",
 "class": "Comparator",
 "language": "GDScript",
@@ -729,6 +739,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/qodot/game_definitions/fgd/solid_classes/physics.gd"
 }, {
+"base": "HBoxContainer",
+"class": "Presets",
+"language": "GDScript",
+"path": "res://Game/Common/Menus/SettingsMenu/Presets/presets.gd"
+}, {
+"base": "GlobalTests",
+"class": "PresetsTest",
+"language": "GDScript",
+"path": "res://test/GlobalGDUnitTests/presets_test.gd"
+}, {
 "base": "GdUnitTestSuite",
 "class": "ProductionModeTest",
 "language": "GDScript",
@@ -1075,6 +1095,8 @@ _global_script_class_icons={
 "CmdOption": "",
 "CmdOptions": "",
 "Collidable": "",
+"CommonEditableKey": "",
+"CommonSettingsCategory": "",
 "Comparator": "",
 "ConsoleAppender": "",
 "DeathGrid": "",
@@ -1204,6 +1226,8 @@ _global_script_class_icons={
 "PatternLayout": "",
 "PhysicsBall": "",
 "PhysicsEntity": "",
+"Presets": "",
+"PresetsTest": "",
 "ProductionModeTest": "",
 "QodotDependencies": "",
 "QodotEntity": "",
@@ -1288,9 +1312,11 @@ Logger="*res://addons/gs_logger/logger.gd"
 StandardSongManager="*res://Game/Common/Utils/SongManager/templates/SongManagers/standard_song_manager.gd"
 SignalManager="*res://Game/Common/Utils/Managers/signal_manager.gd"
 VariableManager="*res://Game/Common/Utils/Managers/variable_manager.gd"
+SettingsUtils="*res://Game/Common/Utils/settings_utils.gd"
 DebugDraw="*res://Game/Common/Utils/Debug/debug_draw.gd"
 CameraUtils="*res://Game/Common/Utils/Camera/camera_utils.gd"
 ScenesManager="*res://Game/Common/Utils/Managers/scenes_manager.gd"
+RuntimeUtils="*res://Game/Common/Utils/runtime_utils.gd"
 
 [debug]
 
@@ -1354,6 +1380,11 @@ restart={
 pause={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777217,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+test={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":84,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
  ]
 }
 

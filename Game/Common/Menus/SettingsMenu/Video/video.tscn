@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Game/Common/Menus/SettingsMenu/common_category.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Game/Common/Menus/SettingsMenu/Video/video.gd" type="Script" id=2]
+
+[node name="Video" type="VBoxContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+
+[node name="WindowType" parent="." instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 1024.0
+margin_bottom = 600.0
+CATEGORY_NAME = "settings_video_mode"
+
+[node name="HBox" type="HBoxContainer" parent="WindowType"]
+margin_top = 18.0
+margin_right = 1024.0
+margin_bottom = 38.0
+
+[node name="Label" type="Label" parent="WindowType/HBox"]
+margin_top = 3.0
+margin_right = 185.0
+margin_bottom = 17.0
+text = "settings_video_mode_setting"
+
+[node name="Options" type="OptionButton" parent="WindowType/HBox"]
+margin_left = 189.0
+margin_right = 218.0
+margin_bottom = 20.0

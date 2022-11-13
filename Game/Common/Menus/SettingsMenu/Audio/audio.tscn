@@ -1,0 +1,136 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Game/Common/Menus/SettingsMenu/common_category.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Game/Common/Menus/SettingsMenu/Audio/audio.gd" type="Script" id=2]
+
+[node name="Audio" type="MarginContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 20
+custom_constants/margin_left = 20
+script = ExtResource( 2 )
+
+[node name="AudioVBox" type="VBoxContainer" parent="."]
+margin_left = 20.0
+margin_right = 1004.0
+margin_bottom = 600.0
+size_flags_horizontal = 3
+
+[node name="Main" parent="AudioVBox" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 984.0
+margin_bottom = 58.0
+size_flags_vertical = 1
+CATEGORY_NAME = "settings_audio_main"
+
+[node name="HBox" type="HBoxContainer" parent="AudioVBox/Main"]
+margin_top = 18.0
+margin_right = 984.0
+margin_bottom = 58.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="AudioVBox/Main/HBox"]
+margin_top = 13.0
+margin_right = 167.0
+margin_bottom = 27.0
+text = "settings_audio_main_label"
+
+[node name="Slider" type="HSlider" parent="AudioVBox/Main/HBox"]
+margin_left = 171.0
+margin_right = 864.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+value = 80.0
+
+[node name="Volume" type="Label" parent="AudioVBox/Main/HBox"]
+margin_left = 868.0
+margin_top = 13.0
+margin_right = 904.0
+margin_bottom = 27.0
+text = "%d %"
+
+[node name="Mute" type="CheckButton" parent="AudioVBox/Main/HBox"]
+margin_left = 908.0
+margin_right = 984.0
+margin_bottom = 40.0
+
+[node name="BGM" parent="AudioVBox" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 62.0
+margin_right = 984.0
+margin_bottom = 120.0
+size_flags_vertical = 1
+CATEGORY_NAME = "settings_audio_bgm"
+
+[node name="HBox" type="HBoxContainer" parent="AudioVBox/BGM"]
+margin_top = 18.0
+margin_right = 984.0
+margin_bottom = 58.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="AudioVBox/BGM/HBox"]
+margin_top = 13.0
+margin_right = 163.0
+margin_bottom = 27.0
+text = "settings_audio_bgm_label"
+
+[node name="Slider" type="HSlider" parent="AudioVBox/BGM/HBox"]
+margin_left = 167.0
+margin_right = 864.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+value = 100.0
+
+[node name="Volume" type="Label" parent="AudioVBox/BGM/HBox"]
+margin_left = 868.0
+margin_top = 13.0
+margin_right = 904.0
+margin_bottom = 27.0
+text = "%d %"
+
+[node name="Mute" type="CheckButton" parent="AudioVBox/BGM/HBox"]
+margin_left = 908.0
+margin_right = 984.0
+margin_bottom = 40.0
+
+[node name="Effects" parent="AudioVBox" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 124.0
+margin_right = 984.0
+margin_bottom = 182.0
+size_flags_vertical = 1
+CATEGORY_NAME = "settings_audio_effects"
+
+[node name="HBox" type="HBoxContainer" parent="AudioVBox/Effects"]
+margin_top = 18.0
+margin_right = 984.0
+margin_bottom = 58.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="AudioVBox/Effects/HBox"]
+margin_top = 13.0
+margin_right = 178.0
+margin_bottom = 27.0
+text = "settings_audio_effects_label"
+
+[node name="Slider" type="HSlider" parent="AudioVBox/Effects/HBox"]
+margin_left = 182.0
+margin_right = 864.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+value = 100.0
+
+[node name="Volume" type="Label" parent="AudioVBox/Effects/HBox"]
+margin_left = 868.0
+margin_top = 13.0
+margin_right = 904.0
+margin_bottom = 27.0
+text = "%d %"
+
+[node name="Mute" type="CheckButton" parent="AudioVBox/Effects/HBox"]
+margin_left = 908.0
+margin_right = 984.0
+margin_bottom = 40.0

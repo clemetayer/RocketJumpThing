@@ -1,0 +1,39 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Game/Common/Menus/SettingsMenu/add_cfg_popup.gd" type="Script" id=1]
+
+[node name="AddCfgPopup" type="ConfirmationDialog"]
+anchor_right = 1.0
+margin_bottom = 128.0
+size_flags_horizontal = 2
+size_flags_vertical = 2
+popup_exclusive = true
+window_title = "Veuillez confirmer…"
+dialog_text = "Enter a config name :"
+script = ExtResource( 1 )
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+margin_left = 8.0
+margin_top = 22.0
+margin_right = -8.0
+margin_bottom = 106.0
+custom_constants/margin_top = 30
+custom_constants/margin_bottom = 30
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer"]
+margin_top = 30.0
+margin_right = 1008.0
+margin_bottom = 54.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="LineEdit" type="LineEdit" parent="MarginContainer/CenterContainer"]
+margin_left = 475.0
+margin_right = 533.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "ConfigName"
+max_length = 61
+placeholder_text = "ConfigName"

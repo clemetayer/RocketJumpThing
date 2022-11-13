@@ -8,6 +8,9 @@ const player_path := "res://Game/Common/MapElements/Characters/MainCharacters/pl
 const mocked_signal_manager_path := "res://test/UnitTests/AutoLoadMocks/signal_manager_mock.tscn"
 const mocked_song_manager_path := "res://test/UnitTests/AutoLoadMocks/standard_song_manager_mock.tscn"
 const mocked_variable_manager_path := "res://test/UnitTests/AutoLoadMocks/variable_manager_mock.tscn"
+#===== Global test values =====
+const TEST_ACTION := "test"  # name of the action 'test'
+const TEST_ACTION_KEY := "T"  # key corresponding to TEST_ACTION
 
 
 static func count_in_group_in_children(root: Node, group: String, recursive: bool) -> int:

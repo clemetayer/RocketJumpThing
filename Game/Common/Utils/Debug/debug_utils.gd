@@ -14,21 +14,23 @@ static func print_stack_trace(stack: Array) -> String:
 #### Logger #####
 # connects and logs if it fails
 static func log_connect(caller, receiver, caller_signal_name: String, receiver_func_name: String):
-	if caller.connect(caller_signal_name, receiver, receiver_func_name) != OK:
+	var error = caller.connect(caller_signal_name, receiver, receiver_func_name)
+	if error != OK:
 		Logger.error(
 			(
-				"Error connecting %s to %s in %s"
-				% [caller_signal_name, receiver_func_name, print_stack_trace(get_stack())]
+				"Error connecting %s to %s, with error %d in %s"
+				% [caller_signal_name, receiver_func_name, error, print_stack_trace(get_stack())]
 			)
 		)
 
 
 static func log_regex_compile(regex: RegEx, pattern: String) -> void:
-	if regex.compile(pattern) != OK:
+	var error = regex.compile(pattern)
+	if error != OK:
 		Logger.error(
 			(
-				"Error while compiling pattern : %s on regex, at %s"
-				% [pattern, print_stack_trace(get_stack())]
+				"Error %d while compiling pattern : %s on regex, at %s"
+				% [error, pattern, print_stack_trace(get_stack())]
 			)
 		)
 
@@ -89,4 +91,54 @@ static func log_tween_stop_all(tween: Tween) -> void:
 				"Error when stopping all tween properties and methods at %s"
 				% [print_stack_trace(get_stack())]
 			)
+		)
+
+
+static func log_load_cfg(path: String) -> ConfigFile:
+	var config_file := ConfigFile.new()
+	var error = config_file.load(path)
+	if error != OK:
+		Logger.error(
+			(
+				"Error loading config file at %s, with error %d at %s"
+				% [path, error, print_stack_trace(get_stack())]
+			)
+		)
+	return config_file
+
+
+static func log_save_cfg(config_file: ConfigFile, path: String) -> void:
+	# creates the file if it does not exist
+	var file = File.new()
+	if not file.file_exists(path):
+		file.open(path, File.WRITE)
+		file.store_string(" ")  # Stores an (almost) empty string to create the file
+	file.close()
+	var error := config_file.save(path)
+	if error != OK:
+		Logger.error(
+			(
+				"Error while saving the cfg file at %s with error %d, at %s"
+				% [path, error, print_stack_trace(get_stack())]
+			)
+		)
+
+
+static func log_create_directory(path: String) -> void:
+	var dir := Directory.new()
+	var error := dir.make_dir_recursive(path)
+	if error != OK:
+		Logger.error(
+			(
+				"Error while creating the directory at %s with error %d, at %s"
+				% [path, error, print_stack_trace(get_stack())]
+			)
+		)
+
+
+static func log_shell_open(cmd: String) -> void:
+	var error = OS.shell_open(cmd)
+	if error != OK:
+		Logger.error(
+			"Error on shell_open with command %s, at %s" % [cmd, print_stack_trace(get_stack())]
 		)

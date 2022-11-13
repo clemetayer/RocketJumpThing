@@ -59,6 +59,27 @@ static func _map_to_object(el):
 		return el
 
 
+# lists the filenames in a directory at path
+# from https://docs.godotengine.org/en/stable/classes/class_directory.html with some tweaks
+static func list_dir_files(path: String, regex_pattern: String = "*") -> Array:
+	var dir = Directory.new()
+	var regex := RegEx.new()
+	var file_list := []
+	DebugUtils.log_regex_compile(regex, regex_pattern)
+	if dir.open(path) == OK:
+		dir.list_dir_begin()
+		var file_name = dir.get_next()
+		while file_name != "":
+			if !dir.current_is_dir() and regex.search(file_name):  # file and not directory + matches regex_pattern
+				file_list.append(file_name)
+			file_name = dir.get_next()
+	else:
+		Logger.error(
+			"No folder found at path %s, at %s" % [path, DebugUtils.print_stack_trace(get_stack())]
+		)
+	return file_list
+
+
 #### Song manager #####
 static func create_filter_auto_effect(fade_time: float) -> EffectManager:
 	var effect = HalfFilterEffectManager.new()
