@@ -28,5 +28,5 @@ func after():
 func test_set_category_name() -> void:
 	var TEST_CATEGORY := "test"
 	common_category.CATEGORY_NAME = TEST_CATEGORY
-	common_category._set_category_name(TEST_CATEGORY)
+	common_category.set_category_name(TEST_CATEGORY)
 	assert_str(common_category.onready_paths.separator_label.text).is_equal(TEST_CATEGORY)

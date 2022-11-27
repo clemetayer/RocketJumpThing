@@ -31,54 +31,54 @@ func after():
 func test_call_replace_method() -> void:
 	var tutorial_hints_mock = mock(tutorial_hints_path)
 	# movement_wasd
-	tutorial_hints_mock._call_replace_method(VariableManager.TR_REPLACE_TUTORIAL_MVT_WASD)
+	tutorial_hints_mock._call_replace_method(GlobalConstants.TR_REPLACE_TUTORIAL_MVT_WASD)
 	verify(tutorial_hints_mock, 1)._replace_move_direction(true, true, true, true)
 	# movement_wa
-	tutorial_hints_mock._call_replace_method(VariableManager.TR_REPLACE_TUTORIAL_MVT_WA)
+	tutorial_hints_mock._call_replace_method(GlobalConstants.TR_REPLACE_TUTORIAL_MVT_WA)
 	verify(tutorial_hints_mock, 1)._replace_move_direction(true, false, true, false)
 	# movement_wd
-	tutorial_hints_mock._call_replace_method(VariableManager.TR_REPLACE_TUTORIAL_MVT_WD)
+	tutorial_hints_mock._call_replace_method(GlobalConstants.TR_REPLACE_TUTORIAL_MVT_WD)
 	verify(tutorial_hints_mock, 1)._replace_move_direction(true, false, false, true)
 	# movement_w
-	tutorial_hints_mock._call_replace_method(VariableManager.TR_REPLACE_TUTORIAL_MVT_W)
+	tutorial_hints_mock._call_replace_method(GlobalConstants.TR_REPLACE_TUTORIAL_MVT_W)
 	verify(tutorial_hints_mock, 1)._replace_move_direction(true, false, false, true)
 	# movement_jump
-	tutorial_hints_mock._call_replace_method(VariableManager.TR_REPLACE_TUTORIAL_MVT_JUMP)
+	tutorial_hints_mock._call_replace_method(GlobalConstants.TR_REPLACE_TUTORIAL_MVT_JUMP)
 	verify(tutorial_hints_mock, 1)._replace_jump()
 	# movement_slide
-	tutorial_hints_mock._call_replace_method(VariableManager.TR_REPLACE_TUTORIAL_MVT_SLIDE)
+	tutorial_hints_mock._call_replace_method(GlobalConstants.TR_REPLACE_TUTORIAL_MVT_SLIDE)
 	verify(tutorial_hints_mock, 1)._replace_slide()
 	# mouse_strafe_left
-	tutorial_hints_mock._call_replace_method(VariableManager.TR_REPLACE_TUTORIAL_MOUSE_STRAFE_LEFT)
+	tutorial_hints_mock._call_replace_method(GlobalConstants.TR_REPLACE_TUTORIAL_MOUSE_STRAFE_LEFT)
 	verify(tutorial_hints_mock, 1)._replace_strafe(false, false, true, false)
 	# mouse_strafe_right
-	tutorial_hints_mock._call_replace_method(VariableManager.TR_REPLACE_TUTORIAL_MOUSE_STRAFE_RIGHT)
+	tutorial_hints_mock._call_replace_method(GlobalConstants.TR_REPLACE_TUTORIAL_MOUSE_STRAFE_RIGHT)
 	verify(tutorial_hints_mock, 1)._replace_strafe(false, false, false, true)
 	# mouse_strafe_left_right
 	tutorial_hints_mock._call_replace_method(
-		VariableManager.TR_REPLACE_TUTORIAL_MOUSE_STRAFE_LEFT_RIGHT
+		GlobalConstants.TR_REPLACE_TUTORIAL_MOUSE_STRAFE_LEFT_RIGHT
 	)
 	verify(tutorial_hints_mock, 1)._replace_strafe(false, false, true, true)
 	# restart
-	tutorial_hints_mock._call_replace_method(VariableManager.TR_REPLACE_TUTORIAL_RESTART)
+	tutorial_hints_mock._call_replace_method(GlobalConstants.TR_REPLACE_TUTORIAL_RESTART)
 	verify(tutorial_hints_mock, 1)._replace_restart()
 	# restart_last_cp
-	tutorial_hints_mock._call_replace_method(VariableManager.TR_REPLACE_TUTORIAL_RESTART_LAST_CP)
+	tutorial_hints_mock._call_replace_method(GlobalConstants.TR_REPLACE_TUTORIAL_RESTART_LAST_CP)
 	verify(tutorial_hints_mock, 1)._replace_restart_last_cp()
 	# shoot
-	tutorial_hints_mock._call_replace_method(VariableManager.TR_REPLACE_TUTORIAL_ACTION_SHOOT)
+	tutorial_hints_mock._call_replace_method(GlobalConstants.TR_REPLACE_TUTORIAL_ACTION_SHOOT)
 	verify(tutorial_hints_mock, 1)._replace_shoot()
 	# rocket_icon
-	tutorial_hints_mock._call_replace_method(VariableManager.TR_REPLACE_TUTORIAL_ROCKET_ICON)
+	tutorial_hints_mock._call_replace_method(GlobalConstants.TR_REPLACE_TUTORIAL_ROCKET_ICON)
 	verify(tutorial_hints_mock, 1)._replace_rocket_icon()
 	# rocket_jump_icon
-	tutorial_hints_mock._call_replace_method(VariableManager.TR_REPLACE_TUTORIAL_ROCKET_JUMP_ICON)
+	tutorial_hints_mock._call_replace_method(GlobalConstants.TR_REPLACE_TUTORIAL_ROCKET_JUMP_ICON)
 	verify(tutorial_hints_mock, 1)._replace_rocket_jump_icon()
 	# boost_pad
-	tutorial_hints_mock._call_replace_method(VariableManager.TR_REPLACE_TUTORIAL_BOOST_PAD)
+	tutorial_hints_mock._call_replace_method(GlobalConstants.TR_REPLACE_TUTORIAL_BOOST_PAD)
 	verify(tutorial_hints_mock, 1)._replace_boost_pad(false)
 	# boost_pad_enhanced
-	tutorial_hints_mock._call_replace_method(VariableManager.TR_REPLACE_TUTORIAL_BOOST_PAD_ENHANCED)
+	tutorial_hints_mock._call_replace_method(GlobalConstants.TR_REPLACE_TUTORIAL_BOOST_PAD_ENHANCED)
 	verify(tutorial_hints_mock, 1)._replace_boost_pad(true)
 
 

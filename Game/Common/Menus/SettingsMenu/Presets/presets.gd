@@ -15,6 +15,7 @@ var _cfg_files_list := []  # list of cfg files
 
 #==== ONREADY ====
 onready var onready_paths := {
+	"label": $"Label",
 	"options_menu": $"OptionButton",
 	"save_button": $"SaveButton",
 	"add_preset": $"AddPreset",
@@ -33,11 +34,16 @@ func _init():
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	_init_tr()
 	_connect_signals()
 	_init_list()
 
 
 ##### PROTECTED METHODS #####
+func _init_tr() -> void:
+	onready_paths.label.text = tr(TranslationKeys.PRESET_LABEL)
+
+
 func _connect_signals() -> void:
 	DebugUtils.log_connect(onready_paths.save_button, self, "pressed", "_on_SaveButton_pressed")
 	DebugUtils.log_connect(onready_paths.add_preset, self, "pressed", "_on_AddPresetButton_pressed")

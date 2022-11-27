@@ -11,7 +11,9 @@ onready var onready_paths := {
 	"label": $"UI/CenterContainer/VBoxContainer/Time",
 	"tween": $"OpacityTween",
 	"root_ui": $"UI",
-	"next_scene_button": $"UI/CenterContainer/VBoxContainer/Buttons/NextButton"
+	"next_scene_button": $"UI/CenterContainer/VBoxContainer/Buttons/NextButton",
+	"main_menu_button": $"UI/CenterContainer/VBoxContainer/Buttons/MainMenuButton",
+	"restart_button": $"UI/CenterContainer/VBoxContainer/Buttons/RestartButton"
 }
 
 
@@ -20,9 +22,16 @@ onready var onready_paths := {
 func _ready():
 	onready_paths.root_ui.hide()
 	_connect_signals()
+	_set_labels()
 
 
 ##### PROTECTED METHODS #####
+func _set_labels() -> void:
+	onready_paths.next_scene_button.text = tr(TranslationKeys.MENU_NEXT_LEVEL)
+	onready_paths.main_menu_button.text = tr(TranslationKeys.MAIN_MENU)
+	onready_paths.restart_button.text = tr(TranslationKeys.MENU_RESTART)
+
+
 func _connect_signals() -> void:
 	DebugUtils.log_connect(SignalManager, self, "end_reached", "_on_SignalManager_end_reached")
 

@@ -1,6 +1,24 @@
 extends Reference
 class_name TrenchBroomEntityUtils
-# an utility class to map trenchbroom parameters
+# an utility class to for trenchbroom entities
+
+##### VARIABLES #####
+#---- CONSTANTS -----
+const TB_TR_MAPPER := {
+	"tutorial_scene_move_tutorial": TranslationKeys.TUTORIAL_MOVE,
+	"tutorial_scene_jump_tutorial": TranslationKeys.TUTORIAL_JUMP,
+	"tutorial_scene_BHOP_tutorial": TranslationKeys.TUTORIAL_BHOP,
+	"tutorial_scene_strafe_tutorial": TranslationKeys.TUTORIAL_STRAFE,
+	"tutorial_scene_air_control_tutorial": TranslationKeys.TUTORIAL_AIR_CONTROL,
+	"tutorial_scene_checkpoint_tutorial": TranslationKeys.TUTORIAL_CHECKPOINT,
+	"tutorial_scene_2_slide_1": TranslationKeys.TUTORIAL_SLIDE_1,
+	"tutorial_scene_2_slide_2": TranslationKeys.TUTORIAL_SLIDE_2,
+	"tutorial_wall_ride_1": TranslationKeys.TUTORIAL_WALL_RIDE,
+	"tutorial_rockets_1": TranslationKeys.TUTORIAL_ROCKETS,
+	"tutorial_rockets_2": TranslationKeys.TUTORIAL_ROCKET_JUMP,
+	"tutorial_rockets_3": TranslationKeys.TUTORIAL_ROCKET_WALL_JUMP,
+	"tutorial_rockets_4": TranslationKeys.TUTORIAL_ROCKET_PADS
+}
 
 
 ##### PROTECTED METHODS #####

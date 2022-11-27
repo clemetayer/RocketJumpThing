@@ -18,7 +18,10 @@ onready var onready_paths := {
 
 
 ##### PUBLIC METHODS ######
-func set_elements(up: bool, down: bool, left: bool, right: bool, lclick: bool, rclick: bool) -> void:
+func set_elements(
+	up: bool, down: bool, left: bool, right: bool, lclick: bool, rclick: bool
+) -> void:
+	yield(self, "ready")
 	if onready_paths != null:
 		if onready_paths.up_arrow != null:
 			onready_paths.up_arrow.visible = up

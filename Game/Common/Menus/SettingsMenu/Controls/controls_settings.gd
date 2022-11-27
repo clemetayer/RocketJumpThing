@@ -6,38 +6,54 @@ extends VBoxContainer
 const TAB_NAME := "Controls"
 const EDITABLE_KEY_PATH := "res://Game/Common/Menus/SettingsMenu/Controls/common_editable_key.tscn"
 const MOVEMENT_CAT := [  # actions for the movement category
-	VariableManager.INPUT_MVT_FORWARD,
-	VariableManager.INPUT_MVT_BACKWARD,
-	VariableManager.INPUT_MVT_LEFT,
-	VariableManager.INPUT_MVT_RIGHT,
-	VariableManager.INPUT_MVT_JUMP,
-	VariableManager.INPUT_MVT_SLIDE,
+	GlobalConstants.INPUT_MVT_FORWARD,
+	GlobalConstants.INPUT_MVT_BACKWARD,
+	GlobalConstants.INPUT_MVT_LEFT,
+	GlobalConstants.INPUT_MVT_RIGHT,
+	GlobalConstants.INPUT_MVT_JUMP,
+	GlobalConstants.INPUT_MVT_SLIDE,
 ]
 const ACTION_CAT := [  # actions for the action category
-	VariableManager.INPUT_ACTION_SHOOT,
-	VariableManager.INPUT_RESTART_LAST_CP,
-	VariableManager.INPUT_RESTART
+	GlobalConstants.INPUT_ACTION_SHOOT,
+	GlobalConstants.INPUT_RESTART_LAST_CP,
+	GlobalConstants.INPUT_RESTART
 ]
 const UI_CAT := [  # actions for the UI category
-	VariableManager.INPUT_PAUSE,
+	GlobalConstants.INPUT_PAUSE,
 ]
 
 #---- STANDARD -----
 #==== ONREADY ====
 onready var onready_paths := {
-	"movement": $"KeysMargin/KeysScroll/Keys/Movement/MovementGrid",
-	"action": $"KeysMargin/KeysScroll/Keys/Action/ActionGrid",
-	"ui": $"KeysMargin/KeysScroll/Keys/UI/UIGrid"
+	"presets": $"Presets",
+	"movement_cat": $"Movement",
+	"movement": $"Movement/MovementGrid",
+	"action_cat": $"Action",
+	"action": $"Action/ActionGrid",
+	"ui_cat": $"UI",
+	"ui": $"UI/UIGrid"
 }
 
 
 ##### PROCESSING #####
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	_init_tr()
 	_add_key_settings_to_groups()
 
 
 ##### PROTECTED METHODS #####
+func _init_tr():
+	onready_paths.presets.set_category_name(tr(TranslationKeys.PRESET_CATEGORY))
+	onready_paths.movement_cat.set_category_name(
+		tr(TranslationKeys.SETTINGS_CONTROLS_MOVEMENT_CATEGORY)
+	)
+	onready_paths.action_cat.set_category_name(
+		tr(TranslationKeys.SETTINGS_CONTROLS_ACTION_CATEGORY)
+	)
+	onready_paths.ui_cat.set_category_name(tr(TranslationKeys.SETTINGS_CONTROLS_UI_CATEGORY))
+
+
 func _add_key_settings_to_groups() -> void:
 	_free_categories()
 	for mvt_action in MOVEMENT_CAT:

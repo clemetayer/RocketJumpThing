@@ -5,14 +5,29 @@ extends Node2D
 #---- CONSTANTS -----
 const PATHS := {"tutorial_scene": "res://Game/Scenes/Tutorial/Tutorial1/tutorial_1.tscn"}
 
+#---- STANDARD -----
+#==== ONREADY ====
+onready var onready_paths := {
+	"play": $"Menu/CenterContainer/Buttons/PlayButton",
+	"options": $"Menu/CenterContainer/Buttons/OptionsButton",
+	"quit": $"Menu/CenterContainer/Buttons/QuitButton"
+}
+
 
 ##### PROCESSING #####
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	_set_labels()
 	_enable_mouse_visible()
 
 
 ##### PROTECTED METHODS #####
+func _set_labels() -> void:
+	onready_paths.play.text = tr(TranslationKeys.MENU_PLAY)
+	onready_paths.options.text = tr(TranslationKeys.MENU_OPTIONS)
+	onready_paths.quit.text = tr(TranslationKeys.MENU_QUIT)
+
+
 func _enable_mouse_visible() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 

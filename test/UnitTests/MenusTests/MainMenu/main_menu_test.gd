@@ -15,6 +15,7 @@ func before():
 	element_path = main_menu_path
 	.before()
 	main_menu = load(main_menu_path).instance()
+	main_menu._ready()
 
 
 func after():
@@ -24,6 +25,13 @@ func after():
 
 #---- TESTS -----
 #==== ACTUAL TESTS =====
+func test_set_labels() -> void:
+	main_menu._set_labels()
+	assert_str(main_menu.onready_paths.play.text).is_equal(tr(TranslationKeys.MENU_PLAY))
+	assert_str(main_menu.onready_paths.options.text).is_equal(tr(TranslationKeys.MENU_OPTIONS))
+	assert_str(main_menu.onready_paths.quit.text).is_equal(tr(TranslationKeys.MENU_QUIT))
+
+
 func test_enable_mouse_visible() -> void:
 	main_menu._enable_mouse_visible()
 	assert_int(Input.get_mouse_mode()).is_equal(Input.MOUSE_MODE_VISIBLE)

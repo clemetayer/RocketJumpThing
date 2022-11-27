@@ -24,19 +24,19 @@ const JOYPAD_CFG_PREFIX := "joypad_"
 const CONTROLS_SETTINGS_CFG_MAPPER := {
 	"movement":
 	{
-		"forward": VariableManager.INPUT_MVT_FORWARD,
-		"backward": VariableManager.INPUT_MVT_BACKWARD,
-		"left": VariableManager.INPUT_MVT_LEFT,
-		"right": VariableManager.INPUT_MVT_RIGHT,
-		"jump": VariableManager.INPUT_MVT_JUMP,
-		"slide": VariableManager.INPUT_MVT_SLIDE
+		"forward": GlobalConstants.INPUT_MVT_FORWARD,
+		"backward": GlobalConstants.INPUT_MVT_BACKWARD,
+		"left": GlobalConstants.INPUT_MVT_LEFT,
+		"right": GlobalConstants.INPUT_MVT_RIGHT,
+		"jump": GlobalConstants.INPUT_MVT_JUMP,
+		"slide": GlobalConstants.INPUT_MVT_SLIDE
 	},
-	"action": {"shoot": VariableManager.INPUT_ACTION_SHOOT},
+	"action": {"shoot": GlobalConstants.INPUT_ACTION_SHOOT},
 	"ui":
 	{
-		"restart_last_cp": VariableManager.INPUT_RESTART_LAST_CP,
-		"restart": VariableManager.INPUT_RESTART,
-		"pause": VariableManager.INPUT_PAUSE
+		"restart_last_cp": GlobalConstants.INPUT_RESTART_LAST_CP,
+		"restart": GlobalConstants.INPUT_RESTART,
+		"pause": GlobalConstants.INPUT_PAUSE
 	}
 }
 
@@ -276,7 +276,7 @@ func _load_cfg_audio_file(cfg: ConfigFile) -> void:
 			and cfg.get_value(AUDIO_SECTION_MAIN, AUDIO_KEY_VOLUME) != null
 		):
 			AudioServer.set_bus_volume_db(
-				AudioServer.get_bus_index(VariableManager.MAIN_BUS),
+				AudioServer.get_bus_index(GlobalConstants.MAIN_BUS),
 				linear2db(cfg.get_value(AUDIO_SECTION_MAIN, AUDIO_KEY_VOLUME))
 			)
 		else:
@@ -288,7 +288,7 @@ func _load_cfg_audio_file(cfg: ConfigFile) -> void:
 			and cfg.get_value(AUDIO_SECTION_MAIN, AUDIO_KEY_MUTE) != null
 		):
 			AudioServer.set_bus_mute(
-				AudioServer.get_bus_index(VariableManager.MAIN_BUS),
+				AudioServer.get_bus_index(GlobalConstants.MAIN_BUS),
 				cfg.get_value(AUDIO_SECTION_MAIN, AUDIO_KEY_MUTE)
 			)
 		else:
@@ -301,7 +301,7 @@ func _load_cfg_audio_file(cfg: ConfigFile) -> void:
 			and cfg.get_value(AUDIO_SECTION_BGM, AUDIO_KEY_VOLUME) != null
 		):
 			AudioServer.set_bus_volume_db(
-				AudioServer.get_bus_index(VariableManager.BGM_BUS),
+				AudioServer.get_bus_index(GlobalConstants.BGM_BUS),
 				linear2db(cfg.get_value(AUDIO_SECTION_BGM, AUDIO_KEY_VOLUME))
 			)
 		else:
@@ -313,7 +313,7 @@ func _load_cfg_audio_file(cfg: ConfigFile) -> void:
 			and cfg.get_value(AUDIO_SECTION_BGM, AUDIO_KEY_MUTE) != null
 		):
 			AudioServer.set_bus_mute(
-				AudioServer.get_bus_index(VariableManager.BGM_BUS),
+				AudioServer.get_bus_index(GlobalConstants.BGM_BUS),
 				cfg.get_value(AUDIO_SECTION_BGM, AUDIO_KEY_MUTE)
 			)
 		else:
@@ -326,7 +326,7 @@ func _load_cfg_audio_file(cfg: ConfigFile) -> void:
 			and cfg.get_value(AUDIO_SECTION_EFFECTS, AUDIO_KEY_VOLUME) != null
 		):
 			AudioServer.set_bus_volume_db(
-				AudioServer.get_bus_index(VariableManager.EFFECTS_BUS),
+				AudioServer.get_bus_index(GlobalConstants.EFFECTS_BUS),
 				linear2db(cfg.get_value(AUDIO_SECTION_EFFECTS, AUDIO_KEY_VOLUME))
 			)
 		else:
@@ -338,7 +338,7 @@ func _load_cfg_audio_file(cfg: ConfigFile) -> void:
 			and cfg.get_value(AUDIO_SECTION_EFFECTS, AUDIO_KEY_MUTE) != null
 		):
 			AudioServer.set_bus_mute(
-				AudioServer.get_bus_index(VariableManager.EFFECTS_BUS),
+				AudioServer.get_bus_index(GlobalConstants.EFFECTS_BUS),
 				cfg.get_value(AUDIO_SECTION_EFFECTS, AUDIO_KEY_MUTE)
 			)
 		else:
@@ -356,37 +356,37 @@ func _generate_cfg_audio_file() -> ConfigFile:
 		AUDIO_SECTION_MAIN,
 		AUDIO_KEY_VOLUME,
 		db2linear(
-			AudioServer.get_bus_volume_db(AudioServer.get_bus_index(VariableManager.MAIN_BUS))
+			AudioServer.get_bus_volume_db(AudioServer.get_bus_index(GlobalConstants.MAIN_BUS))
 		)
 	)
 	cfg_file.set_value(
 		AUDIO_SECTION_MAIN,
 		AUDIO_KEY_MUTE,
-		AudioServer.is_bus_mute(AudioServer.get_bus_index(VariableManager.MAIN_BUS))
+		AudioServer.is_bus_mute(AudioServer.get_bus_index(GlobalConstants.MAIN_BUS))
 	)
 	# BGM
 	cfg_file.set_value(
 		AUDIO_SECTION_BGM,
 		AUDIO_KEY_VOLUME,
-		db2linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index(VariableManager.BGM_BUS)))
+		db2linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index(GlobalConstants.BGM_BUS)))
 	)
 	cfg_file.set_value(
 		AUDIO_SECTION_BGM,
 		AUDIO_KEY_MUTE,
-		AudioServer.is_bus_mute(AudioServer.get_bus_index(VariableManager.BGM_BUS))
+		AudioServer.is_bus_mute(AudioServer.get_bus_index(GlobalConstants.BGM_BUS))
 	)
 	# effects
 	cfg_file.set_value(
 		AUDIO_SECTION_EFFECTS,
 		AUDIO_KEY_VOLUME,
 		db2linear(
-			AudioServer.get_bus_volume_db(AudioServer.get_bus_index(VariableManager.EFFECTS_BUS))
+			AudioServer.get_bus_volume_db(AudioServer.get_bus_index(GlobalConstants.EFFECTS_BUS))
 		)
 	)
 	cfg_file.set_value(
 		AUDIO_SECTION_EFFECTS,
 		AUDIO_KEY_MUTE,
-		AudioServer.is_bus_mute(AudioServer.get_bus_index(VariableManager.EFFECTS_BUS))
+		AudioServer.is_bus_mute(AudioServer.get_bus_index(GlobalConstants.EFFECTS_BUS))
 	)
 	return cfg_file
 

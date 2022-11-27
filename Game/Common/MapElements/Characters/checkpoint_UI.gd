@@ -33,7 +33,7 @@ func _init_UI() -> void:
 		onready_paths.rich_text_label.set_bbcode(
 			TextUtils.BBCode_center_text(
 				TextUtils.BBCode_color_text(
-					TextUtils.BBCode_wave_text(tr("player_ui_checkpoint")), "#00ff2a"
+					TextUtils.BBCode_wave_text(tr(TranslationKeys.PLAYER_UI_CHECKPOINT)), "#00ff2a"
 				)
 			)
 		)

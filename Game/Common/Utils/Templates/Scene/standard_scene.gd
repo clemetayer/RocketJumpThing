@@ -54,9 +54,9 @@ func _process(_delta):
 
 ##### PROTECTED METHODS #####
 func _manage_inputs() -> void:
-	if Input.is_action_just_pressed(VariableManager.INPUT_RESTART):
+	if Input.is_action_just_pressed(GlobalConstants.INPUT_RESTART):
 		_restart()
-	elif Input.is_action_just_pressed(VariableManager.INPUT_RESTART_LAST_CP):
+	elif Input.is_action_just_pressed(GlobalConstants.INPUT_RESTART_LAST_CP):
 		_on_respawn_player_on_last_cp()
 
 

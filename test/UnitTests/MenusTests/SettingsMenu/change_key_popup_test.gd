@@ -51,7 +51,7 @@ func test_set_popup_text() -> void:
 	change_key_popup._set_popup_text()
 	assert_str(change_key_popup.onready_paths.message.get_text()).is_equal(
 		(
-			tr("Enter an action for %s")
+			tr(TranslationKeys.MENU_SETTINGS_CHANGE_KEY_POPUP)
 			% [
 				TextUtils.BBCode_color_text(
 					tr(GlobalTestUtilities.TEST_ACTION), Color.yellow.to_html()

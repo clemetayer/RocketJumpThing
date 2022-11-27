@@ -25,24 +25,34 @@ func after():
 
 #---- TESTS -----
 #==== ACTUAL TESTS =====
+func test_init_tr() -> void:
+	video._init_tr()
+	assert_str(video.onready_paths.window_type.category.CATEGORY_NAME).is_equal(
+		tr(TranslationKeys.SETTINGS_VIDEO_DISPLAY_CATEGORY)
+	)
+	assert_str(video.onready_paths.window_type.label.text).is_equal(
+		tr(TranslationKeys.SETTINGS_VIDEO_DISPLAY_MODE)
+	)
+
+
 func test_connect_signals() -> void:
 	video._connect_signals()
-	assert_bool(video.onready_paths.options.is_connected("item_selected", video, "_on_Options_item_selected")).is_true()
+	assert_bool(video.onready_paths.window_type.options.is_connected("item_selected", video, "_on_Options_item_selected")).is_true()
 
 
 func test_init_options() -> void:
 	var fullscreen := false
 	OS.window_fullscreen = fullscreen
-	video.onready_paths.options.clear()
+	video.onready_paths.window_type.options.clear()
 	video._init_options()
-	assert_int(video.onready_paths.options.get_item_count()).is_equal(2)
-	assert_str(video.onready_paths.options.get_item_text(video.window_modes.FULL_SCREEN)).is_equal(
-		tr(video.FULL_SCREEN_LABEL)
+	assert_int(video.onready_paths.window_type.options.get_item_count()).is_equal(2)
+	assert_str(video.onready_paths.window_type.options.get_item_text(video.window_modes.FULL_SCREEN)).is_equal(
+		tr(TranslationKeys.SETTINGS_VIDEO_FULL_SCREEN)
 	)
-	assert_str(video.onready_paths.options.get_item_text(video.window_modes.WINDOWED)).is_equal(
-		tr(video.WINDOWED_LABEL)
+	assert_str(video.onready_paths.window_type.options.get_item_text(video.window_modes.WINDOWED)).is_equal(
+		tr(TranslationKeys.SETTINGS_VIDEO_WINDOWED)
 	)
-	assert_int(video.onready_paths.options.get_selected_id()).is_equal(
+	assert_int(video.onready_paths.window_type.options.get_selected_id()).is_equal(
 		video.window_modes.FULL_SCREEN if fullscreen else video.window_modes.WINDOWED
 	)
 

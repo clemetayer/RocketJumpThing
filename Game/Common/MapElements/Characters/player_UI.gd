@@ -20,5 +20,5 @@ func set_speed(pspeed: float):
 func _set_speed_text() -> void:
 	if onready_paths.speed_text != null:
 		onready_paths.speed_text.bbcode_text = TextUtils.BBCode_center_text(
-			"%s : %d" % [tr("player_ui_speed"), speed]
+			tr(TranslationKeys.PLAYER_UI_SPEED) % speed
 		)

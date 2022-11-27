@@ -190,24 +190,24 @@ func test_load_cfg_audio_file() -> void:
 	# test
 	SettingsUtils._load_cfg_audio_file(cfg)
 	## main
-	assert_float(db2linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index(VariableManager.MAIN_BUS)))).is_equal_approx(
+	assert_float(db2linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index(GlobalConstants.MAIN_BUS)))).is_equal_approx(
 		main_volume, FLOAT_APPROX
 	)
-	assert_bool(AudioServer.is_bus_mute(AudioServer.get_bus_index(VariableManager.MAIN_BUS))).is_equal(
+	assert_bool(AudioServer.is_bus_mute(AudioServer.get_bus_index(GlobalConstants.MAIN_BUS))).is_equal(
 		main_mute
 	)
 	## bgm
-	assert_float(db2linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index(VariableManager.BGM_BUS)))).is_equal_approx(
+	assert_float(db2linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index(GlobalConstants.BGM_BUS)))).is_equal_approx(
 		bgm_volume, FLOAT_APPROX
 	)
-	assert_bool(AudioServer.is_bus_mute(AudioServer.get_bus_index(VariableManager.BGM_BUS))).is_equal(
+	assert_bool(AudioServer.is_bus_mute(AudioServer.get_bus_index(GlobalConstants.BGM_BUS))).is_equal(
 		bgm_mute
 	)
 	## effects
-	assert_float(db2linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index(VariableManager.EFFECTS_BUS)))).is_equal_approx(
+	assert_float(db2linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index(GlobalConstants.EFFECTS_BUS)))).is_equal_approx(
 		effects_volume, FLOAT_APPROX
 	)
-	assert_bool(AudioServer.is_bus_mute(AudioServer.get_bus_index(VariableManager.EFFECTS_BUS))).is_equal(
+	assert_bool(AudioServer.is_bus_mute(AudioServer.get_bus_index(GlobalConstants.EFFECTS_BUS))).is_equal(
 		effects_mute
 	)
 
@@ -222,19 +222,19 @@ func test_generate_cfg_audio_file() -> void:
 	# init
 	## main
 	AudioServer.set_bus_volume_db(
-		AudioServer.get_bus_index(VariableManager.MAIN_BUS), linear2db(main_volume)
+		AudioServer.get_bus_index(GlobalConstants.MAIN_BUS), linear2db(main_volume)
 	)
-	AudioServer.set_bus_mute(AudioServer.get_bus_index(VariableManager.MAIN_BUS), main_mute)
+	AudioServer.set_bus_mute(AudioServer.get_bus_index(GlobalConstants.MAIN_BUS), main_mute)
 	## bgm
 	AudioServer.set_bus_volume_db(
-		AudioServer.get_bus_index(VariableManager.BGM_BUS), linear2db(bgm_volume)
+		AudioServer.get_bus_index(GlobalConstants.BGM_BUS), linear2db(bgm_volume)
 	)
-	AudioServer.set_bus_mute(AudioServer.get_bus_index(VariableManager.BGM_BUS), bgm_mute)
+	AudioServer.set_bus_mute(AudioServer.get_bus_index(GlobalConstants.BGM_BUS), bgm_mute)
 	## effects
 	AudioServer.set_bus_volume_db(
-		AudioServer.get_bus_index(VariableManager.EFFECTS_BUS), linear2db(effects_volume)
+		AudioServer.get_bus_index(GlobalConstants.EFFECTS_BUS), linear2db(effects_volume)
 	)
-	AudioServer.set_bus_mute(AudioServer.get_bus_index(VariableManager.EFFECTS_BUS), effects_mute)
+	AudioServer.set_bus_mute(AudioServer.get_bus_index(GlobalConstants.EFFECTS_BUS), effects_mute)
 	# test
 	var cfg := SettingsUtils._generate_cfg_audio_file()
 	## main

@@ -167,9 +167,9 @@ func override_velocity_vector(vector: Vector3) -> void:
 # toggles a player ability
 func toggle_ability(name: String, enabled: bool) -> void:
 	match name:
-		VariableManager.ABILITY_SLIDE:
+		GlobalConstants.ABILITY_SLIDE:
 			SLIDE_ENABLED = enabled
-		VariableManager.ABILITY_ROCKETS:
+		GlobalConstants.ABILITY_ROCKETS:
 			ROCKETS_ENABLED = enabled
 
 
@@ -216,13 +216,13 @@ func _process_input(_delta):
 
 	# Standard movement
 	input_movement_vector = Vector2()
-	if Input.is_action_pressed(VariableManager.INPUT_MVT_FORWARD):
+	if Input.is_action_pressed(GlobalConstants.INPUT_MVT_FORWARD):
 		input_movement_vector.y += 1
-	if Input.is_action_pressed(VariableManager.INPUT_MVT_BACKWARD):
+	if Input.is_action_pressed(GlobalConstants.INPUT_MVT_BACKWARD):
 		input_movement_vector.y -= 1
-	if Input.is_action_pressed(VariableManager.INPUT_MVT_LEFT):
+	if Input.is_action_pressed(GlobalConstants.INPUT_MVT_LEFT):
 		input_movement_vector.x -= 1
-	if Input.is_action_pressed(VariableManager.INPUT_MVT_RIGHT):
+	if Input.is_action_pressed(GlobalConstants.INPUT_MVT_RIGHT):
 		input_movement_vector.x += 1
 	input_movement_vector = input_movement_vector.normalized()
 
@@ -232,16 +232,16 @@ func _process_input(_delta):
 
 	# Shooting
 	if (
-		Input.is_action_pressed(VariableManager.INPUT_ACTION_SHOOT)
+		Input.is_action_pressed(GlobalConstants.INPUT_ACTION_SHOOT)
 		and not get_state_value(states_idx.SHOOTING)
 		and ROCKETS_ENABLED
 	):
 		_shoot(cam_xform)
 
 	# Slide
-	if Input.is_action_just_pressed(VariableManager.INPUT_MVT_SLIDE) and SLIDE_ENABLED:
+	if Input.is_action_just_pressed(GlobalConstants.INPUT_MVT_SLIDE) and SLIDE_ENABLED:
 		_slide = true
-	elif Input.is_action_just_released(VariableManager.INPUT_MVT_SLIDE):
+	elif Input.is_action_just_released(GlobalConstants.INPUT_MVT_SLIDE):
 		_slide = false
 
 
@@ -316,7 +316,7 @@ func _process_movement(delta):
 	# Move and slide + update speed
 	var snap = (
 		Vector3.ZERO
-		if Input.is_action_pressed(VariableManager.INPUT_MVT_JUMP)
+		if Input.is_action_pressed(GlobalConstants.INPUT_MVT_JUMP)
 		else -get_floor_normal()
 	)
 	vel = move_and_slide_with_snap(vel, snap, Vector3.UP, true, 4, MAX_SLOPE_ANGLE, false)
@@ -344,7 +344,7 @@ func _wall_ride_movement(delta: float) -> void:
 		if !get_state_value(states_idx.WALL_RIDING):  # first contact with the wall, snap the player to it
 			_init_wall_riding(rc)
 		var wall_fw = _get_wall_fw_vector(rc)
-		if Input.is_action_pressed(VariableManager.INPUT_MVT_JUMP):
+		if Input.is_action_pressed(GlobalConstants.INPUT_MVT_JUMP):
 			_wall_jump(wall_fw)
 		else:
 			_wall_ride(rc, wall_fw, delta)
@@ -400,7 +400,7 @@ func _init_wall_ride_lock() -> void:
 	set_state_value(states_idx.WALL_RIDING, false)
 	onready_paths.timers.wall_ride_jump_lock.start()  # to avoid sticking and accelerating back on the wall after jumping
 	_wall_ride_lock = true
-	if Input.is_action_pressed(VariableManager.INPUT_MVT_FORWARD):  # FIXME : probably creates a bug that can make the player wall jump easily to the same wall (but that might make a cool mechanic)
+	if Input.is_action_pressed(GlobalConstants.INPUT_MVT_FORWARD):  # FIXME : probably creates a bug that can make the player wall jump easily to the same wall (but that might make a cool mechanic)
 		var tween = onready_paths.tweens.wall_jump_mix_mvt
 		if tween.is_active():
 			tween.stop_all()
@@ -438,7 +438,7 @@ func _ground_movement(delta: float) -> void:
 	_accelerate(
 		Vector3(dir.x, 0, dir.z).normalized(), GROUND_TARGET_SPEED, GROUND_ACCELERATION, delta
 	)
-	if Input.is_action_pressed(VariableManager.INPUT_MVT_JUMP):
+	if Input.is_action_pressed(GlobalConstants.INPUT_MVT_JUMP):
 		_ground_jump()
 
 
@@ -467,7 +467,7 @@ func _apply_friction(delta: float):
 		vel.z = 0
 		return  # no need to compute things further, the player is stopped
 	var control := 0.0
-	if !Input.is_action_pressed(VariableManager.INPUT_MVT_JUMP):
+	if !Input.is_action_pressed(GlobalConstants.INPUT_MVT_JUMP):
 		var friction := SLIDE_FRICTION if _slide else GROUND_FRICTION
 		control = current_speed
 		drop += control * friction * delta
@@ -527,7 +527,7 @@ func _process_states():
 		set_state_value(states_idx.MOVING, true)
 	if (
 		get_state_value(states_idx.SLIDING)
-		and (not Input.is_action_pressed(VariableManager.INPUT_MVT_SLIDE))
+		and (not Input.is_action_pressed(GlobalConstants.INPUT_MVT_SLIDE))
 	):
 		self.rotate_object_local(Vector3(1, 0, 0), PI / 4)
 		rotation_helper.rotate_object_local(Vector3(1, 0, 0), -PI / 4)
@@ -535,7 +535,7 @@ func _process_states():
 	if (
 		get_state_value(states_idx.WALL_RIDING)
 		and (
-			not Input.is_action_pressed(VariableManager.INPUT_MVT_SLIDE)
+			not Input.is_action_pressed(GlobalConstants.INPUT_MVT_SLIDE)
 			or is_on_floor()
 			or _RC_wall_direction == 0
 		)

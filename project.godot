@@ -650,6 +650,11 @@ _global_script_classes=[ {
 "path": "res://addons/gdUnit3/src/asserts/GdUnitVector3AssertImpl.gd"
 }, {
 "base": "Reference",
+"class": "GlobalConstants",
+"language": "GDScript",
+"path": "res://Game/Common/Utils/Managers/global_constants.gd"
+}, {
+"base": "Reference",
 "class": "GlobalParameters",
 "language": "GDScript",
 "path": "res://Game/Common/Utils/Static/global_parameters.gd"
@@ -1000,6 +1005,11 @@ _global_script_classes=[ {
 "path": "res://addons/gdUnit3/src/core/TimeUnit.gd"
 }, {
 "base": "Reference",
+"class": "TranslationKeys",
+"language": "GDScript",
+"path": "res://Game/Common/Utils/Static/translation_keys.gd"
+}, {
+"base": "Reference",
 "class": "TrenchBroomEntityUtils",
 "language": "GDScript",
 "path": "res://Game/Common/Utils/trenchbroom_entity_utils.gd"
@@ -1208,6 +1218,7 @@ _global_script_class_icons={
 "GdUnitVector2AssertImpl": "",
 "GdUnitVector3Assert": "",
 "GdUnitVector3AssertImpl": "",
+"GlobalConstants": "",
 "GlobalParameters": "",
 "GlobalTestUtilities": "",
 "GlobalTests": "",
@@ -1278,6 +1289,7 @@ _global_script_class_icons={
 "StringFuzzer": "",
 "TextUtils": "",
 "TimeUnit": "",
+"TranslationKeys": "",
 "TrenchBroomEntityUtils": "",
 "TrenchBroomFaceAttrib": "",
 "TrenchBroomGameConfigFile": "",

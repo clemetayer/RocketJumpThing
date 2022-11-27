@@ -12,79 +12,239 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+#================================= MISC ==================================
+#-------------------------------- ACTIONS --------------------------------
+msgid "Forward"
+msgstr "Avant"
+
+msgid "Backward"
+msgstr "Arrière"
+
+msgid "Left"
+msgstr "Gauche"
+
+msgid "Right"
+msgstr "Droite"
+
+msgid "Jump"
+msgstr "Saut"
+
+msgid "Slide"
+msgstr "Glisser"
+
+msgid "Shoot"
+msgstr "Tirer"
+
+msgid "Last checkpoint"
+msgstr "Retour au checkpoint"
+
+msgid "Pause"
+msgstr "Pause"
+
+#----------------------------- MOUSE INPUTS ------------------------------
+msgid "Left click"
+msgstr "Clic gauche"
+
+msgid "Right click"
+msgstr "Clic droit"
+
+msgid "Middle click"
+msgstr "Clic molette"
+
+msgid "Mouse special 1"
+msgstr "Souris spécial 1"
+
+msgid "Mouse special 2"
+msgstr "Souris spécial 2"
+
+msgid "Mouse wheel up"
+msgstr "Souris molette haut"
+
+msgid "Mouse wheel down"
+msgstr "Souris molette bas"
+
+msgid "Mouse wheel right"
+msgstr "Souris molette droite"
+
+msgid "Mouse wheel left"
+msgstr "Souris molette gauche"
+
+msgid "Left click (mask)"
+msgstr "Clic gauche (masque)"
+
+msgid "Right click (mask)"
+msgstr "Clic droit (masque)"
+
+msgid "Middle click (mask)"
+msgstr "Clic molette (masque)"
+
+msgid "Mouse special 1 (mask)"
+msgstr "Souris spécial 1 (masque)"
+
+msgid "Mouse special 2 (mask)"
+msgstr "Souris spécial 2 (masque)"
+
 #================================= MENUS =================================
 #-------------------------------- COMMON ---------------------------------
-msgid "menu_main_menu"
+msgid "Main menu"
 msgstr "Menu principal"
 
-msgid "menu_quit"
+msgid "Quit"
 msgstr "Quitter"
 
-msgid "menu_options"
+msgid "Settings"
 msgstr "Options"
 
-msgid "menu_restart"
+msgid "Restart"
 msgstr "Recommencer"
 
+msgid "Return"
+msgstr "Retour"
+
 #------------------------------- MAIN MENU -------------------------------
-msgid "menu_play"
+msgid "Play"
 msgstr "Jouer"
 
 #----------------------------- END LEVEL MENU -----------------------------
-msgid "menu_next_level"
+msgid "Next level"
 msgstr "Niveau suivant"
 
 #------------------------------- PAUSE MENU -------------------------------
-msgid "menu_continue"
+msgid "Resume"
 msgstr "Continuer"
+
+#----------------------------- SETTINGS MENU -----------------------------
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ GLOBAL ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+msgid "General"
+msgstr "Général"
+
+msgid "Controls"
+msgstr "Contrôles"
+
+msgid "Audio"
+msgstr "Son"
+
+msgid "Video"
+msgstr "Vidéo"
+
+msgid "Enter a key for action %s :"
+msgstr "Appuyez sur une touche pour l'action %s :"
+
+msgid "Enter a name"
+msgstr "Entrez un nom"
+
+msgid "Enter a preset name :"
+msgstr "Entrez un nom de preset :"
+
+msgid "Please confirm..."
+msgstr "Veuillez confirmer..."
+
+msgid "Do you want to overwrite %s ?"
+msgstr "Voulez-vous écraser %s ?"
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ PRESETS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+msgid "Presets"
+msgstr "Presets"
+
+msgid "Presets :"
+msgstr "Presets :"
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ GENERAL ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+msgid "Language"
+msgstr "Langue"
+
+msgid "Language :"
+msgstr "Langue :"
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ CONTROLS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+msgid "Movement"
+msgstr "Mouvement"
+
+msgid "Action"
+msgstr "Action"
+
+msgid "UI"
+msgstr "IU"
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ AUDIO ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+msgid "Main"
+msgstr "Principal"
+
+msgid "Main :"
+msgstr "Principal :"
+
+msgid "BGM"
+msgstr "Musique"
+
+msgid "BGM :"
+msgstr "Musique :"
+
+msgid "Effects"
+msgstr "Effets"
+
+msgid "Effects :"
+msgstr "Effets :"
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ VIDEO ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+msgid "Display"
+msgstr "Affichage"
+
+msgid "Mode :"
+msgstr "Mode :"
+
+msgid "Full screen"
+msgstr "Plein écran"
+
+msgid "Windowed"
+msgstr "Fenêtré"
 
 #================================ COMMON =================================
 #---------------------------------- UI -----------------------------------
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ PLAYER ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-msgid "player_ui_checkpoint"
+msgid "Checkpoint !"
 msgstr "Checkpoint !"
 
-msgid "player_ui_speed"
-msgstr "Vitesse"
+msgid "Speed : %s"
+msgstr "Vitesse : %s"
 
 #=============================== TUTORIALS ===============================
 #----------------------------- TUTORIAL SCENES ----------------------------
-msgid "tutorial_scene_move_tutorial"
+msgid "##movement_wasd## to move."
 msgstr "##movement_wasd## pour se déplacer."
 
-msgid "tutorial_scene_jump_tutorial"
+msgid "##movement_jump## to jump."
 msgstr "##movement_jump## pour sauter."
 
-msgid "tutorial_scene_BHOP_tutorial"
+msgid "Keep ##movement_jump## pressed to accelerate."
 msgstr "Garder ##movement_jump## appuyé pour accélerer."
 
-msgid "tutorial_scene_strafe_tutorial"
-msgstr "pour accélerer encore plus :\n##movement_wa## + ##mouse_strafe_left##\nou\n##movement_wd## + ##mouse_strafe_right##"
+msgid "To accelerate even further :\n##movement_wa## + ##mouse_strafe_left##\nor\n##movement_wd## + ##mouse_strafe_right##."
+msgstr "pour accélerer encore plus :\n##movement_wa## + ##mouse_strafe_left##\nou\n##movement_wd## + ##mouse_strafe_right##."
 
-msgid "tutorial_scene_air_control_tutorial"
+msgid "##movement_w## + ##mouse_strafe_left_right## mid air to keep the direction."
 msgstr "##movement_w## + ##mouse_strafe_left_right## en l'air pour controler sa direction."
 
-msgid "tutorial_scene_checkpoint_tutorial"
+msgid "##restart_last_cp## to respawn at checkpoint.\n##restart## to restart."
 msgstr "##restart_last_cp## pour réapparaitre au checkpoint.\n##restart## pour recommencer." 
 
-msgid "tutorial_scene_2_slide_1"
+msgid "##movement_slide## to slide."
 msgstr "##movement_slide## pour glisser." 
 
-msgid "tutorial_scene_2_slide_2"
+msgid "##movement_jump## while sliding to boost jump."
 msgstr "##movement_jump## pendant une glissade pour faire un saut accéléré." 
 
-msgid "tutorial_wall_ride_1"
+msgid "##movement_slide## to wallride\n##movement_jump## in wallride to jump."
 msgstr "##movement_slide## pour wallride\n##movement_jump## en wallride pour sauter."
 
-msgid "tutorial_rockets_1"
-msgstr "##shoot## pour ##rocket_icon##"
+msgid "##shoot## to ##rocket_icon##."
+msgstr "##shoot## pour ##rocket_icon##."
 
-msgid "tutorial_rockets_2"
-msgstr "##rocket_icon## aux pieds pour ##rocket_jump_icon##"
+msgid "##rocket_icon## at feet to ##rocket_jump_icon##."
+msgstr "##rocket_icon## aux pieds pour ##rocket_jump_icon##."
 
-msgid "tutorial_rockets_3"
-msgstr "##rocket_jump_icon## sur le mur pour escalader"
+msgid "##rocket_jump_icon## on the wall to climb."
+msgstr "##rocket_jump_icon## sur le mur pour escalader."
 
-msgid "tutorial_rockets_4"
-msgstr "##rocket_icon## + ##boost_pad## = ##boost_pad_enhanced##"
+msgid "##rocket_icon## + ##boost_pad## to increase the force."
+msgstr "##rocket_icon## + ##boost_pad## pour plus de puissance."
  

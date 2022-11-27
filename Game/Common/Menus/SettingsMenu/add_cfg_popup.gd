@@ -25,6 +25,13 @@ func _ready():
 	DebugUtils.log_connect(
 		onready_paths.line_edit, self, "text_changed", "_on_LineEdit_text_changed"
 	)
+	_init_tr()
+
+
+##### PROTECTED METHODS #####
+func _init_tr() -> void:
+	window_title = tr(TranslationKeys.MENU_SETTINGS_ADD_CFG_POPUP_TITLE)
+	dialog_text = tr(TranslationKeys.MENU_SETTINGS_ADD_CFG_POPUP_LABEL)
 
 
 ##### SIGNAL MANAGEMENT #####

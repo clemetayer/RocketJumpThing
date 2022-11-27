@@ -1,5 +1,6 @@
 extends CanvasLayer
 # Script to prompt tutorial messages to the player
+# Disclaimer : The way to do it is pretty ugly
 
 ##### VARIABLES #####
 #---- CONSTANTS -----
@@ -97,15 +98,15 @@ func _replace_rocket_icon() -> Control:
 
 
 func _replace_shoot() -> Control:
-	return _match_input_type(VariableManager.TR_REPLACE_TUTORIAL_ACTION_SHOOT)
+	return _match_input_type(GlobalConstants.TR_REPLACE_TUTORIAL_ACTION_SHOOT)
 
 
 func _replace_restart_last_cp() -> Control:
-	return _match_input_type(VariableManager.TR_REPLACE_TUTORIAL_RESTART_LAST_CP)
+	return _match_input_type(GlobalConstants.TR_REPLACE_TUTORIAL_RESTART_LAST_CP)
 
 
 func _replace_restart() -> Control:
-	return _match_input_type(VariableManager.TR_REPLACE_TUTORIAL_RESTART)
+	return _match_input_type(GlobalConstants.TR_REPLACE_TUTORIAL_RESTART)
 
 
 func _replace_strafe(forward: bool, backward: bool, left: bool, right: bool) -> Control:
@@ -116,14 +117,16 @@ func _replace_strafe(forward: bool, backward: bool, left: bool, right: bool) -> 
 
 
 func _replace_slide() -> Control:
-	return _match_input_type(VariableManager.TR_REPLACE_TUTORIAL_MVT_SLIDE)
+	return _match_input_type(GlobalConstants.TR_REPLACE_TUTORIAL_MVT_SLIDE)
 
 
 func _replace_jump() -> Control:
-	return _match_input_type(VariableManager.TR_REPLACE_TUTORIAL_MVT_JUMP)
+	return _match_input_type(GlobalConstants.TR_REPLACE_TUTORIAL_MVT_JUMP)
 
 
-func _replace_move_direction(forward: bool, backward: bool, left: bool, right: bool) -> CenterContainer:
+func _replace_move_direction(
+	forward: bool, backward: bool, left: bool, right: bool
+) -> CenterContainer:
 	var direction_scene = load(DIRECTION_SCENE_PATH).instance()
 	direction_scene.set_emphasis(forward, backward, left, right)
 	return direction_scene
@@ -132,37 +135,37 @@ func _replace_move_direction(forward: bool, backward: bool, left: bool, right: b
 func _call_replace_method(key: String) -> Control:
 	var control = Control.new()  # empty control in case it is not a recognozed string
 	match key:
-		VariableManager.TR_REPLACE_TUTORIAL_MVT_WASD:
+		GlobalConstants.TR_REPLACE_TUTORIAL_MVT_WASD:
 			control = _replace_move_direction(true, true, true, true)
-		VariableManager.TR_REPLACE_TUTORIAL_MVT_WA:
+		GlobalConstants.TR_REPLACE_TUTORIAL_MVT_WA:
 			control = _replace_move_direction(true, false, true, false)
-		VariableManager.TR_REPLACE_TUTORIAL_MVT_WD:
+		GlobalConstants.TR_REPLACE_TUTORIAL_MVT_WD:
 			control = _replace_move_direction(true, false, false, true)
-		VariableManager.TR_REPLACE_TUTORIAL_MVT_W:
+		GlobalConstants.TR_REPLACE_TUTORIAL_MVT_W:
 			control = _replace_move_direction(true, false, false, false)
-		VariableManager.TR_REPLACE_TUTORIAL_MVT_JUMP:
+		GlobalConstants.TR_REPLACE_TUTORIAL_MVT_JUMP:
 			control = _replace_jump()
-		VariableManager.TR_REPLACE_TUTORIAL_MVT_SLIDE:
+		GlobalConstants.TR_REPLACE_TUTORIAL_MVT_SLIDE:
 			control = _replace_slide()
-		VariableManager.TR_REPLACE_TUTORIAL_MOUSE_STRAFE_LEFT:
+		GlobalConstants.TR_REPLACE_TUTORIAL_MOUSE_STRAFE_LEFT:
 			control = _replace_strafe(false, false, true, false)
-		VariableManager.TR_REPLACE_TUTORIAL_MOUSE_STRAFE_RIGHT:
+		GlobalConstants.TR_REPLACE_TUTORIAL_MOUSE_STRAFE_RIGHT:
 			control = _replace_strafe(false, false, false, true)
-		VariableManager.TR_REPLACE_TUTORIAL_MOUSE_STRAFE_LEFT_RIGHT:
+		GlobalConstants.TR_REPLACE_TUTORIAL_MOUSE_STRAFE_LEFT_RIGHT:
 			control = _replace_strafe(false, false, true, true)
-		VariableManager.TR_REPLACE_TUTORIAL_RESTART:
+		GlobalConstants.TR_REPLACE_TUTORIAL_RESTART:
 			control = _replace_restart()
-		VariableManager.TR_REPLACE_TUTORIAL_RESTART_LAST_CP:
+		GlobalConstants.TR_REPLACE_TUTORIAL_RESTART_LAST_CP:
 			control = _replace_restart_last_cp()
-		VariableManager.TR_REPLACE_TUTORIAL_ACTION_SHOOT:
+		GlobalConstants.TR_REPLACE_TUTORIAL_ACTION_SHOOT:
 			control = _replace_shoot()
-		VariableManager.TR_REPLACE_TUTORIAL_ROCKET_ICON:
+		GlobalConstants.TR_REPLACE_TUTORIAL_ROCKET_ICON:
 			control = _replace_rocket_icon()
-		VariableManager.TR_REPLACE_TUTORIAL_ROCKET_JUMP_ICON:
+		GlobalConstants.TR_REPLACE_TUTORIAL_ROCKET_JUMP_ICON:
 			control = _replace_rocket_jump_icon()
-		VariableManager.TR_REPLACE_TUTORIAL_BOOST_PAD:
+		GlobalConstants.TR_REPLACE_TUTORIAL_BOOST_PAD:
 			control = _replace_boost_pad(false)
-		VariableManager.TR_REPLACE_TUTORIAL_BOOST_PAD_ENHANCED:
+		GlobalConstants.TR_REPLACE_TUTORIAL_BOOST_PAD_ENHANCED:
 			control = _replace_boost_pad(true)
 		_:
 			control = Label.new()
@@ -212,10 +215,16 @@ func _set_tutorial_text(key: String) -> void:
 	var vbox_node = get_node("Screen/CenterContainer/VBoxContainer")
 	for child in vbox_node.get_children():
 		child.queue_free()
-	var key_str := tr(key)
+	var key_str := tr(
+		(
+			TrenchBroomEntityUtils.TB_TR_MAPPER[key]
+			if TrenchBroomEntityUtils.TB_TR_MAPPER.has(key)
+			else key
+		)
+	)
 	var split_line := key_str.split("\n")  # splits all the \n to later put these in an HBox container
 	for line in split_line:
-		var split_array = line.split(VariableManager.TR_REPLACE_PATTERN)
+		var split_array = line.split(GlobalConstants.TR_REPLACE_PATTERN)
 		var hbox := HBoxContainer.new()
 		for part in split_array:
 			hbox.add_child(_call_replace_method(part))

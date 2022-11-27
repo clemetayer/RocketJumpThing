@@ -25,6 +25,22 @@ func after():
 
 #---- TESTS -----
 #==== ACTUAL TESTS =====
+func test_init_tr() -> void:
+	controls._init_tr()
+	assert_str(controls.onready_paths.presets.CATEGORY_NAME).is_equal(
+		tr(TranslationKeys.PRESET_CATEGORY)
+	)
+	assert_str(controls.onready_paths.movement_cat.CATEGORY_NAME).is_equal(
+		tr(TranslationKeys.SETTINGS_CONTROLS_MOVEMENT_CATEGORY)
+	)
+	assert_str(controls.onready_paths.action_cat.CATEGORY_NAME).is_equal(
+		tr(TranslationKeys.SETTINGS_CONTROLS_ACTION_CATEGORY)
+	)
+	assert_str(controls.onready_paths.ui_cat.CATEGORY_NAME).is_equal(
+		tr(TranslationKeys.SETTINGS_CONTROLS_UI_CATEGORY)
+	)
+
+
 func test_add_key_settings_to_groups() -> void:
 	controls._add_key_settings_to_groups()
 	assert_int(controls.onready_paths.movement.get_children().size()).is_equal(

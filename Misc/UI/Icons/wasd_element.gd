@@ -20,6 +20,7 @@ func _ready():
 
 ##### PUBLIC METHODS ######
 func set_emphasis(forward: bool, backward: bool, left: bool, right: bool) -> void:
+	yield(self, "ready")
 	if onready_paths != null:
 		if onready_paths.forward != null:
 			onready_paths.forward.pressed = forward
@@ -34,14 +35,14 @@ func set_emphasis(forward: bool, backward: bool, left: bool, right: bool) -> voi
 ##### PROTECTED METHODS #####
 func _set_keys() -> void:
 	onready_paths.forward.set_text(
-		InputMap.get_action_list(VariableManager.INPUT_MVT_FORWARD)[0].as_text()
+		InputMap.get_action_list(GlobalConstants.INPUT_MVT_FORWARD)[0].as_text()
 	)
 	onready_paths.left.set_text(
-		InputMap.get_action_list(VariableManager.INPUT_MVT_LEFT)[0].as_text()
+		InputMap.get_action_list(GlobalConstants.INPUT_MVT_LEFT)[0].as_text()
 	)
 	onready_paths.backward.set_text(
-		InputMap.get_action_list(VariableManager.INPUT_MVT_BACKWARD)[0].as_text()
+		InputMap.get_action_list(GlobalConstants.INPUT_MVT_BACKWARD)[0].as_text()
 	)
 	onready_paths.right.set_text(
-		InputMap.get_action_list(VariableManager.INPUT_MVT_RIGHT)[0].as_text()
+		InputMap.get_action_list(GlobalConstants.INPUT_MVT_RIGHT)[0].as_text()
 	)

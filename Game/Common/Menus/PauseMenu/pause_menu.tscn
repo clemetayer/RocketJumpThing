@@ -3,6 +3,10 @@
 [ext_resource path="res://Game/Common/Menus/PauseMenu/pause_menu.gd" type="Script" id=1]
 [ext_resource path="res://Misc/Fonts/Oswald/Oswald-VariableFont_wght.ttf" type="DynamicFontData" id=2]
 
+[sub_resource type="DynamicFont" id=3]
+size = 25
+font_data = ExtResource( 2 )
+
 [sub_resource type="StyleBoxFlat" id=4]
 bg_color = Color( 0.6, 0.6, 0.6, 0 )
 border_width_left = 4
@@ -76,10 +80,6 @@ anti_aliasing_size = 0.75
 [sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 0, 0, 0, 0.784314 )
 
-[sub_resource type="DynamicFont" id=3]
-size = 25
-font_data = ExtResource( 2 )
-
 [sub_resource type="Theme" id=1]
 default_font = SubResource( 3 )
 Button/colors/font_color = Color( 1, 1, 1, 1 )
@@ -88,7 +88,7 @@ Button/colors/font_color_focus = Color( 0.47451, 0.937255, 0.741176, 1 )
 Button/colors/font_color_hover = Color( 0.678431, 0.992157, 0.635294, 1 )
 Button/colors/font_color_pressed = Color( 0.47451, 0.937255, 0.741176, 1 )
 Button/constants/hseparation = 0
-Button/fonts/font = null
+Button/fonts/font = SubResource( 3 )
 Button/styles/disabled = SubResource( 4 )
 Button/styles/focus = SubResource( 5 )
 Button/styles/hover = SubResource( 6 )
@@ -128,26 +128,26 @@ rect_min_size = Vector2( 200, 0 )
 [node name="ResumeButton" type="Button" parent="UI/Menu/VBoxContainer"]
 margin_right = 200.0
 margin_bottom = 46.0
-text = "menu_continue"
+text = "Resume"
 
 [node name="RestartButton" type="Button" parent="UI/Menu/VBoxContainer"]
 margin_top = 91.0
 margin_right = 200.0
 margin_bottom = 137.0
-text = "menu_restart"
+text = "Restart"
 
 [node name="OptionButton" type="Button" parent="UI/Menu/VBoxContainer"]
 margin_top = 182.0
 margin_right = 200.0
 margin_bottom = 228.0
 disabled = true
-text = "menu_options"
+text = "Options"
 
 [node name="MainMenuButton" type="Button" parent="UI/Menu/VBoxContainer"]
 margin_top = 273.0
 margin_right = 200.0
 margin_bottom = 319.0
-text = "menu_main_menu"
+text = "Main menu"
 
 [connection signal="pressed" from="UI/Menu/VBoxContainer/ResumeButton" to="." method="_on_ResumeButton_pressed"]
 [connection signal="pressed" from="UI/Menu/VBoxContainer/RestartButton" to="." method="_on_RestartButton_pressed"]

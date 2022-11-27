@@ -15,6 +15,11 @@ func _init():
 	_connect_signals()
 
 
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	_init_tr()
+
+
 ##### PROTECTED METHODS #####
 func _connect_signals() -> void:
 	DebugUtils.log_connect(
@@ -23,12 +28,17 @@ func _connect_signals() -> void:
 	DebugUtils.log_connect(self, self, "confirmed", "_on_popup_confirmed")
 
 
+func _init_tr() -> void:
+	window_title = tr(TranslationKeys.MENU_SETTINGS_SAVE_CFG_POPUP_TITLE)
+	dialog_text = tr(TranslationKeys.MENU_SETTINGS_SAVE_CFG_POPUP_LABEL) % name
+
+
 ##### SIGNAL MANAGEMENT #####
 func _on_SignalManager_save_cfg_popup(path: String, name: String, cfg: ConfigFile) -> void:
 	_path = path
 	_name = name
 	_cfg = cfg
-	dialog_text = tr("Do you want to overwrite %s") % name
+	dialog_text = tr(TranslationKeys.MENU_SETTINGS_SAVE_CFG_POPUP_LABEL) % name
 	popup_centered()
 
 

@@ -26,6 +26,16 @@ func after():
 
 #---- TESTS -----
 #==== ACTUAL TESTS =====
+func test_init_tr() -> void:
+	add_cfg_popup._init_tr()
+	assert_str(add_cfg_popup.window_title).is_equal(
+		tr(TranslationKeys.MENU_SETTINGS_ADD_CFG_POPUP_TITLE)
+	)
+	assert_str(add_cfg_popup.dialog_text).is_equal(
+		tr(TranslationKeys.MENU_SETTINGS_ADD_CFG_POPUP_LABEL)
+	)
+
+
 func test_signals() -> void:
 	add_cfg_popup._init()
 	add_cfg_popup._ready()

@@ -45,8 +45,19 @@ func _connect_signals() -> void:
 func _set_popup_text() -> void:
 	onready_paths.message.set_bbcode(
 		(
-			tr("Enter an action for %s")
-			% [TextUtils.BBCode_color_text(tr(ACTION), Color.yellow.to_html())]
+			tr(TranslationKeys.MENU_SETTINGS_CHANGE_KEY_POPUP)
+			% [
+				TextUtils.BBCode_color_text(
+					tr(
+						(
+							TranslationKeys.ACTION_MAPPER[ACTION]
+							if TranslationKeys.ACTION_MAPPER.has(ACTION)
+							else ACTION
+						)
+					),
+					Color.yellow.to_html()
+				)
+			]
 		)
 	)
 	_set_key(RuntimeUtils.display_input_as_string(InputMap.get_action_list(ACTION)[0]))

@@ -27,11 +27,11 @@ size_flags_vertical = 3
 
 [node name="LanguageLabel" type="Label" parent="LanguageCategory/LanguageHBox"]
 margin_top = 3.0
-margin_right = 216.0
+margin_right = 67.0
 margin_bottom = 17.0
-text = "settings_general_language_setting"
+text = "Language :"
 
 [node name="LanguageOptions" type="OptionButton" parent="LanguageCategory/LanguageHBox"]
-margin_left = 220.0
-margin_right = 249.0
+margin_left = 71.0
+margin_right = 100.0
 margin_bottom = 20.0

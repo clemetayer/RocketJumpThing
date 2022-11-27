@@ -28,9 +28,22 @@ func _connect_signals() -> void:
 
 # for the actions, refer to variable_manager.gd, in the "INPUTS" category
 func _set_action_name(action: String) -> void:
-	onready_paths.label.text = tr(action)
+	onready_paths.label.text = tr(
+		(
+			TranslationKeys.ACTION_MAPPER[action]
+			if TranslationKeys.ACTION_MAPPER.has(action)
+			else action
+		)
+	)
 	onready_paths.action.text = RuntimeUtils.display_input_as_string(
 		InputMap.get_action_list(action)[0]
+	)
+	onready_paths.action.text = tr(
+		(
+			TranslationKeys.MOUSE_BUTTON_MAPPER[onready_paths.action.text]
+			if TranslationKeys.MOUSE_BUTTON_MAPPER.has(onready_paths.action.text)
+			else onready_paths.action.text
+		)
 	)
 	ACTION_NAME = action
 

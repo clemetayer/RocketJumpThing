@@ -22,7 +22,7 @@ anchor_bottom = 0.0
 margin_right = 984.0
 margin_bottom = 58.0
 size_flags_vertical = 1
-CATEGORY_NAME = "settings_audio_main"
+CATEGORY_NAME = "Main"
 
 [node name="HBox" type="HBoxContainer" parent="AudioVBox/Main"]
 margin_top = 18.0
@@ -32,12 +32,13 @@ size_flags_horizontal = 3
 
 [node name="Label" type="Label" parent="AudioVBox/Main/HBox"]
 margin_top = 13.0
-margin_right = 167.0
+margin_right = 80.0
 margin_bottom = 27.0
-text = "settings_audio_main_label"
+rect_min_size = Vector2( 80, 0 )
+text = "Main :"
 
 [node name="Slider" type="HSlider" parent="AudioVBox/Main/HBox"]
-margin_left = 171.0
+margin_left = 84.0
 margin_right = 864.0
 margin_bottom = 16.0
 size_flags_horizontal = 3
@@ -62,7 +63,7 @@ margin_top = 62.0
 margin_right = 984.0
 margin_bottom = 120.0
 size_flags_vertical = 1
-CATEGORY_NAME = "settings_audio_bgm"
+CATEGORY_NAME = "BGM"
 
 [node name="HBox" type="HBoxContainer" parent="AudioVBox/BGM"]
 margin_top = 18.0
@@ -72,12 +73,13 @@ size_flags_horizontal = 3
 
 [node name="Label" type="Label" parent="AudioVBox/BGM/HBox"]
 margin_top = 13.0
-margin_right = 163.0
+margin_right = 80.0
 margin_bottom = 27.0
-text = "settings_audio_bgm_label"
+rect_min_size = Vector2( 80, 0 )
+text = "BGM :"
 
 [node name="Slider" type="HSlider" parent="AudioVBox/BGM/HBox"]
-margin_left = 167.0
+margin_left = 84.0
 margin_right = 864.0
 margin_bottom = 16.0
 size_flags_horizontal = 3
@@ -112,12 +114,13 @@ size_flags_horizontal = 3
 
 [node name="Label" type="Label" parent="AudioVBox/Effects/HBox"]
 margin_top = 13.0
-margin_right = 178.0
+margin_right = 80.0
 margin_bottom = 27.0
-text = "settings_audio_effects_label"
+rect_min_size = Vector2( 80, 0 )
+text = "Effects  :"
 
 [node name="Slider" type="HSlider" parent="AudioVBox/Effects/HBox"]
-margin_left = 182.0
+margin_left = 84.0
 margin_right = 864.0
 margin_bottom = 16.0
 size_flags_horizontal = 3
