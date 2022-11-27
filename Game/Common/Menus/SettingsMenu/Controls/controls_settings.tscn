@@ -5,15 +5,19 @@
 [ext_resource path="res://Game/Common/Menus/SettingsMenu/Presets/Presets.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Game/Common/Menus/SettingsMenu/Controls/presets_controls.gd" type="Script" id=4]
 
-[node name="ControlsSettings" type="VBoxContainer"]
-margin_left = 10.0
-margin_right = 1014.0
-margin_bottom = 600.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
+[node name="ControlsSettings" type="MarginContainer"]
+margin_top = 119.0
+margin_right = 1004.0
+margin_bottom = 119.0
 script = ExtResource( 2 )
 
-[node name="Presets" parent="." instance=ExtResource( 1 )]
+[node name="VBox" type="VBoxContainer" parent="."]
+margin_right = 1004.0
+margin_bottom = 115.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Presets" parent="VBox" instance=ExtResource( 1 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 1004.0
@@ -21,19 +25,19 @@ margin_bottom = 49.0
 size_flags_vertical = 1
 CATEGORY_NAME = "settings_presets_category"
 
-[node name="PresetsCenter" type="CenterContainer" parent="Presets"]
+[node name="PresetsCenter" type="CenterContainer" parent="VBox/Presets"]
 margin_top = 18.0
 margin_right = 1004.0
 margin_bottom = 49.0
 size_flags_horizontal = 3
 
-[node name="PresetsControls" parent="Presets/PresetsCenter" instance=ExtResource( 3 )]
+[node name="PresetsControls" parent="VBox/Presets/PresetsCenter" instance=ExtResource( 3 )]
 margin_left = 375.0
 margin_right = 628.0
 margin_bottom = 31.0
 script = ExtResource( 4 )
 
-[node name="Movement" parent="." instance=ExtResource( 1 )]
+[node name="Movement" parent="VBox" instance=ExtResource( 1 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 53.0
@@ -42,14 +46,14 @@ margin_bottom = 71.0
 size_flags_vertical = 1
 CATEGORY_NAME = "Movement"
 
-[node name="MovementGrid" type="GridContainer" parent="Movement"]
+[node name="MovementGrid" type="GridContainer" parent="VBox/Movement"]
 margin_top = 18.0
 margin_right = 1004.0
 margin_bottom = 18.0
 size_flags_horizontal = 3
 columns = 3
 
-[node name="Action" parent="." instance=ExtResource( 1 )]
+[node name="Action" parent="VBox" instance=ExtResource( 1 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 75.0
@@ -58,14 +62,14 @@ margin_bottom = 93.0
 size_flags_vertical = 1
 CATEGORY_NAME = "Action"
 
-[node name="ActionGrid" type="GridContainer" parent="Action"]
+[node name="ActionGrid" type="GridContainer" parent="VBox/Action"]
 margin_top = 18.0
 margin_right = 1004.0
 margin_bottom = 18.0
 size_flags_horizontal = 3
 columns = 3
 
-[node name="UI" parent="." instance=ExtResource( 1 )]
+[node name="UI" parent="VBox" instance=ExtResource( 1 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 97.0
@@ -74,7 +78,7 @@ margin_bottom = 115.0
 size_flags_vertical = 1
 CATEGORY_NAME = "UI"
 
-[node name="UIGrid" type="GridContainer" parent="UI"]
+[node name="UIGrid" type="GridContainer" parent="VBox/UI"]
 margin_top = 18.0
 margin_right = 1004.0
 margin_bottom = 18.0

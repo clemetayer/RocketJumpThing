@@ -1,4 +1,4 @@
-extends VBoxContainer
+extends MarginContainer
 # Remaps the controls
 
 ##### VARIABLES #####
@@ -25,13 +25,13 @@ const UI_CAT := [  # actions for the UI category
 #---- STANDARD -----
 #==== ONREADY ====
 onready var onready_paths := {
-	"presets": $"Presets",
-	"movement_cat": $"Movement",
-	"movement": $"Movement/MovementGrid",
-	"action_cat": $"Action",
-	"action": $"Action/ActionGrid",
-	"ui_cat": $"UI",
-	"ui": $"UI/UIGrid"
+	"presets": $"VBox/Presets",
+	"movement_cat": $"VBox/Movement",
+	"movement": $"VBox/Movement/MovementGrid",
+	"action_cat": $"VBox/Action",
+	"action": $"VBox/Action/ActionGrid",
+	"ui_cat": $"VBox/UI",
+	"ui": $"VBox/UI/UIGrid"
 }
 
 

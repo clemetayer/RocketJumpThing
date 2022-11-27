@@ -1,4 +1,4 @@
-extends VBoxContainer
+extends MarginContainer
 # General settings
 
 ##### VARIABLES #####
@@ -10,9 +10,9 @@ const TAB_NAME := "General"
 onready var onready_paths := {
 	"language":
 	{
-		"category": $"LanguageCategory",
-		"label": $"LanguageCategory/LanguageHBox/LanguageLabel",
-		"options": $"LanguageCategory/LanguageHBox/LanguageOptions"
+		"category": $"VBox/LanguageCategory",
+		"label": $"VBox/LanguageCategory/LanguageHBox/LanguageLabel",
+		"options": $"VBox/LanguageCategory/LanguageHBox/LanguageOptions"
 	}
 }
 

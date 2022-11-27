@@ -7,7 +7,7 @@ const TAB_NAME_VARIABLE := "TAB_NAME"
 
 #---- STANDARD -----
 #==== ONREADY ====
-onready var onready_paths := {"return": $"VBoxContainer/Return", "tabs": $"VBoxContainer/Settings"}
+onready var onready_paths := {"return": $"Margin/VBoxContainer/Return", "tabs": $"Margin/VBoxContainer/Settings"}
 
 
 ##### PROCESSING #####

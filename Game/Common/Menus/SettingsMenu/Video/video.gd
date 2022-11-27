@@ -1,4 +1,4 @@
-extends VBoxContainer
+extends MarginContainer
 # Video settings
 
 ##### ENUMS #####
@@ -13,9 +13,9 @@ const TAB_NAME := "Video"
 onready var onready_paths := {
 	"window_type":
 	{
-		"options": $"WindowType/HBox/Options",
-		"category": $"WindowType",
-		"label": $"WindowType/HBox/Label"
+		"options": $"VBox/WindowType/HBox/Options",
+		"category": $"VBox/WindowType",
+		"label": $"VBox/WindowType/HBox/Label"
 	}
 }
 

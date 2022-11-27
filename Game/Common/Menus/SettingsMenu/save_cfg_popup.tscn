@@ -3,8 +3,8 @@
 [ext_resource path="res://Game/Common/Menus/SettingsMenu/save_cfg_popup.gd" type="Script" id=1]
 
 [node name="SaveCfgPopup" type="ConfirmationDialog"]
-margin_right = 200.0
-margin_bottom = 70.0
+margin_right = 300.0
+margin_bottom = 100.0
 window_title = "settings_popup_save_cfg_title"
 dialog_text = "settings_popup_save_cfg_message"
 script = ExtResource( 1 )
