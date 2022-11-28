@@ -10,6 +10,7 @@ extends CanvasLayer
 ##### VARIABLES #####
 #---- CONSTANTS -----
 const FADE_IN_TIME := 0.5
+const SETTINGS_MENU_LAYER_PATH := "res://Game/Common/Menus/SettingsMenu/settings_menu_layer.tscn"
 
 #---- STANDARD -----
 #==== PRIVATE ====
@@ -102,8 +103,7 @@ func _on_MainMenuButton_pressed():
 
 
 func _on_OptionButton_pressed():
-	# TODO
-	pass  # Replace with function body.
+	get_tree().get_root().add_child(load(SETTINGS_MENU_LAYER_PATH).instance())
 
 
 func _on_RestartButton_pressed():

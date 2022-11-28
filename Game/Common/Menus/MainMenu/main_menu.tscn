@@ -118,7 +118,6 @@ text = "Play"
 margin_top = 107.0
 margin_right = 250.0
 margin_bottom = 164.0
-disabled = true
 text = "Options"
 
 [node name="QuitButton" type="Button" parent="Menu/CenterContainer/Buttons"]

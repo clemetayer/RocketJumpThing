@@ -4,6 +4,7 @@ extends Node2D
 ##### VARIABLES #####
 #---- CONSTANTS -----
 const PATHS := {"tutorial_scene": "res://Game/Scenes/Tutorial/Tutorial1/tutorial_1.tscn"}
+const SETTINGS_MENU_LAYER_PATH := "res://Game/Common/Menus/SettingsMenu/settings_menu_layer.tscn"
 
 #---- STANDARD -----
 #==== ONREADY ====
@@ -38,8 +39,7 @@ func _on_PlayButton_pressed():
 
 
 func _on_OptionsButton_pressed():
-	# TODO : implement this once the option menu is done
-	pass  # Replace with function body.
+	get_tree().get_root().add_child(load(SETTINGS_MENU_LAYER_PATH).instance())
 
 
 func _on_QuitButton_pressed():

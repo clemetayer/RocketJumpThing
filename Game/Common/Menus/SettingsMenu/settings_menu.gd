@@ -1,13 +1,18 @@
 extends Control
 # Settings menu
 
+##### SIGNALS #####
+signal return_signal
+
 ##### VARIABLES #####
 #---- CONSTANTS -----
 const TAB_NAME_VARIABLE := "TAB_NAME"
 
 #---- STANDARD -----
 #==== ONREADY ====
-onready var onready_paths := {"return": $"Margin/VBoxContainer/Return", "tabs": $"Margin/VBoxContainer/Settings"}
+onready var onready_paths := {
+	"return": $"Margin/VBoxContainer/Return", "tabs": $"Margin/VBoxContainer/Settings"
+}
 
 
 ##### PROCESSING #####
@@ -38,3 +43,4 @@ func _init_tab_names() -> void:
 ##### SIGNAL MANAGEMENT #####
 func _on_Return_pressed() -> void:
 	SettingsUtils.save_current_settings()
+	emit_signal("return_signal")

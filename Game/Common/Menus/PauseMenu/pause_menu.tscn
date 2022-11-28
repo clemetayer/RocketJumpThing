@@ -140,7 +140,6 @@ text = "Restart"
 margin_top = 182.0
 margin_right = 200.0
 margin_bottom = 228.0
-disabled = true
 text = "Options"
 
 [node name="MainMenuButton" type="Button" parent="UI/Menu/VBoxContainer"]

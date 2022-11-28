@@ -9,5 +9,6 @@ width = 800
 
 [resource]
 texture = SubResource( 132 )
+region_rect = Rect2( 0, 0, 800, 1 )
 axis_stretch_horizontal = 1
 modulate_color = Color( 0, 1, 0.784314, 1 )
