@@ -16,10 +16,11 @@ gui_disable_input = true
 script = ExtResource( 2 )
 
 [node name="Label" type="Label" parent="."]
-margin_right = 38.0
-margin_bottom = 38.0
+margin_right = 76.0
+margin_bottom = 75.0
 custom_fonts/font = SubResource( 418 )
 text = "Test"
+align = 1
 __meta__ = {
 "_editor_description_": "Note : Keep \"Test\" text for the label, so it can scale automatically fairly simply"
 }

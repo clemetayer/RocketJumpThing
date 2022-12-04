@@ -412,7 +412,7 @@
 // entity 7
 {
 "classname" "Checkpoints_Checkpoint"
-"spawn_position" "0 -32 0"
+"spawn_position" "0 -2 0"
 "spawn_rotation" "90"
 // brush 0
 {
@@ -430,7 +430,7 @@
 "collision_layer" "2"
 "collision_mask" "5"
 "spawn_rotation" "90"
-"spawn_position" "0 -32 0"
+"spawn_position" "0 -2 0"
 // brush 0
 {
 ( -7392 520 128 ) ( -7392 528 64 ) ( -7392 528 128 ) entities/checkpoint/checkpoint_1 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -479,7 +479,7 @@
 "classname" "Checkpoints_Checkpoint"
 "collision_layer" "2"
 "collision_mask" "5"
-"spawn_position" "0 -32 0"
+"spawn_position" "0 -4 0"
 "spawn_rotation" "-90"
 // brush 0
 {
@@ -529,7 +529,7 @@
 "classname" "Checkpoints_Checkpoint"
 "collision_layer" "2"
 "collision_mask" "5"
-"spawn_position" "0 -32 0"
+"spawn_position" "0 -4 0"
 "spawn_rotation" "-90"
 // brush 0
 {
@@ -776,7 +776,7 @@
 "classname" "Checkpoints_Checkpoint"
 "collision_layer" "2"
 "collision_mask" "5"
-"spawn_position" "0 -32 0"
+"spawn_position" "0 -4 0"
 "spawn_rotation" "90"
 // brush 0
 {
@@ -1118,7 +1118,7 @@
 "collision_layer" "2"
 "collision_mask" "5"
 "free_on_open" "1"
-"open_position" "-250 0 0"
+"open_position" "-15.625 0 0"
 "open_time" "0.5"
 "targetname" "triangle_door_1"
 // brush 0
@@ -1133,7 +1133,7 @@
 // entity 19
 {
 "classname" "Doors_StandardDoor"
-"open_position" "250 0 0"
+"open_position" "15.625 0 0"
 "collision_layer" "2"
 "collision_mask" "5"
 "free_on_open" "1"
@@ -1154,7 +1154,7 @@
 "collision_layer" "2"
 "collision_mask" "5"
 "free_on_open" "1"
-"open_position" "-250 0 0"
+"open_position" "-15.625 0 0"
 "open_time" "0.5"
 "targetname" "triangle_door_2"
 // brush 0
@@ -1169,7 +1169,7 @@
 // entity 21
 {
 "classname" "Doors_StandardDoor"
-"open_position" "250 0 0"
+"open_position" "15.625 0 0"
 "collision_layer" "2"
 "collision_mask" "5"
 "free_on_open" "1"
@@ -1237,7 +1237,7 @@
 "collision_layer" "2"
 "collision_mask" "5"
 "free_on_open" "0"
-"open_position" "-215 0 0"
+"open_position" "-13.5 0 0"
 "open_time" "0.25"
 "targetname" "tutorial_crouch_door"
 // brush 0
@@ -1273,7 +1273,7 @@
 "collision_mask" "5"
 "collision_layer" "2"
 "free_on_open" "0"
-"open_position" "215 0 0"
+"open_position" "13.5 0 0"
 "open_time" "0.25"
 "targetname" "tutorial_crouch_door"
 // brush 0
@@ -1287,20 +1287,20 @@
 }
 // brush 1
 {
+( -4288 296 416 ) ( -4288 88 0 ) ( -4288 504 0 ) scenes/tutorial2_scene/platform_material_1 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -4288 296 416 ) ( -4224 296 416 ) ( -4224 88 0 ) scenes/tutorial2_scene/platform_material_1 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -4224 88 16 ) ( -4224 504 16 ) ( -4288 504 16 ) scenes/tutorial2_scene/platform_material_1 [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -4288 280 416 ) ( -4288 280 384 ) ( -4160 280 384 ) scenes/tutorial2_scene/platform_material_1 [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -4272 296 416 ) ( -4272 504 0 ) ( -4272 88 0 ) scenes/tutorial2_scene/platform_material_1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+// brush 2
+{
 ( -4288 296 416 ) ( -4288 88 0 ) ( -4288 504 0 ) scenes/tutorial2_scene/platform_material_3 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 ( -4288 296 416 ) ( -4224 296 416 ) ( -4224 88 0 ) scenes/tutorial2_scene/platform_material_3 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
 ( -4224 88 4 ) ( -4224 504 4 ) ( -4288 504 4 ) scenes/tutorial2_scene/platform_material_3 [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
 ( -4224 88 16 ) ( -4288 504 16 ) ( -4224 504 16 ) scenes/tutorial2_scene/platform_material_3 [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
 ( -4288 296 416 ) ( -4288 296 384 ) ( -4160 296 384 ) scenes/tutorial2_scene/platform_material_3 [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
 ( -4272 296 416 ) ( -4272 504 0 ) ( -4272 88 0 ) scenes/tutorial2_scene/platform_material_3 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-}
-// brush 2
-{
-( -4288 296 416 ) ( -4288 88 0 ) ( -4288 504 0 ) scenes/tutorial2_scene/platform_material_1 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -4288 296 416 ) ( -4224 296 416 ) ( -4224 88 0 ) scenes/tutorial2_scene/platform_material_1 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -4224 88 16 ) ( -4224 504 16 ) ( -4288 504 16 ) scenes/tutorial2_scene/platform_material_1 [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -4288 280 416 ) ( -4288 280 384 ) ( -4160 280 384 ) scenes/tutorial2_scene/platform_material_1 [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -4272 296 416 ) ( -4272 504 0 ) ( -4272 88 0 ) scenes/tutorial2_scene/platform_material_1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
 // entity 27
@@ -1488,7 +1488,7 @@
 "classname" "Checkpoints_Checkpoint"
 "collision_layer" "2"
 "collision_mask" "5"
-"spawn_position" "0 -64 0"
+"spawn_position" "0 -4 0"
 "spawn_rotation" "0"
 // brush 0
 {
@@ -1583,7 +1583,7 @@
 "classname" "Checkpoints_Checkpoint"
 "collision_layer" "2"
 "collision_mask" "5"
-"spawn_position" "0 -64 0"
+"spawn_position" "0 -4 0"
 "spawn_rotation" "0"
 // brush 0
 {
@@ -1639,7 +1639,7 @@
 "classname" "Checkpoints_Checkpoint"
 "collision_layer" "2"
 "collision_mask" "5"
-"spawn_position" "0 -64 0"
+"spawn_position" "0 -4 0"
 "spawn_rotation" "0"
 // brush 0
 {
@@ -1722,7 +1722,7 @@
 "classname" "Checkpoints_Checkpoint"
 "collision_layer" "2"
 "collision_mask" "5"
-"spawn_position" "0 -64 0"
+"spawn_position" "0 -4 0"
 "spawn_rotation" "0"
 // brush 0
 {
@@ -1950,7 +1950,7 @@
 "classname" "Checkpoints_Checkpoint"
 "collision_layer" "2"
 "collision_mask" "5"
-"spawn_position" "0 -64 0"
+"spawn_position" "0 -4 0"
 "spawn_rotation" "-90"
 // brush 0
 {
@@ -2099,7 +2099,7 @@
 "classname" "Checkpoints_Checkpoint"
 "collision_layer" "2"
 "collision_mask" "5"
-"spawn_position" "0 -64 0"
+"spawn_position" "0 -4 0"
 "spawn_rotation" "180"
 // brush 0
 {
@@ -2201,7 +2201,7 @@
 "collision_layer" "2"
 "collision_mask" "5"
 "travel_time" "1.5"
-"point1" "-64 0 0"
+"point1" "-4 0 0"
 "path_color" "0 255 255"
 "path_emission" "2"
 "trans_type" "1"
@@ -2259,7 +2259,7 @@
 "collision_layer" "2"
 "collision_mask" "5"
 "travel_time" "1.5"
-"point1" "64 0 0"
+"point1" "4 0 0"
 "path_color" "0 255 255"
 "path_emission" "2"
 "trans_type" "1"
@@ -2317,7 +2317,7 @@
 "collision_layer" "2"
 "collision_mask" "5"
 "travel_time" "1.5"
-"point1" "-64 0 0"
+"point1" "-4 0 0"
 "path_color" "0 255 255"
 "path_emission" "2"
 "trans_type" "1"
@@ -2375,7 +2375,7 @@
 "collision_layer" "2"
 "collision_mask" "5"
 "travel_time" "1.5"
-"point1" "64 0 0"
+"point1" "4 0 0"
 "path_color" "0 255 255"
 "path_emission" "2"
 "trans_type" "1"
@@ -2516,7 +2516,7 @@
 "classname" "Checkpoints_Checkpoint"
 "collision_layer" "2"
 "collision_mask" "5"
-"spawn_position" "0 -64 0"
+"spawn_position" "0 -8 0"
 "spawn_rotation" "180"
 // brush 0
 {
@@ -2533,7 +2533,7 @@
 "classname" "Checkpoints_Checkpoint"
 "collision_layer" "2"
 "collision_mask" "5"
-"spawn_position" "0 -64 0"
+"spawn_position" "0 -4 0"
 "spawn_rotation" "90"
 // brush 0
 {
@@ -3500,12 +3500,12 @@
 "collision_layer" "2"
 "collision_mask" "5"
 "ease" "0"
-"point1" "250 32 0"
-"point2" "250 64 230"
+"point1" "15 2 0"
+"point2" "15 4 14"
 "trans_type" "1"
 "travel_time" "3"
 "wait_time" "3"
-"point3" "250 32 0"
+"point3" "15 2 0"
 "path_color" "0 255 255"
 "path_emission" "2"
 // brush 0
@@ -3560,12 +3560,12 @@
 "collision_layer" "2"
 "collision_mask" "5"
 "ease" "0"
-"point1" "250 -32 0"
-"point2" "250 -64 -230"
+"point1" "15 -2 0"
+"point2" "15 -4 -14"
 "trans_type" "1"
 "travel_time" "3"
 "wait_time" "3"
-"point3" "250 -32 0"
+"point3" "15 -2 0"
 "path_color" "0 255 255"
 "path_emission" "2"
 // brush 0
@@ -3620,7 +3620,7 @@
 "collision_layer" "2"
 "collision_mask" "5"
 "ease" "0"
-"point1" "0 0 128"
+"point1" "0 0 8"
 "point2" "0 0 0"
 "trans_type" "0"
 "travel_time" "4"
@@ -3680,12 +3680,10 @@
 "collision_layer" "2"
 "collision_mask" "5"
 "ease" "0"
-"point1" "0 0 -128"
-"point2" "0 0 0"
+"point1" "0 0 -8"
 "trans_type" "0"
 "travel_time" "4"
 "wait_time" "0"
-"point3" "0 0 0"
 "path_color" "0 255 255"
 "path_emission" "2"
 // brush 0
@@ -3740,7 +3738,7 @@
 "collision_layer" "2"
 "collision_mask" "5"
 "ease" "0"
-"point1" "0 0 128"
+"point1" "0 0 8"
 "point2" "0 0 0"
 "trans_type" "0"
 "travel_time" "4"
@@ -3800,7 +3798,7 @@
 "collision_layer" "2"
 "collision_mask" "5"
 "ease" "0"
-"point1" "64 0 0"
+"point1" "4 0 0"
 "travel_time" "2"
 "trans_type" "0"
 "path_color" "0 255 255"
@@ -3855,7 +3853,7 @@
 // entity 85
 {
 "classname" "Platforms_PeriodicMoving"
-"point1" "0 64 0"
+"point1" "0 4 0"
 "collision_layer" "2"
 "collision_mask" "5"
 "travel_time" "3"
@@ -3915,7 +3913,7 @@
 "classname" "Platforms_PeriodicMoving"
 "collision_layer" "2"
 "collision_mask" "5"
-"point1" "0 0 128"
+"point1" "0 0 8"
 "travel_time" "4"
 "path_color" "0 255 255"
 "path_emission" "2"
@@ -3974,12 +3972,10 @@
 "collision_layer" "2"
 "collision_mask" "5"
 "ease" "0"
-"point1" "0 0 -128"
-"point2" "0 0 0"
+"point1" "0 0 -8"
 "trans_type" "0"
 "travel_time" "4"
 "wait_time" "0"
-"point3" "0 0 0"
 "path_color" "0 255 255"
 "path_emission" "2"
 // brush 0
@@ -4033,7 +4029,7 @@
 "classname" "Platforms_PeriodicMoving"
 "collision_layer" "2"
 "collision_mask" "5"
-"point1" "64 0 0"
+"point1" "4 0 0"
 "travel_time" "2"
 "path_color" "0 255 255"
 "path_emission" "2"
@@ -4091,7 +4087,7 @@
 "classname" "Platforms_PeriodicMoving"
 "collision_layer" "2"
 "collision_mask" "5"
-"point1" "0 64 0"
+"point1" "0 4 0"
 "travel_time" "3"
 "path_color" "0 255 255"
 "path_emission" "2"
@@ -4150,9 +4146,9 @@
 "collision_layer" "2"
 "collision_mask" "5"
 "travel_time" "3"
-"point1" "0 0 64"
-"point2" "64 0 64"
-"point3" "64 0 0"
+"point1" "0 0 4"
+"point2" "4 0 4"
+"point3" "4 0 0"
 "wait_time" "0"
 "path_color" "0 255 255"
 "path_emission" "2"
@@ -4209,9 +4205,9 @@
 "classname" "Platforms_PeriodicMoving"
 "collision_layer" "2"
 "collision_mask" "5"
-"point1" "64 0 0"
-"point2" "64 0 64"
-"point3" "0 0 64"
+"point1" "4 0 0"
+"point2" "4 0 4"
+"point3" "0 0 4"
 "travel_time" "3"
 "wait_time" "0"
 "path_emission" "2"
@@ -5575,7 +5571,7 @@
 "collision_layer" "2"
 "collision_mask" "5"
 "free_on_open" "1"
-"open_position" "-48 0 0"
+"open_position" "-3 0 0"
 "open_time" "0.5"
 "targetname" "start_door"
 // brush 0
@@ -5591,7 +5587,7 @@
 // entity 159
 {
 "classname" "Doors_StandardDoor"
-"open_position" "48 0 0"
+"open_position" "3 0 0"
 "collision_layer" "2"
 "collision_mask" "5"
 "free_on_open" "1"
@@ -5897,8 +5893,7 @@
 "ease" "0"
 "path_color" "0 255 255"
 "path_emission" "2"
-"point1" "220 35 0"
-"point2" "0 0 0"
+"point1" "13 2.3 0"
 "trans_type" "1"
 "travel_time" "3"
 "wait_time" "5"
@@ -5962,5 +5957,75 @@
 ( -4624 304 0 ) ( -4624 720 0 ) ( -4688 720 0 ) common/material_override/Transparent [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
 ( -4688 720 0 ) ( -4624 720 0 ) ( -4624 496 416 ) common/material_override/Transparent [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
 ( -4624 496 416 ) ( -4624 720 0 ) ( -4624 304 0 ) common/material_override/Transparent [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+}
+// entity 190
+{
+"classname" "DeathGrid"
+// brush 0
+{
+( -9008 368 4256 ) ( -9008 369 4256 ) ( -9008 368 4257 ) common/material_override/death_grid [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 5248 -2992 4256 ) ( 5248 -2992 4257 ) ( 5249 -2992 4256 ) common/material_override/death_grid [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 5248 368 4256 ) ( 5249 368 4256 ) ( 5248 369 4256 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 5296 624 4272 ) ( 5296 625 4272 ) ( 5297 624 4272 ) common/material_override/death_grid [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 5296 4272 4272 ) ( 5297 4272 4272 ) ( 5296 4272 4273 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 7136 624 4272 ) ( 7136 624 4273 ) ( 7136 625 4272 ) common/material_override/death_grid [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+// brush 1
+{
+( -9008 368 4256 ) ( -9008 369 4256 ) ( -9008 368 4257 ) common/material_override/death_grid [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 5248 -3008 4256 ) ( 5248 -3008 4257 ) ( 5249 -3008 4256 ) common/material_override/death_grid [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 5248 368 -2736 ) ( 5249 368 -2736 ) ( 5248 369 -2736 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 5296 624 4272 ) ( 5296 625 4272 ) ( 5297 624 4272 ) common/material_override/death_grid [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 5248 -2992 4256 ) ( 5249 -2992 4256 ) ( 5248 -2992 4257 ) common/material_override/death_grid [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 7136 624 4272 ) ( 7136 624 4273 ) ( 7136 625 4272 ) common/material_override/death_grid [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+}
+// entity 191
+{
+"classname" "DeathGrid"
+// brush 0
+{
+( -9024 368 -2784 ) ( -9024 369 -2784 ) ( -9024 368 -2783 ) common/material_override/death_grid [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 5248 -3008 -2784 ) ( 5248 -3008 -2783 ) ( 5249 -3008 -2784 ) common/material_override/death_grid [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 5248 368 -2736 ) ( 5249 368 -2736 ) ( 5248 369 -2736 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 5296 624 4272 ) ( 5296 625 4272 ) ( 5297 624 4272 ) common/material_override/death_grid [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 5296 4272 -2768 ) ( 5297 4272 -2768 ) ( 5296 4272 -2767 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -9008 368 -2784 ) ( -9008 368 -2783 ) ( -9008 369 -2784 ) common/material_override/death_grid [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+// brush 1
+{
+( -9008 368 -2784 ) ( -9008 369 -2784 ) ( -9008 368 -2783 ) common/material_override/death_grid [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 5248 -2992 -2784 ) ( 5248 -2992 -2783 ) ( 5249 -2992 -2784 ) common/material_override/death_grid [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 5296 624 -2736 ) ( 5297 624 -2736 ) ( 5296 625 -2736 ) common/material_override/death_grid [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 5296 624 -2720 ) ( 5296 625 -2720 ) ( 5297 624 -2720 ) common/material_override/death_grid [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 5296 4272 -2768 ) ( 5297 4272 -2768 ) ( 5296 4272 -2767 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 7136 624 -2768 ) ( 7136 624 -2767 ) ( 7136 625 -2768 ) common/material_override/death_grid [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+}
+// entity 192
+{
+"classname" "DeathGrid"
+// brush 0
+{
+( 7136 368 -2736 ) ( 7136 369 -2736 ) ( 7136 368 -2735 ) common/material_override/death_grid [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 21408 -3008 -2736 ) ( 21408 -3008 -2735 ) ( 21409 -3008 -2736 ) common/material_override/death_grid [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 21408 368 -2736 ) ( 21409 368 -2736 ) ( 21408 369 -2736 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 21456 624 4272 ) ( 21456 625 4272 ) ( 21457 624 4272 ) common/material_override/death_grid [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 21456 4272 -2720 ) ( 21457 4272 -2720 ) ( 21456 4272 -2719 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 7152 368 -2736 ) ( 7152 368 -2735 ) ( 7152 369 -2736 ) common/material_override/death_grid [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+}
+// entity 193
+{
+"classname" "DeathGrid"
+// brush 0
+{
+( -9008 7632 4256 ) ( -9008 7633 4256 ) ( -9008 7632 4257 ) common/material_override/death_grid [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 5248 4256 4256 ) ( 5248 4256 4257 ) ( 5249 4256 4256 ) common/material_override/death_grid [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 5248 7632 -2736 ) ( 5249 7632 -2736 ) ( 5248 7633 -2736 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 5296 7888 4272 ) ( 5296 7889 4272 ) ( 5297 7888 4272 ) common/material_override/death_grid [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 5248 4272 4256 ) ( 5249 4272 4256 ) ( 5248 4272 4257 ) common/material_override/death_grid [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 7136 7888 4272 ) ( 7136 7888 4273 ) ( 7136 7889 4272 ) common/material_override/death_grid [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }

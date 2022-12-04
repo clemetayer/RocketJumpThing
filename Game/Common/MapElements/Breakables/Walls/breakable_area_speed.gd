@@ -46,7 +46,7 @@ func _add_ui_sprite() -> void:
 	add_child(ui)
 	var sprite := Sprite3D.new()
 	sprite.rotation_degrees = _sprite_text_direction
-	sprite.scale = Vector3(15, 15, 1)
+	sprite.scale = Vector3(8, 8, 1)
 	add_child(sprite)
 	sprite.scale = _sprite_scale
 	sprite.texture = ui.get_texture()
@@ -58,7 +58,9 @@ func _add_ui_sprite() -> void:
 func _on_breakable_area_speed_body_entered(body):
 	if FunctionUtils.is_player(body) and body.current_speed >= _treshold:
 		emit_signal("trigger", {"position": body.transform.origin, "speed": body.current_speed})
-		CameraUtils.start_camera_shake(0.6, 13, 0.6, 2.5)
+		CameraUtils.start_camera_shake(
+			CAMERA_SHAKE_DURATION, CAMERA_SHAKE_FREQ, CAMERA_SHAKE_AMP, CAMERA_SHAKE_PRIORITY
+		)
 		if _break_wall_sound != null:
 			_break_wall_sound.play()
 		yield(_break_wall_sound, "finished")

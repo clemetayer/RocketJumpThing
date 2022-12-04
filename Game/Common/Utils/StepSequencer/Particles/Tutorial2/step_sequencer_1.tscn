@@ -14,7 +14,7 @@ gradient = SubResource( 5 )
 direction = Vector3( 1, 1, 1 )
 spread = 180.0
 gravity = Vector3( 0, 0, 0 )
-initial_velocity = 500.0
+initial_velocity = 62.5
 initial_velocity_random = 0.5
 color_ramp = SubResource( 6 )
 
@@ -23,7 +23,7 @@ shader = ExtResource( 1 )
 
 [sub_resource type="PrismMesh" id=2]
 material = SubResource( 4 )
-size = Vector3( 20, 20, 10 )
+size = Vector3( 2.5, 2.5, 1.25 )
 
 [node name="StepSequencer1" type="Particles"]
 emitting = false

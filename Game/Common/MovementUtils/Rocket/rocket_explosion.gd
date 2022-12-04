@@ -4,7 +4,7 @@ extends Area
 ##### VARIABLES #####
 #---- CONSTANTS -----
 const ANIMATIONS = {"explode": "explode"}
-const EXPLOSION_POWER := 15  # power of the explosion
+const EXPLOSION_POWER := 14  # power of the explosion
 
 #---- EXPORTS -----
 export(Vector3) var EXPLOSION_POSITION

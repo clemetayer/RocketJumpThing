@@ -9,9 +9,9 @@ extends Area
 
 ##### VARIABLES #####
 #---- CONSTANTS -----
-const SPEED := 200.0  # travel speed of the rocket
-const RAYCAST_DISTANCE := 200  # maximum distance to detect a floor
-const RAYCAST_PLAN_EXPLODE_DISTANCE := 5  # Distance from a floor where the explosion should be planned (since it's imminent), to be sure that is will explode (high speed makes collision weird)
+const SPEED := 12.5  # travel speed of the rocket
+const RAYCAST_DISTANCE := 12.5  # maximum distance to detect a floor
+const RAYCAST_PLAN_EXPLODE_DISTANCE := 0.3125  # Distance from a floor where the explosion should be planned (since it's imminent), to be sure that is will explode (high speed makes collision weird)
 const EXPLOSION_SCENE := "res://Game/Common/MovementUtils/Rocket/rocket_explosion.tscn"
 #---- EXPORTS -----
 export(Vector3) var START_POS = Vector3(0, 0, 0)
@@ -119,7 +119,7 @@ func _explode(raycast) -> void:
 func _on_Rocket_body_entered(body: Node):
 	if not FunctionUtils.is_player(body) and not _expl_planned:
 		_expl_planned = true
-		onready_paths.raycast.transform.origin.z = -100  # steps back the raycast to get the exact collision point
+		onready_paths.raycast.transform.origin.z = -6.25  # steps back the raycast to get the exact collision point
 		if onready_paths.raycast.is_colliding():
 			_explode(onready_paths.raycast)
 

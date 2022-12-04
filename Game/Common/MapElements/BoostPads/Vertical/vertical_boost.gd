@@ -25,7 +25,7 @@ onready var onready_rocket_tween := Tween.new()  # tween for the boost bonus whe
 ##### PROTECTED METHODS #####
 # ready function to override if necessary
 func _ready_func() -> void:
-	_connect_signals() # exceptionnaly in the ready func, for onready in children
+	_connect_signals()  # exceptionnaly in the ready func, for onready in children
 	add_child(onready_rocket_tween)
 	_set_TB_params()
 	_duplicate_common_elements()

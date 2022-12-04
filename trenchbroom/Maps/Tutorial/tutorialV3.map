@@ -1052,11 +1052,11 @@
 "classname" "Breakables_Area_Speed"
 "collision_layer" "2"
 "collision_mask" "5"
-"treshold" "100"
+"treshold" "8"
 "target" "breakable_wall_1"
 "font_size" "150"
 "text_direction" "0 90 0"
-"scale" "20 20 1"
+"scale" "4 4 1"
 // brush 0
 {
 ( -848 1370 314 ) ( -848 1360 314 ) ( -848 1360 260 ) common/material_override/Transparent [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -1336,7 +1336,7 @@
 // entity 4
 {
 "classname" "Checkpoints_Checkpoint"
-"spawn_position" "0 -5 0"
+"spawn_position" "0 -0.5 0"
 "spawn_rotation" "-90"
 "collision_layer" "2"
 "collision_mask" "5"
@@ -1353,7 +1353,7 @@
 // entity 5
 {
 "classname" "Checkpoints_Checkpoint"
-"spawn_position" "0 -5 0"
+"spawn_position" "0 -0.5 0"
 "spawn_rotation" "-90"
 "collision_layer" "2"
 "collision_mask" "5"
@@ -2333,11 +2333,11 @@
 "classname" "Breakables_Area_Speed"
 "collision_layer" "2"
 "collision_mask" "5"
-"treshold" "200"
+"treshold" "11"
 "target" "breakable_wall_2"
 "font_size" "150"
 "text_direction" "0 180 0"
-"scale" "20 20 1"
+"scale" "4 4 1"
 // brush 0
 {
 ( -26 -1446 320 ) ( -26 -1568 320 ) ( -26 -1568 260 ) common/material_override/Transparent [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -2351,7 +2351,7 @@
 // entity 9
 {
 "classname" "Checkpoints_Checkpoint"
-"spawn_position" "0 -5 0"
+"spawn_position" "0 -0.5 0"
 "spawn_rotation" "0"
 "collision_layer" "2"
 "collision_mask" "5"
@@ -2738,7 +2738,7 @@
 // entity 11
 {
 "classname" "Checkpoints_Checkpoint"
-"spawn_position" "0 -5 0"
+"spawn_position" "0 -0.5 0"
 "spawn_rotation" "90"
 "collision_layer" "2"
 "collision_mask" "5"
@@ -5266,7 +5266,6 @@
 "active_on_signals" "kick"
 "collision_layer" "2"
 "collision_mask" "5"
-"active_on_signals" "kick"
 "active_on_steps" "0"
 "init_index" "0"
 "params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_tunnel_lights.json"
@@ -5313,7 +5312,6 @@
 "active_on_signals" "kick"
 "collision_layer" "2"
 "collision_mask" "5"
-"active_on_signals" "kick"
 "active_on_steps" "1"
 "init_index" "0"
 "params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_tunnel_lights.json"
@@ -5360,7 +5358,6 @@
 "active_on_signals" "kick"
 "collision_layer" "2"
 "collision_mask" "5"
-"active_on_signals" "kick"
 "active_on_steps" "2"
 "init_index" "0"
 "params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_tunnel_lights.json"
@@ -5407,7 +5404,6 @@
 "active_on_signals" "kick"
 "collision_layer" "2"
 "collision_mask" "5"
-"active_on_signals" "kick"
 "active_on_steps" "3"
 "init_index" "0"
 "params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_tunnel_lights.json"
@@ -5454,7 +5450,6 @@
 "active_on_signals" "kick"
 "collision_layer" "2"
 "collision_mask" "5"
-"active_on_signals" "kick"
 "active_on_steps" "0"
 "init_index" "0"
 "params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_tunnel_lights.json"
@@ -5501,7 +5496,6 @@
 "active_on_signals" "kick"
 "collision_layer" "2"
 "collision_mask" "5"
-"active_on_signals" "kick"
 "active_on_steps" "1"
 "init_index" "0"
 "params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_tunnel_lights.json"
@@ -5548,7 +5542,6 @@
 "active_on_signals" "kick"
 "collision_layer" "2"
 "collision_mask" "5"
-"active_on_signals" "kick"
 "active_on_steps" "2"
 "init_index" "0"
 "params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_tunnel_lights.json"
@@ -5595,7 +5588,6 @@
 "active_on_signals" "kick"
 "collision_layer" "2"
 "collision_mask" "5"
-"active_on_signals" "kick"
 "active_on_steps" "3"
 "init_index" "0"
 "params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_tunnel_lights.json"
@@ -5642,7 +5634,6 @@
 "active_on_signals" "kick"
 "collision_layer" "2"
 "collision_mask" "5"
-"active_on_signals" "kick"
 "active_on_steps" "0"
 "init_index" "0"
 "params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_tunnel_lights.json"
@@ -5689,7 +5680,6 @@
 "active_on_signals" "kick"
 "collision_layer" "2"
 "collision_mask" "5"
-"active_on_signals" "kick"
 "active_on_steps" "1"
 "init_index" "0"
 "params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_tunnel_lights.json"
@@ -5736,7 +5726,6 @@
 "active_on_signals" "kick"
 "collision_layer" "2"
 "collision_mask" "5"
-"active_on_signals" "kick"
 "active_on_steps" "2"
 "init_index" "0"
 "params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_tunnel_lights.json"
@@ -5783,7 +5772,6 @@
 "active_on_signals" "kick"
 "collision_layer" "2"
 "collision_mask" "5"
-"active_on_signals" "kick"
 "active_on_steps" "3"
 "init_index" "0"
 "params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_tunnel_lights.json"
@@ -5830,7 +5818,6 @@
 "active_on_signals" "kick"
 "collision_layer" "2"
 "collision_mask" "5"
-"active_on_signals" "kick"
 "active_on_steps" "0"
 "init_index" "0"
 "params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_tunnel_lights.json"
@@ -5877,7 +5864,6 @@
 "active_on_signals" "kick"
 "collision_layer" "2"
 "collision_mask" "5"
-"active_on_signals" "kick"
 "active_on_steps" "1"
 "init_index" "0"
 "params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_tunnel_lights.json"
@@ -5924,7 +5910,6 @@
 "active_on_signals" "kick"
 "collision_layer" "2"
 "collision_mask" "5"
-"active_on_signals" "kick"
 "active_on_steps" "2"
 "init_index" "0"
 "params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_tunnel_lights.json"
@@ -5971,7 +5956,6 @@
 "active_on_signals" "kick"
 "collision_layer" "2"
 "collision_mask" "5"
-"active_on_signals" "kick"
 "active_on_steps" "0"
 "init_index" "0"
 "params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_tunnel_lights.json"
@@ -6018,7 +6002,6 @@
 "active_on_signals" "kick"
 "collision_layer" "2"
 "collision_mask" "5"
-"active_on_signals" "kick"
 "active_on_steps" "1"
 "init_index" "0"
 "params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_tunnel_lights.json"
@@ -6109,7 +6092,6 @@
 "active_on_signals" "kick"
 "collision_layer" "2"
 "collision_mask" "5"
-"active_on_signals" "kick"
 "active_on_steps" "3"
 "init_index" "0"
 "params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_tunnel_lights.json"
@@ -6200,7 +6182,6 @@
 "active_on_signals" "kick"
 "collision_layer" "2"
 "collision_mask" "5"
-"active_on_signals" "kick"
 "active_on_steps" "1"
 "init_index" "0"
 "params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_tunnel_lights.json"
@@ -6291,7 +6272,6 @@
 "active_on_signals" "kick"
 "collision_layer" "2"
 "collision_mask" "5"
-"active_on_signals" "kick"
 "active_on_steps" "3"
 "init_index" "0"
 "params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_tunnel_lights.json"
@@ -13690,7 +13670,7 @@
 "origin" "-730 2902 340"
 "color" "0 255 200"
 "energy" "1"
-"range" "150"
+"range" "9.5"
 "specular" "0.5"
 "shadow_enabled" "0"
 "shadow_mode" "1"
@@ -13701,7 +13681,7 @@
 "origin" "-814 2566 326"
 "color" "0 255 200"
 "energy" ".5"
-"range" "150"
+"range" "9.5"
 "specular" "0"
 "shadow_enabled" "0"
 "shadow_mode" "0"
@@ -13712,7 +13692,7 @@
 "origin" "-814 1926 326"
 "color" "0 255 200"
 "energy" ".5"
-"range" "150"
+"range" "9.5"
 "specular" "0"
 "shadow_enabled" "0"
 "shadow_mode" "0"
@@ -13723,7 +13703,7 @@
 "origin" "-814 1286 326"
 "color" "0 255 200"
 "energy" ".5"
-"range" "150"
+"range" "9.5"
 "specular" "0"
 "shadow_enabled" "0"
 "shadow_mode" "0"
@@ -13734,7 +13714,7 @@
 "origin" "-814 646 326"
 "color" "0 255 200"
 "energy" ".5"
-"range" "150"
+"range" "9.5"
 "specular" "0"
 "shadow_enabled" "0"
 "shadow_mode" "0"
@@ -13745,7 +13725,7 @@
 "origin" "-814 326 326"
 "color" "0 255 200"
 "energy" ".5"
-"range" "150"
+"range" "9.5"
 "specular" "0"
 "shadow_enabled" "0"
 "shadow_mode" "0"
@@ -13877,7 +13857,7 @@
 "origin" "1074 -490 326"
 "color" "0 255 200"
 "energy" ".5"
-"range" "150"
+"range" "9.5"
 "shadow_mode" "0"
 "shadow_enabled" "0"
 "specular" "0"
@@ -13888,7 +13868,7 @@
 "origin" "1282 -106 326"
 "color" "0 255 200"
 "energy" ".5"
-"range" "150"
+"range" "9.5"
 "shadow_mode" "0"
 "shadow_enabled" "0"
 "specular" "0"
@@ -13899,7 +13879,7 @@
 "origin" "1618 -10 326"
 "color" "0 255 200"
 "energy" ".5"
-"range" "150"
+"range" "9.5"
 "shadow_mode" "0"
 "shadow_enabled" "0"
 "specular" "0"
@@ -13910,7 +13890,7 @@
 "origin" "2002 -10 326"
 "color" "0 255 200"
 "energy" ".5"
-"range" "150"
+"range" "10"
 "shadow_mode" "0"
 "shadow_enabled" "0"
 "specular" "0"
@@ -13921,7 +13901,7 @@
 "origin" "2418 -10 326"
 "color" "0 255 200"
 "energy" ".5"
-"range" "175"
+"range" "10.5"
 "shadow_mode" "0"
 "shadow_enabled" "0"
 "specular" "0"
@@ -13932,7 +13912,7 @@
 "origin" "2786 -10 326"
 "color" "0 255 200"
 "energy" ".5"
-"range" "250"
+"range" "12"
 "shadow_mode" "0"
 "shadow_enabled" "0"
 "specular" "0"
@@ -14257,7 +14237,7 @@
 // entity 149
 {
 "classname" "Checkpoints_Checkpoint"
-"spawn_position" "0 -10 0"
+"spawn_position" "0 -0.75 0"
 "spawn_rotation" "0"
 "collision_layer" "2"
 "collision_mask" "5"
@@ -14274,7 +14254,7 @@
 // entity 150
 {
 "classname" "Checkpoints_Checkpoint"
-"spawn_position" "0 -7 0"
+"spawn_position" "0 -0.4 0"
 "spawn_rotation" "-90"
 "collision_layer" "2"
 "collision_mask" "5"
@@ -14291,7 +14271,7 @@
 // entity 151
 {
 "classname" "Checkpoints_Checkpoint"
-"spawn_position" "0 -7 0"
+"spawn_position" "0 -0.4 0"
 "spawn_rotation" "-90"
 "collision_layer" "2"
 "collision_mask" "5"
@@ -14308,7 +14288,7 @@
 // entity 152
 {
 "classname" "Checkpoints_Checkpoint"
-"spawn_position" "0 -7 0"
+"spawn_position" "0 -0.4 0"
 "spawn_rotation" "0"
 "collision_layer" "2"
 "collision_mask" "5"
@@ -14325,7 +14305,7 @@
 // entity 153
 {
 "classname" "Checkpoints_Checkpoint"
-"spawn_position" "0 -7 0"
+"spawn_position" "0 -0.4 0"
 "spawn_rotation" "90"
 "collision_layer" "2"
 "collision_mask" "5"
@@ -14342,7 +14322,7 @@
 // entity 154
 {
 "classname" "Checkpoints_Checkpoint"
-"spawn_position" "0 -7 0"
+"spawn_position" "0 -0.4 0"
 "spawn_rotation" "-90"
 "collision_layer" "2"
 "collision_mask" "5"
@@ -14359,7 +14339,7 @@
 // entity 155
 {
 "classname" "Checkpoints_Checkpoint"
-"spawn_position" "0 -11 0"
+"spawn_position" "0 -0.6 0"
 "spawn_rotation" "90"
 "collision_layer" "2"
 "collision_mask" "5"
@@ -14488,7 +14468,6 @@
 {
 "classname" "RythmElements_Sequencers_Spatial"
 "active_on_signals" "kick"
-
 "active_on_steps" "0"
 "init_index" "0"
 "params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_place_lights.json"
@@ -14521,7 +14500,7 @@
 "origin" "1074 -842 326"
 "color" "0 255 200"
 "energy" ".5"
-"range" "150"
+"range" "9.5"
 "shadow_mode" "0"
 "shadow_enabled" "0"
 "specular" "0"
@@ -14532,7 +14511,7 @@
 "origin" "-814 918 326"
 "color" "0 255 200"
 "energy" ".5"
-"range" "150"
+"range" "9.5"
 "shadow_enabled" "0"
 "specular" "0"
 "shadow_mode" "0"
@@ -14543,7 +14522,7 @@
 "origin" "-814 1606 326"
 "color" "0 255 200"
 "energy" ".5"
-"range" "150"
+"range" "9.5"
 "specular" "0"
 "shadow_enabled" "0"
 "shadow_mode" "0"
@@ -14554,7 +14533,7 @@
 "origin" "-814 2262 326"
 "color" "0 255 200"
 "energy" ".5"
-"range" "150"
+"range" "9.5"
 "specular" "0"
 "shadow_enabled" "0"
 "shadow_mode" "0"
@@ -14565,7 +14544,7 @@
 "origin" "3790 -22 554"
 "color" "20 255 255"
 "energy" "1"
-"range" "200"
+"range" "7"
 "shadow_mode" "1"
 "shadow_enabled" "0"
 "specular" "0.5"
@@ -14576,7 +14555,7 @@
 "origin" "3438 -22 378"
 "color" "0 170 255"
 "energy" ".5"
-"range" "400"
+"range" "18"
 "shadow_mode" "1"
 "shadow_enabled" "0"
 "specular" "0.5"
@@ -14587,7 +14566,7 @@
 "origin" "4046 698 554"
 "color" "20 255 255"
 "energy" "1"
-"range" "400"
+"range" "18"
 "shadow_mode" "1"
 "shadow_enabled" "0"
 "specular" "0.5"
@@ -14883,7 +14862,7 @@
 "origin" "4050 -686 526"
 "color" "0 255 220"
 "energy" ".5"
-"range" "250"
+"range" "10.5"
 "shadow_mode" "1"
 "shadow_enabled" "0"
 "specular" "0.5"
@@ -14894,7 +14873,7 @@
 "origin" "4290 -830 526"
 "color" "0 255 220"
 "energy" ".5"
-"range" "250"
+"range" "10.5"
 "shadow_mode" "1"
 "shadow_enabled" "0"
 "specular" "0.5"
@@ -14916,7 +14895,7 @@
 "origin" "5570 -830 270"
 "color" "0 255 220"
 "energy" ".5"
-"range" "250"
+"range" "10.5"
 "shadow_mode" "1"
 "shadow_enabled" "0"
 "specular" "0.5"
@@ -14927,7 +14906,7 @@
 "origin" "6018 -830 270"
 "color" "0 255 220"
 "energy" ".5"
-"range" "250"
+"range" "10.5"
 "shadow_mode" "1"
 "shadow_enabled" "0"
 "specular" "0.5"
@@ -14938,7 +14917,7 @@
 "origin" "6018 -350 270"
 "color" "0 255 220"
 "energy" ".5"
-"range" "250"
+"range" "10.5"
 "shadow_mode" "1"
 "shadow_enabled" "0"
 "specular" "0.5"
@@ -14949,7 +14928,7 @@
 "origin" "6178 210 190"
 "color" "0 255 220"
 "energy" ".5"
-"range" "250"
+"range" "10.5"
 "shadow_mode" "1"
 "shadow_enabled" "0"
 "specular" "0.5"
@@ -14960,7 +14939,7 @@
 "origin" "6178 258 -370"
 "color" "0 0 255"
 "energy" ".5"
-"range" "250"
+"range" "10.5"
 "shadow_enabled" "0"
 "shadow_mode" "1"
 "specular" "0.5"
@@ -14971,7 +14950,7 @@
 "origin" "6178 770 -274"
 "color" "110 210 255"
 "energy" "1"
-"range" "250"
+"range" "10.5"
 "shadow_enabled" "0"
 "shadow_mode" "1"
 "specular" "0.5"
@@ -14982,7 +14961,7 @@
 "origin" "6298 1302 -214"
 "color" "110 210 255"
 "energy" "1"
-"range" "500"
+"range" "20"
 "shadow_enabled" "0"
 "shadow_mode" "1"
 "specular" "0.5"
@@ -17239,7 +17218,7 @@
 "origin" "8334 202 -102"
 "color" "20 255 255"
 "energy" "1"
-"range" "500"
+"range" "20"
 "shadow_mode" "1"
 "shadow_enabled" "0"
 "specular" "0.5"
@@ -17250,7 +17229,7 @@
 "origin" "8510 602 -102"
 "color" "20 255 255"
 "energy" "1"
-"range" "500"
+"range" "20"
 "shadow_mode" "1"
 "shadow_enabled" "0"
 "specular" "0.5"
@@ -17261,7 +17240,7 @@
 "origin" "8158 602 -102"
 "color" "20 255 255"
 "energy" "1"
-"range" "500"
+"range" "20"
 "shadow_mode" "1"
 "shadow_enabled" "0"
 "specular" "0.5"
@@ -17272,7 +17251,7 @@
 "origin" "8334 -470 -102"
 "color" "20 255 255"
 "energy" "1"
-"range" "500"
+"range" "20"
 "shadow_mode" "1"
 "shadow_enabled" "0"
 "specular" "0.5"
@@ -17283,7 +17262,7 @@
 "origin" "8334 -1046 26"
 "color" "20 255 255"
 "energy" "1"
-"range" "500"
+"range" "20"
 "shadow_mode" "1"
 "shadow_enabled" "0"
 "specular" "0.5"
@@ -17294,7 +17273,7 @@
 "origin" "8478 -1286 26"
 "color" "20 255 255"
 "energy" "1"
-"range" "500"
+"range" "20"
 "shadow_mode" "1"
 "shadow_enabled" "0"
 "specular" "0.5"
@@ -17305,7 +17284,7 @@
 "origin" "8830 -1286 26"
 "color" "20 255 255"
 "energy" "1"
-"range" "500"
+"range" "20"
 "shadow_mode" "1"
 "shadow_enabled" "0"
 "specular" "0.5"
@@ -17316,7 +17295,7 @@
 "origin" "9070 -966 26"
 "color" "20 255 255"
 "energy" "1"
-"range" "500"
+"range" "20"
 "shadow_mode" "1"
 "shadow_enabled" "0"
 "specular" "0.5"
@@ -17327,7 +17306,7 @@
 "origin" "9070 -582 26"
 "color" "20 255 255"
 "energy" "1"
-"range" "500"
+"range" "20"
 "shadow_mode" "1"
 "shadow_enabled" "0"
 "specular" "0.5"
@@ -17338,7 +17317,7 @@
 "origin" "9070 -22 58"
 "color" "20 255 255"
 "energy" "1"
-"range" "500"
+"range" "20"
 "shadow_mode" "1"
 "shadow_enabled" "0"
 "specular" "0.5"
@@ -17349,7 +17328,7 @@
 "origin" "9662 -6 138"
 "color" "20 255 255"
 "energy" "1"
-"range" "500"
+"range" "20"
 "shadow_mode" "1"
 "shadow_enabled" "0"
 "specular" "0.5"
@@ -17360,7 +17339,7 @@
 "origin" "10270 -6 266"
 "color" "20 255 255"
 "energy" "1"
-"range" "500"
+"range" "20"
 "shadow_mode" "1"
 "shadow_enabled" "0"
 "specular" "0.5"
@@ -17371,7 +17350,7 @@
 "origin" "11630 -6 506"
 "color" "20 255 255"
 "energy" "1"
-"range" "500"
+"range" "20"
 "shadow_mode" "1"
 "shadow_enabled" "0"
 "specular" "0.5"
@@ -17393,7 +17372,7 @@
 "origin" "10926 -6 442"
 "color" "20 255 255"
 "energy" "1"
-"range" "500"
+"range" "20"
 "shadow_mode" "1"
 "shadow_enabled" "0"
 "specular" "0.5"
@@ -36250,7 +36229,6 @@
 "active_on_signals" "kick"
 "collision_layer" "2"
 "collision_mask" "5"
-"active_on_signals" "kick"
 "active_on_steps" "3"
 "init_index" "0"
 "params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_tunnel_lights.json"
@@ -36438,5 +36416,183 @@
 ( 2592 112 356 ) ( 2560 -112 356 ) ( 2560 112 356 ) common/material_override/Transparent [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
 ( 2592 112 356 ) ( 2560 112 260 ) ( 2592 112 260 ) common/material_override/Transparent [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
 ( 2624 112 356 ) ( 2624 -112 260 ) ( 2624 -112 356 ) common/material_override/Transparent [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+}
+// entity 294
+{
+"classname" "Tutorial1_HexagonalPit"
+"origin" "6176 260 -408"
+}
+// entity 295
+{
+"classname" "Tutorial1_Buildings"
+"origin" "7376 1184 -237.39"
+}
+// entity 296
+{
+"classname" "Tutorial1_Buildings"
+"origin" "7760 1068 -286"
+}
+// entity 297
+{
+"classname" "Tutorial1_UpTriangles"
+"origin" "4392 312 248"
+}
+// entity 298
+{
+"classname" "Tutorial1_UpTriangles"
+"origin" "4392 -312 248"
+}
+// entity 299
+{
+"classname" "DeathGrid"
+"collision_layer" "2"
+"collision_mask" "5"
+// brush 0
+{
+( -2576 0 -144 ) ( -2576 1 -144 ) ( -2576 0 -143 ) common/material_override/death_grid [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 3072 -2448 -144 ) ( 3072 -2448 -143 ) ( 3073 -2448 -144 ) common/material_override/death_grid [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 3072 0 -144 ) ( 3073 0 -144 ) ( 3072 1 -144 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 3104 96 -128 ) ( 3104 97 -128 ) ( 3105 96 -128 ) common/material_override/death_grid [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 3104 3584 -128 ) ( 3105 3584 -128 ) ( 3104 3584 -127 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 3104 96 -128 ) ( 3104 96 -127 ) ( 3104 97 -128 ) common/material_override/death_grid [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+// brush 1
+{
+( -2592 0 -144 ) ( -2592 1 -144 ) ( -2592 0 -143 ) common/material_override/death_grid [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 3072 -2448 -144 ) ( 3072 -2448 -143 ) ( 3073 -2448 -144 ) common/material_override/death_grid [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 3072 0 -144 ) ( 3073 0 -144 ) ( 3072 1 -144 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 3104 96 688 ) ( 3104 97 688 ) ( 3105 96 688 ) common/material_override/death_grid [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 3104 3584 -128 ) ( 3105 3584 -128 ) ( 3104 3584 -127 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -2576 0 -144 ) ( -2576 0 -143 ) ( -2576 1 -144 ) common/material_override/death_grid [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+// brush 2
+{
+( 3104 96 -128 ) ( 3104 97 -128 ) ( 3104 96 -127 ) common/material_override/death_grid [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 3072 -2448 -144 ) ( 3072 -2448 -143 ) ( 3073 -2448 -144 ) common/material_override/death_grid [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 3072 0 -1088 ) ( 3073 0 -1088 ) ( 3072 1 -1088 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 3104 96 -128 ) ( 3104 97 -128 ) ( 3105 96 -128 ) common/material_override/death_grid [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 3104 3584 -128 ) ( 3105 3584 -128 ) ( 3104 3584 -127 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 3120 96 -128 ) ( 3120 96 -127 ) ( 3120 97 -128 ) common/material_override/death_grid [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+// brush 3
+{
+( 3104 96 -128 ) ( 3104 97 -128 ) ( 3104 96 -127 ) common/material_override/death_grid [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 3072 -2448 -144 ) ( 3072 -2448 -143 ) ( 3073 -2448 -144 ) common/material_override/death_grid [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 3072 0 -1104 ) ( 3073 0 -1104 ) ( 3072 1 -1104 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 3072 0 -1088 ) ( 3072 1 -1088 ) ( 3073 0 -1088 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 3104 3584 -128 ) ( 3105 3584 -128 ) ( 3104 3584 -127 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 19008 96 -128 ) ( 19008 96 -127 ) ( 19008 97 -128 ) common/material_override/death_grid [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+// brush 4
+{
+( 19008 96 -128 ) ( 19008 97 -128 ) ( 19008 96 -127 ) common/material_override/death_grid [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 3072 -2448 -144 ) ( 3072 -2448 -143 ) ( 3073 -2448 -144 ) common/material_override/death_grid [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 3072 0 -1104 ) ( 3073 0 -1104 ) ( 3072 1 -1104 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 3072 0 4880 ) ( 3072 1 4880 ) ( 3073 0 4880 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 3104 3584 -128 ) ( 3105 3584 -128 ) ( 3104 3584 -127 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 19024 96 -128 ) ( 19024 96 -127 ) ( 19024 97 -128 ) common/material_override/death_grid [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+}
+// entity 300
+{
+"classname" "DeathGrid"
+"collision_layer" "2"
+"collision_mask" "5"
+// brush 0
+{
+( -2576 0 672 ) ( -2576 1 672 ) ( -2576 0 673 ) common/material_override/death_grid [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 3072 -2448 672 ) ( 3072 -2448 673 ) ( 3073 -2448 672 ) common/material_override/death_grid [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 3072 0 672 ) ( 3073 0 672 ) ( 3072 1 672 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 3104 96 688 ) ( 3104 97 688 ) ( 3105 96 688 ) common/material_override/death_grid [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 3104 3584 688 ) ( 3105 3584 688 ) ( 3104 3584 689 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 3104 96 688 ) ( 3104 96 689 ) ( 3104 97 688 ) common/material_override/death_grid [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+// brush 1
+{
+( -2576 0 672 ) ( -2576 1 672 ) ( -2576 0 673 ) common/material_override/death_grid [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 3072 -2464 672 ) ( 3072 -2464 673 ) ( 3073 -2464 672 ) common/material_override/death_grid [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 3072 0 -144 ) ( 3073 0 -144 ) ( 3072 1 -144 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 3104 96 688 ) ( 3104 97 688 ) ( 3105 96 688 ) common/material_override/death_grid [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 3072 -2448 672 ) ( 3073 -2448 672 ) ( 3072 -2448 673 ) common/material_override/death_grid [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 3104 96 688 ) ( 3104 96 689 ) ( 3104 97 688 ) common/material_override/death_grid [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+// brush 2
+{
+( 3104 96 688 ) ( 3104 97 688 ) ( 3104 96 689 ) common/material_override/death_grid [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 3072 -2448 672 ) ( 3072 -2448 673 ) ( 3073 -2448 672 ) common/material_override/death_grid [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 3072 0 672 ) ( 3073 0 672 ) ( 3072 1 672 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 3104 96 4864 ) ( 3104 97 4864 ) ( 3105 96 4864 ) common/material_override/death_grid [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 3104 3584 688 ) ( 3105 3584 688 ) ( 3104 3584 689 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 3120 96 688 ) ( 3120 96 689 ) ( 3120 97 688 ) common/material_override/death_grid [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+// brush 3
+{
+( 3104 96 688 ) ( 3104 97 688 ) ( 3104 96 689 ) common/material_override/death_grid [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 3104 3584 688 ) ( 3104 3584 689 ) ( 3105 3584 688 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 3072 0 -1104 ) ( 3073 0 -1104 ) ( 3072 1 -1104 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 3104 96 4880 ) ( 3104 97 4880 ) ( 3105 96 4880 ) common/material_override/death_grid [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 3104 3600 688 ) ( 3105 3600 688 ) ( 3104 3600 689 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 19008 96 688 ) ( 19008 96 689 ) ( 19008 97 688 ) common/material_override/death_grid [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+}
+// entity 301
+{
+"classname" "DeathGrid"
+"collision_layer" "2"
+"collision_mask" "5"
+// brush 0
+{
+( -2576 6048 672 ) ( -2576 6049 672 ) ( -2576 6048 673 ) common/material_override/death_grid [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 3072 3584 672 ) ( 3072 3584 673 ) ( 3073 3584 672 ) common/material_override/death_grid [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 3072 6048 -144 ) ( 3073 6048 -144 ) ( 3072 6049 -144 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 3104 6144 688 ) ( 3104 6145 688 ) ( 3105 6144 688 ) common/material_override/death_grid [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 3072 3600 672 ) ( 3073 3600 672 ) ( 3072 3600 673 ) common/material_override/death_grid [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 3104 6144 688 ) ( 3104 6144 689 ) ( 3104 6145 688 ) common/material_override/death_grid [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+}
+// entity 302
+{
+"classname" "DeathGrid"
+"collision_layer" "2"
+"collision_mask" "5"
+// brush 0
+{
+( 3104 96 5840 ) ( 3104 97 5840 ) ( 3104 96 5841 ) common/material_override/death_grid [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 3072 -2448 5824 ) ( 3072 -2448 5825 ) ( 3073 -2448 5824 ) common/material_override/death_grid [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 3072 0 4864 ) ( 3073 0 4864 ) ( 3072 1 4864 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 3072 0 4880 ) ( 3072 1 4880 ) ( 3073 0 4880 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 3104 3584 5840 ) ( 3105 3584 5840 ) ( 3104 3584 5841 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 19008 96 5840 ) ( 19008 96 5841 ) ( 19008 97 5840 ) common/material_override/death_grid [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+}
+// entity 303
+{
+"classname" "DeathGrid"
+"collision_layer" "2"
+"collision_mask" "5"
+// brush 0
+{
+( 3104 96 704 ) ( 3104 97 704 ) ( 3104 96 705 ) common/material_override/death_grid [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 3104 3584 704 ) ( 3104 3584 705 ) ( 3105 3584 704 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 3072 0 -1088 ) ( 3073 0 -1088 ) ( 3072 1 -1088 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 3104 96 4896 ) ( 3104 97 4896 ) ( 3105 96 4896 ) common/material_override/death_grid [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 3104 3600 704 ) ( 3105 3600 704 ) ( 3104 3600 705 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 19008 96 704 ) ( 19008 96 705 ) ( 19008 97 704 ) common/material_override/death_grid [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+}
+// entity 304
+{
+"classname" "DeathGrid"
+"collision_layer" "2"
+"collision_mask" "5"
+// brush 0
+{
+( 3104 -5952 688 ) ( 3104 -5951 688 ) ( 3104 -5952 689 ) common/material_override/death_grid [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 3104 -2464 688 ) ( 3104 -2464 689 ) ( 3105 -2464 688 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 3072 -6048 -1104 ) ( 3073 -6048 -1104 ) ( 3072 -6047 -1104 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 3104 -5952 4880 ) ( 3104 -5951 4880 ) ( 3105 -5952 4880 ) common/material_override/death_grid [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 3104 -2448 688 ) ( 3105 -2448 688 ) ( 3104 -2448 689 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 19008 -5952 688 ) ( 19008 -5952 689 ) ( 19008 -5951 688 ) common/material_override/death_grid [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }

@@ -12,7 +12,7 @@ onready var onready_paths := {
 
 ##### PUBLIC METHODS #####
 func set_speed(pspeed: float):
-	speed = round(pspeed)
+	speed = stepify(pspeed, 0.01)
 	_set_speed_text()
 
 

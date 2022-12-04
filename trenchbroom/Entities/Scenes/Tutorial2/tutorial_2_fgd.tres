@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=27 format=2]
+[gd_resource type="Resource" load_steps=28 format=2]
 
 [ext_resource path="res://trenchbroom/Entities/Scenes/Tutorial2/geometric_shape_emitter.tres" type="Resource" id=1]
 [ext_resource path="res://trenchbroom/Entities/area_death.tres" type="Resource" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://trenchbroom/Entities/Player/player_point_class.tres" type="Resource" id=14]
 [ext_resource path="res://trenchbroom/Entities/RythmElements/Sequencers/base.tres" type="Resource" id=15]
 [ext_resource path="res://trenchbroom/Entities/RythmElements/Sequencers/spatial.tres" type="Resource" id=16]
+[ext_resource path="res://trenchbroom/Entities/DeathGrid/death_grid.tres" type="Resource" id=17]
 [ext_resource path="res://trenchbroom/Entities/RythmElements/Sequencers/Particles/Tutorial2/sequencer_particles_tutorial_2.tres" type="Resource" id=18]
 [ext_resource path="res://trenchbroom/Entities/Checkpoints/checkpoint.tres" type="Resource" id=19]
 [ext_resource path="res://trenchbroom/Entities/Lights/omni_light.tres" type="Resource" id=20]
@@ -33,4 +34,4 @@ export_file = false
 target_folder = "/home/clemetayer/.TrenchBroom/games/RocketJumpThing"
 fgd_name = "tutorial_2_fgd"
 base_fgd_files = [  ]
-entity_definitions = [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 4 ), ExtResource( 10 ), ExtResource( 8 ), ExtResource( 6 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 9 ), ExtResource( 3 ), ExtResource( 11 ), ExtResource( 7 ), ExtResource( 21 ), ExtResource( 25 ), ExtResource( 19 ), ExtResource( 26 ), ExtResource( 24 ), ExtResource( 27 ), ExtResource( 22 ), ExtResource( 20 ), ExtResource( 23 ), ExtResource( 18 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 12 ) ]
+entity_definitions = [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 4 ), ExtResource( 10 ), ExtResource( 8 ), ExtResource( 6 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 9 ), ExtResource( 3 ), ExtResource( 11 ), ExtResource( 7 ), ExtResource( 21 ), ExtResource( 25 ), ExtResource( 19 ), ExtResource( 26 ), ExtResource( 24 ), ExtResource( 27 ), ExtResource( 22 ), ExtResource( 20 ), ExtResource( 23 ), ExtResource( 18 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 12 ), ExtResource( 17 ) ]

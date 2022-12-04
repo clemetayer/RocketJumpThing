@@ -26,6 +26,8 @@ func after():
 #---- TESTS -----
 #==== ACTUAL TESTS =====
 func test_set_speed() -> void:
-	player_ui.set_speed(100.6)
-	assert_float(player_ui.speed).is_equal(101)
-	assert_str(player_ui.get_node("Screen/MarginScreen/CenterScreen/SpeedContainer/SpeedText").get_bbcode()).is_equal(TextUtils.BBCode_center_text(tr(TranslationKeys.PLAYER_UI_SPEED % "101")))
+	player_ui.set_speed(100.638)
+	assert_float(player_ui.speed).is_equal(100.64)
+	assert_str(player_ui.get_node("Screen/MarginScreen/CenterScreen/SpeedContainer/SpeedText").get_bbcode()).is_equal(
+		TextUtils.BBCode_center_text(tr(TranslationKeys.PLAYER_UI_SPEED) % "100.64")
+	)

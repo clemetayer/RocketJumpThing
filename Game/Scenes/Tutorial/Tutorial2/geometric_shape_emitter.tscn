@@ -20,7 +20,7 @@ curve = SubResource( 2416 )
 direction = Vector3( 0, -1, 0 )
 spread = 0.0
 gravity = Vector3( 0, 0, 0 )
-initial_velocity = -5.0
+initial_velocity = -0.32
 scale = 2.5
 scale_curve = SubResource( 2417 )
 color_ramp = SubResource( 2413 )
@@ -36,7 +36,7 @@ shader_param/size_divider = 1.0
 
 [sub_resource type="CubeMesh" id=2409]
 material = SubResource( 2408 )
-size = Vector3( 5, 0, 5 )
+size = Vector3( 0.313, 0, 0.313 )
 
 [node name="GeometricShapeEmitter" type="Particles"]
 transform = Transform( 40, 0, 0, 0, 40, 0, 0, 0, 40, 0, 0, 0 )

@@ -9,6 +9,8 @@ signal respawn_player_on_last_cp
 signal trigger_tutorial(key, time)
 #warning-ignore:UNUSED_SIGNAL
 signal speed_updated(speed)
+#warning-ignore:UNUSED_SIGNAL
+signal position_updated(position)
 
 #==== MAP =====
 #warning-ignore:UNUSED_SIGNAL
@@ -38,6 +40,7 @@ signal add_cfg_popup(cfg_path, cfg)
 const RESPAWN_PLAYER_ON_LAST_CP := "respawn_player_on_last_cp"
 const TRIGGER_TUTORIAL := "trigger_tutorial"
 const SPEED_UPDATED := "speed_updated"
+const POSITION_UPDATED := "position_updated"
 
 #==== MAP =====
 const CHECKPOINT_TRIGGERED := "checkpoint_triggered"
@@ -67,6 +70,10 @@ func emit_trigger_tutorial(key: String, time: float) -> void:
 
 func emit_speed_updated(speed: float) -> void:
 	emit_signal(SPEED_UPDATED, speed)
+
+
+func emit_position_updated(position: Vector3) -> void:
+	emit_signal(POSITION_UPDATED, position)
 
 
 #==== MAP =====

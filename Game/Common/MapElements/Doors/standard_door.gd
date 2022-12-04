@@ -26,19 +26,10 @@ func _open() -> void:
 	if not _opening and not _state == state.opened:
 		var tween := Tween.new()
 		add_child(tween)
-		if !tween.interpolate_property(
-			self, "translation", translation, translation + _open_position, _open_time
-		):
-			Logger.error(
-				(
-					"Error while setting tween interpolate property %s at %s"
-					% ["translation", DebugUtils.print_stack_trace(get_stack())]
-				)
-			)
-		if !tween.start():
-			Logger.error(
-				"Error when starting tween at %s" % [DebugUtils.print_stack_trace(get_stack())]
-			)
+		DebugUtils.log_tween_interpolate_property(
+			tween, self, "translation", translation, translation + _open_position, _open_time
+		)
+		DebugUtils.log_tween_start(tween)
 		_opening = true
 		yield(tween, "tween_all_completed")
 		_opening = false

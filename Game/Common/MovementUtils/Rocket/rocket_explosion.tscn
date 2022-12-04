@@ -4,7 +4,7 @@
 [ext_resource path="res://Misc/Audio/FX/Rocket/RocketExplosion.wav" type="AudioStream" id=2]
 
 [sub_resource type="SphereShape" id=1]
-radius = 8.0
+radius = 0.5
 
 [sub_resource type="SpatialMaterial" id=7]
 flags_transparent = true
@@ -24,8 +24,8 @@ gradient = SubResource( 5 )
 [sub_resource type="ParticlesMaterial" id=3]
 direction = Vector3( 0, 1, 0 )
 spread = 180.0
-gravity = Vector3( 0, -30, 0 )
-initial_velocity = 35.0
+gravity = Vector3( 0, -1.875, 0 )
+initial_velocity = 2.19
 initial_velocity_random = 0.5
 angular_velocity = 720.0
 angle = 720.0
@@ -38,6 +38,10 @@ vertex_color_use_as_albedo = true
 
 [sub_resource type="SphereMesh" id=2]
 material = SubResource( 4 )
+radius = 0.063
+height = 0.125
+radial_segments = 32
+rings = 16
 
 [sub_resource type="Animation" id=9]
 length = 0.001
@@ -114,7 +118,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 0.2, 1 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ 0.001, 8.0, 8.0 ]
+"values": [ 0.001, 0.5, 0.5 ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("ExplosionMesh:mesh:height")
@@ -126,7 +130,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0, 0.2, 1 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ 0.001, 16.0, 16.0 ]
+"values": [ 0.001, 1.0, 1.0 ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("ExplosionMesh:mesh:material:albedo_color")
@@ -151,10 +155,8 @@ shape = SubResource( 1 )
 
 [node name="ExplosionMesh" type="MeshInstance" parent="."]
 mesh = SubResource( 8 )
-material/0 = null
 
 [node name="ExplosionParticles" type="Particles" parent="."]
-emitting = false
 amount = 128
 one_shot = true
 explosiveness = 1.0

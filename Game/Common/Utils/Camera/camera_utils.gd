@@ -37,9 +37,7 @@ func _ready():
 ##### PUBLIC METHODS #####
 # starts the camera shake
 # very inspired from https://www.codingkaiju.com/tutorials/screen-shake-in-godot-the-best-way/
-func start_camera_shake(
-	duration = 1.0, frequency = 15, amplitude = 1.0, priority = 0, amplitude_divider = 2.0
-) -> void:
+func start_camera_shake(duration = 1.0, frequency = 15, amplitude = 1.0, priority = 0) -> void:
 	_camera = get_viewport().get_camera()
 	_original_offset = Vector2(_camera.h_offset, _camera.v_offset)
 	if priority >= _priority:
@@ -52,7 +50,7 @@ func start_camera_shake(
 			self,
 			"_amplitude",
 			amplitude,
-			amplitude / amplitude_divider,
+			amplitude,
 			duration,
 			AMP_TRANS,
 			AMP_EASE

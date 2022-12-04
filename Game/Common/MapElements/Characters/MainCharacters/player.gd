@@ -26,38 +26,37 @@ const TB_PLAYER_MAPPER := [["angle", "rotation_degrees:y"]]  # mapper for Trench
 #~~~~ CAMERA ~~~~~
 const MIN_FOV := 80  # Min and max fov of the camera that changes depending on the character speed
 const MAX_FOV := 100
-const FOV_MAX_SPEED := 250  # Speed where the fov is maxed out
+const FOV_MAX_SPEED := 16  # Speed where the fov is maxed out
 
 #~~~~ SOUNDS ~~~~~
-const SOUND_MAX_SPEED := 250  # Treshold for the pitch run sound to be maxed
+const SOUND_MAX_SPEED := 16  # Treshold for the pitch run sound to be maxed
 
 #~~~~ MOVEMENT ~~~~~
 #==== GLOBAL =====
-const GRAVITY := -80  # Gravity applied to the player
-const JUMP_POWER := 33  # Power applied when jumping
+const GRAVITY := -7  # Gravity applied to the player
+const JUMP_POWER := -GRAVITY / 2.15  # Power applied when jumping
 const MAX_SLOPE_ANGLE := PI / 4  # Max slope angle where you stop sliding
 const STOP_SPEED := 1.0  # Minimum speed to consider the player "stopped"
 
 #==== AIR =====
-const AIR_TARGET_SPEED := 110  # Target acceleration when just pressing forward in the air
+const AIR_TARGET_SPEED := 8.5  # Target acceleration when just pressing forward in the air
 const AIR_ACCELERATION := 0.75  # Acceleration in air to get to the AIR_TARGET_SPEED
 
 #==== WALL RIDE =====
-const WALL_RIDE_ASCEND_AMOUNT := 10.0  # How much the player ascend during a wall ride
-const WALL_RIDE_WALL_DISTANCE := 0.25  # distance from the wall normal, to avoid possibly getting stuck in it on some cases
-const WALL_JUMP_BOOST := 75.0  # How much speed is given to the player when jumping while wall riding
-const WALL_JUMP_UP_BOOST := 40.0  # The up vector that is added when jumping off a wall
+const WALL_RIDE_ASCEND_AMOUNT := 8.0  # How much the player ascend during a wall ride
+const WALL_RIDE_WALL_DISTANCE := 0.03  # distance from the wall normal, to avoid possibly getting stuck in it on some cases
+const WALL_JUMP_BOOST := AIR_TARGET_SPEED * 1.0 / 3.0  # How much speed is given to the player when jumping while wall riding
+const WALL_JUMP_UP_BOOST := JUMP_POWER * 1.5  # The up vector that is added when jumping off a wall
 const WALL_JUMP_ANGLE := PI / 4  # Angle from the wall forward vector when wall jumping
 const WALL_JUMP_MIX_DIRECTION_TIME := 0.5  # How much time after the jumping from a wall should override the forward movement (to avoid a bug that makes the player sticks to the wall)
 
 #==== GROUND =====
-const GROUND_TARGET_SPEED := 50  # Ground target speed
-const GROUND_ACCELERATION := 4.5  # Acceleration on the ground
-const GROUND_DECCELERATION := 4.5  # Decceleration when on ground
+const GROUND_TARGET_SPEED := AIR_TARGET_SPEED * 2.0 / 3.0  # Ground target speed
+const GROUND_ACCELERATION := 11  # Acceleration on the ground. For some reason, should be > 10 to counter the friction
 const GROUND_FRICTION := 5.0  # Ground friction
-const SLIDE_SPEED_BONUS_JUMP := 50  # Speed added when jumping after a slide
+const SLIDE_SPEED_BONUS_JUMP := AIR_TARGET_SPEED * 1.0 / 3.0  # Speed added when jumping after a slide
 const SLIDE_FRICTION := 0.1  # Friction when sliding on the ground. Equivalent to the movement in air, but with a little friction
-const AIR_MOVE_TOWARD := 750  # When pressing forward in the air, how much it should stick to the aim direction
+const AIR_MOVE_TOWARD := 47  # When pressing forward in the air, how much it should stick to the aim direction
 
 #~~~~~ PROJECTILES ~~~~~
 const ROCKET_DELAY := 0.75  # Time before you can shoot another rocket
@@ -550,6 +549,7 @@ func _remove_shooting_state():
 
 func _on_UpdateSpeed_timeout():
 	SignalManager.emit_speed_updated(current_speed)
+	SignalManager.emit_position_updated(self.global_transform.origin)
 
 
 func _on_WallRideJumpLock_timeout():

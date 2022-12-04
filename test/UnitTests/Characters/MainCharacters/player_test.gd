@@ -5,6 +5,7 @@ extends GlobalTests
 # Tests the player
 
 ##### VARIABLES #####
+const FLOAT_APPROX := 0.5
 const player_path = "res://Game/Common/MapElements/Characters/MainCharacters/player.tscn"
 var player: KinematicBody
 
@@ -75,21 +76,22 @@ func test_init_rocket() -> void:
 
 
 func test_process_sounds() -> void:
+	var TEST_SPEED_NORMAL := 5.0
 	# init
 	var run_sound_pitch = player.onready_paths.run_sound.pitch
 	var run_sound_unpitch = player.onready_paths.run_sound.unpitch
 	var wall_ride_sound = player.onready_paths.wall_ride
 	# tests
 	## Run below max speed
-	player.current_speed = 100.0
+	player.current_speed = TEST_SPEED_NORMAL
 	player._process_sounds()
 	assert_bool(run_sound_pitch.playing).is_true()
 	assert_bool(run_sound_unpitch.playing).is_true()
-	assert_str(str(run_sound_pitch.pitch_scale)).is_equal(
-		str(100.0 / (player.SOUND_MAX_SPEED / 3.0))
+	assert_float(run_sound_pitch.pitch_scale).is_equal_approx(
+		TEST_SPEED_NORMAL / (player.SOUND_MAX_SPEED / 3.0), FLOAT_APPROX
 	)
-	assert_str(str(run_sound_unpitch.volume_db)).is_equal(
-		str(linear2db(100.0 / (player.SOUND_MAX_SPEED / 2.0)))
+	assert_float(run_sound_unpitch.volume_db).is_equal_approx(
+		linear2db(TEST_SPEED_NORMAL / (player.SOUND_MAX_SPEED / 2.0)), FLOAT_APPROX
 	)
 	# assert_float(run_sound_pitch.pitch_scale).is_equal(100.0 / (player.SOUND_MAX_SPEED / 3.0))
 	# assert_float(run_sound_unpitch.volume_db).is_equal(
@@ -174,7 +176,7 @@ func test_wall_ride() -> void:
 	do_return(Vector3.RIGHT).on(rc).get_collision_normal()
 	do_return(Vector3.ZERO).on(rc).get_collision_point()
 	player._wall_ride(rc, Vector3.FORWARD, delta)
-	assert_float(player.vel.length()).is_equal(100.0)
+	assert_float(player.vel.length()).is_equal_approx(100.0, FLOAT_APPROX)
 	assert_vector3(player.vel).is_equal(
 		(
 			Vector3(Vector3.FORWARD.x, player.WALL_RIDE_ASCEND_AMOUNT * 0.1, Vector3.FORWARD.z).normalized()
@@ -248,7 +250,7 @@ func test_air_movement() -> void:
 	player.vel = Vector3.FORWARD * player.current_speed
 	player._air_movement(0.1)
 	assert_float(player.vel.length() - (Vector3.UP * player.GRAVITY * 0.1).length()).is_greater(
-		player.AIR_TARGET_SPEED / 2.0
+		player.AIR_TARGET_SPEED / 3.0
 	)
 	# test moving forward, not accelerating (NOTE : not testing speed conservation because move_towards makes the player loose a bit of speed)
 	player.dir = Vector3.FORWARD.rotated(Vector3.UP, PI / 6.0)

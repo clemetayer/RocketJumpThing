@@ -42,7 +42,7 @@ func _add_ui_sprite() -> void:
 	add_child(ui)
 	var sprite := Sprite3D.new()
 	sprite.rotation_degrees = _sprite_text_direction
-	sprite.scale = Vector3(15, 15, 1)
+	sprite.scale = Vector3(8, 8, 1)
 	add_child(sprite)
 	sprite.scale = _sprite_scale
 	sprite.texture = ui.get_texture()

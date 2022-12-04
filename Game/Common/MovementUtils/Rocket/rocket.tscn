@@ -5,7 +5,8 @@
 
 [sub_resource type="CapsuleShape" id=12]
 margin = 0.5
-height = 3.99884
+radius = 0.063
+height = 0.25
 
 [sub_resource type="Gradient" id=7]
 offsets = PoolRealArray( 0, 0.00555556, 1 )
@@ -18,7 +19,7 @@ gradient = SubResource( 7 )
 direction = Vector3( 0, 0, -1 )
 spread = 10.0
 gravity = Vector3( 0, 0, 0 )
-initial_velocity = 75.0
+initial_velocity = 4.69
 initial_velocity_random = 0.5
 color_ramp = SubResource( 8 )
 
@@ -29,6 +30,10 @@ vertex_color_use_as_albedo = true
 
 [sub_resource type="SphereMesh" id=6]
 material = SubResource( 11 )
+radius = 0.063
+height = 0.125
+radial_segments = 32
+rings = 16
 
 [sub_resource type="Gradient" id=9]
 colors = PoolColorArray( 1, 0, 0, 0.490196, 1, 0.886275, 0, 0.490196 )
@@ -47,10 +52,12 @@ emission_on_uv2 = false
 
 [sub_resource type="CapsuleMesh" id=2]
 material = SubResource( 1 )
-mid_height = 4.0
+radius = 0.063
+mid_height = 0.25
+radial_segments = 32
 
 [sub_resource type="CubeMesh" id=3]
-size = Vector3( 0.1, 0.1, 1 )
+size = Vector3( 0.006, 0.006, 0.063 )
 
 [node name="Rocket" type="Area" groups=["rocket"]]
 collision_layer = 4
@@ -71,11 +78,12 @@ mesh = SubResource( 2 )
 
 [node name="Nose" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.349669 )
+visible = false
 mesh = SubResource( 3 )
 
 [node name="RayCast" type="RayCast" parent="."]
 enabled = true
-cast_to = Vector3( 0, 0, 5 )
+cast_to = Vector3( 0, 0, 0.313 )
 collision_mask = 3
 
 [node name="TrailSound" type="AudioStreamPlayer3D" parent="."]

@@ -14,7 +14,7 @@ const TB_PERIODIC_MOVING_PLATFORM_MAPPER := [
 	["path_emission", "_path_emission"]
 ]  # mapper for TrenchBroom parameters
 const PATH_TRANSPARENCY = 1.0  # alpha value of the material showing the path of the platform
-const PATH_MESH_RADIUS = 0.125  # radius of the cylinder mesh
+const PATH_MESH_RADIUS = 0.03125  # radius of the cylinder mesh
 
 #---- EXPORTS -----
 export(Dictionary) var properties

@@ -10,16 +10,19 @@ func _init():
 
 #==== PRIVATE ====
 func _connect_signals() -> void:
-	if connect("body_exited", self, "_on_body_exited") != OK:
-		Logger.error(
-			(
-				"Error connecting %s to %s in %s"
-				% ["body_exited", "_on_body_exited", DebugUtils.print_stack_trace(get_stack())]
-			)
-		)
+	DebugUtils.log_connect(self, self, "body_entered", "_on_body_entered")
+	DebugUtils.log_connect(
+		SignalManager, self, SignalManager.POSITION_UPDATED, "_on_player_position_updated"
+	)
 
 
 ##### SIGNAL MANAGEMENT #####
-func _on_body_exited(body: Node):
+func _on_player_position_updated(position: Vector3) -> void:
+	for child in get_children():
+		if child is MeshInstance:
+			child.mesh.surface_get_material(0).set_shader_param("target_pos", position)
+
+
+func _on_body_entered(body: Node):
 	if FunctionUtils.is_player(body):
 		SignalManager.emit_respawn_player_on_last_cp()

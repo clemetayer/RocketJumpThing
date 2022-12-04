@@ -593,7 +593,7 @@
 "classname" "Checkpoints_Checkpoint"
 "collision_layer" "2"
 "collision_mask" "5"
-"spawn_position" "0 -208 0"
+"spawn_position" "0 -13 0"
 "spawn_rotation" "0"
 // brush 0
 {
@@ -658,7 +658,7 @@
 "classname" "Checkpoints_Checkpoint"
 "collision_layer" "2"
 "collision_mask" "5"
-"spawn_position" "0 -40 0"
+"spawn_position" "0 -2 0"
 "spawn_rotation" "0"
 // brush 0
 {
@@ -755,7 +755,7 @@
 "classname" "Checkpoints_Checkpoint"
 "collision_layer" "2"
 "collision_mask" "5"
-"spawn_position" "0 -40 0"
+"spawn_position" "0 -2 0"
 "spawn_rotation" "90"
 // brush 0
 {
@@ -993,7 +993,7 @@
 "classname" "Checkpoints_Checkpoint"
 "collision_layer" "2"
 "collision_mask" "5"
-"spawn_position" "0 -40 0"
+"spawn_position" "0 -2 0"
 "spawn_rotation" "90"
 // brush 0
 {
@@ -1208,7 +1208,7 @@
 "collision_layer" "2"
 "collision_mask" "5"
 "spawn_rotation" "-90"
-"spawn_position" "0 -32 0"
+"spawn_position" "0 -2 0"
 // brush 0
 {
 ( -3072 112 104 ) ( -3072 120 48 ) ( -3072 120 104 ) entities/checkpoint/checkpoint_1 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -1293,7 +1293,7 @@
 "classname" "Checkpoints_Checkpoint"
 "collision_layer" "2"
 "collision_mask" "5"
-"spawn_position" "0 -32 0"
+"spawn_position" "0 -2 0"
 "spawn_rotation" "0"
 // brush 0
 {
@@ -1569,7 +1569,7 @@
 "classname" "Checkpoints_Checkpoint"
 "collision_layer" "2"
 "collision_mask" "5"
-"spawn_position" "0 -40 0"
+"spawn_position" "0 -2 0"
 "spawn_rotation" "0"
 // brush 0
 {
@@ -1677,7 +1677,7 @@
 "classname" "Checkpoints_Checkpoint"
 "collision_layer" "2"
 "collision_mask" "5"
-"spawn_position" "0 -40 0"
+"spawn_position" "0 -2 0"
 "spawn_rotation" "-90"
 // brush 0
 {
@@ -1844,7 +1844,7 @@
 "classname" "Checkpoints_Checkpoint"
 "collision_layer" "2"
 "collision_mask" "5"
-"spawn_position" "0 -32 0"
+"spawn_position" "0 -2 0"
 "spawn_rotation" "90"
 // brush 0
 {
@@ -1994,7 +1994,7 @@
 "angle" "90 0 0"
 "color" "255 190 0"
 "sides" "3"
-"size" "2000 0 2000"
+"size" "125 0 125"
 "color_out" "38 174 128"
 }
 // entity 46
@@ -2049,7 +2049,7 @@
 "collision_mask" "5"
 "active_on_signals" "kick"
 "active_on_steps" "3"
-"init_index" "0"
+"init_index" "3"
 "params_path" "res://Misc/RythmElementsJsons/Tutorial3/kick_sequencer_pyramid.json"
 // brush 0
 {
@@ -2077,7 +2077,7 @@
 "collision_mask" "5"
 "active_on_signals" "kick"
 "active_on_steps" "2"
-"init_index" "0"
+"init_index" "2"
 "params_path" "res://Misc/RythmElementsJsons/Tutorial3/kick_sequencer_pyramid.json"
 // brush 0
 {
@@ -2105,7 +2105,7 @@
 "collision_mask" "5"
 "active_on_signals" "kick"
 "active_on_steps" "1"
-"init_index" "0"
+"init_index" "1"
 "params_path" "res://Misc/RythmElementsJsons/Tutorial3/kick_sequencer_pyramid.json"
 // brush 0
 {
@@ -2216,7 +2216,7 @@
 "classname" "RythmElements_Sequencers_Static"
 "active_on_signals" "kick"
 "active_on_steps" "3"
-"init_index" "0"
+"init_index" "3"
 "params_path" "res://Misc/RythmElementsJsons/Tutorial3/kick_sequencer_pyramid.json"
 "collision_layer" "2"
 "collision_mask" "5"
@@ -2244,7 +2244,7 @@
 "classname" "RythmElements_Sequencers_Static"
 "active_on_signals" "kick"
 "active_on_steps" "2"
-"init_index" "0"
+"init_index" "2"
 "params_path" "res://Misc/RythmElementsJsons/Tutorial3/kick_sequencer_pyramid.json"
 "collision_layer" "2"
 "collision_mask" "5"
@@ -2272,7 +2272,7 @@
 "classname" "RythmElements_Sequencers_Static"
 "active_on_signals" "kick"
 "active_on_steps" "1"
-"init_index" "0"
+"init_index" "1"
 "params_path" "res://Misc/RythmElementsJsons/Tutorial3/kick_sequencer_pyramid.json"
 "collision_layer" "2"
 "collision_mask" "5"
@@ -3025,69 +3025,69 @@
 // entity 103
 {
 "classname" "Boost_Pad"
-"origin" "-2176 469.065 277.283"
+"origin" "-2172 477.065 293.283"
 "angle" "0 0 -15"
 "color" "38 174 128"
-"force" "200"
-"size" "10 15 10"
+"force" "12.5"
+"size" "0.625 0.95 0.625"
 "" ""
 }
 // entity 104
 {
 "classname" "Boost_Pad"
-"origin" "-2116.88 -226 88.7321"
+"origin" "-2124.88 -226 104.732"
 "color" "38 174 128"
-"force" "200"
+"force" "12.5"
 "angle" "-30 0 0"
-"size" "10 15 10"
+"size" "0.625 0.95 0.625"
 "" ""
 }
 // entity 105
 {
 "classname" "Boost_Pad"
-"origin" "-2280.66 -96 197"
+"origin" "-2272.66 -96 213"
 "angle" "30 0 0"
 "color" "38 174 128"
-"force" "150"
-"size" "10 15 10"
+"force" "10"
+"size" "0.625 0.95 0.625"
 "" ""
 }
 // entity 106
 {
 "classname" "Boost_Pad"
-"origin" "-2114.48 32 275.625"
+"origin" "-2122.48 32 291.625"
 "angle" "-15 0 0"
 "color" "38 174 128"
-"force" "100"
-"size" "10 15 10"
+"force" "6.5"
+"size" "0.625 0.95 0.625"
 "" ""
 }
 // entity 107
 {
 "classname" "Boost_Pad"
-"origin" "-3040 -98.9947 37.5553"
+"origin" "-3040 -106.995 53.5553"
 "angle" "0 0 15"
 "color" "38 174 128"
-"force" "200"
-"size" "10 15 10"
+"force" "13"
+"size" "0.625 0.95 0.625"
 "" ""
 }
 // entity 108
 {
 "classname" "Boost_Pad"
-"origin" "-3040 510 -70"
+"origin" "-3040 502 -54"
 "angle" "0 0 30"
 "color" "38 174 128"
-"force" "200"
-"size" "10 15 10"
+"force" "13"
+"size" "0.625 0.95 0.625"
 "" ""
 }
 // entity 109
 {
 "classname" "Boost_Area"
 "origin" "-1216 544 512"
-"force" "300"
-"size" "50 25 50"
+"force" "18.75"
+"size" "3.125 1.75 3.125"
 "color" "38 174 128"
 "angle" "0 0 80"
 "" ""
@@ -3096,8 +3096,8 @@
 {
 "classname" "Boost_Area"
 "origin" "-528 0 416"
-"force" "400"
-"size" "200 80 200"
+"force" "32"
+"size" "12.5 8 12.5"
 "color" "38 174 128"
 "angle" "0 90 80"
 "" ""
@@ -3105,21 +3105,21 @@
 // entity 111
 {
 "classname" "Boost_Pad"
-"origin" "5250 1628.2 216.733"
+"origin" "5250 1620.2 232.733"
 "color" "38 174 128"
-"force" "150"
+"force" "10"
 "angle" "0 0 30"
-"size" "10 40 10"
+"size" "0.625 1.5 0.625"
 "" ""
 }
 // entity 112
 {
 "classname" "Boost_Pad"
-"origin" "5250 972.196 424.732"
+"origin" "5250 968.196 432.732"
 "color" "38 174 128"
-"force" "150"
+"force" "10"
 "angle" "0 0 30"
-"size" "10 40 10"
+"size" "0.625 1.5 0.625"
 "" ""
 }
 // entity 113
@@ -3128,8 +3128,8 @@
 "origin" "5278 -306 1490"
 "angle" "0 0 0"
 "color" "38 174 128"
-"force" "300"
-"size" "50 100 50"
+"force" "20"
+"size" "3.125 7 3.125"
 "" ""
 }
 // entity 114
@@ -3138,16 +3138,16 @@
 "origin" "5278 -306 1858"
 "angle" "0 0 0"
 "color" "38 174 128"
-"force" "400"
-"size" "50 100 50"
+"force" "28"
+"size" "3.125 7 3.125"
 "" ""
 }
 // entity 115
 {
 "classname" "Boost_Area"
 "origin" "-1696 960 512"
-"force" "250"
-"size" "50 25 50"
+"force" "15.625"
+"size" "3.125 1.75 3.125"
 "color" "38 174 128"
 "angle" "80 0 0"
 "" ""
@@ -5652,7 +5652,7 @@
 "origin" "2446 -2 -50"
 "color" "38 174 128"
 "energy" "1"
-"range" "300"
+"range" "18.75"
 "shadow_mode" "1"
 "shadow_enabled" "0"
 "specular" "0.5"
@@ -5663,7 +5663,7 @@
 "origin" "2750 -2 -2"
 "color" "38 174 128"
 "energy" "1"
-"range" "300"
+"range" "18.75"
 "shadow_mode" "1"
 "shadow_enabled" "0"
 "specular" "0.5"
@@ -5674,7 +5674,7 @@
 "origin" "5278 30 878"
 "color" "38 174 128"
 "energy" "1"
-"range" "600"
+"range" "37.5"
 "shadow_mode" "1"
 "shadow_enabled" "0"
 "specular" "0.5"
@@ -5685,7 +5685,7 @@
 "origin" "5294 -194 1262"
 "color" "38 174 128"
 "energy" "1"
-"range" "600"
+"range" "37.5"
 "shadow_mode" "1"
 "shadow_enabled" "0"
 "specular" "0.5"
@@ -5707,7 +5707,7 @@
 "origin" "4398 2334 166"
 "color" "38 174 128"
 "energy" "1"
-"range" "300"
+"range" "18.75"
 "shadow_mode" "1"
 "shadow_enabled" "0"
 "specular" "0.5"
@@ -5938,7 +5938,7 @@
 "collision_mask" "5"
 "target" "breakable_wall_1"
 "text_direction" "0 180 0"
-"scale" "60 60 1"
+"scale" "3.75 3.75 0.0625"
 // brush 0
 {
 ( -703 119.78448275862047 394.45000000000044 ) ( -703 119.78448275862047 591.55 ) ( -703 -106.51551724137792 591.55 ) common/material_override/Transparent [ -2.220446049250313e-16 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -5953,8 +5953,8 @@
 {
 "classname" "Boost_Area"
 "origin" "-880 -16 528"
-"force" "-175"
-"size" "50 25 50"
+"force" "-12"
+"size" "3.125 2 3.125"
 "color" "38 174 128"
 "angle" "-90 0 0"
 "" ""
@@ -6082,5 +6082,71 @@
 ( -976 88 672 ) ( -1040 -24 672 ) ( -1040 88 672 ) common/material_override/Transparent [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
 ( -976 208 528 ) ( -1040 208 432 ) ( -976 208 432 ) common/material_override/Transparent [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
 ( -976 88 528 ) ( -976 -24 432 ) ( -976 -24 528 ) common/material_override/Transparent [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+}
+// entity 168
+{
+"classname" "DeathGrid"
+// brush 0
+{
+( -4220 -316 2604 ) ( -4220 -315 2604 ) ( -4220 -316 2605 ) common/material_override/death_grid [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 5208 -2600 2604 ) ( 5208 -2600 2605 ) ( 5209 -2600 2604 ) common/material_override/death_grid [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 5208 -316 2604 ) ( 5209 -316 2604 ) ( 5208 -315 2604 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 5264 -256 2608 ) ( 5264 -255 2608 ) ( 5265 -256 2608 ) common/material_override/death_grid [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 5264 3812 2608 ) ( 5265 3812 2608 ) ( 5264 3812 2609 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 6320 -256 2608 ) ( 6320 -256 2609 ) ( 6320 -255 2608 ) common/material_override/death_grid [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+// brush 1
+{
+( -4224 -316 2604 ) ( -4224 -315 2604 ) ( -4224 -316 2605 ) common/material_override/death_grid [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 5208 -2604 2604 ) ( 5208 -2604 2605 ) ( 5209 -2604 2604 ) common/material_override/death_grid [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 5208 -316 -740 ) ( 5209 -316 -740 ) ( 5208 -315 -740 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 5264 -256 2608 ) ( 5264 -255 2608 ) ( 5265 -256 2608 ) common/material_override/death_grid [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 5208 -2600 2604 ) ( 5209 -2600 2604 ) ( 5208 -2600 2605 ) common/material_override/death_grid [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 6324 -256 2608 ) ( 6324 -256 2609 ) ( 6324 -255 2608 ) common/material_override/death_grid [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+// brush 2
+{
+( -4220 -316 2604 ) ( -4220 -315 2604 ) ( -4220 -316 2605 ) common/material_override/death_grid [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 5264 3812 2608 ) ( 5264 3812 2609 ) ( 5265 3812 2608 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 5208 -316 -736 ) ( 5209 -316 -736 ) ( 5208 -315 -736 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 5264 -256 2608 ) ( 5264 -255 2608 ) ( 5265 -256 2608 ) common/material_override/death_grid [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 5264 3816 2608 ) ( 5265 3816 2608 ) ( 5264 3816 2609 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 6320 -256 2608 ) ( 6320 -256 2609 ) ( 6320 -255 2608 ) common/material_override/death_grid [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+}
+// entity 169
+{
+"classname" "DeathGrid"
+// brush 0
+{
+( -4220 -316 -740 ) ( -4220 -315 -740 ) ( -4220 -316 -739 ) common/material_override/death_grid [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 5208 -2600 -740 ) ( 5208 -2600 -739 ) ( 5209 -2600 -740 ) common/material_override/death_grid [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 5208 -316 -740 ) ( 5209 -316 -740 ) ( 5208 -315 -740 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 5264 -256 -736 ) ( 5264 -255 -736 ) ( 5265 -256 -736 ) common/material_override/death_grid [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 5264 3812 -736 ) ( 5265 3812 -736 ) ( 5264 3812 -735 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 6320 -256 -736 ) ( 6320 -256 -735 ) ( 6320 -255 -736 ) common/material_override/death_grid [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+// brush 1
+{
+( -4224 -316 -736 ) ( -4224 -315 -736 ) ( -4224 -316 -735 ) common/material_override/death_grid [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 5208 -2600 -736 ) ( 5208 -2600 -735 ) ( 5209 -2600 -736 ) common/material_override/death_grid [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 5208 -316 -740 ) ( 5209 -316 -740 ) ( 5208 -315 -740 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 5264 -256 2608 ) ( 5264 -255 2608 ) ( 5265 -256 2608 ) common/material_override/death_grid [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 5264 3812 -732 ) ( 5265 3812 -732 ) ( 5264 3812 -731 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -4220 -316 -736 ) ( -4220 -316 -735 ) ( -4220 -315 -736 ) common/material_override/death_grid [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+}
+// entity 170
+{
+"classname" "DeathGrid"
+// brush 0
+{
+( 6320 -316 -736 ) ( 6320 -315 -736 ) ( 6320 -316 -735 ) common/material_override/death_grid [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 15752 -2600 -736 ) ( 15752 -2600 -735 ) ( 15753 -2600 -736 ) common/material_override/death_grid [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 15752 -316 -740 ) ( 15753 -316 -740 ) ( 15752 -315 -740 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 15808 -256 2608 ) ( 15808 -255 2608 ) ( 15809 -256 2608 ) common/material_override/death_grid [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 15808 3812 -732 ) ( 15809 3812 -732 ) ( 15808 3812 -731 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 6324 -316 -736 ) ( 6324 -316 -735 ) ( 6324 -315 -736 ) common/material_override/death_grid [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
