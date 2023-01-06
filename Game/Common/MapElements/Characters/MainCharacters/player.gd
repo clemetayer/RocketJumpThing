@@ -181,6 +181,23 @@ func set_state_value(state_idx: int, value: bool) -> void:
 	states.set_bit(Vector2(state_idx, 0), value)
 
 
+# process when trigerring a portal
+func portal_process(exit_portal: Area) -> void:
+	# sets the velocity direction to the exit point of the portal
+	vel = vel.length() * exit_portal.get_global_forward_vector().normalized()
+	# sets to the new position
+	global_transform.origin = (
+		exit_portal.global_transform.origin
+		+ exit_portal.get_global_forward_vector().normalized() * exit_portal.OFFSET
+	)
+	# sets to the new angle
+	rotation_helper.rotation.x = exit_portal.global_rotation.x
+	self.rotation.y = exit_portal.global_rotation.y
+	var camera_rot = rotation_helper.rotation_degrees
+	camera_rot.x = clamp(camera_rot.x, -89, 89)
+	rotation_helper.rotation_degrees = camera_rot
+
+
 ##### PROTECTED METHODS #####
 #---- Trenchbroom -----
 func _set_TB_params() -> void:

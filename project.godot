@@ -734,6 +734,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/gs_logger/layouts/pattern_layout.gd"
 }, {
+"base": "Spatial",
+"class": "PeriodicMovingSpatial",
+"language": "GDScript",
+"path": "res://Game/Common/MapElements/BaseClasses/periodic_moving_spatial.gd"
+}, {
 "base": "PhysicsEntity",
 "class": "PhysicsBall",
 "language": "GDScript",
@@ -914,6 +919,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/gdUnit3/src/ui/parts/RichTextLabelExt.gd"
 }, {
+"base": "Spatial",
+"class": "RotatingSpatial",
+"language": "GDScript",
+"path": "res://Game/Common/MapElements/BaseClasses/rotating_spatial.gd"
+}, {
 "base": "Resource",
 "class": "SignalHandler",
 "language": "GDScript",
@@ -988,6 +998,11 @@ _global_script_classes=[ {
 "class": "StepperTween",
 "language": "GDScript",
 "path": "res://Game/Common/Utils/StepSequencer/stepper_tween.gd"
+}, {
+"base": "Collidable",
+"class": "Stomper",
+"language": "GDScript",
+"path": "res://Game/Common/MapElements/Stompers/stomper.gd"
 }, {
 "base": "Fuzzer",
 "class": "StringFuzzer",
@@ -1235,6 +1250,7 @@ _global_script_class_icons={
 "Message": "",
 "OrbitArm": "",
 "PatternLayout": "",
+"PeriodicMovingSpatial": "",
 "PhysicsBall": "",
 "PhysicsEntity": "",
 "Presets": "",
@@ -1271,6 +1287,7 @@ _global_script_class_icons={
 "Result": "",
 "RichTextEffectBackground": "",
 "RichTextLabelExt": "",
+"RotatingSpatial": "",
 "SignalHandler": "",
 "SlimeLayer": "",
 "Song": "",
@@ -1286,6 +1303,7 @@ _global_script_class_icons={
 "StepperPulse": "",
 "StepperSetParam": "",
 "StepperTween": "",
+"Stomper": "",
 "StringFuzzer": "",
 "TextUtils": "",
 "TimeUnit": "",
@@ -1341,6 +1359,7 @@ enabled=PoolStringArray( "res://addons/debug_draw_3d/plugin.cfg", "res://addons/
 [gdunit3]
 
 settings/test/test_root_folder="test/UnitTests"
+settings/common/update_notification_enabled=false
 
 [input]
 
@@ -1405,6 +1424,7 @@ test={
 3d_physics/layer_1="player"
 3d_physics/layer_2="static_env"
 3d_physics/layer_3="explosive"
+3d_physics/layer_4="player_killer"
 
 [locale]
 

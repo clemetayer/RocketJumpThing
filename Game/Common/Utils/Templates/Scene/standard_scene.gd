@@ -52,6 +52,11 @@ func _process(_delta):
 	_manage_inputs()
 
 
+##### PUBLIC METHODS #####
+func get_player() -> Node:
+	return get_node(PATHS.player)
+
+
 ##### PROTECTED METHODS #####
 func _manage_inputs() -> void:
 	if Input.is_action_just_pressed(GlobalConstants.INPUT_RESTART):

@@ -1,0 +1,30 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://addons/qodot/src/resources/game-definitions/fgd/qodot_fgd_base_class.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+class_options = "----------------------------------------------------------------"
+classname = "Lasers_Base"
+description = "Base class for the laser"
+qodot_internal = false
+base_classes = [  ]
+class_properties = {
+"color": Color( 1, 0, 0, 1 ),
+"mangle": Vector3( 0, 0, 0 ),
+"max_length": 1.0,
+"thickness": 0.1
+}
+class_property_descriptions = {
+"color": "color of the laser",
+"mangle": "rotation angles",
+"max_length": "Maximum length of the laser",
+"thickness": "Thickness of the laser"
+}
+meta_properties = {
+"color": Color( 0.8, 0.8, 0.8, 1 ),
+"size": AABB( -8, -8, -8, 8, 8, 8 )
+}
+node_options = "----------------------------------------------------------------"
+node_class = ""
+transient_node = false

@@ -2,6 +2,9 @@ extends Reference
 class_name GlobalConstants
 # Global consts
 
+#---- QODOT -----
+const INVERSE_SCALE := 16.0
+
 #---- PLAYER -----
 const ABILITY_SLIDE := "slide"
 const ABILITY_ROCKETS := "rockets"

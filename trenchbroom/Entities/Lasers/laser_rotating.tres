@@ -1,16 +1,18 @@
-[gd_resource type="Resource" load_steps=4 format=2]
+[gd_resource type="Resource" load_steps=6 format=2]
 
 [ext_resource path="res://addons/qodot/src/resources/game-definitions/fgd/qodot_fgd_point_class.gd" type="Script" id=1]
-[ext_resource path="res://trenchbroom/Entities/BaseClasses/step_sequencer_base.tres" type="Resource" id=2]
-[ext_resource path="res://Game/Common/Utils/StepSequencer/Particles/Tutorial2/step_sequencer_1.tscn" type="PackedScene" id=3]
+[ext_resource path="res://trenchbroom/Entities/Lasers/laser_base.tres" type="Resource" id=2]
+[ext_resource path="res://trenchbroom/Entities/BaseClasses/collidable.tres" type="Resource" id=3]
+[ext_resource path="res://trenchbroom/Entities/BaseClasses/rotate_spatial.tres" type="Resource" id=4]
+[ext_resource path="res://Game/Common/MapElements/Lasers/rotating_laser.gd" type="Script" id=5]
 
 [resource]
 script = ExtResource( 1 )
 class_options = "----------------------------------------------------------------"
-classname = "RythmElements_Sequencers_SequencerParticlesTutorial2"
-description = "A sequencer that emits particles"
+classname = "Lasers_Rotating"
+description = "A laser that rotates"
 qodot_internal = false
-base_classes = [ ExtResource( 2 ) ]
+base_classes = [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 2 ) ]
 class_properties = {
 }
 class_property_descriptions = {
@@ -20,8 +22,8 @@ meta_properties = {
 "size": AABB( -8, -8, -8, 8, 8, 8 )
 }
 node_options = "----------------------------------------------------------------"
-node_class = "Particles"
+node_class = "Area"
 transient_node = false
 scene = "----------------------------------------------------------------"
-scene_file = ExtResource( 3 )
 scripting = "----------------------------------------------------------------"
+script_class = ExtResource( 5 )

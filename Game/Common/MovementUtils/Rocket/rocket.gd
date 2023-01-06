@@ -23,9 +23,13 @@ export(float) var SPEED_PERCENTAGE = 0.0  # How fast the rocket will travel, bet
 var _translate := false
 var _expl_planned := false  # if the explosion has been already planned
 var _speed := 0.0  # travel speed of the rocket # kept as a private variable in case I add something that makes the rocket speed vary
+var _debug_rocket_explode := 0.0
 
 #==== ONREADY ====
-onready var onready_paths := {"trail_sound": $"TrailSound", "raycast": $"RayCast"}
+onready var onready_paths := {
+	"trail_sound": $"TrailSound",
+	"raycast": $"RayCast",
+}
 
 
 ##### PROCESSING #####
@@ -40,6 +44,13 @@ func _process(delta):
 	_check_raycast_distance(onready_paths.raycast)
 	if _translate:
 		translate_object_local(Vector3(0, 0, 1) * _speed * delta)
+	if onready_paths.raycast.is_colliding():
+		Logger.debug(
+			(
+				"hit in %s"
+				% (global_transform.origin.distance_to(onready_paths.raycast.get_collision_point()))
+			)
+		)
 
 
 ##### PROTECTED METHODS #####
@@ -117,12 +128,13 @@ func _explode(raycast) -> void:
 
 ##### SIGNAL MANAGEMENT #####
 func _on_Rocket_body_entered(body: Node):
-	if not FunctionUtils.is_player(body) and not _expl_planned:
-		_expl_planned = true
+	if not FunctionUtils.is_player(body):
+		_expl_planned = false
 		onready_paths.raycast.transform.origin.z = -6.25  # steps back the raycast to get the exact collision point
 		if onready_paths.raycast.is_colliding():
 			_explode(onready_paths.raycast)
 
+
 # Unused for now
-func _on_Rocket_area_entered(_area : Area):
+func _on_Rocket_area_entered(_area: Area):
 	pass

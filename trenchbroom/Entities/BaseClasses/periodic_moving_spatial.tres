@@ -1,0 +1,56 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://addons/qodot/src/resources/game-definitions/fgd/qodot_fgd_base_class.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+class_options = "----------------------------------------------------------------"
+classname = "BaseClasses_PeriodicMovingSpatial"
+description = "Base class for a periodic moving spatial"
+qodot_internal = false
+base_classes = [  ]
+class_properties = {
+"angle1": Vector3( 0, 0, 0 ),
+"angle2": Vector3( 0, 0, 0 ),
+"angle3": Vector3( 0, 0, 0 ),
+"angle4": Vector3( 0, 0, 0 ),
+"angle5": Vector3( 0, 0, 0 ),
+"ease": 0,
+"path_alpha": 1.0,
+"path_color": Color( 1, 1, 1, 1 ),
+"path_emission": 0.0,
+"point1": Vector3( 0, 0, 0 ),
+"point2": Vector3( 0, 0, 0 ),
+"point3": Vector3( 0, 0, 0 ),
+"point4": Vector3( 0, 0, 0 ),
+"point5": Vector3( 0, 0, 0 ),
+"trans_type": 0,
+"travel_time": 0.0,
+"wait_time": 0.0
+}
+class_property_descriptions = {
+"angle1": "First angle for the spatial to go (use 0,0,0 to ignore)",
+"angle2": "Second angle for the spatial to go (use 0,0,0 to ignore)",
+"angle3": "Third angle for the spatial to go (use 0,0,0 to ignore)",
+"angle4": "Fourth angle for the spatial to go (use 0,0,0 to ignore)",
+"angle5": "fifth angle for the spatial to go (use 0,0,0 to ignore)",
+"ease": "See Godot Tween doc enum",
+"path_alpha": "Transparency of the path",
+"path_color": "color of the path line",
+"path_emission": "emission intensity of the path line",
+"point1": "First point for the spatial to go (use 0,0,0 to ignore)",
+"point2": "Second point for the spatial to go (use 0,0,0 to ignore)",
+"point3": "Third point for the spatial to go (use 0,0,0 to ignore)",
+"point4": "Fourth point for the spatial to go (use 0,0,0 to ignore)",
+"point5": "fifth point for the spatial to go (use 0,0,0 to ignore)",
+"trans_type": "See Godot Tween doc enum",
+"travel_time": "Time it takes for the spatial to reach the next point",
+"wait_time": "Wait time of the spatial before moving to the next point"
+}
+meta_properties = {
+"color": Color( 0.8, 0.8, 0.8, 1 ),
+"size": AABB( -8, -8, -8, 8, 8, 8 )
+}
+node_options = "----------------------------------------------------------------"
+node_class = "Spatial"
+transient_node = false

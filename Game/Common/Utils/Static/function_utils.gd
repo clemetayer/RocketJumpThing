@@ -4,6 +4,7 @@ class_name FunctionUtils
 
 #### Variables & Consts #####
 const REGEX_COLOR_PATTERN := "#[0-9a-fA-F]{6,6}"
+const PORTAL_PROCESS_METHOD_NAME := "portal_process"
 
 
 #### Maths and vectors #####
@@ -98,3 +99,12 @@ static func is_rocket(area: Area) -> bool:
 
 static func is_start_point(checkpoint: Area) -> bool:
 	return checkpoint != null && checkpoint.is_in_group("start_point")
+
+
+static func is_portal_compatible(element: Node) -> bool:
+	return (
+		element != null
+		&& element is Spatial
+		&& element.has_method(PORTAL_PROCESS_METHOD_NAME)
+		&& element.is_in_group("portal_compatible")
+	)

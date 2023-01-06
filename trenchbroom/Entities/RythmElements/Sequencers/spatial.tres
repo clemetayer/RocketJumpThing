@@ -1,7 +1,7 @@
 [gd_resource type="Resource" load_steps=4 format=2]
 
 [ext_resource path="res://addons/qodot/src/resources/game-definitions/fgd/qodot_fgd_solid_class.gd" type="Script" id=1]
-[ext_resource path="res://trenchbroom/Entities/RythmElements/Sequencers/base.tres" type="Resource" id=2]
+[ext_resource path="res://trenchbroom/Entities/BaseClasses/step_sequencer_base.tres" type="Resource" id=2]
 [ext_resource path="res://Game/Common/Utils/StepSequencer/Spatial/spatial_step_sequencer.gd" type="Script" id=3]
 
 [resource]

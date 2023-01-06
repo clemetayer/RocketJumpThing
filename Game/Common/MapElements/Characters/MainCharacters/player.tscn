@@ -20,7 +20,7 @@ height = 5.0
 
 [sub_resource type="SphereShape" id=3]
 
-[node name="Player" type="KinematicBody" groups=["player"]]
+[node name="Player" type="KinematicBody" groups=["player", "portal_compatible"]]
 transform = Transform( 0.063, 0, 0, 0, 0.063, 0, 0, 0, 0.063, 0, 0, 0 )
 collision_mask = 2
 collision/safe_margin = 0.063

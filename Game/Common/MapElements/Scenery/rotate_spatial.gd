@@ -1,5 +1,6 @@
 extends Collidable
 # A solid entity that rotates
+# REFACTOR : use rotating_spatial instead
 
 ##### VARIABLES #####
 #---- CONSTANTS -----
