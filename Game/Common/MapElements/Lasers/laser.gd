@@ -18,25 +18,19 @@ var _mangle := Vector3.ZERO  # trenchbroom angle
 
 #==== ONREADY ====
 onready var onready_paths := {
-	"mesh": $"LaserMesh", "collision": $"LaserCollision", "raycast": $"RayCast"
+	"mesh": $"LaserMesh",
+	"collision": $"LaserCollision",
+	"raycast": $"RayCast",
+	"update_timer": $"UpdateTimer"
 }
 
 
 ##### PROCESSING #####
-# Called when the object is initialized.
-func _init():
-	_connect_signals()
-
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	._ready_func()
 	_init_laser()
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame. Remove the "_" to use it.
-func _physics_process(_delta):
-	_check_raycast()
+	_connect_signals()
 
 
 ##### PROTECTED METHODS #####
@@ -47,6 +41,7 @@ func _set_TB_params() -> void:
 
 func _connect_signals() -> void:
 	DebugUtils.log_connect(self, self, "body_entered", "_on_body_entered")
+	DebugUtils.log_connect(onready_paths.update_timer, self, "timeout", "_on_UpdateTimer_timeout")
 
 
 func _init_laser() -> void:
@@ -85,6 +80,10 @@ func _check_raycast() -> void:
 
 
 ##### SIGNAL MANAGEMENT #####
+func _on_UpdateTimer_timeout() -> void:
+	_check_raycast()
+
+
 func _on_body_entered(body: Node) -> void:
 	if FunctionUtils.is_player(body):
 		SignalManager.emit_respawn_player_on_last_cp()

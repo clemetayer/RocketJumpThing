@@ -20,7 +20,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame. Remove the "_" to use it.
-func _process(delta):
+func _physics_process(delta):
 	_rotate_spatial(delta)
 
 
@@ -30,6 +30,4 @@ func _set_TB_params() -> void:
 
 
 func _rotate_spatial(delta: float) -> void:
-	rotate_x(_rotation_speed.x * delta)
-	rotate_y(_rotation_speed.y * delta)
-	rotate_z(_rotation_speed.z * delta)
+	rotation += _rotation_speed * delta

@@ -33,3 +33,10 @@ shape = SubResource( 2 )
 enabled = true
 cast_to = Vector3( 0, 0, 50 )
 collision_mask = 3
+
+[node name="UpdateTimer" type="Timer" parent="."]
+wait_time = 0.25
+autostart = true
+__meta__ = {
+"_editor_description_": "A timer to limit the laser updates, and avoid using physics process and slowing down the game"
+}

@@ -86,8 +86,9 @@ func test_restart() -> void:
 	assert_object(scene_instance._last_cp).is_equal(start_point)
 	last_cp_test.free()
 	var song = StandardSongManager._queue.pop_back()
-	song.song.queue_free()
-	song.effect.queue_free()
+	if _has_song():
+		song.song.queue_free()
+		song.effect.queue_free()
 
 
 # tests the input
@@ -114,8 +115,20 @@ func test_respawn_player_on_last_cp() -> void:
 	assert_vector3(player.transform.origin).is_equal(last_cp_test.get_spawn_point())
 	assert_float(player.rotation_degrees.y).is_equal(last_cp_test.get_spawn_rotation())
 	assert_vector3(player.vel).is_equal(Vector3.ZERO)
-	assert_array(StandardSongManager._queue).is_not_empty()
+	if _has_song():
+		assert_array(StandardSongManager._queue).is_not_empty()
 	last_cp_test.free()
 	var song = StandardSongManager._queue.pop_back()
-	song.song.queue_free()
-	song.effect.queue_free()
+	if _has_song():
+		song.song.queue_free()
+		song.effect.queue_free()
+
+
+func _has_song() -> bool:
+	return (
+		scene_instance.PATHS.bgm != null
+		and scene_instance.PATHS.bgm.path != null
+		and scene_instance.PATHS.bgm.animation != null
+		and not scene_instance.PATHS.bgm.path.empty()
+		and not scene_instance.PATHS.bgm.animation.empty()
+	)

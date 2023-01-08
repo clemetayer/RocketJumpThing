@@ -2,23 +2,25 @@
 #warning-ignore-all:unused_argument
 #warning-ignore-all:return_value_discarded
 extends GlobalTests
-# tests the moving platform
+class_name PeriodicMovingSpatialTest
+# Global tests for the periodic moving spatial
 
 ##### VARIABLES #####
-const moving_platform_path := "res://test/UnitTests/MapElementsTests/Platforms/periodic_moving_platform_mock.tscn"
-var moving_platform
+var periodic_moving_spatial_path := ""
+var periodic_moving_spatial: Spatial
 
 
 ##### TESTS #####
 #---- PRE/POST -----
 func before():
-	element_path = moving_platform_path
+	element_path = periodic_moving_spatial_path
 	.before()
-	moving_platform = load(moving_platform_path).instance()
+	periodic_moving_spatial = load(element_path).instance()
+	periodic_moving_spatial._ready()
 
 
 func after():
-	moving_platform.free()
+	periodic_moving_spatial.free()
 	.after()
 
 
@@ -62,10 +64,10 @@ func after():
 func test_create_show_path_mesh() -> void:
 	var mock_mesh := MeshInstance.new()
 	mock_mesh.mesh = CapsuleMesh.new()
-	mock_mesh.mesh.radius = moving_platform.PATH_MESH_RADIUS
+	mock_mesh.mesh.radius = periodic_moving_spatial.PATH_MESH_RADIUS
 	mock_mesh.mesh.mid_height = Vector3.ZERO.distance_to(Vector3.ONE)
 	mock_mesh.look_at(Vector3.ONE, Vector3.UP)
-	var test_mesh = moving_platform._create_show_path_mesh(Vector3.ZERO, Vector3.ONE)
+	var test_mesh = periodic_moving_spatial._create_show_path_mesh(Vector3.ZERO, Vector3.ONE)
 	assert_float(test_mesh.mesh.radius).is_equal(mock_mesh.mesh.radius)
 	assert_float(test_mesh.mesh.mid_height).is_equal(mock_mesh.mesh.mid_height)
 	assert_vector3(test_mesh.rotation).is_equal(mock_mesh.rotation)
