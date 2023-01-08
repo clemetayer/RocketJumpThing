@@ -50,9 +50,10 @@ func _get_collision() -> Node:
 # makes some elements unique to avoid modifying other boosts (for example the collision shape)
 func _duplicate_common_elements() -> void:
 	._duplicate_common_elements()
-	onready_paths.triangle_particles.draw_pass_1 = onready_paths.triangle_particles.draw_pass_1
+	onready_paths.triangle_particles.draw_pass_1 = onready_paths.triangle_particles.draw_pass_1.duplicate()
 	onready_paths.triangle_particles.process_material = onready_paths.triangle_particles.process_material.duplicate()
 	onready_paths.triangle_particles.process_material.color_ramp = onready_paths.triangle_particles.process_material.color_ramp.duplicate()
+	onready_paths.square_particles.draw_pass_1 = onready_paths.square_particles.draw_pass_1.duplicate()
 	onready_paths.square_particles.process_material = onready_paths.square_particles.process_material.duplicate()
 	onready_paths.square_particles.process_material.color_ramp = onready_paths.square_particles.process_material.color_ramp.duplicate()
 	onready_paths.mesh.mesh = onready_paths.mesh.mesh.duplicate()
