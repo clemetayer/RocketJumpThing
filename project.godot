@@ -987,7 +987,7 @@ _global_script_classes=[ {
 "base": "Reference",
 "class": "StepSequencerCommon",
 "language": "GDScript",
-"path": "res://Game/Common/Utils/StepSequencer/Static/step_sequencer_common.gd"
+"path": "res://Game/Common/Utils/StepSequencer/step_sequencer_common.gd"
 }, {
 "base": "GlobalTests",
 "class": "StepSequencerStepParticleTest",

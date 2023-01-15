@@ -31,7 +31,7 @@ static func load_json(path: String) -> Dictionary:
 	file.close()
 	return data
 
-
+# TODO : Case if an array contains another array
 static func _json_data_to_objects(dict: Dictionary) -> Dictionary:
 	for key in dict:
 		if dict[key] is Dictionary and not dict[key] is Array:
@@ -39,7 +39,7 @@ static func _json_data_to_objects(dict: Dictionary) -> Dictionary:
 		elif dict[key] is Array:
 			for array_idx in range(0, dict[key].size()):
 				if dict[key][array_idx] is Dictionary:
-					dict[key][array_idx] = (dict[key][array_idx])
+					dict[key][array_idx] = _json_data_to_objects(dict[key][array_idx])
 				else:
 					dict[key][array_idx] = _map_to_object(dict[key][array_idx])
 		else:

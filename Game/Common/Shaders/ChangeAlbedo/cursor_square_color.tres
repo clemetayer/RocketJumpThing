@@ -1,0 +1,15 @@
+[gd_resource type="Shader" format=2]
+
+[resource]
+code = "shader_type canvas_item;
+
+uniform float cursor : hint_range(0.0,1.0) = 0.5;
+uniform vec4 col1 : hint_color;
+uniform vec4 col2 : hint_color;
+
+void fragment() {
+	vec2 uv = (UV -0.5) * 2.0;
+	float cursor_mix = step(uv.x,cursor) * step(uv.y,cursor);
+	cursor_mix *= step(0.0,uv.x + cursor) * step(0.0,uv.y + cursor);
+	COLOR = mix(col1,col2,cursor_mix);
+}"
