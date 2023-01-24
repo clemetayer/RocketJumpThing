@@ -1,4 +1,5 @@
 extends Particles
+class_name ParticlesStepSequencer
 # A step sequencer for spatial nodes
 # Note : Don't be afraid to duplicate materials for each step, so that they will be treated simultaneously
 # Note to (maybe) angry future self : Making a base class might be a bad idea, since it would lose the static/spatial extends
@@ -63,6 +64,12 @@ func _init():
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	_ready_func()
+
+
+##### PROTECTED METHODS #####
+# a ready function to override/extend
+func _ready_func() -> void:
 	_set_TB_params()
 	_active_on_steps_array = StepSequencerCommon.parse_active_on_steps(_active_on_steps)
 	_active_on_signals_array = StepSequencerCommon.parse_active_on_signals(_active_on_signals)
@@ -72,7 +79,6 @@ func _ready():
 	StepSequencerCommon.set_start_parameters(self, _params, _init_index)
 
 
-##### PROTECTED METHODS #####
 func _set_TB_params() -> void:
 	TrenchBroomEntityUtils._map_trenchbroom_properties(
 		self, properties, StepSequencerCommon.TB_STEP_SEQUENCER_PARAM_MAPPER
@@ -80,6 +86,7 @@ func _set_TB_params() -> void:
 
 
 # Finds the first material in the first mesh instance and duplicates it if indicated in the params
+# TODO : Useless in the case of a particle ?
 func _get_material_in_children_and_duplicate() -> void:
 	for child in get_children():
 		if child is MeshInstance:
@@ -99,10 +106,5 @@ func _step(parameters: Dictionary) -> void:
 ##### SIGNAL MANAGEMENT #####
 func _on_SignalManager_sequencer_step(id: String) -> void:
 	_step_indexes = StepSequencerCommon.process_sequencer_step(
-		self,
-		id,
-		_params,
-		_step_indexes,
-		_active_on_signals_array,
-		_active_on_steps_array
+		self, id, _params, _step_indexes, _active_on_signals_array, _active_on_steps_array
 	)

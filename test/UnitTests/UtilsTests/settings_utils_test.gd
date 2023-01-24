@@ -169,24 +169,26 @@ func test_generate_cfg_input_from_action() -> void:
 
 func test_load_cfg_audio_file() -> void:
 	var main_volume := 50.0
-	var main_mute := false
+	var main_unmute := false
 	var bgm_volume := 20.2
-	var bgm_mute := true
+	var bgm_unmute := true
 	var effects_volume := 75.6
-	var effects_mute := false
+	var effects_unmute := false
 	# init
 	var cfg := ConfigFile.new()
 	## main
 	cfg.set_value(SettingsUtils.AUDIO_SECTION_MAIN, SettingsUtils.AUDIO_KEY_VOLUME, main_volume)
-	cfg.set_value(SettingsUtils.AUDIO_SECTION_MAIN, SettingsUtils.AUDIO_KEY_MUTE, main_mute)
+	cfg.set_value(SettingsUtils.AUDIO_SECTION_MAIN, SettingsUtils.AUDIO_KEY_UNMUTED, main_unmute)
 	## bgm
 	cfg.set_value(SettingsUtils.AUDIO_SECTION_BGM, SettingsUtils.AUDIO_KEY_VOLUME, bgm_volume)
-	cfg.set_value(SettingsUtils.AUDIO_SECTION_BGM, SettingsUtils.AUDIO_KEY_MUTE, bgm_mute)
+	cfg.set_value(SettingsUtils.AUDIO_SECTION_BGM, SettingsUtils.AUDIO_KEY_UNMUTED, bgm_unmute)
 	## effects
 	cfg.set_value(
 		SettingsUtils.AUDIO_SECTION_EFFECTS, SettingsUtils.AUDIO_KEY_VOLUME, effects_volume
 	)
-	cfg.set_value(SettingsUtils.AUDIO_SECTION_EFFECTS, SettingsUtils.AUDIO_KEY_MUTE, effects_mute)
+	cfg.set_value(
+		SettingsUtils.AUDIO_SECTION_EFFECTS, SettingsUtils.AUDIO_KEY_UNMUTED, effects_unmute
+	)
 	# test
 	SettingsUtils._load_cfg_audio_file(cfg)
 	## main
@@ -194,69 +196,71 @@ func test_load_cfg_audio_file() -> void:
 		main_volume, FLOAT_APPROX
 	)
 	assert_bool(AudioServer.is_bus_mute(AudioServer.get_bus_index(GlobalConstants.MAIN_BUS))).is_equal(
-		main_mute
+		not main_unmute
 	)
 	## bgm
 	assert_float(db2linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index(GlobalConstants.BGM_BUS)))).is_equal_approx(
 		bgm_volume, FLOAT_APPROX
 	)
 	assert_bool(AudioServer.is_bus_mute(AudioServer.get_bus_index(GlobalConstants.BGM_BUS))).is_equal(
-		bgm_mute
+		not bgm_unmute
 	)
 	## effects
 	assert_float(db2linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index(GlobalConstants.EFFECTS_BUS)))).is_equal_approx(
 		effects_volume, FLOAT_APPROX
 	)
 	assert_bool(AudioServer.is_bus_mute(AudioServer.get_bus_index(GlobalConstants.EFFECTS_BUS))).is_equal(
-		effects_mute
+		not effects_unmute
 	)
 
 
 func test_generate_cfg_audio_file() -> void:
 	var main_volume := 50.0
-	var main_mute := false
+	var main_unmute := false
 	var bgm_volume := 20.2
-	var bgm_mute := true
+	var bgm_unmute := true
 	var effects_volume := 75.6
-	var effects_mute := false
+	var effects_unmute := false
 	# init
 	## main
 	AudioServer.set_bus_volume_db(
 		AudioServer.get_bus_index(GlobalConstants.MAIN_BUS), linear2db(main_volume)
 	)
-	AudioServer.set_bus_mute(AudioServer.get_bus_index(GlobalConstants.MAIN_BUS), main_mute)
+	AudioServer.set_bus_mute(AudioServer.get_bus_index(GlobalConstants.MAIN_BUS), not main_unmute)
 	## bgm
 	AudioServer.set_bus_volume_db(
 		AudioServer.get_bus_index(GlobalConstants.BGM_BUS), linear2db(bgm_volume)
 	)
-	AudioServer.set_bus_mute(AudioServer.get_bus_index(GlobalConstants.BGM_BUS), bgm_mute)
+	AudioServer.set_bus_mute(AudioServer.get_bus_index(GlobalConstants.BGM_BUS), not bgm_unmute)
 	## effects
 	AudioServer.set_bus_volume_db(
 		AudioServer.get_bus_index(GlobalConstants.EFFECTS_BUS), linear2db(effects_volume)
 	)
-	AudioServer.set_bus_mute(AudioServer.get_bus_index(GlobalConstants.EFFECTS_BUS), effects_mute)
+	AudioServer.set_bus_mute(
+		AudioServer.get_bus_index(GlobalConstants.EFFECTS_BUS), not effects_unmute
+	)
 	# test
 	var cfg := SettingsUtils._generate_cfg_audio_file()
 	## main
 	assert_float(cfg.get_value(SettingsUtils.AUDIO_SECTION_MAIN, SettingsUtils.AUDIO_KEY_VOLUME)).is_equal_approx(
 		main_volume, FLOAT_APPROX
 	)
-	assert_bool(cfg.get_value(SettingsUtils.AUDIO_SECTION_MAIN, SettingsUtils.AUDIO_KEY_MUTE)).is_equal(
-		main_mute
+	assert_bool(cfg.get_value(SettingsUtils.AUDIO_SECTION_MAIN, SettingsUtils.AUDIO_KEY_UNMUTED)).is_equal(
+		main_unmute
 	)
 	## bgm
 	assert_float(cfg.get_value(SettingsUtils.AUDIO_SECTION_BGM, SettingsUtils.AUDIO_KEY_VOLUME)).is_equal_approx(
 		bgm_volume, FLOAT_APPROX
 	)
-	assert_bool(cfg.get_value(SettingsUtils.AUDIO_SECTION_BGM, SettingsUtils.AUDIO_KEY_MUTE)).is_equal(
-		bgm_mute
+	assert_bool(cfg.get_value(SettingsUtils.AUDIO_SECTION_BGM, SettingsUtils.AUDIO_KEY_UNMUTED)).is_equal(
+		bgm_unmute
 	)
 	## main
 	assert_float(cfg.get_value(SettingsUtils.AUDIO_SECTION_EFFECTS, SettingsUtils.AUDIO_KEY_VOLUME)).is_equal_approx(
 		effects_volume, FLOAT_APPROX
 	)
-	assert_bool(cfg.get_value(SettingsUtils.AUDIO_SECTION_EFFECTS, SettingsUtils.AUDIO_KEY_MUTE)).is_equal(
-		effects_mute
+	assert_bool(cfg.get_value(SettingsUtils.AUDIO_SECTION_EFFECTS, SettingsUtils.AUDIO_KEY_UNMUTED)).is_equal(
+		effects_unmute
 	)
 
 

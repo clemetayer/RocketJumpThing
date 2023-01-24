@@ -26,7 +26,7 @@ material = SubResource( 3453 )
 size = Vector3( 16, 0, 16 )
 
 [node name="UpSquares" type="Particles"]
-amount = 32
-lifetime = 50.0
+amount = 20
+lifetime = 30.0
 process_material = SubResource( 3455 )
 draw_pass_1 = SubResource( 3454 )

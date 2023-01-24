@@ -43,7 +43,7 @@ const CONTROLS_SETTINGS_CFG_MAPPER := {
 #==== AUDIO =====
 const AUDIO_PRESETS_PATH := ROOT_PRESETS_FOLDER + "audio/"
 const AUDIO_KEY_VOLUME := "volume"
-const AUDIO_KEY_MUTE := "mute"
+const AUDIO_KEY_UNMUTED := "unmuted"
 const AUDIO_SECTION_MAIN := "main"
 const AUDIO_SECTION_BGM := "BGM"
 const AUDIO_SECTION_EFFECTS := "effects"
@@ -285,15 +285,15 @@ func _load_cfg_audio_file(cfg: ConfigFile) -> void:
 			)
 		if (
 			cfg.has_section(AUDIO_SECTION_MAIN)
-			and cfg.get_value(AUDIO_SECTION_MAIN, AUDIO_KEY_MUTE) != null
+			and cfg.get_value(AUDIO_SECTION_MAIN, AUDIO_KEY_UNMUTED) != null
 		):
 			AudioServer.set_bus_mute(
 				AudioServer.get_bus_index(GlobalConstants.MAIN_BUS),
-				cfg.get_value(AUDIO_SECTION_MAIN, AUDIO_KEY_MUTE)
+				not cfg.get_value(AUDIO_SECTION_MAIN, AUDIO_KEY_UNMUTED)
 			)
 		else:
 			Logger.warn(
-				"No section %s or key %s in cfg audio" % [AUDIO_SECTION_MAIN, AUDIO_KEY_MUTE]
+				"No section %s or key %s in cfg audio" % [AUDIO_SECTION_MAIN, AUDIO_KEY_UNMUTED]
 			)
 		# BGM
 		if (
@@ -310,15 +310,15 @@ func _load_cfg_audio_file(cfg: ConfigFile) -> void:
 			)
 		if (
 			cfg.has_section(AUDIO_SECTION_BGM)
-			and cfg.get_value(AUDIO_SECTION_BGM, AUDIO_KEY_MUTE) != null
+			and cfg.get_value(AUDIO_SECTION_BGM, AUDIO_KEY_UNMUTED) != null
 		):
 			AudioServer.set_bus_mute(
 				AudioServer.get_bus_index(GlobalConstants.BGM_BUS),
-				cfg.get_value(AUDIO_SECTION_BGM, AUDIO_KEY_MUTE)
+				not cfg.get_value(AUDIO_SECTION_BGM, AUDIO_KEY_UNMUTED)
 			)
 		else:
 			Logger.warn(
-				"No section %s or key %s in cfg audio" % [AUDIO_SECTION_BGM, AUDIO_KEY_MUTE]
+				"No section %s or key %s in cfg audio" % [AUDIO_SECTION_BGM, AUDIO_KEY_UNMUTED]
 			)
 		# Effects
 		if (
@@ -331,19 +331,19 @@ func _load_cfg_audio_file(cfg: ConfigFile) -> void:
 			)
 		else:
 			Logger.warn(
-				"No section %s or key %s in cfg audio" % [AUDIO_SECTION_EFFECTS, AUDIO_KEY_MUTE]
+				"No section %s or key %s in cfg audio" % [AUDIO_SECTION_EFFECTS, AUDIO_KEY_UNMUTED]
 			)
 		if (
 			cfg.has_section(AUDIO_SECTION_EFFECTS)
-			and cfg.get_value(AUDIO_SECTION_EFFECTS, AUDIO_KEY_MUTE) != null
+			and cfg.get_value(AUDIO_SECTION_EFFECTS, AUDIO_KEY_UNMUTED) != null
 		):
 			AudioServer.set_bus_mute(
 				AudioServer.get_bus_index(GlobalConstants.EFFECTS_BUS),
-				cfg.get_value(AUDIO_SECTION_EFFECTS, AUDIO_KEY_MUTE)
+				not cfg.get_value(AUDIO_SECTION_EFFECTS, AUDIO_KEY_UNMUTED)
 			)
 		else:
 			Logger.warn(
-				"No section %s or key %s in cfg audio" % [AUDIO_SECTION_EFFECTS, AUDIO_KEY_MUTE]
+				"No section %s or key %s in cfg audio" % [AUDIO_SECTION_EFFECTS, AUDIO_KEY_UNMUTED]
 			)
 	else:
 		Logger.warn("No cfg audio config")
@@ -361,8 +361,8 @@ func _generate_cfg_audio_file() -> ConfigFile:
 	)
 	cfg_file.set_value(
 		AUDIO_SECTION_MAIN,
-		AUDIO_KEY_MUTE,
-		AudioServer.is_bus_mute(AudioServer.get_bus_index(GlobalConstants.MAIN_BUS))
+		AUDIO_KEY_UNMUTED,
+		not AudioServer.is_bus_mute(AudioServer.get_bus_index(GlobalConstants.MAIN_BUS))
 	)
 	# BGM
 	cfg_file.set_value(
@@ -372,8 +372,8 @@ func _generate_cfg_audio_file() -> ConfigFile:
 	)
 	cfg_file.set_value(
 		AUDIO_SECTION_BGM,
-		AUDIO_KEY_MUTE,
-		AudioServer.is_bus_mute(AudioServer.get_bus_index(GlobalConstants.BGM_BUS))
+		AUDIO_KEY_UNMUTED,
+		not AudioServer.is_bus_mute(AudioServer.get_bus_index(GlobalConstants.BGM_BUS))
 	)
 	# effects
 	cfg_file.set_value(
@@ -385,8 +385,8 @@ func _generate_cfg_audio_file() -> ConfigFile:
 	)
 	cfg_file.set_value(
 		AUDIO_SECTION_EFFECTS,
-		AUDIO_KEY_MUTE,
-		AudioServer.is_bus_mute(AudioServer.get_bus_index(GlobalConstants.EFFECTS_BUS))
+		AUDIO_KEY_UNMUTED,
+		not AudioServer.is_bus_mute(AudioServer.get_bus_index(GlobalConstants.EFFECTS_BUS))
 	)
 	return cfg_file
 

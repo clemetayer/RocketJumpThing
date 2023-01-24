@@ -9,6 +9,7 @@ signal effect_done  # when an effect is done
 
 #==== PRIVATE ====
 var _current_effects = []  # current effects playing, to cancel these if necessary
+var _updating := false  # usefull to tell if the song is currently updating or not
 
 
 # Called when the object is initialized.
@@ -37,9 +38,11 @@ func stop_current(effect: EffectManager) -> void:
 		_cancel_current_effects(effect)
 		_current_effects.append(effect)
 		effect.start_effect(effect_data)
+		_updating = true
 		yield(effect, "effect_done")
 		_current_effects.erase(effect)
 		effect.queue_free()
+		_updating = false
 	_current_song.queue_free()
 	emit_signal("effect_done")
 
@@ -53,15 +56,27 @@ func apply_effect(effect: EffectManager, params = {}) -> void:
 		_cancel_current_effects(effect)
 		_current_effects.append(effect)
 		effect.start_effect(effect_data)
+		_updating = true
 		yield(effect, "effect_done")
 		_current_effects.erase(effect)
 		effect.queue_free()
+		_updating = false
 	emit_signal("effect_done")
 
 
 # returns the current song playing (to maybe bind some values, idk)
 func get_current() -> Song:
 	return _current_song
+
+
+# True if there is something playing right now
+func has_current() -> bool:
+	return _current_song != null
+
+
+# If there is some kind of transition happening here
+func is_updating() -> bool:
+	return _updating
 
 
 ##### PROTECTED METHODS #####
@@ -91,9 +106,11 @@ func _play_song(song: Song, effect: EffectManager):
 		_cancel_current_effects(effect)
 		_current_effects.append(effect)
 		effect.start_effect(effect_data)
+		_updating = true
 		yield(effect, "effect_done")
 		_current_effects.erase(effect)
 		effect.queue_free()
+		_updating = false
 	emit_signal("effect_done")
 
 
@@ -106,9 +123,11 @@ func _update_current(song: Song, effect: EffectManager):
 		_cancel_current_effects(effect)
 		_current_effects.append(effect)
 		effect.start_effect(effect_data)
+		_updating = true
 		yield(effect, "effect_done")
 		_current_effects.erase(effect)
 		effect.queue_free()
+		_updating = false
 	emit_signal("effect_done")
 
 
@@ -122,9 +141,11 @@ func _switch_song(song: Song, effect: EffectManager):
 		_cancel_current_effects(switch_effect)
 		_current_effects.append(switch_effect)
 		switch_effect.start_effect(effect_data)
+		_updating = true
 		yield(switch_effect, "effect_done")
 		_current_effects.erase(switch_effect)
 		switch_effect.queue_free()
+		_updating = false
 	emit_signal("effect_done")
 	_current_song.queue_free()
 	_play_song(song, effect)

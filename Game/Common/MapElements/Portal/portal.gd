@@ -3,13 +3,14 @@ extends Collidable
 
 ##### VARIABLES #####
 #---- CONSTANTS -----
-const TB_PORTAL_MAPPER := [["id", "id"], ["mangle", "_mangle"]]  # mapper for TrenchBroom parameters
+const TB_PORTAL_MAPPER := [["id", "id"], ["mangle", "_mangle"], ["scale", "_scale"]]  # mapper for TrenchBroom parameters
 const OFFSET := 2.0  # offset to avoid making the player constantly triggering the portal by spawning on its center
 
 #---- STANDARD -----
 #==== PRIVATE ====
 var id := ""  # portal id
 var _mangle := Vector3.ZERO  # trenchbroom angles
+var _scale := 1.0  # scale of the portal
 
 #==== ONREADY ====
 onready var onready_paths := {
@@ -26,12 +27,17 @@ func _init():
 func _ready_func() -> void:
 	._ready_func()
 	rotation_degrees = _mangle
+	scale = Vector3.ONE * _scale
 
 
 ##### PUBLIC METHODS #####
 # returns the global vector of the portal
 func get_global_forward_vector() -> Vector3:
 	return onready_paths.forward_pos.global_transform.origin - global_transform.origin
+
+
+func get_rotation_degrees() -> Vector3:
+	return _mangle
 
 
 ##### PROTECTED METHODS #####

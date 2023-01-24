@@ -2,30 +2,30 @@
   "duplicate_material": true,
   "*": [
     {
-      "material:shader_param/col1": "#000000",
-      "material:shader_param/col2": "#155799"
+      "material:emission": "#0500ac",
+      "material:albedo_color": "#000500ac"
     },
     {
-      "material:shader_param/col1": "#000000",
-      "material:shader_param/col2": "#92FE9D"
+      "material:emission": "#1771c1",
+      "material:albedo_color": "#001771c1"
     },
     {
-      "material:shader_param/col1": "#000000",
-      "material:shader_param/col2": "#00C9FF"
+      "material:emission": "#12e56e",
+      "material:albedo_color": "#0012e56e"
     },
     {
-      "material:shader_param/col1": "#000000",
-      "material:shader_param/col2": "#159957"
+      "material:emission": "#95ffe6",
+      "material:albedo_color": "#0095ffe6"
     }
   ],
-  "cube": [
+  "hollow_cube": [
     {
       "2": {
-        "material:shader_param/cursor": {
+        "material:albedo_color:a": {
           "initial_value": 0.0,
           "final_value": 1.0,
-          "duration_in": 0.5,
-          "duration_out": 1.0,
+          "duration_in": 0.1,
+          "duration_out": 0.25,
           "trans_type_in": 0,
           "trans_type_out": 1,
           "ease_type_in": 1,
@@ -37,11 +37,11 @@
     },
     {
       "2": {
-        "material:shader_param/cursor": {
+        "material:albedo_color:a": {
           "initial_value": 0.0,
           "final_value": 1.0,
-          "duration_in": 0.5,
-          "duration_out": 1.0,
+          "duration_in": 0.1,
+          "duration_out": 0.25,
           "trans_type_in": 0,
           "trans_type_out": 1,
           "ease_type_in": 1,
@@ -53,11 +53,11 @@
     },
     {
       "2": {
-        "material:shader_param/cursor": {
+        "material:albedo_color:a": {
           "initial_value": 0.0,
           "final_value": 1.0,
-          "duration_in": 0.5,
-          "duration_out": 1.0,
+          "duration_in": 0.1,
+          "duration_out": 0.25,
           "trans_type_in": 0,
           "trans_type_out": 1,
           "ease_type_in": 1,
@@ -69,11 +69,11 @@
     },
     {
       "2": {
-        "material:shader_param/cursor": {
+        "material:albedo_color:a": {
           "initial_value": 0.0,
           "final_value": 1.0,
-          "duration_in": 0.5,
-          "duration_out": 1.0,
+          "duration_in": 0.1,
+          "duration_out": 0.25,
           "trans_type_in": 0,
           "trans_type_out": 1,
           "ease_type_in": 1,

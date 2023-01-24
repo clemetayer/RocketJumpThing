@@ -7,6 +7,7 @@ extends GlobalTests
 ##### VARIABLES #####
 const FLOAT_APPROX := 0.5
 const player_path = "res://Game/Common/MapElements/Characters/MainCharacters/player.tscn"
+const portal_path := "res://Game/Common/MapElements/Portal/portal.tscn"
 var player: KinematicBody
 
 
@@ -28,6 +29,30 @@ func after_test():
 
 #---- TESTS -----
 #==== ACTUAL TESTS =====
+# FIXME : Issues when testing
+# func test_portal_process() -> void:
+# 	# test values
+# 	var origin_pos := Vector3(0.0, 1.0, 2.0)
+# 	var port_rotation := Vector3(PI / 4.0, PI / 3.0, 0.0)
+# 	var player_vel = Vector3.ONE * 5.0
+# 	# init
+# 	var portal = load(portal_path).instance()
+# 	add_child(portal)
+# 	portal.global_rotation = port_rotation
+# 	portal.global_transform.origin = origin_pos
+# 	player.vel = Vector3.ONE * 5.0
+# 	player.portal_process(portal)
+# 	# test
+# 	assert_vector3(player.vel).is_equal(
+# 		player_vel.length() * Vector3.ONE.rotated(port_rotation, 1.0)
+# 	)
+# 	assert_vector3(player.global_transform.origin).is_equal(origin_pos)
+# 	assert_float(player.rotation.y).is_equal_approx(port_rotation.y, FLOAT_APPROX)
+# 	assert_float(player.rotation_helper.rotation.x).is_equal_approx(port_rotation.x, FLOAT_APPROX)
+# 	# free
+# 	portal.free()
+
+
 func test_add_velocity_vector() -> void:
 	player.add_velocity_vector(Vector3.ONE)
 	assert_array(player._add_velocity_vector_queue).is_equal([Vector3.ONE])

@@ -1,33 +1,29 @@
 [gd_resource type="Resource" load_steps=4 format=2]
 
 [ext_resource path="res://addons/qodot/src/resources/game-definitions/fgd/qodot_fgd_point_class.gd" type="Script" id=1]
-[ext_resource path="res://trenchbroom/Entities/BaseClasses/collidable.tres" type="Resource" id=2]
-[ext_resource path="res://Game/Common/MapElements/Portal/portal.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Game/Scenes/Levels/popping_cubes.tscn" type="PackedScene" id=2]
+[ext_resource path="res://trenchbroom/Entities/BaseClasses/step_sequencer_base.tres" type="Resource" id=3]
 
 [resource]
 script = ExtResource( 1 )
 class_options = "----------------------------------------------------------------"
-classname = "Portals_Portal"
-description = "A portal (with a signal name that should be associated with another one, and only one)"
+classname = "Scenes_Level4_PoppingCubes"
+description = "Popping cube rythm element for the level 4"
 qodot_internal = false
-base_classes = [ ExtResource( 2 ) ]
+base_classes = [ ExtResource( 3 ) ]
 class_properties = {
-"id": "",
-"mangle": Vector3( 0, 0, 0 ),
-"scale": 1.0
+"color": Color( 1, 1, 1, 1 )
 }
 class_property_descriptions = {
-"id": "Id of the portal (should be paired with another one, and only one)",
-"mangle": "Rotation angles",
-"scale": "pretty much the size of the portal"
+"color": "color of the popping cube"
 }
 meta_properties = {
 "color": Color( 0.8, 0.8, 0.8, 1 ),
 "size": AABB( -8, -8, -8, 8, 8, 8 )
 }
 node_options = "----------------------------------------------------------------"
-node_class = "Area"
+node_class = ""
 transient_node = false
 scene = "----------------------------------------------------------------"
-scene_file = ExtResource( 3 )
+scene_file = ExtResource( 2 )
 scripting = "----------------------------------------------------------------"

@@ -1,65 +1,39 @@
-# tool
 extends StandardScene
-# class_name Class
-# docstring
-
-##### SIGNALS #####
-# Node signals
-
-##### ENUMS #####
-# enumerations
+# Script for the level 4
 
 ##### VARIABLES #####
 #---- CONSTANTS -----
-# const constant := 10 # Optionnal comment
-
-#---- EXPORTS -----
-# export(int) var EXPORT_NAME # Optionnal comment
-
-#---- STANDARD -----
-#==== PUBLIC ====
-# var public_var # Optionnal comment
-
-#==== PRIVATE ====
-# var _private_var # Optionnal comment
-
-#==== ONREADY ====
-# onready var onready_var # Optionnal comment
+const SPEED_STEPS := [15.0, 25.0]
+const SONG_PART_2_PREFIX := "part_2"
+const SONG_PART_2_0 := "part_2"
+const SONG_PART_2_1 := "part_2_2"
+const SONG_PART_2_2 := "part_2_3"
 
 
 ##### PROCESSING #####
 # Called when the object is initialized.
 func _init():
-	pass
+	DebugUtils.log_connect(
+		SignalManager, self, SignalManager.SPEED_UPDATED, "_on_SignalManager_speed_updated"
+	)
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame. Remove the "_" to use it.
-func _process(_delta):
-	pass
-
-
-##### PUBLIC METHODS #####
-# Methods that are intended to be "visible" to other nodes or scripts
-# func public_method(arg : int) -> void:
-#     pass
-
-##### PROTECTED METHODS #####
-# Methods that are intended to be used exclusively by this scripts
-# func _private_method(arg):
-#     pass
 
 ##### SIGNAL MANAGEMENT #####
-# Functions that should be triggered when a specific signal is received
-
-
-func _on_StompTimer_timeout():
-	SignalManager.emit_sequencer_step("stomp")
-
-
-func _on_CubeTimer_timeout():
-	SignalManager.emit_sequencer_step("cube")
+func _on_SignalManager_speed_updated(speed: float) -> void:
+	if StandardSongManager.has_current() and not StandardSongManager.is_updating():
+		var current_song: Song = StandardSongManager.get_current()
+		if (
+			current_song is SongAnimationPlayer
+			and current_song.ANIMATION != null
+			and current_song.ANIMATION.begins_with(SONG_PART_2_PREFIX)
+		):
+			if speed < SPEED_STEPS[0] and current_song.ANIMATION != SONG_PART_2_0:
+				_change_song_anim(SONG_PART_2_0)
+			elif (
+				speed >= SPEED_STEPS[0]
+				and speed < SPEED_STEPS[1]
+				and current_song.ANIMATION != SONG_PART_2_1
+			):
+				_change_song_anim(SONG_PART_2_1)
+			elif speed > SPEED_STEPS[1] and current_song.ANIMATION != SONG_PART_2_2:
+				_change_song_anim(SONG_PART_2_2)

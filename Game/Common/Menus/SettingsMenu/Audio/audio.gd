@@ -15,7 +15,7 @@ onready var onready_paths := {
 		"label": $"AudioVBox/Main/HBox/Label",
 		"slider": $"AudioVBox/Main/HBox/Slider",
 		"volume_label": $"AudioVBox/Main/HBox/Volume",
-		"mute": $"AudioVBox/Main/HBox/Mute"
+		"unmute": $"AudioVBox/Main/HBox/Mute"
 	},
 	"BGM":
 	{
@@ -23,7 +23,7 @@ onready var onready_paths := {
 		"label": $"AudioVBox/BGM/HBox/Label",
 		"slider": $"AudioVBox/BGM/HBox/Slider",
 		"volume_label": $"AudioVBox/BGM/HBox/Volume",
-		"mute": $"AudioVBox/BGM/HBox/Mute"
+		"unmute": $"AudioVBox/BGM/HBox/Mute"
 	},
 	"effects":
 	{
@@ -31,7 +31,7 @@ onready var onready_paths := {
 		"label": $"AudioVBox/Effects/HBox/Label",
 		"slider": $"AudioVBox/Effects/HBox/Slider",
 		"volume_label": $"AudioVBox/Effects/HBox/Volume",
-		"mute": $"AudioVBox/Effects/HBox/Mute"
+		"unmute": $"AudioVBox/Effects/HBox/Mute"
 	}
 }
 
@@ -60,15 +60,17 @@ func _connect_signals() -> void:
 	DebugUtils.log_connect(
 		onready_paths.main.slider, self, "value_changed", "_on_MainSlider_value_changed"
 	)
-	DebugUtils.log_connect(onready_paths.main.mute, self, "toggled", "_on_MainMute_toggled")
+	DebugUtils.log_connect(onready_paths.main.unmute, self, "toggled", "_on_MainUnmute_toggled")
 	DebugUtils.log_connect(
 		onready_paths.BGM.slider, self, "value_changed", "_on_BGMSlider_value_changed"
 	)
-	DebugUtils.log_connect(onready_paths.BGM.mute, self, "toggled", "_on_BGMMute_toggled")
+	DebugUtils.log_connect(onready_paths.BGM.unmute, self, "toggled", "_on_BGMUnmute_toggled")
 	DebugUtils.log_connect(
 		onready_paths.effects.slider, self, "value_changed", "_on_EffectsSlider_value_changed"
 	)
-	DebugUtils.log_connect(onready_paths.effects.mute, self, "toggled", "_on_EffectsMute_toggled")
+	DebugUtils.log_connect(
+		onready_paths.effects.unmute, self, "toggled", "_on_EffectsUnmute_toggled"
+	)
 
 
 func _init_values() -> void:
@@ -88,7 +90,7 @@ func _init_values() -> void:
 			* onready_paths.main.slider.max_value
 		)
 	)
-	onready_paths.main.mute.pressed = AudioServer.is_bus_mute(
+	onready_paths.main.unmute.pressed = not AudioServer.is_bus_mute(
 		AudioServer.get_bus_index(GlobalConstants.MAIN_BUS)
 	)
 	onready_paths.main.slider.editable = not AudioServer.is_bus_mute(
@@ -108,7 +110,7 @@ func _init_values() -> void:
 			* onready_paths.BGM.slider.max_value
 		)
 	)
-	onready_paths.BGM.mute.pressed = AudioServer.is_bus_mute(
+	onready_paths.BGM.unmute.pressed = not AudioServer.is_bus_mute(
 		AudioServer.get_bus_index(GlobalConstants.BGM_BUS)
 	)
 	onready_paths.BGM.slider.editable = not AudioServer.is_bus_mute(
@@ -132,7 +134,7 @@ func _init_values() -> void:
 			* onready_paths.effects.slider.max_value
 		)
 	)
-	onready_paths.effects.mute.pressed = AudioServer.is_bus_mute(
+	onready_paths.effects.unmute.pressed = not AudioServer.is_bus_mute(
 		AudioServer.get_bus_index(GlobalConstants.EFFECTS_BUS)
 	)
 	onready_paths.effects.slider.editable = not AudioServer.is_bus_mute(
@@ -149,9 +151,9 @@ func _on_MainSlider_value_changed(value: float) -> void:
 	onready_paths.main.volume_label.text = VOLUME_TEXT % value
 
 
-func _on_MainMute_toggled(toggled: bool) -> void:
-	AudioServer.set_bus_mute(AudioServer.get_bus_index(GlobalConstants.MAIN_BUS), toggled)
-	onready_paths.main.slider.editable = not toggled
+func _on_MainUnmute_toggled(toggled: bool) -> void:
+	AudioServer.set_bus_mute(AudioServer.get_bus_index(GlobalConstants.MAIN_BUS), not toggled)
+	onready_paths.main.slider.editable = toggled
 
 
 func _on_BGMSlider_value_changed(value: float) -> void:
@@ -162,9 +164,9 @@ func _on_BGMSlider_value_changed(value: float) -> void:
 	onready_paths.BGM.volume_label.text = VOLUME_TEXT % value
 
 
-func _on_BGMMute_toggled(toggled: bool) -> void:
-	AudioServer.set_bus_mute(AudioServer.get_bus_index(GlobalConstants.BGM_BUS), toggled)
-	onready_paths.BGM.slider.editable = not toggled
+func _on_BGMUnmute_toggled(toggled: bool) -> void:
+	AudioServer.set_bus_mute(AudioServer.get_bus_index(GlobalConstants.BGM_BUS), not toggled)
+	onready_paths.BGM.slider.editable = toggled
 
 
 func _on_EffectsSlider_value_changed(value: float) -> void:
@@ -175,6 +177,6 @@ func _on_EffectsSlider_value_changed(value: float) -> void:
 	onready_paths.effects.volume_label.text = VOLUME_TEXT % value
 
 
-func _on_EffectsMute_toggled(toggled: bool) -> void:
-	AudioServer.set_bus_mute(AudioServer.get_bus_index(GlobalConstants.EFFECTS_BUS), toggled)
-	onready_paths.effects.slider.editable = not toggled
+func _on_EffectsUnmute_toggled(toggled: bool) -> void:
+	AudioServer.set_bus_mute(AudioServer.get_bus_index(GlobalConstants.EFFECTS_BUS), not toggled)
+	onready_paths.effects.slider.editable = toggled

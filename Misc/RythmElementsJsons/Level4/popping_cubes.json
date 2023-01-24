@@ -1,0 +1,18 @@
+{
+  "duplicate_material": true,
+  "*": [
+    {}
+  ],
+  "pop": [
+    {
+      "0": {
+        "emitting": true
+      }
+    },
+    {
+      "0": {
+        "emitting": true
+      }
+    }
+  ]
+}

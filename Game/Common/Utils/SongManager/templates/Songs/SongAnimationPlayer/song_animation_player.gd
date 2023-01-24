@@ -33,6 +33,7 @@ var _buses_cleared := true  # if the buses have been cleared or not
 ##### PROCESSING #####
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	Logger.debug("SongAnimationPlayer - Playing : %s with animation %s" % [name, ANIMATION])
 	DebugUtils.log_connect(
 		get_node(ANIMATION_PLAYER), self, "animation_started", "_on_animation_started"
 	)
@@ -76,6 +77,9 @@ func update(song: Song) -> Array:
 	if _buses_cleared:
 		_init_buses()
 	if ANIMATION != song.ANIMATION:
+		Logger.debug(
+			"Song animation player - Updating current from %s to %s" % [ANIMATION, song.ANIMATION]
+		)
 		var common_track_name = _get_same_track(song.ANIMATION)
 		var animation_time: float
 		var time_tracks: Dictionary
@@ -154,6 +158,7 @@ func _init_tracks():
 	# special case of the song itself
 	if not _tracks.has(name):
 		_tracks[name] = {"bus": "", "volume": 0.0}
+	_print_track_infos()
 
 
 # inits a track recursively.
@@ -194,6 +199,7 @@ func _init_buses():
 			_tracks[track_name].bus = "%s:%s" % [name, track_name]
 			get_node(_tracks[track_name].path).bus = "%s:%s" % [name, track_name]
 	_buses_cleared = false
+	_print_buses()
 
 
 # clear the buses used in this song
@@ -361,8 +367,9 @@ func _reset_bus(name: String) -> void:
 func _on_parent_effect_done() -> void:
 	if ANIMATION != _update_track_infos.animation:
 		var common_track_name = _get_same_track(_update_track_infos.animation)
+		var animation_time := 0.0
 		if common_track_name != null:
-			var animation_time = _get_animation_time_from_track_time(
+			animation_time = _get_animation_time_from_track_time(
 				_update_track_infos.animation, common_track_name
 			)  # global time in the animation, depending on the common track
 			if _update_track_infos.fade_out.size() > 0:
@@ -378,13 +385,20 @@ func _on_parent_effect_done() -> void:
 					for track in to_stop:
 						_reset_bus(_tracks[track].bus)
 						_tracks[track].volume = 0.0
-			ANIMATION = _update_track_infos.animation
-			get_node(ANIMATION_PLAYER).play(_update_track_infos.animation)
-			get_node(ANIMATION_PLAYER).seek(animation_time)
 		else:
 			Logger.warn(
 				"No common track between %s and %s" % [ANIMATION, _update_track_infos.animation]
 			)
+			var anim_player := get_node(ANIMATION_PLAYER)
+			# new animation time = old animation time modulo total new animation time
+			animation_time = fmod(
+				anim_player.current_animation_position,
+				anim_player.get_animation(_update_track_infos.animation).length
+			)
+		# sets the infos of the new song
+		ANIMATION = _update_track_infos.animation
+		get_node(ANIMATION_PLAYER).play(_update_track_infos.animation)
+		get_node(ANIMATION_PLAYER).seek(animation_time)
 	if _recur_check_clear_buses(self):
 		_clear_buses()
 

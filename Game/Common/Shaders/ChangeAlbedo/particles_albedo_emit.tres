@@ -1,0 +1,12 @@
+[gd_resource type="Shader" format=2]
+
+[resource]
+code = "shader_type spatial;
+
+const float EMISSION_VAL = 2.0;
+
+void fragment(){
+	ALBEDO = COLOR.rgb;
+	ALPHA = COLOR.a;
+	EMISSION = COLOR.rgb * EMISSION_VAL * ALPHA;
+}"

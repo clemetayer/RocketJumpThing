@@ -55,13 +55,13 @@ func test_connect_signals() -> void:
 	audio._connect_signals()
 	# main
 	assert_bool(audio.onready_paths.main.slider.is_connected("value_changed", audio, "_on_MainSlider_value_changed")).is_true()
-	assert_bool(audio.onready_paths.main.mute.is_connected("toggled", audio, "_on_MainMute_toggled")).is_true()
+	assert_bool(audio.onready_paths.main.unmute.is_connected("toggled", audio, "_on_MainUnmute_toggled")).is_true()
 	# bgm
 	assert_bool(audio.onready_paths.BGM.slider.is_connected("value_changed", audio, "_on_BGMSlider_value_changed")).is_true()
-	assert_bool(audio.onready_paths.BGM.mute.is_connected("toggled", audio, "_on_BGMMute_toggled")).is_true()
+	assert_bool(audio.onready_paths.BGM.unmute.is_connected("toggled", audio, "_on_BGMUnmute_toggled")).is_true()
 	# effects
 	assert_bool(audio.onready_paths.effects.slider.is_connected("value_changed", audio, "_on_EffectsSlider_value_changed")).is_true()
-	assert_bool(audio.onready_paths.effects.mute.is_connected("toggled", audio, "_on_EffectsMute_toggled")).is_true()
+	assert_bool(audio.onready_paths.effects.unmute.is_connected("toggled", audio, "_on_EffectsUnmute_toggled")).is_true()
 
 
 func test_init_values() -> void:
@@ -96,7 +96,7 @@ func test_init_values() -> void:
 	assert_str(audio.onready_paths.main.volume_label.text).is_equal(
 		audio.VOLUME_TEXT % (db2linear(MAIN_AUDIO_VAL) * audio.onready_paths.main.slider.max_value)
 	)
-	assert_bool(audio.onready_paths.main.mute.pressed).is_equal(MAIN_AUDIO_MUTE)
+	assert_bool(audio.onready_paths.main.unmute.pressed).is_equal(not MAIN_AUDIO_MUTE)
 	assert_bool(audio.onready_paths.main.slider.editable).is_equal(not MAIN_AUDIO_MUTE)
 	## bgm
 	assert_float(audio.onready_paths.BGM.slider.value).is_equal_approx(
@@ -105,7 +105,7 @@ func test_init_values() -> void:
 	assert_str(audio.onready_paths.BGM.volume_label.text).is_equal(
 		audio.VOLUME_TEXT % (db2linear(BGM_AUDIO_VAL) * audio.onready_paths.BGM.slider.max_value)
 	)
-	assert_bool(audio.onready_paths.BGM.mute.pressed).is_equal(BGM_AUDIO_MUTE)
+	assert_bool(audio.onready_paths.BGM.unmute.pressed).is_equal(not BGM_AUDIO_MUTE)
 	assert_bool(audio.onready_paths.BGM.slider.editable).is_equal(not BGM_AUDIO_MUTE)
 	## effects
 	assert_float(audio.onready_paths.effects.slider.value).is_equal_approx(
@@ -117,7 +117,7 @@ func test_init_values() -> void:
 			% (db2linear(EFFECTS_AUDIO_VAL) * audio.onready_paths.effects.slider.max_value)
 		)
 	)
-	assert_bool(audio.onready_paths.effects.mute.pressed).is_equal(EFFECTS_AUDIO_MUTE)
+	assert_bool(audio.onready_paths.effects.unmute.pressed).is_equal(not EFFECTS_AUDIO_MUTE)
 	assert_bool(audio.onready_paths.effects.slider.editable).is_equal(not EFFECTS_AUDIO_MUTE)
 
 
@@ -131,13 +131,13 @@ func test_on_MainSlider_value_changed() -> void:
 	assert_str(audio.onready_paths.main.volume_label.text).is_equal(audio.VOLUME_TEXT % VOLUME)
 
 
-func test_on_MainMute_toggled() -> void:
-	var MUTE := false
-	audio._on_MainMute_toggled(MUTE)
+func test_on_MainUnmute_toggled() -> void:
+	var UNMUTE := false
+	audio._on_MainUnmute_toggled(UNMUTE)
 	assert_bool(AudioServer.is_bus_mute(AudioServer.get_bus_index(GlobalConstants.MAIN_BUS))).is_equal(
-		MUTE
+		not UNMUTE
 	)
-	assert_bool(audio.onready_paths.main.slider.editable).is_equal(not MUTE)
+	assert_bool(audio.onready_paths.main.slider.editable).is_equal(UNMUTE)
 
 
 # BGM
@@ -150,13 +150,13 @@ func test_on_BGMSlider_value_changed() -> void:
 	assert_str(audio.onready_paths.BGM.volume_label.text).is_equal(audio.VOLUME_TEXT % VOLUME)
 
 
-func test_on_BGMMute_toggled() -> void:
-	var MUTE := true
-	audio._on_BGMMute_toggled(MUTE)
+func test_on_BGMUnmute_toggled() -> void:
+	var UNMUTE := true
+	audio._on_BGMUnmute_toggled(UNMUTE)
 	assert_bool(AudioServer.is_bus_mute(AudioServer.get_bus_index(GlobalConstants.BGM_BUS))).is_equal(
-		MUTE
+		not UNMUTE
 	)
-	assert_bool(audio.onready_paths.BGM.slider.editable).is_equal(not MUTE)
+	assert_bool(audio.onready_paths.BGM.slider.editable).is_equal(UNMUTE)
 
 
 # Effects
@@ -169,10 +169,10 @@ func test_on_EffectsSlider_value_changed() -> void:
 	assert_str(audio.onready_paths.effects.volume_label.text).is_equal(audio.VOLUME_TEXT % VOLUME)
 
 
-func test_on_EffectsMute_toggled() -> void:
-	var MUTE := false
-	audio._on_EffectsMute_toggled(MUTE)
+func test_on_EffectsUnmute_toggled() -> void:
+	var UNMUTE := false
+	audio._on_EffectsUnmute_toggled(UNMUTE)
 	assert_bool(AudioServer.is_bus_mute(AudioServer.get_bus_index(GlobalConstants.EFFECTS_BUS))).is_equal(
-		MUTE
+		not UNMUTE
 	)
-	assert_bool(audio.onready_paths.effects.slider.editable).is_equal(not MUTE)
+	assert_bool(audio.onready_paths.effects.slider.editable).is_equal(UNMUTE)

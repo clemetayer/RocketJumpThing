@@ -1,0 +1,46 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Game/Common/Shaders/ChangeAlbedo/particles_albedo_emit.tres" type="Shader" id=1]
+[ext_resource path="res://Game/Scenes/Levels/popping_cubes.gd" type="Script" id=2]
+
+[sub_resource type="Gradient" id=200]
+offsets = PoolRealArray( 0, 0.455331, 1 )
+colors = PoolColorArray( 0, 1, 0.784314, 0, 0, 1, 0.784314, 1, 0, 1, 0.784314, 0 )
+
+[sub_resource type="GradientTexture" id=201]
+gradient = SubResource( 200 )
+
+[sub_resource type="Curve" id=195]
+max_value = 3.0
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.497512, 3 ), 0.0, 0.0, 0, 0, Vector2( 0.995025, 1.10795 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=196]
+curve = SubResource( 195 )
+
+[sub_resource type="ParticlesMaterial" id=188]
+emission_shape = 2
+emission_box_extents = Vector3( 205, 205, 205 )
+gravity = Vector3( 0, 0, 0 )
+angle_random = 0.5
+scale_random = 0.5
+scale_curve = SubResource( 196 )
+color_ramp = SubResource( 201 )
+
+[sub_resource type="ShaderMaterial" id=199]
+shader = ExtResource( 1 )
+
+[sub_resource type="CubeMesh" id=198]
+material = SubResource( 199 )
+size = Vector3( 1, 1, 1 )
+
+[node name="PoppingCubes" type="Particles"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -158, 130, 2 )
+emitting = false
+amount = 1024
+lifetime = 0.25
+one_shot = true
+explosiveness = 1.0
+visibility_aabb = AABB( -105, -105, -105, 210, 210, 210 )
+process_material = SubResource( 188 )
+draw_pass_1 = SubResource( 198 )
+script = ExtResource( 2 )
