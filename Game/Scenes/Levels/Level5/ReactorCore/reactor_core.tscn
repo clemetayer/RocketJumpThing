@@ -1,0 +1,125 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://Game/Scenes/Levels/Level5/ReactorCore/reactor_core.gd" type="Script" id=1]
+[ext_resource path="res://Game/Scenes/Levels/Level5/ReactorCore/outer_sphere_gradient_red.tres" type="Texture" id=2]
+[ext_resource path="res://Game/Scenes/Levels/Level5/ReactorCore/electricity_mesh.tres" type="SphereMesh" id=3]
+[ext_resource path="res://Game/Scenes/Levels/Level5/ReactorCore/cube_emit_gradient_red.tres" type="Texture" id=4]
+
+[sub_resource type="SphereMesh" id=1]
+
+[sub_resource type="Shader" id=2]
+code = "shader_type spatial;
+
+const float FRACT = 7.0;
+const float COL_ROT_SPEED_DIVIDER = 5.0;
+const float LINE_PCT = 0.05;
+const float EMISSION_VAL = 2.0;
+
+const vec3 BACK_COLOR = vec3(0.0);
+
+uniform sampler2D LINES_TEXTURE;
+
+float border(vec2 uv) {
+	return min(1.0,
+		step(uv.x,LINE_PCT/2.0)
+		+step(uv.y,LINE_PCT/2.0)
+		+step(1.0 - uv.x,LINE_PCT/2.0)
+		+step(1.0 - uv.y,LINE_PCT/2.0));
+}
+
+float diagonal(vec2 uv){
+	return min(1.0,step(uv.x,uv.y + LINE_PCT) - step(uv.x,uv.y - LINE_PCT));
+}
+
+void fragment(){
+	vec2 uv = fract(UV * FRACT) ;
+	vec3 color = texture(LINES_TEXTURE,mod(UV + vec2(TIME/COL_ROT_SPEED_DIVIDER),1.0)).rgb;
+	float line = smoothstep(uv.x + LINE_PCT,uv.x - LINE_PCT,uv.y) * smoothstep(uv.y + LINE_PCT,uv.y - LINE_PCT,uv.x);
+	if(min(diagonal(uv)+border(uv),1.0) == 1.0){
+		ALBEDO = min(diagonal(uv)+border(uv),1.0) * color;
+	} 
+	else {
+		ALPHA = 0.0;
+	}
+	EMISSION = ALBEDO * EMISSION_VAL;
+}"
+
+[sub_resource type="ShaderMaterial" id=3]
+shader = SubResource( 2 )
+shader_param/LINES_TEXTURE = ExtResource( 2 )
+
+[sub_resource type="SpatialMaterial" id=8]
+emission_enabled = true
+emission = Color( 1, 0.584314, 0.14902, 1 )
+emission_energy = 3.0
+emission_operator = 0
+emission_on_uv2 = false
+
+[sub_resource type="CubeMesh" id=7]
+material = SubResource( 8 )
+size = Vector3( 0.65, 0.65, 0.65 )
+
+[sub_resource type="Curve" id=10]
+_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=11]
+curve = SubResource( 10 )
+
+[sub_resource type="ParticlesMaterial" id=9]
+flag_rotate_y = true
+direction = Vector3( 0, 0, 0 )
+gravity = Vector3( 0, 0, 0 )
+angle = 255.0
+angle_random = 1.0
+scale = 1.25
+scale_curve = SubResource( 11 )
+
+[sub_resource type="ParticlesMaterial" id=13]
+direction = Vector3( 0, 0, 0 )
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 2.0
+scale = 0.03
+scale_random = 0.04
+color_ramp = ExtResource( 4 )
+
+[sub_resource type="Shader" id=14]
+code = "shader_type spatial;
+
+const float EMISSION_VAL = 3.0;
+
+void fragment() {
+	ALBEDO = COLOR.rgb;
+	EMISSION = ALBEDO * EMISSION_VAL;
+}"
+
+[sub_resource type="ShaderMaterial" id=15]
+shader = SubResource( 14 )
+
+[sub_resource type="CubeMesh" id=12]
+material = SubResource( 15 )
+
+[node name="ReactorCore" type="Spatial"]
+script = ExtResource( 1 )
+
+[node name="OuterSphere" type="MeshInstance" parent="."]
+transform = Transform( -0.996571, 0, -0.0559158, 0, 1, 0, 0.0559158, 0, -0.996571, 0, 0, 0 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 3 )
+
+[node name="Cube" type="MeshInstance" parent="."]
+transform = Transform( 0.818651, 0.0583474, -0.566785, 0.386364, 0.672883, 0.627961, 0.418833, -0.735182, 0.528976, 0, 0, 0 )
+mesh = SubResource( 7 )
+skeleton = NodePath("")
+
+[node name="ElectricityParticles" type="Particles" parent="."]
+amount = 5
+lifetime = 0.75
+process_material = SubResource( 9 )
+draw_pass_1 = ExtResource( 3 )
+
+[node name="CubeParticles" type="Particles" parent="."]
+amount = 20
+lifetime = 0.75
+process_material = SubResource( 13 )
+draw_pass_1 = SubResource( 12 )

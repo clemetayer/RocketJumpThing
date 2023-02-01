@@ -1,0 +1,48 @@
+[gd_resource type="SphereMesh" load_steps=7 format=2]
+
+[ext_resource path="res://Game/Scenes/Levels/Level5/ReactorCore/electricity_mesh_gradient_red.tres" type="Gradient" id=1]
+
+[sub_resource type="Shader" id=16]
+code = "shader_type spatial;
+
+const vec2 NOISE_TRESHOLD = vec2(0.25,0.265);
+const float SPEED = 0.75;
+const float EMISSION_VAL = 2.0;
+
+uniform sampler2D noise;
+uniform sampler2D color;
+
+void fragment(){
+	vec4 noise_merge = texture(noise,mod(UV + vec2(0.0,TIME * SPEED),vec2(1.0))) * texture(noise,mod(UV,vec2(1.0)));
+	if(noise_merge.g > NOISE_TRESHOLD.x && noise_merge.g < NOISE_TRESHOLD.y){
+		ALBEDO = texture(color,UV).rgb;
+		EMISSION = ALBEDO * EMISSION_VAL;
+	}
+	else {
+		ALPHA = 0.0;
+		ALBEDO = vec3(0.0);
+	}
+}"
+
+[sub_resource type="GradientTexture2D" id=19]
+gradient = ExtResource( 1 )
+fill_from = Vector2( 1, 0 )
+fill_to = Vector2( 0, 1 )
+
+[sub_resource type="OpenSimplexNoise" id=17]
+period = 17.0
+persistence = 0.0
+
+[sub_resource type="NoiseTexture" id=18]
+width = 128
+height = 128
+seamless = true
+noise = SubResource( 17 )
+
+[sub_resource type="ShaderMaterial" id=10]
+shader = SubResource( 16 )
+shader_param/noise = SubResource( 18 )
+shader_param/color = SubResource( 19 )
+
+[resource]
+material = SubResource( 10 )

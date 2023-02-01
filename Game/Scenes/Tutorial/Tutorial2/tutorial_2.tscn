@@ -4729,7 +4729,7 @@ shape = SubResource( 3497 )
 shape = SubResource( 3498 )
 
 [node name="entity_1_Player" parent="QodotMap" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4375, 0.1875, -522.938 )
+transform = Transform( 0.063, 0, 0, 0, 0.063, 0, 0, 0, 0.063, -0.4375, 0.1875, -522.938 )
 properties = {
 "angle": 0.0,
 "classname": "Player",
