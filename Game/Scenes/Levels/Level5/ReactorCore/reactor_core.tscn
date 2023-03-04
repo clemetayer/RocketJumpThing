@@ -1,56 +1,18 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://Game/Scenes/Levels/Level5/ReactorCore/reactor_core.gd" type="Script" id=1]
-[ext_resource path="res://Game/Scenes/Levels/Level5/ReactorCore/outer_sphere_gradient_red.tres" type="Texture" id=2]
+[ext_resource path="res://Game/Common/MapElements/Checkpoint/end_point.gd" type="Script" id=2]
 [ext_resource path="res://Game/Scenes/Levels/Level5/ReactorCore/electricity_mesh.tres" type="SphereMesh" id=3]
-[ext_resource path="res://Game/Scenes/Levels/Level5/ReactorCore/cube_emit_gradient_red.tres" type="Texture" id=4]
+[ext_resource path="res://Game/Scenes/Levels/Level5/ReactorCore/reactor_core_shader.tres" type="Material" id=9]
 
 [sub_resource type="SphereMesh" id=1]
-
-[sub_resource type="Shader" id=2]
-code = "shader_type spatial;
-
-const float FRACT = 7.0;
-const float COL_ROT_SPEED_DIVIDER = 5.0;
-const float LINE_PCT = 0.05;
-const float EMISSION_VAL = 2.0;
-
-const vec3 BACK_COLOR = vec3(0.0);
-
-uniform sampler2D LINES_TEXTURE;
-
-float border(vec2 uv) {
-	return min(1.0,
-		step(uv.x,LINE_PCT/2.0)
-		+step(uv.y,LINE_PCT/2.0)
-		+step(1.0 - uv.x,LINE_PCT/2.0)
-		+step(1.0 - uv.y,LINE_PCT/2.0));
-}
-
-float diagonal(vec2 uv){
-	return min(1.0,step(uv.x,uv.y + LINE_PCT) - step(uv.x,uv.y - LINE_PCT));
-}
-
-void fragment(){
-	vec2 uv = fract(UV * FRACT) ;
-	vec3 color = texture(LINES_TEXTURE,mod(UV + vec2(TIME/COL_ROT_SPEED_DIVIDER),1.0)).rgb;
-	float line = smoothstep(uv.x + LINE_PCT,uv.x - LINE_PCT,uv.y) * smoothstep(uv.y + LINE_PCT,uv.y - LINE_PCT,uv.x);
-	if(min(diagonal(uv)+border(uv),1.0) == 1.0){
-		ALBEDO = min(diagonal(uv)+border(uv),1.0) * color;
-	} 
-	else {
-		ALPHA = 0.0;
-	}
-	EMISSION = ALBEDO * EMISSION_VAL;
-}"
-
-[sub_resource type="ShaderMaterial" id=3]
-shader = SubResource( 2 )
-shader_param/LINES_TEXTURE = ExtResource( 2 )
+material = ExtResource( 9 )
 
 [sub_resource type="SpatialMaterial" id=8]
+flags_transparent = true
+albedo_color = Color( 1, 1, 1, 0 )
 emission_enabled = true
-emission = Color( 1, 0.584314, 0.14902, 1 )
+emission = Color( 0.214844, 1, 0.830653, 1 )
 emission_energy = 3.0
 emission_operator = 0
 emission_on_uv2 = false
@@ -71,8 +33,14 @@ direction = Vector3( 0, 0, 0 )
 gravity = Vector3( 0, 0, 0 )
 angle = 255.0
 angle_random = 1.0
-scale = 1.25
+scale = 1.5
 scale_curve = SubResource( 11 )
+
+[sub_resource type="Gradient" id=24]
+colors = PoolColorArray( 0.941176, 0.941176, 0.941176, 1, 0, 0, 0, 1 )
+
+[sub_resource type="GradientTexture" id=25]
+gradient = SubResource( 24 )
 
 [sub_resource type="ParticlesMaterial" id=13]
 direction = Vector3( 0, 0, 0 )
@@ -81,7 +49,8 @@ gravity = Vector3( 0, 0, 0 )
 initial_velocity = 2.0
 scale = 0.03
 scale_random = 0.04
-color_ramp = ExtResource( 4 )
+color = Color( 0, 1, 0.843137, 1 )
+color_ramp = SubResource( 25 )
 
 [sub_resource type="Shader" id=14]
 code = "shader_type spatial;
@@ -99,27 +68,1544 @@ shader = SubResource( 14 )
 [sub_resource type="CubeMesh" id=12]
 material = SubResource( 15 )
 
-[node name="ReactorCore" type="Spatial"]
+[sub_resource type="SphereShape" id=41]
+
+[sub_resource type="Shader" id=39]
+code = "// Kind of a mix between https://godotshaders.com/shader/simple-energy-shield/ and https://godotshaders.com/shader/distortion/
+// With some snippets from https://godotshaders.com/snippet/
+// And with additional things
+shader_type spatial;
+
+const float OFFSET = 0.1;
+const float EMISSION_VALUE = 5.0;
+const float RIM_VALUE = 0.5;
+const vec3 RIM_COLOR = vec3(1.0,0.0,0.0);
+const int NUMBER_OF_SQUARES = 100;
+const float SQUARE_SIZE = 1.0/100.0;
+const float MAX_SQUARES_VELOCITY = 0.5;
+const float MIN_SQUARES_VELOCITY = 0.25;
+const vec3 SQUARE_COLOR = vec3(255.0,0,0);
+
+float random (vec2 uv) {
+    return fract(sin(dot(uv.xy,
+        vec2(12.9898,78.233))) * 43758.5453123);
+}
+
+vec4 square(vec2 uv, float width, vec2 pos)
+{
+	float square = step(pos.x, uv.x) * step(uv.x, pos.x + width) * step(pos.y, uv.y) * step(uv.y, pos.y + width);
+	return vec4(vec3(square), 1.0);
+}
+
+void fragment(){
+	// Portal's inside
+	float PI = 3.14159265359;
+	float ndv = dot(NORMAL, VIEW);
+	float rim = pow(1.0 - ndv, RIM_VALUE);
+	vec4 red = texture(SCREEN_TEXTURE,vec2(rim) + vec2(OFFSET));
+	vec4 green = texture(SCREEN_TEXTURE,vec2(rim));
+	vec4 blue = texture(SCREEN_TEXTURE,vec2(rim) - vec2(OFFSET));
+	ALBEDO = vec3(red.r,green.g,blue.b);
+	ALBEDO = mix(ALBEDO,RIM_COLOR,rim/PI);
+	// Some squares
+	for(int i = 0; i < NUMBER_OF_SQUARES; i++){
+		float rand_x = random(vec2(float(i)/float(NUMBER_OF_SQUARES)));
+		float rand_vel = max(MIN_SQUARES_VELOCITY,random(vec2(0.0,float(i)/float(NUMBER_OF_SQUARES))) * MAX_SQUARES_VELOCITY);
+		vec2 pos = vec2(rand_x, mod(TIME * rand_vel, 1.0));
+		vec4 sq = square(UV,SQUARE_SIZE,pos);
+		ALBEDO += sq.rgb * SQUARE_COLOR;
+	}
+	ALPHA = rim / PI;
+	EMISSION = ALBEDO * EMISSION_VALUE;
+}"
+
+[sub_resource type="ShaderMaterial" id=45]
+shader = SubResource( 39 )
+
+[sub_resource type="SphereMesh" id=38]
+material = SubResource( 45 )
+
+[sub_resource type="Animation" id=16]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Cube:mesh:material:emission")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.214844, 1, 0.830653, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CubeParticles:process_material:initial_velocity")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 2.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CubeParticles:amount")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 20 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("ElectricityParticles:process_material:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.5 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Cube:translation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("ElectricityParticles:draw_pass_1:material:shader_param/speed")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.75 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("OuterSphere:mesh:material:shader_param/COL_1")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 0.576471, 1, 1 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("OuterSphere:mesh:material:shader_param/COL_2")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 0.0862745, 1, 1 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("ElectricityParticles:draw_pass_1:material:shader_param/col_1")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 1, 0.219608, 1 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("ElectricityParticles:draw_pass_1:material:shader_param/col_2")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 0.0941176, 1, 1 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("CubeParticles:process_material:color")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 1, 0.843137, 1 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("ElectricityParticles:emitting")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("CubeParticles:emitting")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("Cube:mesh:material:albedo_color")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("ExitScene:monitoring")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("ExitScene/CollisionShape:disabled")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/16/type = "value"
+tracks/16/path = NodePath("ExitScene/MeshInstance:scale")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ) ]
+}
+tracks/17/type = "value"
+tracks/17/path = NodePath("ExitScene/MeshInstance:visible")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=17]
+resource_name = "part_0"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("CubeParticles:process_material:initial_velocity")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 2.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ElectricityParticles:process_material:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.5 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("ElectricityParticles:draw_pass_1:material:shader_param/speed")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.5 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("OuterSphere:mesh:material:shader_param/COL_1")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 0.576471, 1, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("OuterSphere:mesh:material:shader_param/COL_2")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 0.0862745, 1, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Cube:mesh:material:emission")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.214844, 1, 0.830653, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("ElectricityParticles:draw_pass_1:material:shader_param/col_1")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 1, 0.219608, 1 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("ElectricityParticles:draw_pass_1:material:shader_param/col_2")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 0.0941176, 1, 1 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("CubeParticles:process_material:color")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 1, 0.843137, 1 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Cube:translation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Cube:mesh:material:albedo_color")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("CubeParticles:emitting")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("ElectricityParticles:emitting")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("ExitScene/CollisionShape:disabled")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("ExitScene/MeshInstance:scale")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ) ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("ExitScene/MeshInstance:visible")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/16/type = "value"
+tracks/16/path = NodePath("ExitScene:monitoring")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=23]
+resource_name = "part_1"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("CubeParticles:process_material:initial_velocity")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 2.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ElectricityParticles:process_material:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.5 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("ElectricityParticles:draw_pass_1:material:shader_param/speed")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.5 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("OuterSphere:mesh:material:shader_param/COL_1")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 0, 0, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("OuterSphere:mesh:material:shader_param/COL_2")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 0.494118, 0, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Cube:mesh:material:emission")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 0.423529, 0, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("ElectricityParticles:draw_pass_1:material:shader_param/col_1")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 0, 0, 1 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("ElectricityParticles:draw_pass_1:material:shader_param/col_2")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 0.537255, 0, 1 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("CubeParticles:process_material:color")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 0.584314, 0, 1 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Cube:translation")
+tracks/9/interp = 2
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0.125, -0.125, 0.125 ), Vector3( -0.125, -0.125, -0.125 ), Vector3( 0.125, -0.125, -0.125 ), Vector3( 0, 0, 0 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Cube:mesh:material:albedo_color")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("CubeParticles:emitting")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("ElectricityParticles:emitting")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("ExitScene/CollisionShape:disabled")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("ExitScene/MeshInstance:scale")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ) ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("ExitScene/MeshInstance:visible")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/16/type = "value"
+tracks/16/path = NodePath("ExitScene:monitoring")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=29]
+resource_name = "part_2"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("CubeParticles:process_material:initial_velocity")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 2.5 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ElectricityParticles:process_material:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.5 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("ElectricityParticles:draw_pass_1:material:shader_param/speed")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.5 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("OuterSphere:mesh:material:shader_param/COL_1")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 0, 0, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("OuterSphere:mesh:material:shader_param/COL_2")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 0.494118, 0, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Cube:mesh:material:emission")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 0.423529, 0, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("ElectricityParticles:draw_pass_1:material:shader_param/col_1")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 0, 0, 1 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("ElectricityParticles:draw_pass_1:material:shader_param/col_2")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 0.513726, 0, 1 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("CubeParticles:process_material:color")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 0.329412, 0, 1 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Cube:translation")
+tracks/9/interp = 2
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0.15, -0.15, 0.15 ), Vector3( -0.15, 0.15, -0.15 ), Vector3( -0.15, -0.15, -0.15 ), Vector3( 0, 0, 0 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Cube:mesh:material:albedo_color")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("CubeParticles:emitting")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("ElectricityParticles:emitting")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("ExitScene/CollisionShape:disabled")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("ExitScene/MeshInstance:scale")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ) ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("ExitScene/MeshInstance:visible")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/16/type = "value"
+tracks/16/path = NodePath("ExitScene:monitoring")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=32]
+resource_name = "part_3"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("CubeParticles:process_material:initial_velocity")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 3.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ElectricityParticles:process_material:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.5 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("ElectricityParticles:draw_pass_1:material:shader_param/speed")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.5 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("OuterSphere:mesh:material:shader_param/COL_1")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 0, 0, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("OuterSphere:mesh:material:shader_param/COL_2")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 0.4, 0, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Cube:mesh:material:emission")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 0.329412, 0, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("ElectricityParticles:draw_pass_1:material:shader_param/col_1")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 0, 0, 1 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("ElectricityParticles:draw_pass_1:material:shader_param/col_2")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 0.352941, 0, 1 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("CubeParticles:process_material:color")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 0.164706, 0, 1 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Cube:translation")
+tracks/9/interp = 2
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0.2, -0.2, 0.2 ), Vector3( -0.2, 0.2, -0.2 ), Vector3( -0.2, -0.2, -0.2 ), Vector3( 0, 0, 0 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Cube:mesh:material:albedo_color")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("CubeParticles:emitting")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("ElectricityParticles:emitting")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("ExitScene/CollisionShape:disabled")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("ExitScene/MeshInstance:scale")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ) ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("ExitScene/MeshInstance:visible")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/16/type = "value"
+tracks/16/path = NodePath("ExitScene:monitoring")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=33]
+resource_name = "part_4"
+loop = true
+step = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath("CubeParticles:process_material:initial_velocity")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 5.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ElectricityParticles:process_material:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.5 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("ElectricityParticles:draw_pass_1:material:shader_param/speed")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.5 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("OuterSphere:mesh:material:shader_param/COL_1")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 0, 0, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("OuterSphere:mesh:material:shader_param/COL_2")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 0.14902, 0.14902, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Cube:mesh:material:emission")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 0, 0, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("ElectricityParticles:draw_pass_1:material:shader_param/col_1")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 0, 0, 1 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("ElectricityParticles:draw_pass_1:material:shader_param/col_2")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 0.172549, 0.172549, 1 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("CubeParticles:process_material:color")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 0.0666667, 0.0666667, 1 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Cube:translation")
+tracks/9/interp = 2
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5, 0.75, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0.2, -0.2, 0.2 ), Vector3( -0.2, 0.2, -0.2 ), Vector3( -0.2, -0.2, -0.2 ), Vector3( 0, 0, 0 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Cube:mesh:material:albedo_color")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("CubeParticles:emitting")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("ElectricityParticles:emitting")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("ExitScene/CollisionShape:disabled")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("ExitScene/MeshInstance:scale")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ) ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("ExitScene/MeshInstance:visible")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/16/type = "value"
+tracks/16/path = NodePath("ExitScene:monitoring")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=42]
+resource_name = "part_5"
+tracks/0/type = "value"
+tracks/0/path = NodePath("OuterSphere:mesh:material:shader_param/COL_1")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 0, 0, 1 ), Color( 1, 0, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("OuterSphere:mesh:material:shader_param/COL_2")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 0.14902, 0.14902, 1 ), Color( 1, 0.14902, 0.14902, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Cube:mesh:material:albedo_color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CubeParticles:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("ElectricityParticles:emitting")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("ExitScene/CollisionShape:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("ExitScene/MeshInstance:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 1, 1, 1 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("ExitScene/MeshInstance:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("ExitScene:monitoring")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="AnimationNodeAnimation" id=26]
+animation = "part_0"
+
+[sub_resource type="AnimationNodeAnimation" id=27]
+animation = "part_1"
+
+[sub_resource type="AnimationNodeAnimation" id=30]
+animation = "part_2"
+
+[sub_resource type="AnimationNodeAnimation" id=34]
+animation = "part_3"
+
+[sub_resource type="AnimationNodeAnimation" id=35]
+animation = "part_4"
+
+[sub_resource type="AnimationNodeAnimation" id=43]
+animation = "part_5"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=28]
+xfade_time = 3.0
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=31]
+xfade_time = 3.0
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=36]
+xfade_time = 3.0
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=37]
+xfade_time = 3.0
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=44]
+
+[sub_resource type="AnimationNodeStateMachine" id=18]
+states/part_0/node = SubResource( 26 )
+states/part_0/position = Vector2( 71, 54 )
+states/part_1/node = SubResource( 27 )
+states/part_1/position = Vector2( 308, 54 )
+states/part_2/node = SubResource( 30 )
+states/part_2/position = Vector2( 504, 54 )
+states/part_3/node = SubResource( 34 )
+states/part_3/position = Vector2( 718, 54 )
+states/part_4/node = SubResource( 35 )
+states/part_4/position = Vector2( 718, 163 )
+states/part_5/node = SubResource( 43 )
+states/part_5/position = Vector2( 504, 163 )
+transitions = [ "part_0", "part_1", SubResource( 28 ), "part_1", "part_2", SubResource( 31 ), "part_2", "part_3", SubResource( 36 ), "part_3", "part_4", SubResource( 37 ), "part_4", "part_5", SubResource( 44 ) ]
+start_node = "part_0"
+end_node = "part_5"
+graph_offset = Vector2( -301.751, -32 )
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=19]
+
+[node name="ReactorCore" type="Spatial" groups=["reactor_core"]]
+transform = Transform( 50, 0, 0, 0, 50, 0, 0, 0, 50, 0, 0, 0 )
 script = ExtResource( 1 )
 
 [node name="OuterSphere" type="MeshInstance" parent="."]
-transform = Transform( -0.996571, 0, -0.0559158, 0, 1, 0, 0.0559158, 0, -0.996571, 0, 0, 0 )
+transform = Transform( 0.868112, 0, -0.487794, 0, 1, 0, 0.487794, 0, 0.868112, 0, 0, 0 )
 mesh = SubResource( 1 )
-material/0 = SubResource( 3 )
 
 [node name="Cube" type="MeshInstance" parent="."]
-transform = Transform( 0.818651, 0.0583474, -0.566785, 0.386364, 0.672883, 0.627961, 0.418833, -0.735182, 0.528976, 0, 0, 0 )
+transform = Transform( -0.866188, -0.0754487, -0.478416, 0.468584, 0.106208, -0.869148, 0.117126, -0.985055, -0.057581, 0, 0, 0 )
 mesh = SubResource( 7 )
 skeleton = NodePath("")
 
 [node name="ElectricityParticles" type="Particles" parent="."]
+emitting = false
 amount = 5
-lifetime = 0.75
+lifetime = 1.5
+visibility_aabb = AABB( -2.00001, -2.00001, -2.00001, 4.00002, 4.00002, 4.00002 )
 process_material = SubResource( 9 )
 draw_pass_1 = ExtResource( 3 )
 
 [node name="CubeParticles" type="Particles" parent="."]
+emitting = false
 amount = 20
 lifetime = 0.75
+visibility_aabb = AABB( -3.13891, -3.48073, -3.37766, 6.5847, 6.946, 6.82644 )
 process_material = SubResource( 13 )
 draw_pass_1 = SubResource( 12 )
+
+[node name="ExitScene" type="Area" parent="."]
+collision_layer = 2
+collision_mask = 9
+monitoring = false
+script = ExtResource( 2 )
+
+[node name="CollisionShape" type="CollisionShape" parent="ExitScene"]
+shape = SubResource( 41 )
+disabled = true
+
+[node name="MeshInstance" type="MeshInstance" parent="ExitScene"]
+transform = Transform( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 )
+visible = false
+mesh = SubResource( 38 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 16 )
+anims/part_0 = SubResource( 17 )
+anims/part_1 = SubResource( 23 )
+anims/part_2 = SubResource( 29 )
+anims/part_3 = SubResource( 32 )
+anims/part_4 = SubResource( 33 )
+anims/part_5 = SubResource( 42 )
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 18 )
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/playback = SubResource( 19 )

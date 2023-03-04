@@ -1,3 +1,4 @@
+tool
 extends Area
 class_name VerticalBoost
 # Base class for any vertical boost area
@@ -28,18 +29,12 @@ func _ready_func() -> void:
 	_connect_signals()  # exceptionnaly in the ready func, for onready in children
 	add_child(onready_rocket_tween)
 	_set_TB_params()
-	_duplicate_common_elements()
 	rotation_degrees = _angle
 	_set_extents()
 
 
 func _set_TB_params() -> void:
 	TrenchBroomEntityUtils._map_trenchbroom_properties(self, properties, TB_VBOOST_MAPPER)
-
-
-# makes some elements unique to avoid modifying other boosts (for example the collision shape)
-func _duplicate_common_elements() -> void:
-	_get_collision().shape = _get_collision().shape.duplicate()
 
 
 # sets the extents of the different boxes used (particle boxes, collision, etc.)
@@ -74,7 +69,7 @@ func _on_body_entered(body: Node) -> void:
 
 func _on_area_entered(area: Node) -> void:
 	if FunctionUtils.is_rocket(area):
-		area.queue_free()
+		area.remove()
 		DebugUtils.log_tween_stop_all(onready_rocket_tween)
 		_set_rocket_tween_properties()
 		DebugUtils.log_tween_start(onready_rocket_tween)

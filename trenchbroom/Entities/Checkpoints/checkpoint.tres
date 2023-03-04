@@ -12,12 +12,12 @@ description = "Checkpoint brush"
 qodot_internal = false
 base_classes = [ ExtResource( 3 ) ]
 class_properties = {
-"spawn_position": Vector3( 0, 0, 0 ),
-"spawn_rotation": 0.0
+"mangle": Vector3( 0, 0, 0 ),
+"spawn_position": Vector3( 0, 0, 0 )
 }
 class_property_descriptions = {
-"spawn_position": "Position where the player should spawn",
-"spawn_rotation": "Rotation of the player on spawn in degrees on the y axis"
+"mangle": "Spawn rotations of the checkpoint (in degrees)",
+"spawn_position": "Position where the player should spawn"
 }
 meta_properties = {
 "color": Color( 0.101961, 1, 0, 1 ),

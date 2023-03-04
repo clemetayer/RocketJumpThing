@@ -77,11 +77,15 @@ func test_restart() -> void:
 	var last_cp_test = Checkpoint.new()
 	var start_point = scene_instance.get_node(scene_instance.PATHS.start_point)
 	var player = scene_instance.get_node(scene_instance.PATHS.player)
+	player._ready()
 	scene_instance._last_cp = last_cp_test
 	scene_instance._restart()
 	# assert_signal(SignalManager).is_emitted("start_level_chronometer") # creates an error for the next test scenes in the suite for some reason
 	assert_vector3(player.transform.origin).is_equal(start_point.get_spawn_point())
-	assert_float(player.rotation_degrees.y).is_equal(start_point.get_spawn_rotation())
+	assert_float(player.rotation_degrees.y).is_equal(start_point.get_spawn_rotation().y)
+	assert_float(player.rotation_helper.rotation_degrees.x).is_equal(
+		start_point.get_spawn_rotation().x
+	)
 	assert_vector3(player.vel).is_equal(Vector3.ZERO)
 	assert_object(scene_instance._last_cp).is_equal(start_point)
 	last_cp_test.free()
@@ -106,14 +110,18 @@ func test_respawn_player_on_last_cp() -> void:
 	StandardSongManager._queue = []
 	var last_cp_test = Checkpoint.new()
 	last_cp_test._spawn_position = Vector3.ONE
-	last_cp_test._spawn_rotation = 1.0
+	last_cp_test._mangle = Vector3(45, 90, 0)
 	last_cp_test.song_animation = "test"
 	var player = scene_instance.get_node(scene_instance.PATHS.player)
+	player._ready()
 	scene_instance._last_cp = last_cp_test
 	scene_instance._on_respawn_player_on_last_cp()
 	# assert_signal(SignalManager).is_not_emitted("start_level_chronometer")
 	assert_vector3(player.transform.origin).is_equal(last_cp_test.get_spawn_point())
-	assert_float(player.rotation_degrees.y).is_equal(last_cp_test.get_spawn_rotation())
+	assert_float(player.rotation_degrees.y).is_equal(last_cp_test.get_spawn_rotation().y)
+	assert_float(player.rotation_helper.rotation_degrees.x).is_equal(
+		last_cp_test.get_spawn_rotation().x
+	)
 	assert_vector3(player.vel).is_equal(Vector3.ZERO)
 	if _has_song():
 		assert_array(StandardSongManager._queue).is_not_empty()

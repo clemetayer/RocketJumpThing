@@ -72,6 +72,19 @@ func test_toggle_ability() -> void:
 	assert_bool(player.ROCKETS_ENABLED).is_true()
 
 
+func test_checkpoint_process() -> void:
+	var cp_pos := Vector3.ONE
+	var cp_rot := Vector3(45, 90, 0)
+	player.vel = Vector3.ONE
+	player.checkpoint_process(cp_pos, cp_rot)
+	assert_vector3(player.transform.origin).is_equal(cp_pos)
+	assert_float(player.rotation_degrees.y).is_equal_approx(cp_rot.y, FLOAT_APPROX)
+	assert_float(player.onready_paths.rotation_helper.rotation_degrees.x).is_equal_approx(
+		cp_rot.x, FLOAT_APPROX
+	)
+	assert_vector3(player.vel).is_equal(Vector3.ZERO)
+
+
 func test_process_collision() -> void:
 	player._process_collision()
 	assert_bool(player.onready_paths.player_collision.disabled).is_false()
@@ -80,6 +93,15 @@ func test_process_collision() -> void:
 	player._process_collision()
 	assert_bool(player.onready_paths.player_collision.disabled).is_true()
 	assert_bool(player.onready_paths.slide_collision.disabled).is_false()
+
+
+func test_look_at_mangle() -> void:
+	var cp_rot := Vector3(-30, 90, 180)
+	player._look_at_mangle(cp_rot)
+	assert_vector3(player.rotation_degrees).is_equal(Vector3(0, cp_rot.y, 0))
+	assert_vector3(player.onready_paths.rotation_helper.rotation_degrees).is_equal(
+		Vector3(cp_rot.x, 0, 0)
+	)
 
 
 # TODO : Scene runner and inputs/method calls does not work really well

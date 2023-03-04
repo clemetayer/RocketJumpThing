@@ -594,7 +594,7 @@
 "collision_layer" "2"
 "collision_mask" "5"
 "spawn_position" "0 -13 0"
-"spawn_rotation" "0"
+"mangle" "0 0 0"
 // brush 0
 {
 ( 1416 -40 -144 ) ( 1416 40 -224 ) ( 1416 40 -144 ) entities/checkpoint/checkpoint_1 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -659,7 +659,7 @@
 "collision_layer" "2"
 "collision_mask" "5"
 "spawn_position" "0 -2 0"
-"spawn_rotation" "0"
+"mangle" "0 0 0"
 // brush 0
 {
 ( 2752 -40 -80 ) ( 2752 40 -160 ) ( 2752 40 -80 ) entities/checkpoint/checkpoint_1 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -756,7 +756,7 @@
 "collision_layer" "2"
 "collision_mask" "5"
 "spawn_position" "0 -2 0"
-"spawn_rotation" "90"
+"mangle" "0 90 0"
 // brush 0
 {
 ( 3608 0 144 ) ( 3608 -8 64 ) ( 3608 0 64 ) entities/checkpoint/checkpoint_1 [ -2.220446049250313e-16 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -994,7 +994,7 @@
 "collision_layer" "2"
 "collision_mask" "5"
 "spawn_position" "0 -2 0"
-"spawn_rotation" "90"
+"mangle" "0 90 0"
 // brush 0
 {
 ( 3592 1752 96 ) ( 3592 1744 16 ) ( 3592 1752 16 ) entities/checkpoint/checkpoint_1 [ -2.220446049250313e-16 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -1207,7 +1207,7 @@
 "classname" "Checkpoints_Checkpoint"
 "collision_layer" "2"
 "collision_mask" "5"
-"spawn_rotation" "-90"
+"mangle" "0 -90 0"
 "spawn_position" "0 -2 0"
 // brush 0
 {
@@ -1294,7 +1294,7 @@
 "collision_layer" "2"
 "collision_mask" "5"
 "spawn_position" "0 -2 0"
-"spawn_rotation" "0"
+"mangle" "0 0 0"
 // brush 0
 {
 ( -2488 -512 296 ) ( -2488 -576 240 ) ( -2488 -512 240 ) entities/checkpoint/checkpoint_1 [ -2.220446049250313e-16 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -1570,7 +1570,7 @@
 "collision_layer" "2"
 "collision_mask" "5"
 "spawn_position" "0 -2 0"
-"spawn_rotation" "0"
+"mangle" "0 0 0"
 // brush 0
 {
 ( 4752 2296 304 ) ( 4752 2376 224 ) ( 4752 2376 304 ) entities/checkpoint/checkpoint_1 [ -2.7755575615628914e-16 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -1678,7 +1678,7 @@
 "collision_layer" "2"
 "collision_mask" "5"
 "spawn_position" "0 -2 0"
-"spawn_rotation" "-90"
+"mangle" "0 -90 0"
 // brush 0
 {
 ( 5208 1176 512 ) ( 5208 1168 432 ) ( 5208 1176 432 ) entities/checkpoint/checkpoint_1 [ -2.220446049250313e-16 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -1845,7 +1845,7 @@
 "collision_layer" "2"
 "collision_mask" "5"
 "spawn_position" "0 -2 0"
-"spawn_rotation" "90"
+"mangle" "0 90 0"
 // brush 0
 {
 ( -2208 248 336 ) ( -2208 256 280 ) ( -2208 256 336 ) entities/checkpoint/checkpoint_1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1

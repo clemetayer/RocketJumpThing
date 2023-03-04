@@ -1,3 +1,4 @@
+tool
 extends VerticalBoost
 # Area that pushes the player Up like a cool vortex
 
@@ -30,16 +31,6 @@ func _set_TB_params() -> void:
 
 func _get_collision() -> Node:
 	return onready_paths.collision
-
-
-# makes some elements unique to avoid modifying other boosts (for example the collision shape)
-func _duplicate_common_elements() -> void:
-	._duplicate_common_elements()
-	onready_paths.triangle_particles.draw_pass_1 = onready_paths.triangle_particles.draw_pass_1
-	onready_paths.triangle_particles.process_material = onready_paths.triangle_particles.process_material.duplicate()
-	onready_paths.triangle_particles.process_material.color_ramp = onready_paths.triangle_particles.process_material.color_ramp.duplicate()
-	onready_paths.square_particles.process_material = onready_paths.square_particles.process_material.duplicate()
-	onready_paths.square_particles.process_material.color_ramp = onready_paths.square_particles.process_material.color_ramp.duplicate()
 
 
 # sets the extents of the different boxes used (particle boxes, collision, etc.)

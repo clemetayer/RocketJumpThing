@@ -58,6 +58,7 @@ func _add_ui_sprite() -> void:
 func _on_breakable_area_speed_body_entered(body):
 	if FunctionUtils.is_player(body) and body.current_speed >= _treshold:
 		emit_signal("trigger", {"position": body.transform.origin, "speed": body.current_speed})
+		SignalManager.emit_wall_broken()
 		CameraUtils.start_camera_shake(
 			CAMERA_SHAKE_DURATION, CAMERA_SHAKE_FREQ, CAMERA_SHAKE_AMP, CAMERA_SHAKE_PRIORITY
 		)

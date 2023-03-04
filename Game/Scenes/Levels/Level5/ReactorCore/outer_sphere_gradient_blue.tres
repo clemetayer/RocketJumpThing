@@ -1,10 +1,7 @@
 [gd_resource type="GradientTexture" load_steps=2 format=2]
 
-[sub_resource type="Gradient" id=5]
-interpolation_mode = 2
-offsets = PoolRealArray( 0, 0.516129, 1 )
-colors = PoolColorArray( 0, 1, 0.623529, 1, 0, 0.0627451, 1, 1, 0, 1, 0.623529, 1 )
+[ext_resource path="res://Game/Scenes/Levels/Level5/ReactorCore/electricity_mesh_gradient_red.tres" type="Gradient" id=1]
 
 [resource]
-gradient = SubResource( 5 )
+gradient = ExtResource( 1 )
 width = 255

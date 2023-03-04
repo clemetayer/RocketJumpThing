@@ -181,6 +181,14 @@ func set_state_value(state_idx: int, value: bool) -> void:
 	states.set_bit(Vector2(state_idx, 0), value)
 
 
+func checkpoint_process(cp_position: Vector3, cp_rotation: Vector3) -> void:
+	if cp_position != null:
+		transform.origin = cp_position
+	if cp_rotation != null:
+		_look_at_mangle(cp_rotation)
+	vel = Vector3.ZERO
+
+
 # process when trigerring a portal
 func portal_process(exit_portal: Area) -> void:
 	# sets the velocity direction to the exit point of the portal
@@ -192,12 +200,7 @@ func portal_process(exit_portal: Area) -> void:
 		+ exit_portal.get_global_forward_vector().normalized() * exit_portal.OFFSET
 	)
 	# sets to the new angle
-	var portal_rotation_degrees = exit_portal.get_rotation_degrees()
-	rotation_helper.rotation.x = deg2rad(portal_rotation_degrees.x)
-	self.rotation.y = deg2rad(portal_rotation_degrees.y)
-	var camera_rot = rotation_helper.rotation_degrees
-	camera_rot.x = clamp(camera_rot.x, -89, 89)
-	rotation_helper.rotation_degrees = camera_rot
+	_look_at_mangle(exit_portal.get_rotation_degrees())
 
 
 ##### PROTECTED METHODS #####
@@ -218,6 +221,17 @@ func _set_UI_data() -> void:
 func _process_collision():
 	onready_paths.player_collision.disabled = get_state_value(states_idx.SLIDING)
 	onready_paths.slide_collision.disabled = not get_state_value(states_idx.SLIDING)
+
+
+#---- Camera -----
+# Looks at an XYZ rotation vector
+func _look_at_mangle(mangle: Vector3) -> void:
+	if mangle != null:
+		rotation_helper.rotation.x = deg2rad(mangle.x)
+		rotation.y = deg2rad(mangle.y)
+		var camera_rot = rotation_helper.rotation_degrees
+		camera_rot.x = clamp(camera_rot.x, -89, 89)
+		rotation_helper.rotation_degrees = camera_rot
 
 
 #---- Process states -----

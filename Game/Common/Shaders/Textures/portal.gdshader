@@ -1,0 +1,47 @@
+// Kind of a mix between https://godotshaders.com/shader/simple-energy-shield/ and https://godotshaders.com/shader/distortion/
+// With some snippets from https://godotshaders.com/snippet/
+// And with additional things
+shader_type spatial;
+
+const float OFFSET = 0.1;
+const float EMISSION_VALUE = 5.0;
+const float RIM_VALUE = 0.5;
+const vec3 RIM_COLOR = vec3(0,0,1.0);
+const int NUMBER_OF_SQUARES = 20;
+const float SQUARE_SIZE = 1.0/100.0;
+const float MAX_SQUARES_VELOCITY = 0.5;
+const float MIN_SQUARES_VELOCITY = 0.25;
+const vec3 SQUARE_COLOR = vec3(255.0);
+
+float random (vec2 uv) {
+    return fract(sin(dot(uv.xy,
+        vec2(12.9898,78.233))) * 43758.5453123);
+}
+
+vec4 square(vec2 uv, float width, vec2 pos)
+{
+	float square = step(pos.x, uv.x) * step(uv.x, pos.x + width) * step(pos.y, uv.y) * step(uv.y, pos.y + width);
+	return vec4(vec3(square), 1.0);
+}
+
+void fragment(){
+	// Portal's inside
+	float PI = 3.14159265359;
+	float ndv = dot(NORMAL, VIEW);
+	float rim = pow(1.0 - ndv, RIM_VALUE);
+	vec4 red = texture(SCREEN_TEXTURE,vec2(rim) + vec2(OFFSET));
+	vec4 green = texture(SCREEN_TEXTURE,vec2(rim));
+	vec4 blue = texture(SCREEN_TEXTURE,vec2(rim) - vec2(OFFSET));
+	ALBEDO = vec3(red.r,green.g,blue.b);
+	ALBEDO = mix(ALBEDO,RIM_COLOR,rim/PI);
+	// Some squares
+	for(int i = 0; i < NUMBER_OF_SQUARES; i++){
+		float rand_x = random(vec2(float(i)/float(NUMBER_OF_SQUARES)));
+		float rand_vel = max(MIN_SQUARES_VELOCITY,random(vec2(0.0,float(i)/float(NUMBER_OF_SQUARES))) * MAX_SQUARES_VELOCITY);
+		vec2 pos = vec2(rand_x, mod(TIME * rand_vel, 1.0));
+		vec4 sq = square(UV,SQUARE_SIZE,pos);
+		ALBEDO += sq.rgb * SQUARE_COLOR;
+	}
+	ALPHA = rim / PI;
+	EMISSION = ALBEDO * EMISSION_VALUE;
+}

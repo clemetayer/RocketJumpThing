@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Misc/UI/Icons/circle.svg" type="Texture" id=1]
+[ext_resource path="res://Game/Common/MovementUtils/Rocket/rocket_target.gd" type="Script" id=2]
+
+[node name="RocketTarget" type="Sprite3D"]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 1, 0, 0, 0 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )

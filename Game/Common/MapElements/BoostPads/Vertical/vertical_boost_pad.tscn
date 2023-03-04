@@ -3,15 +3,19 @@
 [ext_resource path="res://Game/Common/MapElements/BoostPads/Vertical/vertical_boost_pad.gd" type="Script" id=1]
 [ext_resource path="res://Game/Common/MapElements/Particles/regular_polygon_on_cube.tres" type="Shader" id=2]
 
-[sub_resource type="BoxShape" id=20]
+[sub_resource type="BoxShape" id=28]
+resource_local_to_scene = true
 
 [sub_resource type="Gradient" id=7]
+resource_local_to_scene = true
 colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
 
 [sub_resource type="GradientTexture" id=21]
+resource_local_to_scene = true
 gradient = SubResource( 7 )
 
-[sub_resource type="ParticlesMaterial" id=22]
+[sub_resource type="ParticlesMaterial" id=29]
+resource_local_to_scene = true
 emission_shape = 2
 emission_box_extents = Vector3( 1, 1, 1 )
 direction = Vector3( 0, 1, 0 )
@@ -22,19 +26,23 @@ initial_velocity_random = 0.5
 color_ramp = SubResource( 21 )
 
 [sub_resource type="SpatialMaterial" id=9]
+resource_local_to_scene = true
 flags_transparent = true
 flags_unshaded = true
 flags_disable_ambient_light = true
 vertex_color_use_as_albedo = true
 
-[sub_resource type="PrismMesh" id=6]
+[sub_resource type="PrismMesh" id=30]
+resource_local_to_scene = true
 material = SubResource( 9 )
 size = Vector3( 0.1, 0.1, 0.025 )
 
 [sub_resource type="Gradient" id=15]
+resource_local_to_scene = true
 colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
 
-[sub_resource type="GradientTexture" id=23]
+[sub_resource type="GradientTexture" id=24]
+resource_local_to_scene = true
 gradient = SubResource( 15 )
 
 [sub_resource type="Curve" id=13]
@@ -43,16 +51,18 @@ _data = [ Vector2( 0, 0.509091 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 
 [sub_resource type="CurveTexture" id=14]
 curve = SubResource( 13 )
 
-[sub_resource type="ParticlesMaterial" id=24]
+[sub_resource type="ParticlesMaterial" id=25]
+resource_local_to_scene = true
 direction = Vector3( 0, 1, 0 )
 spread = 0.0
 gravity = Vector3( 0, 0, 0 )
 initial_velocity = 1.0
 scale = 2.0
 scale_curve = SubResource( 14 )
-color_ramp = SubResource( 23 )
+color_ramp = SubResource( 24 )
 
 [sub_resource type="ShaderMaterial" id=17]
+resource_local_to_scene = true
 shader = ExtResource( 2 )
 shader_param/sides = 4
 shader_param/max_size = 0.32
@@ -61,18 +71,21 @@ shader_param/epsilon = 0.01
 shader_param/intensity = 1.0
 shader_param/size_divider = 1.0
 
-[sub_resource type="CubeMesh" id=12]
+[sub_resource type="CubeMesh" id=26]
+resource_local_to_scene = true
 material = SubResource( 17 )
 size = Vector3( 4, 0, 4 )
 
 [sub_resource type="SpatialMaterial" id=19]
+resource_local_to_scene = true
 emission_enabled = true
 emission = Color( 1, 1, 1, 1 )
 emission_energy = 1.0
 emission_operator = 0
 emission_on_uv2 = false
 
-[sub_resource type="CubeMesh" id=25]
+[sub_resource type="CubeMesh" id=27]
+resource_local_to_scene = true
 material = SubResource( 19 )
 size = Vector3( 1.5, 0.1, 1.5 )
 
@@ -81,22 +94,22 @@ collision_layer = 2
 script = ExtResource( 1 )
 
 [node name="Collision" type="CollisionShape" parent="."]
-shape = SubResource( 20 )
+shape = SubResource( 28 )
 
 [node name="TriangleParticles" type="Particles" parent="."]
 amount = 10
 visibility_aabb = AABB( -1, -1, -1, 2, 2, 2 )
-process_material = SubResource( 22 )
-draw_pass_1 = SubResource( 6 )
+process_material = SubResource( 29 )
+draw_pass_1 = SubResource( 30 )
 
 [node name="UpSquares" type="Particles" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0 )
 amount = 6
 lifetime = 1.5
 visibility_aabb = AABB( -1, -1, -1, 2, 2, 2 )
-process_material = SubResource( 24 )
-draw_pass_1 = SubResource( 12 )
+process_material = SubResource( 25 )
+draw_pass_1 = SubResource( 26 )
 
 [node name="LightBumperMesh" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0 )
-mesh = SubResource( 25 )
+mesh = SubResource( 27 )

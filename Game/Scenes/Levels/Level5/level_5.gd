@@ -1,7 +1,5 @@
-# tool
 extends StandardScene
-# class_name Class
-# docstring
+# Script for level 5
 
 ##### SIGNALS #####
 # Node signals
@@ -11,7 +9,9 @@ extends StandardScene
 
 ##### VARIABLES #####
 #---- CONSTANTS -----
-# const constant := 10 # Optionnal comment
+const GROUP_REACTOR_CORE := "reactor_core"
+const GROUP_BREAKABLE_LINK := "breakable_link"
+const PART_1_ANIM_NAME := "part_1"
 
 #---- EXPORTS -----
 # export(int) var EXPORT_NAME # Optionnal comment
@@ -21,33 +21,61 @@ extends StandardScene
 # var public_var # Optionnal comment
 
 #==== PRIVATE ====
-# var _private_var # Optionnal comment
+var _env_switched := false
 
 #==== ONREADY ====
-# onready var onready_var # Optionnal comment
+onready var onready_paths := {"env_anim_tree": $WorldEnvironment/AnimationTree}
+
 
 ##### PROCESSING #####
 # Called when the object is initialized.
 func _init():
-	pass
+	_init_func()
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	_ready_func()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame. Remove the "_" to use it.
-func _process(_delta):
-	pass
-
-##### PUBLIC METHODS #####
-# Methods that are intended to be "visible" to other nodes or scripts
-# func public_method(arg : int) -> void:
-#     pass
 
 ##### PROTECTED METHODS #####
-# Methods that are intended to be used exclusively by this scripts
-# func _private_method(arg):
-#     pass
+# Called when the object is initialized.
+func _init_func():
+	._init_func()
+	_connect_signals()
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready_func():
+	._ready_func()
+	_init_onready_paths()
+	_init_breakable_links()
+
+
+func _connect_signals() -> void:
+	DebugUtils.log_connect(
+		SignalManager, self, SignalManager.WALL_BROKEN, "_on_signal_manager_wall_broken"
+	)
+
+
+func _init_onready_paths() -> void:
+	if onready_paths == null:
+		onready_paths = {}
+	onready_paths["reactor_core"] = get_tree().get_nodes_in_group(GROUP_REACTOR_CORE)
+	onready_paths["breakable_links"] = get_tree().get_nodes_in_group(GROUP_BREAKABLE_LINK)
+
+
+func _init_breakable_links() -> void:
+	for breakable_link in onready_paths["breakable_links"]:
+		breakable_link.target = breakable_link.get_path_to(onready_paths["reactor_core"][0])
+		breakable_link.update_particles()
+
 
 ##### SIGNAL MANAGEMENT #####
-# Functions that should be triggered when a specific signal is received
+func _on_signal_manager_wall_broken() -> void:
+	if !_env_switched:
+		var state_machine = onready_paths.env_anim_tree["parameters/playback"]
+		if state_machine != null:
+			state_machine.travel(PART_1_ANIM_NAME)
+			_env_switched = true
+	onready_paths["reactor_core"][0].next_anim()

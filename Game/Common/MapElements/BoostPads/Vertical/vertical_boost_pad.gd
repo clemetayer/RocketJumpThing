@@ -1,3 +1,4 @@
+tool
 extends VerticalBoost
 # Area that pushes the player up like a bumper
 
@@ -25,11 +26,6 @@ onready var onready_gradient_tween := Tween.new()
 # ready function to override if necessary
 func _ready() -> void:
 	._ready_func()
-	add_child(onready_gradient_tween)
-	_set_TB_params()
-	_duplicate_common_elements()
-	rotation_degrees = _angle
-	_set_extents()
 	_set_colors()
 
 
@@ -45,18 +41,6 @@ func _set_TB_params() -> void:
 
 func _get_collision() -> Node:
 	return onready_paths.collision
-
-
-# makes some elements unique to avoid modifying other boosts (for example the collision shape)
-func _duplicate_common_elements() -> void:
-	._duplicate_common_elements()
-	onready_paths.triangle_particles.draw_pass_1 = onready_paths.triangle_particles.draw_pass_1.duplicate()
-	onready_paths.triangle_particles.process_material = onready_paths.triangle_particles.process_material.duplicate()
-	onready_paths.triangle_particles.process_material.color_ramp = onready_paths.triangle_particles.process_material.color_ramp.duplicate()
-	onready_paths.square_particles.draw_pass_1 = onready_paths.square_particles.draw_pass_1.duplicate()
-	onready_paths.square_particles.process_material = onready_paths.square_particles.process_material.duplicate()
-	onready_paths.square_particles.process_material.color_ramp = onready_paths.square_particles.process_material.color_ramp.duplicate()
-	onready_paths.mesh.mesh = onready_paths.mesh.mesh.duplicate()
 
 
 # sets the extents of the different boxes used (particle boxes, collision, etc.)

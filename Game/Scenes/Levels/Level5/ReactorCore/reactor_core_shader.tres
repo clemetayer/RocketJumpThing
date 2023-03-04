@@ -1,0 +1,46 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[sub_resource type="Shader" id=2]
+code = "shader_type spatial;
+
+const float FRACT = 7.0;
+const float COL_ROT_SPEED_DIVIDER = 5.0;
+const float LINE_PCT = 0.05;
+const float EMISSION_VAL = 2.0;
+
+const vec3 BACK_COLOR = vec3(0.0);
+
+uniform vec4 COL_1 : hint_color;
+uniform vec4 COL_2 : hint_color;
+
+float border(vec2 uv) {
+	return min(1.0,
+		step(uv.x,LINE_PCT/2.0)
+		+step(uv.y,LINE_PCT/2.0)
+		+step(1.0 - uv.x,LINE_PCT/2.0)
+		+step(1.0 - uv.y,LINE_PCT/2.0));
+}
+
+float diagonal(vec2 uv){
+	return min(1.0,step(uv.x,uv.y + LINE_PCT) - step(uv.x,uv.y - LINE_PCT));
+}
+
+void fragment(){
+	vec2 uv = fract(UV * FRACT) ;
+	float amount = abs(mod(UV.x + TIME/COL_ROT_SPEED_DIVIDER,1.0)-0.5)*2.0;
+	vec4 color = mix(COL_1,COL_2,amount);
+	float line = smoothstep(uv.x + LINE_PCT,uv.x - LINE_PCT,uv.y) * smoothstep(uv.y + LINE_PCT,uv.y - LINE_PCT,uv.x);
+	if(min(diagonal(uv)+border(uv),1.0) == 1.0){
+		ALBEDO = min(diagonal(uv)+border(uv),1.0) * color.rgb;
+		ALPHA = color.a;
+	} 
+	else {
+		ALPHA = 0.0;
+	}
+	EMISSION = ALBEDO * EMISSION_VAL;
+}"
+
+[resource]
+shader = SubResource( 2 )
+shader_param/COL_1 = Color( 0, 0.576471, 1, 1 )
+shader_param/COL_2 = Color( 0, 0.0862745, 1, 1 )

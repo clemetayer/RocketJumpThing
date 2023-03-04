@@ -4,7 +4,7 @@
 [ext_resource path="res://Misc/Audio/FX/Rocket/RocketExplosion.wav" type="AudioStream" id=2]
 
 [sub_resource type="SphereShape" id=1]
-radius = 0.5
+radius = 0.75
 
 [sub_resource type="SpatialMaterial" id=7]
 flags_transparent = true
@@ -12,8 +12,8 @@ flags_unshaded = true
 
 [sub_resource type="SphereMesh" id=8]
 material = SubResource( 7 )
-radius = 8.0
-height = 16.0
+radius = 6.0
+height = 12.0
 
 [sub_resource type="Gradient" id=5]
 colors = PoolColorArray( 1, 0, 0, 1, 1, 0.92549, 0, 0 )
@@ -25,7 +25,7 @@ gradient = SubResource( 5 )
 direction = Vector3( 0, 1, 0 )
 spread = 180.0
 gravity = Vector3( 0, -1.875, 0 )
-initial_velocity = 2.19
+initial_velocity = 3.0
 initial_velocity_random = 0.5
 angular_velocity = 720.0
 angle = 720.0
@@ -67,7 +67,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 8.0 ]
+"values": [ 6.0 ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("ExplosionMesh:mesh:height")
@@ -79,7 +79,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 16.0 ]
+"values": [ 12.0 ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("ExplosionMesh:mesh:material:albedo_color")
@@ -118,7 +118,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 0.2, 1 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ 0.001, 0.5, 0.5 ]
+"values": [ 0.001, 1.0, 0.5 ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("ExplosionMesh:mesh:height")
@@ -130,7 +130,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0, 0.2, 1 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ 0.001, 1.0, 1.0 ]
+"values": [ 0.001, 2.0, 1.0 ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("ExplosionMesh:mesh:material:albedo_color")
@@ -157,6 +157,7 @@ shape = SubResource( 1 )
 mesh = SubResource( 8 )
 
 [node name="ExplosionParticles" type="Particles" parent="."]
+emitting = false
 amount = 128
 one_shot = true
 explosiveness = 1.0
@@ -164,7 +165,7 @@ process_material = SubResource( 3 )
 draw_pass_1 = SubResource( 2 )
 
 [node name="ExplosionDecay" type="Timer" parent="."]
-wait_time = 0.1
+wait_time = 0.15
 one_shot = true
 
 [node name="ExplosionAnimation" type="AnimationPlayer" parent="."]

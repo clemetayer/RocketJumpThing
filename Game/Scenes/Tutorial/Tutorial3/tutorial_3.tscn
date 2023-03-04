@@ -3636,8 +3636,8 @@ properties = {
 "classname": "Checkpoints_Checkpoint",
 "collision_layer": 2,
 "collision_mask": 5,
-"spawn_position": Vector3( 0, -13, 0 ),
-"spawn_rotation": 0.0
+"mangle": Vector3( 0, 0, 0 ),
+"spawn_position": Vector3( 0, -13, 0 )
 }
 
 [node name="entity_6_mesh_instance" type="MeshInstance" parent="QodotMap/entity_6_Checkpoints_Checkpoint"]
@@ -3689,8 +3689,8 @@ properties = {
 "classname": "Checkpoints_Checkpoint",
 "collision_layer": 2,
 "collision_mask": 5,
-"spawn_position": Vector3( 0, -2, 0 ),
-"spawn_rotation": 0.0
+"mangle": Vector3( 0, 0, 0 ),
+"spawn_position": Vector3( 0, -2, 0 )
 }
 
 [node name="entity_9_mesh_instance" type="MeshInstance" parent="QodotMap/entity_9_Checkpoints_Checkpoint"]
@@ -3763,8 +3763,8 @@ properties = {
 "classname": "Checkpoints_Checkpoint",
 "collision_layer": 2,
 "collision_mask": 5,
-"spawn_position": Vector3( 0, -2, 0 ),
-"spawn_rotation": 90.0
+"mangle": Vector3( 0, 90, 0 ),
+"spawn_position": Vector3( 0, -2, 0 )
 }
 
 [node name="entity_13_mesh_instance" type="MeshInstance" parent="QodotMap/entity_13_Checkpoints_Checkpoint"]
@@ -3873,8 +3873,8 @@ properties = {
 "classname": "Checkpoints_Checkpoint",
 "collision_layer": 2,
 "collision_mask": 5,
-"spawn_position": Vector3( 0, -2, 0 ),
-"spawn_rotation": 90.0
+"mangle": Vector3( 0, 90, 0 ),
+"spawn_position": Vector3( 0, -2, 0 )
 }
 
 [node name="entity_16_mesh_instance" type="MeshInstance" parent="QodotMap/entity_16_Checkpoints_Checkpoint"]
@@ -3965,8 +3965,8 @@ properties = {
 "classname": "Checkpoints_Checkpoint",
 "collision_layer": 2,
 "collision_mask": 5,
-"spawn_position": Vector3( 0, -2, 0 ),
-"spawn_rotation": -90.0
+"mangle": Vector3( 0, -90, 0 ),
+"spawn_position": Vector3( 0, -2, 0 )
 }
 
 [node name="entity_18_mesh_instance" type="MeshInstance" parent="QodotMap/entity_18_Checkpoints_Checkpoint"]
@@ -4015,8 +4015,8 @@ properties = {
 "classname": "Checkpoints_Checkpoint",
 "collision_layer": 2,
 "collision_mask": 5,
-"spawn_position": Vector3( 0, -2, 0 ),
-"spawn_rotation": 0.0
+"mangle": Vector3( 0, 0, 0 ),
+"spawn_position": Vector3( 0, -2, 0 )
 }
 
 [node name="entity_20_mesh_instance" type="MeshInstance" parent="QodotMap/entity_20_Checkpoints_Checkpoint"]
@@ -4170,8 +4170,8 @@ properties = {
 "classname": "Checkpoints_Checkpoint",
 "collision_layer": 2,
 "collision_mask": 5,
-"spawn_position": Vector3( 0, -2, 0 ),
-"spawn_rotation": 0.0
+"mangle": Vector3( 0, 0, 0 ),
+"spawn_position": Vector3( 0, -2, 0 )
 }
 
 [node name="entity_26_mesh_instance" type="MeshInstance" parent="QodotMap/entity_26_Checkpoints_Checkpoint"]
@@ -4268,8 +4268,8 @@ properties = {
 "classname": "Checkpoints_Checkpoint",
 "collision_layer": 2,
 "collision_mask": 5,
-"spawn_position": Vector3( 0, -2, 0 ),
-"spawn_rotation": -90.0
+"mangle": Vector3( 0, -90, 0 ),
+"spawn_position": Vector3( 0, -2, 0 )
 }
 
 [node name="entity_32_mesh_instance" type="MeshInstance" parent="QodotMap/entity_32_Checkpoints_Checkpoint"]
@@ -4401,8 +4401,8 @@ properties = {
 "classname": "Checkpoints_Checkpoint",
 "collision_layer": 2,
 "collision_mask": 5,
-"spawn_position": Vector3( 0, -2, 0 ),
-"spawn_rotation": 90.0
+"mangle": Vector3( 0, 90, 0 ),
+"spawn_position": Vector3( 0, -2, 0 )
 }
 
 [node name="entity_40_mesh_instance" type="MeshInstance" parent="QodotMap/entity_40_Checkpoints_Checkpoint"]

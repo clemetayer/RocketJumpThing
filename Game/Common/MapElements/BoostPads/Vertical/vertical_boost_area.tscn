@@ -3,14 +3,18 @@
 [ext_resource path="res://Game/Common/MapElements/BoostPads/Vertical/vertical_boost_area.gd" type="Script" id=1]
 
 [sub_resource type="BoxShape" id=19]
+resource_local_to_scene = true
 
 [sub_resource type="Gradient" id=7]
+resource_local_to_scene = true
 colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
 
 [sub_resource type="GradientTexture" id=20]
+resource_local_to_scene = true
 gradient = SubResource( 7 )
 
 [sub_resource type="ParticlesMaterial" id=21]
+resource_local_to_scene = true
 emission_shape = 2
 emission_box_extents = Vector3( 1, 1, 1 )
 direction = Vector3( 0, 1, 0 )
@@ -21,19 +25,23 @@ initial_velocity_random = 0.5
 color_ramp = SubResource( 20 )
 
 [sub_resource type="SpatialMaterial" id=9]
+resource_local_to_scene = true
 flags_transparent = true
 flags_unshaded = true
 flags_disable_ambient_light = true
 vertex_color_use_as_albedo = true
 
 [sub_resource type="PrismMesh" id=6]
+resource_local_to_scene = true
 material = SubResource( 9 )
 size = Vector3( 0.1, 0.1, 0.025 )
 
 [sub_resource type="GradientTexture" id=22]
+resource_local_to_scene = true
 gradient = SubResource( 7 )
 
 [sub_resource type="ParticlesMaterial" id=23]
+resource_local_to_scene = true
 direction = Vector3( 0, 1, 0 )
 spread = 0.0
 gravity = Vector3( 0, 0, 0 )
@@ -41,6 +49,7 @@ initial_velocity = 1.0
 color_ramp = SubResource( 22 )
 
 [sub_resource type="Shader" id=17]
+resource_local_to_scene = true
 code = "shader_type spatial;
 
 uniform int sides = 3;
@@ -72,6 +81,7 @@ void fragment(){
 //}"
 
 [sub_resource type="ShaderMaterial" id=18]
+resource_local_to_scene = true
 shader = SubResource( 17 )
 shader_param/sides = 4
 shader_param/max_size = 0.5
@@ -81,14 +91,13 @@ shader_param/intensity = 1.0
 shader_param/size_divider = 1.0
 
 [sub_resource type="CubeMesh" id=12]
+resource_local_to_scene = true
 material = SubResource( 18 )
 size = Vector3( 4, 0, 4 )
 
 [node name="VerticalBoostArea" type="Area"]
 collision_layer = 2
 script = ExtResource( 1 )
-properties = {
-}
 
 [node name="Collision" type="CollisionShape" parent="."]
 shape = SubResource( 19 )

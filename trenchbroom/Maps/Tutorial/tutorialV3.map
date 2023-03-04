@@ -1337,7 +1337,7 @@
 {
 "classname" "Checkpoints_Checkpoint"
 "spawn_position" "0 -0.5 0"
-"spawn_rotation" "-90"
+"mangle" "0 -90 0"
 "collision_layer" "2"
 "collision_mask" "5"
 // brush 0
@@ -1354,7 +1354,7 @@
 {
 "classname" "Checkpoints_Checkpoint"
 "spawn_position" "0 -0.5 0"
-"spawn_rotation" "-90"
+"mangle" "0 -90 0"
 "collision_layer" "2"
 "collision_mask" "5"
 // brush 0
@@ -2352,7 +2352,7 @@
 {
 "classname" "Checkpoints_Checkpoint"
 "spawn_position" "0 -0.5 0"
-"spawn_rotation" "0"
+"mangle" "0 0 0"
 "collision_layer" "2"
 "collision_mask" "5"
 // brush 0
@@ -2739,7 +2739,7 @@
 {
 "classname" "Checkpoints_Checkpoint"
 "spawn_position" "0 -0.5 0"
-"spawn_rotation" "90"
+"mangle" "0 90 0"
 "collision_layer" "2"
 "collision_mask" "5"
 // brush 0
@@ -14238,7 +14238,7 @@
 {
 "classname" "Checkpoints_Checkpoint"
 "spawn_position" "0 -0.75 0"
-"spawn_rotation" "0"
+"mangle" "0 0 0"
 "collision_layer" "2"
 "collision_mask" "5"
 // brush 0
@@ -14255,7 +14255,7 @@
 {
 "classname" "Checkpoints_Checkpoint"
 "spawn_position" "0 -0.4 0"
-"spawn_rotation" "-90"
+"mangle" "0 -90 0"
 "collision_layer" "2"
 "collision_mask" "5"
 // brush 0
@@ -14272,7 +14272,7 @@
 {
 "classname" "Checkpoints_Checkpoint"
 "spawn_position" "0 -0.4 0"
-"spawn_rotation" "-90"
+"mangle" "0 -90 0"
 "collision_layer" "2"
 "collision_mask" "5"
 // brush 0
@@ -14289,7 +14289,7 @@
 {
 "classname" "Checkpoints_Checkpoint"
 "spawn_position" "0 -0.4 0"
-"spawn_rotation" "0"
+"mangle" "0 0 0"
 "collision_layer" "2"
 "collision_mask" "5"
 // brush 0
@@ -14306,7 +14306,7 @@
 {
 "classname" "Checkpoints_Checkpoint"
 "spawn_position" "0 -0.4 0"
-"spawn_rotation" "90"
+"mangle" "0 90 0"
 "collision_layer" "2"
 "collision_mask" "5"
 // brush 0
@@ -14323,7 +14323,7 @@
 {
 "classname" "Checkpoints_Checkpoint"
 "spawn_position" "0 -0.4 0"
-"spawn_rotation" "-90"
+"mangle" "0 -90 0"
 "collision_layer" "2"
 "collision_mask" "5"
 // brush 0
@@ -14340,7 +14340,7 @@
 {
 "classname" "Checkpoints_Checkpoint"
 "spawn_position" "0 -0.6 0"
-"spawn_rotation" "90"
+"mangle" "0 90 0"
 "collision_layer" "2"
 "collision_mask" "5"
 // brush 0

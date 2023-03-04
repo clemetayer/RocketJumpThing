@@ -389,7 +389,7 @@
 "collision_layer" "2"
 "collision_mask" "5"
 "spawn_position" "0 -6 0"
-"spawn_rotation" "0"
+"mangle" "0 0 0"
 // brush 0
 {
 ( 1216 -976 512 ) ( 1216 -975 512 ) ( 1216 -976 513 ) entities/checkpoint/checkpoint_1 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -495,7 +495,7 @@
 "collision_layer" "2"
 "collision_mask" "5"
 "spawn_position" "0 -7 0"
-"spawn_rotation" "-90"
+"mangle" "0 -90 0"
 // brush 0
 {
 ( 1456 -2640 528 ) ( 1456 -2639 528 ) ( 1456 -2640 529 ) entities/checkpoint/checkpoint_1 [ -2.220446049250313e-16 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -695,7 +695,7 @@
 // entity 26
 {
 "classname" "Checkpoints_Checkpoint"
-"spawn_rotation" "180"
+"mangle" "0 180 0"
 "collision_mask" "5"
 "collision_layer" "2"
 "spawn_position" "0 -6 0"
@@ -734,7 +734,7 @@
 // entity 28
 {
 "classname" "Checkpoints_Checkpoint"
-"spawn_rotation" "180"
+"mangle" "0 180 0"
 "spawn_position" "0 -6 0"
 "collision_layer" "2"
 "collision_mask" "5"
@@ -941,7 +941,7 @@
 "collision_layer" "2"
 "collision_mask" "5"
 "spawn_position" "0 -6 0"
-"spawn_rotation" "0"
+"mangle" "0 0 0"
 // brush 0
 {
 ( -688 -3568 2144 ) ( -688 -3567 2144 ) ( -688 -3568 2145 ) entities/checkpoint/checkpoint_1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -958,7 +958,7 @@
 "collision_layer" "2"
 "collision_mask" "5"
 "spawn_position" "0 -6 0"
-"spawn_rotation" "180"
+"mangle" "0 180 0"
 // brush 0
 {
 ( -192 -3568 2400 ) ( -192 -3567 2400 ) ( -192 -3568 2401 ) entities/checkpoint/checkpoint_1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -1518,7 +1518,7 @@
 "collision_layer" "2"
 "collision_mask" "5"
 "spawn_position" "0 -6 0"
-"spawn_rotation" "90"
+"mangle" "0 90 0"
 // brush 0
 {
 ( -1264 -4152 2384 ) ( -1264 -4152 2385 ) ( -1264 -4153 2384 ) entities/checkpoint/checkpoint_1 [ 2.220446049250313e-16 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -1873,7 +1873,7 @@
 "collision_layer" "2"
 "collision_mask" "5"
 "spawn_position" "0 -6 0"
-"spawn_rotation" "0"
+"mangle" "0 0 0"
 // brush 0
 {
 ( 1392 -968 528 ) ( 1392 -967 528 ) ( 1392 -968 529 ) entities/checkpoint/checkpoint_1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1

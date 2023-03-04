@@ -21,6 +21,8 @@ signal start_level_chronometer
 signal end_reached
 #warning-ignore:UNUSED_SIGNAL
 signal portal_entered(portal_entered, element)
+#warning-ignore:UNUSED_SIGNAL
+signal wall_broken
 
 #==== VISUALS =====
 #warning-ignore:UNUSED_SIGNAL
@@ -49,6 +51,7 @@ const CHECKPOINT_TRIGGERED := "checkpoint_triggered"
 const END_REACHED := "end_reached"
 const START_LEVEL_CHRONOMETER := "start_level_chronometer"
 const PORTAL_ENTERED := "portal_entered"
+const WALL_BROKEN := "wall_broken"
 
 #==== VISUALS =====
 const SEQUENCER_STEP := "sequencer_step"
@@ -94,6 +97,10 @@ func emit_start_level_chronometer() -> void:
 
 func emit_portal_entered(entered_portal: Node, element: Node) -> void:
 	emit_signal(PORTAL_ENTERED, entered_portal, element)
+
+
+func emit_wall_broken() -> void:
+	emit_signal(WALL_BROKEN)
 
 
 #==== VISUALS =====

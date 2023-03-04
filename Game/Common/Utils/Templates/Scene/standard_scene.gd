@@ -33,18 +33,12 @@ var _end_level_ui  # instance of the end level ui
 ##### PROCESSING #####
 # Called when the object is initialized.
 func _init():
-	_connect_autoload_signals()
+	_init_func()
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	_init_pause()
-	_init_end_level()
-	_init_song()
-	_last_cp = get_node(PATHS.start_point).get_checkpoint()
-	get_node(PATHS.player).ROCKETS_ENABLED = ENABLE_ROCKETS
-	get_node(PATHS.player).SLIDE_ENABLED = ENABLE_SLIDE
-	SignalManager.emit_start_level_chronometer()
+	_ready_func()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame. Remove the "_" to use it.
@@ -58,6 +52,20 @@ func get_player() -> Node:
 
 
 ##### PROTECTED METHODS #####
+func _init_func() -> void:
+	_connect_autoload_signals()
+
+
+func _ready_func() -> void:
+	_init_pause()
+	_init_end_level()
+	_init_song()
+	_last_cp = get_node(PATHS.start_point).get_checkpoint()
+	get_node(PATHS.player).ROCKETS_ENABLED = ENABLE_ROCKETS
+	get_node(PATHS.player).SLIDE_ENABLED = ENABLE_SLIDE
+	SignalManager.emit_start_level_chronometer()
+
+
 func _manage_inputs() -> void:
 	if Input.is_action_just_pressed(GlobalConstants.INPUT_RESTART):
 		_restart()
@@ -117,9 +125,7 @@ func _on_respawn_player_on_last_cp() -> void:
 	if _last_cp != null:
 		var player = get_node_or_null(PATHS.player)
 		if player != null:
-			player.transform.origin = _last_cp.get_spawn_point()
-			player.rotation_degrees.y = _last_cp.get_spawn_rotation()
-			player.vel = Vector3()
+			player.checkpoint_process(_last_cp.get_spawn_point(), _last_cp.get_spawn_rotation())
 			if FunctionUtils.is_start_point(_last_cp):  # if restart at the beginning of the level, restart the chronometer
 				SignalManager.emit_start_level_chronometer()
 				if null != PATHS.bgm.path and PATHS.bgm.path != "":

@@ -4,9 +4,7 @@ class_name Checkpoint
 
 ##### VARIABLES #####
 #---- CONSTANTS -----
-const TB_CHECKPOINT_MAPPER := [
-	["spawn_position", "_spawn_position"], ["spawn_rotation", "_spawn_rotation"]
-]  # mapper for TrenchBroom parameters
+const TB_CHECKPOINT_MAPPER := [["spawn_position", "_spawn_position"], ["mangle", "_mangle"]]  # mapper for TrenchBroom parameters
 #---- EXPORTS -----
 export(Dictionary) var properties
 
@@ -16,7 +14,7 @@ var song_animation: String  # keeps the song animation name, to change the curre
 
 #==== PRIVATE ====
 var _spawn_position: Vector3
-var _spawn_rotation: float
+var _mangle: Vector3  # rotation angles, in degrees
 
 
 ##### PROCESSING #####
@@ -43,10 +41,10 @@ func get_spawn_point() -> Vector3:
 	return Vector3.ZERO
 
 
-func get_spawn_rotation() -> float:
-	if _spawn_rotation != null:
-		return _spawn_rotation
-	return 0.0
+func get_spawn_rotation() -> Vector3:
+	if _mangle != null:
+		return _mangle
+	return Vector3.ZERO
 
 
 ##### PROTECTED METHODS #####
@@ -55,7 +53,7 @@ func _set_TB_params() -> void:
 
 
 func _connect_signals() -> void:
-	DebugUtils.log_connect(self,self,"body_entered","_on_Checkpoint_body_entered")
+	DebugUtils.log_connect(self, self, "body_entered", "_on_Checkpoint_body_entered")
 
 
 ##### SIGNAL MANAGEMENT #####
