@@ -3980,3 +3980,83 @@
 ( 7680 -64 6008 ) ( 7680 -64 6009 ) ( 7680 -63 6008 ) common/material_override/death_grid [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
+// entity 192
+{
+"classname" "TriggerSongAnimationChange"
+"animation" "part_1_1"
+"collision_layer" "2"
+"collision_mask" "5"
+// brush 0
+{
+( -48 1008 -256 ) ( -48 1024 -352 ) ( -48 1024 -256 ) common/material_override/Transparent [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 48 1008 -256 ) ( -48 1008 -352 ) ( -48 1008 -256 ) common/material_override/Transparent [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 48 1024 -352 ) ( -48 1008 -352 ) ( 48 1008 -352 ) common/material_override/Transparent [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 48 1024 -256 ) ( -48 1008 -256 ) ( -48 1024 -256 ) common/material_override/Transparent [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 48 1024 -256 ) ( -48 1024 -352 ) ( 48 1024 -352 ) common/material_override/Transparent [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 48 1024 -256 ) ( 48 1008 -352 ) ( 48 1008 -256 ) common/material_override/Transparent [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+}
+// entity 193
+{
+"classname" "TriggerSongAnimationChange"
+"animation" "part_2"
+"collision_layer" "2"
+"collision_mask" "5"
+// brush 0
+{
+( 4944 5376 1472 ) ( 4944 5568 1280 ) ( 4944 5568 1472 ) common/material_override/Transparent [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 4960 5376 1472 ) ( 4944 5376 1280 ) ( 4944 5376 1472 ) common/material_override/Transparent [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 4960 5568 1280 ) ( 4944 5376 1280 ) ( 4960 5376 1280 ) common/material_override/Transparent [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 4960 5568 1472 ) ( 4944 5376 1472 ) ( 4944 5568 1472 ) common/material_override/Transparent [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 4960 5568 1472 ) ( 4944 5568 1280 ) ( 4960 5568 1280 ) common/material_override/Transparent [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 4976 5568 1472 ) ( 4976 5376 1280 ) ( 4976 5376 1472 ) common/material_override/Transparent [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+}
+// entity 194
+{
+"classname" "TriggerSongAnimationChange"
+"animation" "part_3"
+"collision_layer" "2"
+"collision_mask" "5"
+// brush 0
+{
+( -4800 5664 2208 ) ( -4800 5840 2032 ) ( -4800 5840 2208 ) common/material_override/Transparent [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -4784 5664 2208 ) ( -4800 5664 2032 ) ( -4800 5664 2208 ) common/material_override/Transparent [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -4784 5840 2032 ) ( -4800 5664 2032 ) ( -4784 5664 2032 ) common/material_override/Transparent [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -4784 5840 2208 ) ( -4800 5664 2208 ) ( -4800 5840 2208 ) common/material_override/Transparent [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -4784 5840 2208 ) ( -4800 5840 2032 ) ( -4784 5840 2032 ) common/material_override/Transparent [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -4784 5840 2208 ) ( -4784 5664 2032 ) ( -4784 5664 2208 ) common/material_override/Transparent [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+}
+// entity 195
+{
+"classname" "TriggerSongAnimationChange"
+"collision_layer" "2"
+"collision_mask" "5"
+"animation" "part_4"
+// brush 0
+{
+( 2032 8192 -2128 ) ( 2032 8384 -2320 ) ( 2032 8384 -2128 ) common/material_override/Transparent [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 2048 8192 -2128 ) ( 2032 8192 -2320 ) ( 2032 8192 -2128 ) common/material_override/Transparent [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 2048 8384 -2320 ) ( 2032 8192 -2320 ) ( 2048 8192 -2320 ) common/material_override/Transparent [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 2048 8384 -2128 ) ( 2032 8192 -2128 ) ( 2032 8384 -2128 ) common/material_override/Transparent [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 2048 8384 -2128 ) ( 2032 8384 -2320 ) ( 2048 8384 -2320 ) common/material_override/Transparent [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 2048 8384 -2128 ) ( 2048 8192 -2320 ) ( 2048 8192 -2128 ) common/material_override/Transparent [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+}
+// entity 196
+{
+"classname" "TriggerSongAnimationChange"
+"animation" "part_5"
+"collision_layer" "2"
+"collision_mask" "5"
+// brush 0
+{
+( 128 10416 4880 ) ( 128 10432 4672 ) ( 128 10432 4880 ) common/material_override/Transparent [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 320 10416 4880 ) ( 128 10416 4672 ) ( 128 10416 4880 ) common/material_override/Transparent [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 320 10432 4672 ) ( 128 10416 4672 ) ( 320 10416 4672 ) common/material_override/Transparent [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 320 10432 4880 ) ( 128 10416 4880 ) ( 128 10432 4880 ) common/material_override/Transparent [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 320 10448 4880 ) ( 128 10448 4672 ) ( 320 10448 4672 ) common/material_override/Transparent [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 320 10432 4880 ) ( 320 10416 4672 ) ( 320 10416 4880 ) common/material_override/Transparent [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+}
