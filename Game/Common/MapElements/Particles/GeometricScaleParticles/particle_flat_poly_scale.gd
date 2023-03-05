@@ -25,7 +25,6 @@ var _angle := Vector3.ZERO  # direction of the particle emitter
 ##### PROCESSING #####
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	_duplicate_common_elements()
 	_set_TB_params()
 	rotation_degrees = _angle
 	draw_pass_1.size = Vector3(_size.x, 0, _size.z)
@@ -40,10 +39,3 @@ func _set_TB_params() -> void:
 	TrenchBroomEntityUtils._map_trenchbroom_properties(
 		self, properties, TB_PARTICLE_FLAT_POLY_MAPPER
 	)
-
-
-# makes some elements unique to avoid modifying other same particles
-func _duplicate_common_elements() -> void:
-	process_material = process_material.duplicate()
-	draw_pass_1 = draw_pass_1.duplicate()
-	draw_pass_1.material = draw_pass_1.material.duplicate()

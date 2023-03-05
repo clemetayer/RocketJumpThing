@@ -4,11 +4,13 @@
 [ext_resource path="res://Game/Common/Shaders/ChangeAlbedo/particles_albedo_emit.tres" type="Shader" id=2]
 
 [sub_resource type="Gradient" id=127]
+resource_local_to_scene = true
 interpolation_mode = 2
 offsets = PoolRealArray( 0, 0.216842, 0.516129, 0.837895, 1 )
 colors = PoolColorArray( 0, 1, 0.623529, 1, 0, 0.378847, 0.3435, 1, 0, 0.011152, 0.177734, 1, 0, 0.54395, 0.417932, 1, 0, 1, 0.623529, 1 )
 
 [sub_resource type="GradientTexture" id=128]
+resource_local_to_scene = true
 gradient = SubResource( 127 )
 width = 255
 
@@ -19,6 +21,7 @@ _data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.10166, 1 ), 0.0, 0.0, 0, 0
 curve = SubResource( 6 )
 
 [sub_resource type="ParticlesMaterial" id=129]
+resource_local_to_scene = true
 emission_shape = 2
 emission_box_extents = Vector3( 1, 1, 7.9959 )
 direction = Vector3( 0, 0, -1 )
@@ -32,9 +35,11 @@ scale_curve = SubResource( 7 )
 color_ramp = SubResource( 128 )
 
 [sub_resource type="ShaderMaterial" id=5]
+resource_local_to_scene = true
 shader = ExtResource( 2 )
 
 [sub_resource type="CubeMesh" id=126]
+resource_local_to_scene = true
 material = SubResource( 5 )
 size = Vector3( 0.125, 0.125, 0.125 )
 

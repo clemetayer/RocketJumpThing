@@ -52,12 +52,14 @@ void fragment(){
 }"
 
 [sub_resource type="ShaderMaterial" id=5]
+resource_local_to_scene = true
 shader = SubResource( 6 )
 
 [sub_resource type="SphereMesh" id=2]
 material = SubResource( 5 )
 
 [sub_resource type="SphereShape" id=3]
+resource_local_to_scene = true
 
 [node name="Portal" type="Area"]
 script = ExtResource( 1 )

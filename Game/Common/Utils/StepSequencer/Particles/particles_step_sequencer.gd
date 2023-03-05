@@ -87,6 +87,7 @@ func _set_TB_params() -> void:
 
 # Finds the first material in the first mesh instance and duplicates it if indicated in the params
 # TODO : Useless in the case of a particle ?
+# TODO : Make subresources local to scene ?
 func _get_material_in_children_and_duplicate() -> void:
 	for child in get_children():
 		if child is MeshInstance:

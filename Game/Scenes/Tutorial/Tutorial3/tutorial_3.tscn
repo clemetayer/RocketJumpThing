@@ -1,4 +1,4 @@
-[gd_scene load_steps=510 format=2]
+[gd_scene load_steps=518 format=2]
 
 [ext_resource path="res://addons/qodot/src/nodes/qodot_map.gd" type="Script" id=1]
 [ext_resource path="res://addons/qodot/src/nodes/qodot_entity.gd" type="Script" id=2]
@@ -30,6 +30,7 @@
 [ext_resource path="res://Game/Common/MapElements/Lights/omni_light.tscn" type="PackedScene" id=28]
 [ext_resource path="res://Game/Common/MapElements/DeathGrid/death_grid.gd" type="Script" id=29]
 [ext_resource path="res://trenchbroom/textures/common/material_override/death_grid.tres" type="Material" id=30]
+[ext_resource path="res://Game/Common/MapElements/Particles/regular_polygon_on_cube.tres" type="Shader" id=31]
 [ext_resource path="res://Game/Common/MapElements/Breakables/Walls/breakable_wall.gd" type="Script" id=32]
 [ext_resource path="res://Game/Common/MapElements/Breakables/Walls/breakable_area_rocket.gd" type="Script" id=33]
 [ext_resource path="res://trenchbroom/textures/scenes/tutorial3_scene/Sequencer1.tres" type="Material" id=34]
@@ -1452,6 +1453,42 @@ points = PoolVector3Array( -5.09259, 6.30556, -25.4722, -5.09259, -6.19444, -25.
 
 [sub_resource type="ConvexPolygonShape" id=511]
 points = PoolVector3Array( 8.90741, -2.19444, 4.52778, 8.90741, -2.69444, 4.52778, 12.9074, -2.69444, 6.52778, 12.9074, -2.19444, 6.52778, 8.90741, -2.19444, 8.52778, 8.90741, -2.69444, 8.52778 )
+
+[sub_resource type="Gradient" id=744]
+resource_local_to_scene = true
+colors = PoolColorArray( 1, 0.862745, 0, 1, 0, 1, 0.12549, 0 )
+
+[sub_resource type="GradientTexture" id=745]
+resource_local_to_scene = true
+gradient = SubResource( 744 )
+
+[sub_resource type="Curve" id=5]
+_data = [ Vector2( 0, 0.247727 ), 0.0, -0.0604166, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=6]
+curve = SubResource( 5 )
+
+[sub_resource type="ParticlesMaterial" id=746]
+resource_local_to_scene = true
+direction = Vector3( 0, 0, 0 )
+gravity = Vector3( 0, 0, 0 )
+scale_curve = SubResource( 6 )
+color_ramp = SubResource( 745 )
+
+[sub_resource type="ShaderMaterial" id=747]
+resource_local_to_scene = true
+shader = ExtResource( 31 )
+shader_param/sides = 3
+shader_param/max_size = 0.45
+shader_param/min_size = 0.43
+shader_param/epsilon = 0.02
+shader_param/intensity = 3.0
+shader_param/size_divider = 1.0
+
+[sub_resource type="CubeMesh" id=748]
+resource_local_to_scene = true
+material = SubResource( 747 )
+size = Vector3( 5, 0, 5 )
 
 [sub_resource type="ArrayMesh" id=512]
 surfaces/0 = {
@@ -4490,6 +4527,8 @@ shape = SubResource( 511 )
 
 [node name="entity_45_Particles_FlatPolyScale" parent="QodotMap" instance=ExtResource( 18 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 23, 29 )
+process_material = SubResource( 746 )
+draw_pass_1 = SubResource( 748 )
 properties = {
 "angle": Vector3( 90, 0, 0 ),
 "classname": "Particles_FlatPolyScale",
@@ -5458,7 +5497,7 @@ mesh = SubResource( 638 )
 shape = SubResource( 639 )
 
 [node name="entity_103_Boost_Pad" parent="QodotMap" instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 29.8166, 18.3302, -135.75 )
+transform = Transform( 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 0, 0, 1, 29.8166, 18.3302, -135.75 )
 properties = {
 "": "",
 "angle": Vector3( 0, 0, -15 ),
@@ -5470,7 +5509,7 @@ properties = {
 }
 
 [node name="entity_104_Boost_Pad" parent="QodotMap" instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14.125, 6.54575, -132.805 )
+transform = Transform( 1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, -14.125, 6.54575, -132.805 )
 properties = {
 "": "",
 "angle": Vector3( -30, 0, 0 ),
@@ -5482,7 +5521,7 @@ properties = {
 }
 
 [node name="entity_105_Boost_Pad" parent="QodotMap" instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 13.3125, -142.041 )
+transform = Transform( 1, 0, 0, 0, 0.866025, -0.5, 0, 0.5, 0.866025, -6, 13.3125, -142.041 )
 properties = {
 "": "",
 "angle": Vector3( 30, 0, 0 ),
@@ -5494,7 +5533,7 @@ properties = {
 }
 
 [node name="entity_106_Boost_Pad" parent="QodotMap" instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 18.2266, -132.655 )
+transform = Transform( 1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 2, 18.2266, -132.655 )
 properties = {
 "": "",
 "angle": Vector3( -15, 0, 0 ),
@@ -5506,7 +5545,7 @@ properties = {
 }
 
 [node name="entity_107_Boost_Pad" parent="QodotMap" instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.68719, 3.34721, -190 )
+transform = Transform( 0.965926, -0.258819, 0, 0.258819, 0.965926, 0, 0, 0, 1, -6.68719, 3.34721, -190 )
 properties = {
 "": "",
 "angle": Vector3( 0, 0, 15 ),
@@ -5518,7 +5557,7 @@ properties = {
 }
 
 [node name="entity_108_Boost_Pad" parent="QodotMap" instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 31.375, -3.375, -190 )
+transform = Transform( 0.866025, -0.5, 0, 0.5, 0.866025, 0, 0, 0, 1, 31.375, -3.375, -190 )
 properties = {
 "": "",
 "angle": Vector3( 0, 0, 30 ),
@@ -5530,7 +5569,7 @@ properties = {
 }
 
 [node name="entity_109_Boost_Area" parent="QodotMap" instance=ExtResource( 12 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 32, -76 )
+transform = Transform( 0.173648, -0.984808, 0, 0.984808, 0.173648, 0, 0, 0, 1, 34, 32, -76 )
 properties = {
 "": "",
 "angle": Vector3( 0, 0, 80 ),
@@ -5542,7 +5581,7 @@ properties = {
 }
 
 [node name="entity_110_Boost_Area" parent="QodotMap" instance=ExtResource( 12 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 26, -33 )
+transform = Transform( -7.5904e-09, 4.30473e-08, 1, 0.984808, 0.173648, 0, -0.173648, 0.984808, -4.37114e-08, 0, 26, -33 )
 properties = {
 "": "",
 "angle": Vector3( 0, 90, 80 ),
@@ -5554,7 +5593,7 @@ properties = {
 }
 
 [node name="entity_111_Boost_Pad" parent="QodotMap" instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 101.262, 14.5458, 328.125 )
+transform = Transform( 0.866025, -0.5, 0, 0.5, 0.866025, 0, 0, 0, 1, 101.262, 14.5458, 328.125 )
 properties = {
 "": "",
 "angle": Vector3( 0, 0, 30 ),
@@ -5566,7 +5605,7 @@ properties = {
 }
 
 [node name="entity_112_Boost_Pad" parent="QodotMap" instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 60.5122, 27.0457, 328.125 )
+transform = Transform( 0.866025, -0.5, 0, 0.5, 0.866025, 0, 0, 0, 1, 60.5122, 27.0457, 328.125 )
 properties = {
 "": "",
 "angle": Vector3( 0, 0, 30 ),
@@ -5602,7 +5641,7 @@ properties = {
 }
 
 [node name="entity_115_Boost_Area" parent="QodotMap" instance=ExtResource( 12 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 60, 32, -106 )
+transform = Transform( 1, 0, 0, 0, 0.173648, -0.984808, 0, 0.984808, 0.173648, 60, 32, -106 )
 properties = {
 "": "",
 "angle": Vector3( 80, 0, 0 ),
@@ -6403,7 +6442,7 @@ properties = {
 shape = SubResource( 720 )
 
 [node name="entity_160_Boost_Area" parent="QodotMap" instance=ExtResource( 12 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 33, -55 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -1, 33, -55 )
 properties = {
 "": "",
 "angle": Vector3( -90, 0, 0 ),

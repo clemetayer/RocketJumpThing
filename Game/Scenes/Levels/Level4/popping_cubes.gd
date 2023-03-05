@@ -15,10 +15,6 @@ func _ready_func():
 	._ready_func()
 	var transparent_color: Color = _color
 	transparent_color.a = 0
-	# Duplicates the materials (to not target the same instance)
-	process_material = process_material.duplicate()
-	process_material.color_ramp = process_material.color_ramp.duplicate()
-	process_material.color_ramp.gradient = process_material.color_ramp.gradient.duplicate()
 	# sets the color
 	process_material.color_ramp.gradient.colors = PoolColorArray(
 		[transparent_color, _color, transparent_color]

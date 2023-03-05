@@ -45,9 +45,6 @@ func _connect_signals() -> void:
 
 
 func _init_laser() -> void:
-	# duplicates the collision and mesh to avoid having the same lasers
-	onready_paths.collision.shape = onready_paths.collision.shape.duplicate()
-	onready_paths.mesh.mesh = onready_paths.mesh.mesh.duplicate()
 	# sets the general height, etc.
 	onready_paths.collision.shape.height = _max_length
 	onready_paths.collision.shape.radius = _thickness

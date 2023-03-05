@@ -1,7 +1,6 @@
 tool
 extends Spatial
 # a link to something with a breaking animation
-# NOTE : The materials and textures won't be duplicated, but for now, this is fine
 
 ##### VARIABLES #####
 #---- CONSTANTS -----
@@ -44,10 +43,6 @@ func update_gradient(texture: GradientTexture):
 
 
 ##### PROTECTED METHODS #####
-func _duplicate_elements() -> void:
-	_onready_paths.particles.process_material = _onready_paths.particles.process_material.duplicate()
-
-
 func _explode() -> void:
 	_onready_paths.animation_player.play(ANIMATION_EXPLODE)
 

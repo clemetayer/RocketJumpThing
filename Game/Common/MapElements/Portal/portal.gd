@@ -41,11 +41,6 @@ func get_rotation_degrees() -> Vector3:
 
 
 ##### PROTECTED METHODS #####
-func _duplicate_materials() -> void:
-	onready_paths.mesh.mesh = onready_paths.mesh.mesh.duplicate()
-	onready_paths.collision.shape = onready_paths.collision.shape.duplicate()
-
-
 func _set_TB_params() -> void:
 	._set_TB_params()
 	TrenchBroomEntityUtils._map_trenchbroom_properties(self, properties, TB_PORTAL_MAPPER)
