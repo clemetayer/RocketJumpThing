@@ -1,6 +1,10 @@
 extends Collidable
 # Portal script
 
+##### SIGNALS #####
+#warning-ignore:UNUSED_SIGNAL
+signal trigger(element)
+
 ##### VARIABLES #####
 #---- CONSTANTS -----
 const TB_PORTAL_MAPPER := [["id", "id"], ["mangle", "_mangle"], ["scale", "_scale"]]  # mapper for TrenchBroom parameters
@@ -49,20 +53,19 @@ func _set_TB_params() -> void:
 func _connect_signals() -> void:
 	DebugUtils.log_connect(self, self, "body_entered", "_on_body_entered")
 	DebugUtils.log_connect(self, self, "area_entered", "_on_area_entered")
-	DebugUtils.log_connect(SignalManager, self, SignalManager.PORTAL_ENTERED, "_on_portal_entered")
 
 
 ##### SIGNAL MANAGEMENT #####
 func _on_body_entered(body: Node) -> void:
 	if FunctionUtils.is_portal_compatible(body):
-		SignalManager.emit_portal_entered(self, body)
+		emit_signal("trigger", body)
 
 
 func _on_area_entered(area: Node) -> void:
 	if FunctionUtils.is_portal_compatible(area):
-		SignalManager.emit_portal_entered(self, area)
+		emit_signal("trigger", area)
 
 
-func _on_portal_entered(entered_portal: Node, element: Node) -> void:
-	if entered_portal.id == id and entered_portal != self:
-		element.call(FunctionUtils.PORTAL_PROCESS_METHOD_NAME, self)
+#==== Qodot =====
+func use(element: Node) -> void:
+	element.call(FunctionUtils.PORTAL_PROCESS_METHOD_NAME, self)

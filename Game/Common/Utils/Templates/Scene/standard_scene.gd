@@ -14,9 +14,7 @@ const END_LEVEL_PATH := "res://Game/Common/Menus/EndLevel/end_level_ui.tscn"
 const PAUSE_MENU_PATH := "res://Game/Common/Menus/PauseMenu/pause_menu.tscn"
 
 #---- EXPORTS ----
-export(Dictionary) var PATHS = {  # various paths for the scene
-	"player": NodePath(), "start_point": NodePath(), "bgm": {"path": "", "animation": ""}
-}
+export(Dictionary) var PATHS = {"bgm": {"path": "", "animation": ""}}  # various paths for the scene
 export(bool) var ENABLE_ROCKETS = true
 export(bool) var ENABLE_SLIDE = true
 export(String) var NEXT_SCENE_PATH = null
@@ -24,10 +22,10 @@ export(String) var NEXT_SCENE_PATH = null
 #---- STANDARD -----
 #==== PRIVATE =====
 var _last_cp: Checkpoint
-
-#==== ONREADY ====
 var _pause_menu  # instance of the pause menu
 var _end_level_ui  # instance of the end level ui
+var _player: Node  # player node
+var _start_point: Node  # start point
 
 
 ##### PROCESSING #####
@@ -48,7 +46,7 @@ func _process(_delta):
 
 ##### PUBLIC METHODS #####
 func get_player() -> Node:
-	return get_node(PATHS.player)
+	return _player
 
 
 ##### PROTECTED METHODS #####
@@ -60,9 +58,10 @@ func _ready_func() -> void:
 	_init_pause()
 	_init_end_level()
 	_init_song()
-	_last_cp = get_node(PATHS.start_point).get_checkpoint()
-	get_node(PATHS.player).ROCKETS_ENABLED = ENABLE_ROCKETS
-	get_node(PATHS.player).SLIDE_ENABLED = ENABLE_SLIDE
+	_init_node_paths()
+	_last_cp = _start_point
+	_player.ROCKETS_ENABLED = ENABLE_ROCKETS
+	_player.SLIDE_ENABLED = ENABLE_SLIDE
 	SignalManager.emit_start_level_chronometer()
 
 
@@ -89,6 +88,17 @@ func _init_song() -> void:
 		_change_song_anim(PATHS.bgm.animation)
 
 
+func _init_node_paths() -> void:
+	# keep an instance of player
+	var player_nodes = get_tree().get_nodes_in_group(GlobalConstants.PLAYER_GROUP)
+	if player_nodes != null && player_nodes.size() > 0:
+		_player = player_nodes[0]
+	# keep an instance of the start_point
+	var start_points = get_tree().get_nodes_in_group(GlobalConstants.START_POINT_GROUP)
+	if start_points != null && start_points.size() > 0:
+		_start_point = start_points[0]
+
+
 # Connects the autoload signals on init
 func _connect_autoload_signals() -> void:
 	DebugUtils.log_connect(
@@ -103,7 +113,7 @@ func _connect_autoload_signals() -> void:
 
 
 func _restart() -> void:
-	_last_cp = get_node(PATHS.start_point).get_checkpoint()
+	_last_cp = _start_point
 	_on_respawn_player_on_last_cp()
 
 
@@ -123,7 +133,7 @@ func _on_checkpoint_triggered(checkpoint: Checkpoint) -> void:
 
 func _on_respawn_player_on_last_cp() -> void:
 	if _last_cp != null:
-		var player = get_node_or_null(PATHS.player)
+		var player = get_player()
 		if player != null:
 			player.checkpoint_process(_last_cp.get_spawn_point(), _last_cp.get_spawn_rotation())
 			if FunctionUtils.is_start_point(_last_cp):  # if restart at the beginning of the level, restart the chronometer

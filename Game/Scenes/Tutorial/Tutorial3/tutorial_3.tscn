@@ -3336,10 +3336,7 @@ PATHS = {
 "bgm": {
 "animation": "part_1",
 "path": "res://Game/Common/Songs/Tutorial3/tutorial_3.tscn"
-},
-"end_level_ui": "res://Game/Common/Menus/EndLevel/end_level_ui.tscn",
-"player": NodePath("QodotMap/entity_41_Player"),
-"start_point": NodePath("QodotMap/entity_42_Checkpoints_Start")
+}
 }
 ENABLE_ROCKETS = false
 

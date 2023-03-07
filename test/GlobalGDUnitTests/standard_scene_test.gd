@@ -6,6 +6,8 @@ class_name StandardSceneTest
 # A test template for all scenes (as game levels) in general
 
 ##### VARIABLES #####
+const START_POINT_PATH := "res://Game/Common/MapElements/Checkpoint/start_point.tscn"
+const PLAYER_PATH := "res://Game/Common/MapElements/Characters/MainCharacters/player.tscn"
 var scene_path: String  # path to the scene to test
 var scene_instance: Spatial  # scene instance to test
 
@@ -15,10 +17,14 @@ var scene_instance: Spatial  # scene instance to test
 func before():
 	element_path = scene_path
 	scene_instance = load(scene_path).instance()
+	scene_instance._player = load(PLAYER_PATH).instance()  # Kind of an ugly way to do this, but since get_tree() returns null in test mode, it is the best way to do it
+	scene_instance._start_point = load(START_POINT_PATH).instance()  # Kind of an ugly way to do this, but since get_tree() returns null in test mode, it is the best way to do it
 	.before()
 
 
 func after():
+	scene_instance._player.free()
+	scene_instance._start_point.free()
 	scene_instance.free()
 	.after()
 
@@ -34,7 +40,6 @@ func test_mandatory_elements() -> void:
 
 # player in the scene
 func _test_player_in_scene() -> void:
-	assert_str(str(scene_instance.PATHS.player)).is_not_equal("")
 	assert_int(GlobalTestUtilities.count_in_group_in_children(scene_instance, "player", true)).is_equal(
 		1
 	)
@@ -42,7 +47,6 @@ func _test_player_in_scene() -> void:
 
 # start point in scene
 func _test_start_in_scene() -> void:
-	assert_str(str(scene_instance.PATHS.start_point)).is_not_equal("")
 	assert_int(GlobalTestUtilities.count_in_group_in_children(scene_instance, "start_point", true)).is_equal(
 		1
 	)
@@ -75,8 +79,8 @@ func test_signal_connections() -> void:
 # tests the restart method
 func test_restart() -> void:
 	var last_cp_test = Checkpoint.new()
-	var start_point = scene_instance.get_node(scene_instance.PATHS.start_point)
-	var player = scene_instance.get_node(scene_instance.PATHS.player)
+	var start_point = scene_instance._start_point
+	var player = scene_instance._player
 	player._ready()
 	scene_instance._last_cp = last_cp_test
 	scene_instance._restart()
@@ -90,7 +94,7 @@ func test_restart() -> void:
 	assert_object(scene_instance._last_cp).is_equal(start_point)
 	last_cp_test.free()
 	var song = StandardSongManager._queue.pop_back()
-	if _has_song():
+	if song != null and _has_song():
 		song.song.queue_free()
 		song.effect.queue_free()
 
@@ -112,7 +116,7 @@ func test_respawn_player_on_last_cp() -> void:
 	last_cp_test._spawn_position = Vector3.ONE
 	last_cp_test._mangle = Vector3(45, 90, 0)
 	last_cp_test.song_animation = "test"
-	var player = scene_instance.get_node(scene_instance.PATHS.player)
+	var player = scene_instance._player
 	player._ready()
 	scene_instance._last_cp = last_cp_test
 	scene_instance._on_respawn_player_on_last_cp()

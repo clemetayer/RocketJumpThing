@@ -1,8 +1,9 @@
-[gd_resource type="Resource" load_steps=4 format=2]
+[gd_resource type="Resource" load_steps=5 format=2]
 
 [ext_resource path="res://addons/qodot/src/resources/game-definitions/fgd/qodot_fgd_solid_class.gd" type="Script" id=1]
 [ext_resource path="res://Game/Common/MapElements/Breakables/Walls/breakable_area_rocket.gd" type="Script" id=2]
 [ext_resource path="res://trenchbroom/Entities/BaseClasses/collidable.tres" type="Resource" id=3]
+[ext_resource path="res://trenchbroom/Entities/BaseClasses/trigger.tres" type="Resource" id=4]
 
 [resource]
 script = ExtResource( 1 )
@@ -10,7 +11,7 @@ class_options = "---------------------------------------------------------------
 classname = "Breakables_Area_Rocket"
 description = "An area used to trigger the break of a wall if a rocket touches it"
 qodot_internal = false
-base_classes = [ ExtResource( 3 ) ]
+base_classes = [ ExtResource( 3 ), ExtResource( 4 ) ]
 class_properties = {
 "scale": Vector3( 2, 2, 1 ),
 "text_direction": Vector3( 0, 0, 0 )

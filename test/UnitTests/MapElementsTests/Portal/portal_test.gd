@@ -31,7 +31,6 @@ func test_connect_signals() -> void:
 	portal._connect_signals()
 	assert_bool(portal.is_connected("body_entered", portal, "_on_body_entered")).is_true()
 	assert_bool(portal.is_connected("area_entered", portal, "_on_area_entered")).is_true()
-	assert_bool(SignalManager.is_connected(SignalManager.PORTAL_ENTERED, portal, "_on_portal_entered")).is_true()
 
 # FIXME : for some reason, the forward pos is set to (0,0,0), probably by the test framework
 # func test_get_global_forward_vector() -> void:

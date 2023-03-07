@@ -31,6 +31,7 @@ static func load_json(path: String) -> Dictionary:
 	file.close()
 	return data
 
+
 # TODO : Case if an array contains another array
 static func _json_data_to_objects(dict: Dictionary) -> Dictionary:
 	for key in dict:
@@ -90,7 +91,7 @@ static func create_filter_auto_effect(fade_time: float) -> EffectManager:
 
 #### Body identification #####
 static func is_player(body: Node) -> bool:
-	return body != null && body.is_in_group("player")
+	return body != null && body.is_in_group(GlobalConstants.PLAYER_GROUP)
 
 
 static func is_rocket(area: Area) -> bool:
@@ -98,7 +99,7 @@ static func is_rocket(area: Area) -> bool:
 
 
 static func is_start_point(checkpoint: Area) -> bool:
-	return checkpoint != null && checkpoint.is_in_group("start_point")
+	return checkpoint != null && checkpoint.is_in_group(GlobalConstants.START_POINT_GROUP)
 
 
 static func is_portal_compatible(element: Node) -> bool:

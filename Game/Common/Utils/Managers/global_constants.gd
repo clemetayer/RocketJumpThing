@@ -8,6 +8,10 @@ const INVERSE_SCALE := 16.0
 #---- PLAYER -----
 const ABILITY_SLIDE := "slide"
 const ABILITY_ROCKETS := "rockets"
+const PLAYER_GROUP := "player"
+
+#---- MAPS -----
+const START_POINT_GROUP := "start_point"
 
 #---- INPUTS -----
 const INPUT_MVT_FORWARD := "movement_forward"

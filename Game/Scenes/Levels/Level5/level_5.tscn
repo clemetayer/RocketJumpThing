@@ -2668,9 +2668,7 @@ PATHS = {
 "bgm": {
 "animation": "part_0",
 "path": "res://Game/Common/Songs/Level5/level_5.tscn"
-},
-"player": NodePath("QodotMap/entity_1_Player"),
-"start_point": NodePath("QodotMap/entity_3_Checkpoints_Start")
+}
 }
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -3153,10 +3151,11 @@ properties = {
 "classname": "Portals_Portal",
 "collision_layer": 2,
 "collision_mask": 5,
-"id": "portal_1",
 "mangle": Vector3( 0, -90, 0 ),
 "origin": "-8 1432 -336",
-"scale": 1.0
+"scale": 1.0,
+"target": "portal_1_exit",
+"targetname": "portal_1_entrance"
 }
 
 [node name="entity_30_StaticBodyGroup" type="StaticBody" parent="QodotMap"]
@@ -3187,10 +3186,11 @@ properties = {
 "classname": "Portals_Portal",
 "collision_layer": 2,
 "collision_mask": 5,
-"id": "portal_1",
 "mangle": Vector3( 0, 180, 0 ),
 "origin": "7176 5120 496",
-"scale": 1.0
+"scale": 1.0,
+"target": "portal_1_entrance",
+"targetname": "portal_1_exit"
 }
 
 [node name="entity_32_StaticBodyGroup" type="StaticBody" parent="QodotMap"]
@@ -3517,10 +3517,11 @@ properties = {
 "classname": "Portals_Portal",
 "collision_layer": 2,
 "collision_mask": 5,
-"id": "portal_2",
 "mangle": Vector3( 0, 0, 0 ),
 "origin": "4680 5480 1096",
-"scale": 4.0
+"scale": 4.0,
+"target": "portal_2_exit",
+"targetname": "portal_2_entrance"
 }
 
 [node name="entity_54_StaticBodyGroup" type="StaticBody" parent="QodotMap"]
@@ -3542,10 +3543,11 @@ properties = {
 "classname": "Portals_Portal",
 "collision_layer": 2,
 "collision_mask": 5,
-"id": "portal_2",
 "mangle": Vector3( 0, 0, 0 ),
 "origin": "-7592 5624 1264",
-"scale": 1.0
+"scale": 1.0,
+"target": "portal_2_entrance",
+"targetname": "portal_2_exit"
 }
 
 [node name="entity_56_Checkpoints_Checkpoint" type="Area" parent="QodotMap"]
@@ -4089,10 +4091,11 @@ properties = {
 "classname": "Portals_Portal",
 "collision_layer": 2,
 "collision_mask": 5,
-"id": "portal_3",
 "mangle": Vector3( 0, 180, 0 ),
 "origin": "-4280 5752 1864",
-"scale": 4.0
+"scale": 4.0,
+"target": "portal_3_exit",
+"targetname": "portal_3_entrance"
 }
 
 [node name="entity_86_StaticBodyGroup" type="StaticBody" parent="QodotMap"]
@@ -4114,10 +4117,11 @@ properties = {
 "classname": "Portals_Portal",
 "collision_layer": 2,
 "collision_mask": 5,
-"id": "portal_3",
 "mangle": Vector3( 0, -90, 0 ),
 "origin": "0 9040 -3032",
-"scale": 1.0
+"scale": 1.0,
+"target": "portal_3_entrance",
+"targetname": "portal_3_exit"
 }
 
 [node name="entity_88_Checkpoints_Checkpoint" type="Area" parent="QodotMap"]
@@ -4579,10 +4583,11 @@ properties = {
 "classname": "Portals_Portal",
 "collision_layer": 2,
 "collision_mask": 5,
-"id": "portal_4",
 "mangle": Vector3( 0, 180, 0 ),
 "origin": "2248 8288 -2328",
-"scale": 3.0
+"scale": 3.0,
+"target": "portal_4_exit",
+"targetname": "portal_4_entrance"
 }
 
 [node name="entity_118_Checkpoints_Checkpoint" type="Area" parent="QodotMap"]
@@ -4611,7 +4616,9 @@ properties = {
 "id": "portal_4",
 "mangle": Vector3( 90, -90, 0 ),
 "origin": "0 13952 5192",
-"scale": 1.0
+"scale": 1.0,
+"target": "portal_4_entrance",
+"targetname": "portal_4_exit"
 }
 
 [node name="entity_120_StaticBodyGroup" type="StaticBody" parent="QodotMap"]
@@ -5174,10 +5181,11 @@ properties = {
 "classname": "Portals_Portal",
 "collision_layer": 2,
 "collision_mask": 5,
-"id": "portal_5",
 "mangle": Vector3( 0, 90, 0 ),
 "origin": "224 9888 4000",
-"scale": 4.0
+"scale": 4.0,
+"target": "portal_5_exit",
+"targetname": "portal_5_entrance"
 }
 
 [node name="entity_152_StaticBodyGroup" type="StaticBody" parent="QodotMap"]
@@ -5225,10 +5233,11 @@ properties = {
 "classname": "Portals_Portal",
 "collision_layer": 2,
 "collision_mask": 5,
-"id": "portal_5",
 "mangle": Vector3( 0, -90, 0 ),
 "origin": "0 10936 1048",
-"scale": 1.0
+"scale": 1.0,
+"target": "portal_5_entrance",
+"targetname": "portal_5_exit"
 }
 
 [node name="entity_156_StaticBodyGroup" type="StaticBody" parent="QodotMap"]
@@ -5899,6 +5908,8 @@ shape = SubResource( 717 )
 [connection signal="trigger" from="QodotMap/entity_12_Breakables_Area_Speed" to="QodotMap/entity_26_Breakables_Wall" method="use"]
 [connection signal="trigger" from="QodotMap/entity_12_Breakables_Area_Speed" to="QodotMap/entity_27_Breakables_Wall" method="use"]
 [connection signal="trigger" from="QodotMap/entity_12_Breakables_Area_Speed" to="QodotMap/entity_28_Breakables_Wall" method="use"]
+[connection signal="trigger" from="QodotMap/entity_29_Portals_Portal" to="QodotMap/entity_31_Portals_Portal" method="use"]
+[connection signal="trigger" from="QodotMap/entity_31_Portals_Portal" to="QodotMap/entity_29_Portals_Portal" method="use"]
 [connection signal="trigger" from="QodotMap/entity_38_Breakables_Area_Speed" to="QodotMap/entity_39_Breakables_Wall" method="use"]
 [connection signal="trigger" from="QodotMap/entity_38_Breakables_Area_Speed" to="QodotMap/entity_40_Breakables_Wall" method="use"]
 [connection signal="trigger" from="QodotMap/entity_38_Breakables_Area_Speed" to="QodotMap/entity_41_Breakables_Wall" method="use"]
@@ -5913,6 +5924,8 @@ shape = SubResource( 717 )
 [connection signal="trigger" from="QodotMap/entity_38_Breakables_Area_Speed" to="QodotMap/entity_51_Breakables_Wall" method="use"]
 [connection signal="trigger" from="QodotMap/entity_38_Breakables_Area_Speed" to="QodotMap/entity_52_Scenes_Level5_BreakableLink" method="use"]
 [connection signal="trigger" from="QodotMap/entity_38_Breakables_Area_Speed" to="QodotMap/entity_62_Breakables_Wall" method="use"]
+[connection signal="trigger" from="QodotMap/entity_53_Portals_Portal" to="QodotMap/entity_55_Portals_Portal" method="use"]
+[connection signal="trigger" from="QodotMap/entity_55_Portals_Portal" to="QodotMap/entity_53_Portals_Portal" method="use"]
 [connection signal="trigger" from="QodotMap/entity_83_Breakables_Area_Speed" to="QodotMap/entity_69_Breakables_Wall" method="use"]
 [connection signal="trigger" from="QodotMap/entity_83_Breakables_Area_Speed" to="QodotMap/entity_70_Breakables_Wall" method="use"]
 [connection signal="trigger" from="QodotMap/entity_83_Breakables_Area_Speed" to="QodotMap/entity_71_Breakables_Wall" method="use"]
@@ -5928,6 +5941,8 @@ shape = SubResource( 717 )
 [connection signal="trigger" from="QodotMap/entity_83_Breakables_Area_Speed" to="QodotMap/entity_81_Breakables_Wall" method="use"]
 [connection signal="trigger" from="QodotMap/entity_83_Breakables_Area_Speed" to="QodotMap/entity_82_Breakables_Wall" method="use"]
 [connection signal="trigger" from="QodotMap/entity_83_Breakables_Area_Speed" to="QodotMap/entity_84_Scenes_Level5_BreakableLink" method="use"]
+[connection signal="trigger" from="QodotMap/entity_85_Portals_Portal" to="QodotMap/entity_87_Portals_Portal" method="use"]
+[connection signal="trigger" from="QodotMap/entity_87_Portals_Portal" to="QodotMap/entity_85_Portals_Portal" method="use"]
 [connection signal="trigger" from="QodotMap/entity_101_Breakables_Area_Speed" to="QodotMap/entity_102_Breakables_Wall" method="use"]
 [connection signal="trigger" from="QodotMap/entity_101_Breakables_Area_Speed" to="QodotMap/entity_103_Breakables_Wall" method="use"]
 [connection signal="trigger" from="QodotMap/entity_101_Breakables_Area_Speed" to="QodotMap/entity_104_Breakables_Wall" method="use"]
@@ -5943,6 +5958,8 @@ shape = SubResource( 717 )
 [connection signal="trigger" from="QodotMap/entity_101_Breakables_Area_Speed" to="QodotMap/entity_114_Breakables_Wall" method="use"]
 [connection signal="trigger" from="QodotMap/entity_101_Breakables_Area_Speed" to="QodotMap/entity_115_Breakables_Wall" method="use"]
 [connection signal="trigger" from="QodotMap/entity_101_Breakables_Area_Speed" to="QodotMap/entity_116_Scenes_Level5_BreakableLink" method="use"]
+[connection signal="trigger" from="QodotMap/entity_117_Portals_Portal" to="QodotMap/entity_119_Portals_Portal" method="use"]
+[connection signal="trigger" from="QodotMap/entity_119_Portals_Portal" to="QodotMap/entity_117_Portals_Portal" method="use"]
 [connection signal="trigger" from="QodotMap/entity_135_Breakables_Area_Speed" to="QodotMap/entity_136_Breakables_Wall" method="use"]
 [connection signal="trigger" from="QodotMap/entity_135_Breakables_Area_Speed" to="QodotMap/entity_137_Breakables_Wall" method="use"]
 [connection signal="trigger" from="QodotMap/entity_135_Breakables_Area_Speed" to="QodotMap/entity_138_Breakables_Wall" method="use"]
@@ -5958,3 +5975,5 @@ shape = SubResource( 717 )
 [connection signal="trigger" from="QodotMap/entity_135_Breakables_Area_Speed" to="QodotMap/entity_148_Breakables_Wall" method="use"]
 [connection signal="trigger" from="QodotMap/entity_135_Breakables_Area_Speed" to="QodotMap/entity_149_Breakables_Wall" method="use"]
 [connection signal="trigger" from="QodotMap/entity_135_Breakables_Area_Speed" to="QodotMap/entity_150_Scenes_Level5_BreakableLink" method="use"]
+[connection signal="trigger" from="QodotMap/entity_151_Portals_Portal" to="QodotMap/entity_155_Portals_Portal" method="use"]
+[connection signal="trigger" from="QodotMap/entity_155_Portals_Portal" to="QodotMap/entity_151_Portals_Portal" method="use"]
