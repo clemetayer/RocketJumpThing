@@ -4,7 +4,7 @@
 {
 "mapversion" "220"
 "classname" "worldspawn"
-"_tb_textures" "textures;textures/common;textures/common/material_override;textures/entities/DeathMesh;textures/entities/checkpoint;textures/scenes/level_4;trenchbroom/textures/scenes/level_4;trenchbroom/textures/special/skip"
+"_tb_textures" "textures;textures/common;textures/common/material_override;textures/entities/DeathMesh;textures/entities/checkpoint;textures/scenes/level_4;textures/special;trenchbroom/textures/scenes/level_4;trenchbroom/textures/special/skip"
 "_tb_def" "builtin:level_4_fgd.fgd"
 }
 // entity 1
@@ -223,12 +223,12 @@
 "target" "door_1"
 // brush 0
 {
-( -176 -576 512 ) ( -176 -575 512 ) ( -176 -576 513 ) common/material_override/Transparent [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -176 -576 512 ) ( -176 -576 513 ) ( -175 -576 512 ) common/material_override/Transparent [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -176 -576 512 ) ( -175 -576 512 ) ( -176 -575 512 ) common/material_override/Transparent [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -16 -560 912 ) ( -16 -559 912 ) ( -15 -560 912 ) common/material_override/Transparent [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -16 -560 528 ) ( -15 -560 528 ) ( -16 -560 529 ) common/material_override/Transparent [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 176 -560 528 ) ( 176 -560 529 ) ( 176 -559 528 ) common/material_override/Transparent [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -176 -576 512 ) ( -176 -575 512 ) ( -176 -576 513 ) special/clip [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -176 -576 512 ) ( -176 -576 513 ) ( -175 -576 512 ) special/clip [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -176 -576 512 ) ( -175 -576 512 ) ( -176 -575 512 ) special/clip [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -16 -560 912 ) ( -16 -559 912 ) ( -15 -560 912 ) special/clip [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -16 -560 528 ) ( -15 -560 528 ) ( -16 -560 529 ) special/clip [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 176 -560 528 ) ( 176 -560 529 ) ( 176 -559 528 ) special/clip [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
 // entity 9
@@ -4001,12 +4001,12 @@
 "collision_mask" "5"
 // brush 0
 {
-( -176 -560 512 ) ( -176 -559 512 ) ( -176 -560 513 ) common/material_override/Transparent [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -176 -560 512 ) ( -176 -560 513 ) ( -175 -560 512 ) common/material_override/Transparent [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -176 -560 512 ) ( -175 -560 512 ) ( -176 -559 512 ) common/material_override/Transparent [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( 176 -544 912 ) ( 176 -543 912 ) ( 177 -544 912 ) common/material_override/Transparent [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( 176 -544 528 ) ( 177 -544 528 ) ( 176 -544 529 ) common/material_override/Transparent [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 176 -544 528 ) ( 176 -544 529 ) ( 176 -543 528 ) common/material_override/Transparent [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -176 -560 512 ) ( -176 -559 512 ) ( -176 -560 513 ) special/clip [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -176 -560 512 ) ( -176 -560 513 ) ( -175 -560 512 ) special/clip [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -176 -560 512 ) ( -175 -560 512 ) ( -176 -559 512 ) special/clip [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 176 -544 912 ) ( 176 -543 912 ) ( 177 -544 912 ) special/clip [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 176 -544 528 ) ( 177 -544 528 ) ( 176 -544 529 ) special/clip [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 176 -544 528 ) ( 176 -544 529 ) ( 176 -543 528 ) special/clip [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
 // entity 233

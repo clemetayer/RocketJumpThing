@@ -4,7 +4,7 @@
 {
 "mapversion" "220"
 "classname" "worldspawn"
-"_tb_textures" "textures/common/material_override;textures/entities/DeathMesh;textures/entities/checkpoint;textures/scenes/tutorial2_scene"
+"_tb_textures" "textures/common/material_override;textures/entities/DeathMesh;textures/entities/checkpoint;textures/scenes/tutorial2_scene;textures/special"
 "_tb_def" "builtin:tutorial_2_fgd.fgd"
 // brush 0
 {
@@ -1269,12 +1269,12 @@
 "target" "triangle_door_1"
 // brush 0
 {
-( -5248 640 256 ) ( -5248 384 256 ) ( -5248 384 0 ) common/material_override/Transparent [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -5248 384 256 ) ( -5056 336 256 ) ( -5056 336 0 ) common/material_override/Transparent [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -5056 688 0 ) ( -5056 688 256 ) ( -5248 640 256 ) common/material_override/Transparent [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -5056 336 0 ) ( -5056 688 0 ) ( -5248 640 0 ) common/material_override/Transparent [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -5248 640 256 ) ( -5056 688 256 ) ( -5056 336 256 ) common/material_override/Transparent [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -5056 336 256 ) ( -5056 688 256 ) ( -5056 688 0 ) common/material_override/Transparent [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -5248 640 256 ) ( -5248 384 256 ) ( -5248 384 0 ) special/clip [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -5248 384 256 ) ( -5056 336 256 ) ( -5056 336 0 ) special/clip [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -5056 688 0 ) ( -5056 688 256 ) ( -5248 640 256 ) special/clip [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -5056 336 0 ) ( -5056 688 0 ) ( -5248 640 0 ) special/clip [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -5248 640 256 ) ( -5056 688 256 ) ( -5056 336 256 ) special/clip [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -5056 336 256 ) ( -5056 688 256 ) ( -5056 688 0 ) special/clip [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
 // entity 23
@@ -1285,11 +1285,11 @@
 "target" "triangle_door_2"
 // brush 0
 {
-( -1600 512 416 ) ( -1600 304 0 ) ( -1600 720 0 ) common/material_override/Transparent [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -1600 512 416 ) ( -1536 512 416 ) ( -1536 304 0 ) common/material_override/Transparent [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -1536 304 0 ) ( -1536 720 0 ) ( -1600 720 0 ) common/material_override/Transparent [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -1536 512 416 ) ( -1600 512 416 ) ( -1600 720 0 ) common/material_override/Transparent [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -1536 512 416 ) ( -1536 720 0 ) ( -1536 304 0 ) common/material_override/Transparent [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -1600 512 416 ) ( -1600 304 0 ) ( -1600 720 0 ) special/clip [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -1600 512 416 ) ( -1536 512 416 ) ( -1536 304 0 ) special/clip [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -1536 304 0 ) ( -1536 720 0 ) ( -1600 720 0 ) special/clip [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -1536 512 416 ) ( -1600 512 416 ) ( -1600 720 0 ) special/clip [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -1536 512 416 ) ( -1536 720 0 ) ( -1536 304 0 ) special/clip [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
 // entity 24
@@ -1300,12 +1300,12 @@
 "target" "tutorial_crouch_door"
 // brush 0
 {
-( -4720 720 0 ) ( -4720 608 208 ) ( -4720 416 208 ) common/material_override/Transparent [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -4672 304 0 ) ( -4720 304 0 ) ( -4720 416 208 ) common/material_override/Transparent [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -4672 304 0 ) ( -4672 720 0 ) ( -4720 720 0 ) common/material_override/Transparent [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -4720 608 384 ) ( -4672 608 384 ) ( -4672 416 384 ) common/material_override/Transparent [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -4720 720 0 ) ( -4672 720 0 ) ( -4672 608 208 ) common/material_override/Transparent [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -4672 608 208 ) ( -4672 720 0 ) ( -4672 304 0 ) common/material_override/Transparent [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -4720 720 0 ) ( -4720 608 208 ) ( -4720 416 208 ) special/clip [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -4672 304 0 ) ( -4720 304 0 ) ( -4720 416 208 ) special/clip [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -4672 304 0 ) ( -4672 720 0 ) ( -4720 720 0 ) special/clip [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -4720 608 384 ) ( -4672 608 384 ) ( -4672 416 384 ) special/clip [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -4720 720 0 ) ( -4672 720 0 ) ( -4672 608 208 ) special/clip [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -4672 608 208 ) ( -4672 720 0 ) ( -4672 304 0 ) special/clip [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
 // entity 25
@@ -1413,11 +1413,11 @@
 "key" "tutorial_scene_2_slide_1"
 // brush 0
 {
-( -4800 496 416 ) ( -4800 304 0 ) ( -4800 720 0 ) common/material_override/Transparent [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -4800 496 416 ) ( -4736 496 416 ) ( -4736 304 0 ) common/material_override/Transparent [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -4736 304 0 ) ( -4736 720 0 ) ( -4800 720 0 ) common/material_override/Transparent [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -4800 720 0 ) ( -4736 720 0 ) ( -4736 496 416 ) common/material_override/Transparent [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -4736 496 416 ) ( -4736 720 0 ) ( -4736 304 0 ) common/material_override/Transparent [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -4800 496 416 ) ( -4800 304 0 ) ( -4800 720 0 ) special/clip [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -4800 496 416 ) ( -4736 496 416 ) ( -4736 304 0 ) special/clip [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -4736 304 0 ) ( -4736 720 0 ) ( -4800 720 0 ) special/clip [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -4800 720 0 ) ( -4736 720 0 ) ( -4736 496 416 ) special/clip [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -4736 496 416 ) ( -4736 720 0 ) ( -4736 304 0 ) special/clip [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
 // entity 29
@@ -1429,11 +1429,11 @@
 "key" "tutorial_scene_2_slide_2"
 // brush 0
 {
-( -4336 496 416 ) ( -4336 304 0 ) ( -4336 720 0 ) common/material_override/Transparent [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -4336 496 416 ) ( -4272 496 416 ) ( -4272 304 0 ) common/material_override/Transparent [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -4272 304 0 ) ( -4272 720 0 ) ( -4336 720 0 ) common/material_override/Transparent [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -4336 720 0 ) ( -4272 720 0 ) ( -4272 496 416 ) common/material_override/Transparent [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -4272 496 416 ) ( -4272 720 0 ) ( -4272 304 0 ) common/material_override/Transparent [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -4400 496 416 ) ( -4400 304 0 ) ( -4400 720 0 ) special/clip [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -4400 496 416 ) ( -4336 496 416 ) ( -4336 304 0 ) special/clip [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -4336 304 0 ) ( -4336 720 0 ) ( -4400 720 0 ) special/clip [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -4400 720 0 ) ( -4336 720 0 ) ( -4336 496 416 ) special/clip [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -4336 496 416 ) ( -4336 720 0 ) ( -4336 304 0 ) special/clip [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
 // entity 30
@@ -1445,11 +1445,11 @@
 "key" "tutorial_wall_ride_1"
 // brush 0
 {
-( -3696 496 416 ) ( -3696 304 0 ) ( -3696 720 0 ) common/material_override/Transparent [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -3696 496 416 ) ( -3632 496 416 ) ( -3632 304 0 ) common/material_override/Transparent [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -3632 304 0 ) ( -3632 720 0 ) ( -3696 720 0 ) common/material_override/Transparent [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -3696 720 0 ) ( -3632 720 0 ) ( -3632 496 416 ) common/material_override/Transparent [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -3632 496 416 ) ( -3632 720 0 ) ( -3632 304 0 ) common/material_override/Transparent [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -3696 496 416 ) ( -3696 304 0 ) ( -3696 720 0 ) special/clip [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -3696 496 416 ) ( -3632 496 416 ) ( -3632 304 0 ) special/clip [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -3632 304 0 ) ( -3632 720 0 ) ( -3696 720 0 ) special/clip [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -3696 720 0 ) ( -3632 720 0 ) ( -3632 496 416 ) special/clip [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -3632 496 416 ) ( -3632 720 0 ) ( -3632 304 0 ) special/clip [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
 // entity 31
@@ -5543,12 +5543,12 @@
 "target" "start_door"
 // brush 0
 {
-( -8112 -32 32 ) ( -8112 16 0 ) ( -8112 16 32 ) common/material_override/Transparent [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -8104 -32 32 ) ( -8112 -32 0 ) ( -8112 -32 32 ) common/material_override/Transparent [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -8104 16 0 ) ( -8112 -32 0 ) ( -8104 -32 0 ) common/material_override/Transparent [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -8104 16 48 ) ( -8112 -32 48 ) ( -8112 16 48 ) common/material_override/Transparent [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -8104 16 32 ) ( -8112 16 0 ) ( -8104 16 0 ) common/material_override/Transparent [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -8104 16 32 ) ( -8104 -32 0 ) ( -8104 -32 32 ) common/material_override/Transparent [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8112 -32 32 ) ( -8112 16 0 ) ( -8112 16 32 ) special/clip [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8104 -32 32 ) ( -8112 -32 0 ) ( -8112 -32 32 ) special/clip [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8104 16 0 ) ( -8112 -32 0 ) ( -8104 -32 0 ) special/clip [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -8104 16 48 ) ( -8112 -32 48 ) ( -8112 16 48 ) special/clip [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -8104 16 32 ) ( -8112 16 0 ) ( -8104 16 0 ) special/clip [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8104 16 32 ) ( -8104 -32 0 ) ( -8104 -32 32 ) special/clip [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
 // entity 160
@@ -5576,12 +5576,12 @@
 "collision_mask" "5"
 // brush 0
 {
-( -8064 -48 48 ) ( -8064 32 0 ) ( -8064 32 48 ) common/material_override/Transparent [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -8048 -48 48 ) ( -8064 -48 0 ) ( -8064 -48 48 ) common/material_override/Transparent [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -8048 32 0 ) ( -8064 -48 0 ) ( -8048 -48 0 ) common/material_override/Transparent [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -8048 32 64 ) ( -8064 -48 64 ) ( -8064 32 64 ) common/material_override/Transparent [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -8048 32 48 ) ( -8064 32 0 ) ( -8048 32 0 ) common/material_override/Transparent [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -8056 32 48 ) ( -8056 -48 0 ) ( -8056 -48 48 ) common/material_override/Transparent [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8064 -48 48 ) ( -8064 32 0 ) ( -8064 32 48 ) special/clip [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8048 -48 48 ) ( -8064 -48 0 ) ( -8064 -48 48 ) special/clip [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8048 32 0 ) ( -8064 -48 0 ) ( -8048 -48 0 ) special/clip [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -8048 32 64 ) ( -8064 -48 64 ) ( -8064 32 64 ) special/clip [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -8048 32 48 ) ( -8064 32 0 ) ( -8048 32 0 ) special/clip [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -8056 32 48 ) ( -8056 -48 0 ) ( -8056 -48 48 ) special/clip [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
 // entity 162
@@ -5592,11 +5592,11 @@
 "collision_mask" "5"
 // brush 0
 {
-( -4864 720 0 ) ( -4856 512 416 ) ( -4864 304 0 ) common/material_override/Transparent [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -4856 512 416 ) ( -4848 512 416 ) ( -4856 304 0 ) common/material_override/Transparent [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -4856 304 0 ) ( -4856 720 0 ) ( -4864 720 0 ) common/material_override/Transparent [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -4856 720 0 ) ( -4848 512 416 ) ( -4856 512 416 ) common/material_override/Transparent [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -4856 304 0 ) ( -4848 512 416 ) ( -4856 720 0 ) common/material_override/Transparent [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -4864 720 0 ) ( -4856 512 416 ) ( -4864 304 0 ) special/clip [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -4856 512 416 ) ( -4848 512 416 ) ( -4856 304 0 ) special/clip [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -4856 304 0 ) ( -4856 720 0 ) ( -4864 720 0 ) special/clip [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -4856 720 0 ) ( -4848 512 416 ) ( -4856 512 416 ) special/clip [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -4856 304 0 ) ( -4848 512 416 ) ( -4856 720 0 ) special/clip [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
 // entity 163
@@ -5607,11 +5607,11 @@
 "collision_mask" "5"
 // brush 0
 {
-( -1136 720 0 ) ( -1128 512 416 ) ( -1136 304 0 ) common/material_override/Transparent [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -1128 512 416 ) ( -1120 512 416 ) ( -1128 304 0 ) common/material_override/Transparent [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -1128 304 0 ) ( -1128 720 0 ) ( -1136 720 0 ) common/material_override/Transparent [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -1128 720 0 ) ( -1120 512 416 ) ( -1128 512 416 ) common/material_override/Transparent [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -1128 304 0 ) ( -1120 512 416 ) ( -1128 720 0 ) common/material_override/Transparent [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -1136 720 0 ) ( -1128 512 416 ) ( -1136 304 0 ) special/clip [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -1128 512 416 ) ( -1120 512 416 ) ( -1128 304 0 ) special/clip [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -1128 304 0 ) ( -1128 720 0 ) ( -1136 720 0 ) special/clip [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -1128 720 0 ) ( -1120 512 416 ) ( -1128 512 416 ) special/clip [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -1128 304 0 ) ( -1120 512 416 ) ( -1128 720 0 ) special/clip [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
 // entity 164
@@ -5884,11 +5884,11 @@
 "slide" "1"
 // brush 0
 {
-( -4688 496 416 ) ( -4688 304 0 ) ( -4688 720 0 ) common/material_override/Transparent [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -4688 496 416 ) ( -4624 496 416 ) ( -4624 304 0 ) common/material_override/Transparent [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -4624 304 0 ) ( -4624 720 0 ) ( -4688 720 0 ) common/material_override/Transparent [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -4688 720 0 ) ( -4624 720 0 ) ( -4624 496 416 ) common/material_override/Transparent [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -4624 496 416 ) ( -4624 720 0 ) ( -4624 304 0 ) common/material_override/Transparent [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -4688 496 416 ) ( -4688 304 0 ) ( -4688 720 0 ) special/clip [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -4688 496 416 ) ( -4624 496 416 ) ( -4624 304 0 ) special/clip [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -4624 304 0 ) ( -4624 720 0 ) ( -4688 720 0 ) special/clip [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -4688 720 0 ) ( -4624 720 0 ) ( -4624 496 416 ) special/clip [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -4624 496 416 ) ( -4624 720 0 ) ( -4624 304 0 ) special/clip [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
 // entity 189

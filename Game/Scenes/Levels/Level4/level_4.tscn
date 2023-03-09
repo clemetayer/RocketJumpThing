@@ -1,4 +1,4 @@
-[gd_scene load_steps=290 format=2]
+[gd_scene load_steps=288 format=2]
 
 [ext_resource path="res://Game/Scenes/Levels/Level4/level_4.gd" type="Script" id=1]
 [ext_resource path="res://addons/qodot/src/nodes/qodot_map.gd" type="Script" id=2]
@@ -30,7 +30,6 @@
 [ext_resource path="res://Game/Common/Utils/StepSequencer/Spatial/spatial_step_sequencer.gd" type="Script" id=28]
 [ext_resource path="res://trenchbroom/textures/scenes/level_4/cube_2.tres" type="Material" id=29]
 [ext_resource path="res://Game/Common/MapElements/Utils/area_trigger_song_animation_change.gd" type="Script" id=30]
-[ext_resource path="res://trenchbroom/textures/common/material_override/Transparent.tres" type="Material" id=31]
 [ext_resource path="res://Game/Common/Shaders/ChangeAlbedo/particles_albedo_emit.tres" type="Shader" id=32]
 
 [sub_resource type="SpatialMaterial" id=1]
@@ -1549,21 +1548,7 @@ points = PoolVector3Array( -92.7496, 101, -93.5962, -92.7496, -101, -93.5962, -9
 [sub_resource type="ConvexPolygonShape" id=448]
 points = PoolVector3Array( -92.7496, -98.5721, -91.1683, -92.7496, -101, -91.1683, -90.3217, -101, -91.1683, -90.3217, -98.5721, -91.1683, -92.7496, -98.5721, 105.976, -92.7496, -101, 105.976, -90.3217, -101, 105.976, -90.3217, -98.5721, 105.976 )
 
-[sub_resource type="ArrayMesh" id=449]
-surfaces/0 = {
-"aabb": AABB( -0.5, -12.5, -11, 1, 25, 22 ),
-"array_data": PoolByteArray( 0, 0, 0, 191, 0, 0, 72, 65, 0, 0, 48, 193, 127, 127, 129, 63, 153, 73, 143, 204, 0, 0, 0, 191, 0, 0, 72, 193, 0, 0, 48, 193, 127, 127, 129, 63, 153, 73, 30, 201, 0, 0, 0, 63, 0, 0, 72, 193, 0, 0, 48, 193, 127, 127, 129, 63, 112, 73, 30, 201, 0, 0, 0, 63, 0, 0, 72, 65, 0, 0, 48, 193, 127, 127, 129, 63, 112, 73, 143, 204, 0, 0, 0, 191, 0, 0, 72, 65, 0, 0, 48, 193, 129, 0, 0, 63, 10, 195, 143, 204, 0, 0, 0, 191, 0, 0, 72, 65, 0, 0, 48, 65, 129, 0, 0, 63, 10, 67, 143, 204, 0, 0, 0, 191, 0, 0, 72, 193, 0, 0, 48, 65, 129, 0, 0, 63, 10, 67, 30, 201, 0, 0, 0, 191, 0, 0, 72, 193, 0, 0, 48, 193, 129, 0, 0, 63, 10, 195, 30, 201, 0, 0, 0, 63, 0, 0, 72, 193, 0, 0, 48, 193, 0, 129, 127, 127, 10, 67, 112, 73, 0, 0, 0, 191, 0, 0, 72, 193, 0, 0, 48, 193, 0, 129, 127, 127, 10, 67, 153, 73, 0, 0, 0, 191, 0, 0, 72, 193, 0, 0, 48, 65, 0, 129, 127, 127, 10, 195, 153, 73, 0, 0, 0, 63, 0, 0, 72, 193, 0, 0, 48, 65, 0, 129, 127, 127, 10, 195, 112, 73, 0, 0, 0, 63, 0, 0, 72, 65, 0, 0, 48, 193, 0, 127, 0, 63, 10, 195, 112, 73, 0, 0, 0, 63, 0, 0, 72, 65, 0, 0, 48, 65, 0, 127, 0, 63, 10, 67, 112, 73, 0, 0, 0, 191, 0, 0, 72, 65, 0, 0, 48, 65, 0, 127, 0, 63, 10, 67, 153, 73, 0, 0, 0, 191, 0, 0, 72, 65, 0, 0, 48, 193, 0, 127, 0, 63, 10, 195, 153, 73, 0, 0, 0, 63, 0, 0, 72, 65, 0, 0, 48, 193, 127, 0, 127, 127, 10, 67, 143, 204, 0, 0, 0, 63, 0, 0, 72, 193, 0, 0, 48, 193, 127, 0, 127, 127, 10, 67, 30, 201, 0, 0, 0, 63, 0, 0, 72, 193, 0, 0, 48, 65, 127, 0, 127, 127, 10, 195, 30, 201, 0, 0, 0, 63, 0, 0, 72, 65, 0, 0, 48, 65, 127, 0, 127, 127, 10, 195, 143, 204, 0, 0, 0, 191, 0, 0, 72, 65, 0, 0, 48, 65, 0, 0, 127, 63, 153, 201, 143, 204, 0, 0, 0, 63, 0, 0, 72, 65, 0, 0, 48, 65, 0, 0, 127, 63, 112, 201, 143, 204, 0, 0, 0, 63, 0, 0, 72, 193, 0, 0, 48, 65, 0, 0, 127, 63, 112, 201, 30, 201, 0, 0, 0, 191, 0, 0, 72, 193, 0, 0, 48, 65, 0, 0, 127, 63, 153, 201, 30, 201 ),
-"array_index_data": PoolByteArray( 0, 0, 1, 0, 2, 0, 0, 0, 2, 0, 3, 0, 4, 0, 5, 0, 6, 0, 4, 0, 6, 0, 7, 0, 8, 0, 9, 0, 10, 0, 8, 0, 10, 0, 11, 0, 12, 0, 13, 0, 14, 0, 12, 0, 14, 0, 15, 0, 16, 0, 17, 0, 18, 0, 16, 0, 18, 0, 19, 0, 20, 0, 21, 0, 22, 0, 20, 0, 22, 0, 23, 0 ),
-"blend_shape_data": [  ],
-"format": 2194711,
-"index_count": 36,
-"material": ExtResource( 31 ),
-"primitive": 4,
-"skeleton_aabb": [  ],
-"vertex_count": 24
-}
-
-[sub_resource type="ConvexPolygonShape" id=450]
+[sub_resource type="ConvexPolygonShape" id=449]
 points = PoolVector3Array( -0.5, 12.5, -11, -0.5, -12.5, -11, 0.5, -12.5, -11, 0.5, 12.5, -11, -0.5, 12.5, 11, -0.5, -12.5, 11, 0.5, -12.5, 11, 0.5, 12.5, 11 )
 
 [node name="Spatial" type="Spatial"]
@@ -1614,7 +1599,7 @@ set_owner_batch_size = 16
 script = ExtResource( 4 )
 properties = {
 "_tb_def": "builtin:level_4_fgd.fgd",
-"_tb_textures": "textures;textures/common;textures/common/material_override;textures/entities/DeathMesh;textures/entities/checkpoint;textures/scenes/level_4;trenchbroom/textures/scenes/level_4;trenchbroom/textures/special/skip",
+"_tb_textures": "textures;textures/common;textures/common/material_override;textures/entities/DeathMesh;textures/entities/checkpoint;textures/scenes/level_4;textures/special;trenchbroom/textures/scenes/level_4;trenchbroom/textures/special/skip",
 "classname": "worldspawn",
 "mapversion": "220"
 }
@@ -5323,11 +5308,8 @@ properties = {
 "collision_mask": 5
 }
 
-[node name="entity_232_mesh_instance" type="MeshInstance" parent="QodotMap/entity_232_TriggerSongAnimationChange"]
-mesh = SubResource( 449 )
-
 [node name="entity_232_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_232_TriggerSongAnimationChange"]
-shape = SubResource( 450 )
+shape = SubResource( 449 )
 
 [node name="entity_233_Portals_Portal" parent="QodotMap" instance=ExtResource( 16 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -83.5, 131.5, -12.5 )
