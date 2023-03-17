@@ -1,0 +1,26 @@
+[gd_resource type="Resource" load_steps=5 format=2]
+
+[ext_resource path="res://Game/Common/Utils/Resources/mover_travel_data_array.gd" type="Script" id=1]
+[ext_resource path="res://Game/Common/Utils/Resources/mover_travel_data.gd" type="Script" id=2]
+
+[sub_resource type="Resource" id=1]
+script = ExtResource( 2 )
+POSITION = Vector3( 0, 0, 0 )
+ROTATION_DEGREES = Vector3( 0, 0, 0 )
+TRAVEL_TIME = 4.0
+WAIT_TIME = 0.0
+TRANSITION_TYPE = 1
+EASE_TYPE = 0
+
+[sub_resource type="Resource" id=2]
+script = ExtResource( 2 )
+POSITION = Vector3( 0, 0, -8 )
+ROTATION_DEGREES = Vector3( 0, 0, 0 )
+TRAVEL_TIME = 4.0
+WAIT_TIME = 0.0
+TRANSITION_TYPE = 1
+EASE_TYPE = 0
+
+[resource]
+script = ExtResource( 1 )
+TRAVEL_DATA_ARRAY = [ SubResource( 1 ), SubResource( 2 ) ]

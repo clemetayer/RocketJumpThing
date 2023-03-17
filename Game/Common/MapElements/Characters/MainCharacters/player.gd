@@ -87,6 +87,7 @@ var _RC_wall_direction := 0  # 1 if the raycasts aims for the right wall, -1 if 
 var _charge_shot_time := 0  # time when the shot key was pressed (as unix timestamp, millis)
 var _wall_ride_lock := false  # lock for the wall ride to avoid sticking to the wall when jumping
 var _mix_to_direction_amount := 1.0  # when in air and pressing forward, how much the velocity should stick to the direction
+var _last_floor_velocity := Vector3.ZERO  # Last floor velocity
 
 #==== ONREADY ====
 onready var onready_paths := {
@@ -329,7 +330,7 @@ func _process_sounds() -> void:
 # process for the movement
 func _process_movement(delta):
 	# _debug_process_movement(delta)
-
+	vel -= _last_floor_velocity  # removes the floor velocity to not process it in the movement
 	# Wall ride wall check
 	if _RC_wall_direction == 0:  # First contact with wall
 		_find_wall_direction()
@@ -352,6 +353,8 @@ func _process_movement(delta):
 		else -get_floor_normal()
 	)
 	vel = move_and_slide_with_snap(vel, snap, Vector3.UP, true, 4, MAX_SLOPE_ANGLE, false)
+	vel += get_floor_velocity()
+	_last_floor_velocity = get_floor_velocity()
 	current_speed = Vector3(vel.x, 0, vel.z).length()
 
 

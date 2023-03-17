@@ -36271,12 +36271,252 @@
 }
 // entity 291
 {
-"classname" "Scenery_Rotate_Spatial_Sequencer_RotateSpatialSequencerSolid"
-"rotation_speeds" "0.5 0.75 0.6"
+"classname" "TriggerSongAnimationChange"
+"animation" "part2"
+"collision_layer" "2"
+"collision_mask" "5"
+// brush 0
+{
+( -848 2784 292 ) ( -848 2864 260 ) ( -848 2864 292 ) special/clip [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -784 2784 292 ) ( -848 2784 260 ) ( -848 2784 292 ) special/clip [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -784 2864 260 ) ( -848 2784 260 ) ( -784 2784 260 ) special/clip [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -784 2864 292 ) ( -848 2784 292 ) ( -848 2864 292 ) special/clip [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -784 2848 292 ) ( -848 2848 260 ) ( -784 2848 260 ) special/clip [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -784 2864 292 ) ( -784 2784 260 ) ( -784 2784 292 ) special/clip [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+}
+// entity 292
+{
+"classname" "TriggerSongAnimationChange"
+"animation" "part3"
+"collision_layer" "2"
+"collision_mask" "5"
+// brush 0
+{
+( 2560 -112 356 ) ( 2560 112 260 ) ( 2560 112 356 ) special/clip [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 2592 -112 356 ) ( 2560 -112 260 ) ( 2560 -112 356 ) special/clip [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 2592 112 260 ) ( 2560 -112 260 ) ( 2592 -112 260 ) special/clip [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 2592 112 356 ) ( 2560 -112 356 ) ( 2560 112 356 ) special/clip [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 2592 112 356 ) ( 2560 112 260 ) ( 2592 112 260 ) special/clip [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 2624 112 356 ) ( 2624 -112 260 ) ( 2624 -112 356 ) special/clip [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+}
+// entity 293
+{
+"classname" "Tutorial1_HexagonalPit"
+"origin" "6176 260 -408"
+}
+// entity 294
+{
+"classname" "Tutorial1_Buildings"
+"origin" "7376 1184 -237.39"
+}
+// entity 295
+{
+"classname" "Tutorial1_Buildings"
+"origin" "7760 1068 -286"
+}
+// entity 296
+{
+"classname" "Tutorial1_UpTriangles"
+"origin" "4392 312 248"
+}
+// entity 297
+{
+"classname" "Tutorial1_UpTriangles"
+"origin" "4392 -312 248"
+}
+// entity 298
+{
+"classname" "DeathGrid"
+"collision_layer" "2"
+"collision_mask" "5"
+// brush 0
+{
+( -2576 0 -144 ) ( -2576 1 -144 ) ( -2576 0 -143 ) common/material_override/death_grid [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 3072 -2448 -144 ) ( 3072 -2448 -143 ) ( 3073 -2448 -144 ) common/material_override/death_grid [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 3072 0 -144 ) ( 3073 0 -144 ) ( 3072 1 -144 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 3104 96 -128 ) ( 3104 97 -128 ) ( 3105 96 -128 ) common/material_override/death_grid [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 3104 3584 -128 ) ( 3105 3584 -128 ) ( 3104 3584 -127 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 3104 96 -128 ) ( 3104 96 -127 ) ( 3104 97 -128 ) common/material_override/death_grid [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+// brush 1
+{
+( -2592 0 -144 ) ( -2592 1 -144 ) ( -2592 0 -143 ) common/material_override/death_grid [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 3072 -2448 -144 ) ( 3072 -2448 -143 ) ( 3073 -2448 -144 ) common/material_override/death_grid [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 3072 0 -144 ) ( 3073 0 -144 ) ( 3072 1 -144 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 3104 96 688 ) ( 3104 97 688 ) ( 3105 96 688 ) common/material_override/death_grid [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 3104 3584 -128 ) ( 3105 3584 -128 ) ( 3104 3584 -127 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -2576 0 -144 ) ( -2576 0 -143 ) ( -2576 1 -144 ) common/material_override/death_grid [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+// brush 2
+{
+( 3104 96 -128 ) ( 3104 97 -128 ) ( 3104 96 -127 ) common/material_override/death_grid [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 3072 -2448 -144 ) ( 3072 -2448 -143 ) ( 3073 -2448 -144 ) common/material_override/death_grid [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 3072 0 -1088 ) ( 3073 0 -1088 ) ( 3072 1 -1088 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 3104 96 -128 ) ( 3104 97 -128 ) ( 3105 96 -128 ) common/material_override/death_grid [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 3104 3584 -128 ) ( 3105 3584 -128 ) ( 3104 3584 -127 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 3120 96 -128 ) ( 3120 96 -127 ) ( 3120 97 -128 ) common/material_override/death_grid [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+// brush 3
+{
+( 3104 96 -128 ) ( 3104 97 -128 ) ( 3104 96 -127 ) common/material_override/death_grid [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 3072 -2448 -144 ) ( 3072 -2448 -143 ) ( 3073 -2448 -144 ) common/material_override/death_grid [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 3072 0 -1104 ) ( 3073 0 -1104 ) ( 3072 1 -1104 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 3072 0 -1088 ) ( 3072 1 -1088 ) ( 3073 0 -1088 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 3104 3584 -128 ) ( 3105 3584 -128 ) ( 3104 3584 -127 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 19008 96 -128 ) ( 19008 96 -127 ) ( 19008 97 -128 ) common/material_override/death_grid [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+// brush 4
+{
+( 19008 96 -128 ) ( 19008 97 -128 ) ( 19008 96 -127 ) common/material_override/death_grid [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 3072 -2448 -144 ) ( 3072 -2448 -143 ) ( 3073 -2448 -144 ) common/material_override/death_grid [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 3072 0 -1104 ) ( 3073 0 -1104 ) ( 3072 1 -1104 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 3072 0 4880 ) ( 3072 1 4880 ) ( 3073 0 4880 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 3104 3584 -128 ) ( 3105 3584 -128 ) ( 3104 3584 -127 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 19024 96 -128 ) ( 19024 96 -127 ) ( 19024 97 -128 ) common/material_override/death_grid [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+}
+// entity 299
+{
+"classname" "DeathGrid"
+"collision_layer" "2"
+"collision_mask" "5"
+// brush 0
+{
+( -2576 0 672 ) ( -2576 1 672 ) ( -2576 0 673 ) common/material_override/death_grid [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 3072 -2448 672 ) ( 3072 -2448 673 ) ( 3073 -2448 672 ) common/material_override/death_grid [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 3072 0 672 ) ( 3073 0 672 ) ( 3072 1 672 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 3104 96 688 ) ( 3104 97 688 ) ( 3105 96 688 ) common/material_override/death_grid [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 3104 3584 688 ) ( 3105 3584 688 ) ( 3104 3584 689 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 3104 96 688 ) ( 3104 96 689 ) ( 3104 97 688 ) common/material_override/death_grid [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+// brush 1
+{
+( -2576 0 672 ) ( -2576 1 672 ) ( -2576 0 673 ) common/material_override/death_grid [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 3072 -2464 672 ) ( 3072 -2464 673 ) ( 3073 -2464 672 ) common/material_override/death_grid [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 3072 0 -144 ) ( 3073 0 -144 ) ( 3072 1 -144 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 3104 96 688 ) ( 3104 97 688 ) ( 3105 96 688 ) common/material_override/death_grid [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 3072 -2448 672 ) ( 3073 -2448 672 ) ( 3072 -2448 673 ) common/material_override/death_grid [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 3104 96 688 ) ( 3104 96 689 ) ( 3104 97 688 ) common/material_override/death_grid [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+// brush 2
+{
+( 3104 96 688 ) ( 3104 97 688 ) ( 3104 96 689 ) common/material_override/death_grid [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 3072 -2448 672 ) ( 3072 -2448 673 ) ( 3073 -2448 672 ) common/material_override/death_grid [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 3072 0 672 ) ( 3073 0 672 ) ( 3072 1 672 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 3104 96 4864 ) ( 3104 97 4864 ) ( 3105 96 4864 ) common/material_override/death_grid [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 3104 3584 688 ) ( 3105 3584 688 ) ( 3104 3584 689 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 3120 96 688 ) ( 3120 96 689 ) ( 3120 97 688 ) common/material_override/death_grid [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+// brush 3
+{
+( 3104 96 688 ) ( 3104 97 688 ) ( 3104 96 689 ) common/material_override/death_grid [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 3104 3584 688 ) ( 3104 3584 689 ) ( 3105 3584 688 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 3072 0 -1104 ) ( 3073 0 -1104 ) ( 3072 1 -1104 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 3104 96 4880 ) ( 3104 97 4880 ) ( 3105 96 4880 ) common/material_override/death_grid [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 3104 3600 688 ) ( 3105 3600 688 ) ( 3104 3600 689 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 19008 96 688 ) ( 19008 96 689 ) ( 19008 97 688 ) common/material_override/death_grid [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+}
+// entity 300
+{
+"classname" "DeathGrid"
+"collision_layer" "2"
+"collision_mask" "5"
+// brush 0
+{
+( -2576 6048 672 ) ( -2576 6049 672 ) ( -2576 6048 673 ) common/material_override/death_grid [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 3072 3584 672 ) ( 3072 3584 673 ) ( 3073 3584 672 ) common/material_override/death_grid [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 3072 6048 -144 ) ( 3073 6048 -144 ) ( 3072 6049 -144 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 3104 6144 688 ) ( 3104 6145 688 ) ( 3105 6144 688 ) common/material_override/death_grid [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 3072 3600 672 ) ( 3073 3600 672 ) ( 3072 3600 673 ) common/material_override/death_grid [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 3104 6144 688 ) ( 3104 6144 689 ) ( 3104 6145 688 ) common/material_override/death_grid [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+}
+// entity 301
+{
+"classname" "DeathGrid"
+"collision_layer" "2"
+"collision_mask" "5"
+// brush 0
+{
+( 3104 96 5840 ) ( 3104 97 5840 ) ( 3104 96 5841 ) common/material_override/death_grid [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 3072 -2448 5824 ) ( 3072 -2448 5825 ) ( 3073 -2448 5824 ) common/material_override/death_grid [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 3072 0 4864 ) ( 3073 0 4864 ) ( 3072 1 4864 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 3072 0 4880 ) ( 3072 1 4880 ) ( 3073 0 4880 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 3104 3584 5840 ) ( 3105 3584 5840 ) ( 3104 3584 5841 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 19008 96 5840 ) ( 19008 96 5841 ) ( 19008 97 5840 ) common/material_override/death_grid [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+}
+// entity 302
+{
+"classname" "DeathGrid"
+"collision_layer" "2"
+"collision_mask" "5"
+// brush 0
+{
+( 3104 96 704 ) ( 3104 97 704 ) ( 3104 96 705 ) common/material_override/death_grid [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 3104 3584 704 ) ( 3104 3584 705 ) ( 3105 3584 704 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 3072 0 -1088 ) ( 3073 0 -1088 ) ( 3072 1 -1088 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 3104 96 4896 ) ( 3104 97 4896 ) ( 3105 96 4896 ) common/material_override/death_grid [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 3104 3600 704 ) ( 3105 3600 704 ) ( 3104 3600 705 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 19008 96 704 ) ( 19008 96 705 ) ( 19008 97 704 ) common/material_override/death_grid [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+}
+// entity 303
+{
+"classname" "DeathGrid"
+"collision_layer" "2"
+"collision_mask" "5"
+// brush 0
+{
+( 3104 -5952 688 ) ( 3104 -5951 688 ) ( 3104 -5952 689 ) common/material_override/death_grid [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 3104 -2464 688 ) ( 3104 -2464 689 ) ( 3105 -2464 688 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 3072 -6048 -1104 ) ( 3073 -6048 -1104 ) ( 3072 -6047 -1104 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 3104 -5952 4880 ) ( 3104 -5951 4880 ) ( 3105 -5952 4880 ) common/material_override/death_grid [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 3104 -2448 688 ) ( 3105 -2448 688 ) ( 3104 -2448 689 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 19008 -5952 688 ) ( 19008 -5952 689 ) ( 19008 -5951 688 ) common/material_override/death_grid [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+}
+// entity 304
+{
+"classname" "func_group"
+"_tb_type" "_tb_group"
+"_tb_name" "RotatingSequencer"
+"_tb_id" "1"
+}
+// entity 305
+{
+"classname" "Group_Rotater"
+"rotation_speed" "0.5 0.75 0.6"
+"_tb_group" "1"
+// brush 0
+{
+( 5480 -8 -224 ) ( 5480 -7 -224 ) ( 5480 -8 -223 ) special/skip [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 5480 -4 -224 ) ( 5480 -4 -223 ) ( 5481 -4 -224 ) special/skip [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 5480 -8 -224 ) ( 5481 -8 -224 ) ( 5480 -7 -224 ) special/skip [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 5488 4 -216 ) ( 5488 5 -216 ) ( 5489 4 -216 ) special/skip [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 5488 4 -220 ) ( 5489 4 -220 ) ( 5488 4 -219 ) special/skip [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 5488 4 -220 ) ( 5488 4 -219 ) ( 5488 5 -220 ) special/skip [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+}
+// entity 306
+{
+"classname" "func_group"
+"_tb_type" "_tb_group"
+"_tb_name" "Sequencer"
+"_tb_id" "2"
+"_tb_group" "1"
+}
+// entity 307
+{
+"classname" "RythmElements_Sequencers_Spatial"
 "active_on_signals" "kick"
 "active_on_steps" "0"
 "init_index" "0"
 "params_path" "res://Misc/RythmElementsJsons/Tutorial1/kick_sequencer_cube.json"
+"_tb_group" "2"
 // brush 0
 {
 ( 5243 280 62 ) ( 5243 282.1875 62 ) ( 5243 280 64.1875 ) scenes/tutorial_scene/Light1 [ -2.220446049250313e-16 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -36384,215 +36624,5 @@
 ( 5768 -280 27 ) ( 5765.8125 -280 27 ) ( 5768 -277.8125 27 ) scenes/tutorial_scene/Light1 [ 2.220446049250313e-16 -1 0 0 ] [ 1 2.220446049250313e-16 -2.2204460492503128e-16 0 ] 0 1 1
 ( 5733 -245 -638 ) ( 5730.8125 -245 -638 ) ( 5733 -245 -640.1875 ) scenes/tutorial_scene/Light1 [ 1 2.220446049250313e-16 0 0 ] [ 0 0 -1 0 ] 0 1 1
 ( 5768 -280 62 ) ( 5768 -277.8125 62 ) ( 5768 -280 59.8125 ) scenes/tutorial_scene/Light1 [ -2.220446049250313e-16 0 1 0 ] [ 0 -1 0 0 ] 0 1 1
-}
-}
-// entity 292
-{
-"classname" "TriggerSongAnimationChange"
-"animation" "part2"
-"collision_layer" "2"
-"collision_mask" "5"
-// brush 0
-{
-( -848 2784 292 ) ( -848 2864 260 ) ( -848 2864 292 ) special/clip [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -784 2784 292 ) ( -848 2784 260 ) ( -848 2784 292 ) special/clip [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -784 2864 260 ) ( -848 2784 260 ) ( -784 2784 260 ) special/clip [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -784 2864 292 ) ( -848 2784 292 ) ( -848 2864 292 ) special/clip [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -784 2848 292 ) ( -848 2848 260 ) ( -784 2848 260 ) special/clip [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -784 2864 292 ) ( -784 2784 260 ) ( -784 2784 292 ) special/clip [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-}
-}
-// entity 293
-{
-"classname" "TriggerSongAnimationChange"
-"animation" "part3"
-"collision_layer" "2"
-"collision_mask" "5"
-// brush 0
-{
-( 2560 -112 356 ) ( 2560 112 260 ) ( 2560 112 356 ) special/clip [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 2592 -112 356 ) ( 2560 -112 260 ) ( 2560 -112 356 ) special/clip [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 2592 112 260 ) ( 2560 -112 260 ) ( 2592 -112 260 ) special/clip [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( 2592 112 356 ) ( 2560 -112 356 ) ( 2560 112 356 ) special/clip [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( 2592 112 356 ) ( 2560 112 260 ) ( 2592 112 260 ) special/clip [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 2624 112 356 ) ( 2624 -112 260 ) ( 2624 -112 356 ) special/clip [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-}
-}
-// entity 294
-{
-"classname" "Tutorial1_HexagonalPit"
-"origin" "6176 260 -408"
-}
-// entity 295
-{
-"classname" "Tutorial1_Buildings"
-"origin" "7376 1184 -237.39"
-}
-// entity 296
-{
-"classname" "Tutorial1_Buildings"
-"origin" "7760 1068 -286"
-}
-// entity 297
-{
-"classname" "Tutorial1_UpTriangles"
-"origin" "4392 312 248"
-}
-// entity 298
-{
-"classname" "Tutorial1_UpTriangles"
-"origin" "4392 -312 248"
-}
-// entity 299
-{
-"classname" "DeathGrid"
-"collision_layer" "2"
-"collision_mask" "5"
-// brush 0
-{
-( -2576 0 -144 ) ( -2576 1 -144 ) ( -2576 0 -143 ) common/material_override/death_grid [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 3072 -2448 -144 ) ( 3072 -2448 -143 ) ( 3073 -2448 -144 ) common/material_override/death_grid [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 3072 0 -144 ) ( 3073 0 -144 ) ( 3072 1 -144 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( 3104 96 -128 ) ( 3104 97 -128 ) ( 3105 96 -128 ) common/material_override/death_grid [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( 3104 3584 -128 ) ( 3105 3584 -128 ) ( 3104 3584 -127 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 3104 96 -128 ) ( 3104 96 -127 ) ( 3104 97 -128 ) common/material_override/death_grid [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-}
-// brush 1
-{
-( -2592 0 -144 ) ( -2592 1 -144 ) ( -2592 0 -143 ) common/material_override/death_grid [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 3072 -2448 -144 ) ( 3072 -2448 -143 ) ( 3073 -2448 -144 ) common/material_override/death_grid [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 3072 0 -144 ) ( 3073 0 -144 ) ( 3072 1 -144 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( 3104 96 688 ) ( 3104 97 688 ) ( 3105 96 688 ) common/material_override/death_grid [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( 3104 3584 -128 ) ( 3105 3584 -128 ) ( 3104 3584 -127 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -2576 0 -144 ) ( -2576 0 -143 ) ( -2576 1 -144 ) common/material_override/death_grid [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-}
-// brush 2
-{
-( 3104 96 -128 ) ( 3104 97 -128 ) ( 3104 96 -127 ) common/material_override/death_grid [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 3072 -2448 -144 ) ( 3072 -2448 -143 ) ( 3073 -2448 -144 ) common/material_override/death_grid [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 3072 0 -1088 ) ( 3073 0 -1088 ) ( 3072 1 -1088 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( 3104 96 -128 ) ( 3104 97 -128 ) ( 3105 96 -128 ) common/material_override/death_grid [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( 3104 3584 -128 ) ( 3105 3584 -128 ) ( 3104 3584 -127 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 3120 96 -128 ) ( 3120 96 -127 ) ( 3120 97 -128 ) common/material_override/death_grid [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-}
-// brush 3
-{
-( 3104 96 -128 ) ( 3104 97 -128 ) ( 3104 96 -127 ) common/material_override/death_grid [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 3072 -2448 -144 ) ( 3072 -2448 -143 ) ( 3073 -2448 -144 ) common/material_override/death_grid [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 3072 0 -1104 ) ( 3073 0 -1104 ) ( 3072 1 -1104 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( 3072 0 -1088 ) ( 3072 1 -1088 ) ( 3073 0 -1088 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( 3104 3584 -128 ) ( 3105 3584 -128 ) ( 3104 3584 -127 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 19008 96 -128 ) ( 19008 96 -127 ) ( 19008 97 -128 ) common/material_override/death_grid [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-}
-// brush 4
-{
-( 19008 96 -128 ) ( 19008 97 -128 ) ( 19008 96 -127 ) common/material_override/death_grid [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 3072 -2448 -144 ) ( 3072 -2448 -143 ) ( 3073 -2448 -144 ) common/material_override/death_grid [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 3072 0 -1104 ) ( 3073 0 -1104 ) ( 3072 1 -1104 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( 3072 0 4880 ) ( 3072 1 4880 ) ( 3073 0 4880 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( 3104 3584 -128 ) ( 3105 3584 -128 ) ( 3104 3584 -127 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 19024 96 -128 ) ( 19024 96 -127 ) ( 19024 97 -128 ) common/material_override/death_grid [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-}
-}
-// entity 300
-{
-"classname" "DeathGrid"
-"collision_layer" "2"
-"collision_mask" "5"
-// brush 0
-{
-( -2576 0 672 ) ( -2576 1 672 ) ( -2576 0 673 ) common/material_override/death_grid [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 3072 -2448 672 ) ( 3072 -2448 673 ) ( 3073 -2448 672 ) common/material_override/death_grid [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 3072 0 672 ) ( 3073 0 672 ) ( 3072 1 672 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( 3104 96 688 ) ( 3104 97 688 ) ( 3105 96 688 ) common/material_override/death_grid [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( 3104 3584 688 ) ( 3105 3584 688 ) ( 3104 3584 689 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 3104 96 688 ) ( 3104 96 689 ) ( 3104 97 688 ) common/material_override/death_grid [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-}
-// brush 1
-{
-( -2576 0 672 ) ( -2576 1 672 ) ( -2576 0 673 ) common/material_override/death_grid [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 3072 -2464 672 ) ( 3072 -2464 673 ) ( 3073 -2464 672 ) common/material_override/death_grid [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 3072 0 -144 ) ( 3073 0 -144 ) ( 3072 1 -144 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( 3104 96 688 ) ( 3104 97 688 ) ( 3105 96 688 ) common/material_override/death_grid [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( 3072 -2448 672 ) ( 3073 -2448 672 ) ( 3072 -2448 673 ) common/material_override/death_grid [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 3104 96 688 ) ( 3104 96 689 ) ( 3104 97 688 ) common/material_override/death_grid [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-}
-// brush 2
-{
-( 3104 96 688 ) ( 3104 97 688 ) ( 3104 96 689 ) common/material_override/death_grid [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 3072 -2448 672 ) ( 3072 -2448 673 ) ( 3073 -2448 672 ) common/material_override/death_grid [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 3072 0 672 ) ( 3073 0 672 ) ( 3072 1 672 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( 3104 96 4864 ) ( 3104 97 4864 ) ( 3105 96 4864 ) common/material_override/death_grid [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( 3104 3584 688 ) ( 3105 3584 688 ) ( 3104 3584 689 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 3120 96 688 ) ( 3120 96 689 ) ( 3120 97 688 ) common/material_override/death_grid [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-}
-// brush 3
-{
-( 3104 96 688 ) ( 3104 97 688 ) ( 3104 96 689 ) common/material_override/death_grid [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 3104 3584 688 ) ( 3104 3584 689 ) ( 3105 3584 688 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 3072 0 -1104 ) ( 3073 0 -1104 ) ( 3072 1 -1104 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( 3104 96 4880 ) ( 3104 97 4880 ) ( 3105 96 4880 ) common/material_override/death_grid [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( 3104 3600 688 ) ( 3105 3600 688 ) ( 3104 3600 689 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 19008 96 688 ) ( 19008 96 689 ) ( 19008 97 688 ) common/material_override/death_grid [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-}
-}
-// entity 301
-{
-"classname" "DeathGrid"
-"collision_layer" "2"
-"collision_mask" "5"
-// brush 0
-{
-( -2576 6048 672 ) ( -2576 6049 672 ) ( -2576 6048 673 ) common/material_override/death_grid [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 3072 3584 672 ) ( 3072 3584 673 ) ( 3073 3584 672 ) common/material_override/death_grid [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 3072 6048 -144 ) ( 3073 6048 -144 ) ( 3072 6049 -144 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( 3104 6144 688 ) ( 3104 6145 688 ) ( 3105 6144 688 ) common/material_override/death_grid [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( 3072 3600 672 ) ( 3073 3600 672 ) ( 3072 3600 673 ) common/material_override/death_grid [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 3104 6144 688 ) ( 3104 6144 689 ) ( 3104 6145 688 ) common/material_override/death_grid [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-}
-}
-// entity 302
-{
-"classname" "DeathGrid"
-"collision_layer" "2"
-"collision_mask" "5"
-// brush 0
-{
-( 3104 96 5840 ) ( 3104 97 5840 ) ( 3104 96 5841 ) common/material_override/death_grid [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 3072 -2448 5824 ) ( 3072 -2448 5825 ) ( 3073 -2448 5824 ) common/material_override/death_grid [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 3072 0 4864 ) ( 3073 0 4864 ) ( 3072 1 4864 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( 3072 0 4880 ) ( 3072 1 4880 ) ( 3073 0 4880 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( 3104 3584 5840 ) ( 3105 3584 5840 ) ( 3104 3584 5841 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 19008 96 5840 ) ( 19008 96 5841 ) ( 19008 97 5840 ) common/material_override/death_grid [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-}
-}
-// entity 303
-{
-"classname" "DeathGrid"
-"collision_layer" "2"
-"collision_mask" "5"
-// brush 0
-{
-( 3104 96 704 ) ( 3104 97 704 ) ( 3104 96 705 ) common/material_override/death_grid [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 3104 3584 704 ) ( 3104 3584 705 ) ( 3105 3584 704 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 3072 0 -1088 ) ( 3073 0 -1088 ) ( 3072 1 -1088 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( 3104 96 4896 ) ( 3104 97 4896 ) ( 3105 96 4896 ) common/material_override/death_grid [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( 3104 3600 704 ) ( 3105 3600 704 ) ( 3104 3600 705 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 19008 96 704 ) ( 19008 96 705 ) ( 19008 97 704 ) common/material_override/death_grid [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-}
-}
-// entity 304
-{
-"classname" "DeathGrid"
-"collision_layer" "2"
-"collision_mask" "5"
-// brush 0
-{
-( 3104 -5952 688 ) ( 3104 -5951 688 ) ( 3104 -5952 689 ) common/material_override/death_grid [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 3104 -2464 688 ) ( 3104 -2464 689 ) ( 3105 -2464 688 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 3072 -6048 -1104 ) ( 3073 -6048 -1104 ) ( 3072 -6047 -1104 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( 3104 -5952 4880 ) ( 3104 -5951 4880 ) ( 3105 -5952 4880 ) common/material_override/death_grid [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( 3104 -2448 688 ) ( 3105 -2448 688 ) ( 3104 -2448 689 ) common/material_override/death_grid [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 19008 -5952 688 ) ( 19008 -5952 689 ) ( 19008 -5951 688 ) common/material_override/death_grid [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }

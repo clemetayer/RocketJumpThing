@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=30 format=2]
+[gd_resource type="Resource" load_steps=33 format=2]
 
 [ext_resource path="res://trenchbroom/Entities/Scenes/Tutorial2/geometric_shape_emitter.tres" type="Resource" id=1]
 [ext_resource path="res://trenchbroom/Entities/area_death.tres" type="Resource" id=2]
@@ -22,13 +22,16 @@
 [ext_resource path="res://trenchbroom/Entities/Lights/omni_light.tres" type="Resource" id=20]
 [ext_resource path="res://trenchbroom/Entities/BaseClasses/collidable.tres" type="Resource" id=21]
 [ext_resource path="res://trenchbroom/Entities/Doors/standard_door.tres" type="Resource" id=22]
-[ext_resource path="res://trenchbroom/Entities/Platforms/periodic_moving.tres" type="Resource" id=23]
 [ext_resource path="res://trenchbroom/Entities/Checkpoints/start.tres" type="Resource" id=24]
 [ext_resource path="res://trenchbroom/Entities/BaseClasses/spatial.tres" type="Resource" id=25]
 [ext_resource path="res://trenchbroom/Entities/Checkpoints/end.tres" type="Resource" id=26]
 [ext_resource path="res://trenchbroom/Entities/Doors/area_open.tres" type="Resource" id=27]
 [ext_resource path="res://trenchbroom/Entities/BaseClasses/target.tres" type="Resource" id=28]
 [ext_resource path="res://trenchbroom/Entities/BaseClasses/trigger.tres" type="Resource" id=29]
+[ext_resource path="res://trenchbroom/Entities/Group/mover_group.tres" type="Resource" id=30]
+[ext_resource path="res://trenchbroom/Entities/Platforms/kinematic_platform.tres" type="Resource" id=31]
+[ext_resource path="res://trenchbroom/Entities/Group/group_solid.tres" type="Resource" id=32]
+[ext_resource path="res://trenchbroom/Entities/Group/func_group_solid.tres" type="Resource" id=33]
 
 [resource]
 script = ExtResource( 5 )
@@ -36,4 +39,4 @@ export_file = false
 target_folder = "/home/clemetayer/.TrenchBroom/games/RocketJumpThing"
 fgd_name = "tutorial_2_fgd"
 base_fgd_files = [  ]
-entity_definitions = [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 4 ), ExtResource( 10 ), ExtResource( 8 ), ExtResource( 6 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 9 ), ExtResource( 3 ), ExtResource( 11 ), ExtResource( 7 ), ExtResource( 21 ), ExtResource( 25 ), ExtResource( 19 ), ExtResource( 26 ), ExtResource( 24 ), ExtResource( 27 ), ExtResource( 22 ), ExtResource( 20 ), ExtResource( 23 ), ExtResource( 18 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 12 ), ExtResource( 17 ), ExtResource( 28 ), ExtResource( 29 ) ]
+entity_definitions = [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 4 ), ExtResource( 10 ), ExtResource( 8 ), ExtResource( 6 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 9 ), ExtResource( 3 ), ExtResource( 11 ), ExtResource( 7 ), ExtResource( 21 ), ExtResource( 25 ), ExtResource( 19 ), ExtResource( 26 ), ExtResource( 24 ), ExtResource( 27 ), ExtResource( 22 ), ExtResource( 20 ), ExtResource( 18 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 12 ), ExtResource( 17 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 33 ), ExtResource( 32 ) ]

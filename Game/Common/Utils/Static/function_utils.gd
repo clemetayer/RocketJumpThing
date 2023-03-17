@@ -32,6 +32,24 @@ static func load_json(path: String) -> Dictionary:
 	return data
 
 
+static func parse_json_string_to_objects(json_str: String) -> Dictionary:
+	var dict := {}
+	if json_str != null and not json_str.empty():
+		var parsed_json = parse_json(json_str)
+		if parsed_json != null:
+			dict = _json_data_to_objects(parsed_json)
+		else:
+			Logger.error(
+				(
+					"Failed to load json %s at %s"
+					% [json_str, DebugUtils.print_stack_trace(get_stack())]
+				)
+			)
+	else:
+		Logger.error("json parameter is empty, at %s" % DebugUtils.print_stack_trace(get_stack()))
+	return dict
+
+
 # TODO : Case if an array contains another array
 static func _json_data_to_objects(dict: Dictionary) -> Dictionary:
 	for key in dict:
@@ -56,7 +74,7 @@ static func _map_to_object(el):
 		if regex.search(el) != null:
 			return Color(el)
 		else:
-			return el
+			return str2var(el)
 	else:
 		return el
 
@@ -109,3 +127,8 @@ static func is_portal_compatible(element: Node) -> bool:
 		&& element.has_method(PORTAL_PROCESS_METHOD_NAME)
 		&& element.is_in_group("portal_compatible")
 	)
+
+
+#### String control #####
+static func scene_path_valid(scene_path: String) -> bool:
+	return scene_path != null and not scene_path.empty() and ResourceLoader.exists(scene_path)

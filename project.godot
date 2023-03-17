@@ -724,6 +724,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/gs_logger/message.gd"
 }, {
+"base": "Resource",
+"class": "MoverTravelData",
+"language": "GDScript",
+"path": "res://Game/Common/Utils/Resources/mover_travel_data.gd"
+}, {
+"base": "Resource",
+"class": "MoverTravelDataArray",
+"language": "GDScript",
+"path": "res://Game/Common/Utils/Resources/mover_travel_data_array.gd"
+}, {
 "base": "Spatial",
 "class": "OrbitArm",
 "language": "GDScript",
@@ -1268,6 +1278,8 @@ _global_script_class_icons={
 "LiquidLayer": "",
 "LocalTime": "",
 "Message": "",
+"MoverTravelData": "",
+"MoverTravelDataArray": "",
 "OrbitArm": "",
 "ParticlesStepSequencer": "",
 "PatternLayout": "",
