@@ -4,9 +4,12 @@ class_name MoverTravelDataArray
 # Travel data for a mover (spatial that moves)
 # Kind of a weird way to do this, but avoids the trenchbroom entity to get too complex
 
+##### VARIABLES #####
+#---- EXPORTS -----
 export(Array) var TRAVEL_DATA_ARRAY setget , get_travel_data
 
 
+##### PROTECTED METHODS #####
 # To bypass godot's limitation for custom resources export hints
 func get_travel_data() -> Array:
 	if Engine.is_editor_hint():

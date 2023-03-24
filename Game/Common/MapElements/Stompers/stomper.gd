@@ -43,8 +43,8 @@ func _init():
 	_original_position = self.translation
 
 
-##### PROTECTED METHODS #####
-func _stomp() -> void:
+##### PUBLIC METHODS #####
+func stomp() -> void:
 	var tween := Tween.new()
 	DebugUtils.log_tween_interpolate_property(
 		tween,
@@ -86,6 +86,7 @@ func _stomp() -> void:
 	tween.queue_free()
 
 
+##### PROTECTED METHODS #####
 func _connect_signals() -> void:
 	DebugUtils.log_connect(self, self, "body_entered", "_on_body_entered")
 

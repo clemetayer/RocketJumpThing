@@ -23,7 +23,7 @@ height = 5.0
 [node name="Player" type="KinematicBody" groups=["player", "portal_compatible"]]
 transform = Transform( 0.063, 0, 0, 0, 0.063, 0, 0, 0, 0.063, 0, 0, 0 )
 collision_mask = 2
-collision/safe_margin = 0.01
+collision/safe_margin = 0.015
 script = ExtResource( 1 )
 
 [node name="Body" type="MeshInstance" parent="."]

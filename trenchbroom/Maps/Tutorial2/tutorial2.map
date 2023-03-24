@@ -3200,7 +3200,7 @@
 "active_on_signals" "kick"
 "active_on_steps" "0"
 "init_index" "0"
-"params_path" "res://Misc/RythmElementsJsons/Tutorial2/kick_sequencer_bars.json"
+"sequencer_data_path" "res://Game/Scenes/Tutorial/Tutorial2/data/StepSequencerData/bars.tres"
 // brush 0
 {
 ( -4912 1920 1344 ) ( -4912 1984 448 ) ( -4912 1984 1344 ) scenes/tutorial2_scene/cool_material_2 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -3217,7 +3217,7 @@
 "active_on_signals" "kick"
 "active_on_steps" "2"
 "init_index" "0"
-"params_path" "res://Misc/RythmElementsJsons/Tutorial2/kick_sequencer_bars.json"
+"sequencer_data_path" "res://Game/Scenes/Tutorial/Tutorial2/data/StepSequencerData/bars.tres"
 // brush 0
 {
 ( -4912 1328 576 ) ( -4912 1392 -320 ) ( -4912 1392 576 ) scenes/tutorial2_scene/cool_material_2 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -3234,7 +3234,7 @@
 "active_on_signals" "kick"
 "active_on_steps" "1"
 "init_index" "0"
-"params_path" "res://Misc/RythmElementsJsons/Tutorial2/kick_sequencer_bars.json"
+"sequencer_data_path" "res://Game/Scenes/Tutorial/Tutorial2/data/StepSequencerData/bars.tres"
 // brush 0
 {
 ( -4912 752 1600 ) ( -4912 816 704 ) ( -4912 816 1600 ) scenes/tutorial2_scene/cool_material_2 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -3251,7 +3251,7 @@
 "active_on_signals" "kick"
 "active_on_steps" "3"
 "init_index" "0"
-"params_path" "res://Misc/RythmElementsJsons/Tutorial2/kick_sequencer_bars.json"
+"sequencer_data_path" "res://Game/Scenes/Tutorial/Tutorial2/data/StepSequencerData/bars.tres"
 // brush 0
 {
 ( -4912 112 704 ) ( -4912 176 -192 ) ( -4912 176 704 ) scenes/tutorial2_scene/cool_material_2 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -3268,7 +3268,7 @@
 "active_on_signals" "kick"
 "active_on_steps" "5"
 "init_index" "0"
-"params_path" "res://Misc/RythmElementsJsons/Tutorial2/kick_sequencer_bars.json"
+"sequencer_data_path" "res://Game/Scenes/Tutorial/Tutorial2/data/StepSequencerData/bars.tres"
 // brush 0
 {
 ( -4912 -464 1232 ) ( -4912 -400 336 ) ( -4912 -400 1232 ) scenes/tutorial2_scene/cool_material_2 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -3285,7 +3285,7 @@
 "active_on_signals" "kick"
 "active_on_steps" "4"
 "init_index" "0"
-"params_path" "res://Misc/RythmElementsJsons/Tutorial2/kick_sequencer_bars.json"
+"sequencer_data_path" "res://Game/Scenes/Tutorial/Tutorial2/data/StepSequencerData/bars.tres"
 // brush 0
 {
 ( -4912 -1040 576 ) ( -4912 -976 -320 ) ( -4912 -976 576 ) scenes/tutorial2_scene/cool_material_2 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -3302,7 +3302,7 @@
 "active_on_signals" "kick"
 "active_on_steps" "4"
 "init_index" "0"
-"params_path" "res://Misc/RythmElementsJsons/Tutorial2/kick_sequencer_bars.json"
+"sequencer_data_path" "res://Game/Scenes/Tutorial/Tutorial2/data/StepSequencerData/bars.tres"
 // brush 0
 {
 ( -1092 1936 1344 ) ( -1092 2000 448 ) ( -1092 2000 1344 ) scenes/tutorial2_scene/cool_material_2 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -3319,7 +3319,7 @@
 "active_on_signals" "kick"
 "active_on_steps" "5"
 "init_index" "0"
-"params_path" "res://Misc/RythmElementsJsons/Tutorial2/kick_sequencer_bars.json"
+"sequencer_data_path" "res://Game/Scenes/Tutorial/Tutorial2/data/StepSequencerData/bars.tres"
 // brush 0
 {
 ( -1092 1344 576 ) ( -1092 1408 -320 ) ( -1092 1408 576 ) scenes/tutorial2_scene/cool_material_2 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -3336,7 +3336,7 @@
 "active_on_signals" "kick"
 "active_on_steps" "3"
 "init_index" "0"
-"params_path" "res://Misc/RythmElementsJsons/Tutorial2/kick_sequencer_bars.json"
+"sequencer_data_path" "res://Game/Scenes/Tutorial/Tutorial2/data/StepSequencerData/bars.tres"
 // brush 0
 {
 ( -1092 768 1600 ) ( -1092 832 704 ) ( -1092 832 1600 ) scenes/tutorial2_scene/cool_material_2 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -3353,7 +3353,7 @@
 "active_on_signals" "kick"
 "active_on_steps" "1"
 "init_index" "0"
-"params_path" "res://Misc/RythmElementsJsons/Tutorial2/kick_sequencer_bars.json"
+"sequencer_data_path" "res://Game/Scenes/Tutorial/Tutorial2/data/StepSequencerData/bars.tres"
 // brush 0
 {
 ( -1092 128 704 ) ( -1092 192 -192 ) ( -1092 192 704 ) scenes/tutorial2_scene/cool_material_2 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -3370,7 +3370,7 @@
 "active_on_signals" "kick"
 "active_on_steps" "2"
 "init_index" "0"
-"params_path" "res://Misc/RythmElementsJsons/Tutorial2/kick_sequencer_bars.json"
+"sequencer_data_path" "res://Game/Scenes/Tutorial/Tutorial2/data/StepSequencerData/bars.tres"
 // brush 0
 {
 ( -1092 -448 1232 ) ( -1092 -384 336 ) ( -1092 -384 1232 ) scenes/tutorial2_scene/cool_material_2 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -3387,7 +3387,7 @@
 "active_on_signals" "kick"
 "active_on_steps" "0"
 "init_index" "0"
-"params_path" "res://Misc/RythmElementsJsons/Tutorial2/kick_sequencer_bars.json"
+"sequencer_data_path" "res://Game/Scenes/Tutorial/Tutorial2/data/StepSequencerData/bars.tres"
 // brush 0
 {
 ( -1092 -1024 576 ) ( -1092 -960 -320 ) ( -1092 -960 576 ) scenes/tutorial2_scene/cool_material_2 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -4175,7 +4175,7 @@
 "active_on_signals" "kick"
 "active_on_steps" "1"
 "init_index" "0"
-"params_path" "res://Misc/RythmElementsJsons/Tutorial2/particles.json"
+"sequencer_data_path" "res://Game/Scenes/Tutorial/Tutorial2/data/StepSequencerData/particles.tres"
 }
 // entity 124
 {
@@ -4184,7 +4184,7 @@
 "active_on_signals" "kick"
 "active_on_steps" "4"
 "init_index" "0"
-"params_path" "res://Misc/RythmElementsJsons/Tutorial2/particles.json"
+"sequencer_data_path" "res://Game/Scenes/Tutorial/Tutorial2/data/StepSequencerData/particles.tres"
 }
 // entity 125
 {
@@ -4193,7 +4193,7 @@
 "active_on_signals" "kick"
 "active_on_steps" "6"
 "init_index" "0"
-"params_path" "res://Misc/RythmElementsJsons/Tutorial2/particles.json"
+"sequencer_data_path" "res://Game/Scenes/Tutorial/Tutorial2/data/StepSequencerData/particles.tres"
 }
 // entity 126
 {
@@ -4202,7 +4202,7 @@
 "active_on_signals" "kick"
 "active_on_steps" "7"
 "init_index" "0"
-"params_path" "res://Misc/RythmElementsJsons/Tutorial2/particles.json"
+"sequencer_data_path" "res://Game/Scenes/Tutorial/Tutorial2/data/StepSequencerData/particles.tres"
 }
 // entity 127
 {
@@ -4211,7 +4211,7 @@
 "active_on_signals" "kick"
 "active_on_steps" "0"
 "init_index" "0"
-"params_path" "res://Misc/RythmElementsJsons/Tutorial2/particles.json"
+"sequencer_data_path" "res://Game/Scenes/Tutorial/Tutorial2/data/StepSequencerData/particles.tres"
 }
 // entity 128
 {
@@ -4220,7 +4220,7 @@
 "active_on_signals" "kick"
 "active_on_steps" "5"
 "init_index" "0"
-"params_path" "res://Misc/RythmElementsJsons/Tutorial2/particles.json"
+"sequencer_data_path" "res://Game/Scenes/Tutorial/Tutorial2/data/StepSequencerData/particles.tres"
 }
 // entity 129
 {
@@ -4229,7 +4229,7 @@
 "active_on_signals" "kick"
 "active_on_steps" "2"
 "init_index" "0"
-"params_path" "res://Misc/RythmElementsJsons/Tutorial2/particles.json"
+"sequencer_data_path" "res://Game/Scenes/Tutorial/Tutorial2/data/StepSequencerData/particles.tres"
 }
 // entity 130
 {
@@ -4238,7 +4238,7 @@
 "active_on_signals" "kick"
 "active_on_steps" "3"
 "init_index" "0"
-"params_path" "res://Misc/RythmElementsJsons/Tutorial2/particles.json"
+"sequencer_data_path" "res://Game/Scenes/Tutorial/Tutorial2/data/StepSequencerData/particles.tres"
 }
 // entity 131
 {
@@ -4297,7 +4297,7 @@
 "active_on_signals" "light_tunnel"
 "active_on_steps" "0"
 "init_index" "0"
-"params_path" "res://Misc/RythmElementsJsons/Tutorial2/kick_sequencer_light_tunnel.json"
+"sequencer_data_path" "res://Game/Scenes/Tutorial/Tutorial2/data/StepSequencerData/lights_tunnel.tres"
 // brush 0
 {
 ( -8364 -32 48 ) ( -8364 -28 0 ) ( -8364 -28 48 ) scenes/tutorial2_scene/cool_material_2 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -4323,7 +4323,7 @@
 "active_on_signals" "light_tunnel"
 "active_on_steps" "1"
 "init_index" "0"
-"params_path" "res://Misc/RythmElementsJsons/Tutorial2/kick_sequencer_light_tunnel.json"
+"sequencer_data_path" "res://Game/Scenes/Tutorial/Tutorial2/data/StepSequencerData/lights_tunnel.tres"
 // brush 0
 {
 ( -8324 -32 48 ) ( -8324 -28 0 ) ( -8324 -28 48 ) scenes/tutorial2_scene/cool_material_2 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -4349,7 +4349,7 @@
 "active_on_signals" "light_tunnel"
 "active_on_steps" "2"
 "init_index" "0"
-"params_path" "res://Misc/RythmElementsJsons/Tutorial2/kick_sequencer_light_tunnel.json"
+"sequencer_data_path" "res://Game/Scenes/Tutorial/Tutorial2/data/StepSequencerData/lights_tunnel.tres"
 // brush 0
 {
 ( -8284 -32 48 ) ( -8284 -28 0 ) ( -8284 -28 48 ) scenes/tutorial2_scene/cool_material_2 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -4375,7 +4375,7 @@
 "active_on_signals" "light_tunnel"
 "active_on_steps" "3"
 "init_index" "0"
-"params_path" "res://Misc/RythmElementsJsons/Tutorial2/kick_sequencer_light_tunnel.json"
+"sequencer_data_path" "res://Game/Scenes/Tutorial/Tutorial2/data/StepSequencerData/lights_tunnel.tres"
 // brush 0
 {
 ( -8244 -32 48 ) ( -8244 -28 0 ) ( -8244 -28 48 ) scenes/tutorial2_scene/cool_material_2 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -4401,7 +4401,7 @@
 "active_on_signals" "light_tunnel"
 "active_on_steps" "4"
 "init_index" "0"
-"params_path" "res://Misc/RythmElementsJsons/Tutorial2/kick_sequencer_light_tunnel.json"
+"sequencer_data_path" "res://Game/Scenes/Tutorial/Tutorial2/data/StepSequencerData/lights_tunnel.tres"
 // brush 0
 {
 ( -8204 -32 48 ) ( -8204 -28 0 ) ( -8204 -28 48 ) scenes/tutorial2_scene/cool_material_2 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -4427,7 +4427,7 @@
 "active_on_signals" "light_tunnel"
 "active_on_steps" "5"
 "init_index" "0"
-"params_path" "res://Misc/RythmElementsJsons/Tutorial2/kick_sequencer_light_tunnel.json"
+"sequencer_data_path" "res://Game/Scenes/Tutorial/Tutorial2/data/StepSequencerData/lights_tunnel.tres"
 // brush 0
 {
 ( -8164 -32 48 ) ( -8164 -28 0 ) ( -8164 -28 48 ) scenes/tutorial2_scene/cool_material_2 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -4453,7 +4453,7 @@
 "active_on_signals" "light_tunnel"
 "active_on_steps" "6"
 "init_index" "0"
-"params_path" "res://Misc/RythmElementsJsons/Tutorial2/kick_sequencer_light_tunnel.json"
+"sequencer_data_path" "res://Game/Scenes/Tutorial/Tutorial2/data/StepSequencerData/lights_tunnel.tres"
 // brush 0
 {
 ( -8124 -32 48 ) ( -8124 -28 0 ) ( -8124 -28 48 ) scenes/tutorial2_scene/cool_material_2 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -4479,7 +4479,7 @@
 "active_on_signals" "light_tunnel"
 "active_on_steps" "0"
 "init_index" "0"
-"params_path" "res://Misc/RythmElementsJsons/Tutorial2/kick_sequencer_light_tunnel.json"
+"sequencer_data_path" "res://Game/Scenes/Tutorial/Tutorial2/data/StepSequencerData/lights_tunnel.tres"
 // brush 0
 {
 ( -8084 -32 48 ) ( -8084 -28 0 ) ( -8084 -28 48 ) scenes/tutorial2_scene/cool_material_2 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -4623,7 +4623,7 @@
 "active_on_signals" "kick"
 "active_on_steps" "0"
 "init_index" "0"
-"params_path" "res://Misc/RythmElementsJsons/Tutorial2/particles.json"
+"sequencer_data_path" "res://Game/Scenes/Tutorial/Tutorial2/data/StepSequencerData/particles.tres"
 }
 // entity 148
 {
@@ -4632,7 +4632,7 @@
 "active_on_signals" "kick"
 "active_on_steps" "5"
 "init_index" "0"
-"params_path" "res://Misc/RythmElementsJsons/Tutorial2/particles.json"
+"sequencer_data_path" "res://Game/Scenes/Tutorial/Tutorial2/data/StepSequencerData/particles.tres"
 }
 // entity 149
 {
@@ -4641,7 +4641,7 @@
 "active_on_signals" "kick"
 "active_on_steps" "5"
 "init_index" "0"
-"params_path" "res://Misc/RythmElementsJsons/Tutorial2/particles.json"
+"sequencer_data_path" "res://Game/Scenes/Tutorial/Tutorial2/data/StepSequencerData/particles.tres"
 }
 // entity 150
 {
@@ -4650,7 +4650,7 @@
 "active_on_signals" "kick"
 "active_on_steps" "2"
 "init_index" "0"
-"params_path" "res://Misc/RythmElementsJsons/Tutorial2/particles.json"
+"sequencer_data_path" "res://Game/Scenes/Tutorial/Tutorial2/data/StepSequencerData/particles.tres"
 }
 // entity 151
 {
@@ -4659,7 +4659,7 @@
 "active_on_signals" "kick"
 "active_on_steps" "0"
 "init_index" "0"
-"params_path" "res://Misc/RythmElementsJsons/Tutorial2/particles.json"
+"sequencer_data_path" "res://Game/Scenes/Tutorial/Tutorial2/data/StepSequencerData/particles.tres"
 }
 // entity 152
 {
@@ -4668,7 +4668,7 @@
 "active_on_signals" "kick"
 "active_on_steps" "1"
 "init_index" "0"
-"params_path" "res://Misc/RythmElementsJsons/Tutorial2/particles.json"
+"sequencer_data_path" "res://Game/Scenes/Tutorial/Tutorial2/data/StepSequencerData/particles.tres"
 }
 // entity 153
 {
@@ -4677,7 +4677,7 @@
 "active_on_signals" "kick"
 "active_on_steps" "5"
 "init_index" "0"
-"params_path" "res://Misc/RythmElementsJsons/Tutorial2/particles.json"
+"sequencer_data_path" "res://Game/Scenes/Tutorial/Tutorial2/data/StepSequencerData/particles.tres"
 }
 // entity 154
 {
@@ -4686,7 +4686,7 @@
 "active_on_signals" "kick"
 "active_on_steps" "3"
 "init_index" "0"
-"params_path" "res://Misc/RythmElementsJsons/Tutorial2/particles.json"
+"sequencer_data_path" "res://Game/Scenes/Tutorial/Tutorial2/data/StepSequencerData/particles.tres"
 }
 // entity 155
 {
@@ -4695,7 +4695,7 @@
 "active_on_signals" "kick"
 "active_on_steps" "3"
 "init_index" "0"
-"params_path" "res://Misc/RythmElementsJsons/Tutorial2/particles.json"
+"sequencer_data_path" "res://Game/Scenes/Tutorial/Tutorial2/data/StepSequencerData/particles.tres"
 }
 // entity 156
 {

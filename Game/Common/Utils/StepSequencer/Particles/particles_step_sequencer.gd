@@ -1,42 +1,8 @@
 extends Particles
 class_name ParticlesStepSequencer
 # A step sequencer for spatial nodes
-# Note : Don't be afraid to duplicate materials for each step, so that they will be treated simultaneously
 # Note to (maybe) angry future self : Making a base class might be a bad idea, since it would lose the static/spatial extends
-"""
-{
-  "duplicate_material":"bool", # if each material should be duplicated to be computed independantly (a bit heavier in performances, but avoid creating potential duplicated materials)
-  "*":[{},...], # Parameters at start
-  "signal_name": [ # Array of steps
-	{ # Parameters to interact at step index, specified in children classes
-		"0": # parameters for simple set param (see sequencer_types)
-		{
-			...
-		},
-		"1":
-		{
-			...
-		},
-		etc.
-	},
-	etc.
-  ],
-  "signal_name_2": [
-	{
-		"0": # parameters for simple set param (see sequencer_types)
-		{
-			...
-		},
-		"1":
-		{
-			...
-		},
-		etc.
-	},
-	etc.
-  ]
-}
-"""
+
 ##### VARIABLES #####
 #---- EXPORTS -----
 export(Dictionary) var properties
@@ -46,9 +12,8 @@ export(Dictionary) var properties
 var material: Material  # material of the body
 
 #==== PRIVATE ====
-var _params_path: String
-var _params = {}  # Parameters specified in Trenchbroom
-var _step_indexes = {}  # To keep in track the indexes corresponding to different signals
+var _sequencer_data_path: String
+var _sequencer_data: SequencerData  # Parameters specified in Trenchbroom
 var _active_on_steps: String
 var _active_on_signals: String
 var _active_on_steps_array = []  # array of indexes where the effect should be active
@@ -73,10 +38,9 @@ func _ready_func() -> void:
 	_set_TB_params()
 	_active_on_steps_array = StepSequencerCommon.parse_active_on_steps(_active_on_steps)
 	_active_on_signals_array = StepSequencerCommon.parse_active_on_signals(_active_on_signals)
-	_params = FunctionUtils.load_json(_params_path)
-	_step_indexes = StepSequencerCommon.init_step_indexes(_params)
+	_sequencer_data = ResourceLoader.load(_sequencer_data_path)
 	_get_material_in_children_and_duplicate()
-	StepSequencerCommon.set_start_parameters(self, _params, _init_index)
+	StepSequencerCommon.set_start_parameters(self, _sequencer_data, _init_index)
 
 
 func _set_TB_params() -> void:
@@ -92,20 +56,14 @@ func _get_material_in_children_and_duplicate() -> void:
 	for child in get_children():
 		if child is MeshInstance:
 			material = child.mesh.surface_get_material(0)
-			if _params.has("duplicate_material") and _params["duplicate_material"]:
+			if _sequencer_data.DUPLICATE_MATERIAL:
 				material = material.duplicate()  # duplicates the material, so that will truly be a "step"
 				child.mesh.surface_set_material(0, material)
 			return
 
 
-# function to execute at each step
-# should be overriden by children classes
-func _step(parameters: Dictionary) -> void:
-	StepSequencerCommon.common_step(self, parameters)
-
-
 ##### SIGNAL MANAGEMENT #####
 func _on_SignalManager_sequencer_step(id: String) -> void:
-	_step_indexes = StepSequencerCommon.process_sequencer_step(
-		self, id, _params, _step_indexes, _active_on_signals_array, _active_on_steps_array
+	StepSequencerCommon.process_sequencer_step(
+		self, id, _sequencer_data, _active_on_signals_array, _active_on_steps_array
 	)

@@ -4475,7 +4475,7 @@ properties = {
 "collision_layer": 2,
 "collision_mask": 5,
 "init_index": 3,
-"params_path": "res://Misc/RythmElementsJsons/Tutorial3/kick_sequencer_pyramid.json"
+"sequencer_data_path": "res://Game/Scenes/Tutorial/Tutorial3/StepSequencerData/pyramid.tres"
 }
 
 [node name="entity_49_mesh_instance" type="MeshInstance" parent="QodotMap/entity_49_RythmElements_Sequencers_Static"]
@@ -4497,7 +4497,7 @@ properties = {
 "collision_layer": 2,
 "collision_mask": 5,
 "init_index": 2,
-"params_path": "res://Misc/RythmElementsJsons/Tutorial3/kick_sequencer_pyramid.json"
+"sequencer_data_path": "res://Game/Scenes/Tutorial/Tutorial3/StepSequencerData/pyramid.tres"
 }
 
 [node name="entity_50_mesh_instance" type="MeshInstance" parent="QodotMap/entity_50_RythmElements_Sequencers_Static"]
@@ -4519,7 +4519,7 @@ properties = {
 "collision_layer": 2,
 "collision_mask": 5,
 "init_index": 1,
-"params_path": "res://Misc/RythmElementsJsons/Tutorial3/kick_sequencer_pyramid.json"
+"sequencer_data_path": "res://Game/Scenes/Tutorial/Tutorial3/StepSequencerData/pyramid.tres"
 }
 
 [node name="entity_51_mesh_instance" type="MeshInstance" parent="QodotMap/entity_51_RythmElements_Sequencers_Static"]
@@ -4541,7 +4541,7 @@ properties = {
 "collision_layer": 2,
 "collision_mask": 5,
 "init_index": 0,
-"params_path": "res://Misc/RythmElementsJsons/Tutorial3/kick_sequencer_pyramid.json"
+"sequencer_data_path": "res://Game/Scenes/Tutorial/Tutorial3/StepSequencerData/pyramid.tres"
 }
 
 [node name="entity_52_mesh_instance" type="MeshInstance" parent="QodotMap/entity_52_RythmElements_Sequencers_Static"]
@@ -4563,7 +4563,7 @@ properties = {
 "collision_layer": 2,
 "collision_mask": 5,
 "init_index": 0,
-"params_path": "res://Misc/RythmElementsJsons/Tutorial3/kick_sequencer_triangles.json"
+"sequencer_data_path": "res://Game/Scenes/Tutorial/Tutorial3/StepSequencerData/triangles.tres"
 }
 
 [node name="entity_53_mesh_instance" type="MeshInstance" parent="QodotMap/entity_53_RythmElements_Sequencers_Static"]
@@ -4582,7 +4582,7 @@ properties = {
 "collision_layer": 2,
 "collision_mask": 5,
 "init_index": 0,
-"params_path": "res://Misc/RythmElementsJsons/Tutorial3/kick_sequencer_pyramid.json"
+"sequencer_data_path": "res://Game/Scenes/Tutorial/Tutorial3/StepSequencerData/pyramid.tres"
 }
 
 [node name="entity_54_mesh_instance" type="MeshInstance" parent="QodotMap/entity_54_RythmElements_Sequencers_Static"]
@@ -4601,7 +4601,7 @@ properties = {
 "collision_layer": 2,
 "collision_mask": 5,
 "init_index": 0,
-"params_path": "res://Misc/RythmElementsJsons/Tutorial3/kick_sequencer_pyramid.json"
+"sequencer_data_path": "res://Game/Scenes/Tutorial/Tutorial3/StepSequencerData/pyramid.tres"
 }
 
 [node name="entity_55_mesh_instance" type="MeshInstance" parent="QodotMap/entity_55_RythmElements_Sequencers_Static"]
@@ -4620,7 +4620,7 @@ properties = {
 "collision_layer": 2,
 "collision_mask": 5,
 "init_index": 3,
-"params_path": "res://Misc/RythmElementsJsons/Tutorial3/kick_sequencer_pyramid.json"
+"sequencer_data_path": "res://Game/Scenes/Tutorial/Tutorial3/StepSequencerData/pyramid.tres"
 }
 
 [node name="entity_56_mesh_instance" type="MeshInstance" parent="QodotMap/entity_56_RythmElements_Sequencers_Static"]
@@ -4642,7 +4642,7 @@ properties = {
 "collision_layer": 2,
 "collision_mask": 5,
 "init_index": 2,
-"params_path": "res://Misc/RythmElementsJsons/Tutorial3/kick_sequencer_pyramid.json"
+"sequencer_data_path": "res://Game/Scenes/Tutorial/Tutorial3/StepSequencerData/pyramid.tres"
 }
 
 [node name="entity_57_mesh_instance" type="MeshInstance" parent="QodotMap/entity_57_RythmElements_Sequencers_Static"]
@@ -4664,7 +4664,7 @@ properties = {
 "collision_layer": 2,
 "collision_mask": 5,
 "init_index": 1,
-"params_path": "res://Misc/RythmElementsJsons/Tutorial3/kick_sequencer_pyramid.json"
+"sequencer_data_path": "res://Game/Scenes/Tutorial/Tutorial3/StepSequencerData/pyramid.tres"
 }
 
 [node name="entity_58_mesh_instance" type="MeshInstance" parent="QodotMap/entity_58_RythmElements_Sequencers_Static"]
@@ -4686,7 +4686,7 @@ properties = {
 "collision_layer": 2,
 "collision_mask": 5,
 "init_index": 0,
-"params_path": "res://Misc/RythmElementsJsons/Tutorial3/kick_sequencer_pyramid.json"
+"sequencer_data_path": "res://Game/Scenes/Tutorial/Tutorial3/StepSequencerData/pyramid.tres"
 }
 
 [node name="entity_59_mesh_instance" type="MeshInstance" parent="QodotMap/entity_59_RythmElements_Sequencers_Static"]
@@ -5360,7 +5360,7 @@ properties = {
 shape = SubResource( 638 )
 
 [node name="entity_103_Boost_Pad" parent="QodotMap" instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 29.8166, 18.3302, -135.75 )
+transform = Transform( 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 0, 0, 1, 29.8166, 18.3302, -135.75 )
 properties = {
 "": "",
 "angle": Vector3( 0, 0, -15 ),
@@ -5372,7 +5372,7 @@ properties = {
 }
 
 [node name="entity_104_Boost_Pad" parent="QodotMap" instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14.125, 6.54575, -132.805 )
+transform = Transform( 1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, -14.125, 6.54575, -132.805 )
 properties = {
 "": "",
 "angle": Vector3( -30, 0, 0 ),
@@ -5384,7 +5384,7 @@ properties = {
 }
 
 [node name="entity_105_Boost_Pad" parent="QodotMap" instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 13.3125, -142.041 )
+transform = Transform( 1, 0, 0, 0, 0.866025, -0.5, 0, 0.5, 0.866025, -6, 13.3125, -142.041 )
 properties = {
 "": "",
 "angle": Vector3( 30, 0, 0 ),
@@ -5396,7 +5396,7 @@ properties = {
 }
 
 [node name="entity_106_Boost_Pad" parent="QodotMap" instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 18.2266, -132.655 )
+transform = Transform( 1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 2, 18.2266, -132.655 )
 properties = {
 "": "",
 "angle": Vector3( -15, 0, 0 ),
@@ -5408,7 +5408,7 @@ properties = {
 }
 
 [node name="entity_107_Boost_Pad" parent="QodotMap" instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.68719, 3.34721, -190 )
+transform = Transform( 0.965926, -0.258819, 0, 0.258819, 0.965926, 0, 0, 0, 1, -6.68719, 3.34721, -190 )
 properties = {
 "": "",
 "angle": Vector3( 0, 0, 15 ),
@@ -5420,7 +5420,7 @@ properties = {
 }
 
 [node name="entity_108_Boost_Pad" parent="QodotMap" instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 31.375, -3.375, -190 )
+transform = Transform( 0.866025, -0.5, 0, 0.5, 0.866025, 0, 0, 0, 1, 31.375, -3.375, -190 )
 properties = {
 "": "",
 "angle": Vector3( 0, 0, 30 ),
@@ -5432,7 +5432,7 @@ properties = {
 }
 
 [node name="entity_109_Boost_Area" parent="QodotMap" instance=ExtResource( 12 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 32, -76 )
+transform = Transform( 0.173648, -0.984808, 0, 0.984808, 0.173648, 0, 0, 0, 1, 34, 32, -76 )
 properties = {
 "": "",
 "angle": Vector3( 0, 0, 80 ),
@@ -5444,7 +5444,7 @@ properties = {
 }
 
 [node name="entity_110_Boost_Area" parent="QodotMap" instance=ExtResource( 12 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 26, -33 )
+transform = Transform( -7.5904e-09, 4.30473e-08, 1, 0.984808, 0.173648, 0, -0.173648, 0.984808, -4.37114e-08, 0, 26, -33 )
 properties = {
 "": "",
 "angle": Vector3( 0, 90, 80 ),
@@ -5456,7 +5456,7 @@ properties = {
 }
 
 [node name="entity_111_Boost_Pad" parent="QodotMap" instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 101.262, 14.5458, 328.125 )
+transform = Transform( 0.866025, -0.5, 0, 0.5, 0.866025, 0, 0, 0, 1, 101.262, 14.5458, 328.125 )
 properties = {
 "": "",
 "angle": Vector3( 0, 0, 30 ),
@@ -5468,7 +5468,7 @@ properties = {
 }
 
 [node name="entity_112_Boost_Pad" parent="QodotMap" instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 60.5122, 27.0457, 328.125 )
+transform = Transform( 0.866025, -0.5, 0, 0.5, 0.866025, 0, 0, 0, 1, 60.5122, 27.0457, 328.125 )
 properties = {
 "": "",
 "angle": Vector3( 0, 0, 30 ),
@@ -5504,7 +5504,7 @@ properties = {
 }
 
 [node name="entity_115_Boost_Area" parent="QodotMap" instance=ExtResource( 12 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 60, 32, -106 )
+transform = Transform( 1, 0, 0, 0, 0.173648, -0.984808, 0, 0.984808, 0.173648, 60, 32, -106 )
 properties = {
 "": "",
 "angle": Vector3( 80, 0, 0 ),
@@ -5540,7 +5540,7 @@ properties = {
 "collision_layer": 2,
 "collision_mask": 5,
 "init_index": 1,
-"params_path": "res://Misc/RythmElementsJsons/Tutorial3/kick_sequencer_pulse_alone.json"
+"sequencer_data_path": "res://Game/Scenes/Tutorial/Tutorial3/StepSequencerData/pulse_alone.tres"
 }
 
 [node name="entity_117_mesh_instance" type="MeshInstance" parent="QodotMap/entity_117_RythmElements_Sequencers_Static"]
@@ -5562,7 +5562,7 @@ properties = {
 "collision_layer": 2,
 "collision_mask": 5,
 "init_index": 0,
-"params_path": "res://Misc/RythmElementsJsons/Tutorial3/kick_sequencer_pulse_alone.json"
+"sequencer_data_path": "res://Game/Scenes/Tutorial/Tutorial3/StepSequencerData/pulse_alone.tres"
 }
 
 [node name="entity_118_mesh_instance" type="MeshInstance" parent="QodotMap/entity_118_RythmElements_Sequencers_Static"]
@@ -5584,7 +5584,7 @@ properties = {
 "collision_layer": 2,
 "collision_mask": 5,
 "init_index": 1,
-"params_path": "res://Misc/RythmElementsJsons/Tutorial3/kick_sequencer_pulse_alone.json"
+"sequencer_data_path": "res://Game/Scenes/Tutorial/Tutorial3/StepSequencerData/pulse_alone.tres"
 }
 
 [node name="entity_119_mesh_instance" type="MeshInstance" parent="QodotMap/entity_119_RythmElements_Sequencers_Static"]
@@ -5612,7 +5612,7 @@ properties = {
 "collision_layer": 2,
 "collision_mask": 5,
 "init_index": 1,
-"params_path": "res://Misc/RythmElementsJsons/Tutorial3/kick_sequencer_pulse_alone.json"
+"sequencer_data_path": "res://Game/Scenes/Tutorial/Tutorial3/StepSequencerData/pulse_alone.tres"
 }
 
 [node name="entity_120_mesh_instance" type="MeshInstance" parent="QodotMap/entity_120_RythmElements_Sequencers_Static"]
@@ -5634,7 +5634,7 @@ properties = {
 "collision_layer": 2,
 "collision_mask": 5,
 "init_index": 0,
-"params_path": "res://Misc/RythmElementsJsons/Tutorial3/kick_sequencer_pulse_alone.json"
+"sequencer_data_path": "res://Game/Scenes/Tutorial/Tutorial3/StepSequencerData/pulse_alone.tres"
 }
 
 [node name="entity_121_mesh_instance" type="MeshInstance" parent="QodotMap/entity_121_RythmElements_Sequencers_Static"]
@@ -5656,7 +5656,7 @@ properties = {
 "collision_layer": 2,
 "collision_mask": 5,
 "init_index": 0,
-"params_path": "res://Misc/RythmElementsJsons/Tutorial3/kick_sequencer_pulse_alone.json"
+"sequencer_data_path": "res://Game/Scenes/Tutorial/Tutorial3/StepSequencerData/pulse_alone.tres"
 }
 
 [node name="entity_122_mesh_instance" type="MeshInstance" parent="QodotMap/entity_122_RythmElements_Sequencers_Static"]
@@ -5684,7 +5684,7 @@ properties = {
 "collision_layer": 2,
 "collision_mask": 5,
 "init_index": 1,
-"params_path": "res://Misc/RythmElementsJsons/Tutorial3/kick_sequencer_pulse_alone.json"
+"sequencer_data_path": "res://Game/Scenes/Tutorial/Tutorial3/StepSequencerData/pulse_alone.tres"
 }
 
 [node name="entity_123_mesh_instance" type="MeshInstance" parent="QodotMap/entity_123_RythmElements_Sequencers_Static"]
@@ -5706,7 +5706,7 @@ properties = {
 "collision_layer": 2,
 "collision_mask": 5,
 "init_index": 0,
-"params_path": "res://Misc/RythmElementsJsons/Tutorial3/kick_sequencer_pulse_alone.json"
+"sequencer_data_path": "res://Game/Scenes/Tutorial/Tutorial3/StepSequencerData/pulse_alone.tres"
 }
 
 [node name="entity_124_mesh_instance" type="MeshInstance" parent="QodotMap/entity_124_RythmElements_Sequencers_Static"]
@@ -5728,7 +5728,7 @@ properties = {
 "collision_layer": 2,
 "collision_mask": 5,
 "init_index": 1,
-"params_path": "res://Misc/RythmElementsJsons/Tutorial3/kick_sequencer_pulse_alone.json"
+"sequencer_data_path": "res://Game/Scenes/Tutorial/Tutorial3/StepSequencerData/pulse_alone.tres"
 }
 
 [node name="entity_125_mesh_instance" type="MeshInstance" parent="QodotMap/entity_125_RythmElements_Sequencers_Static"]
@@ -5750,7 +5750,7 @@ properties = {
 "collision_layer": 2,
 "collision_mask": 5,
 "init_index": 1,
-"params_path": "res://Misc/RythmElementsJsons/Tutorial3/kick_sequencer_pulse_alone.json"
+"sequencer_data_path": "res://Game/Scenes/Tutorial/Tutorial3/StepSequencerData/pulse_alone.tres"
 }
 
 [node name="entity_126_mesh_instance" type="MeshInstance" parent="QodotMap/entity_126_RythmElements_Sequencers_Static"]
@@ -5772,7 +5772,7 @@ properties = {
 "collision_layer": 2,
 "collision_mask": 5,
 "init_index": 0,
-"params_path": "res://Misc/RythmElementsJsons/Tutorial3/kick_sequencer_pulse_alone.json"
+"sequencer_data_path": "res://Game/Scenes/Tutorial/Tutorial3/StepSequencerData/pulse_alone.tres"
 }
 
 [node name="entity_127_mesh_instance" type="MeshInstance" parent="QodotMap/entity_127_RythmElements_Sequencers_Static"]
@@ -5794,7 +5794,7 @@ properties = {
 "collision_layer": 2,
 "collision_mask": 5,
 "init_index": 0,
-"params_path": "res://Misc/RythmElementsJsons/Tutorial3/kick_sequencer_pulse_alone.json"
+"sequencer_data_path": "res://Game/Scenes/Tutorial/Tutorial3/StepSequencerData/pulse_alone.tres"
 }
 
 [node name="entity_128_mesh_instance" type="MeshInstance" parent="QodotMap/entity_128_RythmElements_Sequencers_Static"]
@@ -5816,7 +5816,7 @@ properties = {
 "collision_layer": 2,
 "collision_mask": 5,
 "init_index": 1,
-"params_path": "res://Misc/RythmElementsJsons/Tutorial3/kick_sequencer_pulse_alone.json"
+"sequencer_data_path": "res://Game/Scenes/Tutorial/Tutorial3/StepSequencerData/pulse_alone.tres"
 }
 
 [node name="entity_129_mesh_instance" type="MeshInstance" parent="QodotMap/entity_129_RythmElements_Sequencers_Static"]
@@ -6140,7 +6140,7 @@ properties = {
 shape = SubResource( 708 )
 
 [node name="entity_149_Boost_Area" parent="QodotMap" instance=ExtResource( 12 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 33, -55 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -1, 33, -55 )
 properties = {
 "": "",
 "angle": Vector3( -90, 0, 0 ),
@@ -6161,7 +6161,7 @@ properties = {
 "collision_layer": "2",
 "collision_mask": "5",
 "init_index": 0,
-"params_path": "res://Misc/RythmElementsJsons/Tutorial3/kick_sequencer_pyramid.json"
+"sequencer_data_path": "res://Game/Scenes/Tutorial/Tutorial3/StepSequencerData/pyramid.tres"
 }
 
 [node name="entity_150_mesh_instance" type="MeshInstance" parent="QodotMap/entity_150_RythmElements_Sequencers_Spatial"]
@@ -6177,7 +6177,7 @@ properties = {
 "collision_layer": "2",
 "collision_mask": "5",
 "init_index": 0,
-"params_path": "res://Misc/RythmElementsJsons/Tutorial3/kick_sequencer_pyramid.json"
+"sequencer_data_path": "res://Game/Scenes/Tutorial/Tutorial3/StepSequencerData/pyramid.tres"
 }
 
 [node name="entity_151_mesh_instance" type="MeshInstance" parent="QodotMap/entity_151_RythmElements_Sequencers_Spatial"]
@@ -6193,7 +6193,7 @@ properties = {
 "collision_layer": "2",
 "collision_mask": "5",
 "init_index": 0,
-"params_path": "res://Misc/RythmElementsJsons/Tutorial3/kick_sequencer_pyramid.json"
+"sequencer_data_path": "res://Game/Scenes/Tutorial/Tutorial3/StepSequencerData/pyramid.tres"
 }
 
 [node name="entity_152_mesh_instance" type="MeshInstance" parent="QodotMap/entity_152_RythmElements_Sequencers_Spatial"]
@@ -6209,7 +6209,7 @@ properties = {
 "collision_layer": "2",
 "collision_mask": "5",
 "init_index": 0,
-"params_path": "res://Misc/RythmElementsJsons/Tutorial3/kick_sequencer_pyramid.json"
+"sequencer_data_path": "res://Game/Scenes/Tutorial/Tutorial3/StepSequencerData/pyramid.tres"
 }
 
 [node name="entity_153_mesh_instance" type="MeshInstance" parent="QodotMap/entity_153_RythmElements_Sequencers_Spatial"]
@@ -6225,7 +6225,7 @@ properties = {
 "collision_layer": "2",
 "collision_mask": "5",
 "init_index": 0,
-"params_path": "res://Misc/RythmElementsJsons/Tutorial3/kick_sequencer_pyramid.json"
+"sequencer_data_path": "res://Game/Scenes/Tutorial/Tutorial3/StepSequencerData/pyramid.tres"
 }
 
 [node name="entity_154_mesh_instance" type="MeshInstance" parent="QodotMap/entity_154_RythmElements_Sequencers_Spatial"]
@@ -6241,7 +6241,7 @@ properties = {
 "collision_layer": "2",
 "collision_mask": "5",
 "init_index": 0,
-"params_path": "res://Misc/RythmElementsJsons/Tutorial3/kick_sequencer_pyramid.json"
+"sequencer_data_path": "res://Game/Scenes/Tutorial/Tutorial3/StepSequencerData/pyramid.tres"
 }
 
 [node name="entity_155_mesh_instance" type="MeshInstance" parent="QodotMap/entity_155_RythmElements_Sequencers_Spatial"]
@@ -6317,7 +6317,7 @@ properties = {
 "active_on_steps": "0",
 "classname": "RythmElements_Sequencers_Spatial",
 "init_index": 1,
-"params_path": "res://Misc/RythmElementsJsons/Tutorial3/kick_sequencer_triangles.json"
+"sequencer_data_path": "res://Game/Scenes/Tutorial/Tutorial3/StepSequencerData/triangles.tres"
 }
 
 [node name="entity_162_func_group" type="Spatial" parent="QodotMap/entity_161_Group_Rotater/entity_163_RythmElements_Sequencers_Spatial"]
@@ -6346,7 +6346,7 @@ properties = {
 "active_on_steps": "0",
 "classname": "RythmElements_Sequencers_Spatial",
 "init_index": 0,
-"params_path": "res://Misc/RythmElementsJsons/Tutorial3/kick_sequencer_triangles.json"
+"sequencer_data_path": "res://Game/Scenes/Tutorial/Tutorial3/StepSequencerData/triangles.tres"
 }
 
 [node name="entity_166_func_group" type="Spatial" parent="QodotMap/entity_165_Group_Rotater/entity_167_RythmElements_Sequencers_Spatial"]
@@ -6375,7 +6375,7 @@ properties = {
 "active_on_steps": "2",
 "classname": "RythmElements_Sequencers_Spatial",
 "init_index": 1,
-"params_path": "res://Misc/RythmElementsJsons/Tutorial3/kick_sequencer_triangles.json"
+"sequencer_data_path": "res://Game/Scenes/Tutorial/Tutorial3/StepSequencerData/triangles.tres"
 }
 
 [node name="entity_170_func_group" type="Spatial" parent="QodotMap/entity_169_Group_Rotater/entity_171_RythmElements_Sequencers_Spatial"]
@@ -6404,7 +6404,7 @@ properties = {
 "active_on_steps": "3",
 "classname": "RythmElements_Sequencers_Spatial",
 "init_index": 0,
-"params_path": "res://Misc/RythmElementsJsons/Tutorial3/kick_sequencer_triangles.json"
+"sequencer_data_path": "res://Game/Scenes/Tutorial/Tutorial3/StepSequencerData/triangles.tres"
 }
 
 [node name="entity_174_func_group" type="Spatial" parent="QodotMap/entity_173_Group_Rotater/entity_175_RythmElements_Sequencers_Spatial"]
@@ -6433,7 +6433,7 @@ properties = {
 "active_on_steps": "3",
 "classname": "RythmElements_Sequencers_Spatial",
 "init_index": 1,
-"params_path": "res://Misc/RythmElementsJsons/Tutorial3/kick_sequencer_triangles.json"
+"sequencer_data_path": "res://Game/Scenes/Tutorial/Tutorial3/StepSequencerData/triangles.tres"
 }
 
 [node name="entity_178_func_group" type="Spatial" parent="QodotMap/entity_177_Group_Rotater/entity_179_RythmElements_Sequencers_Spatial"]
@@ -6462,7 +6462,7 @@ properties = {
 "active_on_steps": "1",
 "classname": "RythmElements_Sequencers_Spatial",
 "init_index": 1,
-"params_path": "res://Misc/RythmElementsJsons/Tutorial3/kick_sequencer_triangles.json"
+"sequencer_data_path": "res://Game/Scenes/Tutorial/Tutorial3/StepSequencerData/triangles.tres"
 }
 
 [node name="entity_182_func_group" type="Spatial" parent="QodotMap/entity_181_Group_Rotater/entity_183_RythmElements_Sequencers_Spatial"]
@@ -6491,7 +6491,7 @@ properties = {
 "active_on_steps": "2",
 "classname": "RythmElements_Sequencers_Spatial",
 "init_index": 0,
-"params_path": "res://Misc/RythmElementsJsons/Tutorial3/kick_sequencer_triangles.json"
+"sequencer_data_path": "res://Game/Scenes/Tutorial/Tutorial3/StepSequencerData/triangles.tres"
 }
 
 [node name="entity_186_func_group" type="Spatial" parent="QodotMap/entity_185_Group_Rotater/entity_187_RythmElements_Sequencers_Spatial"]
@@ -6520,7 +6520,7 @@ properties = {
 "active_on_steps": "1",
 "classname": "RythmElements_Sequencers_Spatial",
 "init_index": 0,
-"params_path": "res://Misc/RythmElementsJsons/Tutorial3/kick_sequencer_triangles.json"
+"sequencer_data_path": "res://Game/Scenes/Tutorial/Tutorial3/StepSequencerData/triangles.tres"
 }
 
 [node name="entity_190_func_group" type="Spatial" parent="QodotMap/entity_189_Group_Rotater/entity_191_RythmElements_Sequencers_Spatial"]
@@ -6549,7 +6549,7 @@ properties = {
 "active_on_steps": "0",
 "classname": "RythmElements_Sequencers_Spatial",
 "init_index": 1,
-"params_path": "res://Misc/RythmElementsJsons/Tutorial3/kick_sequencer_triangles.json"
+"sequencer_data_path": "res://Game/Scenes/Tutorial/Tutorial3/StepSequencerData/triangles.tres"
 }
 
 [node name="entity_194_func_group" type="Spatial" parent="QodotMap/entity_193_Group_Rotater/entity_195_RythmElements_Sequencers_Spatial"]
@@ -6578,7 +6578,7 @@ properties = {
 "active_on_steps": "2",
 "classname": "RythmElements_Sequencers_Spatial",
 "init_index": 0,
-"params_path": "res://Misc/RythmElementsJsons/Tutorial3/kick_sequencer_triangles.json"
+"sequencer_data_path": "res://Game/Scenes/Tutorial/Tutorial3/StepSequencerData/triangles.tres"
 }
 
 [node name="entity_198_func_group" type="Spatial" parent="QodotMap/entity_197_Group_Rotater/entity_199_RythmElements_Sequencers_Spatial"]
@@ -6607,7 +6607,7 @@ properties = {
 "active_on_steps": "2",
 "classname": "RythmElements_Sequencers_Spatial",
 "init_index": 1,
-"params_path": "res://Misc/RythmElementsJsons/Tutorial3/kick_sequencer_triangles.json"
+"sequencer_data_path": "res://Game/Scenes/Tutorial/Tutorial3/StepSequencerData/triangles.tres"
 }
 
 [node name="entity_202_func_group" type="Spatial" parent="QodotMap/entity_201_Group_Rotater/entity_203_RythmElements_Sequencers_Spatial"]

@@ -64,3 +64,19 @@ const MOUSE_MASK_RIGHT := "mask_right_click"
 const MOUSE_MASK_MIDDLE := "mask_middle_click"
 const MOUSE_MASK_SPECIAL_1 := "mask_mouse_special_1"
 const MOUSE_MASK_SPECIAL_2 := "mask_mouse_special_2"
+
+#---- UTILITIES -----
+enum TWEEN_TRANSITION_TYPES {  # Tween transition types to be used in export variables
+	LINEAR,
+	TRANS_SINE,
+	TRANS_QUINT,
+	TRANS_QUART,
+	TRANS_QUAD,
+	EXPO,
+	ELASTIC,
+	CUBIC,
+	CIRC,
+	BOUNCE,
+	BACK
+}
+enum TWEEN_EASE_TYPES { IN, OUT, IN_OUT, OUT_IN }  # Tween ease types to be used in export variables

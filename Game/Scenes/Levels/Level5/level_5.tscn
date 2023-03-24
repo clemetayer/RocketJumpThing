@@ -3659,7 +3659,7 @@ mesh = SubResource( 476 )
 shape = SubResource( 477 )
 
 [node name="entity_62_Boost_Area" parent="QodotMap" instance=ExtResource( 19 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 415.875, 121.625, -348.125 )
+transform = Transform( -7.5904e-09, 4.30473e-08, 1, 0.984808, 0.173648, 0, -0.173648, 0.984808, -4.37114e-08, 415.875, 121.625, -348.125 )
 properties = {
 "angle": Vector3( 0, 90, 80 ),
 "classname": "Boost_Area",
@@ -4260,7 +4260,7 @@ properties = {
 }
 
 [node name="entity_96_Boost_Pad" parent="QodotMap" instance=ExtResource( 17 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 533.546, -158.963, 106.125 )
+transform = Transform( 0.866025, -0.5, 0, 0.5, 0.866025, 0, 0, 0, 1, 533.546, -158.963, 106.125 )
 properties = {
 "angle": Vector3( 0, 0, 30 ),
 "classname": "Boost_Pad",
@@ -4299,7 +4299,7 @@ mesh = SubResource( 566 )
 shape = SubResource( 567 )
 
 [node name="entity_99_Boost_Pad" parent="QodotMap" instance=ExtResource( 17 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 518.125, -146.463, 106.954 )
+transform = Transform( 1, 0, 0, 0, 0.707107, -0.707107, 0, 0.707107, 0.707107, 518.125, -146.463, 106.954 )
 properties = {
 "angle": Vector3( 45, 0, 0 ),
 "classname": "Boost_Pad",
@@ -4624,7 +4624,7 @@ mesh = SubResource( 600 )
 shape = SubResource( 601 )
 
 [node name="entity_120_Boost_Pad" parent="QodotMap" instance=ExtResource( 17 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 870.875, 269.875, -0.875 )
+transform = Transform( 0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 0, 0, 1, 870.875, 269.875, -0.875 )
 properties = {
 "angle": Vector3( 0, 0, 45 ),
 "classname": "Boost_Pad",
