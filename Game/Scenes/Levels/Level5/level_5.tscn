@@ -1,8 +1,7 @@
-[gd_scene load_steps=418 format=2]
+[gd_scene load_steps=417 format=2]
 
 [ext_resource path="res://addons/qodot/src/nodes/qodot_map.gd" type="Script" id=1]
 [ext_resource path="res://trenchbroom/Entities/Scenes/Level5/level_5_fgd.tres" type="Resource" id=2]
-[ext_resource path="res://addons/qodot/src/nodes/qodot_entity.gd" type="Script" id=3]
 [ext_resource path="res://Game/Scenes/Levels/Level5/level_5.gd" type="Script" id=4]
 [ext_resource path="res://Game/Common/MapElements/Characters/MainCharacters/player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Game/Common/MapElements/static_body_group_solid_class.gd" type="Script" id=6]
@@ -162,8 +161,8 @@ end_node = "part_1"
 
 [sub_resource type="ArrayMesh" id=364]
 surfaces/0 = {
-"aabb": AABB( -4.5, -0.5, -5, 9, 1.00001, 10 ),
-"array_data": PoolByteArray( 0, 0, 144, 192, 0, 0, 0, 63, 0, 0, 160, 192, 127, 127, 127, 193, 0, 213, 0, 212, 0, 0, 144, 192, 0, 0, 0, 191, 0, 0, 160, 192, 127, 127, 127, 193, 0, 213, 0, 210, 0, 0, 144, 64, 0, 0, 0, 191, 0, 0, 160, 192, 127, 127, 127, 193, 0, 84, 0, 210, 0, 0, 144, 64, 0, 0, 0, 63, 0, 0, 160, 192, 127, 127, 127, 193, 0, 84, 0, 212, 0, 0, 144, 192, 0, 0, 0, 63, 0, 0, 160, 192, 129, 0, 0, 63, 0, 213, 0, 212, 0, 0, 144, 192, 0, 0, 0, 63, 0, 0, 160, 64, 129, 0, 0, 63, 0, 85, 0, 212, 0, 0, 144, 192, 0, 0, 0, 191, 0, 0, 160, 64, 129, 0, 0, 63, 0, 85, 0, 210, 0, 0, 144, 192, 0, 0, 0, 191, 0, 0, 160, 192, 129, 0, 0, 63, 0, 213, 0, 210, 0, 0, 144, 64, 0, 0, 0, 191, 0, 0, 160, 192, 0, 129, 0, 193, 0, 213, 0, 212, 0, 0, 144, 192, 0, 0, 0, 191, 0, 0, 160, 192, 0, 129, 0, 193, 0, 213, 0, 85, 0, 0, 144, 192, 0, 0, 0, 191, 0, 0, 160, 64, 0, 129, 0, 193, 0, 85, 0, 85, 0, 0, 144, 64, 0, 0, 0, 191, 0, 0, 160, 64, 0, 129, 0, 193, 0, 85, 0, 212, 0, 0, 144, 64, 0, 0, 0, 63, 0, 0, 160, 192, 0, 127, 0, 63, 0, 213, 0, 212, 0, 0, 144, 64, 0, 0, 0, 63, 0, 0, 160, 64, 0, 127, 0, 63, 0, 85, 0, 212, 0, 0, 144, 192, 0, 0, 0, 63, 0, 0, 160, 64, 0, 127, 0, 63, 0, 85, 0, 85, 0, 0, 144, 192, 0, 0, 0, 63, 0, 0, 160, 192, 0, 127, 0, 63, 0, 213, 0, 85, 0, 0, 144, 64, 0, 0, 0, 63, 0, 0, 160, 192, 127, 0, 0, 193, 0, 213, 0, 212, 0, 0, 144, 64, 0, 0, 0, 191, 0, 0, 160, 192, 127, 0, 0, 193, 0, 213, 0, 210, 0, 0, 144, 64, 0, 0, 0, 191, 0, 0, 160, 64, 127, 0, 0, 193, 0, 85, 0, 210, 0, 0, 144, 64, 0, 0, 0, 63, 0, 0, 160, 64, 127, 0, 0, 193, 0, 85, 0, 212, 0, 0, 144, 192, 0, 0, 0, 63, 0, 0, 160, 64, 0, 0, 127, 63, 0, 213, 0, 212, 0, 0, 144, 64, 0, 0, 0, 63, 0, 0, 160, 64, 0, 0, 127, 63, 0, 84, 0, 212, 0, 0, 144, 64, 0, 0, 0, 191, 0, 0, 160, 64, 0, 0, 127, 63, 0, 84, 0, 210, 0, 0, 144, 192, 0, 0, 0, 191, 0, 0, 160, 64, 0, 0, 127, 63, 0, 213, 0, 210 ),
+"aabb": AABB( -5, 3, -5, 9, 1.00001, 10 ),
+"array_data": PoolByteArray( 0, 0, 160, 192, 0, 0, 128, 64, 0, 0, 160, 192, 127, 127, 127, 193, 0, 213, 0, 212, 0, 0, 160, 192, 0, 0, 64, 64, 0, 0, 160, 192, 127, 127, 127, 193, 0, 213, 0, 210, 0, 0, 128, 64, 0, 0, 64, 64, 0, 0, 160, 192, 127, 127, 127, 193, 0, 84, 0, 210, 0, 0, 128, 64, 0, 0, 128, 64, 0, 0, 160, 192, 127, 127, 127, 193, 0, 84, 0, 212, 0, 0, 160, 192, 0, 0, 128, 64, 0, 0, 160, 192, 129, 0, 0, 63, 0, 213, 0, 212, 0, 0, 160, 192, 0, 0, 128, 64, 0, 0, 160, 64, 129, 0, 0, 63, 0, 85, 0, 212, 0, 0, 160, 192, 0, 0, 64, 64, 0, 0, 160, 64, 129, 0, 0, 63, 0, 85, 0, 210, 0, 0, 160, 192, 0, 0, 64, 64, 0, 0, 160, 192, 129, 0, 0, 63, 0, 213, 0, 210, 0, 0, 128, 64, 0, 0, 64, 64, 0, 0, 160, 192, 0, 129, 0, 193, 0, 213, 0, 212, 0, 0, 160, 192, 0, 0, 64, 64, 0, 0, 160, 192, 0, 129, 0, 193, 0, 213, 0, 85, 0, 0, 160, 192, 0, 0, 64, 64, 0, 0, 160, 64, 0, 129, 0, 193, 0, 85, 0, 85, 0, 0, 128, 64, 0, 0, 64, 64, 0, 0, 160, 64, 0, 129, 0, 193, 0, 85, 0, 212, 0, 0, 128, 64, 0, 0, 128, 64, 0, 0, 160, 192, 0, 127, 0, 63, 0, 213, 0, 212, 0, 0, 128, 64, 0, 0, 128, 64, 0, 0, 160, 64, 0, 127, 0, 63, 0, 85, 0, 212, 0, 0, 160, 192, 0, 0, 128, 64, 0, 0, 160, 64, 0, 127, 0, 63, 0, 85, 0, 85, 0, 0, 160, 192, 0, 0, 128, 64, 0, 0, 160, 192, 0, 127, 0, 63, 0, 213, 0, 85, 0, 0, 128, 64, 0, 0, 128, 64, 0, 0, 160, 192, 127, 0, 0, 193, 0, 213, 0, 212, 0, 0, 128, 64, 0, 0, 64, 64, 0, 0, 160, 192, 127, 0, 0, 193, 0, 213, 0, 210, 0, 0, 128, 64, 0, 0, 64, 64, 0, 0, 160, 64, 127, 0, 0, 193, 0, 85, 0, 210, 0, 0, 128, 64, 0, 0, 128, 64, 0, 0, 160, 64, 127, 0, 0, 193, 0, 85, 0, 212, 0, 0, 160, 192, 0, 0, 128, 64, 0, 0, 160, 64, 0, 0, 127, 63, 0, 213, 0, 212, 0, 0, 128, 64, 0, 0, 128, 64, 0, 0, 160, 64, 0, 0, 127, 63, 0, 84, 0, 212, 0, 0, 128, 64, 0, 0, 64, 64, 0, 0, 160, 64, 0, 0, 127, 63, 0, 84, 0, 210, 0, 0, 160, 192, 0, 0, 64, 64, 0, 0, 160, 64, 0, 0, 127, 63, 0, 213, 0, 210 ),
 "array_index_data": PoolByteArray( 0, 0, 1, 0, 2, 0, 0, 0, 2, 0, 3, 0, 4, 0, 5, 0, 6, 0, 4, 0, 6, 0, 7, 0, 8, 0, 9, 0, 10, 0, 8, 0, 10, 0, 11, 0, 12, 0, 13, 0, 14, 0, 12, 0, 14, 0, 15, 0, 16, 0, 17, 0, 18, 0, 16, 0, 18, 0, 19, 0, 20, 0, 21, 0, 22, 0, 20, 0, 22, 0, 23, 0 ),
 "blend_shape_data": [  ],
 "format": 2194711,
@@ -175,7 +174,7 @@ surfaces/0 = {
 }
 
 [sub_resource type="ConvexPolygonShape" id=365]
-points = PoolVector3Array( -4.5, 0.5, -5, -4.5, -0.5, -5, 4.5, -0.5, -5, 4.5, 0.5, -5, -4.5, 0.5, 5, -4.5, -0.5, 5, 4.5, -0.5, 5, 4.5, 0.5, 5 )
+points = PoolVector3Array( -5, 4, -5, -5, 3, -5, 4, 3, -5, 4, 4, -5, -5, 4, 5, -5, 3, 5, 4, 3, 5, 4, 4, 5 )
 
 [sub_resource type="ArrayMesh" id=366]
 surfaces/0 = {
@@ -2715,16 +2714,10 @@ use_trenchbroom_group_hierarchy = true
 tree_attach_batch_size = 16
 set_owner_batch_size = 16
 
-[node name="entity_0_worldspawn" type="Spatial" parent="QodotMap"]
-script = ExtResource( 3 )
-properties = {
-"_tb_def": "builtin:level_5_fgd.fgd",
-"_tb_textures": "textures;textures/common;textures/common/material_override;textures/entities/DeathMesh;textures/entities/checkpoint;textures/special;textures/special/clip;textures/special/skip",
-"classname": "worldspawn",
-"mapversion": "220"
-}
+[node name="entity_0_worldspawn" type="StaticBody" parent="QodotMap"]
 
 [node name="entity_0_mesh_instance" type="MeshInstance" parent="QodotMap/entity_0_worldspawn"]
+use_in_baked_light = true
 mesh = SubResource( 364 )
 
 [node name="entity_0_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_0_worldspawn"]
@@ -3264,14 +3257,14 @@ mesh = SubResource( 431 )
 shape = SubResource( 432 )
 
 [node name="entity_36_Boost_Pad" parent="QodotMap" instance=ExtResource( 17 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 350.125, 37.125, 357.875 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 350.125, 37.125, 357.875 )
 properties = {
-"angle": Vector3( 0, 0, 0 ),
 "classname": "Boost_Pad",
 "collision_layer": "2",
 "collision_mask": "5",
 "color": Color( 1, 1, 0, 1 ),
 "force": 17.0,
+"mangle": Vector3( -90, 0, 0 ),
 "origin": "5726 5602 594",
 "size": Vector3( 2, 2, 2 )
 }
@@ -3630,14 +3623,14 @@ mesh = SubResource( 474 )
 shape = SubResource( 475 )
 
 [node name="entity_60_Boost_Pad" parent="QodotMap" instance=ExtResource( 17 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 415.875, 74.125, -347.875 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 415.875, 74.125, -347.875 )
 properties = {
-"angle": Vector3( 0, 0, 0 ),
 "classname": "Boost_Pad",
 "collision_layer": "2",
 "collision_mask": "5",
 "color": Color( 1, 0.717647, 0, 1 ),
 "force": 30.0,
+"mangle": Vector3( -90, 0, 0 ),
 "origin": "-5566 6654 1186",
 "size": Vector3( 4, 4, 4 )
 }
@@ -3659,14 +3652,14 @@ mesh = SubResource( 476 )
 shape = SubResource( 477 )
 
 [node name="entity_62_Boost_Area" parent="QodotMap" instance=ExtResource( 19 )]
-transform = Transform( -7.5904e-09, 4.30473e-08, 1, 0.984808, 0.173648, 0, -0.173648, 0.984808, -4.37114e-08, 415.875, 121.625, -348.125 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 415.875, 121.625, -348.125 )
 properties = {
-"angle": Vector3( 0, 90, 80 ),
 "classname": "Boost_Area",
 "collision_layer": "2",
 "collision_mask": "5",
 "color": Color( 1, 0.717647, 0, 1 ),
 "force": 15.0,
+"mangle": Vector3( -15, 0, 0 ),
 "origin": "-5570 6654 1946",
 "size": Vector3( 4, 4, 4 )
 }
@@ -4127,14 +4120,14 @@ mesh = SubResource( 543 )
 shape = SubResource( 544 )
 
 [node name="entity_88_Boost_Pad" parent="QodotMap" instance=ExtResource( 17 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 479.875, -193.875, -0.125 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 479.875, -193.875, -0.125 )
 properties = {
-"angle": Vector3( 0, 0, 0 ),
 "classname": "Boost_Pad",
 "collision_layer": "2",
 "collision_mask": "5",
 "color": Color( 1, 0.333333, 0, 1 ),
 "force": 23.0,
+"mangle": Vector3( -90, 0, 0 ),
 "origin": "-2 7678 -3102",
 "size": Vector3( 3, 3, 3 )
 }
@@ -4247,27 +4240,28 @@ mesh = SubResource( 562 )
 shape = SubResource( 563 )
 
 [node name="entity_95_Boost_Pad" parent="QodotMap" instance=ExtResource( 17 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 522.125, -170.875, 96.125 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 522.125, -170.875, 96.125 )
 properties = {
-"angle": Vector3( 0, 0, 0 ),
 "classname": "Boost_Pad",
 "collision_layer": "2",
 "collision_mask": "5",
 "color": Color( 1, 0.333333, 0, 1 ),
 "force": 15.0,
+"mangle": Vector3( -90, 0, 0 ),
 "origin": "1538 8354 -2734",
 "size": Vector3( 2, 2, 2 )
 }
 
 [node name="entity_96_Boost_Pad" parent="QodotMap" instance=ExtResource( 17 )]
-transform = Transform( 0.866025, -0.5, 0, 0.5, 0.866025, 0, 0, 0, 1, 533.546, -158.963, 106.125 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 533.546, -158.963, 106.125 )
 properties = {
-"angle": Vector3( 0, 0, 30 ),
+"angle": "0 0 30",
 "classname": "Boost_Pad",
 "collision_layer": "2",
 "collision_mask": "5",
 "color": Color( 1, 0.333333, 0, 1 ),
 "force": 15.0,
+"mangle": Vector3( -60, -90, 0 ),
 "origin": "1698 8536.73 -2543.41",
 "size": Vector3( 2, 2, 2 )
 }
@@ -4299,14 +4293,14 @@ mesh = SubResource( 566 )
 shape = SubResource( 567 )
 
 [node name="entity_99_Boost_Pad" parent="QodotMap" instance=ExtResource( 17 )]
-transform = Transform( 1, 0, 0, 0, 0.707107, -0.707107, 0, 0.707107, 0.707107, 518.125, -146.463, 106.954 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 518.125, -146.463, 106.954 )
 properties = {
-"angle": Vector3( 45, 0, 0 ),
 "classname": "Boost_Pad",
 "collision_layer": "2",
 "collision_mask": "5",
 "color": Color( 1, 0.333333, 0, 1 ),
 "force": 15.0,
+"mangle": Vector3( -45, 0, 0 ),
 "origin": "1711.27 8290 -2343.41",
 "size": Vector3( 2, 2, 2 )
 }
@@ -4624,14 +4618,14 @@ mesh = SubResource( 600 )
 shape = SubResource( 601 )
 
 [node name="entity_120_Boost_Pad" parent="QodotMap" instance=ExtResource( 17 )]
-transform = Transform( 0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 0, 0, 1, 870.875, 269.875, -0.875 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 870.875, 269.875, -0.875 )
 properties = {
-"angle": Vector3( 0, 0, 45 ),
 "classname": "Boost_Pad",
 "collision_layer": "2",
 "collision_mask": "5",
 "color": Color( 1, 0, 0, 1 ),
 "force": 20.0,
+"mangle": Vector3( -45, -90, 0 ),
 "origin": "-14 13934 4318",
 "size": Vector3( 4, 4, 4 )
 }

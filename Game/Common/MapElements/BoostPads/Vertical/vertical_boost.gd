@@ -5,7 +5,7 @@ class_name VerticalBoost
 
 ##### VARIABLES #####
 #---- CONSTANTS -----
-const TB_VBOOST_MAPPER := [["angle", "_angle"], ["force", "_force"], ["size", "_size"]]  # mapper for TrenchBroom parameters
+const TB_VBOOST_MAPPER := [["mangle", "_mangle"], ["force", "_force"], ["size", "_size"]]  # mapper for TrenchBroom parameters
 const TIMER_TIMEOUT := 0.05  # timeout time before adding a new push vector to the player
 const ROCKET_POWER_MULTIPLIER := 2.0  # boost multiplier when a rocket enters this area
 const ROCKET_BOOST_DECAY := 0.75  # how long the boost will fade back to a normal value (Note : should be <= to the rocket shoot timeout to avoid adding power indefinitely)
@@ -15,7 +15,7 @@ export(Dictionary) var properties
 #==== PRIVATE ====
 var _player_body = null  # keeps an instance of the player's body
 var _force := 1.0  # how much the player will be pushed
-var _angle := Vector3(0, 0, 0)  # rotation of the bumper (in degrees)
+var _mangle := Vector3(0, 0, 0)  # rotation of the bumper (in degrees)
 var _size := Vector3(1, 1, 1)  # size of the bumper
 var _boost_multiplier := 1.0  # boost multiplier
 
@@ -29,7 +29,7 @@ func _ready_func() -> void:
 	_connect_signals()  # exceptionnaly in the ready func, for onready in children
 	add_child(onready_rocket_tween)
 	_set_TB_params()
-	rotation_degrees = _angle
+	rotation_degrees += _mangle  # Used += to make it face the z axis
 	_set_extents()
 
 

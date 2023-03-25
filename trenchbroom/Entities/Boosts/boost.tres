@@ -11,13 +11,13 @@ description = "A base class for every kind of vertical boost"
 qodot_internal = false
 base_classes = [ ExtResource( 1 ) ]
 class_properties = {
-"angle": Vector3( 0, 0, 0 ),
 "force": 1.0,
+"mangle": Vector3( 0, 0, 0 ),
 "size": Vector3( 0, 0, 0 )
 }
 class_property_descriptions = {
-"angle": "angle of the boost (in degrees)",
 "force": "force of the boost",
+"mangle": "angle of the boost (in degrees)",
 "size": "size of the boost collision"
 }
 meta_properties = {

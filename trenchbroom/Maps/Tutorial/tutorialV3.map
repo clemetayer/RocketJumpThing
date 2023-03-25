@@ -1055,7 +1055,7 @@
 "treshold" "8"
 "target" "breakable_wall_1"
 "font_size" "150"
-"text_direction" "0 90 0"
+"mangle" "0 90 0"
 "scale" "4 4 1"
 // brush 0
 {
@@ -2336,7 +2336,7 @@
 "treshold" "11"
 "target" "breakable_wall_2"
 "font_size" "150"
-"text_direction" "0 180 0"
+"mangle" "0 180 0"
 "scale" "4 4 1"
 // brush 0
 {

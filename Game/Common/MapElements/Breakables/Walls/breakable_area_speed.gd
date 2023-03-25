@@ -4,9 +4,7 @@ extends BreakableArea
 ##### VARIABLES #####
 #---- CONSTANTS -----
 const TB_BREAKABLE_AREA_SPEED_MAPPER := [
-	["treshold", "_treshold"],
-	["text_direction", "_sprite_text_direction"],
-	["scale", "_sprite_scale"]
+	["treshold", "_treshold"], ["mangle", "_mangle"], ["scale", "_sprite_scale"]
 ]  # mapper for TrenchBroom parameters
 const UI_PATH := "res://Game/Common/MapElements/Breakables/Walls/breakable_area_speed_ui.tscn"
 
@@ -14,7 +12,7 @@ const UI_PATH := "res://Game/Common/MapElements/Breakables/Walls/breakable_area_
 #==== PRIVATE ====
 var _treshold := 100.0  # treshold speed for the wall to break (greater or equal)
 var _ui_load := preload(UI_PATH)
-var _sprite_text_direction: Vector3
+var _mangle: Vector3
 var _sprite_scale: Vector3
 
 
@@ -45,7 +43,7 @@ func _add_ui_sprite() -> void:
 	ui.SPEED = _treshold
 	add_child(ui)
 	var sprite := Sprite3D.new()
-	sprite.rotation_degrees = _sprite_text_direction
+	sprite.rotation_degrees = _mangle
 	sprite.scale = Vector3(8, 8, 1)
 	add_child(sprite)
 	sprite.scale = _sprite_scale

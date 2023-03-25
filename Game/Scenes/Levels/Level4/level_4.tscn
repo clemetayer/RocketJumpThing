@@ -1,4 +1,4 @@
-[gd_scene load_steps=272 format=2]
+[gd_scene load_steps=271 format=2]
 
 [ext_resource path="res://Game/Scenes/Levels/Level4/level_4.gd" type="Script" id=1]
 [ext_resource path="res://addons/qodot/src/nodes/qodot_map.gd" type="Script" id=2]
@@ -6,7 +6,6 @@
 [ext_resource path="res://trenchbroom/textures/scenes/level_4/squares.tres" type="Material" id=4]
 [ext_resource path="res://trenchbroom/textures/scenes/level_4/cube_2.tres" type="Material" id=5]
 [ext_resource path="res://Game/Common/MapElements/Checkpoint/checkpoint.gd" type="Script" id=6]
-[ext_resource path="res://addons/qodot/src/nodes/qodot_entity.gd" type="Script" id=7]
 [ext_resource path="res://Game/Common/MapElements/BoostPads/Vertical/vertical_boost_pad.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Game/Common/MapElements/Characters/MainCharacters/player.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Game/Common/Utils/StepSequencer/Spatial/spatial_step_sequencer.gd" type="Script" id=10]
@@ -1545,14 +1544,7 @@ use_trenchbroom_group_hierarchy = true
 tree_attach_batch_size = 16
 set_owner_batch_size = 16
 
-[node name="entity_0_worldspawn" type="Spatial" parent="QodotMap"]
-script = ExtResource( 7 )
-properties = {
-"_tb_def": "builtin:level_4_fgd.fgd",
-"_tb_textures": "textures;textures/common;textures/common/material_override;textures/entities/DeathMesh;textures/entities/checkpoint;textures/scenes/level_4;textures/special;trenchbroom/textures/scenes/level_4;trenchbroom/textures/special/skip",
-"classname": "worldspawn",
-"mapversion": "220"
-}
+[node name="entity_0_worldspawn" type="StaticBody" parent="QodotMap"]
 
 [node name="entity_1_Player" parent="QodotMap" instance=ExtResource( 9 )]
 transform = Transform( 0.063, 0, 0, 0, 0.063, 0, 0, 0, 0.063, 0.0625, 4.125, 0.0625 )
@@ -1563,40 +1555,41 @@ properties = {
 }
 
 [node name="entity_2_Boost_Area" parent="QodotMap" instance=ExtResource( 26 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.125, 1.125, 0.125 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.125, 1.125, 0.125 )
 properties = {
-"angle": Vector3( 0, 0, 0 ),
 "classname": "Boost_Area",
 "collision_layer": "2",
 "collision_mask": "5",
 "color": Color( 1, 1, 1, 1 ),
 "force": 17.0,
+"mangle": Vector3( -90, 0, 0 ),
 "origin": "2 -2 18",
 "size": Vector3( 2.5, 2.5, 2.5 )
 }
 
 [node name="entity_3_Boost_Area" parent="QodotMap" instance=ExtResource( 26 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.125, 17.125, 0.125 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.125, 17.125, 0.125 )
 properties = {
-"angle": Vector3( 0, 0, 0 ),
 "classname": "Boost_Area",
 "collision_layer": "2",
 "collision_mask": "5",
 "color": Color( 1, 1, 1, 1 ),
 "force": 17.0,
+"mangle": Vector3( -90, 0, 0 ),
 "origin": "2 -2 274",
 "size": Vector3( 2.5, 2.5, 2.5 )
 }
 
 [node name="entity_4_Boost_Area" parent="QodotMap" instance=ExtResource( 26 )]
-transform = Transform( 0.906308, -0.422618, 0, 0.422618, 0.906308, 0, 0, 0, 1, -0.125, 31.125, 0.125 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.125, 31.125, 0.125 )
 properties = {
-"angle": Vector3( 0, 0, 25 ),
+"angle": "0 0 25",
 "classname": "Boost_Area",
 "collision_layer": "2",
 "collision_mask": "5",
 "color": Color( 1, 1, 1, 1 ),
 "force": 17.0,
+"mangle": Vector3( -60, -90, 0 ),
 "origin": "2 -2 498",
 "size": Vector3( 2.5, 2.5, 2.5 )
 }
@@ -1887,14 +1880,14 @@ mesh = SubResource( 248 )
 shape = SubResource( 249 )
 
 [node name="entity_18_Boost_Pad" parent="QodotMap" instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -142.125, 63.125, 98.125 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -142.125, 63.125, 98.125 )
 properties = {
-"angle": Vector3( 0, 0, 0 ),
 "classname": "Boost_Pad",
 "collision_layer": "2",
 "collision_mask": "5",
 "color": Color( 0, 1, 1, 1 ),
 "force": 17.0,
+"mangle": Vector3( -90, 0, 0 ),
 "origin": "1570 -2274 1010",
 "size": Vector3( 1, 1, 1 )
 }
@@ -1913,114 +1906,101 @@ mesh = SubResource( 250 )
 shape = SubResource( 251 )
 
 [node name="entity_20_Boost_Pad" parent="QodotMap" instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -158.125, 75.125, 98.125 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -158.125, 75.125, 98.125 )
 properties = {
-"angle": Vector3( 0, 0, 0 ),
 "classname": "Boost_Pad",
 "collision_layer": "2",
 "collision_mask": "5",
 "color": Color( 0, 1, 1, 1 ),
 "force": 17.0,
+"mangle": Vector3( -90, 0, 0 ),
 "origin": "1570 -2530 1202",
 "size": Vector3( 1, 1, 1 )
 }
 
-[node name="entity_21_Boost_Pad" parent="QodotMap" instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -158.125, 87.125, 82.125 )
-properties = {
-"angle": Vector3( 0, 0, 0 ),
-"classname": "Boost_Pad",
-"collision_layer": "2",
-"collision_mask": "5",
-"color": Color( 0, 1, 1, 1 ),
-"force": 17.0,
-"origin": "1314 -2530 1394",
-"size": Vector3( 1, 1, 1 )
-}
-
-[node name="entity_22_StaticBodyGroup" type="StaticBody" parent="QodotMap"]
+[node name="entity_21_StaticBodyGroup" type="StaticBody" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -158, 85.5, 82 )
 script = ExtResource( 15 )
 properties = {
 "classname": "StaticBodyGroup"
 }
 
-[node name="entity_22_mesh_instance" type="MeshInstance" parent="QodotMap/entity_22_StaticBodyGroup"]
+[node name="entity_21_mesh_instance" type="MeshInstance" parent="QodotMap/entity_21_StaticBodyGroup"]
 mesh = SubResource( 252 )
 
-[node name="entity_22_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_22_StaticBodyGroup"]
+[node name="entity_21_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_21_StaticBodyGroup"]
 shape = SubResource( 253 )
 
-[node name="entity_23_StaticBodyGroup" type="StaticBody" parent="QodotMap"]
+[node name="entity_22_StaticBodyGroup" type="StaticBody" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -142, 97.5, 82 )
 script = ExtResource( 15 )
 properties = {
 "classname": "StaticBodyGroup"
 }
 
-[node name="entity_23_mesh_instance" type="MeshInstance" parent="QodotMap/entity_23_StaticBodyGroup"]
+[node name="entity_22_mesh_instance" type="MeshInstance" parent="QodotMap/entity_22_StaticBodyGroup"]
 mesh = SubResource( 254 )
 
-[node name="entity_23_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_23_StaticBodyGroup"]
+[node name="entity_22_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_22_StaticBodyGroup"]
 shape = SubResource( 255 )
 
-[node name="entity_24_Boost_Pad" parent="QodotMap" instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -142.125, 99.125, 82.125 )
+[node name="entity_23_Boost_Pad" parent="QodotMap" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -142.125, 99.125, 82.125 )
 properties = {
-"angle": Vector3( 0, 0, 0 ),
 "classname": "Boost_Pad",
 "collision_layer": "2",
 "collision_mask": "5",
 "color": Color( 0, 1, 1, 1 ),
 "force": 17.0,
+"mangle": Vector3( -90, 0, 0 ),
 "origin": "1314 -2274 1586",
 "size": Vector3( 1, 1, 1 )
 }
 
-[node name="entity_25_StaticBodyGroup" type="StaticBody" parent="QodotMap"]
+[node name="entity_24_StaticBodyGroup" type="StaticBody" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -121.364, 105.5, 50.9091 )
 script = ExtResource( 15 )
 properties = {
 "classname": "StaticBodyGroup"
 }
 
-[node name="entity_25_mesh_instance" type="MeshInstance" parent="QodotMap/entity_25_StaticBodyGroup"]
+[node name="entity_24_mesh_instance" type="MeshInstance" parent="QodotMap/entity_24_StaticBodyGroup"]
 mesh = SubResource( 256 )
 
-[node name="entity_25_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_25_StaticBodyGroup"]
+[node name="entity_24_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_24_StaticBodyGroup"]
 shape = SubResource( 257 )
 
-[node name="entity_25_brush_1_collision_shape" type="CollisionShape" parent="QodotMap/entity_25_StaticBodyGroup"]
+[node name="entity_24_brush_1_collision_shape" type="CollisionShape" parent="QodotMap/entity_24_StaticBodyGroup"]
 shape = SubResource( 258 )
 
-[node name="entity_25_brush_2_collision_shape" type="CollisionShape" parent="QodotMap/entity_25_StaticBodyGroup"]
+[node name="entity_24_brush_2_collision_shape" type="CollisionShape" parent="QodotMap/entity_24_StaticBodyGroup"]
 shape = SubResource( 259 )
 
-[node name="entity_25_brush_3_collision_shape" type="CollisionShape" parent="QodotMap/entity_25_StaticBodyGroup"]
+[node name="entity_24_brush_3_collision_shape" type="CollisionShape" parent="QodotMap/entity_24_StaticBodyGroup"]
 shape = SubResource( 260 )
 
-[node name="entity_25_brush_4_collision_shape" type="CollisionShape" parent="QodotMap/entity_25_StaticBodyGroup"]
+[node name="entity_24_brush_4_collision_shape" type="CollisionShape" parent="QodotMap/entity_24_StaticBodyGroup"]
 shape = SubResource( 261 )
 
-[node name="entity_25_brush_5_collision_shape" type="CollisionShape" parent="QodotMap/entity_25_StaticBodyGroup"]
+[node name="entity_24_brush_5_collision_shape" type="CollisionShape" parent="QodotMap/entity_24_StaticBodyGroup"]
 shape = SubResource( 262 )
 
-[node name="entity_25_brush_6_collision_shape" type="CollisionShape" parent="QodotMap/entity_25_StaticBodyGroup"]
+[node name="entity_24_brush_6_collision_shape" type="CollisionShape" parent="QodotMap/entity_24_StaticBodyGroup"]
 shape = SubResource( 263 )
 
-[node name="entity_25_brush_7_collision_shape" type="CollisionShape" parent="QodotMap/entity_25_StaticBodyGroup"]
+[node name="entity_24_brush_7_collision_shape" type="CollisionShape" parent="QodotMap/entity_24_StaticBodyGroup"]
 shape = SubResource( 264 )
 
-[node name="entity_25_brush_8_collision_shape" type="CollisionShape" parent="QodotMap/entity_25_StaticBodyGroup"]
+[node name="entity_24_brush_8_collision_shape" type="CollisionShape" parent="QodotMap/entity_24_StaticBodyGroup"]
 shape = SubResource( 265 )
 
-[node name="entity_25_brush_9_collision_shape" type="CollisionShape" parent="QodotMap/entity_25_StaticBodyGroup"]
+[node name="entity_24_brush_9_collision_shape" type="CollisionShape" parent="QodotMap/entity_24_StaticBodyGroup"]
 shape = SubResource( 266 )
 
-[node name="entity_25_brush_10_collision_shape" type="CollisionShape" parent="QodotMap/entity_25_StaticBodyGroup"]
+[node name="entity_24_brush_10_collision_shape" type="CollisionShape" parent="QodotMap/entity_24_StaticBodyGroup"]
 shape = SubResource( 267 )
 
-[node name="entity_26_Checkpoints_Checkpoint" type="Area" parent="QodotMap"]
+[node name="entity_25_Checkpoints_Checkpoint" type="Area" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -122, 116, 58.5 )
 script = ExtResource( 6 )
 properties = {
@@ -2031,29 +2011,29 @@ properties = {
 "spawn_position": Vector3( 0, -6, 0 )
 }
 
-[node name="entity_26_mesh_instance" type="MeshInstance" parent="QodotMap/entity_26_Checkpoints_Checkpoint"]
+[node name="entity_25_mesh_instance" type="MeshInstance" parent="QodotMap/entity_25_Checkpoints_Checkpoint"]
 mesh = SubResource( 268 )
 
-[node name="entity_26_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_26_Checkpoints_Checkpoint"]
+[node name="entity_25_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_25_Checkpoints_Checkpoint"]
 shape = SubResource( 269 )
 
-[node name="entity_27_StaticBodyGroup" type="StaticBody" parent="QodotMap"]
+[node name="entity_26_StaticBodyGroup" type="StaticBody" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -121, 90.25, -55.25 )
 script = ExtResource( 15 )
 properties = {
 "classname": "StaticBodyGroup"
 }
 
-[node name="entity_27_mesh_instance" type="MeshInstance" parent="QodotMap/entity_27_StaticBodyGroup"]
+[node name="entity_26_mesh_instance" type="MeshInstance" parent="QodotMap/entity_26_StaticBodyGroup"]
 mesh = SubResource( 270 )
 
-[node name="entity_27_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_27_StaticBodyGroup"]
+[node name="entity_26_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_26_StaticBodyGroup"]
 shape = SubResource( 271 )
 
-[node name="entity_27_brush_1_collision_shape" type="CollisionShape" parent="QodotMap/entity_27_StaticBodyGroup"]
+[node name="entity_26_brush_1_collision_shape" type="CollisionShape" parent="QodotMap/entity_26_StaticBodyGroup"]
 shape = SubResource( 272 )
 
-[node name="entity_28_Checkpoints_Checkpoint" type="Area" parent="QodotMap"]
+[node name="entity_27_Checkpoints_Checkpoint" type="Area" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -121, 94, 3.5 )
 script = ExtResource( 6 )
 properties = {
@@ -2064,110 +2044,110 @@ properties = {
 "spawn_position": Vector3( 0, -6, 0 )
 }
 
-[node name="entity_28_mesh_instance" type="MeshInstance" parent="QodotMap/entity_28_Checkpoints_Checkpoint"]
+[node name="entity_27_mesh_instance" type="MeshInstance" parent="QodotMap/entity_27_Checkpoints_Checkpoint"]
 mesh = SubResource( 273 )
 
-[node name="entity_28_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_28_Checkpoints_Checkpoint"]
+[node name="entity_27_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_27_Checkpoints_Checkpoint"]
 shape = SubResource( 274 )
 
-[node name="entity_29_StaticBodyGroup" type="StaticBody" parent="QodotMap"]
+[node name="entity_28_StaticBodyGroup" type="StaticBody" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -86.75, 61.5, 99.5 )
 script = ExtResource( 15 )
 properties = {
 "classname": "StaticBodyGroup"
 }
 
-[node name="entity_29_mesh_instance" type="MeshInstance" parent="QodotMap/entity_29_StaticBodyGroup"]
+[node name="entity_28_mesh_instance" type="MeshInstance" parent="QodotMap/entity_28_StaticBodyGroup"]
 mesh = SubResource( 275 )
 
-[node name="entity_29_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_29_StaticBodyGroup"]
+[node name="entity_28_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_28_StaticBodyGroup"]
 shape = SubResource( 276 )
 
-[node name="entity_29_brush_1_collision_shape" type="CollisionShape" parent="QodotMap/entity_29_StaticBodyGroup"]
+[node name="entity_28_brush_1_collision_shape" type="CollisionShape" parent="QodotMap/entity_28_StaticBodyGroup"]
 shape = SubResource( 277 )
 
-[node name="entity_29_brush_2_collision_shape" type="CollisionShape" parent="QodotMap/entity_29_StaticBodyGroup"]
+[node name="entity_28_brush_2_collision_shape" type="CollisionShape" parent="QodotMap/entity_28_StaticBodyGroup"]
 shape = SubResource( 278 )
 
-[node name="entity_29_brush_3_collision_shape" type="CollisionShape" parent="QodotMap/entity_29_StaticBodyGroup"]
+[node name="entity_28_brush_3_collision_shape" type="CollisionShape" parent="QodotMap/entity_28_StaticBodyGroup"]
 shape = SubResource( 279 )
 
-[node name="entity_29_brush_4_collision_shape" type="CollisionShape" parent="QodotMap/entity_29_StaticBodyGroup"]
+[node name="entity_28_brush_4_collision_shape" type="CollisionShape" parent="QodotMap/entity_28_StaticBodyGroup"]
 shape = SubResource( 280 )
 
-[node name="entity_29_brush_5_collision_shape" type="CollisionShape" parent="QodotMap/entity_29_StaticBodyGroup"]
+[node name="entity_28_brush_5_collision_shape" type="CollisionShape" parent="QodotMap/entity_28_StaticBodyGroup"]
 shape = SubResource( 281 )
 
-[node name="entity_29_brush_6_collision_shape" type="CollisionShape" parent="QodotMap/entity_29_StaticBodyGroup"]
+[node name="entity_28_brush_6_collision_shape" type="CollisionShape" parent="QodotMap/entity_28_StaticBodyGroup"]
 shape = SubResource( 282 )
 
-[node name="entity_29_brush_7_collision_shape" type="CollisionShape" parent="QodotMap/entity_29_StaticBodyGroup"]
+[node name="entity_28_brush_7_collision_shape" type="CollisionShape" parent="QodotMap/entity_28_StaticBodyGroup"]
 shape = SubResource( 283 )
 
-[node name="entity_30_StaticBodyGroup" type="StaticBody" parent="QodotMap"]
+[node name="entity_29_StaticBodyGroup" type="StaticBody" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -237, 116.356, -25.5833 )
 script = ExtResource( 15 )
 properties = {
 "classname": "StaticBodyGroup"
 }
 
-[node name="entity_30_mesh_instance" type="MeshInstance" parent="QodotMap/entity_30_StaticBodyGroup"]
+[node name="entity_29_mesh_instance" type="MeshInstance" parent="QodotMap/entity_29_StaticBodyGroup"]
 mesh = SubResource( 284 )
 
-[node name="entity_30_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_30_StaticBodyGroup"]
+[node name="entity_29_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_29_StaticBodyGroup"]
 shape = SubResource( 285 )
 
-[node name="entity_30_brush_1_collision_shape" type="CollisionShape" parent="QodotMap/entity_30_StaticBodyGroup"]
+[node name="entity_29_brush_1_collision_shape" type="CollisionShape" parent="QodotMap/entity_29_StaticBodyGroup"]
 shape = SubResource( 286 )
 
-[node name="entity_30_brush_2_collision_shape" type="CollisionShape" parent="QodotMap/entity_30_StaticBodyGroup"]
+[node name="entity_29_brush_2_collision_shape" type="CollisionShape" parent="QodotMap/entity_29_StaticBodyGroup"]
 shape = SubResource( 287 )
 
-[node name="entity_31_StaticBodyGroup" type="StaticBody" parent="QodotMap"]
+[node name="entity_30_StaticBodyGroup" type="StaticBody" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -237, 73, 11 )
 script = ExtResource( 15 )
 properties = {
 "classname": "StaticBodyGroup"
 }
 
-[node name="entity_31_mesh_instance" type="MeshInstance" parent="QodotMap/entity_31_StaticBodyGroup"]
+[node name="entity_30_mesh_instance" type="MeshInstance" parent="QodotMap/entity_30_StaticBodyGroup"]
 mesh = SubResource( 288 )
 
-[node name="entity_31_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_31_StaticBodyGroup"]
+[node name="entity_30_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_30_StaticBodyGroup"]
 shape = SubResource( 289 )
 
-[node name="entity_32_StaticBodyGroup" type="StaticBody" parent="QodotMap"]
+[node name="entity_31_StaticBodyGroup" type="StaticBody" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -222.5, 135.643, -67.2857 )
 script = ExtResource( 15 )
 properties = {
 "classname": "StaticBodyGroup"
 }
 
-[node name="entity_32_mesh_instance" type="MeshInstance" parent="QodotMap/entity_32_StaticBodyGroup"]
+[node name="entity_31_mesh_instance" type="MeshInstance" parent="QodotMap/entity_31_StaticBodyGroup"]
 mesh = SubResource( 290 )
 
-[node name="entity_32_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_32_StaticBodyGroup"]
+[node name="entity_31_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_31_StaticBodyGroup"]
 shape = SubResource( 291 )
 
-[node name="entity_32_brush_1_collision_shape" type="CollisionShape" parent="QodotMap/entity_32_StaticBodyGroup"]
+[node name="entity_31_brush_1_collision_shape" type="CollisionShape" parent="QodotMap/entity_31_StaticBodyGroup"]
 shape = SubResource( 292 )
 
-[node name="entity_32_brush_2_collision_shape" type="CollisionShape" parent="QodotMap/entity_32_StaticBodyGroup"]
+[node name="entity_31_brush_2_collision_shape" type="CollisionShape" parent="QodotMap/entity_31_StaticBodyGroup"]
 shape = SubResource( 293 )
 
-[node name="entity_32_brush_3_collision_shape" type="CollisionShape" parent="QodotMap/entity_32_StaticBodyGroup"]
+[node name="entity_31_brush_3_collision_shape" type="CollisionShape" parent="QodotMap/entity_31_StaticBodyGroup"]
 shape = SubResource( 294 )
 
-[node name="entity_32_brush_4_collision_shape" type="CollisionShape" parent="QodotMap/entity_32_StaticBodyGroup"]
+[node name="entity_31_brush_4_collision_shape" type="CollisionShape" parent="QodotMap/entity_31_StaticBodyGroup"]
 shape = SubResource( 295 )
 
-[node name="entity_32_brush_5_collision_shape" type="CollisionShape" parent="QodotMap/entity_32_StaticBodyGroup"]
+[node name="entity_31_brush_5_collision_shape" type="CollisionShape" parent="QodotMap/entity_31_StaticBodyGroup"]
 shape = SubResource( 296 )
 
-[node name="entity_32_brush_6_collision_shape" type="CollisionShape" parent="QodotMap/entity_32_StaticBodyGroup"]
+[node name="entity_31_brush_6_collision_shape" type="CollisionShape" parent="QodotMap/entity_31_StaticBodyGroup"]
 shape = SubResource( 297 )
 
-[node name="entity_33_Checkpoints_Checkpoint" type="Area" parent="QodotMap"]
+[node name="entity_32_Checkpoints_Checkpoint" type="Area" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -237, 121, -42.5 )
 script = ExtResource( 6 )
 properties = {
@@ -2178,13 +2158,13 @@ properties = {
 "spawn_position": Vector3( 0, -6, 0 )
 }
 
-[node name="entity_33_mesh_instance" type="MeshInstance" parent="QodotMap/entity_33_Checkpoints_Checkpoint"]
+[node name="entity_32_mesh_instance" type="MeshInstance" parent="QodotMap/entity_32_Checkpoints_Checkpoint"]
 mesh = SubResource( 298 )
 
-[node name="entity_33_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_33_Checkpoints_Checkpoint"]
+[node name="entity_32_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_32_Checkpoints_Checkpoint"]
 shape = SubResource( 299 )
 
-[node name="entity_34_Checkpoints_Checkpoint" type="Area" parent="QodotMap"]
+[node name="entity_33_Checkpoints_Checkpoint" type="Area" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -237, 137, -11.5 )
 script = ExtResource( 6 )
 properties = {
@@ -2195,13 +2175,13 @@ properties = {
 "spawn_position": Vector3( 0, -6, 0 )
 }
 
-[node name="entity_34_mesh_instance" type="MeshInstance" parent="QodotMap/entity_34_Checkpoints_Checkpoint"]
+[node name="entity_33_mesh_instance" type="MeshInstance" parent="QodotMap/entity_33_Checkpoints_Checkpoint"]
 mesh = SubResource( 300 )
 
-[node name="entity_34_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_34_Checkpoints_Checkpoint"]
+[node name="entity_33_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_33_Checkpoints_Checkpoint"]
 shape = SubResource( 301 )
 
-[node name="entity_35_Stompers_StomperStepSequencer" type="Area" parent="QodotMap"]
+[node name="entity_34_Stompers_StomperStepSequencer" type="Area" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -56, 47.5, 18 )
 script = ExtResource( 16 )
 properties = {
@@ -2218,16 +2198,16 @@ properties = {
 "stomp_position": Vector3( 0, -12, 0 )
 }
 
-[node name="entity_35_mesh_instance" type="MeshInstance" parent="QodotMap/entity_35_Stompers_StomperStepSequencer"]
+[node name="entity_34_mesh_instance" type="MeshInstance" parent="QodotMap/entity_34_Stompers_StomperStepSequencer"]
 mesh = SubResource( 302 )
 
-[node name="entity_35_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_35_Stompers_StomperStepSequencer"]
+[node name="entity_34_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_34_Stompers_StomperStepSequencer"]
 shape = SubResource( 303 )
 
-[node name="entity_35_brush_1_collision_shape" type="CollisionShape" parent="QodotMap/entity_35_Stompers_StomperStepSequencer"]
+[node name="entity_34_brush_1_collision_shape" type="CollisionShape" parent="QodotMap/entity_34_Stompers_StomperStepSequencer"]
 shape = SubResource( 304 )
 
-[node name="entity_36_Stompers_StomperStepSequencer" type="Area" parent="QodotMap"]
+[node name="entity_35_Stompers_StomperStepSequencer" type="Area" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -56, 47.5, 30 )
 script = ExtResource( 16 )
 properties = {
@@ -2244,16 +2224,16 @@ properties = {
 "stomp_position": Vector3( 0, -12, 0 )
 }
 
-[node name="entity_36_mesh_instance" type="MeshInstance" parent="QodotMap/entity_36_Stompers_StomperStepSequencer"]
+[node name="entity_35_mesh_instance" type="MeshInstance" parent="QodotMap/entity_35_Stompers_StomperStepSequencer"]
 mesh = SubResource( 305 )
 
-[node name="entity_36_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_36_Stompers_StomperStepSequencer"]
+[node name="entity_35_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_35_Stompers_StomperStepSequencer"]
 shape = SubResource( 306 )
 
-[node name="entity_36_brush_1_collision_shape" type="CollisionShape" parent="QodotMap/entity_36_Stompers_StomperStepSequencer"]
+[node name="entity_35_brush_1_collision_shape" type="CollisionShape" parent="QodotMap/entity_35_Stompers_StomperStepSequencer"]
 shape = SubResource( 307 )
 
-[node name="entity_37_Stompers_StomperStepSequencer" type="Area" parent="QodotMap"]
+[node name="entity_36_Stompers_StomperStepSequencer" type="Area" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -56, 47.5, 42 )
 script = ExtResource( 16 )
 properties = {
@@ -2270,16 +2250,16 @@ properties = {
 "stomp_position": Vector3( 0, -12, 0 )
 }
 
-[node name="entity_37_mesh_instance" type="MeshInstance" parent="QodotMap/entity_37_Stompers_StomperStepSequencer"]
+[node name="entity_36_mesh_instance" type="MeshInstance" parent="QodotMap/entity_36_Stompers_StomperStepSequencer"]
 mesh = SubResource( 308 )
 
-[node name="entity_37_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_37_Stompers_StomperStepSequencer"]
+[node name="entity_36_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_36_Stompers_StomperStepSequencer"]
 shape = SubResource( 309 )
 
-[node name="entity_37_brush_1_collision_shape" type="CollisionShape" parent="QodotMap/entity_37_Stompers_StomperStepSequencer"]
+[node name="entity_36_brush_1_collision_shape" type="CollisionShape" parent="QodotMap/entity_36_Stompers_StomperStepSequencer"]
 shape = SubResource( 310 )
 
-[node name="entity_38_Stompers_StomperStepSequencer" type="Area" parent="QodotMap"]
+[node name="entity_37_Stompers_StomperStepSequencer" type="Area" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -56, 47.5, 54 )
 script = ExtResource( 16 )
 properties = {
@@ -2296,16 +2276,16 @@ properties = {
 "stomp_position": Vector3( 0, -12, 0 )
 }
 
-[node name="entity_38_mesh_instance" type="MeshInstance" parent="QodotMap/entity_38_Stompers_StomperStepSequencer"]
+[node name="entity_37_mesh_instance" type="MeshInstance" parent="QodotMap/entity_37_Stompers_StomperStepSequencer"]
 mesh = SubResource( 311 )
 
-[node name="entity_38_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_38_Stompers_StomperStepSequencer"]
+[node name="entity_37_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_37_Stompers_StomperStepSequencer"]
 shape = SubResource( 312 )
 
-[node name="entity_38_brush_1_collision_shape" type="CollisionShape" parent="QodotMap/entity_38_Stompers_StomperStepSequencer"]
+[node name="entity_37_brush_1_collision_shape" type="CollisionShape" parent="QodotMap/entity_37_Stompers_StomperStepSequencer"]
 shape = SubResource( 313 )
 
-[node name="entity_39_Portals_Portal" parent="QodotMap" instance=ExtResource( 22 )]
+[node name="entity_38_Portals_Portal" parent="QodotMap" instance=ExtResource( 22 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -121, 91, -76 )
 properties = {
 "classname": "Portals_Portal",
@@ -2318,7 +2298,7 @@ properties = {
 "targetname": "tp_1_entrance"
 }
 
-[node name="entity_40_Portals_Portal" parent="QodotMap" instance=ExtResource( 22 )]
+[node name="entity_39_Portals_Portal" parent="QodotMap" instance=ExtResource( 22 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -237.5, 118, -75 )
 properties = {
 "classname": "Portals_Portal",
@@ -2331,20 +2311,20 @@ properties = {
 "targetname": "tp_1_exit"
 }
 
-[node name="entity_41_StaticBodyGroup" type="StaticBody" parent="QodotMap"]
+[node name="entity_40_StaticBodyGroup" type="StaticBody" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -236.833, 111, 16.5 )
 script = ExtResource( 15 )
 properties = {
 "classname": "StaticBodyGroup"
 }
 
-[node name="entity_41_mesh_instance" type="MeshInstance" parent="QodotMap/entity_41_StaticBodyGroup"]
+[node name="entity_40_mesh_instance" type="MeshInstance" parent="QodotMap/entity_40_StaticBodyGroup"]
 mesh = SubResource( 314 )
 
-[node name="entity_41_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_41_StaticBodyGroup"]
+[node name="entity_40_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_40_StaticBodyGroup"]
 shape = SubResource( 315 )
 
-[node name="entity_42_Portals_Portal" parent="QodotMap" instance=ExtResource( 22 )]
+[node name="entity_41_Portals_Portal" parent="QodotMap" instance=ExtResource( 22 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -237, 79, 11 )
 properties = {
 "classname": "Portals_Portal",
@@ -2357,7 +2337,7 @@ properties = {
 "targetname": "tp_2_entrance"
 }
 
-[node name="entity_43_Portals_Portal" parent="QodotMap" instance=ExtResource( 22 )]
+[node name="entity_42_Portals_Portal" parent="QodotMap" instance=ExtResource( 22 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -237, 120, 43.5 )
 properties = {
 "classname": "Portals_Portal",
@@ -2370,43 +2350,43 @@ properties = {
 "targetname": "tp_2_exit"
 }
 
-[node name="entity_44_Checkpoints_End" type="Area" parent="QodotMap"]
+[node name="entity_43_Checkpoints_End" type="Area" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -158, 130, 2 )
 script = ExtResource( 24 )
 
-[node name="entity_44_mesh_instance" type="MeshInstance" parent="QodotMap/entity_44_Checkpoints_End"]
+[node name="entity_43_mesh_instance" type="MeshInstance" parent="QodotMap/entity_43_Checkpoints_End"]
 mesh = SubResource( 316 )
 
-[node name="entity_44_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_44_Checkpoints_End"]
+[node name="entity_43_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_43_Checkpoints_End"]
 shape = SubResource( 317 )
 
-[node name="entity_45_StaticBodyGroup" type="StaticBody" parent="QodotMap"]
+[node name="entity_44_StaticBodyGroup" type="StaticBody" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -174.317, 136.817, -72.5 )
 script = ExtResource( 15 )
 properties = {
 "classname": "StaticBodyGroup"
 }
 
-[node name="entity_45_mesh_instance" type="MeshInstance" parent="QodotMap/entity_45_StaticBodyGroup"]
+[node name="entity_44_mesh_instance" type="MeshInstance" parent="QodotMap/entity_44_StaticBodyGroup"]
 mesh = SubResource( 318 )
 
-[node name="entity_45_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_45_StaticBodyGroup"]
+[node name="entity_44_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_44_StaticBodyGroup"]
 shape = SubResource( 319 )
 
-[node name="entity_46_Boost_Pad" parent="QodotMap" instance=ExtResource( 8 )]
-transform = Transform( 0.866025, -0.5, 0, 0.5, 0.866025, 0, 0, 0, 1, -174.875, 138.375, -72.375 )
+[node name="entity_45_Boost_Pad" parent="QodotMap" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -174.875, 138.375, -72.375 )
 properties = {
-"angle": Vector3( 0, 0, 30 ),
 "classname": "Boost_Pad",
 "collision_layer": "2",
 "collision_mask": "5",
-"color": Color( 1, 1, 1, 1 ),
+"color": Color( 0, 1, 1, 1 ),
 "force": 19.0,
+"mangle": Vector3( -60, -90, 0 ),
 "origin": "-1158 -2798 2214",
 "size": Vector3( 1, 1, 1 )
 }
 
-[node name="entity_47_Stompers_StomperStepSequencer" type="Area" parent="QodotMap"]
+[node name="entity_46_Stompers_StomperStepSequencer" type="Area" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -225, 142.5, -73 )
 script = ExtResource( 16 )
 properties = {
@@ -2423,13 +2403,13 @@ properties = {
 "stomp_position": Vector3( 0, -12, 0 )
 }
 
-[node name="entity_47_mesh_instance" type="MeshInstance" parent="QodotMap/entity_47_Stompers_StomperStepSequencer"]
+[node name="entity_46_mesh_instance" type="MeshInstance" parent="QodotMap/entity_46_Stompers_StomperStepSequencer"]
 mesh = SubResource( 320 )
 
-[node name="entity_47_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_47_Stompers_StomperStepSequencer"]
+[node name="entity_46_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_46_Stompers_StomperStepSequencer"]
 shape = SubResource( 321 )
 
-[node name="entity_48_Stompers_StomperStepSequencer" type="Area" parent="QodotMap"]
+[node name="entity_47_Stompers_StomperStepSequencer" type="Area" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -213, 142.5, -73 )
 script = ExtResource( 16 )
 properties = {
@@ -2446,39 +2426,39 @@ properties = {
 "stomp_position": Vector3( 0, -12, 0 )
 }
 
-[node name="entity_48_mesh_instance" type="MeshInstance" parent="QodotMap/entity_48_Stompers_StomperStepSequencer"]
+[node name="entity_47_mesh_instance" type="MeshInstance" parent="QodotMap/entity_47_Stompers_StomperStepSequencer"]
 mesh = SubResource( 322 )
 
-[node name="entity_48_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_48_Stompers_StomperStepSequencer"]
+[node name="entity_47_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_47_Stompers_StomperStepSequencer"]
 shape = SubResource( 323 )
 
-[node name="entity_49_StaticBodyGroup" type="StaticBody" parent="QodotMap"]
+[node name="entity_48_StaticBodyGroup" type="StaticBody" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -206.683, 147.817, -72.5 )
 script = ExtResource( 15 )
 properties = {
 "classname": "StaticBodyGroup"
 }
 
-[node name="entity_49_mesh_instance" type="MeshInstance" parent="QodotMap/entity_49_StaticBodyGroup"]
+[node name="entity_48_mesh_instance" type="MeshInstance" parent="QodotMap/entity_48_StaticBodyGroup"]
 mesh = SubResource( 324 )
 
-[node name="entity_49_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_49_StaticBodyGroup"]
+[node name="entity_48_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_48_StaticBodyGroup"]
 shape = SubResource( 325 )
 
-[node name="entity_50_Boost_Pad" parent="QodotMap" instance=ExtResource( 8 )]
-transform = Transform( 0.866025, 0.5, 0, -0.5, 0.866025, 0, 0, 0, 1, -206.125, 149.375, -72.625 )
+[node name="entity_49_Boost_Pad" parent="QodotMap" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -206.125, 149.375, -72.625 )
 properties = {
-"angle": Vector3( 0, 0, -30 ),
 "classname": "Boost_Pad",
 "collision_layer": "2",
 "collision_mask": "5",
 "color": Color( 0, 1, 1, 1 ),
 "force": 22.0,
+"mangle": Vector3( -60, 90, 0 ),
 "origin": "-1162 -3298 2390",
 "size": Vector3( 1, 1, 1 )
 }
 
-[node name="entity_51_Portals_Portal" parent="QodotMap" instance=ExtResource( 22 )]
+[node name="entity_50_Portals_Portal" parent="QodotMap" instance=ExtResource( 22 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -161.5, 167.5, -72.5 )
 properties = {
 "classname": "Portals_Portal",
@@ -2491,7 +2471,7 @@ properties = {
 "targetname": "tp_3_entrance"
 }
 
-[node name="entity_52_Checkpoints_Checkpoint" type="Area" parent="QodotMap"]
+[node name="entity_51_Checkpoints_Checkpoint" type="Area" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -205.5, 137, -73 )
 script = ExtResource( 6 )
 properties = {
@@ -2502,13 +2482,13 @@ properties = {
 "spawn_position": Vector3( 0, -6, 0 )
 }
 
-[node name="entity_52_mesh_instance" type="MeshInstance" parent="QodotMap/entity_52_Checkpoints_Checkpoint"]
+[node name="entity_51_mesh_instance" type="MeshInstance" parent="QodotMap/entity_51_Checkpoints_Checkpoint"]
 mesh = SubResource( 326 )
 
-[node name="entity_52_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_52_Checkpoints_Checkpoint"]
+[node name="entity_51_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_51_Checkpoints_Checkpoint"]
 shape = SubResource( 327 )
 
-[node name="entity_53_Portals_Portal" parent="QodotMap" instance=ExtResource( 22 )]
+[node name="entity_52_Portals_Portal" parent="QodotMap" instance=ExtResource( 22 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -83.5, 186.5, -73.5 )
 properties = {
 "classname": "Portals_Portal",
@@ -2521,7 +2501,7 @@ properties = {
 "targetname": "tp_3_exit"
 }
 
-[node name="entity_54_Portals_Portal" parent="QodotMap" instance=ExtResource( 22 )]
+[node name="entity_53_Portals_Portal" parent="QodotMap" instance=ExtResource( 22 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -158, 232.5, 2 )
 properties = {
 "classname": "Portals_Portal",
@@ -2534,20 +2514,20 @@ properties = {
 "targetname": "tp_4_exit"
 }
 
-[node name="entity_55_Boost_Pad" parent="QodotMap" instance=ExtResource( 8 )]
-transform = Transform( -1, -6.18172e-08, -6.18172e-08, 0, 0.707107, -0.707107, 8.74228e-08, -0.707107, -0.707107, -122.875, 75.125, 45.125 )
+[node name="entity_54_Boost_Pad" parent="QodotMap" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -122.875, 75.125, 45.125 )
 properties = {
-"angle": Vector3( 45, 180, 0 ),
 "classname": "Boost_Pad",
 "collision_layer": "2",
 "collision_mask": "5",
 "color": Color( 0, 0.607843, 1, 1 ),
 "force": 20.0,
+"mangle": Vector3( -45, 180, 0 ),
 "origin": "722 -1966 1202",
 "size": Vector3( 5, 5, 5 )
 }
 
-[node name="entity_56_Lasers_Laser" parent="QodotMap" instance=ExtResource( 23 )]
+[node name="entity_55_Lasers_Laser" parent="QodotMap" instance=ExtResource( 23 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -120.5, 109.5, 49.5 )
 properties = {
 "classname": "Lasers_Laser",
@@ -2560,7 +2540,7 @@ properties = {
 "thickness": 0.1
 }
 
-[node name="entity_57_Lasers_Laser" parent="QodotMap" instance=ExtResource( 23 )]
+[node name="entity_56_Lasers_Laser" parent="QodotMap" instance=ExtResource( 23 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -118.5, 109.5, 49.5 )
 properties = {
 "classname": "Lasers_Laser",
@@ -2573,7 +2553,7 @@ properties = {
 "thickness": 0.1
 }
 
-[node name="entity_58_Lasers_Laser" parent="QodotMap" instance=ExtResource( 23 )]
+[node name="entity_57_Lasers_Laser" parent="QodotMap" instance=ExtResource( 23 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -116.5, 109.5, 49.5 )
 properties = {
 "classname": "Lasers_Laser",
@@ -2586,7 +2566,7 @@ properties = {
 "thickness": 0.1
 }
 
-[node name="entity_59_Lasers_Laser" parent="QodotMap" instance=ExtResource( 23 )]
+[node name="entity_58_Lasers_Laser" parent="QodotMap" instance=ExtResource( 23 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -117.5, 109.5, 49.5 )
 properties = {
 "classname": "Lasers_Laser",
@@ -2599,7 +2579,7 @@ properties = {
 "thickness": 0.1
 }
 
-[node name="entity_60_Lasers_Laser" parent="QodotMap" instance=ExtResource( 23 )]
+[node name="entity_59_Lasers_Laser" parent="QodotMap" instance=ExtResource( 23 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -119.5, 109.5, 49.5 )
 properties = {
 "classname": "Lasers_Laser",
@@ -2612,7 +2592,7 @@ properties = {
 "thickness": 0.1
 }
 
-[node name="entity_61_Lasers_Laser" parent="QodotMap" instance=ExtResource( 23 )]
+[node name="entity_60_Lasers_Laser" parent="QodotMap" instance=ExtResource( 23 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -116.5, 98.5, 47.5 )
 properties = {
 "classname": "Lasers_Laser",
@@ -2625,7 +2605,7 @@ properties = {
 "thickness": 0.1
 }
 
-[node name="entity_62_Lasers_Laser" parent="QodotMap" instance=ExtResource( 23 )]
+[node name="entity_61_Lasers_Laser" parent="QodotMap" instance=ExtResource( 23 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -116.5, 98.5, 45.5 )
 properties = {
 "classname": "Lasers_Laser",
@@ -2638,7 +2618,7 @@ properties = {
 "thickness": 0.1
 }
 
-[node name="entity_63_Lasers_Laser" parent="QodotMap" instance=ExtResource( 23 )]
+[node name="entity_62_Lasers_Laser" parent="QodotMap" instance=ExtResource( 23 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -116.5, 98.5, 46.5003 )
 properties = {
 "classname": "Lasers_Laser",
@@ -2651,7 +2631,7 @@ properties = {
 "thickness": 0.1
 }
 
-[node name="entity_64_Lasers_Laser" parent="QodotMap" instance=ExtResource( 23 )]
+[node name="entity_63_Lasers_Laser" parent="QodotMap" instance=ExtResource( 23 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -116.5, 98.5, 48.5001 )
 properties = {
 "classname": "Lasers_Laser",
@@ -2664,7 +2644,7 @@ properties = {
 "thickness": 0.1
 }
 
-[node name="entity_65_Lasers_Laser" parent="QodotMap" instance=ExtResource( 23 )]
+[node name="entity_64_Lasers_Laser" parent="QodotMap" instance=ExtResource( 23 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -116.5, 98.5, 49.4997 )
 properties = {
 "classname": "Lasers_Laser",
@@ -2677,7 +2657,7 @@ properties = {
 "thickness": 0.1
 }
 
-[node name="entity_66_Lasers_Laser" parent="QodotMap" instance=ExtResource( 23 )]
+[node name="entity_65_Lasers_Laser" parent="QodotMap" instance=ExtResource( 23 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -118.5, 91.5, 38.5 )
 properties = {
 "classname": "Lasers_Laser",
@@ -2690,7 +2670,7 @@ properties = {
 "thickness": 0.1
 }
 
-[node name="entity_67_Lasers_Laser" parent="QodotMap" instance=ExtResource( 23 )]
+[node name="entity_66_Lasers_Laser" parent="QodotMap" instance=ExtResource( 23 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -120.5, 91.5, 38.5 )
 properties = {
 "classname": "Lasers_Laser",
@@ -2703,7 +2683,7 @@ properties = {
 "thickness": 0.1
 }
 
-[node name="entity_68_Lasers_Laser" parent="QodotMap" instance=ExtResource( 23 )]
+[node name="entity_67_Lasers_Laser" parent="QodotMap" instance=ExtResource( 23 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -119.5, 91.5, 38.5 )
 properties = {
 "classname": "Lasers_Laser",
@@ -2716,7 +2696,7 @@ properties = {
 "thickness": 0.1
 }
 
-[node name="entity_69_Lasers_Laser" parent="QodotMap" instance=ExtResource( 23 )]
+[node name="entity_68_Lasers_Laser" parent="QodotMap" instance=ExtResource( 23 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -117.5, 91.5, 38.5 )
 properties = {
 "classname": "Lasers_Laser",
@@ -2729,7 +2709,7 @@ properties = {
 "thickness": 0.1
 }
 
-[node name="entity_70_Lasers_Laser" parent="QodotMap" instance=ExtResource( 23 )]
+[node name="entity_69_Lasers_Laser" parent="QodotMap" instance=ExtResource( 23 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -116.5, 91.5, 38.5 )
 properties = {
 "classname": "Lasers_Laser",
@@ -2742,7 +2722,7 @@ properties = {
 "thickness": 0.1
 }
 
-[node name="entity_71_Checkpoints_Checkpoint" type="Area" parent="QodotMap"]
+[node name="entity_70_Checkpoints_Checkpoint" type="Area" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -55, 68.5, 87.5 )
 script = ExtResource( 6 )
 properties = {
@@ -2753,13 +2733,13 @@ properties = {
 "spawn_position": Vector3( 0, -6, 0 )
 }
 
-[node name="entity_71_mesh_instance" type="MeshInstance" parent="QodotMap/entity_71_Checkpoints_Checkpoint"]
+[node name="entity_70_mesh_instance" type="MeshInstance" parent="QodotMap/entity_70_Checkpoints_Checkpoint"]
 mesh = SubResource( 328 )
 
-[node name="entity_71_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_71_Checkpoints_Checkpoint"]
+[node name="entity_70_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_70_Checkpoints_Checkpoint"]
 shape = SubResource( 329 )
 
-[node name="entity_72_RythmElements_Sequencers_Static" type="StaticBody" parent="QodotMap"]
+[node name="entity_71_RythmElements_Sequencers_Static" type="StaticBody" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -158, 143.333, 11.3333 )
 script = ExtResource( 19 )
 properties = {
@@ -2772,13 +2752,13 @@ properties = {
 "sequencer_data_path": "res://Game/Scenes/Levels/Level4/Data/StepSequencerData/cube.tres"
 }
 
-[node name="entity_72_mesh_instance" type="MeshInstance" parent="QodotMap/entity_72_RythmElements_Sequencers_Static"]
+[node name="entity_71_mesh_instance" type="MeshInstance" parent="QodotMap/entity_71_RythmElements_Sequencers_Static"]
 mesh = SubResource( 330 )
 
-[node name="entity_72_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_72_RythmElements_Sequencers_Static"]
+[node name="entity_71_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_71_RythmElements_Sequencers_Static"]
 shape = SubResource( 331 )
 
-[node name="entity_73_RythmElements_Sequencers_Static" type="StaticBody" parent="QodotMap"]
+[node name="entity_72_RythmElements_Sequencers_Static" type="StaticBody" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -148.667, 143.333, 11.3333 )
 script = ExtResource( 19 )
 properties = {
@@ -2791,13 +2771,13 @@ properties = {
 "sequencer_data_path": "res://Game/Scenes/Levels/Level4/Data/StepSequencerData/cube.tres"
 }
 
-[node name="entity_73_mesh_instance" type="MeshInstance" parent="QodotMap/entity_73_RythmElements_Sequencers_Static"]
+[node name="entity_72_mesh_instance" type="MeshInstance" parent="QodotMap/entity_72_RythmElements_Sequencers_Static"]
 mesh = SubResource( 332 )
 
-[node name="entity_73_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_73_RythmElements_Sequencers_Static"]
+[node name="entity_72_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_72_RythmElements_Sequencers_Static"]
 shape = SubResource( 333 )
 
-[node name="entity_74_RythmElements_Sequencers_Static" type="StaticBody" parent="QodotMap"]
+[node name="entity_73_RythmElements_Sequencers_Static" type="StaticBody" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -148.667, 143.333, 2 )
 script = ExtResource( 19 )
 properties = {
@@ -2810,13 +2790,13 @@ properties = {
 "sequencer_data_path": "res://Game/Scenes/Levels/Level4/Data/StepSequencerData/cube.tres"
 }
 
-[node name="entity_74_mesh_instance" type="MeshInstance" parent="QodotMap/entity_74_RythmElements_Sequencers_Static"]
+[node name="entity_73_mesh_instance" type="MeshInstance" parent="QodotMap/entity_73_RythmElements_Sequencers_Static"]
 mesh = SubResource( 334 )
 
-[node name="entity_74_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_74_RythmElements_Sequencers_Static"]
+[node name="entity_73_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_73_RythmElements_Sequencers_Static"]
 shape = SubResource( 335 )
 
-[node name="entity_75_RythmElements_Sequencers_Static" type="StaticBody" parent="QodotMap"]
+[node name="entity_74_RythmElements_Sequencers_Static" type="StaticBody" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -148.667, 143.333, -7.33333 )
 script = ExtResource( 19 )
 properties = {
@@ -2829,13 +2809,13 @@ properties = {
 "sequencer_data_path": "res://Game/Scenes/Levels/Level4/Data/StepSequencerData/cube.tres"
 }
 
-[node name="entity_75_mesh_instance" type="MeshInstance" parent="QodotMap/entity_75_RythmElements_Sequencers_Static"]
+[node name="entity_74_mesh_instance" type="MeshInstance" parent="QodotMap/entity_74_RythmElements_Sequencers_Static"]
 mesh = SubResource( 336 )
 
-[node name="entity_75_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_75_RythmElements_Sequencers_Static"]
+[node name="entity_74_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_74_RythmElements_Sequencers_Static"]
 shape = SubResource( 337 )
 
-[node name="entity_76_RythmElements_Sequencers_Static" type="StaticBody" parent="QodotMap"]
+[node name="entity_75_RythmElements_Sequencers_Static" type="StaticBody" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -158, 143.333, -7.33333 )
 script = ExtResource( 19 )
 properties = {
@@ -2848,13 +2828,13 @@ properties = {
 "sequencer_data_path": "res://Game/Scenes/Levels/Level4/Data/StepSequencerData/cube.tres"
 }
 
-[node name="entity_76_mesh_instance" type="MeshInstance" parent="QodotMap/entity_76_RythmElements_Sequencers_Static"]
+[node name="entity_75_mesh_instance" type="MeshInstance" parent="QodotMap/entity_75_RythmElements_Sequencers_Static"]
 mesh = SubResource( 338 )
 
-[node name="entity_76_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_76_RythmElements_Sequencers_Static"]
+[node name="entity_75_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_75_RythmElements_Sequencers_Static"]
 shape = SubResource( 339 )
 
-[node name="entity_77_RythmElements_Sequencers_Static" type="StaticBody" parent="QodotMap"]
+[node name="entity_76_RythmElements_Sequencers_Static" type="StaticBody" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -167.333, 143.333, -7.33333 )
 script = ExtResource( 19 )
 properties = {
@@ -2867,13 +2847,13 @@ properties = {
 "sequencer_data_path": "res://Game/Scenes/Levels/Level4/Data/StepSequencerData/cube.tres"
 }
 
-[node name="entity_77_mesh_instance" type="MeshInstance" parent="QodotMap/entity_77_RythmElements_Sequencers_Static"]
+[node name="entity_76_mesh_instance" type="MeshInstance" parent="QodotMap/entity_76_RythmElements_Sequencers_Static"]
 mesh = SubResource( 340 )
 
-[node name="entity_77_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_77_RythmElements_Sequencers_Static"]
+[node name="entity_76_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_76_RythmElements_Sequencers_Static"]
 shape = SubResource( 341 )
 
-[node name="entity_78_RythmElements_Sequencers_Static" type="StaticBody" parent="QodotMap"]
+[node name="entity_77_RythmElements_Sequencers_Static" type="StaticBody" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -167.333, 143.333, 2 )
 script = ExtResource( 19 )
 properties = {
@@ -2886,13 +2866,13 @@ properties = {
 "sequencer_data_path": "res://Game/Scenes/Levels/Level4/Data/StepSequencerData/cube.tres"
 }
 
-[node name="entity_78_mesh_instance" type="MeshInstance" parent="QodotMap/entity_78_RythmElements_Sequencers_Static"]
+[node name="entity_77_mesh_instance" type="MeshInstance" parent="QodotMap/entity_77_RythmElements_Sequencers_Static"]
 mesh = SubResource( 342 )
 
-[node name="entity_78_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_78_RythmElements_Sequencers_Static"]
+[node name="entity_77_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_77_RythmElements_Sequencers_Static"]
 shape = SubResource( 343 )
 
-[node name="entity_79_RythmElements_Sequencers_Static" type="StaticBody" parent="QodotMap"]
+[node name="entity_78_RythmElements_Sequencers_Static" type="StaticBody" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -167.333, 143.333, 11.3333 )
 script = ExtResource( 19 )
 properties = {
@@ -2905,13 +2885,13 @@ properties = {
 "sequencer_data_path": "res://Game/Scenes/Levels/Level4/Data/StepSequencerData/cube.tres"
 }
 
-[node name="entity_79_mesh_instance" type="MeshInstance" parent="QodotMap/entity_79_RythmElements_Sequencers_Static"]
+[node name="entity_78_mesh_instance" type="MeshInstance" parent="QodotMap/entity_78_RythmElements_Sequencers_Static"]
 mesh = SubResource( 344 )
 
-[node name="entity_79_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_79_RythmElements_Sequencers_Static"]
+[node name="entity_78_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_78_RythmElements_Sequencers_Static"]
 shape = SubResource( 345 )
 
-[node name="entity_80_RythmElements_Sequencers_Static" type="StaticBody" parent="QodotMap"]
+[node name="entity_79_RythmElements_Sequencers_Static" type="StaticBody" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -148.667, 134, 11.3333 )
 script = ExtResource( 19 )
 properties = {
@@ -2924,13 +2904,13 @@ properties = {
 "sequencer_data_path": "res://Game/Scenes/Levels/Level4/Data/StepSequencerData/cube.tres"
 }
 
-[node name="entity_80_mesh_instance" type="MeshInstance" parent="QodotMap/entity_80_RythmElements_Sequencers_Static"]
+[node name="entity_79_mesh_instance" type="MeshInstance" parent="QodotMap/entity_79_RythmElements_Sequencers_Static"]
 mesh = SubResource( 346 )
 
-[node name="entity_80_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_80_RythmElements_Sequencers_Static"]
+[node name="entity_79_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_79_RythmElements_Sequencers_Static"]
 shape = SubResource( 347 )
 
-[node name="entity_81_RythmElements_Sequencers_Static" type="StaticBody" parent="QodotMap"]
+[node name="entity_80_RythmElements_Sequencers_Static" type="StaticBody" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -158, 134, 11.3333 )
 script = ExtResource( 19 )
 properties = {
@@ -2943,13 +2923,13 @@ properties = {
 "sequencer_data_path": "res://Game/Scenes/Levels/Level4/Data/StepSequencerData/cube.tres"
 }
 
-[node name="entity_81_mesh_instance" type="MeshInstance" parent="QodotMap/entity_81_RythmElements_Sequencers_Static"]
+[node name="entity_80_mesh_instance" type="MeshInstance" parent="QodotMap/entity_80_RythmElements_Sequencers_Static"]
 mesh = SubResource( 348 )
 
-[node name="entity_81_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_81_RythmElements_Sequencers_Static"]
+[node name="entity_80_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_80_RythmElements_Sequencers_Static"]
 shape = SubResource( 349 )
 
-[node name="entity_82_RythmElements_Sequencers_Static" type="StaticBody" parent="QodotMap"]
+[node name="entity_81_RythmElements_Sequencers_Static" type="StaticBody" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -167.333, 134, 11.3333 )
 script = ExtResource( 19 )
 properties = {
@@ -2962,13 +2942,13 @@ properties = {
 "sequencer_data_path": "res://Game/Scenes/Levels/Level4/Data/StepSequencerData/cube.tres"
 }
 
-[node name="entity_82_mesh_instance" type="MeshInstance" parent="QodotMap/entity_82_RythmElements_Sequencers_Static"]
+[node name="entity_81_mesh_instance" type="MeshInstance" parent="QodotMap/entity_81_RythmElements_Sequencers_Static"]
 mesh = SubResource( 350 )
 
-[node name="entity_82_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_82_RythmElements_Sequencers_Static"]
+[node name="entity_81_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_81_RythmElements_Sequencers_Static"]
 shape = SubResource( 351 )
 
-[node name="entity_83_RythmElements_Sequencers_Static" type="StaticBody" parent="QodotMap"]
+[node name="entity_82_RythmElements_Sequencers_Static" type="StaticBody" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -167.333, 134, 2 )
 script = ExtResource( 19 )
 properties = {
@@ -2981,13 +2961,13 @@ properties = {
 "sequencer_data_path": "res://Game/Scenes/Levels/Level4/Data/StepSequencerData/cube.tres"
 }
 
-[node name="entity_83_mesh_instance" type="MeshInstance" parent="QodotMap/entity_83_RythmElements_Sequencers_Static"]
+[node name="entity_82_mesh_instance" type="MeshInstance" parent="QodotMap/entity_82_RythmElements_Sequencers_Static"]
 mesh = SubResource( 352 )
 
-[node name="entity_83_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_83_RythmElements_Sequencers_Static"]
+[node name="entity_82_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_82_RythmElements_Sequencers_Static"]
 shape = SubResource( 353 )
 
-[node name="entity_84_RythmElements_Sequencers_Static" type="StaticBody" parent="QodotMap"]
+[node name="entity_83_RythmElements_Sequencers_Static" type="StaticBody" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -167.333, 134, -7.33333 )
 script = ExtResource( 19 )
 properties = {
@@ -3000,13 +2980,13 @@ properties = {
 "sequencer_data_path": "res://Game/Scenes/Levels/Level4/Data/StepSequencerData/cube.tres"
 }
 
-[node name="entity_84_mesh_instance" type="MeshInstance" parent="QodotMap/entity_84_RythmElements_Sequencers_Static"]
+[node name="entity_83_mesh_instance" type="MeshInstance" parent="QodotMap/entity_83_RythmElements_Sequencers_Static"]
 mesh = SubResource( 354 )
 
-[node name="entity_84_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_84_RythmElements_Sequencers_Static"]
+[node name="entity_83_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_83_RythmElements_Sequencers_Static"]
 shape = SubResource( 355 )
 
-[node name="entity_85_RythmElements_Sequencers_Static" type="StaticBody" parent="QodotMap"]
+[node name="entity_84_RythmElements_Sequencers_Static" type="StaticBody" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -158, 134, -7.33333 )
 script = ExtResource( 19 )
 properties = {
@@ -3019,13 +2999,13 @@ properties = {
 "sequencer_data_path": "res://Game/Scenes/Levels/Level4/Data/StepSequencerData/cube.tres"
 }
 
-[node name="entity_85_mesh_instance" type="MeshInstance" parent="QodotMap/entity_85_RythmElements_Sequencers_Static"]
+[node name="entity_84_mesh_instance" type="MeshInstance" parent="QodotMap/entity_84_RythmElements_Sequencers_Static"]
 mesh = SubResource( 356 )
 
-[node name="entity_85_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_85_RythmElements_Sequencers_Static"]
+[node name="entity_84_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_84_RythmElements_Sequencers_Static"]
 shape = SubResource( 357 )
 
-[node name="entity_86_RythmElements_Sequencers_Static" type="StaticBody" parent="QodotMap"]
+[node name="entity_85_RythmElements_Sequencers_Static" type="StaticBody" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -148.667, 134, -7.33333 )
 script = ExtResource( 19 )
 properties = {
@@ -3038,13 +3018,13 @@ properties = {
 "sequencer_data_path": "res://Game/Scenes/Levels/Level4/Data/StepSequencerData/cube.tres"
 }
 
-[node name="entity_86_mesh_instance" type="MeshInstance" parent="QodotMap/entity_86_RythmElements_Sequencers_Static"]
+[node name="entity_85_mesh_instance" type="MeshInstance" parent="QodotMap/entity_85_RythmElements_Sequencers_Static"]
 mesh = SubResource( 358 )
 
-[node name="entity_86_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_86_RythmElements_Sequencers_Static"]
+[node name="entity_85_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_85_RythmElements_Sequencers_Static"]
 shape = SubResource( 359 )
 
-[node name="entity_87_RythmElements_Sequencers_Static" type="StaticBody" parent="QodotMap"]
+[node name="entity_86_RythmElements_Sequencers_Static" type="StaticBody" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -148.667, 134, 2 )
 script = ExtResource( 19 )
 properties = {
@@ -3057,13 +3037,13 @@ properties = {
 "sequencer_data_path": "res://Game/Scenes/Levels/Level4/Data/StepSequencerData/cube.tres"
 }
 
-[node name="entity_87_mesh_instance" type="MeshInstance" parent="QodotMap/entity_87_RythmElements_Sequencers_Static"]
+[node name="entity_86_mesh_instance" type="MeshInstance" parent="QodotMap/entity_86_RythmElements_Sequencers_Static"]
 mesh = SubResource( 360 )
 
-[node name="entity_87_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_87_RythmElements_Sequencers_Static"]
+[node name="entity_86_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_86_RythmElements_Sequencers_Static"]
 shape = SubResource( 361 )
 
-[node name="entity_88_RythmElements_Sequencers_Static" type="StaticBody" parent="QodotMap"]
+[node name="entity_87_RythmElements_Sequencers_Static" type="StaticBody" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -148.667, 124.667, 11.3333 )
 script = ExtResource( 19 )
 properties = {
@@ -3076,13 +3056,13 @@ properties = {
 "sequencer_data_path": "res://Game/Scenes/Levels/Level4/Data/StepSequencerData/cube.tres"
 }
 
-[node name="entity_88_mesh_instance" type="MeshInstance" parent="QodotMap/entity_88_RythmElements_Sequencers_Static"]
+[node name="entity_87_mesh_instance" type="MeshInstance" parent="QodotMap/entity_87_RythmElements_Sequencers_Static"]
 mesh = SubResource( 362 )
 
-[node name="entity_88_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_88_RythmElements_Sequencers_Static"]
+[node name="entity_87_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_87_RythmElements_Sequencers_Static"]
 shape = SubResource( 363 )
 
-[node name="entity_89_RythmElements_Sequencers_Static" type="StaticBody" parent="QodotMap"]
+[node name="entity_88_RythmElements_Sequencers_Static" type="StaticBody" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -158, 124.667, 11.3333 )
 script = ExtResource( 19 )
 properties = {
@@ -3095,13 +3075,13 @@ properties = {
 "sequencer_data_path": "res://Game/Scenes/Levels/Level4/Data/StepSequencerData/cube.tres"
 }
 
-[node name="entity_89_mesh_instance" type="MeshInstance" parent="QodotMap/entity_89_RythmElements_Sequencers_Static"]
+[node name="entity_88_mesh_instance" type="MeshInstance" parent="QodotMap/entity_88_RythmElements_Sequencers_Static"]
 mesh = SubResource( 364 )
 
-[node name="entity_89_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_89_RythmElements_Sequencers_Static"]
+[node name="entity_88_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_88_RythmElements_Sequencers_Static"]
 shape = SubResource( 365 )
 
-[node name="entity_90_RythmElements_Sequencers_Static" type="StaticBody" parent="QodotMap"]
+[node name="entity_89_RythmElements_Sequencers_Static" type="StaticBody" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -167.333, 124.667, 11.3333 )
 script = ExtResource( 19 )
 properties = {
@@ -3114,13 +3094,13 @@ properties = {
 "sequencer_data_path": "res://Game/Scenes/Levels/Level4/Data/StepSequencerData/cube.tres"
 }
 
-[node name="entity_90_mesh_instance" type="MeshInstance" parent="QodotMap/entity_90_RythmElements_Sequencers_Static"]
+[node name="entity_89_mesh_instance" type="MeshInstance" parent="QodotMap/entity_89_RythmElements_Sequencers_Static"]
 mesh = SubResource( 366 )
 
-[node name="entity_90_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_90_RythmElements_Sequencers_Static"]
+[node name="entity_89_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_89_RythmElements_Sequencers_Static"]
 shape = SubResource( 367 )
 
-[node name="entity_91_RythmElements_Sequencers_Static" type="StaticBody" parent="QodotMap"]
+[node name="entity_90_RythmElements_Sequencers_Static" type="StaticBody" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -167.333, 124.667, 2 )
 script = ExtResource( 19 )
 properties = {
@@ -3133,13 +3113,13 @@ properties = {
 "sequencer_data_path": "res://Game/Scenes/Levels/Level4/Data/StepSequencerData/cube.tres"
 }
 
-[node name="entity_91_mesh_instance" type="MeshInstance" parent="QodotMap/entity_91_RythmElements_Sequencers_Static"]
+[node name="entity_90_mesh_instance" type="MeshInstance" parent="QodotMap/entity_90_RythmElements_Sequencers_Static"]
 mesh = SubResource( 368 )
 
-[node name="entity_91_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_91_RythmElements_Sequencers_Static"]
+[node name="entity_90_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_90_RythmElements_Sequencers_Static"]
 shape = SubResource( 369 )
 
-[node name="entity_92_RythmElements_Sequencers_Static" type="StaticBody" parent="QodotMap"]
+[node name="entity_91_RythmElements_Sequencers_Static" type="StaticBody" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -167.333, 124.667, -7.33333 )
 script = ExtResource( 19 )
 properties = {
@@ -3152,13 +3132,13 @@ properties = {
 "sequencer_data_path": "res://Game/Scenes/Levels/Level4/Data/StepSequencerData/cube.tres"
 }
 
-[node name="entity_92_mesh_instance" type="MeshInstance" parent="QodotMap/entity_92_RythmElements_Sequencers_Static"]
+[node name="entity_91_mesh_instance" type="MeshInstance" parent="QodotMap/entity_91_RythmElements_Sequencers_Static"]
 mesh = SubResource( 370 )
 
-[node name="entity_92_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_92_RythmElements_Sequencers_Static"]
+[node name="entity_91_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_91_RythmElements_Sequencers_Static"]
 shape = SubResource( 371 )
 
-[node name="entity_93_RythmElements_Sequencers_Static" type="StaticBody" parent="QodotMap"]
+[node name="entity_92_RythmElements_Sequencers_Static" type="StaticBody" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -158, 124.667, -7.33333 )
 script = ExtResource( 19 )
 properties = {
@@ -3171,13 +3151,13 @@ properties = {
 "sequencer_data_path": "res://Game/Scenes/Levels/Level4/Data/StepSequencerData/cube.tres"
 }
 
-[node name="entity_93_mesh_instance" type="MeshInstance" parent="QodotMap/entity_93_RythmElements_Sequencers_Static"]
+[node name="entity_92_mesh_instance" type="MeshInstance" parent="QodotMap/entity_92_RythmElements_Sequencers_Static"]
 mesh = SubResource( 372 )
 
-[node name="entity_93_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_93_RythmElements_Sequencers_Static"]
+[node name="entity_92_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_92_RythmElements_Sequencers_Static"]
 shape = SubResource( 373 )
 
-[node name="entity_94_RythmElements_Sequencers_Static" type="StaticBody" parent="QodotMap"]
+[node name="entity_93_RythmElements_Sequencers_Static" type="StaticBody" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -148.667, 124.667, -7.33333 )
 script = ExtResource( 19 )
 properties = {
@@ -3190,13 +3170,13 @@ properties = {
 "sequencer_data_path": "res://Game/Scenes/Levels/Level4/Data/StepSequencerData/cube.tres"
 }
 
-[node name="entity_94_mesh_instance" type="MeshInstance" parent="QodotMap/entity_94_RythmElements_Sequencers_Static"]
+[node name="entity_93_mesh_instance" type="MeshInstance" parent="QodotMap/entity_93_RythmElements_Sequencers_Static"]
 mesh = SubResource( 374 )
 
-[node name="entity_94_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_94_RythmElements_Sequencers_Static"]
+[node name="entity_93_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_93_RythmElements_Sequencers_Static"]
 shape = SubResource( 375 )
 
-[node name="entity_95_RythmElements_Sequencers_Static" type="StaticBody" parent="QodotMap"]
+[node name="entity_94_RythmElements_Sequencers_Static" type="StaticBody" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -148.667, 124.667, 2 )
 script = ExtResource( 19 )
 properties = {
@@ -3209,13 +3189,13 @@ properties = {
 "sequencer_data_path": "res://Game/Scenes/Levels/Level4/Data/StepSequencerData/cube.tres"
 }
 
-[node name="entity_95_mesh_instance" type="MeshInstance" parent="QodotMap/entity_95_RythmElements_Sequencers_Static"]
+[node name="entity_94_mesh_instance" type="MeshInstance" parent="QodotMap/entity_94_RythmElements_Sequencers_Static"]
 mesh = SubResource( 376 )
 
-[node name="entity_95_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_95_RythmElements_Sequencers_Static"]
+[node name="entity_94_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_94_RythmElements_Sequencers_Static"]
 shape = SubResource( 377 )
 
-[node name="entity_96_RythmElements_Sequencers_Static" type="StaticBody" parent="QodotMap"]
+[node name="entity_95_RythmElements_Sequencers_Static" type="StaticBody" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -158, 124.667, 2 )
 script = ExtResource( 19 )
 properties = {
@@ -3228,13 +3208,13 @@ properties = {
 "sequencer_data_path": "res://Game/Scenes/Levels/Level4/Data/StepSequencerData/cube.tres"
 }
 
-[node name="entity_96_mesh_instance" type="MeshInstance" parent="QodotMap/entity_96_RythmElements_Sequencers_Static"]
+[node name="entity_95_mesh_instance" type="MeshInstance" parent="QodotMap/entity_95_RythmElements_Sequencers_Static"]
 mesh = SubResource( 378 )
 
-[node name="entity_96_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_96_RythmElements_Sequencers_Static"]
+[node name="entity_95_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_95_RythmElements_Sequencers_Static"]
 shape = SubResource( 379 )
 
-[node name="entity_97_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
+[node name="entity_96_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.125, 4.125, 0.125 )
 properties = {
 "classname": "Lights_OmniLight",
@@ -3246,7 +3226,7 @@ properties = {
 "specular": 0.5
 }
 
-[node name="entity_98_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
+[node name="entity_97_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.125, 13.125, 0.125 )
 properties = {
 "classname": "Lights_OmniLight",
@@ -3258,7 +3238,7 @@ properties = {
 "specular": 0.5
 }
 
-[node name="entity_99_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
+[node name="entity_98_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.125, 24.125, 0.125 )
 properties = {
 "classname": "Lights_OmniLight",
@@ -3270,7 +3250,7 @@ properties = {
 "specular": 0.5
 }
 
-[node name="entity_100_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
+[node name="entity_99_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.125, 34.125, 0.125 )
 properties = {
 "classname": "Lights_OmniLight",
@@ -3282,7 +3262,7 @@ properties = {
 "specular": 0.5
 }
 
-[node name="entity_101_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
+[node name="entity_100_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.125, 36.125, 0.125 )
 properties = {
 "classname": "Lights_OmniLight",
@@ -3294,7 +3274,7 @@ properties = {
 "specular": 0.5
 }
 
-[node name="entity_102_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
+[node name="entity_101_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -21.125, 40.125, 0.125 )
 properties = {
 "classname": "Lights_OmniLight",
@@ -3306,7 +3286,7 @@ properties = {
 "specular": 0.5
 }
 
-[node name="entity_103_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
+[node name="entity_102_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -35.125, 44.125, 0.125 )
 properties = {
 "classname": "Lights_OmniLight",
@@ -3318,7 +3298,7 @@ properties = {
 "specular": 0.5
 }
 
-[node name="entity_104_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
+[node name="entity_103_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -55.875, 38.125, 76.875 )
 properties = {
 "classname": "Lights_OmniLight",
@@ -3330,7 +3310,7 @@ properties = {
 "specular": 0.5
 }
 
-[node name="entity_105_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
+[node name="entity_104_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -55.875, 38.125, 67.875 )
 properties = {
 "classname": "Lights_OmniLight",
@@ -3342,23 +3322,23 @@ properties = {
 "specular": 0.5
 }
 
-[node name="entity_106_StaticBodyGroup" type="StaticBody" parent="QodotMap"]
+[node name="entity_105_StaticBodyGroup" type="StaticBody" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -49.5, 51.5, 59.5 )
 script = ExtResource( 15 )
 properties = {
 "classname": "StaticBodyGroup"
 }
 
-[node name="entity_106_mesh_instance" type="MeshInstance" parent="QodotMap/entity_106_StaticBodyGroup"]
+[node name="entity_105_mesh_instance" type="MeshInstance" parent="QodotMap/entity_105_StaticBodyGroup"]
 mesh = SubResource( 380 )
 
-[node name="entity_106_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_106_StaticBodyGroup"]
+[node name="entity_105_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_105_StaticBodyGroup"]
 shape = SubResource( 381 )
 
-[node name="entity_106_brush_1_collision_shape" type="CollisionShape" parent="QodotMap/entity_106_StaticBodyGroup"]
+[node name="entity_105_brush_1_collision_shape" type="CollisionShape" parent="QodotMap/entity_105_StaticBodyGroup"]
 shape = SubResource( 382 )
 
-[node name="entity_107_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
+[node name="entity_106_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -56.125, 37.875, 18.125 )
 properties = {
 "classname": "Lights_OmniLight",
@@ -3370,7 +3350,7 @@ properties = {
 "specular": 0.5
 }
 
-[node name="entity_108_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
+[node name="entity_107_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -56.125, 37.875, 30.125 )
 properties = {
 "classname": "Lights_OmniLight",
@@ -3382,7 +3362,7 @@ properties = {
 "specular": 0.5
 }
 
-[node name="entity_109_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
+[node name="entity_108_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -56.125, 37.875, 42.125 )
 properties = {
 "classname": "Lights_OmniLight",
@@ -3394,7 +3374,7 @@ properties = {
 "specular": 0.5
 }
 
-[node name="entity_110_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
+[node name="entity_109_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -56.125, 37.875, 54.125 )
 properties = {
 "classname": "Lights_OmniLight",
@@ -3406,7 +3386,7 @@ properties = {
 "specular": 0.5
 }
 
-[node name="entity_111_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
+[node name="entity_110_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -55.875, 45.125, 76.875 )
 properties = {
 "classname": "Lights_OmniLight",
@@ -3418,7 +3398,7 @@ properties = {
 "specular": 0.5
 }
 
-[node name="entity_112_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
+[node name="entity_111_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -55.875, 45.125, 67.875 )
 properties = {
 "classname": "Lights_OmniLight",
@@ -3430,7 +3410,7 @@ properties = {
 "specular": 0.5
 }
 
-[node name="entity_113_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
+[node name="entity_112_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -55.875, 52.125, 76.875 )
 properties = {
 "classname": "Lights_OmniLight",
@@ -3442,7 +3422,7 @@ properties = {
 "specular": 0.5
 }
 
-[node name="entity_114_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
+[node name="entity_113_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -55.875, 52.125, 67.875 )
 properties = {
 "classname": "Lights_OmniLight",
@@ -3454,7 +3434,7 @@ properties = {
 "specular": 0.5
 }
 
-[node name="entity_115_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
+[node name="entity_114_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -55.875, 59.125, 76.875 )
 properties = {
 "classname": "Lights_OmniLight",
@@ -3466,7 +3446,7 @@ properties = {
 "specular": 0.5
 }
 
-[node name="entity_116_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
+[node name="entity_115_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -55.875, 59.125, 67.875 )
 properties = {
 "classname": "Lights_OmniLight",
@@ -3478,7 +3458,7 @@ properties = {
 "specular": 0.5
 }
 
-[node name="entity_117_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
+[node name="entity_116_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -55.875, 67.125, 76.875 )
 properties = {
 "classname": "Lights_OmniLight",
@@ -3490,7 +3470,7 @@ properties = {
 "specular": 0.5
 }
 
-[node name="entity_118_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
+[node name="entity_117_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -55.875, 67.125, 67.875 )
 properties = {
 "classname": "Lights_OmniLight",
@@ -3502,7 +3482,7 @@ properties = {
 "specular": 0.5
 }
 
-[node name="entity_119_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
+[node name="entity_118_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -55.875, 67.125, 85.875 )
 properties = {
 "classname": "Lights_OmniLight",
@@ -3514,7 +3494,7 @@ properties = {
 "specular": 0.5
 }
 
-[node name="entity_120_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
+[node name="entity_119_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -55.875, 67.125, 94.875 )
 properties = {
 "classname": "Lights_OmniLight",
@@ -3526,7 +3506,7 @@ properties = {
 "specular": 0.5
 }
 
-[node name="entity_121_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
+[node name="entity_120_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -65.875, 67.125, 102.375 )
 properties = {
 "classname": "Lights_OmniLight",
@@ -3538,7 +3518,7 @@ properties = {
 "specular": 0.5
 }
 
-[node name="entity_122_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
+[node name="entity_121_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -71.875, 67.125, 96.375 )
 properties = {
 "classname": "Lights_OmniLight",
@@ -3550,7 +3530,7 @@ properties = {
 "specular": 0.5
 }
 
-[node name="entity_123_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
+[node name="entity_122_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -77.875, 67.125, 102.375 )
 properties = {
 "classname": "Lights_OmniLight",
@@ -3562,7 +3542,7 @@ properties = {
 "specular": 0.5
 }
 
-[node name="entity_124_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
+[node name="entity_123_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -83.875, 67.125, 96.375 )
 properties = {
 "classname": "Lights_OmniLight",
@@ -3574,7 +3554,7 @@ properties = {
 "specular": 0.5
 }
 
-[node name="entity_125_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
+[node name="entity_124_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -89.875, 67.125, 102.875 )
 properties = {
 "classname": "Lights_OmniLight",
@@ -3586,7 +3566,7 @@ properties = {
 "specular": 0.5
 }
 
-[node name="entity_126_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
+[node name="entity_125_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -95.875, 67.125, 96.875 )
 properties = {
 "classname": "Lights_OmniLight",
@@ -3598,7 +3578,7 @@ properties = {
 "specular": 0.5
 }
 
-[node name="entity_127_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
+[node name="entity_126_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -101.875, 67.125, 102.375 )
 properties = {
 "classname": "Lights_OmniLight",
@@ -3610,7 +3590,7 @@ properties = {
 "specular": 0.5
 }
 
-[node name="entity_128_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
+[node name="entity_127_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -105.875, 67.125, 96.375 )
 properties = {
 "classname": "Lights_OmniLight",
@@ -3622,7 +3602,7 @@ properties = {
 "specular": 0.5
 }
 
-[node name="entity_129_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
+[node name="entity_128_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -123.875, 70.125, 91.875 )
 properties = {
 "classname": "Lights_OmniLight",
@@ -3634,7 +3614,7 @@ properties = {
 "specular": 0.5
 }
 
-[node name="entity_130_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
+[node name="entity_129_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -119.875, 70.125, 99.875 )
 properties = {
 "classname": "Lights_OmniLight",
@@ -3646,7 +3626,7 @@ properties = {
 "specular": 0.5
 }
 
-[node name="entity_131_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
+[node name="entity_130_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -119.875, 70.125, 83.875 )
 properties = {
 "classname": "Lights_OmniLight",
@@ -3658,7 +3638,7 @@ properties = {
 "specular": 0.5
 }
 
-[node name="entity_132_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
+[node name="entity_131_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -123.875, 70.125, 75.875 )
 properties = {
 "classname": "Lights_OmniLight",
@@ -3670,7 +3650,7 @@ properties = {
 "specular": 0.5
 }
 
-[node name="entity_133_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
+[node name="entity_132_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -129.875, 70.125, 83.875 )
 properties = {
 "classname": "Lights_OmniLight",
@@ -3682,7 +3662,7 @@ properties = {
 "specular": 0.5
 }
 
-[node name="entity_134_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
+[node name="entity_133_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -133.875, 70.125, 75.875 )
 properties = {
 "classname": "Lights_OmniLight",
@@ -3694,7 +3674,7 @@ properties = {
 "specular": 0.5
 }
 
-[node name="entity_135_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
+[node name="entity_134_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -129.875, 70.125, 99.875 )
 properties = {
 "classname": "Lights_OmniLight",
@@ -3706,7 +3686,7 @@ properties = {
 "specular": 0.5
 }
 
-[node name="entity_136_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
+[node name="entity_135_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -133.875, 70.125, 91.875 )
 properties = {
 "classname": "Lights_OmniLight",
@@ -3718,7 +3698,7 @@ properties = {
 "specular": 0.5
 }
 
-[node name="entity_137_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
+[node name="entity_136_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -141.875, 68.125, 97.875 )
 properties = {
 "classname": "Lights_OmniLight",
@@ -3730,7 +3710,7 @@ properties = {
 "specular": 0.5
 }
 
-[node name="entity_138_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
+[node name="entity_137_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -158.375, 80.125, 97.875 )
 properties = {
 "classname": "Lights_OmniLight",
@@ -3742,7 +3722,7 @@ properties = {
 "specular": 0.5
 }
 
-[node name="entity_139_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
+[node name="entity_138_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -158.375, 92.125, 81.875 )
 properties = {
 "classname": "Lights_OmniLight",
@@ -3754,7 +3734,7 @@ properties = {
 "specular": 0.5
 }
 
-[node name="entity_140_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
+[node name="entity_139_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -141.875, 104.125, 82.375 )
 properties = {
 "classname": "Lights_OmniLight",
@@ -3766,7 +3746,7 @@ properties = {
 "specular": 0.5
 }
 
-[node name="entity_141_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
+[node name="entity_140_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -119.875, 116.125, 99.875 )
 properties = {
 "classname": "Lights_OmniLight",
@@ -3778,7 +3758,7 @@ properties = {
 "specular": 0.5
 }
 
-[node name="entity_142_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
+[node name="entity_141_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -123.875, 116.125, 91.875 )
 properties = {
 "classname": "Lights_OmniLight",
@@ -3790,7 +3770,7 @@ properties = {
 "specular": 0.5
 }
 
-[node name="entity_143_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
+[node name="entity_142_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -119.875, 116.125, 83.875 )
 properties = {
 "classname": "Lights_OmniLight",
@@ -3802,7 +3782,7 @@ properties = {
 "specular": 0.5
 }
 
-[node name="entity_144_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
+[node name="entity_143_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -123.875, 116.125, 75.875 )
 properties = {
 "classname": "Lights_OmniLight",
@@ -3814,7 +3794,7 @@ properties = {
 "specular": 0.5
 }
 
-[node name="entity_145_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
+[node name="entity_144_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -119.875, 116.125, 67.875 )
 properties = {
 "classname": "Lights_OmniLight",
@@ -3826,7 +3806,7 @@ properties = {
 "specular": 0.5
 }
 
-[node name="entity_146_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
+[node name="entity_145_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -123.875, 116.125, 59.875 )
 properties = {
 "classname": "Lights_OmniLight",
@@ -3838,7 +3818,7 @@ properties = {
 "specular": 0.5
 }
 
-[node name="entity_147_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
+[node name="entity_146_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -119.875, 116.125, 52.375 )
 properties = {
 "classname": "Lights_OmniLight",
@@ -3850,7 +3830,7 @@ properties = {
 "specular": 0.5
 }
 
-[node name="entity_148_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
+[node name="entity_147_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -122.375, 116.125, 44.875 )
 properties = {
 "classname": "Lights_OmniLight",
@@ -3862,7 +3842,7 @@ properties = {
 "specular": 0.5
 }
 
-[node name="entity_149_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
+[node name="entity_148_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -122.375, 105.125, 44.875 )
 properties = {
 "classname": "Lights_OmniLight",
@@ -3874,7 +3854,7 @@ properties = {
 "specular": 0.5
 }
 
-[node name="entity_150_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
+[node name="entity_149_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -122.375, 95.125, 44.875 )
 properties = {
 "classname": "Lights_OmniLight",
@@ -3886,7 +3866,7 @@ properties = {
 "specular": 0.5
 }
 
-[node name="entity_151_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
+[node name="entity_150_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -122.375, 83.125, 44.875 )
 properties = {
 "classname": "Lights_OmniLight",
@@ -3898,7 +3878,7 @@ properties = {
 "specular": 0.5
 }
 
-[node name="entity_152_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
+[node name="entity_151_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -119.875, 96.125, 10.875 )
 properties = {
 "classname": "Lights_OmniLight",
@@ -3910,7 +3890,7 @@ properties = {
 "specular": 0.5
 }
 
-[node name="entity_153_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
+[node name="entity_152_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -123.875, 96.125, 2.875 )
 properties = {
 "classname": "Lights_OmniLight",
@@ -3922,7 +3902,7 @@ properties = {
 "specular": 0.5
 }
 
-[node name="entity_154_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
+[node name="entity_153_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -119.875, 96.125, -5.125 )
 properties = {
 "classname": "Lights_OmniLight",
@@ -3934,7 +3914,7 @@ properties = {
 "specular": 0.5
 }
 
-[node name="entity_155_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
+[node name="entity_154_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -123.875, 96.125, -13.125 )
 properties = {
 "classname": "Lights_OmniLight",
@@ -3946,7 +3926,7 @@ properties = {
 "specular": 0.5
 }
 
-[node name="entity_156_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
+[node name="entity_155_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -119.875, 96.125, -21.125 )
 properties = {
 "classname": "Lights_OmniLight",
@@ -3958,7 +3938,7 @@ properties = {
 "specular": 0.5
 }
 
-[node name="entity_157_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
+[node name="entity_156_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -123.875, 96.125, -29.125 )
 properties = {
 "classname": "Lights_OmniLight",
@@ -3970,7 +3950,7 @@ properties = {
 "specular": 0.5
 }
 
-[node name="entity_158_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
+[node name="entity_157_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -119.875, 96.125, -36.625 )
 properties = {
 "classname": "Lights_OmniLight",
@@ -3982,7 +3962,7 @@ properties = {
 "specular": 0.5
 }
 
-[node name="entity_159_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
+[node name="entity_158_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -123.875, 96.125, -44.125 )
 properties = {
 "classname": "Lights_OmniLight",
@@ -3994,7 +3974,7 @@ properties = {
 "specular": 0.5
 }
 
-[node name="entity_160_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
+[node name="entity_159_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -119.875, 96.125, -52.125 )
 properties = {
 "classname": "Lights_OmniLight",
@@ -4006,7 +3986,7 @@ properties = {
 "specular": 0.5
 }
 
-[node name="entity_161_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
+[node name="entity_160_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -123.875, 96.125, -60.125 )
 properties = {
 "classname": "Lights_OmniLight",
@@ -4018,7 +3998,7 @@ properties = {
 "specular": 0.5
 }
 
-[node name="entity_162_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
+[node name="entity_161_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -119.875, 96.125, -68.125 )
 properties = {
 "classname": "Lights_OmniLight",
@@ -4030,7 +4010,7 @@ properties = {
 "specular": 0.5
 }
 
-[node name="entity_163_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
+[node name="entity_162_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -123.875, 96.125, -76.125 )
 properties = {
 "classname": "Lights_OmniLight",
@@ -4042,7 +4022,7 @@ properties = {
 "specular": 0.5
 }
 
-[node name="entity_164_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
+[node name="entity_163_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -239.875, 122.125, -13.125 )
 properties = {
 "angle": "180",
@@ -4055,7 +4035,7 @@ properties = {
 "specular": 0.5
 }
 
-[node name="entity_165_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
+[node name="entity_164_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -235.875, 122.125, -21.125 )
 properties = {
 "angle": "180",
@@ -4068,7 +4048,7 @@ properties = {
 "specular": 0.5
 }
 
-[node name="entity_166_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
+[node name="entity_165_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -239.875, 122.125, -29.125 )
 properties = {
 "angle": "180",
@@ -4081,7 +4061,7 @@ properties = {
 "specular": 0.5
 }
 
-[node name="entity_167_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
+[node name="entity_166_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -235.875, 122.125, -36.625 )
 properties = {
 "angle": "180",
@@ -4094,7 +4074,7 @@ properties = {
 "specular": 0.5
 }
 
-[node name="entity_168_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
+[node name="entity_167_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -239.875, 122.125, -44.125 )
 properties = {
 "angle": "180",
@@ -4107,7 +4087,7 @@ properties = {
 "specular": 0.5
 }
 
-[node name="entity_169_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
+[node name="entity_168_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -235.875, 122.125, -52.125 )
 properties = {
 "angle": "180",
@@ -4120,7 +4100,7 @@ properties = {
 "specular": 0.5
 }
 
-[node name="entity_170_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
+[node name="entity_169_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -239.875, 122.125, -60.125 )
 properties = {
 "angle": "180",
@@ -4133,7 +4113,7 @@ properties = {
 "specular": 0.5
 }
 
-[node name="entity_171_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
+[node name="entity_170_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -235.875, 122.125, -68.125 )
 properties = {
 "angle": "180",
@@ -4146,7 +4126,7 @@ properties = {
 "specular": 0.5
 }
 
-[node name="entity_172_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
+[node name="entity_171_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -239.875, 122.125, -76.125 )
 properties = {
 "angle": "180",
@@ -4159,7 +4139,7 @@ properties = {
 "specular": 0.5
 }
 
-[node name="entity_173_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
+[node name="entity_172_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -235.875, 137.125, -5.125 )
 properties = {
 "angle": "180",
@@ -4172,7 +4152,7 @@ properties = {
 "specular": 0.5
 }
 
-[node name="entity_174_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
+[node name="entity_173_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -239.875, 137.125, -13.125 )
 properties = {
 "angle": "180",
@@ -4185,7 +4165,7 @@ properties = {
 "specular": 0.5
 }
 
-[node name="entity_175_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
+[node name="entity_174_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -235.875, 137.125, -21.125 )
 properties = {
 "angle": "180",
@@ -4198,7 +4178,7 @@ properties = {
 "specular": 0.5
 }
 
-[node name="entity_176_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
+[node name="entity_175_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -239.875, 137.125, -29.125 )
 properties = {
 "angle": "180",
@@ -4211,7 +4191,7 @@ properties = {
 "specular": 0.5
 }
 
-[node name="entity_177_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
+[node name="entity_176_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -235.875, 137.125, -36.625 )
 properties = {
 "angle": "180",
@@ -4224,7 +4204,7 @@ properties = {
 "specular": 0.5
 }
 
-[node name="entity_178_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
+[node name="entity_177_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -239.875, 137.125, -44.125 )
 properties = {
 "angle": "180",
@@ -4237,7 +4217,7 @@ properties = {
 "specular": 0.5
 }
 
-[node name="entity_179_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
+[node name="entity_178_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -235.875, 137.125, -52.125 )
 properties = {
 "angle": "180",
@@ -4250,7 +4230,7 @@ properties = {
 "specular": 0.5
 }
 
-[node name="entity_180_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
+[node name="entity_179_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -239.875, 137.125, -60.125 )
 properties = {
 "angle": "180",
@@ -4263,7 +4243,7 @@ properties = {
 "specular": 0.5
 }
 
-[node name="entity_181_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
+[node name="entity_180_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -236.875, 137.125, -73.125 )
 properties = {
 "angle": "180",
@@ -4276,7 +4256,7 @@ properties = {
 "specular": 0.5
 }
 
-[node name="entity_182_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
+[node name="entity_181_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -236.875, 110.125, 10.875 )
 properties = {
 "angle": "180",
@@ -4289,7 +4269,7 @@ properties = {
 "specular": 0.5
 }
 
-[node name="entity_183_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
+[node name="entity_182_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -236.875, 80.125, 10.875 )
 properties = {
 "angle": "180",
@@ -4302,7 +4282,7 @@ properties = {
 "specular": 0.5
 }
 
-[node name="entity_184_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
+[node name="entity_183_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -236.875, 120.125, 44.875 )
 properties = {
 "angle": "180",
@@ -4315,7 +4295,7 @@ properties = {
 "specular": 0.5
 }
 
-[node name="entity_185_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
+[node name="entity_184_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -224.875, 137.125, -73.125 )
 properties = {
 "angle": "180",
@@ -4328,7 +4308,7 @@ properties = {
 "specular": 0.5
 }
 
-[node name="entity_186_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
+[node name="entity_185_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -212.875, 137.125, -73.125 )
 properties = {
 "angle": "180",
@@ -4341,7 +4321,7 @@ properties = {
 "specular": 0.5
 }
 
-[node name="entity_187_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
+[node name="entity_186_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -192.875, 140.625, -72.625 )
 properties = {
 "angle": "180",
@@ -4354,7 +4334,7 @@ properties = {
 "specular": 0.5
 }
 
-[node name="entity_188_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
+[node name="entity_187_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -174.875, 142.625, -72.625 )
 properties = {
 "angle": "180",
@@ -4367,7 +4347,7 @@ properties = {
 "specular": 0.5
 }
 
-[node name="entity_189_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
+[node name="entity_188_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -206.375, 152.625, -72.625 )
 properties = {
 "angle": "180",
@@ -4380,10 +4360,10 @@ properties = {
 "specular": 0.5
 }
 
-[node name="entity_190_Scenes_Level4_UpSquares" parent="QodotMap" instance=ExtResource( 12 )]
+[node name="entity_189_Scenes_Level4_UpSquares" parent="QodotMap" instance=ExtResource( 12 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -158, 130, 2.16667 )
 
-[node name="entity_191_Scenes_Level4_PoppingCubes" parent="QodotMap" instance=ExtResource( 18 )]
+[node name="entity_190_Scenes_Level4_PoppingCubes" parent="QodotMap" instance=ExtResource( 18 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -157.667, 130.5, 2 )
 process_material = SubResource( 385 )
 draw_pass_1 = SubResource( 387 )
@@ -4397,7 +4377,7 @@ properties = {
 "sequencer_data_path": "res://Game/Scenes/Levels/Level4/Data/StepSequencerData/popping_cubes.tres"
 }
 
-[node name="entity_192_Scenes_Level4_PoppingCubes" parent="QodotMap" instance=ExtResource( 18 )]
+[node name="entity_191_Scenes_Level4_PoppingCubes" parent="QodotMap" instance=ExtResource( 18 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -157.167, 130.5, 2 )
 process_material = SubResource( 390 )
 draw_pass_1 = SubResource( 392 )
@@ -4411,7 +4391,7 @@ properties = {
 "sequencer_data_path": "res://Game/Scenes/Levels/Level4/Data/StepSequencerData/popping_cubes.tres"
 }
 
-[node name="entity_193_RythmElements_Sequencers_Spatial" type="Spatial" parent="QodotMap"]
+[node name="entity_192_RythmElements_Sequencers_Spatial" type="Spatial" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -159.286, 133.5, -0.705445 )
 script = ExtResource( 10 )
 properties = {
@@ -4422,10 +4402,10 @@ properties = {
 "sequencer_data_path": "res://Game/Scenes/Levels/Level4/Data/StepSequencerData/hollow_cube.tres"
 }
 
-[node name="entity_193_mesh_instance" type="MeshInstance" parent="QodotMap/entity_193_RythmElements_Sequencers_Spatial"]
+[node name="entity_192_mesh_instance" type="MeshInstance" parent="QodotMap/entity_192_RythmElements_Sequencers_Spatial"]
 mesh = SubResource( 393 )
 
-[node name="entity_194_RythmElements_Sequencers_Spatial" type="Spatial" parent="QodotMap"]
+[node name="entity_193_RythmElements_Sequencers_Spatial" type="Spatial" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -155.393, 133.5, -3.41051 )
 script = ExtResource( 10 )
 properties = {
@@ -4436,10 +4416,10 @@ properties = {
 "sequencer_data_path": "res://Game/Scenes/Levels/Level4/Data/StepSequencerData/hollow_cube.tres"
 }
 
-[node name="entity_194_mesh_instance" type="MeshInstance" parent="QodotMap/entity_194_RythmElements_Sequencers_Spatial"]
+[node name="entity_193_mesh_instance" type="MeshInstance" parent="QodotMap/entity_193_RythmElements_Sequencers_Spatial"]
 mesh = SubResource( 394 )
 
-[node name="entity_195_RythmElements_Sequencers_Spatial" type="Spatial" parent="QodotMap"]
+[node name="entity_194_RythmElements_Sequencers_Spatial" type="Spatial" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -151.893, 133.5, -5.0019 )
 script = ExtResource( 10 )
 properties = {
@@ -4450,10 +4430,10 @@ properties = {
 "sequencer_data_path": "res://Game/Scenes/Levels/Level4/Data/StepSequencerData/hollow_cube.tres"
 }
 
-[node name="entity_195_mesh_instance" type="MeshInstance" parent="QodotMap/entity_195_RythmElements_Sequencers_Spatial"]
+[node name="entity_194_mesh_instance" type="MeshInstance" parent="QodotMap/entity_194_RythmElements_Sequencers_Spatial"]
 mesh = SubResource( 395 )
 
-[node name="entity_196_RythmElements_Sequencers_Spatial" type="Spatial" parent="QodotMap"]
+[node name="entity_195_RythmElements_Sequencers_Spatial" type="Spatial" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -158.714, 135.5, -6.40385 )
 script = ExtResource( 10 )
 properties = {
@@ -4464,10 +4444,10 @@ properties = {
 "sequencer_data_path": "res://Game/Scenes/Levels/Level4/Data/StepSequencerData/hollow_cube.tres"
 }
 
-[node name="entity_196_mesh_instance" type="MeshInstance" parent="QodotMap/entity_196_RythmElements_Sequencers_Spatial"]
+[node name="entity_195_mesh_instance" type="MeshInstance" parent="QodotMap/entity_195_RythmElements_Sequencers_Spatial"]
 mesh = SubResource( 396 )
 
-[node name="entity_197_TriggerSongAnimationChange" type="Area" parent="QodotMap"]
+[node name="entity_196_TriggerSongAnimationChange" type="Area" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -34.5, 44.5, 0 )
 script = ExtResource( 14 )
 properties = {
@@ -4477,10 +4457,10 @@ properties = {
 "collision_mask": 5
 }
 
-[node name="entity_197_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_197_TriggerSongAnimationChange"]
+[node name="entity_196_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_196_TriggerSongAnimationChange"]
 shape = SubResource( 397 )
 
-[node name="entity_198_Portals_Portal" parent="QodotMap" instance=ExtResource( 22 )]
+[node name="entity_197_Portals_Portal" parent="QodotMap" instance=ExtResource( 22 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -83.5, 131.5, -12.5 )
 properties = {
 "classname": "Portals_Portal",
@@ -4493,7 +4473,7 @@ properties = {
 "targetname": "tp_4_entrance"
 }
 
-[node name="entity_200_Group_Mover" type="Spatial" parent="QodotMap"]
+[node name="entity_199_Group_Mover" type="Spatial" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -66, 77.875, 96.5 )
 script = ExtResource( 28 )
 properties = {
@@ -4505,7 +4485,7 @@ properties = {
 "travel_data_path": "res://Game/Scenes/Levels/Level4/Data/MoverData/laser1_1.tres"
 }
 
-[node name="entity_202_Lasers_BrushScene" type="Spatial" parent="QodotMap/entity_200_Group_Mover"]
+[node name="entity_201_Lasers_BrushScene" type="Spatial" parent="QodotMap/entity_199_Group_Mover"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0 )
 script = ExtResource( 29 )
 properties = {
@@ -4518,16 +4498,16 @@ properties = {
 "thickness": 0.15
 }
 
-[node name="entity_201_func_group" type="Spatial" parent="QodotMap/entity_200_Group_Mover/entity_202_Lasers_BrushScene"]
+[node name="entity_200_func_group" type="Spatial" parent="QodotMap/entity_199_Group_Mover/entity_201_Lasers_BrushScene"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 66, -78.125, -96.5 )
 
-[node name="entity_202_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_200_Group_Mover/entity_202_Lasers_BrushScene"]
+[node name="entity_201_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_199_Group_Mover/entity_201_Lasers_BrushScene"]
 shape = SubResource( 398 )
 
-[node name="entity_199_func_group" type="Spatial" parent="QodotMap/entity_200_Group_Mover"]
+[node name="entity_198_func_group" type="Spatial" parent="QodotMap/entity_199_Group_Mover"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 66, -77.875, -96.5 )
 
-[node name="entity_204_Group_Mover" type="Spatial" parent="QodotMap"]
+[node name="entity_203_Group_Mover" type="Spatial" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -72, 77.875, 102 )
 script = ExtResource( 28 )
 properties = {
@@ -4539,7 +4519,7 @@ properties = {
 "travel_data_path": "res://Game/Scenes/Levels/Level4/Data/MoverData/laser1_2.tres"
 }
 
-[node name="entity_206_Lasers_BrushScene" type="Spatial" parent="QodotMap/entity_204_Group_Mover"]
+[node name="entity_205_Lasers_BrushScene" type="Spatial" parent="QodotMap/entity_203_Group_Mover"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0 )
 script = ExtResource( 29 )
 properties = {
@@ -4552,16 +4532,16 @@ properties = {
 "thickness": 0.15
 }
 
-[node name="entity_205_func_group" type="Spatial" parent="QodotMap/entity_204_Group_Mover/entity_206_Lasers_BrushScene"]
+[node name="entity_204_func_group" type="Spatial" parent="QodotMap/entity_203_Group_Mover/entity_205_Lasers_BrushScene"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 72, -78.125, -102 )
 
-[node name="entity_206_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_204_Group_Mover/entity_206_Lasers_BrushScene"]
+[node name="entity_205_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_203_Group_Mover/entity_205_Lasers_BrushScene"]
 shape = SubResource( 399 )
 
-[node name="entity_203_func_group" type="Spatial" parent="QodotMap/entity_204_Group_Mover"]
+[node name="entity_202_func_group" type="Spatial" parent="QodotMap/entity_203_Group_Mover"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 72, -77.875, -102 )
 
-[node name="entity_208_Group_Mover" type="Spatial" parent="QodotMap"]
+[node name="entity_207_Group_Mover" type="Spatial" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -78, 77.875, 96.5 )
 script = ExtResource( 28 )
 properties = {
@@ -4573,7 +4553,7 @@ properties = {
 "travel_data_path": "res://Game/Scenes/Levels/Level4/Data/MoverData/laser1_1.tres"
 }
 
-[node name="entity_210_Lasers_BrushScene" type="Spatial" parent="QodotMap/entity_208_Group_Mover"]
+[node name="entity_209_Lasers_BrushScene" type="Spatial" parent="QodotMap/entity_207_Group_Mover"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0 )
 script = ExtResource( 29 )
 properties = {
@@ -4586,16 +4566,16 @@ properties = {
 "thickness": 0.15
 }
 
-[node name="entity_209_func_group" type="Spatial" parent="QodotMap/entity_208_Group_Mover/entity_210_Lasers_BrushScene"]
+[node name="entity_208_func_group" type="Spatial" parent="QodotMap/entity_207_Group_Mover/entity_209_Lasers_BrushScene"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 78, -78.125, -96.5 )
 
-[node name="entity_210_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_208_Group_Mover/entity_210_Lasers_BrushScene"]
+[node name="entity_209_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_207_Group_Mover/entity_209_Lasers_BrushScene"]
 shape = SubResource( 400 )
 
-[node name="entity_207_func_group" type="Spatial" parent="QodotMap/entity_208_Group_Mover"]
+[node name="entity_206_func_group" type="Spatial" parent="QodotMap/entity_207_Group_Mover"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 78, -77.875, -96.5 )
 
-[node name="entity_212_Group_Mover" type="Spatial" parent="QodotMap"]
+[node name="entity_211_Group_Mover" type="Spatial" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -84, 77.875, 102 )
 script = ExtResource( 28 )
 properties = {
@@ -4607,7 +4587,7 @@ properties = {
 "travel_data_path": "res://Game/Scenes/Levels/Level4/Data/MoverData/laser1_2.tres"
 }
 
-[node name="entity_214_Lasers_BrushScene" type="Spatial" parent="QodotMap/entity_212_Group_Mover"]
+[node name="entity_213_Lasers_BrushScene" type="Spatial" parent="QodotMap/entity_211_Group_Mover"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0 )
 script = ExtResource( 29 )
 properties = {
@@ -4620,16 +4600,16 @@ properties = {
 "thickness": 0.15
 }
 
-[node name="entity_213_func_group" type="Spatial" parent="QodotMap/entity_212_Group_Mover/entity_214_Lasers_BrushScene"]
+[node name="entity_212_func_group" type="Spatial" parent="QodotMap/entity_211_Group_Mover/entity_213_Lasers_BrushScene"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 84, -78.125, -102 )
 
-[node name="entity_214_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_212_Group_Mover/entity_214_Lasers_BrushScene"]
+[node name="entity_213_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_211_Group_Mover/entity_213_Lasers_BrushScene"]
 shape = SubResource( 401 )
 
-[node name="entity_211_func_group" type="Spatial" parent="QodotMap/entity_212_Group_Mover"]
+[node name="entity_210_func_group" type="Spatial" parent="QodotMap/entity_211_Group_Mover"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 84, -77.875, -102 )
 
-[node name="entity_216_Group_Mover" type="Spatial" parent="QodotMap"]
+[node name="entity_215_Group_Mover" type="Spatial" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -90, 77.875, 96.5 )
 script = ExtResource( 28 )
 properties = {
@@ -4641,7 +4621,7 @@ properties = {
 "travel_data_path": "res://Game/Scenes/Levels/Level4/Data/MoverData/laser1_1.tres"
 }
 
-[node name="entity_218_Lasers_BrushScene" type="Spatial" parent="QodotMap/entity_216_Group_Mover"]
+[node name="entity_217_Lasers_BrushScene" type="Spatial" parent="QodotMap/entity_215_Group_Mover"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0 )
 script = ExtResource( 29 )
 properties = {
@@ -4654,16 +4634,16 @@ properties = {
 "thickness": 0.15
 }
 
-[node name="entity_217_func_group" type="Spatial" parent="QodotMap/entity_216_Group_Mover/entity_218_Lasers_BrushScene"]
+[node name="entity_216_func_group" type="Spatial" parent="QodotMap/entity_215_Group_Mover/entity_217_Lasers_BrushScene"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 90, -78.125, -96.5 )
 
-[node name="entity_218_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_216_Group_Mover/entity_218_Lasers_BrushScene"]
+[node name="entity_217_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_215_Group_Mover/entity_217_Lasers_BrushScene"]
 shape = SubResource( 402 )
 
-[node name="entity_215_func_group" type="Spatial" parent="QodotMap/entity_216_Group_Mover"]
+[node name="entity_214_func_group" type="Spatial" parent="QodotMap/entity_215_Group_Mover"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 90, -77.875, -96.5 )
 
-[node name="entity_220_Group_Mover" type="Spatial" parent="QodotMap"]
+[node name="entity_219_Group_Mover" type="Spatial" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -96, 77.875, 102 )
 script = ExtResource( 28 )
 properties = {
@@ -4675,7 +4655,7 @@ properties = {
 "travel_data_path": "res://Game/Scenes/Levels/Level4/Data/MoverData/laser1_2.tres"
 }
 
-[node name="entity_222_Lasers_BrushScene" type="Spatial" parent="QodotMap/entity_220_Group_Mover"]
+[node name="entity_221_Lasers_BrushScene" type="Spatial" parent="QodotMap/entity_219_Group_Mover"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0 )
 script = ExtResource( 29 )
 properties = {
@@ -4688,16 +4668,16 @@ properties = {
 "thickness": 0.15
 }
 
-[node name="entity_221_func_group" type="Spatial" parent="QodotMap/entity_220_Group_Mover/entity_222_Lasers_BrushScene"]
+[node name="entity_220_func_group" type="Spatial" parent="QodotMap/entity_219_Group_Mover/entity_221_Lasers_BrushScene"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 96, -78.125, -102 )
 
-[node name="entity_222_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_220_Group_Mover/entity_222_Lasers_BrushScene"]
+[node name="entity_221_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_219_Group_Mover/entity_221_Lasers_BrushScene"]
 shape = SubResource( 403 )
 
-[node name="entity_219_func_group" type="Spatial" parent="QodotMap/entity_220_Group_Mover"]
+[node name="entity_218_func_group" type="Spatial" parent="QodotMap/entity_219_Group_Mover"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 96, -77.875, -102 )
 
-[node name="entity_224_Group_Mover" type="Spatial" parent="QodotMap"]
+[node name="entity_223_Group_Mover" type="Spatial" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -102, 77.875, 96.5 )
 script = ExtResource( 28 )
 properties = {
@@ -4709,7 +4689,7 @@ properties = {
 "travel_data_path": "res://Game/Scenes/Levels/Level4/Data/MoverData/laser1_1.tres"
 }
 
-[node name="entity_226_Lasers_BrushScene" type="Spatial" parent="QodotMap/entity_224_Group_Mover"]
+[node name="entity_225_Lasers_BrushScene" type="Spatial" parent="QodotMap/entity_223_Group_Mover"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0 )
 script = ExtResource( 29 )
 properties = {
@@ -4722,16 +4702,16 @@ properties = {
 "thickness": 0.15
 }
 
-[node name="entity_225_func_group" type="Spatial" parent="QodotMap/entity_224_Group_Mover/entity_226_Lasers_BrushScene"]
+[node name="entity_224_func_group" type="Spatial" parent="QodotMap/entity_223_Group_Mover/entity_225_Lasers_BrushScene"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 102, -78.125, -96.5 )
 
-[node name="entity_226_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_224_Group_Mover/entity_226_Lasers_BrushScene"]
+[node name="entity_225_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_223_Group_Mover/entity_225_Lasers_BrushScene"]
 shape = SubResource( 404 )
 
-[node name="entity_223_func_group" type="Spatial" parent="QodotMap/entity_224_Group_Mover"]
+[node name="entity_222_func_group" type="Spatial" parent="QodotMap/entity_223_Group_Mover"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 102, -77.875, -96.5 )
 
-[node name="entity_228_Group_Mover" type="Spatial" parent="QodotMap"]
+[node name="entity_227_Group_Mover" type="Spatial" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -108, 77.875, 102 )
 script = ExtResource( 28 )
 properties = {
@@ -4743,7 +4723,7 @@ properties = {
 "travel_data_path": "res://Game/Scenes/Levels/Level4/Data/MoverData/laser1_2.tres"
 }
 
-[node name="entity_230_Lasers_BrushScene" type="Spatial" parent="QodotMap/entity_228_Group_Mover"]
+[node name="entity_229_Lasers_BrushScene" type="Spatial" parent="QodotMap/entity_227_Group_Mover"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0 )
 script = ExtResource( 29 )
 properties = {
@@ -4756,16 +4736,16 @@ properties = {
 "thickness": 0.15
 }
 
-[node name="entity_229_func_group" type="Spatial" parent="QodotMap/entity_228_Group_Mover/entity_230_Lasers_BrushScene"]
+[node name="entity_228_func_group" type="Spatial" parent="QodotMap/entity_227_Group_Mover/entity_229_Lasers_BrushScene"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 108, -78.125, -102 )
 
-[node name="entity_230_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_228_Group_Mover/entity_230_Lasers_BrushScene"]
+[node name="entity_229_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_227_Group_Mover/entity_229_Lasers_BrushScene"]
 shape = SubResource( 405 )
 
-[node name="entity_227_func_group" type="Spatial" parent="QodotMap/entity_228_Group_Mover"]
+[node name="entity_226_func_group" type="Spatial" parent="QodotMap/entity_227_Group_Mover"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 108, -77.875, -102 )
 
-[node name="entity_232_Group_Mover" type="Spatial" parent="QodotMap"]
+[node name="entity_231_Group_Mover" type="Spatial" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -151, 125.625, 103 )
 script = ExtResource( 28 )
 properties = {
@@ -4777,7 +4757,7 @@ properties = {
 "travel_data_path": "res://Game/Scenes/Levels/Level4/Data/MoverData/laser2_1.tres"
 }
 
-[node name="entity_234_Lasers_BrushScene" type="Spatial" parent="QodotMap/entity_232_Group_Mover"]
+[node name="entity_233_Lasers_BrushScene" type="Spatial" parent="QodotMap/entity_231_Group_Mover"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0 )
 script = ExtResource( 29 )
 properties = {
@@ -4790,16 +4770,16 @@ properties = {
 "thickness": 0.15
 }
 
-[node name="entity_233_func_group" type="Spatial" parent="QodotMap/entity_232_Group_Mover/entity_234_Lasers_BrushScene"]
+[node name="entity_232_func_group" type="Spatial" parent="QodotMap/entity_231_Group_Mover/entity_233_Lasers_BrushScene"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 151, -125.875, -103 )
 
-[node name="entity_234_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_232_Group_Mover/entity_234_Lasers_BrushScene"]
+[node name="entity_233_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_231_Group_Mover/entity_233_Lasers_BrushScene"]
 shape = SubResource( 406 )
 
-[node name="entity_231_func_group" type="Spatial" parent="QodotMap/entity_232_Group_Mover"]
+[node name="entity_230_func_group" type="Spatial" parent="QodotMap/entity_231_Group_Mover"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 151, -125.625, -103 )
 
-[node name="entity_236_Group_Mover" type="Spatial" parent="QodotMap"]
+[node name="entity_235_Group_Mover" type="Spatial" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -158, 125.625, 90 )
 script = ExtResource( 28 )
 properties = {
@@ -4811,7 +4791,7 @@ properties = {
 "travel_data_path": "res://Game/Scenes/Levels/Level4/Data/MoverData/laser2_2.tres"
 }
 
-[node name="entity_238_Lasers_BrushScene" type="Spatial" parent="QodotMap/entity_236_Group_Mover"]
+[node name="entity_237_Lasers_BrushScene" type="Spatial" parent="QodotMap/entity_235_Group_Mover"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0 )
 script = ExtResource( 29 )
 properties = {
@@ -4824,16 +4804,16 @@ properties = {
 "thickness": 0.15
 }
 
-[node name="entity_237_func_group" type="Spatial" parent="QodotMap/entity_236_Group_Mover/entity_238_Lasers_BrushScene"]
+[node name="entity_236_func_group" type="Spatial" parent="QodotMap/entity_235_Group_Mover/entity_237_Lasers_BrushScene"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 158, -125.875, -90 )
 
-[node name="entity_238_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_236_Group_Mover/entity_238_Lasers_BrushScene"]
+[node name="entity_237_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_235_Group_Mover/entity_237_Lasers_BrushScene"]
 shape = SubResource( 407 )
 
-[node name="entity_235_func_group" type="Spatial" parent="QodotMap/entity_236_Group_Mover"]
+[node name="entity_234_func_group" type="Spatial" parent="QodotMap/entity_235_Group_Mover"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 158, -125.625, -90 )
 
-[node name="entity_240_Group_Mover" type="Spatial" parent="QodotMap"]
+[node name="entity_239_Group_Mover" type="Spatial" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -194.5, 134.75, -59.625 )
 script = ExtResource( 28 )
 properties = {
@@ -4845,7 +4825,7 @@ properties = {
 "travel_data_path": "res://Game/Scenes/Levels/Level4/Data/MoverData/laser3_1.tres"
 }
 
-[node name="entity_242_Lasers_BrushScene" type="Spatial" parent="QodotMap/entity_240_Group_Mover"]
+[node name="entity_241_Lasers_BrushScene" type="Spatial" parent="QodotMap/entity_239_Group_Mover"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.25 )
 script = ExtResource( 29 )
 properties = {
@@ -4858,16 +4838,16 @@ properties = {
 "thickness": 0.15
 }
 
-[node name="entity_241_func_group" type="Spatial" parent="QodotMap/entity_240_Group_Mover/entity_242_Lasers_BrushScene"]
+[node name="entity_240_func_group" type="Spatial" parent="QodotMap/entity_239_Group_Mover/entity_241_Lasers_BrushScene"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 194.5, -134.75, 59.375 )
 
-[node name="entity_242_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_240_Group_Mover/entity_242_Lasers_BrushScene"]
+[node name="entity_241_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_239_Group_Mover/entity_241_Lasers_BrushScene"]
 shape = SubResource( 408 )
 
-[node name="entity_239_func_group" type="Spatial" parent="QodotMap/entity_240_Group_Mover"]
+[node name="entity_238_func_group" type="Spatial" parent="QodotMap/entity_239_Group_Mover"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 194.5, -134.75, 59.625 )
 
-[node name="entity_244_Group_Mover" type="Spatial" parent="QodotMap"]
+[node name="entity_243_Group_Mover" type="Spatial" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -179.5, 161.625, -60.5 )
 script = ExtResource( 28 )
 properties = {
@@ -4879,7 +4859,7 @@ properties = {
 "travel_data_path": "res://Game/Scenes/Levels/Level4/Data/MoverData/laser3_2.tres"
 }
 
-[node name="entity_246_Lasers_BrushScene" type="Spatial" parent="QodotMap/entity_244_Group_Mover"]
+[node name="entity_245_Lasers_BrushScene" type="Spatial" parent="QodotMap/entity_243_Group_Mover"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0 )
 script = ExtResource( 29 )
 properties = {
@@ -4892,16 +4872,16 @@ properties = {
 "thickness": 0.15
 }
 
-[node name="entity_245_func_group" type="Spatial" parent="QodotMap/entity_244_Group_Mover/entity_246_Lasers_BrushScene"]
+[node name="entity_244_func_group" type="Spatial" parent="QodotMap/entity_243_Group_Mover/entity_245_Lasers_BrushScene"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 179.5, -161.875, 60.5 )
 
-[node name="entity_246_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_244_Group_Mover/entity_246_Lasers_BrushScene"]
+[node name="entity_245_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_243_Group_Mover/entity_245_Lasers_BrushScene"]
 shape = SubResource( 409 )
 
-[node name="entity_243_func_group" type="Spatial" parent="QodotMap/entity_244_Group_Mover"]
+[node name="entity_242_func_group" type="Spatial" parent="QodotMap/entity_243_Group_Mover"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 179.5, -161.625, 60.5 )
 
-[node name="entity_248_Group_Mover" type="Spatial" parent="QodotMap"]
+[node name="entity_247_Group_Mover" type="Spatial" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -194.5, 161.625, -90.5 )
 script = ExtResource( 28 )
 properties = {
@@ -4913,7 +4893,7 @@ properties = {
 "travel_data_path": "res://Game/Scenes/Levels/Level4/Data/MoverData/laser3_3.tres"
 }
 
-[node name="entity_250_Lasers_BrushScene" type="Spatial" parent="QodotMap/entity_248_Group_Mover"]
+[node name="entity_249_Lasers_BrushScene" type="Spatial" parent="QodotMap/entity_247_Group_Mover"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0 )
 script = ExtResource( 29 )
 properties = {
@@ -4926,16 +4906,16 @@ properties = {
 "thickness": 0.15
 }
 
-[node name="entity_249_func_group" type="Spatial" parent="QodotMap/entity_248_Group_Mover/entity_250_Lasers_BrushScene"]
+[node name="entity_248_func_group" type="Spatial" parent="QodotMap/entity_247_Group_Mover/entity_249_Lasers_BrushScene"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 194.5, -161.875, 90.5 )
 
-[node name="entity_250_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_248_Group_Mover/entity_250_Lasers_BrushScene"]
+[node name="entity_249_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_247_Group_Mover/entity_249_Lasers_BrushScene"]
 shape = SubResource( 410 )
 
-[node name="entity_247_func_group" type="Spatial" parent="QodotMap/entity_248_Group_Mover"]
+[node name="entity_246_func_group" type="Spatial" parent="QodotMap/entity_247_Group_Mover"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 194.5, -161.625, 90.5 )
 
-[node name="entity_252_Group_Mover" type="Spatial" parent="QodotMap"]
+[node name="entity_251_Group_Mover" type="Spatial" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -179.5, 135.125, -90.5 )
 script = ExtResource( 28 )
 properties = {
@@ -4947,7 +4927,7 @@ properties = {
 "travel_data_path": "res://Game/Scenes/Levels/Level4/Data/MoverData/laser3_4.tres"
 }
 
-[node name="entity_254_Lasers_BrushScene" type="Spatial" parent="QodotMap/entity_252_Group_Mover"]
+[node name="entity_253_Lasers_BrushScene" type="Spatial" parent="QodotMap/entity_251_Group_Mover"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0 )
 script = ExtResource( 29 )
 properties = {
@@ -4960,16 +4940,16 @@ properties = {
 "thickness": 0.15
 }
 
-[node name="entity_253_func_group" type="Spatial" parent="QodotMap/entity_252_Group_Mover/entity_254_Lasers_BrushScene"]
+[node name="entity_252_func_group" type="Spatial" parent="QodotMap/entity_251_Group_Mover/entity_253_Lasers_BrushScene"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 179.5, -135.375, 90.5 )
 
-[node name="entity_254_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_252_Group_Mover/entity_254_Lasers_BrushScene"]
+[node name="entity_253_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_251_Group_Mover/entity_253_Lasers_BrushScene"]
 shape = SubResource( 411 )
 
-[node name="entity_251_func_group" type="Spatial" parent="QodotMap/entity_252_Group_Mover"]
+[node name="entity_250_func_group" type="Spatial" parent="QodotMap/entity_251_Group_Mover"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 179.5, -135.125, 90.5 )
 
-[node name="entity_256_Group_Mover" type="Spatial" parent="QodotMap"]
+[node name="entity_255_Group_Mover" type="Spatial" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -179.5, 134.625, -90.5 )
 script = ExtResource( 28 )
 properties = {
@@ -4981,7 +4961,7 @@ properties = {
 "travel_data_path": "res://Game/Scenes/Levels/Level4/Data/MoverData/laser3_5.tres"
 }
 
-[node name="entity_258_Lasers_BrushScene" type="Spatial" parent="QodotMap/entity_256_Group_Mover"]
+[node name="entity_257_Lasers_BrushScene" type="Spatial" parent="QodotMap/entity_255_Group_Mover"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0 )
 script = ExtResource( 29 )
 properties = {
@@ -4994,16 +4974,16 @@ properties = {
 "thickness": 0.15
 }
 
-[node name="entity_257_func_group" type="Spatial" parent="QodotMap/entity_256_Group_Mover/entity_258_Lasers_BrushScene"]
+[node name="entity_256_func_group" type="Spatial" parent="QodotMap/entity_255_Group_Mover/entity_257_Lasers_BrushScene"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 179.5, -134.875, 90.5 )
 
-[node name="entity_258_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_256_Group_Mover/entity_258_Lasers_BrushScene"]
+[node name="entity_257_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_255_Group_Mover/entity_257_Lasers_BrushScene"]
 shape = SubResource( 412 )
 
-[node name="entity_255_func_group" type="Spatial" parent="QodotMap/entity_256_Group_Mover"]
+[node name="entity_254_func_group" type="Spatial" parent="QodotMap/entity_255_Group_Mover"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 179.5, -134.625, 90.5 )
 
-[node name="entity_260_Group_Rotater" type="Spatial" parent="QodotMap"]
+[node name="entity_259_Group_Rotater" type="Spatial" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -83.75, 162.5, -31.625 )
 script = ExtResource( 30 )
 properties = {
@@ -5012,7 +4992,7 @@ properties = {
 "rotation_speed": Vector3( 0, 0, -1 )
 }
 
-[node name="entity_262_Lasers_BrushScene" type="Spatial" parent="QodotMap/entity_260_Group_Rotater"]
+[node name="entity_261_Lasers_BrushScene" type="Spatial" parent="QodotMap/entity_259_Group_Rotater"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.25 )
 script = ExtResource( 29 )
 properties = {
@@ -5025,16 +5005,16 @@ properties = {
 "thickness": 0.1
 }
 
-[node name="entity_261_func_group" type="Spatial" parent="QodotMap/entity_260_Group_Rotater/entity_262_Lasers_BrushScene"]
+[node name="entity_260_func_group" type="Spatial" parent="QodotMap/entity_259_Group_Rotater/entity_261_Lasers_BrushScene"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 83.75, -162.5, 31.875 )
 
-[node name="entity_262_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_260_Group_Rotater/entity_262_Lasers_BrushScene"]
+[node name="entity_261_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_259_Group_Rotater/entity_261_Lasers_BrushScene"]
 shape = SubResource( 413 )
 
-[node name="entity_259_func_group" type="Spatial" parent="QodotMap/entity_260_Group_Rotater"]
+[node name="entity_258_func_group" type="Spatial" parent="QodotMap/entity_259_Group_Rotater"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 83.75, -162.5, 31.625 )
 
-[node name="entity_264_Group_Rotater" type="Spatial" parent="QodotMap"]
+[node name="entity_263_Group_Rotater" type="Spatial" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -83.5, 162.75, -31.625 )
 script = ExtResource( 30 )
 properties = {
@@ -5043,7 +5023,7 @@ properties = {
 "rotation_speed": Vector3( 0, 0, -1 )
 }
 
-[node name="entity_266_Lasers_BrushScene" type="Spatial" parent="QodotMap/entity_264_Group_Rotater"]
+[node name="entity_265_Lasers_BrushScene" type="Spatial" parent="QodotMap/entity_263_Group_Rotater"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.25 )
 script = ExtResource( 29 )
 properties = {
@@ -5056,16 +5036,16 @@ properties = {
 "thickness": 0.1
 }
 
-[node name="entity_265_func_group" type="Spatial" parent="QodotMap/entity_264_Group_Rotater/entity_266_Lasers_BrushScene"]
+[node name="entity_264_func_group" type="Spatial" parent="QodotMap/entity_263_Group_Rotater/entity_265_Lasers_BrushScene"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 83.5, -162.75, 31.875 )
 
-[node name="entity_266_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_264_Group_Rotater/entity_266_Lasers_BrushScene"]
+[node name="entity_265_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_263_Group_Rotater/entity_265_Lasers_BrushScene"]
 shape = SubResource( 414 )
 
-[node name="entity_263_func_group" type="Spatial" parent="QodotMap/entity_264_Group_Rotater"]
+[node name="entity_262_func_group" type="Spatial" parent="QodotMap/entity_263_Group_Rotater"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 83.5, -162.75, 31.625 )
 
-[node name="entity_268_Group_Rotater" type="Spatial" parent="QodotMap"]
+[node name="entity_267_Group_Rotater" type="Spatial" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -83.25, 162.5, -31.625 )
 script = ExtResource( 30 )
 properties = {
@@ -5074,7 +5054,7 @@ properties = {
 "rotation_speed": Vector3( 0, 0, -1 )
 }
 
-[node name="entity_270_Lasers_BrushScene" type="Spatial" parent="QodotMap/entity_268_Group_Rotater"]
+[node name="entity_269_Lasers_BrushScene" type="Spatial" parent="QodotMap/entity_267_Group_Rotater"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.25 )
 script = ExtResource( 29 )
 properties = {
@@ -5087,16 +5067,16 @@ properties = {
 "thickness": 0.1
 }
 
-[node name="entity_269_func_group" type="Spatial" parent="QodotMap/entity_268_Group_Rotater/entity_270_Lasers_BrushScene"]
+[node name="entity_268_func_group" type="Spatial" parent="QodotMap/entity_267_Group_Rotater/entity_269_Lasers_BrushScene"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 83.25, -162.5, 31.875 )
 
-[node name="entity_270_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_268_Group_Rotater/entity_270_Lasers_BrushScene"]
+[node name="entity_269_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_267_Group_Rotater/entity_269_Lasers_BrushScene"]
 shape = SubResource( 415 )
 
-[node name="entity_267_func_group" type="Spatial" parent="QodotMap/entity_268_Group_Rotater"]
+[node name="entity_266_func_group" type="Spatial" parent="QodotMap/entity_267_Group_Rotater"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 83.25, -162.5, 31.625 )
 
-[node name="entity_272_Group_Rotater" type="Spatial" parent="QodotMap"]
+[node name="entity_271_Group_Rotater" type="Spatial" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -83.5, 162.25, -31.625 )
 script = ExtResource( 30 )
 properties = {
@@ -5105,7 +5085,7 @@ properties = {
 "rotation_speed": Vector3( 0, 0, -1 )
 }
 
-[node name="entity_274_Lasers_BrushScene" type="Spatial" parent="QodotMap/entity_272_Group_Rotater"]
+[node name="entity_273_Lasers_BrushScene" type="Spatial" parent="QodotMap/entity_271_Group_Rotater"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.25 )
 script = ExtResource( 29 )
 properties = {
@@ -5118,16 +5098,16 @@ properties = {
 "thickness": 0.1
 }
 
-[node name="entity_273_func_group" type="Spatial" parent="QodotMap/entity_272_Group_Rotater/entity_274_Lasers_BrushScene"]
+[node name="entity_272_func_group" type="Spatial" parent="QodotMap/entity_271_Group_Rotater/entity_273_Lasers_BrushScene"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 83.5, -162.25, 31.875 )
 
-[node name="entity_274_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_272_Group_Rotater/entity_274_Lasers_BrushScene"]
+[node name="entity_273_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_271_Group_Rotater/entity_273_Lasers_BrushScene"]
 shape = SubResource( 416 )
 
-[node name="entity_271_func_group" type="Spatial" parent="QodotMap/entity_272_Group_Rotater"]
+[node name="entity_270_func_group" type="Spatial" parent="QodotMap/entity_271_Group_Rotater"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 83.5, -162.25, 31.625 )
 
-[node name="entity_276_Group_Rotater" type="Spatial" parent="QodotMap"]
+[node name="entity_275_Group_Rotater" type="Spatial" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -83.5, 180.75, -47.375 )
 script = ExtResource( 30 )
 properties = {
@@ -5136,7 +5116,7 @@ properties = {
 "rotation_speed": Vector3( 0, 0, 1 )
 }
 
-[node name="entity_278_Lasers_BrushScene" type="Spatial" parent="QodotMap/entity_276_Group_Rotater"]
+[node name="entity_277_Lasers_BrushScene" type="Spatial" parent="QodotMap/entity_275_Group_Rotater"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.25 )
 script = ExtResource( 29 )
 properties = {
@@ -5149,16 +5129,16 @@ properties = {
 "thickness": 0.1
 }
 
-[node name="entity_277_func_group" type="Spatial" parent="QodotMap/entity_276_Group_Rotater/entity_278_Lasers_BrushScene"]
+[node name="entity_276_func_group" type="Spatial" parent="QodotMap/entity_275_Group_Rotater/entity_277_Lasers_BrushScene"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 83.5, -180.75, 47.625 )
 
-[node name="entity_278_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_276_Group_Rotater/entity_278_Lasers_BrushScene"]
+[node name="entity_277_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_275_Group_Rotater/entity_277_Lasers_BrushScene"]
 shape = SubResource( 417 )
 
-[node name="entity_275_func_group" type="Spatial" parent="QodotMap/entity_276_Group_Rotater"]
+[node name="entity_274_func_group" type="Spatial" parent="QodotMap/entity_275_Group_Rotater"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 83.5, -180.75, 47.375 )
 
-[node name="entity_280_Group_Rotater" type="Spatial" parent="QodotMap"]
+[node name="entity_279_Group_Rotater" type="Spatial" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -83.75, 180.5, -47.375 )
 script = ExtResource( 30 )
 properties = {
@@ -5167,7 +5147,7 @@ properties = {
 "rotation_speed": Vector3( 0, 0, 1 )
 }
 
-[node name="entity_282_Lasers_BrushScene" type="Spatial" parent="QodotMap/entity_280_Group_Rotater"]
+[node name="entity_281_Lasers_BrushScene" type="Spatial" parent="QodotMap/entity_279_Group_Rotater"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.25 )
 script = ExtResource( 29 )
 properties = {
@@ -5180,16 +5160,16 @@ properties = {
 "thickness": 0.1
 }
 
-[node name="entity_281_func_group" type="Spatial" parent="QodotMap/entity_280_Group_Rotater/entity_282_Lasers_BrushScene"]
+[node name="entity_280_func_group" type="Spatial" parent="QodotMap/entity_279_Group_Rotater/entity_281_Lasers_BrushScene"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 83.75, -180.5, 47.625 )
 
-[node name="entity_282_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_280_Group_Rotater/entity_282_Lasers_BrushScene"]
+[node name="entity_281_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_279_Group_Rotater/entity_281_Lasers_BrushScene"]
 shape = SubResource( 418 )
 
-[node name="entity_279_func_group" type="Spatial" parent="QodotMap/entity_280_Group_Rotater"]
+[node name="entity_278_func_group" type="Spatial" parent="QodotMap/entity_279_Group_Rotater"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 83.75, -180.5, 47.375 )
 
-[node name="entity_284_Group_Rotater" type="Spatial" parent="QodotMap"]
+[node name="entity_283_Group_Rotater" type="Spatial" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -83.5, 180.25, -47.375 )
 script = ExtResource( 30 )
 properties = {
@@ -5198,7 +5178,7 @@ properties = {
 "rotation_speed": Vector3( 0, 0, 1 )
 }
 
-[node name="entity_286_Lasers_BrushScene" type="Spatial" parent="QodotMap/entity_284_Group_Rotater"]
+[node name="entity_285_Lasers_BrushScene" type="Spatial" parent="QodotMap/entity_283_Group_Rotater"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.25 )
 script = ExtResource( 29 )
 properties = {
@@ -5211,16 +5191,16 @@ properties = {
 "thickness": 0.1
 }
 
-[node name="entity_285_func_group" type="Spatial" parent="QodotMap/entity_284_Group_Rotater/entity_286_Lasers_BrushScene"]
+[node name="entity_284_func_group" type="Spatial" parent="QodotMap/entity_283_Group_Rotater/entity_285_Lasers_BrushScene"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 83.5, -180.25, 47.625 )
 
-[node name="entity_286_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_284_Group_Rotater/entity_286_Lasers_BrushScene"]
+[node name="entity_285_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_283_Group_Rotater/entity_285_Lasers_BrushScene"]
 shape = SubResource( 419 )
 
-[node name="entity_283_func_group" type="Spatial" parent="QodotMap/entity_284_Group_Rotater"]
+[node name="entity_282_func_group" type="Spatial" parent="QodotMap/entity_283_Group_Rotater"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 83.5, -180.25, 47.375 )
 
-[node name="entity_288_Group_Rotater" type="Spatial" parent="QodotMap"]
+[node name="entity_287_Group_Rotater" type="Spatial" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -83.25, 180.5, -47.375 )
 script = ExtResource( 30 )
 properties = {
@@ -5229,7 +5209,7 @@ properties = {
 "rotation_speed": Vector3( 0, 0, 1 )
 }
 
-[node name="entity_290_Lasers_BrushScene" type="Spatial" parent="QodotMap/entity_288_Group_Rotater"]
+[node name="entity_289_Lasers_BrushScene" type="Spatial" parent="QodotMap/entity_287_Group_Rotater"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.25 )
 script = ExtResource( 29 )
 properties = {
@@ -5242,16 +5222,16 @@ properties = {
 "thickness": 0.1
 }
 
-[node name="entity_289_func_group" type="Spatial" parent="QodotMap/entity_288_Group_Rotater/entity_290_Lasers_BrushScene"]
+[node name="entity_288_func_group" type="Spatial" parent="QodotMap/entity_287_Group_Rotater/entity_289_Lasers_BrushScene"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 83.25, -180.5, 47.625 )
 
-[node name="entity_290_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_288_Group_Rotater/entity_290_Lasers_BrushScene"]
+[node name="entity_289_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_287_Group_Rotater/entity_289_Lasers_BrushScene"]
 shape = SubResource( 420 )
 
-[node name="entity_287_func_group" type="Spatial" parent="QodotMap/entity_288_Group_Rotater"]
+[node name="entity_286_func_group" type="Spatial" parent="QodotMap/entity_287_Group_Rotater"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 83.25, -180.5, 47.375 )
 
-[node name="entity_292_Group_Rotater" type="Spatial" parent="QodotMap"]
+[node name="entity_291_Group_Rotater" type="Spatial" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -154, 223, -1.875 )
 script = ExtResource( 30 )
 properties = {
@@ -5260,7 +5240,7 @@ properties = {
 "rotation_speed": Vector3( 0, 1, 0 )
 }
 
-[node name="entity_294_Lasers_BrushScene" type="Spatial" parent="QodotMap/entity_292_Group_Rotater"]
+[node name="entity_293_Lasers_BrushScene" type="Spatial" parent="QodotMap/entity_291_Group_Rotater"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.25 )
 script = ExtResource( 29 )
 properties = {
@@ -5273,16 +5253,16 @@ properties = {
 "thickness": 0.1
 }
 
-[node name="entity_293_func_group" type="Spatial" parent="QodotMap/entity_292_Group_Rotater/entity_294_Lasers_BrushScene"]
+[node name="entity_292_func_group" type="Spatial" parent="QodotMap/entity_291_Group_Rotater/entity_293_Lasers_BrushScene"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 154, -223, 2.125 )
 
-[node name="entity_294_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_292_Group_Rotater/entity_294_Lasers_BrushScene"]
+[node name="entity_293_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_291_Group_Rotater/entity_293_Lasers_BrushScene"]
 shape = SubResource( 421 )
 
-[node name="entity_291_func_group" type="Spatial" parent="QodotMap/entity_292_Group_Rotater"]
+[node name="entity_290_func_group" type="Spatial" parent="QodotMap/entity_291_Group_Rotater"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 154, -223, 1.875 )
 
-[node name="entity_296_Group_Rotater" type="Spatial" parent="QodotMap"]
+[node name="entity_295_Group_Rotater" type="Spatial" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -154, 223, 6.125 )
 script = ExtResource( 30 )
 properties = {
@@ -5291,7 +5271,7 @@ properties = {
 "rotation_speed": Vector3( 0, 1, 0 )
 }
 
-[node name="entity_298_Lasers_BrushScene" type="Spatial" parent="QodotMap/entity_296_Group_Rotater"]
+[node name="entity_297_Lasers_BrushScene" type="Spatial" parent="QodotMap/entity_295_Group_Rotater"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.25 )
 script = ExtResource( 29 )
 properties = {
@@ -5304,16 +5284,16 @@ properties = {
 "thickness": 0.1
 }
 
-[node name="entity_297_func_group" type="Spatial" parent="QodotMap/entity_296_Group_Rotater/entity_298_Lasers_BrushScene"]
+[node name="entity_296_func_group" type="Spatial" parent="QodotMap/entity_295_Group_Rotater/entity_297_Lasers_BrushScene"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 154, -223, -5.875 )
 
-[node name="entity_298_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_296_Group_Rotater/entity_298_Lasers_BrushScene"]
+[node name="entity_297_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_295_Group_Rotater/entity_297_Lasers_BrushScene"]
 shape = SubResource( 422 )
 
-[node name="entity_295_func_group" type="Spatial" parent="QodotMap/entity_296_Group_Rotater"]
+[node name="entity_294_func_group" type="Spatial" parent="QodotMap/entity_295_Group_Rotater"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 154, -223, -6.125 )
 
-[node name="entity_300_Group_Rotater" type="Spatial" parent="QodotMap"]
+[node name="entity_299_Group_Rotater" type="Spatial" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -162, 223, 6.125 )
 script = ExtResource( 30 )
 properties = {
@@ -5322,7 +5302,7 @@ properties = {
 "rotation_speed": Vector3( 0, 1, 0 )
 }
 
-[node name="entity_302_Lasers_BrushScene" type="Spatial" parent="QodotMap/entity_300_Group_Rotater"]
+[node name="entity_301_Lasers_BrushScene" type="Spatial" parent="QodotMap/entity_299_Group_Rotater"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.25 )
 script = ExtResource( 29 )
 properties = {
@@ -5335,16 +5315,16 @@ properties = {
 "thickness": 0.1
 }
 
-[node name="entity_301_func_group" type="Spatial" parent="QodotMap/entity_300_Group_Rotater/entity_302_Lasers_BrushScene"]
+[node name="entity_300_func_group" type="Spatial" parent="QodotMap/entity_299_Group_Rotater/entity_301_Lasers_BrushScene"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 162, -223, -5.875 )
 
-[node name="entity_302_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_300_Group_Rotater/entity_302_Lasers_BrushScene"]
+[node name="entity_301_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_299_Group_Rotater/entity_301_Lasers_BrushScene"]
 shape = SubResource( 423 )
 
-[node name="entity_299_func_group" type="Spatial" parent="QodotMap/entity_300_Group_Rotater"]
+[node name="entity_298_func_group" type="Spatial" parent="QodotMap/entity_299_Group_Rotater"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 162, -223, -6.125 )
 
-[node name="entity_304_Group_Rotater" type="Spatial" parent="QodotMap"]
+[node name="entity_303_Group_Rotater" type="Spatial" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -162, 223, -1.875 )
 script = ExtResource( 30 )
 properties = {
@@ -5353,7 +5333,7 @@ properties = {
 "rotation_speed": Vector3( 0, 1, 0 )
 }
 
-[node name="entity_306_Lasers_BrushScene" type="Spatial" parent="QodotMap/entity_304_Group_Rotater"]
+[node name="entity_305_Lasers_BrushScene" type="Spatial" parent="QodotMap/entity_303_Group_Rotater"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.25 )
 script = ExtResource( 29 )
 properties = {
@@ -5366,16 +5346,16 @@ properties = {
 "thickness": 0.1
 }
 
-[node name="entity_305_func_group" type="Spatial" parent="QodotMap/entity_304_Group_Rotater/entity_306_Lasers_BrushScene"]
+[node name="entity_304_func_group" type="Spatial" parent="QodotMap/entity_303_Group_Rotater/entity_305_Lasers_BrushScene"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 162, -223, 2.125 )
 
-[node name="entity_306_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_304_Group_Rotater/entity_306_Lasers_BrushScene"]
+[node name="entity_305_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_303_Group_Rotater/entity_305_Lasers_BrushScene"]
 shape = SubResource( 424 )
 
-[node name="entity_303_func_group" type="Spatial" parent="QodotMap/entity_304_Group_Rotater"]
+[node name="entity_302_func_group" type="Spatial" parent="QodotMap/entity_303_Group_Rotater"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 162, -223, 1.875 )
 
-[node name="entity_308_Group_Rotater" type="Spatial" parent="QodotMap"]
+[node name="entity_307_Group_Rotater" type="Spatial" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -162, 201, -1.875 )
 script = ExtResource( 30 )
 properties = {
@@ -5384,7 +5364,7 @@ properties = {
 "rotation_speed": Vector3( 0, 2, 0 )
 }
 
-[node name="entity_310_Lasers_BrushScene" type="Spatial" parent="QodotMap/entity_308_Group_Rotater"]
+[node name="entity_309_Lasers_BrushScene" type="Spatial" parent="QodotMap/entity_307_Group_Rotater"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.25 )
 script = ExtResource( 29 )
 properties = {
@@ -5397,16 +5377,16 @@ properties = {
 "thickness": 0.1
 }
 
-[node name="entity_309_func_group" type="Spatial" parent="QodotMap/entity_308_Group_Rotater/entity_310_Lasers_BrushScene"]
+[node name="entity_308_func_group" type="Spatial" parent="QodotMap/entity_307_Group_Rotater/entity_309_Lasers_BrushScene"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 162, -201, 2.125 )
 
-[node name="entity_310_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_308_Group_Rotater/entity_310_Lasers_BrushScene"]
+[node name="entity_309_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_307_Group_Rotater/entity_309_Lasers_BrushScene"]
 shape = SubResource( 425 )
 
-[node name="entity_307_func_group" type="Spatial" parent="QodotMap/entity_308_Group_Rotater"]
+[node name="entity_306_func_group" type="Spatial" parent="QodotMap/entity_307_Group_Rotater"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 162, -201, 1.875 )
 
-[node name="entity_312_Group_Rotater" type="Spatial" parent="QodotMap"]
+[node name="entity_311_Group_Rotater" type="Spatial" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -162, 201, 6.125 )
 script = ExtResource( 30 )
 properties = {
@@ -5415,7 +5395,7 @@ properties = {
 "rotation_speed": Vector3( 0, 2, 0 )
 }
 
-[node name="entity_314_Lasers_BrushScene" type="Spatial" parent="QodotMap/entity_312_Group_Rotater"]
+[node name="entity_313_Lasers_BrushScene" type="Spatial" parent="QodotMap/entity_311_Group_Rotater"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.25 )
 script = ExtResource( 29 )
 properties = {
@@ -5428,16 +5408,16 @@ properties = {
 "thickness": 0.1
 }
 
-[node name="entity_313_func_group" type="Spatial" parent="QodotMap/entity_312_Group_Rotater/entity_314_Lasers_BrushScene"]
+[node name="entity_312_func_group" type="Spatial" parent="QodotMap/entity_311_Group_Rotater/entity_313_Lasers_BrushScene"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 162, -201, -5.875 )
 
-[node name="entity_314_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_312_Group_Rotater/entity_314_Lasers_BrushScene"]
+[node name="entity_313_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_311_Group_Rotater/entity_313_Lasers_BrushScene"]
 shape = SubResource( 426 )
 
-[node name="entity_311_func_group" type="Spatial" parent="QodotMap/entity_312_Group_Rotater"]
+[node name="entity_310_func_group" type="Spatial" parent="QodotMap/entity_311_Group_Rotater"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 162, -201, -6.125 )
 
-[node name="entity_316_Group_Rotater" type="Spatial" parent="QodotMap"]
+[node name="entity_315_Group_Rotater" type="Spatial" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -154, 201, 6.125 )
 script = ExtResource( 30 )
 properties = {
@@ -5446,7 +5426,7 @@ properties = {
 "rotation_speed": Vector3( 0, 2, 0 )
 }
 
-[node name="entity_318_Lasers_BrushScene" type="Spatial" parent="QodotMap/entity_316_Group_Rotater"]
+[node name="entity_317_Lasers_BrushScene" type="Spatial" parent="QodotMap/entity_315_Group_Rotater"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.25 )
 script = ExtResource( 29 )
 properties = {
@@ -5459,16 +5439,16 @@ properties = {
 "thickness": 0.1
 }
 
-[node name="entity_317_func_group" type="Spatial" parent="QodotMap/entity_316_Group_Rotater/entity_318_Lasers_BrushScene"]
+[node name="entity_316_func_group" type="Spatial" parent="QodotMap/entity_315_Group_Rotater/entity_317_Lasers_BrushScene"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 154, -201, -5.875 )
 
-[node name="entity_318_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_316_Group_Rotater/entity_318_Lasers_BrushScene"]
+[node name="entity_317_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_315_Group_Rotater/entity_317_Lasers_BrushScene"]
 shape = SubResource( 427 )
 
-[node name="entity_315_func_group" type="Spatial" parent="QodotMap/entity_316_Group_Rotater"]
+[node name="entity_314_func_group" type="Spatial" parent="QodotMap/entity_315_Group_Rotater"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 154, -201, -6.125 )
 
-[node name="entity_320_Group_Rotater" type="Spatial" parent="QodotMap"]
+[node name="entity_319_Group_Rotater" type="Spatial" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -154, 201, -1.875 )
 script = ExtResource( 30 )
 properties = {
@@ -5477,7 +5457,7 @@ properties = {
 "rotation_speed": Vector3( 0, 2, 0 )
 }
 
-[node name="entity_322_Lasers_BrushScene" type="Spatial" parent="QodotMap/entity_320_Group_Rotater"]
+[node name="entity_321_Lasers_BrushScene" type="Spatial" parent="QodotMap/entity_319_Group_Rotater"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.25 )
 script = ExtResource( 29 )
 properties = {
@@ -5490,16 +5470,16 @@ properties = {
 "thickness": 0.1
 }
 
-[node name="entity_321_func_group" type="Spatial" parent="QodotMap/entity_320_Group_Rotater/entity_322_Lasers_BrushScene"]
+[node name="entity_320_func_group" type="Spatial" parent="QodotMap/entity_319_Group_Rotater/entity_321_Lasers_BrushScene"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 154, -201, 2.125 )
 
-[node name="entity_322_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_320_Group_Rotater/entity_322_Lasers_BrushScene"]
+[node name="entity_321_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_319_Group_Rotater/entity_321_Lasers_BrushScene"]
 shape = SubResource( 428 )
 
-[node name="entity_319_func_group" type="Spatial" parent="QodotMap/entity_320_Group_Rotater"]
+[node name="entity_318_func_group" type="Spatial" parent="QodotMap/entity_319_Group_Rotater"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 154, -201, 1.875 )
 
-[node name="entity_324_Group_Rotater" type="Spatial" parent="QodotMap"]
+[node name="entity_323_Group_Rotater" type="Spatial" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -162, 178.5, -1.875 )
 script = ExtResource( 30 )
 properties = {
@@ -5508,7 +5488,7 @@ properties = {
 "rotation_speed": Vector3( 0, 1.75, 0 )
 }
 
-[node name="entity_326_Lasers_BrushScene" type="Spatial" parent="QodotMap/entity_324_Group_Rotater"]
+[node name="entity_325_Lasers_BrushScene" type="Spatial" parent="QodotMap/entity_323_Group_Rotater"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.25 )
 script = ExtResource( 29 )
 properties = {
@@ -5521,16 +5501,16 @@ properties = {
 "thickness": 0.1
 }
 
-[node name="entity_325_func_group" type="Spatial" parent="QodotMap/entity_324_Group_Rotater/entity_326_Lasers_BrushScene"]
+[node name="entity_324_func_group" type="Spatial" parent="QodotMap/entity_323_Group_Rotater/entity_325_Lasers_BrushScene"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 162, -178.5, 2.125 )
 
-[node name="entity_326_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_324_Group_Rotater/entity_326_Lasers_BrushScene"]
+[node name="entity_325_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_323_Group_Rotater/entity_325_Lasers_BrushScene"]
 shape = SubResource( 429 )
 
-[node name="entity_323_func_group" type="Spatial" parent="QodotMap/entity_324_Group_Rotater"]
+[node name="entity_322_func_group" type="Spatial" parent="QodotMap/entity_323_Group_Rotater"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 162, -178.5, 1.875 )
 
-[node name="entity_328_Group_Rotater" type="Spatial" parent="QodotMap"]
+[node name="entity_327_Group_Rotater" type="Spatial" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -162, 178.5, 6.125 )
 script = ExtResource( 30 )
 properties = {
@@ -5539,7 +5519,7 @@ properties = {
 "rotation_speed": Vector3( 0, 1.75, 0 )
 }
 
-[node name="entity_330_Lasers_BrushScene" type="Spatial" parent="QodotMap/entity_328_Group_Rotater"]
+[node name="entity_329_Lasers_BrushScene" type="Spatial" parent="QodotMap/entity_327_Group_Rotater"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.25 )
 script = ExtResource( 29 )
 properties = {
@@ -5552,16 +5532,16 @@ properties = {
 "thickness": 0.1
 }
 
-[node name="entity_329_func_group" type="Spatial" parent="QodotMap/entity_328_Group_Rotater/entity_330_Lasers_BrushScene"]
+[node name="entity_328_func_group" type="Spatial" parent="QodotMap/entity_327_Group_Rotater/entity_329_Lasers_BrushScene"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 162, -178.5, -5.875 )
 
-[node name="entity_330_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_328_Group_Rotater/entity_330_Lasers_BrushScene"]
+[node name="entity_329_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_327_Group_Rotater/entity_329_Lasers_BrushScene"]
 shape = SubResource( 430 )
 
-[node name="entity_327_func_group" type="Spatial" parent="QodotMap/entity_328_Group_Rotater"]
+[node name="entity_326_func_group" type="Spatial" parent="QodotMap/entity_327_Group_Rotater"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 162, -178.5, -6.125 )
 
-[node name="entity_332_Group_Rotater" type="Spatial" parent="QodotMap"]
+[node name="entity_331_Group_Rotater" type="Spatial" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -154, 178.5, 6.125 )
 script = ExtResource( 30 )
 properties = {
@@ -5570,7 +5550,7 @@ properties = {
 "rotation_speed": Vector3( 0, 1.75, 0 )
 }
 
-[node name="entity_334_Lasers_BrushScene" type="Spatial" parent="QodotMap/entity_332_Group_Rotater"]
+[node name="entity_333_Lasers_BrushScene" type="Spatial" parent="QodotMap/entity_331_Group_Rotater"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.25 )
 script = ExtResource( 29 )
 properties = {
@@ -5583,16 +5563,16 @@ properties = {
 "thickness": 0.1
 }
 
-[node name="entity_333_func_group" type="Spatial" parent="QodotMap/entity_332_Group_Rotater/entity_334_Lasers_BrushScene"]
+[node name="entity_332_func_group" type="Spatial" parent="QodotMap/entity_331_Group_Rotater/entity_333_Lasers_BrushScene"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 154, -178.5, -5.875 )
 
-[node name="entity_334_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_332_Group_Rotater/entity_334_Lasers_BrushScene"]
+[node name="entity_333_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_331_Group_Rotater/entity_333_Lasers_BrushScene"]
 shape = SubResource( 431 )
 
-[node name="entity_331_func_group" type="Spatial" parent="QodotMap/entity_332_Group_Rotater"]
+[node name="entity_330_func_group" type="Spatial" parent="QodotMap/entity_331_Group_Rotater"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 154, -178.5, -6.125 )
 
-[node name="entity_336_Group_Rotater" type="Spatial" parent="QodotMap"]
+[node name="entity_335_Group_Rotater" type="Spatial" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -154, 178.5, -1.875 )
 script = ExtResource( 30 )
 properties = {
@@ -5601,7 +5581,7 @@ properties = {
 "rotation_speed": Vector3( 0, 1.75, 0 )
 }
 
-[node name="entity_338_Lasers_BrushScene" type="Spatial" parent="QodotMap/entity_336_Group_Rotater"]
+[node name="entity_337_Lasers_BrushScene" type="Spatial" parent="QodotMap/entity_335_Group_Rotater"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.25 )
 script = ExtResource( 29 )
 properties = {
@@ -5614,14 +5594,27 @@ properties = {
 "thickness": 0.1
 }
 
-[node name="entity_337_func_group" type="Spatial" parent="QodotMap/entity_336_Group_Rotater/entity_338_Lasers_BrushScene"]
+[node name="entity_336_func_group" type="Spatial" parent="QodotMap/entity_335_Group_Rotater/entity_337_Lasers_BrushScene"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 154, -178.5, 2.125 )
 
-[node name="entity_338_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_336_Group_Rotater/entity_338_Lasers_BrushScene"]
+[node name="entity_337_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_335_Group_Rotater/entity_337_Lasers_BrushScene"]
 shape = SubResource( 432 )
 
-[node name="entity_335_func_group" type="Spatial" parent="QodotMap/entity_336_Group_Rotater"]
+[node name="entity_334_func_group" type="Spatial" parent="QodotMap/entity_335_Group_Rotater"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 154, -178.5, 1.875 )
+
+[node name="entity_338_Boost_Pad" parent="QodotMap" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -158.125, 87.125, 82.125 )
+properties = {
+"classname": "Boost_Pad",
+"collision_layer": "2",
+"collision_mask": "5",
+"color": Color( 0, 1, 1, 1 ),
+"force": 17.0,
+"mangle": Vector3( -90, 0, 0 ),
+"origin": "1314 -2530 1394",
+"size": Vector3( 1, 1, 1 )
+}
 
 [connection signal="timeout" from="Timers/StompTimer" to="." method="_on_StompTimer_timeout"]
 [connection signal="timeout" from="Timers/CubeTimer" to="." method="_on_CubeTimer_timeout"]
@@ -5631,11 +5624,11 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 154, -178.5, 1.875 )
 [connection signal="trigger" from="QodotMap/entity_8_Doors_AreaOpen" to="QodotMap/entity_11_Doors_StandardDoor" method="use"]
 [connection signal="trigger" from="QodotMap/entity_8_Doors_AreaOpen" to="QodotMap/entity_12_Doors_StandardDoor" method="use"]
 [connection signal="trigger" from="QodotMap/entity_8_Doors_AreaOpen" to="QodotMap/entity_13_Doors_StandardDoor" method="use"]
-[connection signal="trigger" from="QodotMap/entity_39_Portals_Portal" to="QodotMap/entity_40_Portals_Portal" method="use"]
-[connection signal="trigger" from="QodotMap/entity_40_Portals_Portal" to="QodotMap/entity_39_Portals_Portal" method="use"]
-[connection signal="trigger" from="QodotMap/entity_42_Portals_Portal" to="QodotMap/entity_43_Portals_Portal" method="use"]
-[connection signal="trigger" from="QodotMap/entity_43_Portals_Portal" to="QodotMap/entity_42_Portals_Portal" method="use"]
-[connection signal="trigger" from="QodotMap/entity_51_Portals_Portal" to="QodotMap/entity_53_Portals_Portal" method="use"]
-[connection signal="trigger" from="QodotMap/entity_53_Portals_Portal" to="QodotMap/entity_51_Portals_Portal" method="use"]
-[connection signal="trigger" from="QodotMap/entity_54_Portals_Portal" to="QodotMap/entity_198_Portals_Portal" method="use"]
-[connection signal="trigger" from="QodotMap/entity_198_Portals_Portal" to="QodotMap/entity_54_Portals_Portal" method="use"]
+[connection signal="trigger" from="QodotMap/entity_38_Portals_Portal" to="QodotMap/entity_39_Portals_Portal" method="use"]
+[connection signal="trigger" from="QodotMap/entity_39_Portals_Portal" to="QodotMap/entity_38_Portals_Portal" method="use"]
+[connection signal="trigger" from="QodotMap/entity_41_Portals_Portal" to="QodotMap/entity_42_Portals_Portal" method="use"]
+[connection signal="trigger" from="QodotMap/entity_42_Portals_Portal" to="QodotMap/entity_41_Portals_Portal" method="use"]
+[connection signal="trigger" from="QodotMap/entity_50_Portals_Portal" to="QodotMap/entity_52_Portals_Portal" method="use"]
+[connection signal="trigger" from="QodotMap/entity_52_Portals_Portal" to="QodotMap/entity_50_Portals_Portal" method="use"]
+[connection signal="trigger" from="QodotMap/entity_53_Portals_Portal" to="QodotMap/entity_197_Portals_Portal" method="use"]
+[connection signal="trigger" from="QodotMap/entity_197_Portals_Portal" to="QodotMap/entity_53_Portals_Portal" method="use"]

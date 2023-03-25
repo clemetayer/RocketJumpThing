@@ -27,9 +27,9 @@ func after():
 #---- TESTS -----
 #==== ACTUAL TESTS =====
 func test_ready_func() -> void:
-	vertical_boost._angle = Vector3.ONE
+	vertical_boost._mangle = Vector3.ONE
 	vertical_boost._ready_func()
-	assert_vector3(vertical_boost.rotation_degrees).is_equal(Vector3.ONE)
+	assert_vector3(vertical_boost.rotation_degrees).is_equal(Vector3.ONE + Vector3(90,0,0))
 
 
 func test_connect_signals() -> void:

@@ -13,12 +13,12 @@ description = "An area used to trigger the break of a wall depending on the spee
 qodot_internal = false
 base_classes = [ ExtResource( 3 ), ExtResource( 4 ) ]
 class_properties = {
+"mangle": Vector3( 0, 0, 0 ),
 "scale": Vector3( 2, 2, 1 ),
-"text_direction": Vector3( 0, 0, 0 ),
 "treshold": 0
 }
 class_property_descriptions = {
-"font_size": "Font size of the speed displayed on the label",
+"mangle": "direction where the text (or icon will be facing)",
 "scale": "Pretty much the size of the text",
 "treshold": "Speed treshold to trigger the 'Trigger' signal"
 }

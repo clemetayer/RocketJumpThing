@@ -22,18 +22,18 @@
 "color" "255 255 255"
 "force" "17"
 "size" "2.5 2.5 2.5"
-"angle" "0 0 0"
+"mangle" "-90 0 0"
 }
 // entity 3
 {
 "classname" "Boost_Area"
 "origin" "2 -2 274"
-"angle" "0 0 0"
 "collision_layer" "2"
 "collision_mask" "5"
 "color" "255 255 255"
 "force" "17"
 "size" "2.5 2.5 2.5"
+"mangle" "-90 0 0"
 }
 // entity 4
 {
@@ -45,6 +45,7 @@
 "color" "255 255 255"
 "force" "17"
 "size" "2.5 2.5 2.5"
+"mangle" "-60 -90 0"
 }
 // entity 5
 {
@@ -510,12 +511,12 @@
 {
 "classname" "Boost_Pad"
 "origin" "1570 -2274 1010"
-"angle" "0 0 0"
 "collision_layer" "2"
 "collision_mask" "5"
 "color" "0 255 255"
 "force" "17"
 "size" "1 1 1"
+"mangle" "-90 0 0"
 }
 // entity 19
 {
@@ -534,25 +535,14 @@
 {
 "classname" "Boost_Pad"
 "origin" "1570 -2530 1202"
-"angle" "0 0 0"
 "collision_layer" "2"
 "collision_mask" "5"
 "color" "0 255 255"
 "force" "17"
 "size" "1 1 1"
+"mangle" "-90 0 0"
 }
 // entity 21
-{
-"classname" "Boost_Pad"
-"origin" "1314 -2530 1394"
-"angle" "0 0 0"
-"collision_layer" "2"
-"collision_mask" "5"
-"color" "0 255 255"
-"force" "17"
-"size" "1 1 1"
-}
-// entity 22
 {
 "classname" "StaticBodyGroup"
 // brush 0
@@ -565,7 +555,7 @@
 ( 1344 -2176 896 ) ( 1344 -2176 897 ) ( 1344 -2175 896 ) __TB_empty [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 23
+// entity 22
 {
 "classname" "StaticBodyGroup"
 // brush 0
@@ -578,18 +568,18 @@
 ( 1344 -1920 1088 ) ( 1344 -1920 1089 ) ( 1344 -1919 1088 ) __TB_empty [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 24
+// entity 23
 {
 "classname" "Boost_Pad"
 "origin" "1314 -2274 1586"
-"angle" "0 0 0"
 "collision_layer" "2"
 "collision_mask" "5"
 "color" "0 255 255"
 "force" "17"
 "size" "1 1 1"
+"mangle" "-90 0 0"
 }
-// entity 25
+// entity 24
 {
 "classname" "StaticBodyGroup"
 // brush 0
@@ -692,7 +682,7 @@
 ( 816 -2048 2064 ) ( 816 -1856 2064 ) ( 816 -1856 2048 ) __TB_empty [ 0 0 -1 0 ] [ 0 -1 0 0 ] 0 1 1
 }
 }
-// entity 26
+// entity 25
 {
 "classname" "Checkpoints_Checkpoint"
 "mangle" "0 180 0"
@@ -709,7 +699,7 @@
 ( 944 -1872 1296 ) ( 944 -1873 1296 ) ( 944 -1872 1297 ) entities/checkpoint/checkpoint_1 [ -2.7755575615628914e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 27
+// entity 26
 {
 "classname" "StaticBodyGroup"
 // brush 0
@@ -731,7 +721,7 @@
 ( -1264 -1712 1696 ) ( -1264 -1712 1697 ) ( -1264 -1711 1696 ) __TB_empty [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 28
+// entity 27
 {
 "classname" "Checkpoints_Checkpoint"
 "mangle" "0 180 0"
@@ -748,7 +738,7 @@
 ( 64 -1712 1712 ) ( 64 -1712 1713 ) ( 64 -1711 1712 ) entities/checkpoint/checkpoint_1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 29
+// entity 28
 {
 "classname" "StaticBodyGroup"
 // brush 0
@@ -824,7 +814,7 @@
 ( 1576 -1776 512 ) ( 1576 -1776 513 ) ( 1576 -1775 512 ) __TB_empty [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 30
+// entity 29
 {
 "classname" "StaticBodyGroup"
 // brush 0
@@ -855,7 +845,7 @@
 ( 675.1384387633059 -3568 2137.4153162899183 ) ( 674.6384387633059 -3568 2138.281341693703 ) ( 675.1384387633059 -3567 2137.4153162899183 ) __TB_empty [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 31
+// entity 30
 {
 "classname" "StaticBodyGroup"
 // brush 0
@@ -868,7 +858,7 @@
 ( 272 -3568 1464 ) ( 272 -3568 1465 ) ( 272 -3567 1464 ) __TB_empty [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 32
+// entity 31
 {
 "classname" "StaticBodyGroup"
 // brush 0
@@ -935,7 +925,7 @@
 ( -1056 -3568 2384 ) ( -1056 -3568 2385 ) ( -1056 -3567 2384 ) __TB_empty [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 33
+// entity 32
 {
 "classname" "Checkpoints_Checkpoint"
 "collision_layer" "2"
@@ -952,7 +942,7 @@
 ( -672 -3568 2144 ) ( -672 -3568 2145 ) ( -672 -3567 2144 ) entities/checkpoint/checkpoint_1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 34
+// entity 33
 {
 "classname" "Checkpoints_Checkpoint"
 "collision_layer" "2"
@@ -969,7 +959,7 @@
 ( -176 -3568 2400 ) ( -176 -3568 2401 ) ( -176 -3567 2400 ) entities/checkpoint/checkpoint_1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 35
+// entity 34
 {
 "classname" "Stompers_StomperStepSequencer"
 "attack" "0.25"
@@ -1001,7 +991,7 @@
 ( 304 -880 736 ) ( 304 -880 737 ) ( 304 -879 736 ) __TB_empty [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 36
+// entity 35
 {
 "classname" "Stompers_StomperStepSequencer"
 "attack" "0.25"
@@ -1033,7 +1023,7 @@
 ( 496 -880 736 ) ( 496 -880 737 ) ( 496 -879 736 ) __TB_empty [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 37
+// entity 36
 {
 "classname" "Stompers_StomperStepSequencer"
 "attack" "0.25"
@@ -1065,7 +1055,7 @@
 ( 688 -880 736 ) ( 688 -880 737 ) ( 688 -879 736 ) __TB_empty [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 38
+// entity 37
 {
 "classname" "Stompers_StomperStepSequencer"
 "attack" "0.25"
@@ -1097,7 +1087,7 @@
 ( 880 -880 736 ) ( 880 -880 737 ) ( 880 -879 736 ) __TB_empty [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 39
+// entity 38
 {
 "classname" "Portals_Portal"
 "origin" "-1216 -1936 1456"
@@ -1108,7 +1098,7 @@
 "target" "tp_1_exit"
 "targetname" "tp_1_entrance"
 }
-// entity 40
+// entity 39
 {
 "classname" "Portals_Portal"
 "origin" "-1200 -3800 1888"
@@ -1119,7 +1109,7 @@
 "target" "tp_1_entrance"
 "targetname" "tp_1_exit"
 }
-// entity 41
+// entity 40
 {
 "classname" "StaticBodyGroup"
 // brush 0
@@ -1131,7 +1121,7 @@
 ( 272 -3888 1840 ) ( 272 -3696 1840 ) ( 272 -3784 1648 ) __TB_empty [ 2.220446049250313e-16 0 1 0 ] [ 0 -1 0 0 ] 0 1 1
 }
 }
-// entity 42
+// entity 41
 {
 "classname" "Portals_Portal"
 "origin" "176 -3792 1264"
@@ -1142,7 +1132,7 @@
 "target" "tp_2_exit"
 "targetname" "tp_2_entrance"
 }
-// entity 43
+// entity 42
 {
 "classname" "Portals_Portal"
 "origin" "696 -3792 1920"
@@ -1153,7 +1143,7 @@
 "target" "tp_2_entrance"
 "targetname" "tp_2_exit"
 }
-// entity 44
+// entity 43
 {
 "classname" "Checkpoints_End"
 "collision_layer" "2"
@@ -1168,7 +1158,7 @@
 ( 106.66666666666674 -2453.333333333334 1949.3333333333333 ) ( 106.66666666666674 -2453.333333333334 1951.6666666666665 ) ( 106.66666666666674 -2451 1949.3333333333333 ) entities/checkpoint/end_level [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 45
+// entity 44
 {
 "classname" "StaticBodyGroup"
 // brush 0
@@ -1181,18 +1171,18 @@
 ( -1120 -3207.2717227504695 2289.415316289918 ) ( -1120 -3207.7717227504695 2290.2813416937024 ) ( -1120 -3206.405697346685 2289.915316289918 ) __TB_empty [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 46
+// entity 45
 {
 "classname" "Boost_Pad"
 "origin" "-1158 -2798 2214"
-"angle" "0 0 30"
 "collision_layer" "2"
 "collision_mask" "5"
-"color" "255 255 255"
+"color" "0 255 255"
 "force" "19"
 "size" "1 1 1"
+"mangle" "-60 -90 0"
 }
-// entity 47
+// entity 46
 {
 "classname" "Stompers_StomperStepSequencer"
 "active_on_signals" "stomp"
@@ -1215,7 +1205,7 @@
 ( -1072 -3360 2384 ) ( -1072 -3360 2385 ) ( -1072 -3359 2384 ) __TB_empty [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 48
+// entity 47
 {
 "classname" "Stompers_StomperStepSequencer"
 "active_on_signals" "stomp"
@@ -1238,7 +1228,7 @@
 ( -1072 -3168 2384 ) ( -1072 -3168 2385 ) ( -1072 -3167 2384 ) __TB_empty [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 49
+// entity 48
 {
 "classname" "StaticBodyGroup"
 // brush 0
@@ -1251,18 +1241,18 @@
 ( -1120 -2888.728276772694 2465.415316289918 ) ( -1120 -2889.5943021764783 2465.915316289918 ) ( -1120 -2888.228276772694 2466.2813416937024 ) __TB_empty [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 50
+// entity 49
 {
 "classname" "Boost_Pad"
 "origin" "-1162 -3298 2390"
-"angle" "0 0 -30"
 "collision_layer" "2"
 "collision_mask" "5"
 "color" "0 255 255"
 "force" "22"
 "size" "1 1 1"
+"mangle" "-60 90 0"
 }
-// entity 51
+// entity 50
 {
 "classname" "Portals_Portal"
 "origin" "-1160 -2584 2680"
@@ -1273,7 +1263,7 @@
 "target" "tp_3_exit"
 "targetname" "tp_3_entrance"
 }
-// entity 52
+// entity 51
 {
 "classname" "Checkpoints_Checkpoint"
 "collision_layer" "2"
@@ -1290,7 +1280,7 @@
 ( -1072 -4392 2400 ) ( -1072 -4393 2400 ) ( -1072 -4392 2401 ) entities/checkpoint/checkpoint_1 [ -2.220446049250313e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 53
+// entity 52
 {
 "classname" "Portals_Portal"
 "origin" "-1176 -1336 2984"
@@ -1301,7 +1291,7 @@
 "target" "tp_3_entrance"
 "targetname" "tp_3_exit"
 }
-// entity 54
+// entity 53
 {
 "classname" "Portals_Portal"
 "origin" "32 -2528 3720"
@@ -1312,18 +1302,18 @@
 "targetname" "tp_4_exit"
 "target" "tp_4_entrance"
 }
-// entity 55
+// entity 54
 {
 "classname" "Boost_Pad"
 "origin" "722 -1966 1202"
-"angle" "45 180 0"
 "collision_layer" "2"
 "collision_mask" "5"
 "color" "0 155 255"
 "force" "20"
 "size" "5 5 5"
+"mangle" "-45 180 0"
 }
-// entity 56
+// entity 55
 {
 "classname" "Lasers_Laser"
 "origin" "792 -1928 1752"
@@ -1334,7 +1324,7 @@
 "max_length" "10"
 "thickness" "0.1"
 }
-// entity 57
+// entity 56
 {
 "classname" "Lasers_Laser"
 "origin" "792 -1896 1752"
@@ -1345,7 +1335,7 @@
 "max_length" "10"
 "thickness" "0.1"
 }
-// entity 58
+// entity 57
 {
 "classname" "Lasers_Laser"
 "origin" "792 -1864 1752"
@@ -1356,7 +1346,7 @@
 "max_length" "10"
 "thickness" "0.1"
 }
-// entity 59
+// entity 58
 {
 "classname" "Lasers_Laser"
 "origin" "792 -1880 1752"
@@ -1367,7 +1357,7 @@
 "max_length" "10"
 "thickness" "0.1"
 }
-// entity 60
+// entity 59
 {
 "classname" "Lasers_Laser"
 "origin" "792 -1912 1752"
@@ -1378,7 +1368,7 @@
 "max_length" "10"
 "thickness" "0.1"
 }
-// entity 61
+// entity 60
 {
 "classname" "Lasers_Laser"
 "origin" "760 -1864 1576"
@@ -1389,7 +1379,7 @@
 "max_length" "10"
 "thickness" "0.1"
 }
-// entity 62
+// entity 61
 {
 "classname" "Lasers_Laser"
 "origin" "728 -1864 1576"
@@ -1400,7 +1390,7 @@
 "max_length" "10"
 "thickness" "0.1"
 }
-// entity 63
+// entity 62
 {
 "classname" "Lasers_Laser"
 "origin" "744.004 -1864 1576"
@@ -1411,7 +1401,7 @@
 "max_length" "10"
 "thickness" "0.1"
 }
-// entity 64
+// entity 63
 {
 "classname" "Lasers_Laser"
 "origin" "776.002 -1864 1576"
@@ -1422,7 +1412,7 @@
 "max_length" "10"
 "thickness" "0.1"
 }
-// entity 65
+// entity 64
 {
 "classname" "Lasers_Laser"
 "origin" "791.996 -1864 1576"
@@ -1433,7 +1423,7 @@
 "max_length" "10"
 "thickness" "0.1"
 }
-// entity 66
+// entity 65
 {
 "classname" "Lasers_Laser"
 "origin" "616 -1896 1464"
@@ -1444,7 +1434,7 @@
 "max_length" "10"
 "thickness" "0.1"
 }
-// entity 67
+// entity 66
 {
 "classname" "Lasers_Laser"
 "origin" "616 -1928 1464"
@@ -1455,7 +1445,7 @@
 "max_length" "10"
 "thickness" "0.1"
 }
-// entity 68
+// entity 67
 {
 "classname" "Lasers_Laser"
 "origin" "616 -1912 1464"
@@ -1466,7 +1456,7 @@
 "max_length" "10"
 "thickness" "0.1"
 }
-// entity 69
+// entity 68
 {
 "classname" "Lasers_Laser"
 "origin" "616 -1880 1464"
@@ -1477,7 +1467,7 @@
 "max_length" "10"
 "thickness" "0.1"
 }
-// entity 70
+// entity 69
 {
 "classname" "Lasers_Laser"
 "origin" "616 -1864 1464"
@@ -1488,7 +1478,7 @@
 "max_length" "10"
 "thickness" "0.1"
 }
-// entity 71
+// entity 70
 {
 "classname" "Checkpoints_Checkpoint"
 "collision_layer" "2"
@@ -1505,7 +1495,7 @@
 ( 1408 -968 528 ) ( 1408 -968 529 ) ( 1408 -967 528 ) entities/checkpoint/checkpoint_1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 72
+// entity 71
 {
 "classname" "RythmElements_Sequencers_Static"
 "active_on_signals" "cube"
@@ -1524,7 +1514,7 @@
 ( 256 -2453.333333333334 2256 ) ( 256 -2453.333333333334 2258.333333333333 ) ( 256 -2451 2256 ) scenes/level_4/cube_1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 73
+// entity 72
 {
 "classname" "RythmElements_Sequencers_Static"
 "active_on_signals" "cube"
@@ -1543,7 +1533,7 @@
 ( 256 -2304 2256 ) ( 256 -2304 2258.333333333333 ) ( 256 -2301.666666666666 2256 ) scenes/level_4/cube_1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 74
+// entity 73
 {
 "classname" "RythmElements_Sequencers_Static"
 "active_on_signals" "cube"
@@ -1562,7 +1552,7 @@
 ( 106.66666666666674 -2304 2256 ) ( 106.66666666666674 -2304 2258.333333333333 ) ( 106.66666666666674 -2301.666666666666 2256 ) scenes/level_4/cube_1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 75
+// entity 74
 {
 "classname" "RythmElements_Sequencers_Static"
 "active_on_signals" "cube"
@@ -1581,7 +1571,7 @@
 ( -42.66666666666663 -2304 2256 ) ( -42.66666666666663 -2304 2258.333333333333 ) ( -42.66666666666663 -2301.666666666666 2256 ) scenes/level_4/cube_1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 76
+// entity 75
 {
 "classname" "RythmElements_Sequencers_Static"
 "active_on_signals" "cube"
@@ -1600,7 +1590,7 @@
 ( -42.66666666666663 -2453.333333333334 2256 ) ( -42.66666666666663 -2453.333333333334 2258.333333333333 ) ( -42.66666666666663 -2451 2256 ) scenes/level_4/cube_1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 77
+// entity 76
 {
 "classname" "RythmElements_Sequencers_Static"
 "active_on_signals" "cube"
@@ -1619,7 +1609,7 @@
 ( -42.66666666666663 -2602.666666666666 2256 ) ( -42.66666666666663 -2602.666666666666 2258.333333333333 ) ( -42.66666666666663 -2600.333333333334 2256 ) scenes/level_4/cube_1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 78
+// entity 77
 {
 "classname" "RythmElements_Sequencers_Static"
 "active_on_signals" "cube"
@@ -1638,7 +1628,7 @@
 ( 106.66666666666674 -2602.666666666666 2256 ) ( 106.66666666666674 -2602.666666666666 2258.333333333333 ) ( 106.66666666666674 -2600.333333333334 2256 ) scenes/level_4/cube_1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 79
+// entity 78
 {
 "classname" "RythmElements_Sequencers_Static"
 "active_on_signals" "cube"
@@ -1657,7 +1647,7 @@
 ( 256 -2602.666666666666 2256 ) ( 256 -2602.666666666666 2258.333333333333 ) ( 256 -2600.333333333334 2256 ) scenes/level_4/cube_1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 80
+// entity 79
 {
 "classname" "RythmElements_Sequencers_Static"
 "active_on_signals" "cube"
@@ -1676,7 +1666,7 @@
 ( 256 -2304 2106.6666666666665 ) ( 256 -2304 2109 ) ( 256 -2301.666666666666 2106.6666666666665 ) scenes/level_4/cube_1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 81
+// entity 80
 {
 "classname" "RythmElements_Sequencers_Static"
 "active_on_signals" "cube"
@@ -1695,7 +1685,7 @@
 ( 256 -2453.333333333334 2106.6666666666665 ) ( 256 -2453.333333333334 2109 ) ( 256 -2451 2106.6666666666665 ) scenes/level_4/cube_1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 82
+// entity 81
 {
 "classname" "RythmElements_Sequencers_Static"
 "active_on_signals" "cube"
@@ -1714,7 +1704,7 @@
 ( 256 -2602.666666666666 2106.6666666666665 ) ( 256 -2602.666666666666 2109 ) ( 256 -2600.333333333334 2106.6666666666665 ) scenes/level_4/cube_1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 83
+// entity 82
 {
 "classname" "RythmElements_Sequencers_Static"
 "active_on_signals" "cube"
@@ -1733,7 +1723,7 @@
 ( 106.66666666666674 -2602.666666666666 2106.6666666666665 ) ( 106.66666666666674 -2602.666666666666 2109 ) ( 106.66666666666674 -2600.333333333334 2106.6666666666665 ) scenes/level_4/cube_1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 84
+// entity 83
 {
 "classname" "RythmElements_Sequencers_Static"
 "active_on_signals" "cube"
@@ -1752,7 +1742,7 @@
 ( -42.66666666666663 -2602.666666666666 2106.6666666666665 ) ( -42.66666666666663 -2602.666666666666 2109 ) ( -42.66666666666663 -2600.333333333334 2106.6666666666665 ) scenes/level_4/cube_1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 85
+// entity 84
 {
 "classname" "RythmElements_Sequencers_Static"
 "active_on_signals" "cube"
@@ -1771,7 +1761,7 @@
 ( -42.66666666666663 -2453.333333333334 2106.6666666666665 ) ( -42.66666666666663 -2453.333333333334 2109 ) ( -42.66666666666663 -2451 2106.6666666666665 ) scenes/level_4/cube_1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 86
+// entity 85
 {
 "classname" "RythmElements_Sequencers_Static"
 "active_on_signals" "cube"
@@ -1790,7 +1780,7 @@
 ( -42.66666666666663 -2304 2106.6666666666665 ) ( -42.66666666666663 -2304 2109 ) ( -42.66666666666663 -2301.666666666666 2106.6666666666665 ) scenes/level_4/cube_1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 87
+// entity 86
 {
 "classname" "RythmElements_Sequencers_Static"
 "active_on_signals" "cube"
@@ -1809,7 +1799,7 @@
 ( 106.66666666666674 -2304 2106.6666666666665 ) ( 106.66666666666674 -2304 2109 ) ( 106.66666666666674 -2301.666666666666 2106.6666666666665 ) scenes/level_4/cube_1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 88
+// entity 87
 {
 "classname" "RythmElements_Sequencers_Static"
 "active_on_signals" "cube"
@@ -1828,7 +1818,7 @@
 ( 256 -2304 1957.3333333333333 ) ( 256 -2304 1959.6666666666665 ) ( 256 -2301.666666666666 1957.3333333333333 ) scenes/level_4/cube_1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 89
+// entity 88
 {
 "classname" "RythmElements_Sequencers_Static"
 "active_on_signals" "cube"
@@ -1847,7 +1837,7 @@
 ( 256 -2453.333333333334 1957.3333333333333 ) ( 256 -2453.333333333334 1959.6666666666665 ) ( 256 -2451 1957.3333333333333 ) scenes/level_4/cube_1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 90
+// entity 89
 {
 "classname" "RythmElements_Sequencers_Static"
 "active_on_signals" "cube"
@@ -1866,7 +1856,7 @@
 ( 256 -2602.666666666666 1957.3333333333333 ) ( 256 -2602.666666666666 1959.6666666666665 ) ( 256 -2600.333333333334 1957.3333333333333 ) scenes/level_4/cube_1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 91
+// entity 90
 {
 "classname" "RythmElements_Sequencers_Static"
 "active_on_signals" "cube"
@@ -1885,7 +1875,7 @@
 ( 106.66666666666674 -2602.666666666666 1957.3333333333333 ) ( 106.66666666666674 -2602.666666666666 1959.6666666666665 ) ( 106.66666666666674 -2600.333333333334 1957.3333333333333 ) scenes/level_4/cube_1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 92
+// entity 91
 {
 "classname" "RythmElements_Sequencers_Static"
 "active_on_signals" "cube"
@@ -1904,7 +1894,7 @@
 ( -42.66666666666663 -2602.666666666666 1957.3333333333333 ) ( -42.66666666666663 -2602.666666666666 1959.6666666666665 ) ( -42.66666666666663 -2600.333333333334 1957.3333333333333 ) scenes/level_4/cube_1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 93
+// entity 92
 {
 "classname" "RythmElements_Sequencers_Static"
 "active_on_signals" "cube"
@@ -1923,7 +1913,7 @@
 ( -42.66666666666663 -2453.333333333334 1957.3333333333333 ) ( -42.66666666666663 -2453.333333333334 1959.6666666666665 ) ( -42.66666666666663 -2451 1957.3333333333333 ) scenes/level_4/cube_1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 94
+// entity 93
 {
 "classname" "RythmElements_Sequencers_Static"
 "active_on_signals" "cube"
@@ -1942,7 +1932,7 @@
 ( -42.66666666666663 -2304 1957.3333333333333 ) ( -42.66666666666663 -2304 1959.6666666666665 ) ( -42.66666666666663 -2301.666666666666 1957.3333333333333 ) scenes/level_4/cube_1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 95
+// entity 94
 {
 "classname" "RythmElements_Sequencers_Static"
 "active_on_signals" "cube"
@@ -1961,7 +1951,7 @@
 ( 106.66666666666674 -2304 1957.3333333333333 ) ( 106.66666666666674 -2304 1959.6666666666665 ) ( 106.66666666666674 -2301.666666666666 1957.3333333333333 ) scenes/level_4/cube_1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 96
+// entity 95
 {
 "classname" "RythmElements_Sequencers_Static"
 "active_on_signals" "cube"
@@ -1980,7 +1970,7 @@
 ( 106.66666666666674 -2453.333333333334 1957.3333333333333 ) ( 106.66666666666674 -2453.333333333334 1959.6666666666665 ) ( 106.66666666666674 -2451 1957.3333333333333 ) scenes/level_4/cube_1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 97
+// entity 96
 {
 "classname" "Lights_OmniLight"
 "origin" "2 -2 66"
@@ -1990,7 +1980,7 @@
 "shadow_mode" "1"
 "specular" "0.5"
 }
-// entity 98
+// entity 97
 {
 "classname" "Lights_OmniLight"
 "origin" "2 -2 210"
@@ -2000,7 +1990,7 @@
 "shadow_mode" "1"
 "specular" "0.5"
 }
-// entity 99
+// entity 98
 {
 "classname" "Lights_OmniLight"
 "origin" "2 -2 386"
@@ -2010,7 +2000,7 @@
 "shadow_mode" "1"
 "specular" "0.5"
 }
-// entity 100
+// entity 99
 {
 "classname" "Lights_OmniLight"
 "origin" "2 -2 546"
@@ -2020,7 +2010,7 @@
 "shadow_mode" "1"
 "specular" "0.5"
 }
-// entity 101
+// entity 100
 {
 "classname" "Lights_OmniLight"
 "origin" "2 -162 578"
@@ -2030,7 +2020,7 @@
 "shadow_mode" "1"
 "specular" "0.5"
 }
-// entity 102
+// entity 101
 {
 "classname" "Lights_OmniLight"
 "origin" "2 -338 642"
@@ -2040,7 +2030,7 @@
 "shadow_mode" "1"
 "specular" "0.5"
 }
-// entity 103
+// entity 102
 {
 "classname" "Lights_OmniLight"
 "origin" "2 -562 706"
@@ -2050,7 +2040,7 @@
 "shadow_mode" "1"
 "specular" "0.5"
 }
-// entity 104
+// entity 103
 {
 "classname" "Lights_OmniLight"
 "origin" "1230 -894 610"
@@ -2060,7 +2050,7 @@
 "shadow_mode" "1"
 "specular" "0.5"
 }
-// entity 105
+// entity 104
 {
 "classname" "Lights_OmniLight"
 "origin" "1086 -894 610"
@@ -2070,7 +2060,7 @@
 "shadow_mode" "1"
 "specular" "0.5"
 }
-// entity 106
+// entity 105
 {
 "classname" "StaticBodyGroup"
 // brush 0
@@ -2092,7 +2082,7 @@
 ( 1336 -784 528 ) ( 1336 -784 529 ) ( 1336 -783 528 ) __TB_empty [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 107
+// entity 106
 {
 "classname" "Lights_OmniLight"
 "origin" "290 -898 606"
@@ -2102,7 +2092,7 @@
 "shadow_mode" "1"
 "specular" "0.5"
 }
-// entity 108
+// entity 107
 {
 "classname" "Lights_OmniLight"
 "origin" "482 -898 606"
@@ -2112,7 +2102,7 @@
 "shadow_mode" "1"
 "specular" "0.5"
 }
-// entity 109
+// entity 108
 {
 "classname" "Lights_OmniLight"
 "origin" "674 -898 606"
@@ -2122,7 +2112,7 @@
 "shadow_mode" "1"
 "specular" "0.5"
 }
-// entity 110
+// entity 109
 {
 "classname" "Lights_OmniLight"
 "origin" "866 -898 606"
@@ -2132,7 +2122,7 @@
 "shadow_mode" "1"
 "specular" "0.5"
 }
-// entity 111
+// entity 110
 {
 "classname" "Lights_OmniLight"
 "origin" "1230 -894 722"
@@ -2142,7 +2132,7 @@
 "shadow_mode" "1"
 "specular" "0.5"
 }
-// entity 112
+// entity 111
 {
 "classname" "Lights_OmniLight"
 "origin" "1086 -894 722"
@@ -2152,7 +2142,7 @@
 "shadow_mode" "1"
 "specular" "0.5"
 }
-// entity 113
+// entity 112
 {
 "classname" "Lights_OmniLight"
 "origin" "1230 -894 834"
@@ -2162,7 +2152,7 @@
 "shadow_mode" "1"
 "specular" "0.5"
 }
-// entity 114
+// entity 113
 {
 "classname" "Lights_OmniLight"
 "origin" "1086 -894 834"
@@ -2172,7 +2162,7 @@
 "shadow_mode" "1"
 "specular" "0.5"
 }
-// entity 115
+// entity 114
 {
 "classname" "Lights_OmniLight"
 "origin" "1230 -894 946"
@@ -2182,7 +2172,7 @@
 "shadow_mode" "1"
 "specular" "0.5"
 }
-// entity 116
+// entity 115
 {
 "classname" "Lights_OmniLight"
 "origin" "1086 -894 946"
@@ -2192,7 +2182,7 @@
 "shadow_mode" "1"
 "specular" "0.5"
 }
-// entity 117
+// entity 116
 {
 "classname" "Lights_OmniLight"
 "origin" "1230 -894 1074"
@@ -2202,7 +2192,7 @@
 "shadow_mode" "1"
 "specular" "0.5"
 }
-// entity 118
+// entity 117
 {
 "classname" "Lights_OmniLight"
 "origin" "1086 -894 1074"
@@ -2212,7 +2202,7 @@
 "shadow_mode" "1"
 "specular" "0.5"
 }
-// entity 119
+// entity 118
 {
 "classname" "Lights_OmniLight"
 "origin" "1374 -894 1074"
@@ -2222,7 +2212,7 @@
 "shadow_mode" "1"
 "specular" "0.5"
 }
-// entity 120
+// entity 119
 {
 "classname" "Lights_OmniLight"
 "origin" "1518 -894 1074"
@@ -2232,7 +2222,7 @@
 "shadow_mode" "1"
 "specular" "0.5"
 }
-// entity 121
+// entity 120
 {
 "classname" "Lights_OmniLight"
 "origin" "1638 -1054 1074"
@@ -2242,7 +2232,7 @@
 "shadow_mode" "1"
 "specular" "0.5"
 }
-// entity 122
+// entity 121
 {
 "classname" "Lights_OmniLight"
 "origin" "1542 -1150 1074"
@@ -2252,7 +2242,7 @@
 "shadow_mode" "1"
 "specular" "0.5"
 }
-// entity 123
+// entity 122
 {
 "classname" "Lights_OmniLight"
 "origin" "1638 -1246 1074"
@@ -2262,7 +2252,7 @@
 "shadow_mode" "1"
 "specular" "0.5"
 }
-// entity 124
+// entity 123
 {
 "classname" "Lights_OmniLight"
 "origin" "1542 -1342 1074"
@@ -2272,7 +2262,7 @@
 "shadow_mode" "1"
 "specular" "0.5"
 }
-// entity 125
+// entity 124
 {
 "classname" "Lights_OmniLight"
 "origin" "1646 -1438 1074"
@@ -2282,7 +2272,7 @@
 "shadow_mode" "1"
 "specular" "0.5"
 }
-// entity 126
+// entity 125
 {
 "classname" "Lights_OmniLight"
 "origin" "1550 -1534 1074"
@@ -2292,7 +2282,7 @@
 "shadow_mode" "1"
 "specular" "0.5"
 }
-// entity 127
+// entity 126
 {
 "classname" "Lights_OmniLight"
 "origin" "1638 -1630 1074"
@@ -2302,7 +2292,7 @@
 "shadow_mode" "1"
 "specular" "0.5"
 }
-// entity 128
+// entity 127
 {
 "classname" "Lights_OmniLight"
 "origin" "1542 -1694 1074"
@@ -2312,7 +2302,7 @@
 "shadow_mode" "1"
 "specular" "0.5"
 }
-// entity 129
+// entity 128
 {
 "classname" "Lights_OmniLight"
 "origin" "1470 -1982 1122"
@@ -2322,7 +2312,7 @@
 "shadow_mode" "1"
 "specular" "0.5"
 }
-// entity 130
+// entity 129
 {
 "classname" "Lights_OmniLight"
 "origin" "1598 -1918 1122"
@@ -2332,7 +2322,7 @@
 "shadow_mode" "1"
 "specular" "0.5"
 }
-// entity 131
+// entity 130
 {
 "classname" "Lights_OmniLight"
 "origin" "1342 -1918 1122"
@@ -2342,7 +2332,7 @@
 "shadow_mode" "1"
 "specular" "0.5"
 }
-// entity 132
+// entity 131
 {
 "classname" "Lights_OmniLight"
 "origin" "1214 -1982 1122"
@@ -2352,7 +2342,7 @@
 "shadow_mode" "1"
 "specular" "0.5"
 }
-// entity 133
+// entity 132
 {
 "classname" "Lights_OmniLight"
 "origin" "1342 -2078 1122"
@@ -2362,7 +2352,7 @@
 "shadow_mode" "1"
 "specular" "0.5"
 }
-// entity 134
+// entity 133
 {
 "classname" "Lights_OmniLight"
 "origin" "1214 -2142 1122"
@@ -2372,7 +2362,7 @@
 "shadow_mode" "1"
 "specular" "0.5"
 }
-// entity 135
+// entity 134
 {
 "classname" "Lights_OmniLight"
 "origin" "1598 -2078 1122"
@@ -2382,7 +2372,7 @@
 "shadow_mode" "1"
 "specular" "0.5"
 }
-// entity 136
+// entity 135
 {
 "classname" "Lights_OmniLight"
 "origin" "1470 -2142 1122"
@@ -2392,7 +2382,7 @@
 "shadow_mode" "1"
 "specular" "0.5"
 }
-// entity 137
+// entity 136
 {
 "classname" "Lights_OmniLight"
 "origin" "1566 -2270 1090"
@@ -2402,7 +2392,7 @@
 "shadow_mode" "1"
 "specular" "0.5"
 }
-// entity 138
+// entity 137
 {
 "classname" "Lights_OmniLight"
 "origin" "1566 -2534 1282"
@@ -2412,7 +2402,7 @@
 "shadow_mode" "1"
 "specular" "0.5"
 }
-// entity 139
+// entity 138
 {
 "classname" "Lights_OmniLight"
 "origin" "1310 -2534 1474"
@@ -2422,7 +2412,7 @@
 "shadow_mode" "1"
 "specular" "0.5"
 }
-// entity 140
+// entity 139
 {
 "classname" "Lights_OmniLight"
 "origin" "1318 -2270 1666"
@@ -2432,7 +2422,7 @@
 "shadow_mode" "1"
 "specular" "0.5"
 }
-// entity 141
+// entity 140
 {
 "classname" "Lights_OmniLight"
 "origin" "1598 -1918 1858"
@@ -2442,7 +2432,7 @@
 "shadow_mode" "1"
 "specular" "0.5"
 }
-// entity 142
+// entity 141
 {
 "classname" "Lights_OmniLight"
 "origin" "1470 -1982 1858"
@@ -2452,7 +2442,7 @@
 "shadow_mode" "1"
 "specular" "0.5"
 }
-// entity 143
+// entity 142
 {
 "classname" "Lights_OmniLight"
 "origin" "1342 -1918 1858"
@@ -2462,7 +2452,7 @@
 "shadow_mode" "1"
 "specular" "0.5"
 }
-// entity 144
+// entity 143
 {
 "classname" "Lights_OmniLight"
 "origin" "1214 -1982 1858"
@@ -2472,7 +2462,7 @@
 "shadow_mode" "1"
 "specular" "0.5"
 }
-// entity 145
+// entity 144
 {
 "classname" "Lights_OmniLight"
 "origin" "1086 -1918 1858"
@@ -2482,7 +2472,7 @@
 "shadow_mode" "1"
 "specular" "0.5"
 }
-// entity 146
+// entity 145
 {
 "classname" "Lights_OmniLight"
 "origin" "958 -1982 1858"
@@ -2492,7 +2482,7 @@
 "shadow_mode" "1"
 "specular" "0.5"
 }
-// entity 147
+// entity 146
 {
 "classname" "Lights_OmniLight"
 "origin" "838 -1918 1858"
@@ -2502,7 +2492,7 @@
 "shadow_mode" "1"
 "specular" "0.5"
 }
-// entity 148
+// entity 147
 {
 "classname" "Lights_OmniLight"
 "origin" "718 -1958 1858"
@@ -2512,7 +2502,7 @@
 "shadow_mode" "1"
 "specular" "0.5"
 }
-// entity 149
+// entity 148
 {
 "classname" "Lights_OmniLight"
 "origin" "718 -1958 1682"
@@ -2522,7 +2512,7 @@
 "shadow_mode" "1"
 "specular" "0.5"
 }
-// entity 150
+// entity 149
 {
 "classname" "Lights_OmniLight"
 "origin" "718 -1958 1522"
@@ -2532,7 +2522,7 @@
 "shadow_mode" "1"
 "specular" "0.5"
 }
-// entity 151
+// entity 150
 {
 "classname" "Lights_OmniLight"
 "origin" "718 -1958 1330"
@@ -2542,7 +2532,7 @@
 "shadow_mode" "1"
 "specular" "0.5"
 }
-// entity 152
+// entity 151
 {
 "classname" "Lights_OmniLight"
 "origin" "174 -1918 1538"
@@ -2552,7 +2542,7 @@
 "shadow_mode" "1"
 "specular" "0.5"
 }
-// entity 153
+// entity 152
 {
 "classname" "Lights_OmniLight"
 "origin" "46 -1982 1538"
@@ -2562,7 +2552,7 @@
 "shadow_mode" "1"
 "specular" "0.5"
 }
-// entity 154
+// entity 153
 {
 "classname" "Lights_OmniLight"
 "origin" "-82 -1918 1538"
@@ -2572,7 +2562,7 @@
 "shadow_mode" "1"
 "specular" "0.5"
 }
-// entity 155
+// entity 154
 {
 "classname" "Lights_OmniLight"
 "origin" "-210 -1982 1538"
@@ -2582,7 +2572,7 @@
 "shadow_mode" "1"
 "specular" "0.5"
 }
-// entity 156
+// entity 155
 {
 "classname" "Lights_OmniLight"
 "origin" "-338 -1918 1538"
@@ -2592,7 +2582,7 @@
 "shadow_mode" "1"
 "specular" "0.5"
 }
-// entity 157
+// entity 156
 {
 "classname" "Lights_OmniLight"
 "origin" "-466 -1982 1538"
@@ -2602,7 +2592,7 @@
 "shadow_mode" "1"
 "specular" "0.5"
 }
-// entity 158
+// entity 157
 {
 "classname" "Lights_OmniLight"
 "origin" "-586 -1918 1538"
@@ -2612,7 +2602,7 @@
 "shadow_mode" "1"
 "specular" "0.5"
 }
-// entity 159
+// entity 158
 {
 "classname" "Lights_OmniLight"
 "origin" "-706 -1982 1538"
@@ -2622,7 +2612,7 @@
 "shadow_mode" "1"
 "specular" "0.5"
 }
-// entity 160
+// entity 159
 {
 "classname" "Lights_OmniLight"
 "origin" "-834 -1918 1538"
@@ -2632,7 +2622,7 @@
 "shadow_mode" "1"
 "specular" "0.5"
 }
-// entity 161
+// entity 160
 {
 "classname" "Lights_OmniLight"
 "origin" "-962 -1982 1538"
@@ -2642,7 +2632,7 @@
 "shadow_mode" "1"
 "specular" "0.5"
 }
-// entity 162
+// entity 161
 {
 "classname" "Lights_OmniLight"
 "origin" "-1090 -1918 1538"
@@ -2652,7 +2642,7 @@
 "shadow_mode" "1"
 "specular" "0.5"
 }
-// entity 163
+// entity 162
 {
 "classname" "Lights_OmniLight"
 "origin" "-1218 -1982 1538"
@@ -2662,7 +2652,7 @@
 "shadow_mode" "1"
 "specular" "0.5"
 }
-// entity 164
+// entity 163
 {
 "classname" "Lights_OmniLight"
 "origin" "-210 -3838 1954"
@@ -2673,7 +2663,7 @@
 "specular" "0.5"
 "angle" "180"
 }
-// entity 165
+// entity 164
 {
 "classname" "Lights_OmniLight"
 "origin" "-338 -3774 1954"
@@ -2684,7 +2674,7 @@
 "specular" "0.5"
 "angle" "180"
 }
-// entity 166
+// entity 165
 {
 "classname" "Lights_OmniLight"
 "origin" "-466 -3838 1954"
@@ -2695,7 +2685,7 @@
 "specular" "0.5"
 "angle" "180"
 }
-// entity 167
+// entity 166
 {
 "classname" "Lights_OmniLight"
 "origin" "-586 -3774 1954"
@@ -2706,7 +2696,7 @@
 "specular" "0.5"
 "angle" "180"
 }
-// entity 168
+// entity 167
 {
 "classname" "Lights_OmniLight"
 "origin" "-706 -3838 1954"
@@ -2717,7 +2707,7 @@
 "specular" "0.5"
 "angle" "180"
 }
-// entity 169
+// entity 168
 {
 "classname" "Lights_OmniLight"
 "origin" "-834 -3774 1954"
@@ -2728,7 +2718,7 @@
 "specular" "0.5"
 "angle" "180"
 }
-// entity 170
+// entity 169
 {
 "classname" "Lights_OmniLight"
 "origin" "-962 -3838 1954"
@@ -2739,7 +2729,7 @@
 "specular" "0.5"
 "angle" "180"
 }
-// entity 171
+// entity 170
 {
 "classname" "Lights_OmniLight"
 "origin" "-1090 -3774 1954"
@@ -2750,7 +2740,7 @@
 "specular" "0.5"
 "angle" "180"
 }
-// entity 172
+// entity 171
 {
 "classname" "Lights_OmniLight"
 "origin" "-1218 -3838 1954"
@@ -2761,7 +2751,7 @@
 "specular" "0.5"
 "angle" "180"
 }
-// entity 173
+// entity 172
 {
 "classname" "Lights_OmniLight"
 "origin" "-82 -3774 2194"
@@ -2772,7 +2762,7 @@
 "specular" "0.5"
 "angle" "180"
 }
-// entity 174
+// entity 173
 {
 "classname" "Lights_OmniLight"
 "origin" "-210 -3838 2194"
@@ -2783,7 +2773,7 @@
 "specular" "0.5"
 "angle" "180"
 }
-// entity 175
+// entity 174
 {
 "classname" "Lights_OmniLight"
 "origin" "-338 -3774 2194"
@@ -2794,7 +2784,7 @@
 "specular" "0.5"
 "angle" "180"
 }
-// entity 176
+// entity 175
 {
 "classname" "Lights_OmniLight"
 "origin" "-466 -3838 2194"
@@ -2805,7 +2795,7 @@
 "specular" "0.5"
 "angle" "180"
 }
-// entity 177
+// entity 176
 {
 "classname" "Lights_OmniLight"
 "origin" "-586 -3774 2194"
@@ -2816,7 +2806,7 @@
 "specular" "0.5"
 "angle" "180"
 }
-// entity 178
+// entity 177
 {
 "classname" "Lights_OmniLight"
 "origin" "-706 -3838 2194"
@@ -2827,7 +2817,7 @@
 "specular" "0.5"
 "angle" "180"
 }
-// entity 179
+// entity 178
 {
 "classname" "Lights_OmniLight"
 "origin" "-834 -3774 2194"
@@ -2838,7 +2828,7 @@
 "specular" "0.5"
 "angle" "180"
 }
-// entity 180
+// entity 179
 {
 "classname" "Lights_OmniLight"
 "origin" "-962 -3838 2194"
@@ -2849,7 +2839,7 @@
 "specular" "0.5"
 "angle" "180"
 }
-// entity 181
+// entity 180
 {
 "classname" "Lights_OmniLight"
 "origin" "-1170 -3790 2194"
@@ -2860,7 +2850,7 @@
 "specular" "0.5"
 "angle" "180"
 }
-// entity 182
+// entity 181
 {
 "classname" "Lights_OmniLight"
 "origin" "174 -3790 1762"
@@ -2871,7 +2861,7 @@
 "specular" "0.5"
 "angle" "180"
 }
-// entity 183
+// entity 182
 {
 "classname" "Lights_OmniLight"
 "origin" "174 -3790 1282"
@@ -2882,7 +2872,7 @@
 "specular" "0.5"
 "angle" "180"
 }
-// entity 184
+// entity 183
 {
 "classname" "Lights_OmniLight"
 "origin" "718 -3790 1922"
@@ -2893,7 +2883,7 @@
 "specular" "0.5"
 "angle" "180"
 }
-// entity 185
+// entity 184
 {
 "classname" "Lights_OmniLight"
 "origin" "-1170 -3598 2194"
@@ -2904,7 +2894,7 @@
 "specular" "0.5"
 "angle" "180"
 }
-// entity 186
+// entity 185
 {
 "classname" "Lights_OmniLight"
 "origin" "-1170 -3406 2194"
@@ -2915,7 +2905,7 @@
 "specular" "0.5"
 "angle" "180"
 }
-// entity 187
+// entity 186
 {
 "classname" "Lights_OmniLight"
 "origin" "-1162 -3086 2250"
@@ -2926,7 +2916,7 @@
 "specular" "0.5"
 "angle" "180"
 }
-// entity 188
+// entity 187
 {
 "classname" "Lights_OmniLight"
 "origin" "-1162 -2798 2282"
@@ -2937,7 +2927,7 @@
 "specular" "0.5"
 "angle" "180"
 }
-// entity 189
+// entity 188
 {
 "classname" "Lights_OmniLight"
 "origin" "-1162 -3302 2442"
@@ -2948,12 +2938,12 @@
 "specular" "0.5"
 "angle" "180"
 }
-// entity 190
+// entity 189
 {
 "classname" "Scenes_Level4_UpSquares"
 "origin" "34.6667 -2528 2080"
 }
-// entity 191
+// entity 190
 {
 "classname" "Scenes_Level4_PoppingCubes"
 "origin" "32 -2522.67 2088"
@@ -2963,7 +2953,7 @@
 "sequencer_data_path" "res://Game/Scenes/Levels/Level4/Data/StepSequencerData/popping_cubes.tres"
 "color" "0 10 153"
 }
-// entity 192
+// entity 191
 {
 "classname" "Scenes_Level4_PoppingCubes"
 "origin" "32 -2514.67 2088"
@@ -2973,7 +2963,7 @@
 "sequencer_data_path" "res://Game/Scenes/Levels/Level4/Data/StepSequencerData/popping_cubes.tres"
 "color" "0 255 200"
 }
-// entity 193
+// entity 192
 {
 "classname" "RythmElements_Sequencers_Spatial"
 "sequencer_data_path" "res://Game/Scenes/Levels/Level4/Data/StepSequencerData/hollow_cube.tres"
@@ -3098,7 +3088,7 @@
 ( 643.4554455445516 -3121.599009900987 1512 ) ( 643.4554455445516 -3121.599009900987 1527 ) ( 643.4554455445516 -3106.599009900989 1512 ) scenes/level_4/cube_2 [ 2.220446049250313e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 194
+// entity 193
 {
 "classname" "RythmElements_Sequencers_Spatial"
 "sequencer_data_path" "res://Game/Scenes/Levels/Level4/Data/StepSequencerData/hollow_cube.tres"
@@ -3223,7 +3213,7 @@
 ( 977.9105102817953 -3389.906130997712 1152 ) ( 977.9105102817953 -3389.906130997712 1175.6538461538462 ) ( 977.9105102817953 -3366.252284843869 1152 ) scenes/level_4/cube_2 [ 2.220446049250313e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 195
+// entity 194
 {
 "classname" "RythmElements_Sequencers_Spatial"
 "sequencer_data_path" "res://Game/Scenes/Levels/Level4/Data/StepSequencerData/hollow_cube.tres"
@@ -3348,7 +3338,7 @@
 ( 1305.0019040365564 -3642.459444021321 816 ) ( 1305.0019040365564 -3642.459444021321 847.7307692307697 ) ( 1305.0019040365564 -3610.728674790556 816 ) scenes/level_4/cube_2 [ 2.220446049250313e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 196
+// entity 195
 {
 "classname" "RythmElements_Sequencers_Spatial"
 "sequencer_data_path" "res://Game/Scenes/Levels/Level4/Data/StepSequencerData/hollow_cube.tres"
@@ -3473,7 +3463,7 @@
 ( 1593.1538461538466 -4023.4230769230744 552 ) ( 1593.1538461538466 -4023.4230769230744 590.8461538461534 ) ( 1593.1538461538466 -3984.5769230769247 552 ) scenes/level_4/cube_2 [ 2.220446049250313e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 197
+// entity 196
 {
 "classname" "TriggerSongAnimationChange"
 "animation" "part_2"
@@ -3489,7 +3479,7 @@
 ( 176 -544 528 ) ( 176 -544 529 ) ( 176 -543 528 ) special/clip [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 198
+// entity 197
 {
 "classname" "Portals_Portal"
 "origin" "-200 -1336 2104"
@@ -3500,14 +3490,14 @@
 "target" "tp_4_exit"
 "targetname" "tp_4_entrance"
 }
-// entity 199
+// entity 198
 {
 "classname" "func_group"
 "_tb_type" "_tb_group"
 "_tb_name" "MovingLaser"
 "_tb_id" "4"
 }
-// entity 200
+// entity 199
 {
 "classname" "Group_Mover"
 "path_alpha" "0"
@@ -3525,7 +3515,7 @@
 ( 1548 -1052 1248 ) ( 1548 -1052 1249 ) ( 1548 -1051 1248 ) special/skip [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 201
+// entity 200
 {
 "classname" "func_group"
 "_tb_type" "_tb_group"
@@ -3533,7 +3523,7 @@
 "_tb_id" "5"
 "_tb_group" "4"
 }
-// entity 202
+// entity 201
 {
 "classname" "Lasers_BrushScene"
 "color" "255 0 0"
@@ -3552,14 +3542,14 @@
 ( 1548 -1052 1252 ) ( 1548 -1052 1253 ) ( 1548 -1051 1252 ) special/skip [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 203
+// entity 202
 {
 "classname" "func_group"
 "_tb_type" "_tb_group"
 "_tb_name" "MovingLaser"
 "_tb_id" "6"
 }
-// entity 204
+// entity 203
 {
 "classname" "Group_Mover"
 "path_alpha" "0"
@@ -3577,7 +3567,7 @@
 ( 1636 -1148 1248 ) ( 1636 -1148 1249 ) ( 1636 -1147 1248 ) special/skip [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 205
+// entity 204
 {
 "classname" "func_group"
 "_tb_type" "_tb_group"
@@ -3585,7 +3575,7 @@
 "_tb_id" "7"
 "_tb_group" "6"
 }
-// entity 206
+// entity 205
 {
 "classname" "Lasers_BrushScene"
 "color" "255 0 0"
@@ -3604,14 +3594,14 @@
 ( 1636 -1148 1248 ) ( 1636 -1148 1249 ) ( 1636 -1147 1248 ) special/skip [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 207
+// entity 206
 {
 "classname" "func_group"
 "_tb_type" "_tb_group"
 "_tb_name" "MovingLaser"
 "_tb_id" "9"
 }
-// entity 208
+// entity 207
 {
 "classname" "Group_Mover"
 "path_alpha" "0"
@@ -3629,7 +3619,7 @@
 ( 1548 -1244 1248 ) ( 1548 -1244 1249 ) ( 1548 -1243 1248 ) special/skip [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 209
+// entity 208
 {
 "classname" "func_group"
 "_tb_type" "_tb_group"
@@ -3637,7 +3627,7 @@
 "_tb_id" "8"
 "_tb_group" "9"
 }
-// entity 210
+// entity 209
 {
 "classname" "Lasers_BrushScene"
 "color" "255 0 0"
@@ -3656,14 +3646,14 @@
 ( 1548 -1244 1252 ) ( 1548 -1244 1253 ) ( 1548 -1243 1252 ) special/skip [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 211
+// entity 210
 {
 "classname" "func_group"
 "_tb_type" "_tb_group"
 "_tb_name" "MovingLaser"
 "_tb_id" "11"
 }
-// entity 212
+// entity 211
 {
 "classname" "Group_Mover"
 "path_alpha" "0"
@@ -3681,7 +3671,7 @@
 ( 1636 -1340 1248 ) ( 1636 -1340 1249 ) ( 1636 -1339 1248 ) special/skip [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 213
+// entity 212
 {
 "classname" "func_group"
 "_tb_type" "_tb_group"
@@ -3689,7 +3679,7 @@
 "_tb_id" "10"
 "_tb_group" "11"
 }
-// entity 214
+// entity 213
 {
 "classname" "Lasers_BrushScene"
 "color" "255 0 0"
@@ -3708,14 +3698,14 @@
 ( 1636 -1340 1248 ) ( 1636 -1340 1249 ) ( 1636 -1339 1248 ) special/skip [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 215
+// entity 214
 {
 "classname" "func_group"
 "_tb_type" "_tb_group"
 "_tb_name" "MovingLaser"
 "_tb_id" "13"
 }
-// entity 216
+// entity 215
 {
 "classname" "Group_Mover"
 "path_alpha" "0"
@@ -3733,7 +3723,7 @@
 ( 1548 -1436 1248 ) ( 1548 -1436 1249 ) ( 1548 -1435 1248 ) special/skip [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 217
+// entity 216
 {
 "classname" "func_group"
 "_tb_type" "_tb_group"
@@ -3741,7 +3731,7 @@
 "_tb_id" "12"
 "_tb_group" "13"
 }
-// entity 218
+// entity 217
 {
 "classname" "Lasers_BrushScene"
 "color" "255 0 0"
@@ -3760,14 +3750,14 @@
 ( 1548 -1436 1252 ) ( 1548 -1436 1253 ) ( 1548 -1435 1252 ) special/skip [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 219
+// entity 218
 {
 "classname" "func_group"
 "_tb_type" "_tb_group"
 "_tb_name" "MovingLaser"
 "_tb_id" "15"
 }
-// entity 220
+// entity 219
 {
 "classname" "Group_Mover"
 "path_alpha" "0"
@@ -3785,7 +3775,7 @@
 ( 1636 -1532 1248 ) ( 1636 -1532 1249 ) ( 1636 -1531 1248 ) special/skip [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 221
+// entity 220
 {
 "classname" "func_group"
 "_tb_type" "_tb_group"
@@ -3793,7 +3783,7 @@
 "_tb_id" "14"
 "_tb_group" "15"
 }
-// entity 222
+// entity 221
 {
 "classname" "Lasers_BrushScene"
 "color" "255 0 0"
@@ -3812,14 +3802,14 @@
 ( 1636 -1532 1248 ) ( 1636 -1532 1249 ) ( 1636 -1531 1248 ) special/skip [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 223
+// entity 222
 {
 "classname" "func_group"
 "_tb_type" "_tb_group"
 "_tb_name" "MovingLaser"
 "_tb_id" "17"
 }
-// entity 224
+// entity 223
 {
 "classname" "Group_Mover"
 "path_alpha" "0"
@@ -3837,7 +3827,7 @@
 ( 1548 -1628 1248 ) ( 1548 -1628 1249 ) ( 1548 -1627 1248 ) special/skip [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 225
+// entity 224
 {
 "classname" "func_group"
 "_tb_type" "_tb_group"
@@ -3845,7 +3835,7 @@
 "_tb_id" "16"
 "_tb_group" "17"
 }
-// entity 226
+// entity 225
 {
 "classname" "Lasers_BrushScene"
 "color" "255 0 0"
@@ -3864,14 +3854,14 @@
 ( 1548 -1628 1252 ) ( 1548 -1628 1253 ) ( 1548 -1627 1252 ) special/skip [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 227
+// entity 226
 {
 "classname" "func_group"
 "_tb_type" "_tb_group"
 "_tb_name" "MovingLaser"
 "_tb_id" "19"
 }
-// entity 228
+// entity 227
 {
 "classname" "Group_Mover"
 "path_alpha" "0"
@@ -3889,7 +3879,7 @@
 ( 1636 -1724 1248 ) ( 1636 -1724 1249 ) ( 1636 -1723 1248 ) special/skip [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 229
+// entity 228
 {
 "classname" "func_group"
 "_tb_type" "_tb_group"
@@ -3897,7 +3887,7 @@
 "_tb_id" "18"
 "_tb_group" "19"
 }
-// entity 230
+// entity 229
 {
 "classname" "Lasers_BrushScene"
 "color" "255 0 0"
@@ -3916,14 +3906,14 @@
 ( 1636 -1724 1248 ) ( 1636 -1724 1249 ) ( 1636 -1723 1248 ) special/skip [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 231
+// entity 230
 {
 "classname" "func_group"
 "_tb_type" "_tb_group"
 "_tb_name" "MovingLaser"
 "_tb_id" "21"
 }
-// entity 232
+// entity 231
 {
 "classname" "Group_Mover"
 "path_alpha" "0"
@@ -3941,7 +3931,7 @@
 ( 1652 -2412 2012 ) ( 1652 -2412 2013 ) ( 1652 -2411 2012 ) special/skip [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 233
+// entity 232
 {
 "classname" "func_group"
 "_tb_type" "_tb_group"
@@ -3949,7 +3939,7 @@
 "_tb_id" "20"
 "_tb_group" "21"
 }
-// entity 234
+// entity 233
 {
 "classname" "Lasers_BrushScene"
 "color" "255 0 0"
@@ -3968,14 +3958,14 @@
 ( 1652 -2412 2012 ) ( 1652 -2412 2013 ) ( 1652 -2411 2012 ) special/skip [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 235
+// entity 234
 {
 "classname" "func_group"
 "_tb_type" "_tb_group"
 "_tb_name" "MovingLaser"
 "_tb_id" "23"
 }
-// entity 236
+// entity 235
 {
 "classname" "Group_Mover"
 "path_alpha" "0"
@@ -3993,7 +3983,7 @@
 ( 1444 -2524 2012 ) ( 1444 -2524 2013 ) ( 1444 -2523 2012 ) special/skip [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 237
+// entity 236
 {
 "classname" "func_group"
 "_tb_type" "_tb_group"
@@ -4001,7 +3991,7 @@
 "_tb_id" "22"
 "_tb_group" "23"
 }
-// entity 238
+// entity 237
 {
 "classname" "Lasers_BrushScene"
 "color" "255 0 0"
@@ -4020,14 +4010,14 @@
 ( 1444 -2524 2012 ) ( 1444 -2524 2013 ) ( 1444 -2523 2012 ) special/skip [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 239
+// entity 238
 {
 "classname" "func_group"
 "_tb_type" "_tb_group"
 "_tb_name" "MovingLaser"
 "_tb_id" "25"
 }
-// entity 240
+// entity 239
 {
 "classname" "Group_Mover"
 "path_alpha" "0"
@@ -4045,7 +4035,7 @@
 ( -952 -3108 2152 ) ( -952 -3107 2152 ) ( -952 -3108 2151 ) special/skip [ 2.220446049250313e-16 0 1 0 ] [ 0 -1 0 0 ] 0 1 1
 }
 }
-// entity 241
+// entity 240
 {
 "classname" "func_group"
 "_tb_type" "_tb_group"
@@ -4053,7 +4043,7 @@
 "_tb_id" "24"
 "_tb_group" "25"
 }
-// entity 242
+// entity 241
 {
 "classname" "Lasers_BrushScene"
 "color" "255 0 0"
@@ -4072,14 +4062,14 @@
 ( -948 -3108 2152 ) ( -948 -3107 2152 ) ( -948 -3108 2151 ) special/skip [ 2.220446049250313e-16 0 1 0 ] [ 0 -1 0 0 ] 0 1 1
 }
 }
-// entity 243
+// entity 242
 {
 "classname" "func_group"
 "_tb_type" "_tb_group"
 "_tb_name" "MovingLaser"
 "_tb_id" "27"
 }
-// entity 244
+// entity 243
 {
 "classname" "Group_Mover"
 "path_alpha" "0"
@@ -4097,7 +4087,7 @@
 ( -964 -2868 2588 ) ( -964 -2868 2589 ) ( -964 -2867 2588 ) special/skip [ 0 1 0 0 ] [ 2.7755575615628914e-16 0 1 0 ] 0 1 1
 }
 }
-// entity 245
+// entity 244
 {
 "classname" "func_group"
 "_tb_type" "_tb_group"
@@ -4105,7 +4095,7 @@
 "_tb_id" "26"
 "_tb_group" "27"
 }
-// entity 246
+// entity 245
 {
 "classname" "Lasers_BrushScene"
 "color" "255 0 0"
@@ -4124,14 +4114,14 @@
 ( -964 -2868 2588 ) ( -964 -2868 2589 ) ( -964 -2867 2588 ) special/skip [ 0 1 0 0 ] [ 2.7755575615628914e-16 0 1 0 ] 0 1 1
 }
 }
-// entity 247
+// entity 246
 {
 "classname" "func_group"
 "_tb_type" "_tb_group"
 "_tb_name" "MovingLaser"
 "_tb_id" "29"
 }
-// entity 248
+// entity 247
 {
 "classname" "Group_Mover"
 "path_alpha" "0"
@@ -4149,7 +4139,7 @@
 ( -1444 -3108 2588 ) ( -1444 -3108 2589 ) ( -1444 -3107 2588 ) special/skip [ 0 1 0 0 ] [ 2.7755575615628914e-16 0 1 0 ] 0 1 1
 }
 }
-// entity 249
+// entity 248
 {
 "classname" "func_group"
 "_tb_type" "_tb_group"
@@ -4157,7 +4147,7 @@
 "_tb_id" "28"
 "_tb_group" "29"
 }
-// entity 250
+// entity 249
 {
 "classname" "Lasers_BrushScene"
 "color" "255 0 0"
@@ -4176,14 +4166,14 @@
 ( -1444 -3108 2588 ) ( -1444 -3108 2589 ) ( -1444 -3107 2588 ) special/skip [ 0 1 0 0 ] [ 2.7755575615628914e-16 0 1 0 ] 0 1 1
 }
 }
-// entity 251
+// entity 250
 {
 "classname" "func_group"
 "_tb_type" "_tb_group"
 "_tb_name" "MovingLaser"
 "_tb_id" "33"
 }
-// entity 252
+// entity 251
 {
 "classname" "Group_Mover"
 "path_alpha" "0"
@@ -4201,7 +4191,7 @@
 ( -1444 -2868 2164 ) ( -1444 -2868 2165 ) ( -1444 -2867 2164 ) special/skip [ 0 1 0 0 ] [ 2.7755575615628914e-16 0 1 0 ] 0 1 1
 }
 }
-// entity 253
+// entity 252
 {
 "classname" "func_group"
 "_tb_type" "_tb_group"
@@ -4209,7 +4199,7 @@
 "_tb_id" "32"
 "_tb_group" "33"
 }
-// entity 254
+// entity 253
 {
 "classname" "Lasers_BrushScene"
 "color" "255 0 0"
@@ -4228,14 +4218,14 @@
 ( -1444 -2868 2164 ) ( -1444 -2868 2165 ) ( -1444 -2867 2164 ) special/skip [ 0 1 0 0 ] [ 2.7755575615628914e-16 0 1 0 ] 0 1 1
 }
 }
-// entity 255
+// entity 254
 {
 "classname" "func_group"
 "_tb_type" "_tb_group"
 "_tb_name" "MovingLaser"
 "_tb_id" "35"
 }
-// entity 256
+// entity 255
 {
 "classname" "Group_Mover"
 "path_alpha" "0"
@@ -4253,7 +4243,7 @@
 ( -1444 -2868 2156 ) ( -1444 -2868 2157 ) ( -1444 -2867 2156 ) special/skip [ 0 1 0 0 ] [ 2.7755575615628914e-16 0 1 0 ] 0 1 1
 }
 }
-// entity 257
+// entity 256
 {
 "classname" "func_group"
 "_tb_type" "_tb_group"
@@ -4261,7 +4251,7 @@
 "_tb_id" "34"
 "_tb_group" "35"
 }
-// entity 258
+// entity 257
 {
 "classname" "Lasers_BrushScene"
 "color" "255 0 0"
@@ -4280,14 +4270,14 @@
 ( -1444 -2868 2156 ) ( -1444 -2868 2157 ) ( -1444 -2867 2156 ) special/skip [ 0 1 0 0 ] [ 2.7755575615628914e-16 0 1 0 ] 0 1 1
 }
 }
-// entity 259
+// entity 258
 {
 "classname" "func_group"
 "_tb_type" "_tb_group"
 "_tb_name" "RotatingLaser"
 "_tb_id" "90"
 }
-// entity 260
+// entity 259
 {
 "classname" "Group_Rotater"
 "rotation_speed" "0 0 -1"
@@ -4302,7 +4292,7 @@
 ( -504 -1336 2600 ) ( -504 -1336 2601 ) ( -504 -1335 2600 ) special/skip [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 261
+// entity 260
 {
 "classname" "func_group"
 "_tb_type" "_tb_group"
@@ -4310,7 +4300,7 @@
 "_tb_id" "92"
 "_tb_group" "90"
 }
-// entity 262
+// entity 261
 {
 "classname" "Lasers_BrushScene"
 "color" "255 0 0"
@@ -4329,14 +4319,14 @@
 ( -508 -1328 2604 ) ( -508 -1328 2605 ) ( -508 -1327 2604 ) special/skip [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 263
+// entity 262
 {
 "classname" "func_group"
 "_tb_type" "_tb_group"
 "_tb_name" "RotatingLaser"
 "_tb_id" "91"
 }
-// entity 264
+// entity 263
 {
 "classname" "Group_Rotater"
 "rotation_speed" "0 0 -1"
@@ -4351,7 +4341,7 @@
 ( -504 -1332 2604 ) ( -504 -1332 2605 ) ( -504 -1331 2604 ) special/skip [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 265
+// entity 264
 {
 "classname" "func_group"
 "_tb_type" "_tb_group"
@@ -4359,7 +4349,7 @@
 "_tb_id" "93"
 "_tb_group" "91"
 }
-// entity 266
+// entity 265
 {
 "classname" "Lasers_BrushScene"
 "color" "255 0 0"
@@ -4378,14 +4368,14 @@
 ( -508 -1324 2608 ) ( -508 -1324 2609 ) ( -508 -1323 2608 ) special/skip [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 267
+// entity 266
 {
 "classname" "func_group"
 "_tb_type" "_tb_group"
 "_tb_name" "RotatingLaser"
 "_tb_id" "94"
 }
-// entity 268
+// entity 267
 {
 "classname" "Group_Rotater"
 "rotation_speed" "0 0 -1"
@@ -4400,7 +4390,7 @@
 ( -504 -1328 2600 ) ( -504 -1328 2601 ) ( -504 -1327 2600 ) special/skip [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 269
+// entity 268
 {
 "classname" "func_group"
 "_tb_type" "_tb_group"
@@ -4408,7 +4398,7 @@
 "_tb_id" "95"
 "_tb_group" "94"
 }
-// entity 270
+// entity 269
 {
 "classname" "Lasers_BrushScene"
 "color" "255 0 0"
@@ -4427,14 +4417,14 @@
 ( -508 -1320 2604 ) ( -508 -1320 2605 ) ( -508 -1319 2604 ) special/skip [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 271
+// entity 270
 {
 "classname" "func_group"
 "_tb_type" "_tb_group"
 "_tb_name" "RotatingLaser"
 "_tb_id" "96"
 }
-// entity 272
+// entity 271
 {
 "classname" "Group_Rotater"
 "rotation_speed" "0 0 -1"
@@ -4449,7 +4439,7 @@
 ( -504 -1332 2596 ) ( -504 -1332 2597 ) ( -504 -1331 2596 ) special/skip [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 273
+// entity 272
 {
 "classname" "func_group"
 "_tb_type" "_tb_group"
@@ -4457,7 +4447,7 @@
 "_tb_id" "97"
 "_tb_group" "96"
 }
-// entity 274
+// entity 273
 {
 "classname" "Lasers_BrushScene"
 "color" "255 0 0"
@@ -4476,14 +4466,14 @@
 ( -508 -1324 2600 ) ( -508 -1324 2601 ) ( -508 -1323 2600 ) special/skip [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 275
+// entity 274
 {
 "classname" "func_group"
 "_tb_type" "_tb_group"
 "_tb_name" "RotatingLaser"
 "_tb_id" "99"
 }
-// entity 276
+// entity 275
 {
 "classname" "Group_Rotater"
 "rotation_speed" "0 0 1"
@@ -4498,7 +4488,7 @@
 ( -756 -1332 2892 ) ( -756 -1332 2893 ) ( -756 -1331 2892 ) special/skip [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 277
+// entity 276
 {
 "classname" "func_group"
 "_tb_type" "_tb_group"
@@ -4506,7 +4496,7 @@
 "_tb_id" "98"
 "_tb_group" "99"
 }
-// entity 278
+// entity 277
 {
 "classname" "Lasers_BrushScene"
 "color" "255 0 0"
@@ -4525,14 +4515,14 @@
 ( -760 -1324 2896 ) ( -760 -1324 2897 ) ( -760 -1323 2896 ) special/skip [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 279
+// entity 278
 {
 "classname" "func_group"
 "_tb_type" "_tb_group"
 "_tb_name" "RotatingLaser"
 "_tb_id" "101"
 }
-// entity 280
+// entity 279
 {
 "classname" "Group_Rotater"
 "rotation_speed" "0 0 1"
@@ -4547,7 +4537,7 @@
 ( -756 -1336 2888 ) ( -756 -1336 2889 ) ( -756 -1335 2888 ) special/skip [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 281
+// entity 280
 {
 "classname" "func_group"
 "_tb_type" "_tb_group"
@@ -4555,7 +4545,7 @@
 "_tb_id" "100"
 "_tb_group" "101"
 }
-// entity 282
+// entity 281
 {
 "classname" "Lasers_BrushScene"
 "color" "255 0 0"
@@ -4574,14 +4564,14 @@
 ( -760 -1328 2892 ) ( -760 -1328 2893 ) ( -760 -1327 2892 ) special/skip [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 283
+// entity 282
 {
 "classname" "func_group"
 "_tb_type" "_tb_group"
 "_tb_name" "RotatingLaser"
 "_tb_id" "103"
 }
-// entity 284
+// entity 283
 {
 "classname" "Group_Rotater"
 "rotation_speed" "0 0 1"
@@ -4596,7 +4586,7 @@
 ( -756 -1332 2884 ) ( -756 -1332 2885 ) ( -756 -1331 2884 ) special/skip [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 285
+// entity 284
 {
 "classname" "func_group"
 "_tb_type" "_tb_group"
@@ -4604,7 +4594,7 @@
 "_tb_id" "102"
 "_tb_group" "103"
 }
-// entity 286
+// entity 285
 {
 "classname" "Lasers_BrushScene"
 "color" "255 0 0"
@@ -4623,14 +4613,14 @@
 ( -760 -1324 2888 ) ( -760 -1324 2889 ) ( -760 -1323 2888 ) special/skip [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 287
+// entity 286
 {
 "classname" "func_group"
 "_tb_type" "_tb_group"
 "_tb_name" "RotatingLaser"
 "_tb_id" "105"
 }
-// entity 288
+// entity 287
 {
 "classname" "Group_Rotater"
 "rotation_speed" "0 0 1"
@@ -4645,7 +4635,7 @@
 ( -756 -1328 2888 ) ( -756 -1328 2889 ) ( -756 -1327 2888 ) special/skip [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 289
+// entity 288
 {
 "classname" "func_group"
 "_tb_type" "_tb_group"
@@ -4653,7 +4643,7 @@
 "_tb_id" "104"
 "_tb_group" "105"
 }
-// entity 290
+// entity 289
 {
 "classname" "Lasers_BrushScene"
 "color" "255 0 0"
@@ -4672,14 +4662,14 @@
 ( -760 -1320 2892 ) ( -760 -1320 2893 ) ( -760 -1319 2892 ) special/skip [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 291
+// entity 290
 {
 "classname" "func_group"
 "_tb_type" "_tb_group"
 "_tb_name" "RotatingLaser"
 "_tb_id" "107"
 }
-// entity 292
+// entity 291
 {
 "classname" "Group_Rotater"
 "rotation_speed" "0 1 0"
@@ -4694,7 +4684,7 @@
 ( -28 -2460 3568 ) ( -28 -2460 3569 ) ( -28 -2459 3568 ) special/skip [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 293
+// entity 292
 {
 "classname" "func_group"
 "_tb_type" "_tb_group"
@@ -4702,7 +4692,7 @@
 "_tb_id" "106"
 "_tb_group" "107"
 }
-// entity 294
+// entity 293
 {
 "classname" "Lasers_BrushScene"
 "color" "255 0 0"
@@ -4721,14 +4711,14 @@
 ( -32 -2452 3572 ) ( -32 -2452 3573 ) ( -32 -2451 3572 ) special/skip [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 295
+// entity 294
 {
 "classname" "func_group"
 "_tb_type" "_tb_group"
 "_tb_name" "RotatingLaser"
 "_tb_id" "109"
 }
-// entity 296
+// entity 295
 {
 "classname" "Group_Rotater"
 "rotation_speed" "0 1 0"
@@ -4743,7 +4733,7 @@
 ( 100 -2460 3568 ) ( 100 -2460 3569 ) ( 100 -2459 3568 ) special/skip [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 297
+// entity 296
 {
 "classname" "func_group"
 "_tb_type" "_tb_group"
@@ -4751,7 +4741,7 @@
 "_tb_id" "108"
 "_tb_group" "109"
 }
-// entity 298
+// entity 297
 {
 "classname" "Lasers_BrushScene"
 "color" "255 0 0"
@@ -4770,14 +4760,14 @@
 ( 96 -2452 3572 ) ( 96 -2452 3573 ) ( 96 -2451 3572 ) special/skip [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 299
+// entity 298
 {
 "classname" "func_group"
 "_tb_type" "_tb_group"
 "_tb_name" "RotatingLaser"
 "_tb_id" "111"
 }
-// entity 300
+// entity 299
 {
 "classname" "Group_Rotater"
 "rotation_speed" "0 1 0"
@@ -4792,7 +4782,7 @@
 ( 100 -2588 3568 ) ( 100 -2588 3569 ) ( 100 -2587 3568 ) special/skip [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 301
+// entity 300
 {
 "classname" "func_group"
 "_tb_type" "_tb_group"
@@ -4800,7 +4790,7 @@
 "_tb_id" "110"
 "_tb_group" "111"
 }
-// entity 302
+// entity 301
 {
 "classname" "Lasers_BrushScene"
 "color" "255 0 0"
@@ -4819,14 +4809,14 @@
 ( 96 -2580 3572 ) ( 96 -2580 3573 ) ( 96 -2579 3572 ) special/skip [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 303
+// entity 302
 {
 "classname" "func_group"
 "_tb_type" "_tb_group"
 "_tb_name" "RotatingLaser"
 "_tb_id" "113"
 }
-// entity 304
+// entity 303
 {
 "classname" "Group_Rotater"
 "rotation_speed" "0 1 0"
@@ -4841,7 +4831,7 @@
 ( -28 -2588 3568 ) ( -28 -2588 3569 ) ( -28 -2587 3568 ) special/skip [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 305
+// entity 304
 {
 "classname" "func_group"
 "_tb_type" "_tb_group"
@@ -4849,7 +4839,7 @@
 "_tb_id" "112"
 "_tb_group" "113"
 }
-// entity 306
+// entity 305
 {
 "classname" "Lasers_BrushScene"
 "color" "255 0 0"
@@ -4868,14 +4858,14 @@
 ( -32 -2580 3572 ) ( -32 -2580 3573 ) ( -32 -2579 3572 ) special/skip [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 307
+// entity 306
 {
 "classname" "func_group"
 "_tb_type" "_tb_group"
 "_tb_name" "RotatingLaser"
 "_tb_id" "115"
 }
-// entity 308
+// entity 307
 {
 "classname" "Group_Rotater"
 "rotation_speed" "0 2 0"
@@ -4890,7 +4880,7 @@
 ( -28 -2588 3216 ) ( -28 -2588 3217 ) ( -28 -2587 3216 ) special/skip [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 309
+// entity 308
 {
 "classname" "func_group"
 "_tb_type" "_tb_group"
@@ -4898,7 +4888,7 @@
 "_tb_id" "114"
 "_tb_group" "115"
 }
-// entity 310
+// entity 309
 {
 "classname" "Lasers_BrushScene"
 "color" "255 0 0"
@@ -4917,14 +4907,14 @@
 ( -32 -2580 3220 ) ( -32 -2580 3221 ) ( -32 -2579 3220 ) special/skip [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 311
+// entity 310
 {
 "classname" "func_group"
 "_tb_type" "_tb_group"
 "_tb_name" "RotatingLaser"
 "_tb_id" "117"
 }
-// entity 312
+// entity 311
 {
 "classname" "Group_Rotater"
 "rotation_speed" "0 2 0"
@@ -4939,7 +4929,7 @@
 ( 100 -2588 3216 ) ( 100 -2588 3217 ) ( 100 -2587 3216 ) special/skip [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 313
+// entity 312
 {
 "classname" "func_group"
 "_tb_type" "_tb_group"
@@ -4947,7 +4937,7 @@
 "_tb_id" "116"
 "_tb_group" "117"
 }
-// entity 314
+// entity 313
 {
 "classname" "Lasers_BrushScene"
 "color" "255 0 0"
@@ -4966,14 +4956,14 @@
 ( 96 -2580 3220 ) ( 96 -2580 3221 ) ( 96 -2579 3220 ) special/skip [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 315
+// entity 314
 {
 "classname" "func_group"
 "_tb_type" "_tb_group"
 "_tb_name" "RotatingLaser"
 "_tb_id" "119"
 }
-// entity 316
+// entity 315
 {
 "classname" "Group_Rotater"
 "rotation_speed" "0 2 0"
@@ -4988,7 +4978,7 @@
 ( 100 -2460 3216 ) ( 100 -2460 3217 ) ( 100 -2459 3216 ) special/skip [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 317
+// entity 316
 {
 "classname" "func_group"
 "_tb_type" "_tb_group"
@@ -4996,7 +4986,7 @@
 "_tb_id" "118"
 "_tb_group" "119"
 }
-// entity 318
+// entity 317
 {
 "classname" "Lasers_BrushScene"
 "color" "255 0 0"
@@ -5015,14 +5005,14 @@
 ( 96 -2452 3220 ) ( 96 -2452 3221 ) ( 96 -2451 3220 ) special/skip [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 319
+// entity 318
 {
 "classname" "func_group"
 "_tb_type" "_tb_group"
 "_tb_name" "RotatingLaser"
 "_tb_id" "121"
 }
-// entity 320
+// entity 319
 {
 "classname" "Group_Rotater"
 "rotation_speed" "0 2 0"
@@ -5037,7 +5027,7 @@
 ( -28 -2460 3216 ) ( -28 -2460 3217 ) ( -28 -2459 3216 ) special/skip [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 321
+// entity 320
 {
 "classname" "func_group"
 "_tb_type" "_tb_group"
@@ -5045,7 +5035,7 @@
 "_tb_id" "120"
 "_tb_group" "121"
 }
-// entity 322
+// entity 321
 {
 "classname" "Lasers_BrushScene"
 "color" "255 0 0"
@@ -5064,14 +5054,14 @@
 ( -32 -2452 3220 ) ( -32 -2452 3221 ) ( -32 -2451 3220 ) special/skip [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 323
+// entity 322
 {
 "classname" "func_group"
 "_tb_type" "_tb_group"
 "_tb_name" "RotatingLaser"
 "_tb_id" "123"
 }
-// entity 324
+// entity 323
 {
 "classname" "Group_Rotater"
 "rotation_speed" "0 1.75 0"
@@ -5086,7 +5076,7 @@
 ( -28 -2588 2856 ) ( -28 -2588 2857 ) ( -28 -2587 2856 ) special/skip [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 325
+// entity 324
 {
 "classname" "func_group"
 "_tb_type" "_tb_group"
@@ -5094,7 +5084,7 @@
 "_tb_id" "122"
 "_tb_group" "123"
 }
-// entity 326
+// entity 325
 {
 "classname" "Lasers_BrushScene"
 "color" "255 0 0"
@@ -5113,14 +5103,14 @@
 ( -32 -2580 2860 ) ( -32 -2580 2861 ) ( -32 -2579 2860 ) special/skip [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 327
+// entity 326
 {
 "classname" "func_group"
 "_tb_type" "_tb_group"
 "_tb_name" "RotatingLaser"
 "_tb_id" "125"
 }
-// entity 328
+// entity 327
 {
 "classname" "Group_Rotater"
 "rotation_speed" "0 1.75 0"
@@ -5135,7 +5125,7 @@
 ( 100 -2588 2856 ) ( 100 -2588 2857 ) ( 100 -2587 2856 ) special/skip [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 329
+// entity 328
 {
 "classname" "func_group"
 "_tb_type" "_tb_group"
@@ -5143,7 +5133,7 @@
 "_tb_id" "124"
 "_tb_group" "125"
 }
-// entity 330
+// entity 329
 {
 "classname" "Lasers_BrushScene"
 "color" "255 0 0"
@@ -5162,14 +5152,14 @@
 ( 96 -2580 2860 ) ( 96 -2580 2861 ) ( 96 -2579 2860 ) special/skip [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 331
+// entity 330
 {
 "classname" "func_group"
 "_tb_type" "_tb_group"
 "_tb_name" "RotatingLaser"
 "_tb_id" "127"
 }
-// entity 332
+// entity 331
 {
 "classname" "Group_Rotater"
 "rotation_speed" "0 1.75 0"
@@ -5184,7 +5174,7 @@
 ( 100 -2460 2856 ) ( 100 -2460 2857 ) ( 100 -2459 2856 ) special/skip [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 333
+// entity 332
 {
 "classname" "func_group"
 "_tb_type" "_tb_group"
@@ -5192,7 +5182,7 @@
 "_tb_id" "126"
 "_tb_group" "127"
 }
-// entity 334
+// entity 333
 {
 "classname" "Lasers_BrushScene"
 "color" "255 0 0"
@@ -5211,14 +5201,14 @@
 ( 96 -2452 2860 ) ( 96 -2452 2861 ) ( 96 -2451 2860 ) special/skip [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 335
+// entity 334
 {
 "classname" "func_group"
 "_tb_type" "_tb_group"
 "_tb_name" "RotatingLaser"
 "_tb_id" "129"
 }
-// entity 336
+// entity 335
 {
 "classname" "Group_Rotater"
 "rotation_speed" "0 1.75 0"
@@ -5233,7 +5223,7 @@
 ( -28 -2460 2856 ) ( -28 -2460 2857 ) ( -28 -2459 2856 ) special/skip [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 337
+// entity 336
 {
 "classname" "func_group"
 "_tb_type" "_tb_group"
@@ -5241,7 +5231,7 @@
 "_tb_id" "128"
 "_tb_group" "129"
 }
-// entity 338
+// entity 337
 {
 "classname" "Lasers_BrushScene"
 "color" "255 0 0"
@@ -5259,4 +5249,15 @@
 ( -44 -2460 2856 ) ( -43 -2460 2856 ) ( -44 -2460 2857 ) special/skip [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
 ( -32 -2452 2860 ) ( -32 -2452 2861 ) ( -32 -2451 2860 ) special/skip [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
+}
+// entity 338
+{
+"classname" "Boost_Pad"
+"origin" "1314 -2530 1394"
+"collision_layer" "2"
+"collision_mask" "5"
+"color" "0 255 255"
+"force" "17"
+"size" "1 1 1"
+"mangle" "-90 0 0"
 }

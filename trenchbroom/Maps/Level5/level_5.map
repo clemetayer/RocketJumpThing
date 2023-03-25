@@ -220,7 +220,7 @@
 "collision_layer" "2"
 "collision_mask" "5"
 "scale" "4 4 1"
-"text_direction" "0 90 0"
+"mangle" "0 90 0"
 "treshold" "0"
 "target" "target_1"
 // brush 0
@@ -776,12 +776,12 @@
 {
 "classname" "Boost_Pad"
 "origin" "5726 5602 594"
-"angle" "0 0 0"
 "collision_layer" "2"
 "collision_mask" "5"
 "force" "17"
 "size" "2 2 2"
 "color" "255 255 0"
+"mangle" "-90 0 0"
 }
 // entity 37
 {
@@ -804,7 +804,7 @@
 "scale" "4 4 1"
 "treshold" "5"
 "target" "wall_2"
-"text_direction" "0 0 0"
+"mangle" "0 0 0"
 // brush 0
 {
 ( 4944 6080 1152 ) ( 4944 6080 1168 ) ( 4944 5824 1168 ) special/clip [ -2.220446049250313e-16 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -1304,12 +1304,12 @@
 {
 "classname" "Boost_Pad"
 "origin" "-5566 6654 1186"
-"angle" "0 0 0"
 "collision_layer" "2"
 "collision_mask" "5"
 "color" "255 183 0"
 "force" "30"
 "size" "4 4 4"
+"mangle" "-90 0 0"
 }
 // entity 61
 {
@@ -1330,12 +1330,12 @@
 {
 "classname" "Boost_Area"
 "origin" "-5570 6654 1946"
-"angle" "0 90 80"
 "collision_layer" "2"
 "collision_mask" "5"
 "color" "255 183 0"
 "force" "15"
 "size" "4 4 4"
+"mangle" "-15 0 0"
 }
 // entity 63
 {
@@ -1914,7 +1914,7 @@
 "collision_layer" "2"
 "collision_mask" "5"
 "scale" "4 4 1"
-"text_direction" "0 180 0"
+"mangle" "0 180 0"
 "treshold" "11"
 "target" "wall_3"
 // brush 0
@@ -1989,12 +1989,12 @@
 {
 "classname" "Boost_Pad"
 "origin" "-2 7678 -3102"
-"angle" "0 0 0"
 "collision_layer" "2"
 "collision_mask" "5"
 "color" "255 85 0"
 "force" "23"
 "size" "3 3 3"
+"mangle" "-90 0 0"
 }
 // entity 89
 {
@@ -2149,12 +2149,12 @@
 {
 "classname" "Boost_Pad"
 "origin" "1538 8354 -2734"
-"angle" "0 0 0"
 "collision_layer" "2"
 "collision_mask" "5"
 "color" "255 85 0"
 "force" "15"
 "size" "2 2 2"
+"mangle" "-90 0 0"
 }
 // entity 96
 {
@@ -2166,6 +2166,7 @@
 "color" "255 85 0"
 "force" "15"
 "size" "2 2 2"
+"mangle" "-60 -90 0"
 }
 // entity 97
 {
@@ -2197,12 +2198,12 @@
 {
 "classname" "Boost_Pad"
 "origin" "1711.27 8290 -2343.41"
-"angle" "45 0 0"
 "collision_layer" "2"
 "collision_mask" "5"
 "color" "255 85 0"
 "force" "15"
 "size" "2 2 2"
+"mangle" "-45 0 0"
 }
 // entity 100
 {
@@ -2210,7 +2211,7 @@
 "collision_layer" "2"
 "collision_mask" "5"
 "scale" "4 4 1"
-"text_direction" "0 180 0"
+"mangle" "0 180 0"
 "treshold" "7"
 "target" "wall_4"
 // brush 0
@@ -2528,7 +2529,7 @@
 "color" "255 0 0"
 "collision_layer" "2"
 "collision_mask" "5"
-"angle" "0 0 45"
+"mangle" "-45 -90 0"
 }
 // entity 121
 {
@@ -3169,7 +3170,7 @@
 "collision_layer" "2"
 "collision_mask" "5"
 "scale" "4 4 1"
-"text_direction" "0 90 0"
+"mangle" "0 90 0"
 "treshold" "5"
 "target" "wall_5"
 // brush 0

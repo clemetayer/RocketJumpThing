@@ -26,7 +26,7 @@ func after():
 #==== ACTUAL TESTS =====
 func test_add_sprite_ui() -> void:
 	breakable_area._treshold = 100
-	breakable_area._sprite_text_direction = Vector3.ONE
+	breakable_area._mangle = Vector3.ONE
 	breakable_area._sprite_scale = Vector3.ONE
 	breakable_area._add_ui_sprite()
 	var sprite

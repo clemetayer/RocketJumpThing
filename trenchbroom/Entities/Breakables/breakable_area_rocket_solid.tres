@@ -13,12 +13,12 @@ description = "An area used to trigger the break of a wall if a rocket touches i
 qodot_internal = false
 base_classes = [ ExtResource( 3 ), ExtResource( 4 ) ]
 class_properties = {
-"scale": Vector3( 2, 2, 1 ),
-"text_direction": Vector3( 0, 0, 0 )
+"mangle": Vector3( 0, 0, 0 ),
+"scale": Vector3( 2, 2, 1 )
 }
 class_property_descriptions = {
-"scale": "Pretty much the size of the text",
-"text_direction": "direction where the text (or icon will be facing)"
+"mangle": "direction where the text (or icon will be facing)",
+"scale": "Pretty much the size of the text"
 }
 meta_properties = {
 "color": Color( 0.8, 0.8, 0.8, 1 ),

@@ -3,16 +3,14 @@ extends BreakableArea
 
 ##### VARIABLES #####
 #---- CONSTANTS -----
-const TB_BREAKABLE_AREA_ROCKET_MAPPER := [
-	["scale", "_sprite_scale"], ["text_direction", "_sprite_text_direction"]
-]  # mapper for TrenchBroom parameters
+const TB_BREAKABLE_AREA_ROCKET_MAPPER := [["scale", "_sprite_scale"], ["mangle", "_mangle"]]  # mapper for TrenchBroom parameters
 const UI_PATH := "res://Game/Common/MapElements/Breakables/Walls/breakable_area_rocket_ui.tscn"
 
 #---- STANDARD -----
 #==== PRIVATE ====
 var _ui_load := preload(UI_PATH)
 var _sprite_scale: Vector3
-var _sprite_text_direction: Vector3
+var _mangle: Vector3
 
 
 ##### PROCESSING #####
@@ -41,7 +39,7 @@ func _add_ui_sprite() -> void:
 	var ui := _ui_load.instance()
 	add_child(ui)
 	var sprite := Sprite3D.new()
-	sprite.rotation_degrees = _sprite_text_direction
+	sprite.rotation_degrees = _mangle
 	sprite.scale = Vector3(8, 8, 1)
 	add_child(sprite)
 	sprite.scale = _sprite_scale

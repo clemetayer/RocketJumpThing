@@ -3026,11 +3026,10 @@
 {
 "classname" "Boost_Pad"
 "origin" "-2172 477.065 293.283"
-"angle" "0 0 -15"
 "color" "38 174 128"
 "force" "12.5"
 "size" "0.625 0.95 0.625"
-"" ""
+"mangle" "-60 90 0"
 }
 // entity 104
 {
@@ -3038,49 +3037,44 @@
 "origin" "-2124.88 -226 104.732"
 "color" "38 174 128"
 "force" "12.5"
-"angle" "-30 0 0"
 "size" "0.625 0.95 0.625"
-"" ""
+"mangle" "-60 180 0"
 }
 // entity 105
 {
 "classname" "Boost_Pad"
 "origin" "-2272.66 -96 213"
-"angle" "30 0 0"
 "color" "38 174 128"
 "force" "10"
 "size" "0.625 0.95 0.625"
-"" ""
+"mangle" "-60 0 0"
 }
 // entity 106
 {
 "classname" "Boost_Pad"
 "origin" "-2122.48 32 291.625"
-"angle" "-15 0 0"
 "color" "38 174 128"
 "force" "6.5"
 "size" "0.625 0.95 0.625"
-"" ""
+"mangle" "-75 180 0"
 }
 // entity 107
 {
 "classname" "Boost_Pad"
 "origin" "-3040 -106.995 53.5553"
-"angle" "0 0 15"
 "color" "38 174 128"
 "force" "13"
 "size" "0.625 0.95 0.625"
-"" ""
+"mangle" "-60 -90 0"
 }
 // entity 108
 {
 "classname" "Boost_Pad"
 "origin" "-3040 502 -54"
-"angle" "0 0 30"
 "color" "38 174 128"
 "force" "13"
 "size" "0.625 0.95 0.625"
-"" ""
+"mangle" "-60 -90 0"
 }
 // entity 109
 {
@@ -3089,18 +3083,16 @@
 "force" "18.75"
 "size" "3.125 1.75 3.125"
 "color" "38 174 128"
-"angle" "0 0 80"
-"" ""
+"mangle" "-15 -90 0"
 }
 // entity 110
 {
 "classname" "Boost_Area"
 "origin" "-528 0 416"
-"force" "32"
+"force" "30"
 "size" "12.5 8 12.5"
 "color" "38 174 128"
-"angle" "0 90 80"
-"" ""
+"mangle" "-15 0 0"
 }
 // entity 111
 {
@@ -3108,9 +3100,8 @@
 "origin" "5250 1620.2 232.733"
 "color" "38 174 128"
 "force" "10"
-"angle" "0 0 30"
 "size" "0.625 1.5 0.625"
-"" ""
+"mangle" "-60 -90 0"
 }
 // entity 112
 {
@@ -3118,29 +3109,26 @@
 "origin" "5250 968.196 432.732"
 "color" "38 174 128"
 "force" "10"
-"angle" "0 0 30"
 "size" "0.625 1.5 0.625"
-"" ""
+"mangle" "-60 -90 0"
 }
 // entity 113
 {
 "classname" "Boost_Area"
 "origin" "5278 -306 1490"
-"angle" "0 0 0"
 "color" "38 174 128"
 "force" "20"
 "size" "3.125 7 3.125"
-"" ""
+"mangle" "-90 0 0"
 }
 // entity 114
 {
 "classname" "Boost_Area"
 "origin" "5278 -306 1858"
-"angle" "0 0 0"
 "color" "38 174 128"
 "force" "28"
 "size" "3.125 7 3.125"
-"" ""
+"mangle" "-90 0 0"
 }
 // entity 115
 {
@@ -3149,8 +3137,7 @@
 "force" "15.625"
 "size" "3.125 1.75 3.125"
 "color" "38 174 128"
-"angle" "80 0 0"
-"" ""
+"mangle" "-15 0 0"
 }
 // entity 116
 {
@@ -3858,7 +3845,7 @@
 "collision_layer" "2"
 "collision_mask" "5"
 "target" "breakable_wall_1"
-"text_direction" "0 180 0"
+"mangle" "0 180 0"
 "scale" "3.75 3.75 0.0625"
 // brush 0
 {
@@ -3874,11 +3861,10 @@
 {
 "classname" "Boost_Area"
 "origin" "-880 -16 528"
-"force" "-12"
+"force" "12"
 "size" "3.125 2 3.125"
 "color" "38 174 128"
-"angle" "-90 0 0"
-"" ""
+"mangle" "-15 0 0"
 }
 // entity 150
 {
