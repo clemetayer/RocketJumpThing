@@ -39,8 +39,15 @@ func _ready():
 # very inspired from https://www.codingkaiju.com/tutorials/screen-shake-in-godot-the-best-way/
 func start_camera_shake(duration = 1.0, frequency = 15, amplitude = 1.0, priority = 0) -> void:
 	_camera = get_viewport().get_camera()
-	_original_offset = Vector2(_camera.h_offset, _camera.v_offset)
+	# resets the camera (in case the camera is currently shaking)
 	if priority >= _priority:
+		if _amplitude_tween.is_active():
+			# stops the current shake to reset the camera
+			DebugUtils.log_tween_stop_all(_amplitude_tween)
+			DebugUtils.log_tween_stop_all(_shake_tween)
+			_camera.h_offset = _original_offset.x
+			_camera.v_offset = _original_offset.y
+		_original_offset = Vector2(_camera.h_offset, _camera.v_offset)
 		_priority = priority
 		_amplitude = amplitude
 		_duration_timer.wait_time = duration
@@ -118,6 +125,7 @@ func _on_duration_timer_timeout() -> void:
 		SHAKE_EASE
 	)
 	DebugUtils.log_tween_start(_shake_tween)
+	_priority = -1  # resets the priority to enable any shake
 
 
 func _on_frequency_timer_timeout() -> void:
