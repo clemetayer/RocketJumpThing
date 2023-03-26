@@ -117,15 +117,17 @@ func _get_distance_to_collision(raycast: RayCast) -> float:
 
 func _update_target(raycast: RayCast, distance: float) -> void:
 	var scene_tree = ScenesManager.get_current()
-	if is_instance_valid(_target) and not _target.is_inside_tree():
-		scene_tree.add_child(_target)
-	_target.set_pos(raycast.get_collision_point(), raycast.get_collision_normal())
-	_target.update_scale(distance)
+	if is_instance_valid(_target):
+		if not _target.is_inside_tree():
+			scene_tree.add_child(_target)
+		_target.set_pos(raycast.get_collision_point(), raycast.get_collision_normal())
+		_target.update_scale(distance)
 
 
 func _remove_target() -> void:
 	if is_instance_valid(_target) and _target.is_inside_tree():
 		ScenesManager.get_current().remove_child(_target)
+		_target.queue_free()
 
 
 # plans an explosion, since the rocket is close to the floor (to make sure it explodes)
@@ -143,7 +145,7 @@ func _explode(raycast) -> void:
 	var col_point = raycast.get_collision_point()
 	raycast.enabled = false
 	transform.origin = col_point
-	_target.free()
+	_remove_target()
 	var explosion = load(EXPLOSION_SCENE).instance()
 	explosion.EXPLOSION_POSITION = global_transform.origin
 	ScenesManager.get_current().add_child(explosion)
