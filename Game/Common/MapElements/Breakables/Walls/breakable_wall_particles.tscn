@@ -1,0 +1,54 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Game/Common/MapElements/Breakables/Walls/breakable_wall_particles.gd" type="Script" id=1]
+
+[sub_resource type="Curve" id=3]
+min_value = -360.0
+max_value = 360.0
+_data = [ Vector2( 0, 360 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=4]
+curve = SubResource( 3 )
+
+[sub_resource type="Gradient" id=7]
+offsets = PoolRealArray( 0, 0.45, 0.75, 1 )
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=8]
+gradient = SubResource( 7 )
+
+[sub_resource type="Curve" id=5]
+max_value = 40.0
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 40 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=6]
+curve = SubResource( 5 )
+
+[sub_resource type="ParticlesMaterial" id=1]
+resource_local_to_scene = true
+lifetime_randomness = 1.0
+emission_shape = 2
+emission_box_extents = Vector3( 1, 1, 1 )
+flag_rotate_y = true
+spread = 30.0
+initial_velocity_random = 0.5
+angular_velocity_random = 0.45
+angular_velocity_curve = SubResource( 4 )
+damping_curve = SubResource( 6 )
+angle_random = 1.0
+scale_random = 0.5
+color_ramp = SubResource( 8 )
+
+[sub_resource type="CubeMesh" id=9]
+
+[node name="Particles" type="Particles"]
+emitting = false
+amount = 350
+lifetime = 2.0
+one_shot = true
+explosiveness = 1.0
+randomness = 0.5
+visibility_aabb = AABB( -150, -150, -150, 300, 300, 300 )
+process_material = SubResource( 1 )
+draw_pass_1 = SubResource( 9 )
+script = ExtResource( 1 )

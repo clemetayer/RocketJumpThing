@@ -5,6 +5,7 @@ extends BreakableArea
 #---- CONSTANTS -----
 const TB_BREAKABLE_AREA_ROCKET_MAPPER := [["scale", "_sprite_scale"], ["mangle", "_mangle"]]  # mapper for TrenchBroom parameters
 const UI_PATH := "res://Game/Common/MapElements/Breakables/Walls/breakable_area_rocket_ui.tscn"
+const BREAK_WALL_SPEED_MULTIPLIER := 5.0
 
 #---- STANDARD -----
 #==== PRIVATE ====
@@ -51,7 +52,13 @@ func _add_ui_sprite() -> void:
 ##### SIGNAL MANAGEMENT #####
 func _on_breakable_area_rocket_area_entered(area):
 	if FunctionUtils.is_rocket(area):
-		emit_signal("trigger", {"position": area.transform.origin, "speed": area.SPEED})
+		emit_signal(
+			"trigger",
+			{
+				"position": area.global_transform.origin,
+				"speed": area.SPEED * BREAK_WALL_SPEED_MULTIPLIER
+			}
+		)
 		_break_wall_sound.play()
 		yield(_break_wall_sound, "finished")
 		self.queue_free()

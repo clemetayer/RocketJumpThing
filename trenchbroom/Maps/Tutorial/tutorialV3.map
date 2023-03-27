@@ -4168,383 +4168,6 @@
 }
 // entity 22
 {
-"classname" "Breakables_Wall"
-"_tb_def" "builtin:RocketJumpThing_fgd.fgd"
-"_tb_textures" "textures/scenes/tutorial_scene"
-"collision_layer" "2"
-"collision_mask" "5"
-"targetname" "breakable_wall_1"
-// brush 0
-{
-( -848 1360 314 ) ( -848 1358 314 ) ( -848 1358 260 ) scenes/tutorial_scene/wall [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -848 1354 314 ) ( -786 1354 314 ) ( -786 1354 260 ) scenes/tutorial_scene/wall [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -846 1358 298 ) ( -794 1358 298 ) ( -794 1486 298 ) scenes/tutorial_scene/wall [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -848 1360 314 ) ( -786 1360 314 ) ( -786 1358 314 ) scenes/tutorial_scene/wall [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -786 1360 260 ) ( -786 1360 314 ) ( -848 1360 314 ) scenes/tutorial_scene/wall [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -846 1358 314 ) ( -844 1486 308 ) ( -844 1358 308 ) scenes/tutorial_scene/wall [ 0 1 0 0 ] [ 0.316227766016838 0 -0.9486832980505139 0 ] 0 1 1
-}
-}
-// entity 23
-{
-"classname" "Breakables_Wall"
-"_tb_def" "builtin:RocketJumpThing_fgd.fgd"
-"_tb_textures" "textures/scenes/tutorial_scene"
-"collision_layer" "2"
-"collision_mask" "5"
-"targetname" "breakable_wall_1"
-// brush 0
-{
-( -846 1358 314 ) ( -844 1358 308 ) ( -844 1486 308 ) scenes/tutorial_scene/wall [ 0 -1 0 0 ] [ 0.316227766016838 0 -0.9486832980505139 0 ] 0 1 1
-( -848 1354 314 ) ( -786 1354 314 ) ( -786 1354 260 ) scenes/tutorial_scene/wall [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -846 1358 298 ) ( -794 1358 298 ) ( -794 1486 298 ) scenes/tutorial_scene/wall [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -848 1360 314 ) ( -786 1360 314 ) ( -786 1358 314 ) scenes/tutorial_scene/wall [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -786 1360 260 ) ( -786 1360 314 ) ( -848 1360 314 ) scenes/tutorial_scene/wall [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -814 1358 310 ) ( -820 1486 280 ) ( -820 1358 280 ) scenes/tutorial_scene/wall [ 0 1 0 0 ] [ -0.19611613513818404 0 -0.9805806756909202 0 ] 0 1 1
-}
-}
-// entity 24
-{
-"classname" "Breakables_Wall"
-"_tb_def" "builtin:RocketJumpThing_fgd.fgd"
-"_tb_textures" "textures/scenes/tutorial_scene"
-"collision_layer" "2"
-"collision_mask" "5"
-"targetname" "breakable_wall_1"
-// brush 0
-{
-( -814 1358 310 ) ( -820 1358 280 ) ( -820 1486 280 ) scenes/tutorial_scene/wall [ 0 -1 0 0 ] [ -0.19611613513818404 0 -0.9805806756909202 0 ] 0 1 1
-( -848 1354 314 ) ( -786 1354 314 ) ( -786 1354 260 ) scenes/tutorial_scene/wall [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -846 1358 298 ) ( -794 1358 298 ) ( -794 1486 298 ) scenes/tutorial_scene/wall [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -848 1360 314 ) ( -786 1360 314 ) ( -786 1358 314 ) scenes/tutorial_scene/wall [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -786 1360 260 ) ( -786 1360 314 ) ( -848 1360 314 ) scenes/tutorial_scene/wall [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -796 1358 306 ) ( -812 1486 292 ) ( -812 1358 292 ) scenes/tutorial_scene/wall [ -0.7525766947068778 0 -0.658504607868518 0 ] [ 0 -1 0 0 ] 0 1 1
-( -796 1358 276 ) ( -804 1358 298 ) ( -804 1486 298 ) scenes/tutorial_scene/wall [ 0 1 0 0 ] [ 0.34174306308670443 0 -0.9397934234884371 0 ] 0 1 1
-}
-}
-// entity 25
-{
-"classname" "Breakables_Wall"
-"_tb_def" "builtin:RocketJumpThing_fgd.fgd"
-"_tb_textures" "textures/scenes/tutorial_scene"
-"collision_layer" "2"
-"collision_mask" "5"
-"targetname" "breakable_wall_1"
-// brush 0
-{
-( -796 1358 276 ) ( -804 1486 298 ) ( -804 1358 298 ) scenes/tutorial_scene/wall [ 0 -1 0 0 ] [ 0.34174306308670443 0 -0.9397934234884371 0 ] 0 1 1
-( -848 1354 314 ) ( -786 1354 314 ) ( -786 1354 260 ) scenes/tutorial_scene/wall [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -848 1360 314 ) ( -786 1360 314 ) ( -786 1358 314 ) scenes/tutorial_scene/wall [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -786 1360 260 ) ( -786 1360 314 ) ( -848 1360 314 ) scenes/tutorial_scene/wall [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -796 1358 306 ) ( -812 1486 292 ) ( -812 1358 292 ) scenes/tutorial_scene/wall [ -0.7525766947068778 0 -0.658504607868518 0 ] [ 0 -1 0 0 ] 0 1 1
-}
-}
-// entity 26
-{
-"classname" "Breakables_Wall"
-"_tb_def" "builtin:RocketJumpThing_fgd.fgd"
-"_tb_textures" "textures/scenes/tutorial_scene"
-"collision_layer" "2"
-"collision_mask" "5"
-"targetname" "breakable_wall_1"
-// brush 0
-{
-( -796 1358 276 ) ( -804 1486 298 ) ( -804 1358 298 ) scenes/tutorial_scene/wall [ 0 -1 0 0 ] [ 0.34174306308670443 0 -0.9397934234884371 0 ] 0 1 1
-( -796 1358 306 ) ( -812 1358 292 ) ( -812 1486 292 ) scenes/tutorial_scene/wall [ 0.7525766947068778 0 0.658504607868518 0 ] [ 0 -1 0 0 ] 0 1 1
-( -848 1354 314 ) ( -786 1354 314 ) ( -786 1354 260 ) scenes/tutorial_scene/wall [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -846 1358 298 ) ( -794 1358 298 ) ( -794 1486 298 ) scenes/tutorial_scene/wall [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -848 1360 314 ) ( -786 1360 314 ) ( -786 1358 314 ) scenes/tutorial_scene/wall [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -786 1360 260 ) ( -786 1360 314 ) ( -848 1360 314 ) scenes/tutorial_scene/wall [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -786 1358 314 ) ( -786 1360 314 ) ( -786 1360 260 ) scenes/tutorial_scene/wall [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-}
-}
-// entity 27
-{
-"classname" "Breakables_Wall"
-"_tb_def" "builtin:RocketJumpThing_fgd.fgd"
-"_tb_textures" "textures/scenes/tutorial_scene"
-"collision_layer" "2"
-"collision_mask" "5"
-"targetname" "breakable_wall_1"
-// brush 0
-{
-( -796 1358 276 ) ( -804 1486 298 ) ( -804 1358 298 ) scenes/tutorial_scene/wall [ 0 -1 0 0 ] [ 0.34174306308670443 0 -0.9397934234884371 0 ] 0 1 1
-( -848 1354 314 ) ( -786 1354 314 ) ( -786 1354 260 ) scenes/tutorial_scene/wall [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -786 1358 260 ) ( -786 1360 260 ) ( -848 1360 260 ) scenes/tutorial_scene/wall [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -846 1358 298 ) ( -794 1486 298 ) ( -794 1358 298 ) scenes/tutorial_scene/wall [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -786 1360 260 ) ( -786 1360 314 ) ( -848 1360 314 ) scenes/tutorial_scene/wall [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -786 1358 314 ) ( -786 1360 314 ) ( -786 1360 260 ) scenes/tutorial_scene/wall [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-}
-}
-// entity 28
-{
-"classname" "Breakables_Wall"
-"_tb_def" "builtin:RocketJumpThing_fgd.fgd"
-"_tb_textures" "textures/scenes/tutorial_scene"
-"collision_layer" "2"
-"collision_mask" "5"
-"targetname" "breakable_wall_1"
-// brush 0
-{
-( -814 1358 310 ) ( -820 1358 280 ) ( -820 1486 280 ) scenes/tutorial_scene/wall [ 0 -1 0 0 ] [ -0.19611613513818404 0 -0.9805806756909202 0 ] 0 1 1
-( -796 1358 306 ) ( -812 1358 292 ) ( -812 1486 292 ) scenes/tutorial_scene/wall [ 0.7525766947068778 0 0.658504607868518 0 ] [ 0 -1 0 0 ] 0 1 1
-( -848 1354 314 ) ( -786 1354 314 ) ( -786 1354 260 ) scenes/tutorial_scene/wall [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -786 1358 260 ) ( -786 1360 260 ) ( -848 1360 260 ) scenes/tutorial_scene/wall [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -846 1358 298 ) ( -794 1486 298 ) ( -794 1358 298 ) scenes/tutorial_scene/wall [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -786 1360 260 ) ( -786 1360 314 ) ( -848 1360 314 ) scenes/tutorial_scene/wall [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -796 1358 276 ) ( -804 1358 298 ) ( -804 1486 298 ) scenes/tutorial_scene/wall [ 0 1 0 0 ] [ 0.34174306308670443 0 -0.9397934234884371 0 ] 0 1 1
-}
-}
-// entity 29
-{
-"classname" "Breakables_Wall"
-"_tb_def" "builtin:RocketJumpThing_fgd.fgd"
-"_tb_textures" "textures/scenes/tutorial_scene"
-"collision_layer" "2"
-"collision_mask" "5"
-"targetname" "breakable_wall_1"
-// brush 0
-{
-( -814 1358 310 ) ( -820 1358 280 ) ( -820 1486 280 ) scenes/tutorial_scene/wall [ 0 -1 0 0 ] [ -0.19611613513818404 0 -0.9805806756909202 0 ] 0 1 1
-( -848 1354 314 ) ( -786 1354 314 ) ( -786 1354 260 ) scenes/tutorial_scene/wall [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -846 1358 298 ) ( -794 1486 298 ) ( -794 1358 298 ) scenes/tutorial_scene/wall [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -786 1360 260 ) ( -786 1360 314 ) ( -848 1360 314 ) scenes/tutorial_scene/wall [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -796 1358 306 ) ( -812 1486 292 ) ( -812 1358 292 ) scenes/tutorial_scene/wall [ -0.7525766947068778 0 -0.658504607868518 0 ] [ 0 -1 0 0 ] 0 1 1
-}
-}
-// entity 30
-{
-"classname" "Breakables_Wall"
-"_tb_def" "builtin:RocketJumpThing_fgd.fgd"
-"_tb_textures" "textures/scenes/tutorial_scene"
-"collision_layer" "2"
-"collision_mask" "5"
-"targetname" "breakable_wall_1"
-// brush 0
-{
-( -846 1358 314 ) ( -844 1358 308 ) ( -844 1486 308 ) scenes/tutorial_scene/wall [ 0 -1 0 0 ] [ 0.316227766016838 0 -0.9486832980505139 0 ] 0 1 1
-( -848 1354 314 ) ( -786 1354 314 ) ( -786 1354 260 ) scenes/tutorial_scene/wall [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -846 1358 298 ) ( -794 1486 298 ) ( -794 1358 298 ) scenes/tutorial_scene/wall [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -786 1360 260 ) ( -786 1360 314 ) ( -848 1360 314 ) scenes/tutorial_scene/wall [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -796 1358 306 ) ( -812 1486 292 ) ( -812 1358 292 ) scenes/tutorial_scene/wall [ -0.7525766947068778 0 -0.658504607868518 0 ] [ 0 -1 0 0 ] 0 1 1
-( -814 1358 310 ) ( -820 1486 280 ) ( -820 1358 280 ) scenes/tutorial_scene/wall [ 0 1 0 0 ] [ -0.19611613513818404 0 -0.9805806756909202 0 ] 0 1 1
-}
-}
-// entity 31
-{
-"classname" "Breakables_Wall"
-"_tb_def" "builtin:RocketJumpThing_fgd.fgd"
-"_tb_textures" "textures/scenes/tutorial_scene"
-"collision_layer" "2"
-"collision_mask" "5"
-"targetname" "breakable_wall_1"
-// brush 0
-{
-( -846 1358 314 ) ( -844 1358 308 ) ( -844 1486 308 ) scenes/tutorial_scene/wall [ 0 -1 0 0 ] [ 0.316227766016838 0 -0.9486832980505139 0 ] 0 1 1
-( -796 1358 306 ) ( -812 1358 292 ) ( -812 1486 292 ) scenes/tutorial_scene/wall [ 0.7525766947068778 0 0.658504607868518 0 ] [ 0 -1 0 0 ] 0 1 1
-( -848 1354 314 ) ( -786 1354 314 ) ( -786 1354 260 ) scenes/tutorial_scene/wall [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -786 1358 260 ) ( -786 1360 260 ) ( -848 1360 260 ) scenes/tutorial_scene/wall [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -786 1360 260 ) ( -786 1360 314 ) ( -848 1360 314 ) scenes/tutorial_scene/wall [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -814 1358 310 ) ( -820 1486 280 ) ( -820 1358 280 ) scenes/tutorial_scene/wall [ 0 1 0 0 ] [ -0.19611613513818404 0 -0.9805806756909202 0 ] 0 1 1
-}
-}
-// entity 32
-{
-"classname" "Breakables_Wall"
-"_tb_def" "builtin:RocketJumpThing_fgd.fgd"
-"_tb_textures" "textures/scenes/tutorial_scene"
-"collision_layer" "2"
-"collision_mask" "5"
-"targetname" "breakable_wall_1"
-// brush 0
-{
-( -848 1360 314 ) ( -848 1358 314 ) ( -848 1358 260 ) scenes/tutorial_scene/wall [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -796 1358 306 ) ( -812 1358 292 ) ( -812 1486 292 ) scenes/tutorial_scene/wall [ 0.7525766947068778 0 0.658504607868518 0 ] [ 0 -1 0 0 ] 0 1 1
-( -848 1354 314 ) ( -786 1354 314 ) ( -786 1354 260 ) scenes/tutorial_scene/wall [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -786 1358 260 ) ( -786 1360 260 ) ( -848 1360 260 ) scenes/tutorial_scene/wall [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -786 1360 260 ) ( -786 1360 314 ) ( -848 1360 314 ) scenes/tutorial_scene/wall [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -846 1358 314 ) ( -844 1486 308 ) ( -844 1358 308 ) scenes/tutorial_scene/wall [ 0 1 0 0 ] [ 0.316227766016838 0 -0.9486832980505139 0 ] 0 1 1
-}
-}
-// entity 33
-{
-"classname" "Breakables_Wall"
-"_tb_def" "builtin:RocketJumpThing_fgd.fgd"
-"_tb_textures" "textures/scenes/tutorial_scene"
-"collision_layer" "2"
-"collision_mask" "5"
-"targetname" "breakable_wall_1"
-// brush 0
-{
-( -848 1360 314 ) ( -848 1358 314 ) ( -848 1358 260 ) scenes/tutorial_scene/wall [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -848 1354 314 ) ( -786 1354 314 ) ( -786 1354 260 ) scenes/tutorial_scene/wall [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -846 1358 298 ) ( -794 1486 298 ) ( -794 1358 298 ) scenes/tutorial_scene/wall [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -786 1360 260 ) ( -786 1360 314 ) ( -848 1360 314 ) scenes/tutorial_scene/wall [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -796 1358 306 ) ( -812 1486 292 ) ( -812 1358 292 ) scenes/tutorial_scene/wall [ -0.7525766947068778 0 -0.658504607868518 0 ] [ 0 -1 0 0 ] 0 1 1
-( -846 1358 314 ) ( -844 1486 308 ) ( -844 1358 308 ) scenes/tutorial_scene/wall [ 0 1 0 0 ] [ 0.316227766016838 0 -0.9486832980505139 0 ] 0 1 1
-}
-}
-// entity 34
-{
-"classname" "Breakables_Wall"
-"collision_layer" "2"
-"collision_mask" "5"
-"targetname" "breakable_wall_2"
-// brush 0
-{
-( -8 -1446 320 ) ( -8 -1568 320 ) ( -8 -1568 260 ) scenes/tutorial_scene/wall [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -8 -1568 320 ) ( -6 -1568 320 ) ( -6 -1568 260 ) scenes/tutorial_scene/wall [ -1.0000000000000002 0 0 11.5234375 ] [ 0 0 -1.0000000000000002 0 ] 0 1 1
-( -6 -1560 316 ) ( 122 -1504 290 ) ( -6 -1504 290 ) scenes/tutorial_scene/wall [ -1 0 0 0 ] [ 0 -0.9070089677484316 0.421111306454629 0 ] 0 1 1
-( -8 -1446 320 ) ( -6 -1446 320 ) ( -6 -1568 320 ) scenes/tutorial_scene/wall [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -6 -1554 264 ) ( 122 -1534 296 ) ( -6 -1534 296 ) scenes/tutorial_scene/wall [ -1 0 0 -31.117188 ] [ 0 -0.52999894000318 -0.847998304005088 0 ] 0 1 1
-( 0 -1568 320 ) ( 0 -1446 320 ) ( 0 -1446 260 ) scenes/tutorial_scene/wall [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-}
-}
-// entity 35
-{
-"classname" "Breakables_Wall"
-"collision_layer" "2"
-"collision_mask" "5"
-"targetname" "breakable_wall_2"
-// brush 0
-{
-( -8 -1446 320 ) ( -8 -1568 320 ) ( -8 -1568 260 ) scenes/tutorial_scene/wall [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -6 -1554 264 ) ( -6 -1534 296 ) ( 122 -1534 296 ) scenes/tutorial_scene/wall [ 1 0 0 11.5234375 ] [ 0 -0.52999894000318 -0.847998304005088 0 ] 0 1 1
-( -6 -1560 316 ) ( 122 -1504 290 ) ( -6 -1504 290 ) scenes/tutorial_scene/wall [ -1 0 0 0 ] [ 0 -0.9070089677484316 0.421111306454629 0 ] 0 1 1
-( -8 -1446 320 ) ( -6 -1446 320 ) ( -6 -1568 320 ) scenes/tutorial_scene/wall [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -6 -1450 302 ) ( -6 -1498 290 ) ( 122 -1498 290 ) scenes/tutorial_scene/wall [ -1 0 0 -31.117188 ] [ 0 -0.970142500145332 -0.242535625036333 0 ] 0 1 1
-( -6 -1516 264 ) ( 122 -1482 296 ) ( -6 -1482 296 ) scenes/tutorial_scene/wall [ -1 0 0 -31.117188 ] [ 0 -0.7281999926928029 -0.685364699004991 0 ] 0 1 1
-( 0 -1568 320 ) ( 0 -1446 320 ) ( 0 -1446 260 ) scenes/tutorial_scene/wall [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-}
-}
-// entity 36
-{
-"classname" "Breakables_Wall"
-"collision_layer" "2"
-"collision_mask" "5"
-"targetname" "breakable_wall_2"
-// brush 0
-{
-( -8 -1446 320 ) ( -8 -1568 320 ) ( -8 -1568 260 ) scenes/tutorial_scene/wall [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -6 -1516 264 ) ( -6 -1482 296 ) ( 122 -1482 296 ) scenes/tutorial_scene/wall [ 1 0 0 0 ] [ 0 -0.7281999926928029 -0.685364699004991 0 ] 0 1 1
-( -8 -1446 320 ) ( -6 -1446 320 ) ( -6 -1568 320 ) scenes/tutorial_scene/wall [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -6 -1450 302 ) ( -6 -1498 290 ) ( 122 -1498 290 ) scenes/tutorial_scene/wall [ -1 0 0 0 ] [ 0 -0.970142500145332 -0.242535625036333 0 ] 0 1 1
-( -6 -1446 260 ) ( -6 -1446 320 ) ( -8 -1446 320 ) scenes/tutorial_scene/wall [ 1.0000000000000002 0 0 -31.117188 ] [ 0 0 -1.0000000000000002 0 ] 0 1 1
-( 0 -1568 320 ) ( 0 -1446 320 ) ( 0 -1446 260 ) scenes/tutorial_scene/wall [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-}
-}
-// entity 37
-{
-"classname" "Breakables_Wall"
-"collision_layer" "2"
-"collision_mask" "5"
-"targetname" "breakable_wall_2"
-// brush 0
-{
-( -8 -1446 320 ) ( -8 -1568 320 ) ( -8 -1568 260 ) scenes/tutorial_scene/wall [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -6 -1516 264 ) ( -6 -1482 296 ) ( 122 -1482 296 ) scenes/tutorial_scene/wall [ 1 0 0 0 ] [ 0 -0.7281999926928029 -0.685364699004991 0 ] 0 1 1
-( -6 -1560 316 ) ( 122 -1504 290 ) ( -6 -1504 290 ) scenes/tutorial_scene/wall [ -1 0 0 0 ] [ 0 -0.9070089677484316 0.421111306454629 0 ] 0 1 1
-( -6 -1450 302 ) ( 122 -1498 290 ) ( -6 -1498 290 ) scenes/tutorial_scene/wall [ 1 0 0 0 ] [ 0 -0.970142500145332 -0.242535625036333 0 ] 0 1 1
-( -6 -1446 260 ) ( -6 -1446 320 ) ( -8 -1446 320 ) scenes/tutorial_scene/wall [ 1.0000000000000002 0 0 -31.117188 ] [ 0 0 -1.0000000000000002 0 ] 0 1 1
-( 0 -1568 320 ) ( 0 -1446 320 ) ( 0 -1446 260 ) scenes/tutorial_scene/wall [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-}
-}
-// entity 38
-{
-"classname" "Breakables_Wall"
-"collision_layer" "2"
-"collision_mask" "5"
-"targetname" "breakable_wall_2"
-// brush 0
-{
-( -8 -1446 320 ) ( -8 -1568 320 ) ( -8 -1568 260 ) scenes/tutorial_scene/wall [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -6 -1560 316 ) ( 122 -1504 290 ) ( -6 -1504 290 ) scenes/tutorial_scene/wall [ -1 0 0 0 ] [ 0 -0.9070089677484316 0.421111306454629 0 ] 0 1 1
-( -6 -1450 302 ) ( 122 -1498 290 ) ( -6 -1498 290 ) scenes/tutorial_scene/wall [ 1 0 0 0 ] [ 0 -0.970142500145332 -0.242535625036333 0 ] 0 1 1
-( -6 -1516 264 ) ( 122 -1482 296 ) ( -6 -1482 296 ) scenes/tutorial_scene/wall [ -1 0 0 -31.117188 ] [ 0 -0.7281999926928029 -0.685364699004991 0 ] 0 1 1
-( 0 -1568 320 ) ( 0 -1446 320 ) ( 0 -1446 260 ) scenes/tutorial_scene/wall [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-}
-}
-// entity 39
-{
-"classname" "Breakables_Wall"
-"collision_layer" "2"
-"collision_mask" "5"
-"targetname" "breakable_wall_2"
-// brush 0
-{
-( -8 -1446 320 ) ( -8 -1568 320 ) ( -8 -1568 260 ) scenes/tutorial_scene/wall [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -6 -1516 264 ) ( -6 -1482 296 ) ( 122 -1482 296 ) scenes/tutorial_scene/wall [ 1 0 0 11.5234375 ] [ 0 -0.7281999926928029 -0.685364699004991 0 ] 0 1 1
-( -6 -1568 260 ) ( -6 -1446 260 ) ( -8 -1446 260 ) scenes/tutorial_scene/wall [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -6 -1560 316 ) ( -6 -1504 290 ) ( 122 -1504 290 ) scenes/tutorial_scene/wall [ 1 0 0 0 ] [ 0 -0.9070089677484316 0.421111306454629 0 ] 0 1 1
-( -6 -1446 260 ) ( -6 -1446 320 ) ( -8 -1446 320 ) scenes/tutorial_scene/wall [ 1.0000000000000002 0 0 -31.117188 ] [ 0 0 -1.0000000000000002 0 ] 0 1 1
-( 0 -1568 320 ) ( 0 -1446 320 ) ( 0 -1446 260 ) scenes/tutorial_scene/wall [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-}
-}
-// entity 40
-{
-"classname" "Breakables_Wall"
-"collision_layer" "2"
-"collision_mask" "5"
-"targetname" "breakable_wall_2"
-// brush 0
-{
-( -8 -1446 320 ) ( -8 -1568 320 ) ( -8 -1568 260 ) scenes/tutorial_scene/wall [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -6 -1554 264 ) ( -6 -1534 296 ) ( 122 -1534 296 ) scenes/tutorial_scene/wall [ 1 0 0 11.5234375 ] [ 0 -0.52999894000318 -0.847998304005088 0 ] 0 1 1
-( -6 -1450 302 ) ( -6 -1498 290 ) ( 122 -1498 290 ) scenes/tutorial_scene/wall [ -1 0 0 0 ] [ 0 -0.970142500145332 -0.242535625036333 0 ] 0 1 1
-( -6 -1560 316 ) ( -6 -1504 290 ) ( 122 -1504 290 ) scenes/tutorial_scene/wall [ 1 0 0 0 ] [ 0 -0.9070089677484316 0.421111306454629 0 ] 0 1 1
-( 0 -1568 320 ) ( 0 -1446 320 ) ( 0 -1446 260 ) scenes/tutorial_scene/wall [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-}
-}
-// entity 41
-{
-"classname" "Breakables_Wall"
-"collision_layer" "2"
-"collision_mask" "5"
-"targetname" "breakable_wall_2"
-// brush 0
-{
-( -8 -1446 320 ) ( -8 -1568 320 ) ( -8 -1568 260 ) scenes/tutorial_scene/wall [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -6 -1554 264 ) ( -6 -1534 296 ) ( 122 -1534 296 ) scenes/tutorial_scene/wall [ 1 0 0 11.5234375 ] [ 0 -0.52999894000318 -0.847998304005088 0 ] 0 1 1
-( -6 -1450 302 ) ( 122 -1498 290 ) ( -6 -1498 290 ) scenes/tutorial_scene/wall [ 1 0 0 0 ] [ 0 -0.970142500145332 -0.242535625036333 0 ] 0 1 1
-( -6 -1568 260 ) ( -6 -1446 260 ) ( -8 -1446 260 ) scenes/tutorial_scene/wall [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -6 -1560 316 ) ( -6 -1504 290 ) ( 122 -1504 290 ) scenes/tutorial_scene/wall [ 1 0 0 0 ] [ 0 -0.9070089677484316 0.421111306454629 0 ] 0 1 1
-( -6 -1516 264 ) ( 122 -1482 296 ) ( -6 -1482 296 ) scenes/tutorial_scene/wall [ -1 0 0 0 ] [ 0 -0.7281999926928029 -0.685364699004991 0 ] 0 1 1
-( 0 -1568 320 ) ( 0 -1446 320 ) ( 0 -1446 260 ) scenes/tutorial_scene/wall [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-}
-}
-// entity 42
-{
-"classname" "Breakables_Wall"
-"collision_layer" "2"
-"collision_mask" "5"
-"targetname" "breakable_wall_2"
-// brush 0
-{
-( -8 -1446 320 ) ( -8 -1568 320 ) ( -8 -1568 260 ) scenes/tutorial_scene/wall [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -8 -1568 320 ) ( -6 -1568 320 ) ( -6 -1568 260 ) scenes/tutorial_scene/wall [ -1.0000000000000002 0 0 11.5234375 ] [ 0 0 -1.0000000000000002 0 ] 0 1 1
-( -6 -1450 302 ) ( 122 -1498 290 ) ( -6 -1498 290 ) scenes/tutorial_scene/wall [ 1 0 0 0 ] [ 0 -0.970142500145332 -0.242535625036333 0 ] 0 1 1
-( -6 -1568 260 ) ( -6 -1446 260 ) ( -8 -1446 260 ) scenes/tutorial_scene/wall [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -6 -1554 264 ) ( 122 -1534 296 ) ( -6 -1534 296 ) scenes/tutorial_scene/wall [ -1 0 0 0 ] [ 0 -0.52999894000318 -0.847998304005088 0 ] 0 1 1
-( 0 -1568 320 ) ( 0 -1446 320 ) ( 0 -1446 260 ) scenes/tutorial_scene/wall [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-}
-}
-// entity 43
-{
-"classname" "Breakables_Wall"
-"collision_layer" "2"
-"collision_mask" "5"
-"targetname" "breakable_wall_2"
-// brush 0
-{
-( -8 -1446 320 ) ( -8 -1568 320 ) ( -8 -1568 260 ) scenes/tutorial_scene/wall [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -8 -1568 320 ) ( -6 -1568 320 ) ( -6 -1568 260 ) scenes/tutorial_scene/wall [ -1.0000000000000002 0 0 11.5234375 ] [ 0 0 -1.0000000000000002 0 ] 0 1 1
-( -6 -1450 302 ) ( -6 -1498 290 ) ( 122 -1498 290 ) scenes/tutorial_scene/wall [ -1 0 0 0 ] [ 0 -0.970142500145332 -0.242535625036333 0 ] 0 1 1
-( -6 -1560 316 ) ( -6 -1504 290 ) ( 122 -1504 290 ) scenes/tutorial_scene/wall [ 1 0 0 0 ] [ 0 -0.9070089677484316 0.421111306454629 0 ] 0 1 1
-( -6 -1554 264 ) ( 122 -1534 296 ) ( -6 -1534 296 ) scenes/tutorial_scene/wall [ -1 0 0 0 ] [ 0 -0.52999894000318 -0.847998304005088 0 ] 0 1 1
-( 0 -1568 320 ) ( 0 -1446 320 ) ( 0 -1446 260 ) scenes/tutorial_scene/wall [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-}
-}
-// entity 44
-{
 "classname" "StaticBodyGroup"
 "collision_layer" "2"
 "collision_mask" "5"
@@ -4558,7 +4181,7 @@
 ( -784 2778 266 ) ( -784 2780 266 ) ( -784 2780 192 ) scenes/tutorial_scene/Hexagon1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 45
+// entity 23
 {
 "classname" "Doors_AreaOpen"
 "collision_layer" "2"
@@ -4574,7 +4197,7 @@
 ( 2623 114 261 ) ( 2623 114 262 ) ( 2623 115 261 ) special/clip [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 46
+// entity 24
 {
 "classname" "Doors_StandardDoor"
 "collision_layer" "2"
@@ -4592,7 +4215,7 @@
 ( 3112 -154 -40 ) ( 3113 13 262 ) ( 3112 148 -40 ) scenes/tutorial_scene/wall [ 0 1.0000000000000002 0 0 ] [ 0 0 1.0000000000000002 -20 ] 0 1 1
 }
 }
-// entity 47
+// entity 25
 {
 "classname" "Doors_StandardDoor"
 "collision_layer" "2"
@@ -4610,7 +4233,7 @@
 ( 3112 300 296 ) ( 3113 13 261 ) ( 3112 148 632 ) scenes/tutorial_scene/wall [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 48
+// entity 26
 {
 "classname" "Doors_StandardDoor"
 "collision_layer" "2"
@@ -4637,7 +4260,7 @@
 ( 3112 -154 632 ) ( 3113 13 261 ) ( 3112 -306 296 ) scenes/tutorial_scene/Hexagon1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 49
+// entity 27
 {
 "classname" "Doors_StandardDoor"
 "collision_layer" "2"
@@ -4655,7 +4278,7 @@
 ( 3112 148 -40 ) ( 3113 13 261 ) ( 3112 300 296 ) scenes/tutorial_scene/wall [ 0 -1.0000000000000002 0 26 ] [ 0 0 -1.0000000000000002 15.621582 ] 0 1 1
 }
 }
-// entity 50
+// entity 28
 {
 "classname" "Doors_StandardDoor"
 "collision_layer" "2"
@@ -4682,7 +4305,7 @@
 ( 3112 -306 296 ) ( 3113 13 261 ) ( 3112 -154 -40 ) scenes/tutorial_scene/Hexagon1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 51
+// entity 29
 {
 "classname" "StaticBodyGroup"
 "collision_layer" "2"
@@ -4778,7 +4401,7 @@
 ( 2994 -154 260 ) ( 2994 150 260 ) ( 2994 150 258 ) scenes/tutorial_scene/Floor [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 52
+// entity 30
 {
 "classname" "StaticBodyGroup"
 "collision_layer" "2"
@@ -4829,7 +4452,7 @@
 ( -848 -40 284 ) ( -848 1878 284 ) ( -848 1878 258 ) scenes/tutorial_scene/Obstacle1 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 53
+// entity 31
 {
 "classname" "group"
 "_tb_textures" "textures/entities/checkpoint;textures/scenes/tutorial_scene"
@@ -5020,7 +4643,7 @@
 ( -1908 -492 300 ) ( -1908 -422 300 ) ( -1908 -422 294 ) common/material_override/Transparent [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 54
+// entity 32
 {
 "classname" "StaticBodyGroup"
 "collision_layer" "2"
@@ -5035,7 +4658,7 @@
 ( 496 -832 960 ) ( 496 -592 960 ) ( 496 -592 -128 ) scenes/tutorial_scene/Hexagon1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 55
+// entity 33
 {
 "classname" "StaticBodyGroup"
 "collision_layer" "2"
@@ -5050,7 +4673,7 @@
 ( -35 -150 753 ) ( -35 10 897 ) ( -35 10 -191 ) scenes/tutorial_scene/Hexagon1 [ 0 -1.0000000000000002 0 0 ] [ 0 0 -1.0000000000000002 0 ] 0 1 1
 }
 }
-// entity 56
+// entity 34
 {
 "classname" "StaticBodyGroup"
 "collision_layer" "2"
@@ -5065,7 +4688,7 @@
 ( -180 -801 -513.5524861878403 ) ( -180 -801 574.4475138121597 ) ( -180 -641 430.44751381215974 ) scenes/tutorial_scene/Hexagon1 [ 0 1.0000000000000002 0 0 ] [ 0 0 -1.0000000000000002 0 ] 0 1 1
 }
 }
-// entity 57
+// entity 35
 {
 "classname" "StaticBodyGroup"
 "collision_layer" "2"
@@ -5080,7 +4703,7 @@
 ( 741 20 670 ) ( 741 180 814 ) ( 741 180 -274 ) scenes/tutorial_scene/Hexagon1 [ 0 -1.0000000000000002 0 0 ] [ 0 0 -1.0000000000000002 0 ] 0 1 1
 }
 }
-// entity 58
+// entity 36
 {
 "classname" "StaticBodyGroup"
 "collision_layer" "2"
@@ -5095,7 +4718,7 @@
 ( -355 602 686 ) ( -355 762 830 ) ( -355 762 -258 ) scenes/tutorial_scene/Hexagon1 [ 0 -1.0000000000000002 0 0 ] [ 0 0 -1.0000000000000002 0 ] 0 1 1
 }
 }
-// entity 59
+// entity 37
 {
 "classname" "StaticBodyGroup"
 "collision_layer" "2"
@@ -5110,7 +4733,7 @@
 ( -1185 -156 366.44751381215974 ) ( -1185 84 366.44751381215974 ) ( -1185 84 -577.5524861878403 ) scenes/tutorial_scene/Hexagon1 [ 0 -1.0000000000000002 0 0 ] [ 0 0 -1.0000000000000002 0 ] 0 1 1
 }
 }
-// entity 60
+// entity 38
 {
 "classname" "StaticBodyGroup"
 "collision_layer" "2"
@@ -5125,7 +4748,7 @@
 ( -1441 -716 766.4475138121597 ) ( -1441 -476 766.4475138121597 ) ( -1441 -476 -177.55248618784026 ) scenes/tutorial_scene/Hexagon1 [ 0 -1.0000000000000002 0 0 ] [ 0 0 -1.0000000000000002 0 ] 0 1 1
 }
 }
-// entity 61
+// entity 39
 {
 "classname" "StaticBodyGroup"
 "collision_layer" "2"
@@ -5140,7 +4763,7 @@
 ( -932 -1841 -241.55248618784026 ) ( -932 -1841 846.4475138121597 ) ( -932 -1681 702.4475138121597 ) scenes/tutorial_scene/Hexagon1 [ 0 -1.0000000000000002 0 0 ] [ 0 0 -1.0000000000000002 0 ] 0 1 1
 }
 }
-// entity 62
+// entity 40
 {
 "classname" "StaticBodyGroup"
 "collision_layer" "2"
@@ -5155,7 +4778,7 @@
 ( -1948 -463 366.44751381215974 ) ( -1948 -303 510.44751381215974 ) ( -1948 -303 -577.5524861878403 ) scenes/tutorial_scene/Hexagon1 [ 0 -1.0000000000000002 0 0 ] [ 0 0 -1.0000000000000002 0 ] 0 1 1
 }
 }
-// entity 63
+// entity 41
 {
 "classname" "StaticBodyGroup"
 "collision_layer" "2"
@@ -5170,7 +4793,7 @@
 ( -1569 276 574.4475138121597 ) ( -1569 516 574.4475138121597 ) ( -1569 516 -369.55248618784026 ) scenes/tutorial_scene/Hexagon1 [ 0 -1.0000000000000002 0 0 ] [ 0 0 -1.0000000000000002 0 ] 0 1 1
 }
 }
-// entity 64
+// entity 42
 {
 "classname" "StaticBodyGroup"
 "collision_layer" "2"
@@ -5185,7 +4808,7 @@
 ( 1456 -2240 464 ) ( 1456 -2000 464 ) ( 1456 -2000 -624 ) scenes/tutorial_scene/Hexagon1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 65
+// entity 43
 {
 "classname" "StaticBodyGroup"
 "collision_layer" "2"
@@ -5200,7 +4823,7 @@
 ( 1648 -1472 480 ) ( 1648 -1312 624 ) ( 1648 -1312 -464 ) scenes/tutorial_scene/Hexagon1 [ 0 -1.0000000000000002 0 0 ] [ 0 0 -1.0000000000000002 0 ] 0 1 1
 }
 }
-// entity 66
+// entity 44
 {
 "classname" "StaticBodyGroup"
 "collision_layer" "2"
@@ -5215,7 +4838,7 @@
 ( 2336 -2096 528 ) ( 2336 -1936 672 ) ( 2336 -1936 -416 ) scenes/tutorial_scene/Hexagon1 [ 0 -1.0000000000000002 0 0 ] [ 0 0 -1.0000000000000002 0 ] 0 1 1
 }
 }
-// entity 67
+// entity 45
 {
 "classname" "StaticBodyGroup"
 "collision_layer" "2"
@@ -5230,7 +4853,7 @@
 ( 2432 -1200 416 ) ( 2432 -960 416 ) ( 2432 -960 -672 ) scenes/tutorial_scene/Hexagon1 [ 0 -1.0000000000000002 0 0 ] [ 0 0 -1.0000000000000002 0 ] 0 1 1
 }
 }
-// entity 68
+// entity 46
 {
 "classname" "StaticBodyGroup"
 "collision_layer" "2"
@@ -5245,7 +4868,7 @@
 ( 896 -2144 -464 ) ( 896 -2144 624 ) ( 896 -1984 480 ) scenes/tutorial_scene/Hexagon1 [ 0 -1.0000000000000002 0 0 ] [ 0 0 -1.0000000000000002 0 ] 0 1 1
 }
 }
-// entity 69
+// entity 47
 {
 "classname" "StaticBodyGroup"
 "collision_layer" "2"
@@ -5260,7 +4883,7 @@
 ( 1872 -672 304 ) ( 1872 -432 304 ) ( 1872 -432 -784 ) scenes/tutorial_scene/Hexagon1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 70
+// entity 48
 {
 "classname" "RythmElements_Sequencers_Spatial"
 "active_on_signals" "kick"
@@ -5306,7 +4929,7 @@
 ( -716 2768 320 ) ( -744 2752 368 ) ( -744 2768 368 ) scenes/tutorial_scene/Sequencer1 [ 0 1 0 0 ] [ 0.5038710255240862 0 -0.8637789008984335 0 ] 0 1 1
 }
 }
-// entity 71
+// entity 49
 {
 "classname" "RythmElements_Sequencers_Spatial"
 "active_on_signals" "kick"
@@ -5352,7 +4975,7 @@
 ( -716 2416 320 ) ( -744 2400 368 ) ( -744 2416 368 ) scenes/tutorial_scene/Sequencer1 [ 0 1 0 0 ] [ 0.5038710255240862 0 -0.8637789008984335 0 ] 0 1 1
 }
 }
-// entity 72
+// entity 50
 {
 "classname" "RythmElements_Sequencers_Spatial"
 "active_on_signals" "kick"
@@ -5398,7 +5021,7 @@
 ( -716 2064 320 ) ( -744 2048 368 ) ( -744 2064 368 ) scenes/tutorial_scene/Sequencer1 [ 0 1 0 0 ] [ 0.5038710255240862 0 -0.8637789008984335 0 ] 0 1 1
 }
 }
-// entity 73
+// entity 51
 {
 "classname" "RythmElements_Sequencers_Spatial"
 "active_on_signals" "kick"
@@ -5444,7 +5067,7 @@
 ( -716 1712 320 ) ( -744 1696 368 ) ( -744 1712 368 ) scenes/tutorial_scene/Sequencer1 [ 0 1 0 0 ] [ 0.5038710255240862 0 -0.8637789008984335 0 ] 0 1 1
 }
 }
-// entity 74
+// entity 52
 {
 "classname" "RythmElements_Sequencers_Spatial"
 "active_on_signals" "kick"
@@ -5490,7 +5113,7 @@
 ( -716 1360 320 ) ( -744 1344 368 ) ( -744 1360 368 ) scenes/tutorial_scene/Sequencer1 [ 0 1 0 0 ] [ 0.5038710255240862 0 -0.8637789008984335 0 ] 0 1 1
 }
 }
-// entity 75
+// entity 53
 {
 "classname" "RythmElements_Sequencers_Spatial"
 "active_on_signals" "kick"
@@ -5536,7 +5159,7 @@
 ( -716 1008 320 ) ( -744 992 368 ) ( -744 1008 368 ) scenes/tutorial_scene/Sequencer1 [ 0 1 0 0 ] [ 0.5038710255240862 0 -0.8637789008984335 0 ] 0 1 1
 }
 }
-// entity 76
+// entity 54
 {
 "classname" "RythmElements_Sequencers_Spatial"
 "active_on_signals" "kick"
@@ -5582,7 +5205,7 @@
 ( -716 656 320 ) ( -744 640 368 ) ( -744 656 368 ) scenes/tutorial_scene/Sequencer1 [ 0 1 0 0 ] [ 0.5038710255240862 0 -0.8637789008984335 0 ] 0 1 1
 }
 }
-// entity 77
+// entity 55
 {
 "classname" "RythmElements_Sequencers_Spatial"
 "active_on_signals" "kick"
@@ -5628,7 +5251,7 @@
 ( -716 304 320 ) ( -744 288 368 ) ( -744 304 368 ) scenes/tutorial_scene/Sequencer1 [ 0 1 0 0 ] [ 0.5038710255240862 0 -0.8637789008984335 0 ] 0 1 1
 }
 }
-// entity 78
+// entity 56
 {
 "classname" "RythmElements_Sequencers_Spatial"
 "active_on_signals" "kick"
@@ -5674,7 +5297,7 @@
 ( -716 -400 320 ) ( -744 -416 368 ) ( -744 -400 368 ) scenes/tutorial_scene/Sequencer1 [ 0 1 0 0 ] [ 0.5038710255240862 0 -0.8637789008984335 0 ] 0 1 1
 }
 }
-// entity 79
+// entity 57
 {
 "classname" "RythmElements_Sequencers_Spatial"
 "active_on_signals" "kick"
@@ -5720,7 +5343,7 @@
 ( -716 -752 320 ) ( -744 -768 368 ) ( -744 -752 368 ) scenes/tutorial_scene/Sequencer1 [ 0 1 0 0 ] [ 0.5038710255240862 0 -0.8637789008984335 0 ] 0 1 1
 }
 }
-// entity 80
+// entity 58
 {
 "classname" "RythmElements_Sequencers_Spatial"
 "active_on_signals" "kick"
@@ -5766,7 +5389,7 @@
 ( -720.2759183673472 -1008 224 ) ( -686.8653061224494 -1024 272 ) ( -691.9853061224493 -1008 272 ) scenes/tutorial_scene/Sequencer1 [ -0.30477572710377787 0.9524241471993261 0 0 ] [ -0.4662091201698261 -0.14918691845434118 -0.8720047704184735 0 ] 0 1 1
 }
 }
-// entity 81
+// entity 59
 {
 "classname" "RythmElements_Sequencers_Spatial"
 "active_on_signals" "kick"
@@ -5812,7 +5435,7 @@
 ( -575.6126320911054 -1409.9277853693166 224.31609707856109 ) ( -576 -1441.096631423654 272 ) ( -575.6126320911054 -1440.601992401527 272.3160970785611 ) scenes/tutorial_scene/Sequencer1 [ 0.48597451425069144 0.8739729809890032 0 0 ] [ -0.25920876157830225 0.1441335770529086 -0.9550059318595755 0 ] 0 1 1
 }
 }
-// entity 82
+// entity 60
 {
 "classname" "RythmElements_Sequencers_Spatial"
 "active_on_signals" "kick"
@@ -5858,7 +5481,7 @@
 ( -144 -1418.3928571428569 272 ) ( -144.14991395245076 -1441.4781125083086 224.37121550130664 ) ( -144.14991395245076 -1419.1923982225942 272.37121550130666 ) scenes/tutorial_scene/Sequencer1 [ 0.15244681669430904 0.9883116755759651 0 0 ] [ 0.0697770317819069 -0.010763088847786983 -0.9975045472348292 0 ] 0 1 1
 }
 }
-// entity 83
+// entity 61
 {
 "classname" "RythmElements_Sequencers_Spatial"
 "active_on_signals" "kick"
@@ -5904,7 +5527,7 @@
 ( 192 -1560.6344969199179 368 ) ( 191.99830308835175 -1581.8081009472132 319.62123517917706 ) ( 192 -1582.6344969199179 320 ) scenes/tutorial_scene/Sequencer1 [ -0.0016969151178666544 0.9999985602385049 0 0 ] [ -0.0007777514073464418 -1.3197800212367e-06 -0.9999996975504576 0 ] 0 1 1
 }
 }
-// entity 84
+// entity 62
 {
 "classname" "RythmElements_Sequencers_Spatial"
 "active_on_signals" "kick"
@@ -5950,7 +5573,7 @@
 ( 496 -1560.6344969199179 368 ) ( 495.99830308835175 -1581.8081009472132 319.62123517917706 ) ( 496 -1582.6344969199179 320 ) scenes/tutorial_scene/Sequencer1 [ -0.0016969151178666544 0.9999985602385049 0 0 ] [ -0.0007777514073464418 -1.3197800212367e-06 -0.9999996975504576 0 ] 0 1 1
 }
 }
-// entity 85
+// entity 63
 {
 "classname" "RythmElements_Sequencers_Spatial"
 "active_on_signals" "kick"
@@ -5996,7 +5619,7 @@
 ( 1128.6344969199179 -1360 368 ) ( 1150.6673511293632 -1376 320 ) ( 1128.6673511293632 -1376 368 ) scenes/tutorial_scene/Sequencer1 [ 0.001866659628550274 -0.9090632391119122 0.4166539845929597 0 ] [ 0.0008555505260814389 -0.4166531062052552 -0.9090651555982172 0 ] 0 1 1
 }
 }
-// entity 86
+// entity 64
 {
 "classname" "RythmElements_Sequencers_Spatial"
 "active_on_signals" "kick"
@@ -6042,7 +5665,7 @@
 ( 1128.6344969199179 -1056 368 ) ( 1150.6673511293632 -1072 320 ) ( 1128.6673511293632 -1072 368 ) scenes/tutorial_scene/Sequencer1 [ 0.001866659628550274 -0.9090632391119122 0.4166539845929597 0 ] [ 0.0008555505260814389 -0.4166531062052552 -0.9090651555982172 0 ] 0 1 1
 }
 }
-// entity 87
+// entity 65
 {
 "classname" "RythmElements_Sequencers_Spatial"
 "active_on_signals" "kick"
@@ -6086,7 +5709,7 @@
 ( 1126.6344969199179 -672 368 ) ( 1148.6673511293632 -688 320 ) ( 1126.6673511293632 -688 368 ) scenes/tutorial_scene/Sequencer1 [ 0.001866659628550274 -0.9090632391119122 0.4166539845929597 0 ] [ 0.0008555505260814389 -0.4166531062052552 -0.9090651555982172 0 ] 0 1 1
 }
 }
-// entity 88
+// entity 66
 {
 "classname" "RythmElements_Sequencers_Spatial"
 "active_on_signals" "kick"
@@ -6132,7 +5755,7 @@
 ( 1217.1103424420617 -304 272 ) ( 1184.8225527499135 -320 224 ) ( 1209.2459356624006 -320 272 ) scenes/tutorial_scene/Sequencer1 [ 0.4411188500721118 0.8974486949742908 0 0 ] [ -0.37278365304299294 0.1832326430211333 -0.9096472649084433 0 ] 0 1 1
 }
 }
-// entity 89
+// entity 67
 {
 "classname" "RythmElements_Sequencers_Spatial"
 "active_on_signals" "kick"
@@ -6176,7 +5799,7 @@
 ( 1488.195608782435 56.57470772740231 272.3632734530938 ) ( 1488 35.071428571428555 224 ) ( 1488.195608782435 34.288993441688035 224.36327345309383 ) scenes/tutorial_scene/Sequencer1 [ -0.2014499140548188 0.979498816807507 0 0 ] [ -0.09121473420492146 -0.018759798430390242 -0.9956545295567015 0 ] 0 1 1
 }
 }
-// entity 90
+// entity 68
 {
 "classname" "RythmElements_Sequencers_Spatial"
 "active_on_signals" "kick"
@@ -6222,7 +5845,7 @@
 ( 1872.14580116638 -62.45331458095838 383.642335545836 ) ( 1872 -91.27083333333339 320 ) ( 1872 -63.27083333333336 384 ) scenes/tutorial_scene/Sequencer1 [ 0.14804414656498416 0.9889807534365093 0 0 ] [ 0.0639216676570649 -0.009568668250032072 -0.9979090444483708 0 ] 0 1 1
 }
 }
-// entity 91
+// entity 69
 {
 "classname" "RythmElements_Sequencers_Spatial"
 "active_on_signals" "kick"
@@ -6266,7 +5889,7 @@
 ( 2224 -155.207100591716 320 ) ( 2224.147186439233 -111.22597754279957 415.63595306745975 ) ( 2224.147186439233 -154.39757517593566 319.63595306745975 ) scenes/tutorial_scene/Sequencer1 [ 0.14953326248973084 0.9887566957594661 0 0 ] [ 0.06633983854976552 -0.010032814476941541 -0.9977466454240087 0 ] 0 1 1
 }
 }
-// entity 92
+// entity 70
 {
 "classname" "RythmElements_Sequencers_Spatial"
 "active_on_signals" "kick"
@@ -6312,7 +5935,7 @@
 ( 2592.147186439233 -149.3540033631331 479.63595306745975 ) ( 2592 -222.11619150080693 320 ) ( 2592 -150.16352877891345 480 ) scenes/tutorial_scene/Sequencer1 [ 0.1495332624897308 0.9887566957594661 0 0 ] [ 0.06633983854976552 -0.01003281447694154 -0.9977466454240086 0 ] 0 1 1
 }
 }
-// entity 93
+// entity 71
 {
 "classname" "RythmElements_Sequencers_Spatial"
 "active_on_signals" "kick"
@@ -6356,7 +5979,7 @@
 ( 2992.147186439233 -200.49547727383776 527.6359530674597 ) ( 2992 -294.84346422807965 320 ) ( 2992 -201.3050026896181 528 ) scenes/tutorial_scene/Sequencer1 [ 0.14953326248972698 0.9887566957594667 0 0 ] [ 0.06633983854976389 -0.010032814476941028 -0.9977466454240087 0 ] 0 1 1
 }
 }
-// entity 94
+// entity 72
 {
 "classname" "SpatialSolidEntity"
 // brush 0
@@ -6810,7 +6433,7 @@
 ( -595 698 -242 ) ( -595 666 -258 ) ( -595 666 -242 ) scenes/tutorial_scene/LightGuide [ 0 -1.0000000000000002 0 0 ] [ 0 0 -1.0000000000000002 0 ] 0 1 1
 }
 }
-// entity 95
+// entity 73
 {
 "classname" "SpatialSolidEntity"
 // brush 0
@@ -7264,7 +6887,7 @@
 ( -275 -54 -175 ) ( -275 -86 -191 ) ( -275 -86 -175 ) scenes/tutorial_scene/LightGuide [ 0 -1.0000000000000002 0 0 ] [ 0 0 -1.0000000000000002 0 ] 0 1 1
 }
 }
-// entity 96
+// entity 74
 {
 "classname" "SpatialSolidEntity"
 // brush 0
@@ -7718,7 +7341,7 @@
 ( -179 -705 -497.55248618784026 ) ( -179 -737 -513.5524861878403 ) ( -179 -737 -497.55248618784026 ) scenes/tutorial_scene/LightGuide [ 0 1.0000000000000002 0 0 ] [ 0 0 -1.0000000000000002 0 ] 0 1 1
 }
 }
-// entity 97
+// entity 75
 {
 "classname" "SpatialSolidEntity"
 // brush 0
@@ -8172,7 +7795,7 @@
 ( 432 -591 -112 ) ( 432 -592 -128 ) ( 432 -592 -112 ) scenes/tutorial_scene/LightGuide [ 0 -1.0000000000000002 0 0 ] [ 0 0 -1.0000000000000002 0 ] 0 1 1
 }
 }
-// entity 98
+// entity 76
 {
 "classname" "SpatialSolidEntity"
 // brush 0
@@ -8626,7 +8249,7 @@
 ( 501 116 -258 ) ( 501 84 -274 ) ( 501 84 -258 ) scenes/tutorial_scene/LightGuide [ 0 -1.0000000000000002 0 0 ] [ 0 0 -1.0000000000000002 0 ] 0 1 1
 }
 }
-// entity 99
+// entity 77
 {
 "classname" "SpatialSolidEntity"
 // brush 0
@@ -9080,7 +8703,7 @@
 ( -1249 -157 -561.5524861878403 ) ( -1249 -156 -577.5524861878403 ) ( -1249 -157 -577.5524861878403 ) scenes/tutorial_scene/LightGuide [ 0 -1.0000000000000002 0 0 ] [ 0 0 -1.0000000000000002 0 ] 0 1 1
 }
 }
-// entity 100
+// entity 78
 {
 "classname" "SpatialSolidEntity"
 // brush 0
@@ -9534,7 +9157,7 @@
 ( -1633 275 -353.55248618784026 ) ( -1633 276 -369.55248618784026 ) ( -1633 275 -369.55248618784026 ) scenes/tutorial_scene/LightGuide [ 0 -1.0000000000000002 0 0 ] [ 0 0 -1.0000000000000002 0 ] 0 1 1
 }
 }
-// entity 101
+// entity 79
 {
 "classname" "SpatialSolidEntity"
 // brush 0
@@ -9988,7 +9611,7 @@
 ( -2188 -367 -561.5524861878403 ) ( -2188 -399 -577.5524861878403 ) ( -2188 -399 -561.5524861878403 ) scenes/tutorial_scene/LightGuide [ 0 -1.0000000000000002 0 0 ] [ 0 0 -1.0000000000000002 0 ] 0 1 1
 }
 }
-// entity 102
+// entity 80
 {
 "classname" "SpatialSolidEntity"
 // brush 0
@@ -10442,7 +10065,7 @@
 ( -1505 -717 -161.55248618784026 ) ( -1505 -716 -177.55248618784026 ) ( -1505 -717 -177.55248618784026 ) scenes/tutorial_scene/LightGuide [ 0 -1.0000000000000002 0 0 ] [ 0 0 -1.0000000000000002 0 ] 0 1 1
 }
 }
-// entity 103
+// entity 81
 {
 "classname" "SpatialSolidEntity"
 // brush 0
@@ -10896,7 +10519,7 @@
 ( -931 -1745 -225.55248618784026 ) ( -931 -1777 -241.55248618784026 ) ( -931 -1777 -225.55248618784026 ) scenes/tutorial_scene/LightGuide [ 0 -1.0000000000000002 0 0 ] [ 0 0 -1.0000000000000002 0 ] 0 1 1
 }
 }
-// entity 104
+// entity 82
 {
 "classname" "SpatialSolidEntity"
 // brush 0
@@ -11350,7 +10973,7 @@
 ( 897 -2048 -448 ) ( 897 -2080 -464 ) ( 897 -2080 -448 ) scenes/tutorial_scene/LightGuide [ 0 -1.0000000000000002 0 0 ] [ 0 0 -1.0000000000000002 0 ] 0 1 1
 }
 }
-// entity 105
+// entity 83
 {
 "classname" "SpatialSolidEntity"
 // brush 0
@@ -11804,7 +11427,7 @@
 ( 1392 -1999 -608 ) ( 1392 -2000 -624 ) ( 1392 -2000 -608 ) scenes/tutorial_scene/LightGuide [ 0 -1.0000000000000002 0 0 ] [ 0 0 -1.0000000000000002 0 ] 0 1 1
 }
 }
-// entity 106
+// entity 84
 {
 "classname" "SpatialSolidEntity"
 // brush 0
@@ -12258,7 +11881,7 @@
 ( 1408 -1376 -448 ) ( 1408 -1408 -464 ) ( 1408 -1408 -448 ) scenes/tutorial_scene/LightGuide [ 0 -1.0000000000000002 0 0 ] [ 0 0 -1.0000000000000002 0 ] 0 1 1
 }
 }
-// entity 107
+// entity 85
 {
 "classname" "SpatialSolidEntity"
 // brush 0
@@ -12712,7 +12335,7 @@
 ( 1808 -431 -768 ) ( 1808 -432 -784 ) ( 1808 -432 -768 ) scenes/tutorial_scene/LightGuide [ 0 -1.0000000000000002 0 0 ] [ 0 0 -1.0000000000000002 0 ] 0 1 1
 }
 }
-// entity 108
+// entity 86
 {
 "classname" "SpatialSolidEntity"
 // brush 0
@@ -13166,7 +12789,7 @@
 ( 2368 -959 -656 ) ( 2368 -960 -672 ) ( 2368 -960 -656 ) scenes/tutorial_scene/LightGuide [ 0 -1.0000000000000002 0 0 ] [ 0 0 -1.0000000000000002 0 ] 0 1 1
 }
 }
-// entity 109
+// entity 87
 {
 "classname" "SpatialSolidEntity"
 // brush 0
@@ -13620,7 +13243,7 @@
 ( 2096 -2000 -400 ) ( 2096 -2032 -416 ) ( 2096 -2032 -400 ) scenes/tutorial_scene/LightGuide [ 0 -1.0000000000000002 0 0 ] [ 0 0 -1.0000000000000002 0 ] 0 1 1
 }
 }
-// entity 110
+// entity 88
 {
 "classname" "Lights_OmniLight"
 "origin" "-980 2816 286"
@@ -13631,7 +13254,7 @@
 "shadow_enabled" "0"
 "shadow_mode" "1"
 }
-// entity 111
+// entity 89
 {
 "classname" "Lights_OmniLight"
 "origin" "-980 2888 286"
@@ -13642,7 +13265,7 @@
 "shadow_enabled" "0"
 "shadow_mode" "1"
 }
-// entity 112
+// entity 90
 {
 "classname" "Lights_OmniLight"
 "origin" "-980 2950 286"
@@ -13653,7 +13276,7 @@
 "shadow_enabled" "0"
 "shadow_mode" "1"
 }
-// entity 113
+// entity 91
 {
 "classname" "Lights_OmniLight"
 "origin" "-980 3016 286"
@@ -13664,7 +13287,7 @@
 "shadow_enabled" "0"
 "shadow_mode" "1"
 }
-// entity 114
+// entity 92
 {
 "classname" "Lights_OmniLight"
 "origin" "-730 2902 340"
@@ -13675,7 +13298,7 @@
 "shadow_enabled" "0"
 "shadow_mode" "1"
 }
-// entity 115
+// entity 93
 {
 "classname" "Lights_OmniLight"
 "origin" "-814 2566 326"
@@ -13686,7 +13309,7 @@
 "shadow_enabled" "0"
 "shadow_mode" "0"
 }
-// entity 116
+// entity 94
 {
 "classname" "Lights_OmniLight"
 "origin" "-814 1926 326"
@@ -13697,7 +13320,7 @@
 "shadow_enabled" "0"
 "shadow_mode" "0"
 }
-// entity 117
+// entity 95
 {
 "classname" "Lights_OmniLight"
 "origin" "-814 1286 326"
@@ -13708,7 +13331,7 @@
 "shadow_enabled" "0"
 "shadow_mode" "0"
 }
-// entity 118
+// entity 96
 {
 "classname" "Lights_OmniLight"
 "origin" "-814 646 326"
@@ -13719,7 +13342,7 @@
 "shadow_enabled" "0"
 "shadow_mode" "0"
 }
-// entity 119
+// entity 97
 {
 "classname" "Lights_OmniLight"
 "origin" "-814 326 326"
@@ -13730,7 +13353,7 @@
 "shadow_enabled" "0"
 "shadow_mode" "0"
 }
-// entity 120
+// entity 98
 {
 "classname" "Lights_OmniLight"
 "origin" "-814 6 326"
@@ -13741,7 +13364,7 @@
 "shadow_enabled" "0"
 "shadow_mode" "0"
 }
-// entity 121
+// entity 99
 {
 "classname" "Lights_OmniLight"
 "origin" "-814 -314 326"
@@ -13752,7 +13375,7 @@
 "shadow_enabled" "0"
 "shadow_mode" "0"
 }
-// entity 122
+// entity 100
 {
 "classname" "Lights_OmniLight"
 "origin" "-814 -634 326"
@@ -13763,7 +13386,7 @@
 "shadow_enabled" "0"
 "shadow_mode" "0"
 }
-// entity 123
+// entity 101
 {
 "classname" "Lights_OmniLight"
 "origin" "-814 -954 326"
@@ -13774,7 +13397,7 @@
 "shadow_enabled" "0"
 "specular" "0"
 }
-// entity 124
+// entity 102
 {
 "classname" "Lights_OmniLight"
 "origin" "-622 -1306 326"
@@ -13785,7 +13408,7 @@
 "shadow_enabled" "0"
 "specular" "0"
 }
-// entity 125
+// entity 103
 {
 "classname" "Lights_OmniLight"
 "origin" "-14 -1498 326"
@@ -13796,7 +13419,7 @@
 "shadow_enabled" "0"
 "specular" "0"
 }
-// entity 126
+// entity 104
 {
 "classname" "Lights_OmniLight"
 "origin" "322 -1498 326"
@@ -13807,7 +13430,7 @@
 "shadow_enabled" "0"
 "specular" "0"
 }
-// entity 127
+// entity 105
 {
 "classname" "Lights_OmniLight"
 "origin" "1074 -1498 326"
@@ -13818,7 +13441,7 @@
 "shadow_enabled" "0"
 "specular" "0"
 }
-// entity 128
+// entity 106
 {
 "classname" "Lights_OmniLight"
 "origin" "-302 -1450 326"
@@ -13829,7 +13452,7 @@
 "shadow_enabled" "0"
 "specular" "0"
 }
-// entity 129
+// entity 107
 {
 "classname" "Lights_OmniLight"
 "origin" "610 -1498 326"
@@ -13840,7 +13463,7 @@
 "shadow_enabled" "0"
 "specular" "0"
 }
-// entity 130
+// entity 108
 {
 "classname" "Lights_OmniLight"
 "origin" "1074 -1242 326"
@@ -13851,7 +13474,7 @@
 "shadow_enabled" "0"
 "specular" "0"
 }
-// entity 131
+// entity 109
 {
 "classname" "Lights_OmniLight"
 "origin" "1074 -490 326"
@@ -13862,7 +13485,7 @@
 "shadow_enabled" "0"
 "specular" "0"
 }
-// entity 132
+// entity 110
 {
 "classname" "Lights_OmniLight"
 "origin" "1282 -106 326"
@@ -13873,7 +13496,7 @@
 "shadow_enabled" "0"
 "specular" "0"
 }
-// entity 133
+// entity 111
 {
 "classname" "Lights_OmniLight"
 "origin" "1618 -10 326"
@@ -13884,7 +13507,7 @@
 "shadow_enabled" "0"
 "specular" "0"
 }
-// entity 134
+// entity 112
 {
 "classname" "Lights_OmniLight"
 "origin" "2002 -10 326"
@@ -13895,7 +13518,7 @@
 "shadow_enabled" "0"
 "specular" "0"
 }
-// entity 135
+// entity 113
 {
 "classname" "Lights_OmniLight"
 "origin" "2418 -10 326"
@@ -13906,7 +13529,7 @@
 "shadow_enabled" "0"
 "specular" "0"
 }
-// entity 136
+// entity 114
 {
 "classname" "Lights_OmniLight"
 "origin" "2786 -10 326"
@@ -13917,7 +13540,7 @@
 "shadow_enabled" "0"
 "specular" "0"
 }
-// entity 137
+// entity 115
 {
 "classname" "StaticBodyGroup"
 "collision_layer" "2"
@@ -13951,7 +13574,7 @@
 ( 4352 -346 260 ) ( 4352 342 260 ) ( 4352 342 258 ) scenes/tutorial_scene/Floor [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 138
+// entity 116
 {
 "classname" "StaticBodyGroup"
 "collision_layer" "2"
@@ -13975,12 +13598,12 @@
 ( 4352 378 260 ) ( 4352 342 258 ) ( 4352 342 260 ) scenes/tutorial_scene/Floor [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 139
+// entity 117
 {
 "classname" "Player"
 "origin" "-950 2888 271"
 }
-// entity 140
+// entity 118
 {
 "classname" "Checkpoints_Start"
 "spawn_position" "0 0 0"
@@ -13988,7 +13611,7 @@
 "origin" "-957.5 2888.5 270"
 "angle" "0"
 }
-// entity 141
+// entity 119
 {
 "classname" "StaticBodyGroup"
 "collision_layer" "2"
@@ -14012,7 +13635,7 @@
 ( 4352 378 280 ) ( 4352 342 278 ) ( 4352 342 280 ) scenes/tutorial_scene/Floor [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 142
+// entity 120
 {
 "classname" "StaticBodyGroup"
 "collision_layer" "2"
@@ -14054,7 +13677,7 @@
 ( 4352 762 288 ) ( 4352 726 286 ) ( 4352 726 288 ) scenes/tutorial_scene/Floor [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 143
+// entity 121
 {
 "classname" "StaticBodyGroup"
 "collision_layer" "2"
@@ -14078,7 +13701,7 @@
 ( 4352 466 286 ) ( 4352 430 284 ) ( 4352 430 286 ) scenes/tutorial_scene/Floor [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 144
+// entity 122
 {
 "classname" "StaticBodyGroup"
 "collision_layer" "2"
@@ -14102,7 +13725,7 @@
 ( 4352 590 292 ) ( 4352 554 290 ) ( 4352 554 292 ) scenes/tutorial_scene/Floor [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 145
+// entity 123
 {
 "classname" "StaticBodyGroup"
 "collision_layer" "2"
@@ -14126,7 +13749,7 @@
 ( 9136 -432 -90 ) ( 9136 -284 -90 ) ( 9136 -284 -96 ) scenes/tutorial_scene/Squares2 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 146
+// entity 124
 {
 "classname" "StaticBodyGroup"
 "collision_layer" "2"
@@ -14150,7 +13773,7 @@
 ( 9136 -108 -78 ) ( 9136 72 -78 ) ( 9136 72 -84 ) scenes/tutorial_scene/Squares2 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 147
+// entity 125
 {
 "classname" "StaticBodyGroup"
 "collision_layer" "2"
@@ -14210,7 +13833,7 @@
 ( 11592 -76 352 ) ( 11592 68 352 ) ( 11592 68 346 ) scenes/tutorial_scene/Floor [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 148
+// entity 126
 {
 "classname" "StaticBodyGroup"
 "collision_layer" "2"
@@ -14234,7 +13857,7 @@
 ( 9136 -284 -84 ) ( 9136 -108 -84 ) ( 9136 -108 -90 ) scenes/tutorial_scene/Squares2 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 149
+// entity 127
 {
 "classname" "Checkpoints_Checkpoint"
 "spawn_position" "0 -0.75 0"
@@ -14251,7 +13874,7 @@
 ( 3248 160 324 ) ( 3248 -160 260 ) ( 3248 -160 324 ) entities/checkpoint/checkpoint_1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 150
+// entity 128
 {
 "classname" "Checkpoints_Checkpoint"
 "spawn_position" "0 -0.4 0"
@@ -14268,7 +13891,7 @@
 ( 3856 608 518 ) ( 3856 592 454 ) ( 3856 592 518 ) entities/checkpoint/checkpoint_1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 151
+// entity 129
 {
 "classname" "Checkpoints_Checkpoint"
 "spawn_position" "0 -0.4 0"
@@ -14285,7 +13908,7 @@
 ( 3856 -464 550 ) ( 3856 -480 454 ) ( 3856 -480 550 ) entities/checkpoint/checkpoint_1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 152
+// entity 130
 {
 "classname" "Checkpoints_Checkpoint"
 "spawn_position" "0 -0.4 0"
@@ -14302,7 +13925,7 @@
 ( 5408 -928 150 ) ( 5408 -1024 54 ) ( 5408 -1024 150 ) entities/checkpoint/checkpoint_1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 153
+// entity 131
 {
 "classname" "Checkpoints_Checkpoint"
 "spawn_position" "0 -0.4 0"
@@ -14319,7 +13942,7 @@
 ( 6224 480 -320 ) ( 6224 464 -416 ) ( 6224 464 -320 ) entities/checkpoint/checkpoint_1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 154
+// entity 132
 {
 "classname" "Checkpoints_Checkpoint"
 "spawn_position" "0 -0.4 0"
@@ -14336,7 +13959,7 @@
 ( 8384 -48 -256 ) ( 8384 -64 -352 ) ( 8384 -64 -256 ) entities/checkpoint/checkpoint_1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 155
+// entity 133
 {
 "classname" "Checkpoints_Checkpoint"
 "spawn_position" "0 -0.6 0"
@@ -14353,7 +13976,7 @@
 ( 9136 -864 48 ) ( 9136 -880 -96 ) ( 9136 -880 48 ) entities/checkpoint/checkpoint_1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 156
+// entity 134
 {
 "classname" "Doors_StandardDoor"
 "collision_layer" "2"
@@ -14374,7 +13997,7 @@
 ( 3112 148 632 ) ( 3113 13 261 ) ( 3112 -154 632 ) scenes/tutorial_scene/wall [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 157
+// entity 135
 {
 "classname" "RythmElements_Sequencers_Spatial"
 "active_on_signals" "kick"
@@ -14404,7 +14027,7 @@
 ( 11490 1616 184 ) ( 13154.284106824594 -2.6381155599591413 2944 ) ( 11490 1664 184 ) scenes/tutorial_scene/Sequencer1 [ 0 1 0 0 ] [ 0.5155632173237562 0 0.8568515442845257 0.03564453 ] 0 1 1
 }
 }
-// entity 158
+// entity 136
 {
 "classname" "RythmElements_Sequencers_Spatial"
 "active_on_signals" "kick"
@@ -14434,7 +14057,7 @@
 ( 12560.463228697638 -16 1953.7587658119264 ) ( 12576.463030428056 0 1985.7585959279581 ) ( 11490 1088 184 ) scenes/tutorial_scene/Sequencer1 [ 0 1 0 0 ] [ 0.5155632173237562 0 0.8568515442845257 0.03564453 ] 0 1 1
 }
 }
-// entity 159
+// entity 137
 {
 "classname" "RythmElements_Sequencers_Spatial"
 "active_on_signals" "kick"
@@ -14464,7 +14087,7 @@
 ( 11985.276869644324 -16 999.8865827942154 ) ( 12001.276840009225 0 1031.8866496275512 ) ( 11490 512 184 ) scenes/tutorial_scene/Sequencer1 [ 0 1 0 0 ] [ 0.5155632173237562 0 0.8568515442845257 0.03564453 ] 0 1 1
 }
 }
-// entity 160
+// entity 138
 {
 "classname" "RythmElements_Sequencers_Spatial"
 "active_on_signals" "kick"
@@ -14494,7 +14117,7 @@
 ( 11490 2192 184 ) ( 13742.813559326889 0 3920 ) ( 11490 2256 184 ) scenes/tutorial_scene/Sequencer1 [ 0 1 0 0 ] [ 0.5155632173237562 0 0.8568515442845257 0.03564453 ] 0 1 1
 }
 }
-// entity 161
+// entity 139
 {
 "classname" "Lights_OmniLight"
 "origin" "1074 -842 326"
@@ -14505,7 +14128,7 @@
 "shadow_enabled" "0"
 "specular" "0"
 }
-// entity 162
+// entity 140
 {
 "classname" "Lights_OmniLight"
 "origin" "-814 918 326"
@@ -14516,7 +14139,7 @@
 "specular" "0"
 "shadow_mode" "0"
 }
-// entity 163
+// entity 141
 {
 "classname" "Lights_OmniLight"
 "origin" "-814 1606 326"
@@ -14527,7 +14150,7 @@
 "shadow_enabled" "0"
 "shadow_mode" "0"
 }
-// entity 164
+// entity 142
 {
 "classname" "Lights_OmniLight"
 "origin" "-814 2262 326"
@@ -14538,7 +14161,7 @@
 "shadow_enabled" "0"
 "shadow_mode" "0"
 }
-// entity 165
+// entity 143
 {
 "classname" "Lights_OmniLight"
 "origin" "3790 -22 554"
@@ -14549,7 +14172,7 @@
 "shadow_enabled" "0"
 "specular" "0.5"
 }
-// entity 166
+// entity 144
 {
 "classname" "Lights_OmniLight"
 "origin" "3438 -22 378"
@@ -14560,7 +14183,7 @@
 "shadow_enabled" "0"
 "specular" "0.5"
 }
-// entity 167
+// entity 145
 {
 "classname" "Lights_OmniLight"
 "origin" "4046 698 554"
@@ -14571,7 +14194,7 @@
 "shadow_enabled" "0"
 "specular" "0.5"
 }
-// entity 168
+// entity 146
 {
 "classname" "RythmElements_Sequencers_Spatial"
 "active_on_signals" "kick"
@@ -14615,7 +14238,7 @@
 ( 3680 336 261 ) ( 3680 -336 260 ) ( 3680 -336 261 ) scenes/tutorial_scene/Sequencer1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 169
+// entity 147
 {
 "classname" "RythmElements_Sequencers_Spatial"
 "active_on_signals" "kick"
@@ -14659,7 +14282,7 @@
 ( 4016 134 261 ) ( 4016 102 260 ) ( 4016 102 261 ) scenes/tutorial_scene/Sequencer1 [ 2.220446049250313e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 170
+// entity 148
 {
 "classname" "RythmElements_Sequencers_Spatial"
 "active_on_signals" "kick"
@@ -14676,7 +14299,7 @@
 ( 3920 22 261 ) ( 3920 -10 260 ) ( 3920 -10 261 ) scenes/tutorial_scene/Sequencer1 [ 2.220446049250313e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 171
+// entity 149
 {
 "classname" "RythmElements_Sequencers_Spatial"
 "active_on_signals" "kick"
@@ -14720,7 +14343,7 @@
 ( 4240 -330 261 ) ( 4240 -362 260 ) ( 4240 -362 261 ) scenes/tutorial_scene/Sequencer1 [ 2.220446049250313e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 172
+// entity 150
 {
 "classname" "RythmElements_Sequencers_Spatial"
 "active_on_signals" "kick"
@@ -14737,7 +14360,7 @@
 ( 4304 518 261 ) ( 4304 486 260 ) ( 4304 486 261 ) scenes/tutorial_scene/Sequencer1 [ 2.220446049250313e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 173
+// entity 151
 {
 "classname" "RythmElements_Sequencers_Spatial"
 "active_on_signals" "kick"
@@ -14754,7 +14377,7 @@
 ( 4304 1046 279 ) ( 4304 1014 278 ) ( 4304 1014 279 ) scenes/tutorial_scene/Sequencer1 [ 2.220446049250313e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 174
+// entity 152
 {
 "classname" "RythmElements_Sequencers_Spatial"
 "active_on_signals" "kick"
@@ -14771,7 +14394,7 @@
 ( 3824 1046 375 ) ( 3824 1014 374 ) ( 3824 1014 375 ) scenes/tutorial_scene/Sequencer1 [ 2.220446049250313e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 175
+// entity 153
 {
 "classname" "RythmElements_Sequencers_Spatial"
 "active_on_signals" "kick"
@@ -14788,7 +14411,7 @@
 ( 3824 438 455 ) ( 3824 406 454 ) ( 3824 406 455 ) scenes/tutorial_scene/Sequencer1 [ 2.220446049250313e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 176
+// entity 154
 {
 "classname" "RythmElements_Sequencers_Spatial"
 "active_on_signals" "kick"
@@ -14805,7 +14428,7 @@
 ( 3920 230 455 ) ( 3920 198 454 ) ( 3920 198 455 ) scenes/tutorial_scene/Sequencer1 [ 2.220446049250313e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 177
+// entity 155
 {
 "classname" "RythmElements_Sequencers_Spatial"
 "active_on_signals" "kick"
@@ -14822,7 +14445,7 @@
 ( 3808 6 455 ) ( 3808 -26 454 ) ( 3808 -26 455 ) scenes/tutorial_scene/Sequencer1 [ 2.220446049250313e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 178
+// entity 156
 {
 "classname" "RythmElements_Sequencers_Spatial"
 "active_on_signals" "kick"
@@ -14839,7 +14462,7 @@
 ( 3920 -186 455 ) ( 3920 -218 454 ) ( 3920 -218 455 ) scenes/tutorial_scene/Sequencer1 [ 2.220446049250313e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 179
+// entity 157
 {
 "classname" "RythmElements_Sequencers_Spatial"
 "active_on_signals" "kick"
@@ -14856,7 +14479,7 @@
 ( 3824 -378 455 ) ( 3824 -410 454 ) ( 3824 -410 455 ) scenes/tutorial_scene/Sequencer1 [ 2.220446049250313e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 180
+// entity 158
 {
 "classname" "Lights_OmniLight"
 "origin" "4050 -686 526"
@@ -14867,7 +14490,7 @@
 "shadow_enabled" "0"
 "specular" "0.5"
 }
-// entity 181
+// entity 159
 {
 "classname" "Lights_OmniLight"
 "origin" "4290 -830 526"
@@ -14878,7 +14501,7 @@
 "shadow_enabled" "0"
 "specular" "0.5"
 }
-// entity 182
+// entity 160
 {
 "classname" "Lights_OmniLight"
 "origin" "4642 -798 526"
@@ -14889,7 +14512,7 @@
 "shadow_enabled" "0"
 "specular" "0.5"
 }
-// entity 183
+// entity 161
 {
 "classname" "Lights_OmniLight"
 "origin" "5570 -830 270"
@@ -14900,7 +14523,7 @@
 "shadow_enabled" "0"
 "specular" "0.5"
 }
-// entity 184
+// entity 162
 {
 "classname" "Lights_OmniLight"
 "origin" "6018 -830 270"
@@ -14911,7 +14534,7 @@
 "shadow_enabled" "0"
 "specular" "0.5"
 }
-// entity 185
+// entity 163
 {
 "classname" "Lights_OmniLight"
 "origin" "6018 -350 270"
@@ -14922,7 +14545,7 @@
 "shadow_enabled" "0"
 "specular" "0.5"
 }
-// entity 186
+// entity 164
 {
 "classname" "Lights_OmniLight"
 "origin" "6178 210 190"
@@ -14933,7 +14556,7 @@
 "shadow_enabled" "0"
 "specular" "0.5"
 }
-// entity 187
+// entity 165
 {
 "classname" "Lights_OmniLight"
 "origin" "6178 258 -370"
@@ -14944,7 +14567,7 @@
 "shadow_mode" "1"
 "specular" "0.5"
 }
-// entity 188
+// entity 166
 {
 "classname" "Lights_OmniLight"
 "origin" "6178 770 -274"
@@ -14955,7 +14578,7 @@
 "shadow_mode" "1"
 "specular" "0.5"
 }
-// entity 189
+// entity 167
 {
 "classname" "Lights_OmniLight"
 "origin" "6298 1302 -214"
@@ -14966,7 +14589,7 @@
 "shadow_mode" "1"
 "specular" "0.5"
 }
-// entity 190
+// entity 168
 {
 "classname" "RythmElements_Sequencers_Spatial"
 "active_on_signals" "kick"
@@ -15010,7 +14633,7 @@
 ( 7504 1056 -245 ) ( 7504 1312 -246 ) ( 7504 1056 -246 ) scenes/tutorial_scene/Sequencer1 [ -2.220446049250313e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 191
+// entity 169
 {
 "classname" "RythmElements_Sequencers_Spatial"
 "active_on_signals" "kick"
@@ -15054,7 +14677,7 @@
 ( 7411.805826175842 1225.4314575050903 -245.3349223256645 ) ( 7411.805826175848 1220.1489719263564 -245.66507767433447 ) ( 7411.805826175848 1220.1489719263564 -245.3349223256645 ) scenes/tutorial_scene/Sequencer1 [ -2.7755575615628914e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 192
+// entity 170
 {
 "classname" "RythmElements_Sequencers_Spatial"
 "active_on_signals" "kick"
@@ -15071,7 +14694,7 @@
 ( 7379.514718625763 1187.5147186257618 -245.39016504294491 ) ( 7379.514718625765 1180.4852813742305 -245.60983495705594 ) ( 7379.514718625765 1180.4852813742305 -245.39016504294491 ) scenes/tutorial_scene/Sequencer1 [ 2.220446049250313e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 193
+// entity 171
 {
 "classname" "RythmElements_Sequencers_Spatial"
 "active_on_signals" "kick"
@@ -15115,7 +14738,7 @@
 ( 7311.798989873222 1257.3725830020367 -245.21338834764828 ) ( 7311.798989873221 1110.627416997967 -245.78661165235195 ) ( 7311.798989873221 1110.627416997967 -245.21338834764828 ) scenes/tutorial_scene/Sequencer1 [ 2.220446049250313e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 194
+// entity 172
 {
 "classname" "RythmElements_Sequencers_Spatial"
 "active_on_signals" "kick"
@@ -15159,7 +14782,7 @@
 ( 7888 942 -293 ) ( 7888 1198 -294 ) ( 7888 942 -294 ) scenes/tutorial_scene/Sequencer1 [ -2.220446049250313e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 195
+// entity 173
 {
 "classname" "RythmElements_Sequencers_Spatial"
 "active_on_signals" "kick"
@@ -15203,7 +14826,7 @@
 ( 7695.798989873222 1143.3725830020367 -293.2133883476482 ) ( 7695.798989873221 996.627416997967 -293.7866116523519 ) ( 7695.798989873221 996.627416997967 -293.2133883476482 ) scenes/tutorial_scene/Sequencer1 [ 2.220446049250313e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 196
+// entity 174
 {
 "classname" "RythmElements_Sequencers_Spatial"
 "active_on_signals" "kick"
@@ -15247,7 +14870,7 @@
 ( 7795.805826175842 1111.4314575050903 -293.3349223256645 ) ( 7795.805826175848 1106.1489719263564 -293.66507767433444 ) ( 7795.805826175848 1106.1489719263564 -293.3349223256645 ) scenes/tutorial_scene/Sequencer1 [ -2.7755575615628914e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 197
+// entity 175
 {
 "classname" "RythmElements_Sequencers_Spatial"
 "active_on_signals" "kick"
@@ -15264,7 +14887,7 @@
 ( 7763.514718625763 1073.5147186257618 -293.3901650429449 ) ( 7763.514718625765 1066.4852813742305 -293.6098349570559 ) ( 7763.514718625765 1066.4852813742305 -293.3901650429449 ) scenes/tutorial_scene/Sequencer1 [ 2.220446049250313e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 198
+// entity 176
 {
 "classname" "SpatialSolidEntity"
 // brush 0
@@ -17212,7 +16835,7 @@
 ( 4552 -752 560 ) ( 4552 -784 544 ) ( 4552 -784 560 ) scenes/tutorial_scene/LightGuide [ 2.220446049250313e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 199
+// entity 177
 {
 "classname" "Lights_OmniLight"
 "origin" "8334 202 -102"
@@ -17223,7 +16846,7 @@
 "shadow_enabled" "0"
 "specular" "0.5"
 }
-// entity 200
+// entity 178
 {
 "classname" "Lights_OmniLight"
 "origin" "8510 602 -102"
@@ -17234,7 +16857,7 @@
 "shadow_enabled" "0"
 "specular" "0.5"
 }
-// entity 201
+// entity 179
 {
 "classname" "Lights_OmniLight"
 "origin" "8158 602 -102"
@@ -17245,7 +16868,7 @@
 "shadow_enabled" "0"
 "specular" "0.5"
 }
-// entity 202
+// entity 180
 {
 "classname" "Lights_OmniLight"
 "origin" "8334 -470 -102"
@@ -17256,7 +16879,7 @@
 "shadow_enabled" "0"
 "specular" "0.5"
 }
-// entity 203
+// entity 181
 {
 "classname" "Lights_OmniLight"
 "origin" "8334 -1046 26"
@@ -17267,7 +16890,7 @@
 "shadow_enabled" "0"
 "specular" "0.5"
 }
-// entity 204
+// entity 182
 {
 "classname" "Lights_OmniLight"
 "origin" "8478 -1286 26"
@@ -17278,7 +16901,7 @@
 "shadow_enabled" "0"
 "specular" "0.5"
 }
-// entity 205
+// entity 183
 {
 "classname" "Lights_OmniLight"
 "origin" "8830 -1286 26"
@@ -17289,7 +16912,7 @@
 "shadow_enabled" "0"
 "specular" "0.5"
 }
-// entity 206
+// entity 184
 {
 "classname" "Lights_OmniLight"
 "origin" "9070 -966 26"
@@ -17300,7 +16923,7 @@
 "shadow_enabled" "0"
 "specular" "0.5"
 }
-// entity 207
+// entity 185
 {
 "classname" "Lights_OmniLight"
 "origin" "9070 -582 26"
@@ -17311,7 +16934,7 @@
 "shadow_enabled" "0"
 "specular" "0.5"
 }
-// entity 208
+// entity 186
 {
 "classname" "Lights_OmniLight"
 "origin" "9070 -22 58"
@@ -17322,7 +16945,7 @@
 "shadow_enabled" "0"
 "specular" "0.5"
 }
-// entity 209
+// entity 187
 {
 "classname" "Lights_OmniLight"
 "origin" "9662 -6 138"
@@ -17333,7 +16956,7 @@
 "shadow_enabled" "0"
 "specular" "0.5"
 }
-// entity 210
+// entity 188
 {
 "classname" "Lights_OmniLight"
 "origin" "10270 -6 266"
@@ -17344,7 +16967,7 @@
 "shadow_enabled" "0"
 "specular" "0.5"
 }
-// entity 211
+// entity 189
 {
 "classname" "Lights_OmniLight"
 "origin" "11630 -6 506"
@@ -17355,7 +16978,7 @@
 "shadow_enabled" "0"
 "specular" "0.5"
 }
-// entity 212
+// entity 190
 {
 "classname" "Lights_OmniLight"
 "origin" "12702 -6 506"
@@ -17366,7 +16989,7 @@
 "shadow_enabled" "0"
 "specular" "0.5"
 }
-// entity 213
+// entity 191
 {
 "classname" "Lights_OmniLight"
 "origin" "10926 -6 442"
@@ -17377,7 +17000,7 @@
 "shadow_enabled" "0"
 "specular" "0.5"
 }
-// entity 214
+// entity 192
 {
 "classname" "StaticBodyGroup"
 "collision_layer" "2"
@@ -17392,7 +17015,7 @@
 ( 3468 997 710 ) ( 3468 1237 710 ) ( 3468 1237 -234 ) scenes/tutorial_scene/Hexagon1 [ 4.440892098500626e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 215
+// entity 193
 {
 "classname" "SpatialSolidEntity"
 // brush 0
@@ -17846,7 +17469,7 @@
 ( 3404 996 -218 ) ( 3404 997 -234 ) ( 3404 996 -234 ) scenes/tutorial_scene/LightGuide [ 4.440892098500626e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 216
+// entity 194
 {
 "classname" "StaticBodyGroup"
 "collision_layer" "2"
@@ -17861,7 +17484,7 @@
 ( 3477 524 494 ) ( 3477 684 638 ) ( 3477 684 -450 ) scenes/tutorial_scene/Hexagon1 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 217
+// entity 195
 {
 "classname" "SpatialSolidEntity"
 // brush 0
@@ -18315,7 +17938,7 @@
 ( 3237 620 -434 ) ( 3237 588 -450 ) ( 3237 588 -434 ) scenes/tutorial_scene/LightGuide [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 218
+// entity 196
 {
 "classname" "StaticBodyGroup"
 "collision_layer" "2"
@@ -18330,7 +17953,7 @@
 ( 3140.7142494561226 1902.7659812842317 398 ) ( 2971.0086219713517 2072.471608769003 398 ) ( 2971.0086219713517 2072.471608769003 -546 ) scenes/tutorial_scene/Hexagon1 [ -1.1102230246251565e-16 -1.0000000000000002 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 219
+// entity 197
 {
 "classname" "SpatialSolidEntity"
 // brush 0
@@ -18784,7 +18407,7 @@
 ( 3096.1665222413703 1856.8040405071065 -530 ) ( 3073.5391052434006 1834.1766235091363 -546 ) ( 3073.5391052434006 1834.1766235091363 -530 ) scenes/tutorial_scene/LightGuide [ -3.3306690738754696e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 220
+// entity 198
 {
 "classname" "StaticBodyGroup"
 "collision_layer" "2"
@@ -18799,7 +18422,7 @@
 ( 5189 1332 398 ) ( 5189 1492 542 ) ( 5189 1492 -546 ) scenes/tutorial_scene/Hexagon1 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 221
+// entity 199
 {
 "classname" "SpatialSolidEntity"
 // brush 0
@@ -19253,7 +18876,7 @@
 ( 4949 1428 -530 ) ( 4949 1396 -546 ) ( 4949 1396 -530 ) scenes/tutorial_scene/LightGuide [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 222
+// entity 200
 {
 "classname" "StaticBodyGroup"
 "collision_layer" "2"
@@ -19268,7 +18891,7 @@
 ( 4173 1540 798 ) ( 4173 1700 942 ) ( 4173 1700 -146 ) scenes/tutorial_scene/Hexagon1 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 223
+// entity 201
 {
 "classname" "SpatialSolidEntity"
 // brush 0
@@ -19722,7 +19345,7 @@
 ( 3933 1636 -130 ) ( 3933 1604 -146 ) ( 3933 1604 -130 ) scenes/tutorial_scene/LightGuide [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 224
+// entity 202
 {
 "classname" "StaticBodyGroup"
 "collision_layer" "2"
@@ -19737,7 +19360,7 @@
 ( 4187 -1852 -10 ) ( 4187 -1852 1078 ) ( 4187 -1692 934 ) scenes/tutorial_scene/Hexagon1 [ -3.3306690738754696e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 225
+// entity 203
 {
 "classname" "SpatialSolidEntity"
 // brush 0
@@ -20191,7 +19814,7 @@
 ( 4188 -1756 6 ) ( 4188 -1788 -10 ) ( 4188 -1788 6 ) scenes/tutorial_scene/LightGuide [ -3.3306690738754696e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 226
+// entity 204
 {
 "classname" "StaticBodyGroup"
 "collision_layer" "2"
@@ -20206,7 +19829,7 @@
 ( 4636 -2699 398 ) ( 4636 -2459 398 ) ( 4636 -2459 -546 ) scenes/tutorial_scene/Hexagon1 [ -1.1102230246251565e-16 -1.0000000000000002 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 227
+// entity 205
 {
 "classname" "SpatialSolidEntity"
 // brush 0
@@ -20660,7 +20283,7 @@
 ( 4572 -2700 -530 ) ( 4572 -2699 -546 ) ( 4572 -2700 -546 ) scenes/tutorial_scene/LightGuide [ -1.1102230246251565e-16 -1.0000000000000002 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 228
+// entity 206
 {
 "classname" "StaticBodyGroup"
 "collision_layer" "2"
@@ -20675,7 +20298,7 @@
 ( 4996 -2131 246 ) ( 4996 -1891 246 ) ( 4996 -1891 -698 ) scenes/tutorial_scene/Hexagon1 [ -1.1102230246251565e-16 -1.0000000000000002 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 229
+// entity 207
 {
 "classname" "SpatialSolidEntity"
 // brush 0
@@ -21129,7 +20752,7 @@
 ( 4932 -2132 -682 ) ( 4932 -2131 -698 ) ( 4932 -2132 -698 ) scenes/tutorial_scene/LightGuide [ -1.1102230246251565e-16 -1.0000000000000002 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 230
+// entity 208
 {
 "classname" "StaticBodyGroup"
 "collision_layer" "2"
@@ -21144,7 +20767,7 @@
 ( 5755 -1820 -762 ) ( 5755 -1820 326 ) ( 5755 -1660 182 ) scenes/tutorial_scene/Hexagon1 [ -3.3306690738754696e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 231
+// entity 209
 {
 "classname" "SpatialSolidEntity"
 // brush 0
@@ -21598,7 +21221,7 @@
 ( 5756 -1724 -746 ) ( 5756 -1756 -762 ) ( 5756 -1756 -746 ) scenes/tutorial_scene/LightGuide [ -3.3306690738754696e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 232
+// entity 210
 {
 "classname" "StaticBodyGroup"
 "collision_layer" "2"
@@ -21613,7 +21236,7 @@
 ( 6364 -2179 150 ) ( 6364 -1939 150 ) ( 6364 -1939 -794 ) scenes/tutorial_scene/Hexagon1 [ -1.1102230246251565e-16 -1.0000000000000002 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 233
+// entity 211
 {
 "classname" "SpatialSolidEntity"
 // brush 0
@@ -22067,7 +21690,7 @@
 ( 6300 -2180 -778 ) ( 6300 -2179 -794 ) ( 6300 -2180 -794 ) scenes/tutorial_scene/LightGuide [ -1.1102230246251565e-16 -1.0000000000000002 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 234
+// entity 212
 {
 "classname" "StaticBodyGroup"
 "collision_layer" "2"
@@ -22082,7 +21705,7 @@
 ( 7331 -1140 -842 ) ( 7331 -1140 246 ) ( 7331 -980 102 ) scenes/tutorial_scene/Hexagon1 [ -3.3306690738754696e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 235
+// entity 213
 {
 "classname" "SpatialSolidEntity"
 // brush 0
@@ -22536,7 +22159,7 @@
 ( 7332 -1044 -826 ) ( 7332 -1076 -842 ) ( 7332 -1076 -826 ) scenes/tutorial_scene/LightGuide [ -3.3306690738754696e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 236
+// entity 214
 {
 "classname" "StaticBodyGroup"
 "collision_layer" "2"
@@ -22551,7 +22174,7 @@
 ( 6900 -533 390 ) ( 6900 -293 390 ) ( 6900 -293 -698 ) scenes/tutorial_scene/Hexagon1 [ 1.1102230246251565e-16 1.0000000000000002 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 237
+// entity 215
 {
 "classname" "SpatialSolidEntity"
 // brush 0
@@ -23005,7 +22628,7 @@
 ( 6836 -292 -682 ) ( 6836 -293 -698 ) ( 6836 -293 -682 ) scenes/tutorial_scene/LightGuide [ 1.1102230246251565e-16 1.0000000000000002 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 238
+// entity 216
 {
 "classname" "StaticBodyGroup"
 "collision_layer" "2"
@@ -23020,7 +22643,7 @@
 ( 6666.371103705615 -1380.4228355337254 -570 ) ( 6666.371103705615 -1380.4228355337254 518 ) ( 6553.234018715767 -1267.2857505438778 374 ) scenes/tutorial_scene/Hexagon1 [ -1.0000000000000002 1.1102230246251565e-16 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 239
+// entity 217
 {
 "classname" "SpatialSolidEntity"
 // brush 0
@@ -23474,7 +23097,7 @@
 ( 6599.195959492892 -1311.8334777586306 -554 ) ( 6621.823376490862 -1334.4608947566003 -570 ) ( 6621.823376490862 -1334.4608947566003 -554 ) scenes/tutorial_scene/LightGuide [ -1.0000000000000002 1.1102230246251565e-16 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 240
+// entity 218
 {
 "classname" "StaticBodyGroup"
 "collision_layer" "2"
@@ -23489,7 +23112,7 @@
 ( 7600.521124665486 73.75386608210647 -938 ) ( 7600.521124665486 73.75386608210647 150 ) ( 7680.521124665486 212.31793068761726 6 ) scenes/tutorial_scene/Hexagon1 [ -3.3306690738754696e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 241
+// entity 219
 {
 "classname" "SpatialSolidEntity"
 // brush 0
@@ -23943,7 +23566,7 @@
 ( 7649.387150069271 156.39230484541258 -922 ) ( 7633.387150069271 128.67949192431115 -938 ) ( 7633.387150069271 128.67949192431115 -922 ) scenes/tutorial_scene/LightGuide [ -3.3306690738754696e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 242
+// entity 220
 {
 "classname" "StaticBodyGroup"
 "collision_layer" "2"
@@ -23958,7 +23581,7 @@
 ( 8364 -2635 398 ) ( 8364 -2395 398 ) ( 8364 -2395 -546 ) scenes/tutorial_scene/Hexagon1 [ -1.1102230246251565e-16 -1.0000000000000002 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 243
+// entity 221
 {
 "classname" "SpatialSolidEntity"
 // brush 0
@@ -24412,7 +24035,7 @@
 ( 8300 -2636 -530 ) ( 8300 -2635 -546 ) ( 8300 -2636 -546 ) scenes/tutorial_scene/LightGuide [ -1.1102230246251565e-16 -1.0000000000000002 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 244
+// entity 222
 {
 "classname" "StaticBodyGroup"
 "collision_layer" "2"
@@ -24427,7 +24050,7 @@
 ( 7819.5771644662755 -1826.3711037056155 -802 ) ( 7819.5771644662755 -1826.3711037056155 286 ) ( 7932.714249456123 -1713.234018715768 142 ) scenes/tutorial_scene/Hexagon1 [ -3.3306690738754696e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 245
+// entity 223
 {
 "classname" "SpatialSolidEntity"
 // brush 0
@@ -24881,7 +24504,7 @@
 ( 7888.16652224137 -1759.195959492893 -786 ) ( 7887.459415460184 -1758.4888527117064 -802 ) ( 7888.16652224137 -1759.195959492893 -802 ) scenes/tutorial_scene/LightGuide [ 1 -3.3306690738754696e-16 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 246
+// entity 224
 {
 "classname" "StaticBodyGroup"
 "collision_layer" "2"
@@ -24896,7 +24519,7 @@
 ( 9024.93806961053 -1700.057910657676 542 ) ( 9194.643697095302 -1530.3522831729042 542 ) ( 9194.643697095302 -1530.3522831729042 -546 ) scenes/tutorial_scene/Hexagon1 [ 1.1102230246251565e-16 1.0000000000000002 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 247
+// entity 225
 {
 "classname" "SpatialSolidEntity"
 // brush 0
@@ -25350,7 +24973,7 @@
 ( 9127.46855288258 -1461.7629253978093 -530 ) ( 9150.09596988055 -1484.3903423957786 -546 ) ( 9150.09596988055 -1484.3903423957786 -530 ) scenes/tutorial_scene/LightGuide [ -1.0000000000000002 1.1102230246251565e-16 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 248
+// entity 226
 {
 "classname" "StaticBodyGroup"
 "collision_layer" "2"
@@ -25365,7 +24988,7 @@
 ( 9588 -821 486 ) ( 9588 -581 486 ) ( 9588 -581 -602 ) scenes/tutorial_scene/Hexagon1 [ 1.1102230246251565e-16 1.0000000000000002 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 249
+// entity 227
 {
 "classname" "SpatialSolidEntity"
 // brush 0
@@ -25819,7 +25442,7 @@
 ( 9524 -580 -586 ) ( 9524 -581 -602 ) ( 9524 -581 -586 ) scenes/tutorial_scene/LightGuide [ 1.1102230246251565e-16 1.0000000000000002 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 250
+// entity 228
 {
 "classname" "StaticBodyGroup"
 "collision_layer" "2"
@@ -25834,7 +25457,7 @@
 ( 8819 -772 -546 ) ( 8819 -772 542 ) ( 8819 -612 398 ) scenes/tutorial_scene/Hexagon1 [ -3.3306690738754696e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 251
+// entity 229
 {
 "classname" "SpatialSolidEntity"
 // brush 0
@@ -26288,7 +25911,7 @@
 ( 8820 -676 -530 ) ( 8820 -708 -546 ) ( 8820 -708 -530 ) scenes/tutorial_scene/LightGuide [ -3.3306690738754696e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 252
+// entity 230
 {
 "classname" "StaticBodyGroup"
 "collision_layer" "2"
@@ -26303,7 +25926,7 @@
 ( 4525 1540 478 ) ( 4525 1700 622 ) ( 4525 1700 -466 ) scenes/tutorial_scene/Hexagon1 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 253
+// entity 231
 {
 "classname" "SpatialSolidEntity"
 // brush 0
@@ -26757,7 +26380,7 @@
 ( 4285 1636 -450 ) ( 4285 1604 -466 ) ( 4285 1604 -450 ) scenes/tutorial_scene/LightGuide [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 254
+// entity 232
 {
 "classname" "StaticBodyGroup"
 "collision_layer" "2"
@@ -26772,7 +26395,7 @@
 ( 3821 1540 590 ) ( 3821 1700 734 ) ( 3821 1700 -354 ) scenes/tutorial_scene/Hexagon1 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 255
+// entity 233
 {
 "classname" "SpatialSolidEntity"
 // brush 0
@@ -27226,7 +26849,7 @@
 ( 3581 1636 -338 ) ( 3581 1604 -354 ) ( 3581 1604 -338 ) scenes/tutorial_scene/LightGuide [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 256
+// entity 234
 {
 "classname" "StaticBodyGroup"
 "collision_layer" "2"
@@ -27241,7 +26864,7 @@
 ( 5187 1492 -690 ) ( 5187 1492 398 ) ( 5187 1652 254 ) scenes/tutorial_scene/Hexagon1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 257
+// entity 235
 {
 "classname" "SpatialSolidEntity"
 // brush 0
@@ -27695,7 +27318,7 @@
 ( 5188 1588 -674 ) ( 5188 1556 -690 ) ( 5188 1556 -674 ) scenes/tutorial_scene/LightGuide [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 258
+// entity 236
 {
 "classname" "StaticBodyGroup"
 "collision_layer" "2"
@@ -27710,7 +27333,7 @@
 ( 5732 1307 -2 ) ( 5732 1547 -2 ) ( 5732 1547 -1090 ) scenes/tutorial_scene/Hexagon1 [ 2.220446049250313e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 259
+// entity 237
 {
 "classname" "SpatialSolidEntity"
 // brush 0
@@ -28164,7 +27787,7 @@
 ( 5668 1548 -1074 ) ( 5668 1547 -1090 ) ( 5668 1547 -1074 ) scenes/tutorial_scene/LightGuide [ 2.220446049250313e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 260
+// entity 238
 {
 "classname" "StaticBodyGroup"
 "collision_layer" "2"
@@ -28179,7 +27802,7 @@
 ( 3513.3884830484376 -1468.7937180551735 494 ) ( 3393.3884830484385 -1260.947621146908 494 ) ( 3393.3884830484385 -1260.947621146908 -450 ) scenes/tutorial_scene/Hexagon1 [ -2.220446049250313e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 261
+// entity 239
 {
 "classname" "SpatialSolidEntity"
 // brush 0
@@ -28633,7 +28256,7 @@
 ( 3458.4628572062343 -1501.659743458958 -434 ) ( 3457.962857206234 -1500.7937180551735 -450 ) ( 3458.4628572062343 -1501.659743458958 -450 ) scenes/tutorial_scene/LightGuide [ -2.220446049250313e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 262
+// entity 240
 {
 "classname" "StaticBodyGroup"
 "collision_layer" "2"
@@ -28648,7 +28271,7 @@
 ( 3253.343145750508 -886.3431457505076 -810 ) ( 3253.343145750508 -886.3431457505076 278 ) ( 3253.3431457505076 -726.3431457505076 134 ) scenes/tutorial_scene/Hexagon1 [ -2.7755575615628914e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 263
+// entity 241
 {
 "classname" "SpatialSolidEntity"
 // brush 0
@@ -29102,7 +28725,7 @@
 ( 3254.3431457505085 -790.3431457505071 -794 ) ( 3254.343145750508 -822.3431457505071 -810 ) ( 3254.343145750508 -822.3431457505071 -794 ) scenes/tutorial_scene/LightGuide [ -2.7755575615628914e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 264
+// entity 242
 {
 "classname" "StaticBodyGroup"
 "collision_layer" "2"
@@ -29117,7 +28740,7 @@
 ( 3620 -2627 886 ) ( 3620 -2387 886 ) ( 3620 -2387 -58 ) scenes/tutorial_scene/Hexagon1 [ -1.1102230246251565e-16 -1.0000000000000002 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 265
+// entity 243
 {
 "classname" "SpatialSolidEntity"
 // brush 0
@@ -29571,7 +29194,7 @@
 ( 3556 -2628 -42 ) ( 3556 -2627 -58 ) ( 3556 -2628 -58 ) scenes/tutorial_scene/LightGuide [ -1.1102230246251565e-16 -1.0000000000000002 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 266
+// entity 244
 {
 "classname" "StaticBodyGroup"
 "collision_layer" "2"
@@ -29586,7 +29209,7 @@
 ( 7644 -555 14 ) ( 7644 -315 14 ) ( 7644 -315 -930 ) scenes/tutorial_scene/Hexagon1 [ -1.1102230246251565e-16 -1.0000000000000002 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 267
+// entity 245
 {
 "classname" "SpatialSolidEntity"
 // brush 0
@@ -30040,7 +29663,7 @@
 ( 7580 -556 -914 ) ( 7580 -555 -930 ) ( 7580 -556 -930 ) scenes/tutorial_scene/LightGuide [ -1.1102230246251565e-16 -1.0000000000000002 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 268
+// entity 246
 {
 "classname" "SpatialSolidEntity"
 // brush 0
@@ -31988,7 +31611,7 @@
 ( 4976 -1064 560 ) ( 4976 -1096 544 ) ( 4976 -1096 560 ) scenes/tutorial_scene/LightGuide [ 2.220446049250313e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 269
+// entity 247
 {
 "classname" "StaticBodyGroup"
 "collision_layer" "2"
@@ -32003,7 +31626,7 @@
 ( 7045 1732 142 ) ( 7045 1892 286 ) ( 7045 1892 -802 ) scenes/tutorial_scene/Hexagon1 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 270
+// entity 248
 {
 "classname" "SpatialSolidEntity"
 // brush 0
@@ -32457,7 +32080,7 @@
 ( 6805 1828 -786 ) ( 6805 1796 -802 ) ( 6805 1796 -786 ) scenes/tutorial_scene/LightGuide [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 271
+// entity 249
 {
 "classname" "StaticBodyGroup"
 "collision_layer" "2"
@@ -32472,7 +32095,7 @@
 ( 7822.128463018496 2040.6654762208445 126 ) ( 7652.422835533725 2210.3711037056155 126 ) ( 7652.422835533725 2210.3711037056155 -962 ) scenes/tutorial_scene/Hexagon1 [ 2.220446049250313e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 272
+// entity 250
 {
 "classname" "SpatialSolidEntity"
 // brush 0
@@ -32926,7 +32549,7 @@
 ( 7606.460894756599 2165.8233764908628 -946 ) ( 7607.168001537786 2165.116269709676 -962 ) ( 7607.168001537786 2165.116269709676 -946 ) scenes/tutorial_scene/LightGuide [ 2.220446049250313e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 273
+// entity 251
 {
 "classname" "StaticBodyGroup"
 "collision_layer" "2"
@@ -32941,7 +32564,7 @@
 ( 9300 939 286 ) ( 9300 1179 286 ) ( 9300 1179 -802 ) scenes/tutorial_scene/Hexagon1 [ 2.220446049250313e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 274
+// entity 252
 {
 "classname" "SpatialSolidEntity"
 // brush 0
@@ -33395,7 +33018,7 @@
 ( 9236 1180 -786 ) ( 9236 1179 -802 ) ( 9236 1179 -786 ) scenes/tutorial_scene/LightGuide [ 2.220446049250313e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 275
+// entity 253
 {
 "classname" "SpatialSolidEntity"
 // brush 0
@@ -33849,7 +33472,7 @@
 ( 8325 1892 -786 ) ( 8325 1860 -802 ) ( 8325 1860 -786 ) scenes/tutorial_scene/LightGuide [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 276
+// entity 254
 {
 "classname" "StaticBodyGroup"
 "collision_layer" "2"
@@ -33864,7 +33487,7 @@
 ( 8565 1796 142 ) ( 8565 1956 286 ) ( 8565 1956 -802 ) scenes/tutorial_scene/Hexagon1 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 277
+// entity 255
 {
 "classname" "SpatialSolidEntity"
 // brush 0
@@ -34318,7 +33941,7 @@
 ( 6597 2676 -1074 ) ( 6597 2644 -1090 ) ( 6597 2644 -1074 ) scenes/tutorial_scene/LightGuide [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 278
+// entity 256
 {
 "classname" "StaticBodyGroup"
 "collision_layer" "2"
@@ -34333,7 +33956,7 @@
 ( 6837 2580 -146 ) ( 6837 2740 -2 ) ( 6837 2740 -1090 ) scenes/tutorial_scene/Hexagon1 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 279
+// entity 257
 {
 "classname" "SpatialSolidEntity"
 // brush 0
@@ -34787,7 +34410,7 @@
 ( 5883.478875334515 2195.820508075689 -1074 ) ( 5899.478875334515 2168.1076951545865 -1090 ) ( 5899.478875334515 2168.1076951545865 -1074 ) scenes/tutorial_scene/LightGuide [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 280
+// entity 258
 {
 "classname" "StaticBodyGroup"
 "collision_layer" "2"
@@ -34802,7 +34425,7 @@
 ( 6139.32497224278 2232.6820693123827 -146 ) ( 6059.32497224278 2371.246133917893 -2 ) ( 6059.32497224278 2371.246133917893 -1090 ) scenes/tutorial_scene/Hexagon1 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 281
+// entity 259
 {
 "classname" "SpatialSolidEntity"
 // brush 0
@@ -35256,7 +34879,7 @@
 ( 8172 2388 -1074 ) ( 8172 2389 -1090 ) ( 8172 2388 -1090 ) scenes/tutorial_scene/LightGuide [ -2.220446049250313e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 282
+// entity 260
 {
 "classname" "StaticBodyGroup"
 "collision_layer" "2"
@@ -35271,7 +34894,7 @@
 ( 8236 2389 -146 ) ( 8236 2629 -146 ) ( 8236 2629 -1090 ) scenes/tutorial_scene/Hexagon1 [ -2.220446049250313e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 283
+// entity 261
 {
 "classname" "SpatialSolidEntity"
 // brush 0
@@ -35725,7 +35348,7 @@
 ( 8790.460894756598 1637.8233764908655 -962 ) ( 8791.168001537786 1637.116269709676 -978 ) ( 8791.168001537786 1637.116269709676 -962 ) scenes/tutorial_scene/LightGuide [ 2.220446049250313e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 284
+// entity 262
 {
 "classname" "StaticBodyGroup"
 "collision_layer" "2"
@@ -35740,7 +35363,7 @@
 ( 9006.128463018496 1512.665476220844 110 ) ( 8836.422835533725 1682.3711037056169 110 ) ( 8836.422835533725 1682.3711037056169 -978 ) scenes/tutorial_scene/Hexagon1 [ 2.220446049250313e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 285
+// entity 263
 {
 "classname" "SpatialSolidEntity"
 // brush 0
@@ -35879,7 +35502,7 @@
 ( 5536 -927 32 ) ( 5536 -928 16 ) ( 5536 -928 32 ) scenes/tutorial_scene/Light1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 286
+// entity 264
 {
 "classname" "SpatialSolidEntity"
 // brush 0
@@ -36018,7 +35641,7 @@
 ( 6128 -784 32 ) ( 6128 -816 16 ) ( 6128 -816 32 ) scenes/tutorial_scene/Light1 [ 2.220446049250313e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 287
+// entity 265
 {
 "classname" "SpatialSolidEntity"
 // brush 0
@@ -36112,7 +35735,7 @@
 ( 6128 480 -448 ) ( 6128 448 -464 ) ( 6128 448 -448 ) scenes/tutorial_scene/Light1 [ 2.220446049250313e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 288
+// entity 266
 {
 "classname" "SpatialSolidEntity"
 // brush 0
@@ -36206,7 +35829,7 @@
 ( 6225 896 -448 ) ( 6225 928 -464 ) ( 6225 896 -464 ) scenes/tutorial_scene/Light1 [ -2.220446049250313e-16 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 289
+// entity 267
 {
 "classname" "Checkpoints_End"
 "spawn_position" "0 0 0"
@@ -36223,7 +35846,7 @@
 ( 12576 144 576 ) ( 12576 -128 352 ) ( 12576 -128 576 ) entities/checkpoint/end_level [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 290
+// entity 268
 {
 "classname" "RythmElements_Sequencers_Spatial"
 "active_on_signals" "kick"
@@ -36269,7 +35892,7 @@
 ( 800 -1558.6344969199179 368 ) ( 799.9983030883518 -1579.8081009472132 319.62123517917706 ) ( 800 -1580.6344969199179 320 ) scenes/tutorial_scene/Sequencer1 [ -0.0016969151178666544 0.9999985602385049 0 0 ] [ -0.0007777514073464418 -1.3197800212367e-06 -0.9999996975504576 0 ] 0 1 1
 }
 }
-// entity 291
+// entity 269
 {
 "classname" "TriggerSongAnimationChange"
 "animation" "part2"
@@ -36285,7 +35908,7 @@
 ( -784 2864 292 ) ( -784 2784 260 ) ( -784 2784 292 ) special/clip [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 292
+// entity 270
 {
 "classname" "TriggerSongAnimationChange"
 "animation" "part3"
@@ -36301,32 +35924,32 @@
 ( 2624 112 356 ) ( 2624 -112 260 ) ( 2624 -112 356 ) special/clip [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 293
+// entity 271
 {
 "classname" "Tutorial1_HexagonalPit"
 "origin" "6176 260 -408"
 }
-// entity 294
+// entity 272
 {
 "classname" "Tutorial1_Buildings"
 "origin" "7376 1184 -237.39"
 }
-// entity 295
+// entity 273
 {
 "classname" "Tutorial1_Buildings"
 "origin" "7760 1068 -286"
 }
-// entity 296
+// entity 274
 {
 "classname" "Tutorial1_UpTriangles"
 "origin" "4392 312 248"
 }
-// entity 297
+// entity 275
 {
 "classname" "Tutorial1_UpTriangles"
 "origin" "4392 -312 248"
 }
-// entity 298
+// entity 276
 {
 "classname" "DeathGrid"
 "collision_layer" "2"
@@ -36377,7 +36000,7 @@
 ( 19024 96 -128 ) ( 19024 96 -127 ) ( 19024 97 -128 ) common/material_override/death_grid [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 299
+// entity 277
 {
 "classname" "DeathGrid"
 "collision_layer" "2"
@@ -36419,7 +36042,7 @@
 ( 19008 96 688 ) ( 19008 96 689 ) ( 19008 97 688 ) common/material_override/death_grid [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 300
+// entity 278
 {
 "classname" "DeathGrid"
 "collision_layer" "2"
@@ -36434,7 +36057,7 @@
 ( 3104 6144 688 ) ( 3104 6144 689 ) ( 3104 6145 688 ) common/material_override/death_grid [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 301
+// entity 279
 {
 "classname" "DeathGrid"
 "collision_layer" "2"
@@ -36449,7 +36072,7 @@
 ( 19008 96 5840 ) ( 19008 96 5841 ) ( 19008 97 5840 ) common/material_override/death_grid [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 302
+// entity 280
 {
 "classname" "DeathGrid"
 "collision_layer" "2"
@@ -36464,7 +36087,7 @@
 ( 19008 96 704 ) ( 19008 96 705 ) ( 19008 97 704 ) common/material_override/death_grid [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 303
+// entity 281
 {
 "classname" "DeathGrid"
 "collision_layer" "2"
@@ -36479,14 +36102,14 @@
 ( 19008 -5952 688 ) ( 19008 -5952 689 ) ( 19008 -5951 688 ) common/material_override/death_grid [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 304
+// entity 282
 {
 "classname" "func_group"
 "_tb_type" "_tb_group"
 "_tb_name" "RotatingSequencer"
 "_tb_id" "1"
 }
-// entity 305
+// entity 283
 {
 "classname" "Group_Rotater"
 "rotation_speed" "0.5 0.75 0.6"
@@ -36501,7 +36124,7 @@
 ( 5488 4 -220 ) ( 5488 4 -219 ) ( 5488 5 -220 ) special/skip [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 306
+// entity 284
 {
 "classname" "func_group"
 "_tb_type" "_tb_group"
@@ -36509,7 +36132,7 @@
 "_tb_id" "2"
 "_tb_group" "1"
 }
-// entity 307
+// entity 285
 {
 "classname" "RythmElements_Sequencers_Spatial"
 "active_on_signals" "kick"
@@ -36624,5 +36247,39 @@
 ( 5768 -280 27 ) ( 5765.8125 -280 27 ) ( 5768 -277.8125 27 ) scenes/tutorial_scene/Light1 [ 2.220446049250313e-16 -1 0 0 ] [ 1 2.220446049250313e-16 -2.2204460492503128e-16 0 ] 0 1 1
 ( 5733 -245 -638 ) ( 5730.8125 -245 -638 ) ( 5733 -245 -640.1875 ) scenes/tutorial_scene/Light1 [ 1 2.220446049250313e-16 0 0 ] [ 0 0 -1 0 ] 0 1 1
 ( 5768 -280 62 ) ( 5768 -277.8125 62 ) ( 5768 -280 59.8125 ) scenes/tutorial_scene/Light1 [ -2.220446049250313e-16 0 1 0 ] [ 0 -1 0 0 ] 0 1 1
+}
+}
+// entity 286
+{
+"classname" "Breakables_Wall"
+"_tb_def" "builtin:RocketJumpThing_fgd.fgd"
+"_tb_textures" "textures/scenes/tutorial_scene"
+"collision_layer" "2"
+"collision_mask" "5"
+"targetname" "breakable_wall_1"
+// brush 0
+{
+( -848 1354 314 ) ( -848 1360 260 ) ( -848 1360 314 ) scenes/tutorial_scene/wall [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -786 1354 314 ) ( -848 1354 260 ) ( -848 1354 314 ) scenes/tutorial_scene/wall [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -786 1360 260 ) ( -848 1354 260 ) ( -786 1354 260 ) scenes/tutorial_scene/wall [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -786 1360 314 ) ( -848 1354 314 ) ( -848 1360 314 ) scenes/tutorial_scene/wall [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -786 1360 314 ) ( -848 1360 260 ) ( -786 1360 260 ) scenes/tutorial_scene/wall [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -786 1360 314 ) ( -786 1354 260 ) ( -786 1354 314 ) scenes/tutorial_scene/wall [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+}
+// entity 287
+{
+"classname" "Breakables_Wall"
+"collision_layer" "2"
+"collision_mask" "5"
+"targetname" "breakable_wall_2"
+// brush 0
+{
+( -8 -1568 320 ) ( -8 -1446 260 ) ( -8 -1446 320 ) scenes/tutorial_scene/wall [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 0 -1568 320 ) ( -8 -1568 260 ) ( -8 -1568 320 ) scenes/tutorial_scene/wall [ -1.0000000000000002 0 0 11.5234375 ] [ 0 0 -1.0000000000000002 0 ] 0 1 1
+( 0 -1446 260 ) ( -8 -1568 260 ) ( 0 -1568 260 ) scenes/tutorial_scene/wall [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 0 -1446 320 ) ( -8 -1568 320 ) ( -8 -1446 320 ) scenes/tutorial_scene/wall [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 0 -1446 320 ) ( -8 -1446 260 ) ( 0 -1446 260 ) scenes/tutorial_scene/wall [ 1.0000000000000002 0 0 -31.117188 ] [ 0 0 -1.0000000000000002 0 ] 0 1 1
+( 0 -1446 320 ) ( 0 -1568 260 ) ( 0 -1568 320 ) scenes/tutorial_scene/wall [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
