@@ -7,6 +7,7 @@ extends RigidBody
 ##### VARIABLES #####
 #---- CONSTANTS -----
 const SPEED_DIVIDER := .055  # Speed divider to prevent the wall from exploding too much, or not enough # TODO : Why.
+const TIME_TO_DISAPPEAR := 5.0  # Time it takes for the wall to disappear after breaking
 const TB_BREAKABLE_WALL_MAPPER := [
 	["collision_layer", "collision_layer"], ["collision_layer", "collision_mask"]
 ]  # mapper for TrenchBroom parameters
@@ -36,6 +37,8 @@ func _init_body() -> void:
 #==== Qodot =====
 func use(parameters: Dictionary) -> void:
 	mode = MODE_RIGID
+	collision_layer = 0  # Forces the collision layer to be empty, to not make it interact with anything else than the environment
+	set_collision_mask_bit(GlobalConstants.PLAYER_MASK_VALUE, 0)  # forces the body to interact with everything except the player
 	apply_central_impulse(
 		(
 			(self.transform.origin - parameters.position).normalized()
@@ -44,5 +47,5 @@ func use(parameters: Dictionary) -> void:
 		)
 	)
 	if get_tree() != null:  # for test purposes
-		yield(get_tree().create_timer(30.0), "timeout")  # REFACTOR : magic float here
+		yield(get_tree().create_timer(TIME_TO_DISAPPEAR), "timeout")
 	queue_free()

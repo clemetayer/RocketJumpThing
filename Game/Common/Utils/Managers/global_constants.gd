@@ -9,6 +9,7 @@ const INVERSE_SCALE := 16.0
 const ABILITY_SLIDE := "slide"
 const ABILITY_ROCKETS := "rockets"
 const PLAYER_GROUP := "player"
+const PLAYER_MASK_VALUE := 0  # index 0 on the mask collision value, to get the real value, use pow(2,PLAYER_MASK_VALUE)
 
 #---- MAPS -----
 const START_POINT_GROUP := "start_point"
