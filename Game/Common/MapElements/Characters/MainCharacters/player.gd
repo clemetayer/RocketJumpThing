@@ -127,6 +127,7 @@ func _ready():
 
 
 func _process(_delta):
+	_print_debug_data()
 	_process_sounds()
 
 
@@ -621,3 +622,9 @@ func _debug_process_movement(_delta: float):
 		# 	rc.get_collision_point(), rc.get_collision_point() + wall_fw, Color(0, 0, 1)
 		# )
 		# DebugDraw.set_text("wall fw", wall_fw)
+
+
+func _print_debug_data() -> void:
+	DebugDraw.set_text("velocity", vel)
+	DebugDraw.set_text("on_floor", is_on_floor())
+	DebugDraw.set_text("last floor vel", _last_floor_velocity)

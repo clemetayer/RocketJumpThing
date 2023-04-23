@@ -1,0 +1,24 @@
+[gd_resource type="Resource" load_steps=15 format=2]
+
+[ext_resource path="res://addons/qodot/src/resources/game-definitions/fgd/qodot_fgd_file.gd" type="Script" id=1]
+[ext_resource path="res://trenchbroom/Entities/Scenes/base_fgds.tres" type="Resource" id=2]
+[ext_resource path="res://trenchbroom/Entities/Portals/portal.tres" type="Resource" id=3]
+[ext_resource path="res://trenchbroom/Entities/Lasers/laser_brush_scene.tres" type="Resource" id=4]
+[ext_resource path="res://trenchbroom/Entities/Lasers/laser.tres" type="Resource" id=5]
+[ext_resource path="res://trenchbroom/Entities/Lasers/laser_base.tres" type="Resource" id=6]
+[ext_resource path="res://trenchbroom/Entities/Boosts/boost_area.tres" type="Resource" id=7]
+[ext_resource path="res://trenchbroom/Entities/Boosts/boost_pad.tres" type="Resource" id=8]
+[ext_resource path="res://trenchbroom/Entities/Boosts/boost.tres" type="Resource" id=9]
+[ext_resource path="res://trenchbroom/Entities/Breakables/breakable_area_speed_solid.tres" type="Resource" id=10]
+[ext_resource path="res://trenchbroom/Entities/Breakables/breakable_wall_solid.tres" type="Resource" id=11]
+[ext_resource path="res://trenchbroom/Entities/area_death.tres" type="Resource" id=12]
+[ext_resource path="res://trenchbroom/Entities/Stompers/stomper_step_sequencer.tres" type="Resource" id=13]
+[ext_resource path="res://trenchbroom/Entities/Stompers/stomper_base.tres" type="Resource" id=14]
+
+[resource]
+script = ExtResource( 1 )
+export_file = false
+target_folder = "/home/clemetayer/.TrenchBroom/games/RocketJumpThing"
+fgd_name = "level_6_fgd"
+base_fgd_files = [ ExtResource( 2 ) ]
+entity_definitions = [ ExtResource( 3 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 4 ), ExtResource( 9 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 11 ), ExtResource( 10 ), ExtResource( 12 ), ExtResource( 14 ), ExtResource( 13 ) ]

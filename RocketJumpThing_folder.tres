@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=9 format=2]
+[gd_resource type="Resource" load_steps=11 format=2]
 
 [ext_resource path="res://addons/qodot/src/resources/game-definitions/trenchbroom/trenchbroom_game_config_folder.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
@@ -8,6 +8,8 @@
 [ext_resource path="res://trenchbroom/Entities/Scenes/Tutorial2/tutorial_2_fgd.tres" type="Resource" id=6]
 [ext_resource path="res://trenchbroom/Entities/Scenes/Level4/level_4_fgd.tres" type="Resource" id=7]
 [ext_resource path="res://trenchbroom/Entities/Scenes/Tutorial1/tutorial_1_fgd.tres" type="Resource" id=8]
+[ext_resource path="res://trenchbroom/Entities/Scenes/Level6/level_6_fgd.tres" type="Resource" id=9]
+[ext_resource path="res://trenchbroom/Entities/Scenes/Level7/level_7_fgd.tres" type="Resource" id=10]
 
 [resource]
 script = ExtResource( 1 )
@@ -16,4 +18,4 @@ trenchbroom_games_folder = "/home/clemetayer/.TrenchBroom/games/"
 game_name = "RocketJumpThing"
 icon = ExtResource( 2 )
 game_config_file = ExtResource( 4 )
-fgd_files = [ ExtResource( 8 ), ExtResource( 6 ), ExtResource( 3 ), ExtResource( 7 ), ExtResource( 5 ) ]
+fgd_files = [ ExtResource( 8 ), ExtResource( 6 ), ExtResource( 3 ), ExtResource( 7 ), ExtResource( 5 ), ExtResource( 9 ), ExtResource( 10 ) ]

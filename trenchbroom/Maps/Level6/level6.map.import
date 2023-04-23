@@ -1,0 +1,13 @@
+[remap]
+
+importer="qodot.map"
+type="Resource"
+path="res://.import/level6.map-ba3a3164c0a8d9b7b7f1de3ac010b653.tres"
+
+[deps]
+
+source_file="res://trenchbroom/Maps/Level6/level6.map"
+dest_files=[ "res://.import/level6.map-ba3a3164c0a8d9b7b7f1de3ac010b653.tres" ]
+
+[params]
+

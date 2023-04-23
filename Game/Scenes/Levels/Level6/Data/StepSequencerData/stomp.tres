@@ -1,0 +1,28 @@
+[gd_resource type="Resource" load_steps=8 format=2]
+
+[ext_resource path="res://Game/Common/Utils/Resources/sequencer_data.gd" type="Script" id=1]
+[ext_resource path="res://Game/Common/Utils/Resources/sequencer_step_data_item_call_method.gd" type="Script" id=2]
+[ext_resource path="res://Game/Common/Utils/Resources/sequencer_steps.gd" type="Script" id=3]
+[ext_resource path="res://Game/Common/Utils/Resources/sequencer_step_data.gd" type="Script" id=4]
+
+[sub_resource type="Resource" id=3]
+script = ExtResource( 2 )
+VARPATH = "stomp"
+VALUES = {
+"args": [  ]
+}
+
+[sub_resource type="Resource" id=4]
+script = ExtResource( 4 )
+STEP_DATA_ITEMS = [ SubResource( 3 ) ]
+
+[sub_resource type="Resource" id=2]
+script = ExtResource( 3 )
+SIGNAL_KEY = "stomp"
+SEQUENCER_STEPS = [ SubResource( 4 ), SubResource( 4 ), SubResource( 4 ), SubResource( 4 ) ]
+
+[resource]
+script = ExtResource( 1 )
+DUPLICATE_MATERIAL = true
+INIT_PARAMS = [  ]
+STEPS = [ SubResource( 2 ) ]
