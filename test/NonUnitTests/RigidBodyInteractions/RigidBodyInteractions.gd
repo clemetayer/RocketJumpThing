@@ -1,5 +1,5 @@
 # tool
-extends StandardScene
+extends Spatial
 # class_name Class
 # docstring
 
@@ -53,5 +53,6 @@ func _process(_delta):
 # Functions that should be triggered when a specific signal is received
 
 
-func _on_TriggerAnim1_timeout():
-	$AdditionalThings/EntityStuff/EntityAnimation.play("animation_1")
+func _on_Area_body_entered(body):
+	if FunctionUtils.is_player(body):
+		$RigidBody.mode = RigidBody.MODE_RIGID

@@ -1,6 +1,8 @@
-[gd_resource type="Resource" load_steps=3 format=2]
+[gd_resource type="Resource" load_steps=5 format=2]
 
 [ext_resource path="res://trenchbroom/Entities/Scenes/base_fgds.tres" type="Resource" id=1]
+[ext_resource path="res://trenchbroom/Entities/Platforms/rigid_body_trigger_platform.tres" type="Resource" id=2]
+[ext_resource path="res://trenchbroom/Entities/Triggers/area_trigger.tres" type="Resource" id=3]
 [ext_resource path="res://addons/qodot/src/resources/game-definitions/fgd/qodot_fgd_file.gd" type="Script" id=5]
 
 [resource]
@@ -9,4 +11,4 @@ export_file = false
 target_folder = "/home/clemetayer/.TrenchBroom/games/RocketJumpThing"
 fgd_name = "level_7_fgd"
 base_fgd_files = [ ExtResource( 1 ) ]
-entity_definitions = [  ]
+entity_definitions = [ ExtResource( 3 ), ExtResource( 2 ) ]

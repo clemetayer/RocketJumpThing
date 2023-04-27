@@ -1,10 +1,9 @@
-# tool
-extends StandardScene
-# class_name Class
-# docstring
+extends Collidable
+# A simple area that triggers a signal when the player enters the area
 
 ##### SIGNALS #####
-# Node signals
+#warning-ignore:UNUSED_SIGNAL
+signal trigger()
 
 ##### ENUMS #####
 # enumerations
@@ -29,11 +28,11 @@ extends StandardScene
 ##### PROCESSING #####
 # Called when the object is initialized.
 func _init():
-	pass
+	_connect_signals()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	_set_TB_params()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame. Remove the "_" to use it.
 func _process(_delta):
@@ -45,13 +44,13 @@ func _process(_delta):
 #     pass
 
 ##### PROTECTED METHODS #####
-# Methods that are intended to be used exclusively by this scripts
-# func _private_method(arg):
-#     pass
+func _set_TB_params() -> void:
+	TrenchBroomEntityUtils._map_trenchbroom_properties(self, properties, TB_COLLIDABLE_MAPPER)
+
+func _connect_signals() -> void:
+	DebugUtils.log_connect(self, self, "body_entered", "_on_area_trigger_body_entered")
 
 ##### SIGNAL MANAGEMENT #####
-# Functions that should be triggered when a specific signal is received
-
-
-func _on_TriggerAnim1_timeout():
-	$AdditionalThings/EntityStuff/EntityAnimation.play("animation_1")
+func _on_area_trigger_body_entered(body) -> void:
+	if FunctionUtils.is_player(body):
+		emit_signal("trigger")
