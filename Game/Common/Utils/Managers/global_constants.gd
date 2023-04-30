@@ -81,3 +81,6 @@ enum TWEEN_TRANSITION_TYPES {  # Tween transition types to be used in export var
 	BACK
 }
 enum TWEEN_EASE_TYPES { IN, OUT, IN_OUT, OUT_IN }  # Tween ease types to be used in export variables
+
+#---- MISC -----
+const THE_ENTITY_GROUP := "the_entity"

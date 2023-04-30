@@ -21,37 +21,41 @@ extends StandardScene
 # var public_var # Optionnal comment
 
 #==== PRIVATE ====
-# var _private_var # Optionnal comment
+var _entity: Spatial
 
 #==== ONREADY ====
-# onready var onready_var # Optionnal comment
+onready var onready_paths := {
+	"entity_animation_player": $"AdditionalThings/EntityStuff/EntityAnimation"
+}
+
 
 ##### PROCESSING #####
 # Called when the object is initialized.
 func _init():
-	pass
+	_connect_signals()
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
 
+
 # Called every frame. 'delta' is the elapsed time since the previous frame. Remove the "_" to use it.
 func _process(_delta):
 	pass
 
-##### PUBLIC METHODS #####
-# Methods that are intended to be "visible" to other nodes or scripts
-# func public_method(arg : int) -> void:
-#     pass
 
 ##### PROTECTED METHODS #####
-# Methods that are intended to be used exclusively by this scripts
-# func _private_method(arg):
-#     pass
+func _connect_signals() -> void:
+	DebugUtils.log_connect(
+		SignalManager,
+		self,
+		SignalManager.TRIGGER_ENTITY_ANIMATION,
+		"_on_SignalManager_TriggerEntityAnimation"
+	)
+
 
 ##### SIGNAL MANAGEMENT #####
-# Functions that should be triggered when a specific signal is received
-
-
-func _on_TriggerAnim1_timeout():
-	$AdditionalThings/EntityStuff/EntityAnimation.play("animation_1")
+func _on_SignalManager_TriggerEntityAnimation(animation):
+	if onready_paths.entity_animation_player != null:
+		onready_paths.entity_animation_player.play(animation)

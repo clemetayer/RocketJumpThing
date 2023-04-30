@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://Game/Scenes/Levels/Level7/TheEntity/entity_mesh_instance_v2.tres" type="ArrayMesh" id=1]
 [ext_resource path="res://Misc/Particles/kenney_particle_pack/PNG (Transparent)/spark_01.png" type="Texture" id=2]
@@ -114,6 +114,71 @@ albedo_texture = ExtResource( 6 )
 material = SubResource( 15 )
 size = Vector2( 20, 20 )
 
+[sub_resource type="Shader" id=22]
+code = "shader_type spatial;
+render_mode unshaded;
+
+const float force = 1.0;
+const vec2 center = vec2(0.5);
+const float wave_size = 0.075;
+const float alpha_epsilon = wave_size/2.0;
+const vec3 chromatic_wave_size = vec3(1,3,5) / 75.0;
+const vec3 chromatic_espilon = vec3(1.0) / 75.0;
+
+uniform float anim_progress : hint_range(0.0, 1.0) = 0.5;
+uniform vec3 uv1_scale;
+uniform vec3 uv1_offset;
+
+
+void vertex() {
+	UV=UV*uv1_scale.xy+uv1_offset.xy;
+	MODELVIEW_MATRIX = INV_CAMERA_MATRIX * mat4(CAMERA_MATRIX[0],CAMERA_MATRIX[1],CAMERA_MATRIX[2],WORLD_MATRIX[3]);
+}
+
+float smooth_shockwave(vec2 uv, float size, float epsilon, float position){
+	return (
+		smoothstep(distance(uv, center) - size - epsilon ,distance(uv, center) - size + epsilon, position) 
+		- smoothstep(distance(uv, center) + size - epsilon,distance(uv, center) + size + epsilon, position)
+	);
+}
+
+float compute_alpha(vec2 uv){
+	float alpha =  smooth_shockwave(uv, wave_size,alpha_epsilon,anim_progress);
+	alpha *= smoothstep(distance(uv, center) - alpha_epsilon, distance(uv, center) + alpha_epsilon, 0.5 - alpha_epsilon);
+	return alpha;
+}
+
+vec3 compute_chromatic_aberration(vec2 uv, vec3 color){
+//	float r = smooth_shockwave(uv, chromatic_wave_size.r,chromatic_espilon.r,anim_progress);
+//	float g = smooth_shockwave(uv, chromatic_wave_size.g,chromatic_espilon.g,anim_progress);
+//	float b = smooth_shockwave(uv, chromatic_wave_size.b,chromatic_espilon.b,anim_progress);
+	float r = smoothstep(distance(uv, center) - chromatic_wave_size.r - chromatic_espilon.r ,distance(uv, center) - chromatic_wave_size.r + chromatic_espilon.r, anim_progress);
+	float g = smoothstep(distance(uv, center) - chromatic_wave_size.g - chromatic_espilon.g ,distance(uv, center) - chromatic_wave_size.g + chromatic_espilon.g, anim_progress);
+	float b = smoothstep(distance(uv, center) - chromatic_wave_size.b - chromatic_espilon.b ,distance(uv, center) - chromatic_wave_size.b + chromatic_espilon.b, anim_progress);
+	return color * vec3(r,g,b);
+}
+
+void fragment() {
+	vec2 dir_from_center = normalize(UV - center) * force * compute_alpha(UV);
+	vec4 screen_uv_tex = texture(SCREEN_TEXTURE,SCREEN_UV - dir_from_center);
+	// ALBEDO = vec3(1.0);
+	// ALBEDO = screen_uv_tex.rgb;
+	// ALBEDO = compute_chromatic_aberration(SCREEN_UV, vec3(1.0));
+	ALBEDO = compute_chromatic_aberration(UV, screen_uv_tex.rgb);
+	ALPHA = compute_alpha(UV);
+}
+"
+
+[sub_resource type="ShaderMaterial" id=23]
+shader = SubResource( 22 )
+shader_param/anim_progress = 0.725
+shader_param/uv1_scale = Vector3( 1, 1, 1 )
+shader_param/uv1_offset = Vector3( 0, 0, 0 )
+
+[sub_resource type="QuadMesh" id=21]
+material = SubResource( 23 )
+size = Vector2( 100, 100 )
+
 [sub_resource type="Animation" id=17]
 length = 0.001
 tracks/0/type = "value"
@@ -199,6 +264,18 @@ tracks/6/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ true ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Particles/Shockwave:mesh:material:shader_param/anim_progress")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.725 ]
 }
 
 [sub_resource type="Animation" id=19]
@@ -375,11 +452,28 @@ tracks/6/keys = {
 "values": [ true, false ]
 }
 
-[node name="TheEntity" type="Spatial"]
+[sub_resource type="Animation" id=24]
+resource_name = "explode"
+length = 1.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Particles/Shockwave:mesh:material:shader_param/anim_progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+
+[node name="TheEntity" type="Spatial" groups=["the_entity"]]
 script = ExtResource( 4 )
 
 [node name="Armor" type="MeshInstance" parent="."]
-transform = Transform( 0.714931, -0.689113, -0.118309, 0.244961, 0.405347, -0.880731, 0.654879, 0.600681, 0.458601, 0, 0, 0 )
+transform = Transform( 0.73528, 0.383665, 0.558715, 0.661374, -0.22598, -0.715203, -0.14814, 0.895396, -0.419905, 0, 0, 0 )
 mesh = ExtResource( 1 )
 material/0 = SubResource( 1 )
 script = ExtResource( 5 )
@@ -421,7 +515,12 @@ visibility_aabb = AABB( -26.7493, -28.6637, -27.7267, 54.7799, 57.1227, 54.8217 
 process_material = SubResource( 14 )
 draw_pass_1 = SubResource( 16 )
 
+[node name="Shockwave" type="MeshInstance" parent="Particles"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5 )
+mesh = SubResource( 21 )
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 17 )
 anims/appear = SubResource( 19 )
 anims/disappear = SubResource( 18 )
+anims/explode = SubResource( 24 )

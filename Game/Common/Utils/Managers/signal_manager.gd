@@ -25,6 +25,8 @@ signal wall_broken
 #==== VISUALS =====
 #warning-ignore:UNUSED_SIGNAL
 signal sequencer_step(id)
+#warning-ignore:UNUSED_SIGNAL
+signal trigger_entity_animation(animation)
 
 #==== OPTIONS =====
 #warning-ignore:UNUSED_SIGNAL
@@ -37,7 +39,6 @@ signal save_cfg_popup(cfg_path, cfg_name, cfg)
 signal add_cfg_popup(cfg_path, cfg)
 
 ##### VARIABLES #####
-# Note : Using this in this script creates a warning that signals are declared but unused
 #==== PLAYER =====
 const RESPAWN_PLAYER_ON_LAST_CP := "respawn_player_on_last_cp"
 const TRIGGER_TUTORIAL := "trigger_tutorial"
@@ -52,6 +53,7 @@ const WALL_BROKEN := "wall_broken"
 
 #==== VISUALS =====
 const SEQUENCER_STEP := "sequencer_step"
+const TRIGGER_ENTITY_ANIMATION := "trigger_entity_animation"
 
 #==== OPTIONS =====
 const CHANGE_KEY_POPUP := "change_key_popup"
@@ -99,6 +101,10 @@ func emit_wall_broken() -> void:
 #==== VISUALS =====
 func emit_sequencer_step(id: String) -> void:
 	emit_signal(SEQUENCER_STEP, id)
+
+
+func emit_trigger_entity_animation(animation: String) -> void:
+	emit_signal(TRIGGER_ENTITY_ANIMATION, animation)
 
 
 #==== SETTINGS =====
