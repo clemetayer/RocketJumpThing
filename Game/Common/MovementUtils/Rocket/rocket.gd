@@ -44,7 +44,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _physics_process(delta):
 	_check_raycast_distance(onready_paths.raycast)
 	if _translate:
 		translate_object_local(Vector3(0, 0, 1) * _speed * delta)

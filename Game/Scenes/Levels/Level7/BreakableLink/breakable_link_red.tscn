@@ -1,0 +1,160 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Game/Common/Shaders/ChangeAlbedo/particles_albedo_emit.tres" type="Shader" id=1]
+[ext_resource path="res://Game/Scenes/Levels/Level7/BreakableLink/breakable_link_red.gd" type="Script" id=2]
+
+[sub_resource type="Gradient" id=127]
+resource_local_to_scene = true
+interpolation_mode = 2
+offsets = PoolRealArray( 0, 0.216842, 0.516129, 0.837895, 1 )
+colors = PoolColorArray( 0.847059, 0, 0.027451, 1, 0.584314, 0.0784314, 0.0784314, 1, 0.396078, 0.658824, 1, 1, 0.584314, 0.0784314, 0.0784314, 1, 0.847059, 0, 0.027451, 1 )
+
+[sub_resource type="GradientTexture" id=128]
+resource_local_to_scene = true
+gradient = SubResource( 127 )
+width = 255
+
+[sub_resource type="Curve" id=6]
+_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.10166, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.90249, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=7]
+curve = SubResource( 6 )
+
+[sub_resource type="ParticlesMaterial" id=129]
+resource_local_to_scene = true
+emission_shape = 2
+emission_box_extents = Vector3( 1, 1, 7.9959 )
+direction = Vector3( 0, 0, -1 )
+spread = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 4.0
+initial_velocity_random = 0.5
+scale = 2.0
+scale_random = 0.5
+scale_curve = SubResource( 7 )
+color_ramp = SubResource( 128 )
+
+[sub_resource type="ShaderMaterial" id=5]
+resource_local_to_scene = true
+shader = ExtResource( 1 )
+
+[sub_resource type="CubeMesh" id=130]
+resource_local_to_scene = true
+material = SubResource( 5 )
+size = Vector3( 0.125, 0.125, 0.125 )
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:process_material:radial_accel")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:process_material:spread")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath(".:process_material:initial_velocity")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 4.0 ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "explode"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:process_material:radial_accel")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.9 ),
+"transitions": PoolRealArray( 1.03526, 1, 1 ),
+"update": 0,
+"values": [ 0.0, -120.0, 120.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:process_material:spread")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 180.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath(".:process_material:initial_velocity")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 4.0, 50.0 ]
+}
+
+[node name="BreakableLink" type="Spatial" groups=["breakable_link_red"]]
+script = ExtResource( 2 )
+
+[node name="Particles" type="Particles" parent="."]
+transform = Transform( -0.0203707, -0.515431, -0.856689, 0, 0.856867, -0.515538, 0.999793, -0.0105019, -0.0174549, 0, 0, 0 )
+amount = 64
+process_material = SubResource( 129 )
+draw_pass_1 = SubResource( 130 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Particles")
+anims/RESET = SubResource( 3 )
+anims/explode = SubResource( 4 )

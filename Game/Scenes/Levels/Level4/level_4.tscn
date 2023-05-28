@@ -1555,7 +1555,7 @@ properties = {
 }
 
 [node name="entity_2_Boost_Area" parent="QodotMap" instance=ExtResource( 26 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.125, 1.125, 0.125 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.125, 1.125, 0.125 )
 properties = {
 "classname": "Boost_Area",
 "collision_layer": "2",
@@ -1568,7 +1568,7 @@ properties = {
 }
 
 [node name="entity_3_Boost_Area" parent="QodotMap" instance=ExtResource( 26 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.125, 17.125, 0.125 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.125, 17.125, 0.125 )
 properties = {
 "classname": "Boost_Area",
 "collision_layer": "2",
@@ -1581,7 +1581,7 @@ properties = {
 }
 
 [node name="entity_4_Boost_Area" parent="QodotMap" instance=ExtResource( 26 )]
-transform = Transform( -4.37114e-08, -0.5, -0.866025, 0, 0.866025, -0.5, 1, -2.18557e-08, -3.78552e-08, -0.125, 31.125, 0.125 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.125, 31.125, 0.125 )
 properties = {
 "angle": "0 0 25",
 "classname": "Boost_Area",
@@ -1880,7 +1880,7 @@ mesh = SubResource( 248 )
 shape = SubResource( 249 )
 
 [node name="entity_18_Boost_Pad" parent="QodotMap" instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -142.125, 63.125, 98.125 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -142.125, 63.125, 98.125 )
 properties = {
 "classname": "Boost_Pad",
 "collision_layer": "2",
@@ -1906,7 +1906,7 @@ mesh = SubResource( 250 )
 shape = SubResource( 251 )
 
 [node name="entity_20_Boost_Pad" parent="QodotMap" instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -158.125, 75.125, 98.125 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -158.125, 75.125, 98.125 )
 properties = {
 "classname": "Boost_Pad",
 "collision_layer": "2",
@@ -1945,7 +1945,7 @@ mesh = SubResource( 254 )
 shape = SubResource( 255 )
 
 [node name="entity_23_Boost_Pad" parent="QodotMap" instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -142.125, 99.125, 82.125 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -142.125, 99.125, 82.125 )
 properties = {
 "classname": "Boost_Pad",
 "collision_layer": "2",
@@ -2374,7 +2374,7 @@ mesh = SubResource( 318 )
 shape = SubResource( 319 )
 
 [node name="entity_45_Boost_Pad" parent="QodotMap" instance=ExtResource( 8 )]
-transform = Transform( -4.37114e-08, -0.5, -0.866025, 0, 0.866025, -0.5, 1, -2.18557e-08, -3.78552e-08, -174.875, 138.375, -72.375 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -174.875, 138.375, -72.375 )
 properties = {
 "classname": "Boost_Pad",
 "collision_layer": "2",
@@ -2446,7 +2446,7 @@ mesh = SubResource( 324 )
 shape = SubResource( 325 )
 
 [node name="entity_49_Boost_Pad" parent="QodotMap" instance=ExtResource( 8 )]
-transform = Transform( -4.37114e-08, 0.5, 0.866025, 0, 0.866025, -0.5, -1, -2.18557e-08, -3.78552e-08, -206.125, 149.375, -72.625 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -206.125, 149.375, -72.625 )
 properties = {
 "classname": "Boost_Pad",
 "collision_layer": "2",
@@ -2515,7 +2515,7 @@ properties = {
 }
 
 [node name="entity_54_Boost_Pad" parent="QodotMap" instance=ExtResource( 8 )]
-transform = Transform( -1, -6.18172e-08, -6.18172e-08, 0, 0.707107, -0.707107, 8.74228e-08, -0.707107, -0.707107, -122.875, 75.125, 45.125 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -122.875, 75.125, 45.125 )
 properties = {
 "classname": "Boost_Pad",
 "collision_layer": "2",
@@ -5604,7 +5604,7 @@ shape = SubResource( 432 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 154, -178.5, 1.875 )
 
 [node name="entity_338_Boost_Pad" parent="QodotMap" instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -158.125, 87.125, 82.125 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -158.125, 87.125, 82.125 )
 properties = {
 "classname": "Boost_Pad",
 "collision_layer": "2",

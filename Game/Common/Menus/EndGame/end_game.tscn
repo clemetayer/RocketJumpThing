@@ -1,0 +1,271 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Game/Common/Menus/EndGame/ASCIIArtGenerator.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Game/Common/Menus/EndGame/qodot_icon_resized.png" type="Texture" id=2]
+[ext_resource path="res://Game/Common/Menus/EndGame/lmms-icon.png" type="Texture" id=3]
+[ext_resource path="res://Game/Common/Menus/EndGame/icon_outline.png" type="Texture" id=4]
+[ext_resource path="res://Game/Common/Menus/EndGame/trenchbroom_logo_resized.png" type="Texture" id=5]
+
+[node name="EndGame" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="Texts" type="ScrollContainer" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+follow_focus = true
+scroll_horizontal_enabled = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Texts"]
+margin_right = 1024.0
+margin_bottom = 68.0
+size_flags_horizontal = 3
+
+[node name="SimulationCompletedText" type="Label" parent="CanvasLayer/Texts/VBoxContainer"]
+visible = false
+margin_right = 1024.0
+margin_bottom = 14.0
+text = "simulation completed"
+
+[node name="Test1Time" type="RichTextLabel" parent="CanvasLayer/Texts/VBoxContainer"]
+visible = false
+margin_top = 18.0
+margin_right = 1024.0
+margin_bottom = 33.0
+rect_min_size = Vector2( 300, 15 )
+bbcode_enabled = true
+bbcode_text = "Test 1 - [color=#00ff00]PASSED[/color] - [color=#00ffff]00:00.000[/color]"
+text = "Test 1 - PASSED - 00:00.000"
+
+[node name="Test2Time" type="RichTextLabel" parent="CanvasLayer/Texts/VBoxContainer"]
+visible = false
+margin_top = 37.0
+margin_right = 1024.0
+margin_bottom = 52.0
+rect_min_size = Vector2( 300, 15 )
+bbcode_enabled = true
+bbcode_text = "Test 2 - [color=#00ff00]PASSED[/color] - [color=#00ffff]00:00.000[/color]"
+text = "Test 2 - PASSED - 00:00.000"
+
+[node name="Test3Time" type="RichTextLabel" parent="CanvasLayer/Texts/VBoxContainer"]
+visible = false
+margin_top = 56.0
+margin_right = 1024.0
+margin_bottom = 71.0
+rect_min_size = Vector2( 300, 15 )
+bbcode_enabled = true
+bbcode_text = "Test 3 - [color=#00ff00]PASSED[/color] - [color=#00ffff]00:00.000[/color]"
+text = "Test 3 - PASSED - 00:00.000"
+
+[node name="Test4Time" type="RichTextLabel" parent="CanvasLayer/Texts/VBoxContainer"]
+visible = false
+margin_top = 75.0
+margin_right = 1024.0
+margin_bottom = 90.0
+rect_min_size = Vector2( 300, 15 )
+bbcode_enabled = true
+bbcode_text = "Test 4 - [color=#00ff00]PASSED[/color] - [color=#00ffff]00:00.000[/color]"
+text = "Test 4 - PASSED - 00:00.000"
+
+[node name="Test5Time" type="RichTextLabel" parent="CanvasLayer/Texts/VBoxContainer"]
+visible = false
+margin_top = 94.0
+margin_right = 1024.0
+margin_bottom = 109.0
+rect_min_size = Vector2( 300, 15 )
+bbcode_enabled = true
+bbcode_text = "Test 5 - [color=#00ff00]PASSED[/color] - [color=#00ffff]00:00.000[/color]"
+text = "Test 5 - PASSED - 00:00.000"
+
+[node name="Test6Time" type="RichTextLabel" parent="CanvasLayer/Texts/VBoxContainer"]
+visible = false
+margin_top = 113.0
+margin_right = 1024.0
+margin_bottom = 128.0
+rect_min_size = Vector2( 300, 15 )
+bbcode_enabled = true
+bbcode_text = "Test 6 - [color=#00ff00]PASSED[/color] - [color=#00ffff]00:00.000[/color]"
+text = "Test 6 - PASSED - 00:00.000"
+
+[node name="Test7Time" type="RichTextLabel" parent="CanvasLayer/Texts/VBoxContainer"]
+visible = false
+margin_top = 132.0
+margin_right = 1024.0
+margin_bottom = 147.0
+rect_min_size = Vector2( 300, 15 )
+bbcode_enabled = true
+bbcode_text = "Test 7 - [color=#00ff00]PASSED[/color] - [color=#00ffff]00:00.000[/color]"
+text = "Test 7 - PASSED - 00:00.000"
+
+[node name="TotalTimeSeparator" type="Label" parent="CanvasLayer/Texts/VBoxContainer"]
+visible = false
+margin_top = 151.0
+margin_right = 1024.0
+margin_bottom = 165.0
+text = "----------- RESULTS ------------"
+
+[node name="TestsResults" type="RichTextLabel" parent="CanvasLayer/Texts/VBoxContainer"]
+visible = false
+margin_top = 169.0
+margin_right = 1024.0
+margin_bottom = 184.0
+rect_min_size = Vector2( 300, 15 )
+bbcode_enabled = true
+bbcode_text = "[color=#00ff00]ALL PASSED[/color] - [color=#00ffff]00:00.000[/color]"
+text = "ALL PASSED - 00:00.000"
+
+[node name="Appreciation" type="RichTextLabel" parent="CanvasLayer/Texts/VBoxContainer"]
+visible = false
+margin_top = 188.0
+margin_right = 1024.0
+margin_bottom = 203.0
+rect_min_size = Vector2( 300, 15 )
+bbcode_enabled = true
+bbcode_text = "[wave]Nice ![/wave]"
+text = "Nice !"
+
+[node name="CreditsLoader" type="Label" parent="CanvasLayer/Texts/VBoxContainer"]
+visible = false
+margin_top = 207.0
+margin_right = 1024.0
+margin_bottom = 221.0
+text = "Loading credits . . ."
+
+[node name="GameMadeByMe" type="Label" parent="CanvasLayer/Texts/VBoxContainer"]
+visible = false
+margin_top = 225.0
+margin_right = 1024.0
+margin_bottom = 239.0
+text = "A game made by clemetayer"
+align = 1
+
+[node name="GodotEngine" type="CenterContainer" parent="CanvasLayer/Texts/VBoxContainer"]
+visible = false
+margin_top = 243.0
+margin_right = 1012.0
+margin_bottom = 761.0
+
+[node name="GodotVBox" type="VBoxContainer" parent="CanvasLayer/Texts/VBoxContainer/GodotEngine"]
+margin_left = 256.0
+margin_right = 756.0
+margin_bottom = 518.0
+
+[node name="GameMadeWith" type="Label" parent="CanvasLayer/Texts/VBoxContainer/GodotEngine/GodotVBox"]
+margin_right = 500.0
+margin_bottom = 14.0
+text = "With the Godot game engine"
+align = 1
+
+[node name="ASCIIArtGenerator" parent="CanvasLayer/Texts/VBoxContainer/GodotEngine/GodotVBox" instance=ExtResource( 1 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 0.0
+margin_top = 18.0
+margin_right = 500.0
+margin_bottom = 518.0
+texture = ExtResource( 4 )
+
+[node name="LMMS" type="CenterContainer" parent="CanvasLayer/Texts/VBoxContainer"]
+visible = false
+margin_top = 765.0
+margin_right = 1012.0
+margin_bottom = 1295.0
+
+[node name="LMMSVBox" type="VBoxContainer" parent="CanvasLayer/Texts/VBoxContainer/LMMS"]
+margin_left = 250.0
+margin_right = 762.0
+margin_bottom = 530.0
+
+[node name="MusicSoundsWith" type="Label" parent="CanvasLayer/Texts/VBoxContainer/LMMS/LMMSVBox"]
+margin_right = 512.0
+margin_bottom = 14.0
+text = "Music and sounds made with LMMS"
+align = 1
+
+[node name="ASCIIArtGenerator" parent="CanvasLayer/Texts/VBoxContainer/LMMS/LMMSVBox" instance=ExtResource( 1 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 0.0
+margin_top = 18.0
+margin_bottom = 530.0
+texture = ExtResource( 3 )
+
+[node name="LevelDesignTools" type="CenterContainer" parent="CanvasLayer/Texts/VBoxContainer"]
+visible = false
+margin_top = 1299.0
+margin_right = 1012.0
+margin_bottom = 1817.0
+
+[node name="LevelDesignToolsVBox" type="VBoxContainer" parent="CanvasLayer/Texts/VBoxContainer/LevelDesignTools"]
+margin_left = 4.0
+margin_right = 1008.0
+margin_bottom = 518.0
+
+[node name="Level design tools" type="Label" parent="CanvasLayer/Texts/VBoxContainer/LevelDesignTools/LevelDesignToolsVBox"]
+margin_right = 1004.0
+margin_bottom = 14.0
+text = "Levels made with Trenchbroom/Qodot"
+align = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Texts/VBoxContainer/LevelDesignTools/LevelDesignToolsVBox"]
+margin_top = 18.0
+margin_right = 1004.0
+margin_bottom = 518.0
+alignment = 1
+
+[node name="ASCIIArtGenerator" parent="CanvasLayer/Texts/VBoxContainer/LevelDesignTools/LevelDesignToolsVBox/HBoxContainer" instance=ExtResource( 1 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 500.0
+margin_bottom = 500.0
+texture = ExtResource( 5 )
+
+[node name="ASCIIArtGenerator2" parent="CanvasLayer/Texts/VBoxContainer/LevelDesignTools/LevelDesignToolsVBox/HBoxContainer" instance=ExtResource( 1 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 504.0
+margin_top = 0.0
+margin_right = 1004.0
+margin_bottom = 500.0
+texture = ExtResource( 2 )
+
+[node name="Icons" type="Label" parent="CanvasLayer/Texts/VBoxContainer"]
+margin_right = 1024.0
+margin_bottom = 14.0
+text = "Icons by Kenney : https://kenney.nl/assets/game-icons"
+
+[node name="UnitTests" type="Label" parent="CanvasLayer/Texts/VBoxContainer"]
+margin_top = 18.0
+margin_right = 1024.0
+margin_bottom = 32.0
+text = "Other tools used : GDUnit3, Godot-Stuff Logger, DebugDraw"
+
+[node name="AndYou" type="Label" parent="CanvasLayer/Texts/VBoxContainer"]
+margin_top = 36.0
+margin_right = 1024.0
+margin_bottom = 50.0
+text = "And you !"
+
+[node name="RestartingSimulation" type="Label" parent="CanvasLayer/Texts/VBoxContainer"]
+margin_top = 54.0
+margin_right = 1024.0
+margin_bottom = 68.0
+text = "Restarting simulation . . ."
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true

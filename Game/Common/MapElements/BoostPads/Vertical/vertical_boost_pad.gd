@@ -1,4 +1,3 @@
-tool
 extends VerticalBoost
 # Area that pushes the player up like a bumper
 

@@ -34,6 +34,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Game/Common/MapElements/Breakables/Walls/breakable_area.gd"
 }, {
+"base": "Spatial",
+"class": "BreakableLink",
+"language": "GDScript",
+"path": "res://Game/Common/MapElements/Breakables/breakable_link.gd"
+}, {
 "base": "ValueProvider",
 "class": "CallBackValueProvider",
 "language": "GDScript",
@@ -995,6 +1000,11 @@ _global_script_classes=[ {
 "path": "res://Game/Common/Utils/Resources/sequencer_steps.gd"
 }, {
 "base": "Resource",
+"class": "ShakeVariable",
+"language": "GDScript",
+"path": "res://Game/Common/Utils/Resources/shake_variable.gd"
+}, {
+"base": "Resource",
 "class": "SignalHandler",
 "language": "GDScript",
 "path": "res://addons/gdUnit3/src/core/event/SignalHandler.gd"
@@ -1028,6 +1038,11 @@ _global_script_classes=[ {
 "class": "SpatialStepSequencer",
 "language": "GDScript",
 "path": "res://Game/Common/Utils/StepSequencer/Spatial/spatial_step_sequencer.gd"
+}, {
+"base": "Collidable",
+"class": "StandardDoor",
+"language": "GDScript",
+"path": "res://Game/Common/MapElements/Doors/standard_door.gd"
 }, {
 "base": "Node",
 "class": "StandardScene",
@@ -1119,6 +1134,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/gdUnit3/src/asserts/ValueProvider.gd"
 }, {
+"base": "Node",
+"class": "VariableShaker",
+"language": "GDScript",
+"path": "res://Game/Common/Utils/var_shaker.gd"
+}, {
 "base": "Fuzzer",
 "class": "Vector2Fuzzer",
 "language": "GDScript",
@@ -1170,6 +1190,7 @@ _global_script_class_icons={
 "AnyClazzArgumentMatcher": "",
 "Appender": "",
 "BreakableArea": "",
+"BreakableLink": "",
 "CallBackValueProvider": "",
 "ChainedArgumentMatcher": "",
 "Checkpoint": "",
@@ -1362,6 +1383,7 @@ _global_script_class_icons={
 "SequencerStepDataItemPulse": "",
 "SequencerStepDataItemTween": "",
 "SequencerSteps": "",
+"ShakeVariable": "",
 "SignalHandler": "",
 "SlimeLayer": "",
 "Song": "",
@@ -1369,6 +1391,7 @@ _global_script_class_icons={
 "SongManager": "",
 "SongSimple": "",
 "SpatialStepSequencer": "",
+"StandardDoor": "",
 "StandardScene": "",
 "StandardSceneTest": "",
 "StaticBodyGroupSolidEntity": "",
@@ -1387,6 +1410,7 @@ _global_script_class_icons={
 "TrenchBroomTag": "",
 "Utils": "",
 "ValueProvider": "",
+"VariableShaker": "",
 "Vector2Fuzzer": "",
 "Vector3Fuzzer": "",
 "VerticalBoost": "",
@@ -1419,6 +1443,7 @@ DebugDraw="*res://Game/Common/Utils/Debug/debug_draw.gd"
 CameraUtils="*res://Game/Common/Utils/Camera/camera_utils.gd"
 ScenesManager="*res://Game/Common/Utils/Managers/scenes_manager.gd"
 RuntimeUtils="*res://Game/Common/Utils/runtime_utils.gd"
+GlobalScreenEffects="*res://Game/Common/Shaders/GlobalScreenEffects/global_screen_effects.tscn"
 
 [debug]
 

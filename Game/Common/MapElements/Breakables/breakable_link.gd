@@ -1,5 +1,6 @@
 tool
 extends Spatial
+class_name BreakableLink
 # a link to something with a breaking animation
 
 ##### VARIABLES #####

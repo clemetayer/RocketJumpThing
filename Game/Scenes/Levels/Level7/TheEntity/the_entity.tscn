@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=70 format=2]
 
 [ext_resource path="res://Game/Scenes/Levels/Level7/TheEntity/entity_mesh_instance_v2.tres" type="ArrayMesh" id=1]
 [ext_resource path="res://Misc/Particles/kenney_particle_pack/PNG (Transparent)/spark_01.png" type="Texture" id=2]
@@ -6,10 +6,443 @@
 [ext_resource path="res://Game/Scenes/Levels/Level7/TheEntity/the_entity.gd" type="Script" id=4]
 [ext_resource path="res://Game/Scenes/Levels/Level7/TheEntity/armor.gd" type="Script" id=5]
 [ext_resource path="res://Misc/Particles/kenney_particle_pack/PNG (Transparent)/trace_06.png" type="Texture" id=6]
+[ext_resource path="res://Misc/Particles/kenney_particle_pack/PNG (Transparent)/star_01.png" type="Texture" id=7]
+[ext_resource path="res://Misc/Particles/kenney_particle_pack/PNG (Transparent)/light_03.png" type="Texture" id=8]
+[ext_resource path="res://Misc/Particles/kenney_particle_pack/PNG (Transparent)/star_04.png" type="Texture" id=9]
+[ext_resource path="res://Misc/Particles/kenney_particle_pack/PNG (Transparent)/circle_02.png" type="Texture" id=10]
+[ext_resource path="res://Game/Scenes/Levels/Level7/TheEntity/entity_laser.gd" type="Script" id=11]
+[ext_resource path="res://Game/Scenes/Levels/Level7/TheEntity/laser_target.gd" type="Script" id=12]
+[ext_resource path="res://Misc/UI/Icons/circle.svg" type="Texture" id=13]
 
 [sub_resource type="SpatialMaterial" id=1]
 flags_transparent = true
 albedo_color = Color( 0.847059, 0, 0, 1 )
+
+[sub_resource type="SphereMesh" id=26]
+
+[sub_resource type="SpatialMaterial" id=27]
+flags_transparent = true
+albedo_color = Color( 1, 0.607843, 0, 0.501961 )
+emission_enabled = true
+emission = Color( 1, 0.607843, 0, 1 )
+emission_energy = 1.0
+emission_operator = 0
+emission_on_uv2 = false
+
+[sub_resource type="Gradient" id=31]
+colors = PoolColorArray( 1, 0.960784, 0, 1, 1, 0, 0, 1 )
+
+[sub_resource type="GradientTexture" id=32]
+gradient = SubResource( 31 )
+
+[sub_resource type="ParticlesMaterial" id=28]
+direction = Vector3( 1, 1, 1 )
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 2.0
+angular_velocity = 100.0
+tangential_accel = 40.0
+color_ramp = SubResource( 32 )
+
+[sub_resource type="SpatialMaterial" id=29]
+flags_transparent = true
+flags_unshaded = true
+vertex_color_use_as_albedo = true
+params_billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+albedo_texture = ExtResource( 7 )
+
+[sub_resource type="QuadMesh" id=30]
+material = SubResource( 29 )
+size = Vector2( 3, 3 )
+
+[sub_resource type="Gradient" id=35]
+colors = PoolColorArray( 1, 0.560784, 0, 1, 1, 1, 1, 1 )
+
+[sub_resource type="GradientTexture" id=36]
+gradient = SubResource( 35 )
+
+[sub_resource type="Curve" id=37]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=38]
+curve = SubResource( 37 )
+
+[sub_resource type="ParticlesMaterial" id=39]
+scale = 5.0
+scale_curve = SubResource( 38 )
+color_ramp = SubResource( 36 )
+
+[sub_resource type="SpatialMaterial" id=33]
+flags_transparent = true
+flags_unshaded = true
+flags_do_not_receive_shadows = true
+vertex_color_use_as_albedo = true
+params_billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+albedo_texture = ExtResource( 8 )
+
+[sub_resource type="QuadMesh" id=34]
+material = SubResource( 33 )
+
+[sub_resource type="SpatialMaterial" id=40]
+flags_transparent = true
+albedo_color = Color( 1, 0.760784, 0.709804, 0.501961 )
+emission_enabled = true
+emission = Color( 1, 0.172549, 0, 1 )
+emission_energy = 4.0
+emission_operator = 0
+emission_on_uv2 = false
+
+[sub_resource type="CylinderMesh" id=56]
+material = SubResource( 40 )
+top_radius = 0.5
+bottom_radius = 0.5
+height = 18.0677
+
+[sub_resource type="CylinderShape" id=47]
+height = 18.0677
+
+[sub_resource type="Gradient" id=42]
+colors = PoolColorArray( 1, 1, 0, 1, 1, 0.717647, 0.47451, 1 )
+
+[sub_resource type="GradientTexture" id=43]
+gradient = SubResource( 42 )
+
+[sub_resource type="ParticlesMaterial" id=44]
+emission_shape = 2
+emission_box_extents = Vector3( 1, 1, 9.03384 )
+direction = Vector3( 1, 1, 1 )
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 8.0
+angular_velocity = 75.0
+angular_velocity_random = 1.0
+linear_accel = 4.0
+radial_accel = 2.0
+tangential_accel = 5.0
+angle = 720.0
+angle_random = 1.0
+scale = 1.1
+scale_random = 1.0
+color_ramp = SubResource( 43 )
+
+[sub_resource type="SpatialMaterial" id=45]
+flags_transparent = true
+flags_unshaded = true
+vertex_color_use_as_albedo = true
+params_billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+albedo_texture = ExtResource( 9 )
+
+[sub_resource type="QuadMesh" id=46]
+material = SubResource( 45 )
+size = Vector2( 3, 3 )
+
+[sub_resource type="Gradient" id=52]
+colors = PoolColorArray( 1, 0.686275, 0.447059, 1, 0.631373, 0.0313726, 0.0313726, 1 )
+
+[sub_resource type="GradientTexture" id=53]
+gradient = SubResource( 52 )
+
+[sub_resource type="Curve" id=54]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.249406, 0.603409 ), 0.0, 0.0, 0, 0, Vector2( 0.503563, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.755344, 0.639773 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=55]
+curve = SubResource( 54 )
+
+[sub_resource type="ParticlesMaterial" id=49]
+direction = Vector3( 0, 0, -1 )
+spread = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 80.0
+scale_curve = SubResource( 55 )
+color_ramp = SubResource( 53 )
+
+[sub_resource type="SpatialMaterial" id=50]
+flags_transparent = true
+flags_unshaded = true
+flags_disable_ambient_light = true
+vertex_color_use_as_albedo = true
+params_billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+albedo_texture = ExtResource( 10 )
+
+[sub_resource type="QuadMesh" id=51]
+material = SubResource( 50 )
+size = Vector2( 4, 4 )
+
+[sub_resource type="Animation" id=57]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("ChargeBall:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("LaserMesh:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("LaserShape:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("FireParticles:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("FireParticles2:emitting")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("ChargeParticles1:emitting")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("ChargeParticles2:emitting")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Target:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath(".:monitoring")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath(".:monitorable")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=58]
+resource_name = "fire"
+length = 8.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("ChargeBall:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [ true ],
+"method": "toggle_update_rotation"
+}, {
+"args": [ false ],
+"method": "toggle_update_rotation"
+} ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("LaserMesh:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 5, 8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("LaserShape:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 5, 8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("FireParticles:emitting")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 5, 8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("FireParticles2:emitting")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 5, 8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("ChargeParticles1:emitting")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("ChargeParticles2:emitting")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Target:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath(".:monitoring")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath(".:monitorable")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 
 [sub_resource type="SphereMesh" id=2]
 radius = 2.0
@@ -277,6 +710,54 @@ tracks/7/keys = {
 "update": 0,
 "values": [ 0.725 ]
 }
+tracks/8/type = "value"
+tracks/8/path = NodePath("Eye/MeshInstance2:translation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Eye:translation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Armor:translation")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Particles/Shockwave:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
 
 [sub_resource type="Animation" id=19]
 resource_name = "appear"
@@ -363,6 +844,33 @@ tracks/6/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ false, true ]
+}
+
+[sub_resource type="Animation" id=59]
+resource_name = "destroy"
+length = 6.0
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2, 4, 6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"values": [ {
+"args": [ 2, 15, 100.0 ],
+"method": "shake_meshes"
+}, {
+"args": [ 2, 20, 200.0 ],
+"method": "shake_meshes"
+}, {
+"args": [ 2, 30, 400.0 ],
+"method": "shake_meshes"
+}, {
+"args": [  ],
+"method": "disappear"
+} ]
 }
 
 [sub_resource type="Animation" id=18]
@@ -454,8 +962,7 @@ tracks/6/keys = {
 
 [sub_resource type="Animation" id=24]
 resource_name = "explode"
-length = 1.5
-loop = true
+length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Particles/Shockwave:mesh:material:shader_param/anim_progress")
 tracks/0/interp = 1
@@ -468,17 +975,133 @@ tracks/0/keys = {
 "update": 0,
 "values": [ 0.0, 1.0 ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("Particles/Shockwave:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=25]
+resource_name = "hurt"
+length = 3.0
+step = 0.05
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 3, 15, 100.0 ],
+"method": "shake_meshes"
+} ]
+}
 
 [node name="TheEntity" type="Spatial" groups=["the_entity"]]
 script = ExtResource( 4 )
 
 [node name="Armor" type="MeshInstance" parent="."]
-transform = Transform( 0.73528, 0.383665, 0.558715, 0.661374, -0.22598, -0.715203, -0.14814, 0.895396, -0.419905, 0, 0, 0 )
+transform = Transform( 0.290292, 0.91462, -0.281422, -0.956917, 0.279331, -0.0792555, 0.00612117, 0.292305, 0.956305, 0, 0, 0 )
 mesh = ExtResource( 1 )
 material/0 = SubResource( 1 )
 script = ExtResource( 5 )
 
+[node name="MockPlayerPos" type="Position3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -24.1631, -9.77177, -21.9457 )
+
+[node name="Laser" type="Area" parent="."]
+transform = Transform( 0.672323, -0.212299, 0.70916, 0, 0.957993, 0.286791, -0.740255, -0.192816, 0.644082, 0, 0, 0 )
+collision_mask = 6
+monitoring = false
+monitorable = false
+script = ExtResource( 11 )
+
+[node name="ChargeBall" type="MeshInstance" parent="Laser"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7 )
+visible = false
+mesh = SubResource( 26 )
+material/0 = SubResource( 27 )
+
+[node name="ChargeParticles1" type="Particles" parent="Laser"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7 )
+emitting = false
+amount = 32
+lifetime = 0.5
+visibility_aabb = AABB( -5.82821, -4.00316, -5.73714, 11.5918, 8.09503, 11.4704 )
+process_material = SubResource( 28 )
+draw_pass_1 = SubResource( 30 )
+
+[node name="ChargeParticles2" type="Particles" parent="Laser"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7 )
+emitting = false
+amount = 3
+lifetime = 0.5
+process_material = SubResource( 39 )
+draw_pass_1 = SubResource( 34 )
+
+[node name="LaserMesh" type="MeshInstance" parent="Laser"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -10.5 )
+visible = false
+mesh = SubResource( 56 )
+
+[node name="LaserShape" type="CollisionShape" parent="Laser"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -10.5 )
+visible = false
+shape = SubResource( 47 )
+
+[node name="FireParticles" type="Particles" parent="Laser"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10.5 )
+emitting = false
+amount = 69
+lifetime = 0.15
+visibility_aabb = AABB( -4, -4, -3.5, 8, 8, 7 )
+process_material = SubResource( 44 )
+draw_pass_1 = SubResource( 46 )
+
+[node name="FireParticles2" type="Particles" parent="Laser"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7 )
+emitting = false
+amount = 25
+lifetime = 0.0874999
+visibility_aabb = AABB( -3, -3, -3.5, 6, 6, 7 )
+process_material = SubResource( 49 )
+draw_pass_1 = SubResource( 51 )
+
+[node name="Target" type="Sprite3D" parent="Laser"]
+transform = Transform( 0.672325, 2.93856e-08, -0.740258, -0.212299, 0.957994, -0.192816, 0.709161, 0.28679, 0.644082, 0, 0, 0 )
+visible = false
+modulate = Color( 1, 0.74902, 0, 1 )
+texture = ExtResource( 13 )
+script = ExtResource( 12 )
+
+[node name="RayCast" type="RayCast" parent="Laser"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7 )
+enabled = true
+cast_to = Vector3( 0, 0, -200 )
+collision_mask = 10
+debug_shape_custom_color = Color( 0, 1, 0.905882, 1 )
+debug_shape_thickness = 5
+
+[node name="UpdateRaycastTimer" type="Timer" parent="Laser"]
+wait_time = 0.1
+autostart = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Laser"]
+anims/RESET = SubResource( 57 )
+anims/fire = SubResource( 58 )
+
 [node name="Eye" type="Spatial" parent="."]
+transform = Transform( 0.672323, -0.212299, 0.70916, 0, 0.957993, 0.286791, -0.740255, -0.192816, 0.644082, 0, 0, 0 )
 
 [node name="MeshInstance2" type="MeshInstance" parent="Eye"]
 mesh = SubResource( 2 )
@@ -516,11 +1139,23 @@ process_material = SubResource( 14 )
 draw_pass_1 = SubResource( 16 )
 
 [node name="Shockwave" type="MeshInstance" parent="Particles"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5 )
 mesh = SubResource( 21 )
+
+[node name="ShakeMeshes" type="Node" parent="."]
+
+[node name="ShakeMeshesTween" type="Tween" parent="ShakeMeshes"]
+
+[node name="DurationTimer" type="Timer" parent="ShakeMeshes"]
+
+[node name="FrequencyTimer" type="Timer" parent="ShakeMeshes"]
+
+[node name="FireLaserTimeout" type="Timer" parent="."]
+wait_time = 4.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 17 )
 anims/appear = SubResource( 19 )
+anims/destroy = SubResource( 59 )
 anims/disappear = SubResource( 18 )
 anims/explode = SubResource( 24 )
+anims/hurt = SubResource( 25 )

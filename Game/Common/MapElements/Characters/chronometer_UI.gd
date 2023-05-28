@@ -38,8 +38,8 @@ func _connect_signals() -> void:
 func _update_timer(delta: float) -> void:
 	if !_timer_stopped:
 		_last_time += delta * 1000
-		var millis = fmod(_last_time,1000)
-		var seconds = floor(fmod((_last_time / 1000),60))
+		var millis = fmod(_last_time, 1000)
+		var seconds = floor(fmod(_last_time / 1000, 60))
 		var minutes = floor(_last_time / (1000 * 60))
 		if onready_paths.rich_text_label != null:
 			onready_paths.rich_text_label.set_bbcode(

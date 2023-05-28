@@ -1,9 +1,10 @@
-[gd_resource type="Resource" load_steps=5 format=2]
+[gd_resource type="Resource" load_steps=6 format=2]
 
 [ext_resource path="res://trenchbroom/Entities/BaseClasses/collidable.tres" type="Resource" id=1]
 [ext_resource path="res://addons/qodot/src/resources/game-definitions/fgd/qodot_fgd_solid_class.gd" type="Script" id=2]
 [ext_resource path="res://Game/Common/MapElements/Doors/standard_door.gd" type="Script" id=3]
 [ext_resource path="res://trenchbroom/Entities/BaseClasses/target.tres" type="Resource" id=4]
+[ext_resource path="res://trenchbroom/Entities/Doors/standard_door_base.tres" type="Resource" id=5]
 
 [resource]
 script = ExtResource( 2 )
@@ -11,16 +12,10 @@ class_options = "---------------------------------------------------------------
 classname = "Doors_StandardDoor"
 description = "A standard door that can just be opened"
 qodot_internal = false
-base_classes = [ ExtResource( 1 ), ExtResource( 4 ) ]
+base_classes = [ ExtResource( 1 ), ExtResource( 4 ), ExtResource( 5 ) ]
 class_properties = {
-"free_on_open": 0,
-"open_position": Vector3( 0, 0, 0 ),
-"open_time": 0.5
 }
 class_property_descriptions = {
-"free_on_open": "If the door should queue_free when opened (boolean)",
-"open_position": "Position where the door should translate to from the current position to open",
-"open_time": "Time to get to the open_position"
 }
 meta_properties = {
 "color": Color( 0.8, 0.8, 0.8, 1 ),

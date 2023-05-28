@@ -1,0 +1,37 @@
+[gd_resource type="Resource" load_steps=5 format=2]
+
+[ext_resource path="res://addons/qodot/src/resources/game-definitions/fgd/qodot_fgd_solid_class.gd" type="Script" id=1]
+[ext_resource path="res://trenchbroom/Entities/BaseClasses/trigger.tres" type="Resource" id=2]
+[ext_resource path="res://trenchbroom/Entities/BaseClasses/collidable.tres" type="Resource" id=3]
+[ext_resource path="res://Game/Common/MapElements/Breakables/Walls/breakable_area_laser.gd" type="Script" id=4]
+
+[resource]
+script = ExtResource( 1 )
+class_options = "----------------------------------------------------------------"
+classname = "Breakables_Area_Laser"
+description = "An area used to trigger the break of a wall if a rocket touches it"
+qodot_internal = false
+base_classes = [ ExtResource( 3 ), ExtResource( 2 ) ]
+class_properties = {
+"mangle": Vector3( 0, 0, 0 ),
+"scale": Vector3( 2, 2, 1 )
+}
+class_property_descriptions = {
+"mangle": "direction where the text (or icon will be facing)",
+"scale": "Pretty much the size of the text"
+}
+meta_properties = {
+"color": Color( 0.8, 0.8, 0.8, 1 ),
+"size": AABB( -8, -8, -8, 8, 8, 8 )
+}
+node_options = "----------------------------------------------------------------"
+node_class = "Area"
+transient_node = false
+spawn = "----------------------------------------------------------------"
+spawn_type = 2
+visual_build = "----------------------------------------------------------------"
+build_visuals = true
+collision_build = "----------------------------------------------------------------"
+collision_shape_type = 1
+scripting = "----------------------------------------------------------------"
+script_class = ExtResource( 4 )

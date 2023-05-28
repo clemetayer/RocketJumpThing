@@ -45,6 +45,7 @@ func _connect_signals() -> void:
 
 
 func _init_laser() -> void:
+	add_to_group(GlobalConstants.LASER_GROUP)
 	# sets the general height, etc.
 	onready_paths.collision.shape.height = _max_length
 	onready_paths.collision.shape.radius = _thickness

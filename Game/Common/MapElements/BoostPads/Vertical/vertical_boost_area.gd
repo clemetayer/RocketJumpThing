@@ -1,4 +1,3 @@
-tool
 extends VerticalBoost
 # Area that pushes the player Up like a cool vortex
 

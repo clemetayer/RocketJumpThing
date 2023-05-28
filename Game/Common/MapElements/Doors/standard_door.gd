@@ -1,4 +1,5 @@
 extends Collidable
+class_name StandardDoor
 # Standard door that simply goes to the specified direction on trigger of an external event
 
 ##### ENUMS #####

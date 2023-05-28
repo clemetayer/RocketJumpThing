@@ -20,7 +20,7 @@ rings = 2
 [sub_resource type="CylinderShape" id=2]
 resource_local_to_scene = true
 
-[node name="Laser" type="Area"]
+[node name="Laser" type="Area" groups=["update_editor"]]
 collision_layer = 8
 script = ExtResource( 1 )
 

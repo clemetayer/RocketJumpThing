@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://Game/Scenes/Levels/Level5/BreakableLink/breakable_link.gd" type="Script" id=1]
+[ext_resource path="res://Game/Common/MapElements/Breakables/breakable_link.gd" type="Script" id=1]
 [ext_resource path="res://Game/Common/Shaders/ChangeAlbedo/particles_albedo_emit.tres" type="Shader" id=2]
 
 [sub_resource type="Gradient" id=127]

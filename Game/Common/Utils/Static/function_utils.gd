@@ -120,6 +120,10 @@ static func is_start_point(checkpoint: Area) -> bool:
 	return checkpoint != null && checkpoint.is_in_group(GlobalConstants.START_POINT_GROUP)
 
 
+static func is_laser(laser: Area) -> bool:
+	return laser != null && laser.is_in_group(GlobalConstants.LASER_GROUP)
+
+
 static func is_portal_compatible(element: Node) -> bool:
 	return (
 		element != null

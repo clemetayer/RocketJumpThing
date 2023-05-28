@@ -15,6 +15,7 @@ const MAIN_MENU := "main_menu"
 
 #---- STANDARD -----
 #==== PUBLIC ====
+# TODO : use a resource
 #{
 #	"list1":[
 #		"level1 path",
@@ -28,7 +29,7 @@ var levels = {}  # Dictionnary of levels
 #==== PRIVATE ====
 var _current_level_list: String
 var _current_level_idx := 0
-var _current_scene_instance : Node = null # instance of the current scene
+var _current_scene_instance: Node = null  # instance of the current scene
 
 
 ##### PROCESSING #####
@@ -76,11 +77,18 @@ func next_level() -> void:
 func reload_current() -> void:
 	_switch_to_game_scene(_current_level_list, _current_level_idx)
 
+
 func get_current() -> Node:
 	# if _current_scene_instance != null:
 	# 	return _current_scene_instance
 	# return get_tree().get_current_scene() # for single scene tests, mostly
 	return get_tree().get_current_scene()
+
+
+func load_end() -> void:
+	# TODO : implement this
+	pass
+
 
 ##### PROTECTED METHODS #####
 func _load_levels_json_data() -> void:
@@ -122,9 +130,12 @@ func _switch_to_game_scene(name: String, idx: int) -> void:
 func _goto_scene(path: String) -> void:
 	# call_deferred("deferred_goto_scene", path)
 	if get_tree() != null and get_tree().change_scene(path) != OK:
-		Logger.error("Error while changing scene to %s at %s" % [path,DebugUtils.print_stack_trace(get_stack())])
-
-
+		Logger.error(
+			(
+				"Error while changing scene to %s at %s"
+				% [path, DebugUtils.print_stack_trace(get_stack())]
+			)
+		)
 
 # func deferred_goto_scene(path: String) -> void:
 # 	if get_tree() != null:

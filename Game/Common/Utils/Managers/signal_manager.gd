@@ -38,6 +38,10 @@ signal save_cfg_popup(cfg_path, cfg_name, cfg)
 #warning-ignore:UNUSED_SIGNAL
 signal add_cfg_popup(cfg_path, cfg)
 
+#==== MISC =====
+#warning-ignore:UNUSED_SIGNAL
+signal entity_destroyed
+
 ##### VARIABLES #####
 #==== PLAYER =====
 const RESPAWN_PLAYER_ON_LAST_CP := "respawn_player_on_last_cp"
@@ -60,6 +64,10 @@ const CHANGE_KEY_POPUP := "change_key_popup"
 const UPDATE_KEYS := "update_keys"
 const SAVE_CFG_POPUP := "save_cfg_popup"
 const ADD_CFG_POPUP := "add_cfg_popup"
+
+#==== MISC =====
+const ENTITY_DESTROYED := "entity_destroyed"
+const GAME_OVER := "game_over"
 
 
 ##### PUBLIC METHODS #####
@@ -122,3 +130,12 @@ func emit_save_cfg_popup(cfg_path: String, cfg_name: String, cfg: ConfigFile) ->
 
 func emit_add_cfg_popup(cfg_path: String, cfg: ConfigFile) -> void:
 	emit_signal(ADD_CFG_POPUP, cfg_path, cfg)
+
+
+#==== MISC =====
+func emit_entity_destroyed() -> void:
+	emit_signal(ENTITY_DESTROYED)
+
+
+func emit_game_over() -> void:
+	emit_signal(GAME_OVER)
