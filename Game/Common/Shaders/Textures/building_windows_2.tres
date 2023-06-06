@@ -1,0 +1,49 @@
+[gd_resource type="Shader" format=2]
+
+[resource]
+code = "shader_type spatial;
+
+const vec2 window_size = vec2(0.3,0.05);
+const float window_intensity = 4.0;
+const float window_fract = 4.0;
+const float window_draw_trigger = 0.75; // Chance a window will be drawn
+uniform vec4 window_color : hint_color;
+
+float random (vec2 uv) {
+    return fract(sin(dot(uv.xy,
+        vec2(12.9898,78.233))) * 43758.5453123);
+}
+
+
+float horizontal_line(float x1, float x2, float y, float width, vec2 uv)
+{
+	return (step(uv.y, y-width) - step(uv.y,y+width)) * (step(uv.x,x1) - step(uv.x,x2));
+}
+
+float draw_window(vec2 uv){
+	float ret_val = 0.0;
+	for (int row = 0; row < int(1.0/(window_size.y)); row ++ ){
+		float trigger_window = random(vec2(0.0,float(row)));
+		if(trigger_window <= window_draw_trigger){
+			float analog_start_x_pos = random(vec2(float(row),0.0));
+			float start_x_pos = round(analog_start_x_pos * window_fract)/window_fract;
+			float end_x_pos = mod(start_x_pos + window_size.x,1.0);
+			if(end_x_pos < start_x_pos){ // means that the line will go over the right edge
+				ret_val += horizontal_line(start_x_pos, 1.0, float(row) * window_size.y * 2.0 , window_size.y/2.0, uv);
+				ret_val += horizontal_line(0.0, end_x_pos, float(row) * window_size.y * 2.0, window_size.y/2.0, uv);
+			} 
+			else{
+				ret_val += horizontal_line(start_x_pos, end_x_pos, float(row) * window_size.y * 2.0, window_size.y/2.0, uv);
+			}
+		}
+	}
+	return ret_val;
+}
+
+void fragment(){
+	float window = draw_window(fract(UV/3.0));
+	if(window > 0.0){
+		ALBEDO = window_color.rgb;
+		EMISSION = ALBEDO * window_intensity;
+	}
+}"

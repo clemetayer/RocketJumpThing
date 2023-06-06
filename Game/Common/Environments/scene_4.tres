@@ -1,18 +1,14 @@
-[gd_resource type="Environment" load_steps=2 format=2]
+[gd_resource type="Environment" load_steps=3 format=2]
 
-[sub_resource type="ProceduralSky" id=1]
-sky_top_color = Color( 0, 0, 0, 1 )
-sky_horizon_color = Color( 0.301961, 0.262745, 0.00392157, 1 )
-sky_curve = 0.0869343
-ground_bottom_color = Color( 0, 0, 0, 1 )
-ground_horizon_color = Color( 0.301961, 0.262745, 0.00392157, 1 )
-ground_curve = 0.0386375
-sun_color = Color( 1, 0.87451, 0.00392157, 1 )
-sun_latitude = 150.0
+[sub_resource type="ViewportTexture" id=2]
+
+[sub_resource type="PanoramaSky" id=1]
+panorama = SubResource( 2 )
 
 [resource]
 background_mode = 2
 background_sky = SubResource( 1 )
+background_canvas_max_layer = 123
 ambient_light_energy = 0.0
 ambient_light_sky_contribution = 0.0
 fog_enabled = true

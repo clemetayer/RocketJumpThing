@@ -1,0 +1,89 @@
+{
+	"connections": [
+		{
+			"from": "diagonal_weave",
+			"from_port": 0,
+			"to": "math",
+			"to_port": 0
+		},
+		{
+			"from": "math",
+			"from_port": 0,
+			"to": "Material",
+			"to_port": 0
+		}
+	],
+	"label": "Graph",
+	"longdesc": "",
+	"name": "322",
+	"node_position": {
+		"x": 0,
+		"y": 0
+	},
+	"nodes": [
+		{
+			"export_last_target": "Godot/Godot 3 Spatial",
+			"export_paths": {
+				"Godot/Godot 3 Spatial": "/home/clemetayer/Projects/RocketJumpThing/trenchbroom/textures/common/common_textures/additional_pattern_example"
+			},
+			"name": "Material",
+			"node_position": {
+				"x": 877.000061,
+				"y": 49.000008
+			},
+			"parameters": {
+				"albedo_color": {
+					"a": 1,
+					"b": 0.8125,
+					"g": 1,
+					"r": 0,
+					"type": "Color"
+				},
+				"ao": 1,
+				"depth_scale": 0.5,
+				"emission_energy": 2,
+				"flags_transparent": true,
+				"metallic": 0,
+				"normal": 1,
+				"roughness": 1,
+				"size": 9,
+				"sss": 1
+			},
+			"seed_int": 0,
+			"type": "material"
+		},
+		{
+			"name": "diagonal_weave",
+			"node_position": {
+				"x": 218.360031,
+				"y": 241.320007
+			},
+			"parameters": {
+				"size": 1.5
+			},
+			"seed_int": 2219928576,
+			"type": "diagonal_weave"
+		},
+		{
+			"name": "math",
+			"node_position": {
+				"x": 415.102081,
+				"y": 241.753693
+			},
+			"parameters": {
+				"clamp": false,
+				"default_in1": 0,
+				"default_in2": 0.51,
+				"op": 15
+			},
+			"seed_int": 0,
+			"type": "math"
+		}
+	],
+	"parameters": {
+
+	},
+	"seed_int": 0,
+	"shortdesc": "",
+	"type": "graph"
+}

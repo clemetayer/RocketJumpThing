@@ -1,0 +1,109 @@
+[gd_scene load_steps=7 format=2]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+render_mode unshaded;
+
+const vec2 smoother = vec2(0.47,1.1);
+
+uniform sampler2D noise_texture;
+uniform vec4 noise_color : hint_color;
+
+vec2 polar_coordinates(vec2 uv, vec2 center, float zoom, float repeat)
+{
+	vec2 dir = uv - center;
+	float radius = length(dir) * 2.0;
+	float angle = atan(dir.y, dir.x) * 1.0/(3.1416 * 2.0);
+	return mod(vec2(radius * zoom, angle * repeat), 1.0);
+}
+
+void fragment(){
+	vec2 polar_uv = polar_coordinates(UV,vec2(0.0,0.0),1.0,1.0);
+	float noise_val = smoothstep(smoother.x,smoother.y,texture(noise_texture,UV).r);
+	COLOR = vec4(noise_color.rgb,noise_val);
+}"
+
+[sub_resource type="OpenSimplexNoise" id=3]
+seed = 5
+octaves = 6
+period = 190.0
+
+[sub_resource type="NoiseTexture" id=4]
+seamless = true
+noise = SubResource( 3 )
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
+shader_param/noise_color = Color( 0.658824, 0, 0.870588, 1 )
+shader_param/noise_texture = SubResource( 4 )
+
+[sub_resource type="Shader" id=6]
+code = "shader_type canvas_item;
+render_mode unshaded;
+
+uniform float inv_min_star_size = 200;
+uniform float inv_max_star_size = 100;
+uniform int number_of_stars = 2;
+uniform float star_luminescence = 2.0;
+uniform vec4 star_color : hint_color = vec4(1.0);
+
+vec2 polar_coordinates(vec2 uv, vec2 center, float zoom, float repeat)
+{
+	vec2 dir = uv - center;
+	float radius = length(dir) * 2.0;
+	float angle = atan(dir.y, dir.x) * 1.0/(3.1416 * 2.0);
+	return mod(vec2(radius * zoom, angle * repeat), 1.0);
+}
+
+float random (vec2 uv) {
+    return fract(sin(dot(uv.xy,
+        vec2(12.9898,78.233))) * 43758.5453123);
+}
+
+float draw_star(vec2 uv, vec2 position, float size){
+	float ss_epsilon = size * star_luminescence; // smoothstep epsilon, creates a star \"radiance\"
+	return (smoothstep(uv.y,uv.y+ss_epsilon, position.y-size) - smoothstep(uv.y-ss_epsilon,uv.y,position.y+size)) 
+		* (smoothstep(uv.x,uv.x+ss_epsilon,position.x-size) - smoothstep(uv.x-ss_epsilon,uv.x,position.x+size)); 
+}
+
+void fragment(){
+	vec2 polar_uv = polar_coordinates(UV,vec2(0.5),1.0,21.0);
+	COLOR = vec4(star_color.rgb,0.0);
+	for (int star=0; star < number_of_stars; star++){
+		float rand_loop = float(star)/float(number_of_stars); 
+		float rand_x_pos = random(vec2(rand_loop,0.0));
+		float rand_y_pos = random(vec2(0.0,rand_loop));
+		float rand_size_unclamped = random(vec2(rand_loop,1.0));
+		float rand_size = 1.0/inv_min_star_size + rand_size_unclamped * (1.0/inv_max_star_size);
+		COLOR.a = min(COLOR.a + draw_star(polar_uv,vec2(rand_x_pos,rand_y_pos),rand_size),1.0);
+	}
+}"
+
+[sub_resource type="ShaderMaterial" id=5]
+shader = SubResource( 6 )
+shader_param/inv_min_star_size = 4000.0
+shader_param/inv_max_star_size = 1000.0
+shader_param/number_of_stars = 150
+shader_param/star_luminescence = 3.0
+shader_param/star_color = Color( 0, 0.239216, 0.745098, 1 )
+
+[node name="SkyBoxTexture" type="ViewportContainer"]
+anchor_right = 2.0
+anchor_bottom = 1.707
+margin_bottom = -0.200073
+stretch = true
+
+[node name="BackColor" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0.0666667, 1 )
+
+[node name="Nebula" type="ColorRect" parent="."]
+material = SubResource( 2 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Stars" type="ColorRect" parent="."]
+material = SubResource( 5 )
+anchor_right = 1.0
+anchor_bottom = 1.0

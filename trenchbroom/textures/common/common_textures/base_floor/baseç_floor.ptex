@@ -1,0 +1,5982 @@
+{
+	"connections": [
+		{
+			"from": "voronoi_triangle",
+			"from_port": 1,
+			"to": "tones_step",
+			"to_port": 0
+		},
+		{
+			"from": "tones_step",
+			"from_port": 0,
+			"to": "mwf_create_map",
+			"to_port": 0
+		},
+		{
+			"from": "mwf_create_map",
+			"from_port": 0,
+			"to": "mwf_map",
+			"to_port": 0
+		},
+		{
+			"from": "graph_2_2",
+			"from_port": 0,
+			"to": "mwf_map",
+			"to_port": 1
+		},
+		{
+			"from": "graph_2_2",
+			"from_port": 2,
+			"to": "mwf_map",
+			"to_port": 3
+		},
+		{
+			"from": "graph_2_2",
+			"from_port": 3,
+			"to": "mwf_map",
+			"to_port": 4
+		},
+		{
+			"from": "mwf_map",
+			"from_port": 0,
+			"to": "mwf_output",
+			"to_port": 0
+		},
+		{
+			"from": "mwf_map",
+			"from_port": 1,
+			"to": "mwf_output",
+			"to_port": 1
+		},
+		{
+			"from": "mwf_map",
+			"from_port": 2,
+			"to": "mwf_output",
+			"to_port": 2
+		},
+		{
+			"from": "mwf_map",
+			"from_port": 3,
+			"to": "mwf_output",
+			"to_port": 3
+		},
+		{
+			"from": "mwf_map",
+			"from_port": 4,
+			"to": "mwf_output",
+			"to_port": 4
+		},
+		{
+			"from": "graph_2_2",
+			"from_port": 1,
+			"to": "decompose",
+			"to_port": 0
+		},
+		{
+			"from": "decompose",
+			"from_port": 0,
+			"to": "combine",
+			"to_port": 0
+		},
+		{
+			"from": "decompose",
+			"from_port": 2,
+			"to": "combine",
+			"to_port": 2
+		},
+		{
+			"from": "decompose",
+			"from_port": 1,
+			"to": "blend",
+			"to_port": 1
+		},
+		{
+			"from": "graph_7",
+			"from_port": 0,
+			"to": "blend",
+			"to_port": 0
+		},
+		{
+			"from": "combine",
+			"from_port": 0,
+			"to": "mwf_map",
+			"to_port": 2
+		},
+		{
+			"from": "mwf_output",
+			"from_port": 0,
+			"to": "Material",
+			"to_port": 0
+		},
+		{
+			"from": "mwf_output",
+			"from_port": 3,
+			"to": "Material",
+			"to_port": 3
+		},
+		{
+			"from": "mwf_output",
+			"from_port": 4,
+			"to": "Material",
+			"to_port": 4
+		},
+		{
+			"from": "mwf_output",
+			"from_port": 5,
+			"to": "Material",
+			"to_port": 5
+		},
+		{
+			"from": "mwf_output",
+			"from_port": 6,
+			"to": "Material",
+			"to_port": 6
+		}
+	],
+	"label": "Graph",
+	"longdesc": "",
+	"name": "4829",
+	"node_position": {
+		"x": 0,
+		"y": 0
+	},
+	"nodes": [
+		{
+			"export": {
+
+			},
+			"export_last_target": "Godot/Godot 3 Spatial",
+			"export_paths": {
+				"Godot/Godot 3 Spatial": "/home/clemetayer/Projects/RocketJumpThing/trenchbroom/textures/common/common_textures/base_floor/base_floor"
+			},
+			"name": "Material",
+			"node_position": {
+				"x": 842.190125,
+				"y": 41.433323
+			},
+			"parameters": {
+				"albedo_color": {
+					"a": 1,
+					"b": 1,
+					"g": 1,
+					"r": 1,
+					"type": "Color"
+				},
+				"ao": 1,
+				"depth_scale": 1,
+				"emission_energy": 1,
+				"flags_transparent": true,
+				"metallic": 0.6,
+				"normal": 1,
+				"roughness": 0.15,
+				"size": 10,
+				"sss": 1
+			},
+			"seed_int": 0,
+			"shader_model": {
+				"code": "",
+				"custom": "",
+				"exports": {
+					"Blender": {
+						"export_extension": "tres",
+						"files": [
+							{
+								"conditions": "$(connected:albedo_tex)",
+								"file_name": "$(path_prefix)_albedo.png",
+								"output": 0,
+								"type": "texture"
+							},
+							{
+								"conditions": "$(connected:roughness_tex)",
+								"file_name": "$(path_prefix)_rough.png",
+								"output": 13,
+								"type": "texture"
+							},
+							{
+								"conditions": "$(connected:metallic_tex)",
+								"file_name": "$(path_prefix)_metal.png",
+								"output": 12,
+								"type": "texture"
+							},
+							{
+								"conditions": "$(connected:normal_tex)",
+								"file_name": "$(path_prefix)_normal.png",
+								"output": 7,
+								"type": "texture"
+							},
+							{
+								"conditions": "$(connected:depth_tex)",
+								"file_name": "$(path_prefix)_displace.png",
+								"output": 8,
+								"type": "texture"
+							},
+							{
+								"conditions": "$(connected:sss_tex)",
+								"file_name": "$(path_prefix)_sss.png",
+								"output": 5,
+								"type": "texture"
+							},
+							{
+								"conditions": "$(connected:emission_tex)",
+								"file_name": "$(path_prefix)_emission.png",
+								"output": 2,
+								"type": "texture"
+							},
+							{
+								"conditions": "$(connected:ao_tex)",
+								"file_name": "$(path_prefix)_occlusion.png",
+								"output": 9,
+								"type": "texture"
+							}
+						]
+					},
+					"Godot/Godot 3 Spatial": {
+						"export_extension": "tres",
+						"files": [
+							{
+								"conditions": "$(connected:albedo_tex)",
+								"file_name": "$(path_prefix)_albedo.png",
+								"output": 0,
+								"type": "texture"
+							},
+							{
+								"conditions": "$(connected:ao_tex) or $(connected:roughness_tex) or $(connected:metallic_tex)",
+								"file_name": "$(path_prefix)_orm.png",
+								"output": 1,
+								"type": "texture"
+							},
+							{
+								"conditions": "$(connected:emission_tex)",
+								"file_name": "$(path_prefix)_emission.png",
+								"output": 2,
+								"type": "texture"
+							},
+							{
+								"conditions": "$(connected:normal_tex)",
+								"file_name": "$(path_prefix)_normal.png",
+								"output": 3,
+								"type": "texture"
+							},
+							{
+								"conditions": "$(connected:depth_tex)",
+								"file_name": "$(path_prefix)_depth.png",
+								"output": 4,
+								"type": "texture"
+							},
+							{
+								"conditions": "$(connected:sss_tex)",
+								"file_name": "$(path_prefix)_sss.png",
+								"output": 5,
+								"prompt_overwrite": false,
+								"type": "texture"
+							},
+							{
+								"file_name": "$(path_prefix).tres",
+								"prompt_overwrite": true,
+								"template": "[gd_resource type=\"SpatialMaterial\" load_steps=5 format=2]\n$if $(connected:albedo_tex)\n[ext_resource path=\"$(file_prefix)_albedo.png\" type=\"Texture\" id=1]\n$fi\n$if $(connected:ao_tex) or $(connected:roughness_tex) or $(connected:metallic_tex)\n[ext_resource path=\"$(file_prefix)_orm.png\" type=\"Texture\" id=2]\n$fi\n$if $(connected:normal_tex)\n[ext_resource path=\"$(file_prefix)_normal.png\" type=\"Texture\" id=3]\n$fi\n$if $(connected:depth_tex)\n[ext_resource path=\"$(file_prefix)_depth.png\" type=\"Texture\" id=4]\n$fi\n$if $(connected:emission_tex)\n[ext_resource path=\"$(file_prefix)_emission.png\" type=\"Texture\" id=5]\n$fi\n$if $(connected:sss_tex)\n[ext_resource path=\"$(file_prefix)_sss.png\" type=\"Texture\" id=6]\n$fi\n[resource]\nalbedo_color = Color($(param:albedo_color.r), $(param:albedo_color.g), $(param:albedo_color.b), $(param:albedo_color.a))\n$if $(connected:albedo_tex)\nalbedo_texture = ExtResource( 1 )\n$fi\nmetallic = $(param:metallic)\n$if $(connected:metallic_tex)\nmetallic_texture = ExtResource( 2 )\nmetallic_texture_channel = 2\n$fi\nroughness = $(param:roughness)\n$if $(connected:ao_tex) or $(connected:roughness_tex) or $(connected:metallic_tex)\nroughness_texture = ExtResource( 2 )\nroughness_texture_channel = 1\n$fi\n$if $(connected:normal_tex)\nnormal_enabled = true\nnormal_scale = $(param:normal)\nnormal_texture = ExtResource( 3 )\n$fi\n$if $(connected:emission_tex)\nemission_enabled = true\nemission = Color( 0, 0, 0, 1 )\nemission_energy = $(param:emission_energy)\nemission_operator = 0\nemission_on_uv2 = false\nemission_texture = ExtResource( 5 )\n$fi\n$if $(connected:ao_tex)\nao_enabled = true\nao_texture = ExtResource( 2 )\nao_texture_channel = 0\n$fi\n$if $(connected:depth_tex)\ndepth_enabled = true\ndepth_scale = $(expr:0.2*$(param:depth_scale))\ndepth_deep_parallax = true\ndepth_min_layers = 8\ndepth_max_layers = 32\ndepth_flip_tangent = false\ndepth_flip_binormal = false\ndepth_texture = ExtResource( 4 )\n$fi\n$if $(connected:sss_tex)\nsubsurf_scatter_enabled = true\nsubsurf_scatter_strength = $(param:sss)\nsubsurf_scatter_texture = ExtResource( 6 )\n$fi\n",
+								"type": "template"
+							}
+						]
+					},
+					"Godot/Godot 4 ORM": {
+						"export_extension": "tres",
+						"files": [
+							{
+								"conditions": "$(connected:albedo_tex)",
+								"file_name": "$(path_prefix)_albedo.png",
+								"output": 0,
+								"prompt_overwrite": false,
+								"type": "texture"
+							},
+							{
+								"conditions": "$(connected:ao_tex) or $(connected:roughness_tex) or $(connected:metallic_tex)",
+								"file_name": "$(path_prefix)_orm.png",
+								"output": 1,
+								"type": "texture"
+							},
+							{
+								"conditions": "$(connected:emission_tex)",
+								"file_name": "$(path_prefix)_emission.png",
+								"output": 2,
+								"type": "texture"
+							},
+							{
+								"conditions": "$(connected:normal_tex)",
+								"file_name": "$(path_prefix)_normal.png",
+								"output": 3,
+								"type": "texture"
+							},
+							{
+								"conditions": "$(connected:depth_tex)",
+								"file_name": "$(path_prefix)_heightmap.png",
+								"output": 8,
+								"type": "texture"
+							},
+							{
+								"conditions": "$(connected:sss_tex)",
+								"file_name": "$(path_prefix)_sss.png",
+								"output": 5,
+								"prompt_overwrite": false,
+								"type": "texture"
+							},
+							{
+								"file_name": "$(path_prefix).tres",
+								"prompt_overwrite": true,
+								"template": "[gd_resource type=\"ORMMaterial3D\" load_steps=6 format=3]\n$if $(connected:albedo_tex)\n[ext_resource path=\"$(file_prefix)_albedo.png\" type=\"Texture\" id=1]\n$fi\n$if $(connected:ao_tex) or $(connected:roughness_tex) or $(connected:metallic_tex)\n[ext_resource path=\"$(file_prefix)_orm.png\" type=\"Texture\" id=2]\n$fi\n$if $(connected:normal_tex)\n[ext_resource path=\"$(file_prefix)_normal.png\" type=\"Texture\" id=3]\n$fi\n$if $(connected:depth_tex)\n[ext_resource path=\"$(file_prefix)_heightmap.png\" type=\"Texture\" id=4]\n$fi\n$if $(connected:emission_tex)\n[ext_resource path=\"$(file_prefix)_emission.png\" type=\"Texture\" id=5]\n$fi\n$if $(connected:sss_tex)\n[ext_resource path=\"$(file_prefix)_sss.png\" type=\"Texture\" id=6]\n$fi\n[resource]\nalbedo_color = Color($(param:albedo_color.r), $(param:albedo_color.g), $(param:albedo_color.b), $(param:albedo_color.a))\n$if $(connected:albedo_tex)\nalbedo_texture = ExtResource( 1 )\n$fi\n$if $(connected:metallic_tex)\norm_texture = ExtResource( 2 )\n$fi\n$if $(connected:normal_tex)\nnormal_enabled = true\nnormal_scale = $(param:normal)\nnormal_texture = ExtResource( 3 )\n$fi\n$if $(connected:emission_tex)\nemission_enabled = true\nemission = Color( 0, 0, 0, 1 )\nemission_energy = $(param:emission_energy)\nemission_operator = 0\nemission_texture = ExtResource( 5 )\n$fi\n$if $(connected:depth_tex)\nheightmap_enabled = true\nheightmap_scale = $(expr:25.0*$(param:depth_scale))\nheightmap_deep_parallax = true\nheightmap_min_layers = 8\nheightmap_max_layers = 32\nheightmap_texture = ExtResource( 4 )\n$fi\n$if $(connected:sss_tex)\nsubsurf_scatter_enabled = true\nsubsurf_scatter_strength = $(param:sss)\nsubsurf_scatter_texture = ExtResource( 6 )\n$fi\n",
+								"type": "template"
+							}
+						]
+					},
+					"Godot/Godot 4 Standard": {
+						"export_extension": "tres",
+						"files": [
+							{
+								"conditions": "$(connected:albedo_tex)",
+								"file_name": "$(path_prefix)_albedo.png",
+								"output": 0,
+								"prompt_overwrite": false,
+								"type": "texture"
+							},
+							{
+								"conditions": "$(connected:ao_tex) or $(connected:roughness_tex) or $(connected:metallic_tex)",
+								"file_name": "$(path_prefix)_orm.png",
+								"output": 1,
+								"type": "texture"
+							},
+							{
+								"conditions": "$(connected:emission_tex)",
+								"file_name": "$(path_prefix)_emission.png",
+								"output": 2,
+								"type": "texture"
+							},
+							{
+								"conditions": "$(connected:normal_tex)",
+								"file_name": "$(path_prefix)_normal.png",
+								"output": 3,
+								"type": "texture"
+							},
+							{
+								"conditions": "$(connected:depth_tex)",
+								"file_name": "$(path_prefix)_heightmap.png",
+								"output": 8,
+								"prompt_overwrite": false,
+								"type": "texture"
+							},
+							{
+								"conditions": "$(connected:sss_tex)",
+								"file_name": "$(path_prefix)_sss.png",
+								"output": 5,
+								"type": "texture"
+							},
+							{
+								"file_name": "$(path_prefix).tres",
+								"prompt_overwrite": true,
+								"template": "[gd_resource type=\"StandardMaterial3D\" load_steps=5 format=2]\n$if $(connected:albedo_tex)\n[ext_resource path=\"$(file_prefix)_albedo.png\" type=\"Texture\" id=1]\n$fi\n$if $(connected:ao_tex) or $(connected:roughness_tex) or $(connected:metallic_tex)\n[ext_resource path=\"$(file_prefix)_orm.png\" type=\"Texture\" id=2]\n$fi\n$if $(connected:normal_tex)\n[ext_resource path=\"$(file_prefix)_normal.png\" type=\"Texture\" id=3]\n$fi\n$if $(connected:depth_tex)\n[ext_resource path=\"$(file_prefix)_heightmap.png\" type=\"Texture\" id=4]\n$fi\n$if $(connected:emission_tex)\n[ext_resource path=\"$(file_prefix)_emission.png\" type=\"Texture\" id=5]\n$fi\n$if $(connected:sss_tex)\n[ext_resource path=\"$(file_prefix)_sss.png\" type=\"Texture\" id=6]\n$fi\n[resource]\nalbedo_color = Color($(param:albedo_color.r), $(param:albedo_color.g), $(param:albedo_color.b), $(param:albedo_color.a))\n$if $(connected:albedo_tex)\nalbedo_texture = ExtResource( 1 )\n$fi\nmetallic = $(param:metallic)\n$if $(connected:metallic_tex)\nmetallic_texture = ExtResource( 2 )\nmetallic_texture_channel = 2\n$fi\nroughness = $(param:roughness)\n$if $(connected:ao_tex) or $(connected:roughness_tex) or $(connected:metallic_tex)\nroughness_texture = ExtResource( 2 )\nroughness_texture_channel = 1\n$fi\n$if $(connected:normal_tex)\nnormal_enabled = true\nnormal_scale = $(param:normal)\nnormal_texture = ExtResource( 3 )\n$fi\n$if $(connected:emission_tex)\nemission_enabled = true\nemission = Color( 0, 0, 0, 1 )\nemission_energy = $(param:emission_energy)\nemission_operator = 0\nemission_texture = ExtResource( 5 )\n$fi\n$if $(connected:ao_tex)\nao_enabled = true\nao_texture = ExtResource( 2 )\nao_texture_channel = 0\n$fi\n$if $(connected:depth_tex)\nheightmap_enabled = true\nheightmap_scale = $(expr:25.0*$(param:depth_scale))\nheightmap_deep_parallax = true\nheightmap_min_layers = 8\nheightmap_max_layers = 32\nheightmap_texture = ExtResource( 4 )\n$fi\n$if $(connected:sss_tex)\nsubsurf_scatter_enabled = true\nsubsurf_scatter_strength = $(param:sss)\nsubsurf_scatter_texture = ExtResource( 6 )\n$fi\n",
+								"type": "template"
+							}
+						]
+					},
+					"LabPBR": {
+						"export_extension": "png",
+						"files": [
+							{
+								"file_name": "$(path_prefix).png",
+								"output": 0,
+								"type": "texture"
+							},
+							{
+								"file_name": "$(path_prefix)_n.png",
+								"output": 14,
+								"type": "texture"
+							},
+							{
+								"file_name": "$(path_prefix)_s.png",
+								"output": 15,
+								"type": "texture"
+							}
+						]
+					},
+					"Unity/3D": {
+						"export_extension": "mat",
+						"files": [
+							{
+								"conditions": "$(connected:albedo_tex)",
+								"file_name": "$(path_prefix)_albedo.png",
+								"output": 0,
+								"type": "texture"
+							},
+							{
+								"conditions": "$(connected:albedo_tex)",
+								"file_name": "$(path_prefix)_albedo.png.meta",
+								"prompt_overwrite": true,
+								"template": "fileFormatVersion: 2\nguid: $uid(0)\nTextureImporter:\n  internalIDToNameTable: []\n  externalObjects: {}\n  serializedVersion: 10\n  mipmaps:\n    mipMapMode: 0\n    enableMipMap: 1\n    sRGBTexture: 1\n    linearTexture: 0\n    fadeOut: 0\n    borderMipMap: 0\n    mipMapsPreserveCoverage: 0\n    alphaTestReferenceValue: 0.5\n    mipMapFadeDistanceStart: 1\n    mipMapFadeDistanceEnd: 3\n  bumpmap:\n    convertToNormalMap: 0\n    externalNormalMap: 0\n    heightScale: 0.25\n    normalMapFilter: 0\n  isReadable: 0\n  streamingMipmaps: 0\n  streamingMipmapsPriority: 0\n  grayScaleToAlpha: 0\n  generateCubemap: 6\n  cubemapConvolution: 0\n  seamlessCubemap: 0\n  textureFormat: 1\n  maxTextureSize: 2048\n  textureSettings:\n    serializedVersion: 2\n    filterMode: -1\n    aniso: -1\n    mipBias: -100\n    wrapU: -1\n    wrapV: -1\n    wrapW: -1\n  nPOTScale: 1\n  lightmap: 0\n  compressionQuality: 50\n  spriteMode: 0\n  spriteExtrude: 1\n  spriteMeshType: 1\n  alignment: 0\n  spritePivot: {x: 0.5, y: 0.5}\n  spritePixelsToUnits: 100\n  spriteBorder: {x: 0, y: 0, z: 0, w: 0}\n  spriteGenerateFallbackPhysicsShape: 1\n  alphaUsage: 1\n  alphaIsTransparency: 0\n  spriteTessellationDetail: -1\n  textureType: 0\n  textureShape: 1\n  singleChannelComponent: 0\n  maxTextureSizeSet: 0\n  compressionQualitySet: 0\n  textureFormatSet: 0\n  platformSettings:\n  - serializedVersion: 3\n    buildTarget: DefaultTexturePlatform\n    maxTextureSize: 2048\n    resizeAlgorithm: 0\n    textureFormat: -1\n    textureCompression: 1\n    compressionQuality: 50\n    crunchedCompression: 0\n    allowsAlphaSplitting: 0\n    overridden: 0\n    androidETC2FallbackOverride: 0\n    forceMaximumCompressionQuality_BC6H_BC7: 0\n  spriteSheet:\n    serializedVersion: 2\n    sprites: []\n    outline: []\n    physicsShape: []\n    bones: []\n    spriteID: \n    internalID: 0\n    vertices: []\n    indices: \n    edges: []\n    weights: []\n    secondaryTextures: []\n  spritePackingTag: \n  pSDRemoveMatte: 0\n  pSDShowRemoveMatteOption: 0\n  userData: \n  assetBundleName: \n  assetBundleVariant: \n",
+								"type": "template"
+							},
+							{
+								"conditions": "$(connected:roughness_tex) or $(connected:metallic_tex)",
+								"file_name": "$(path_prefix)_metal_smoothness.png",
+								"output": 6,
+								"type": "texture"
+							},
+							{
+								"conditions": "$(connected:roughness_tex) or $(connected:metallic_tex)",
+								"file_name": "$(path_prefix)_metal_smoothness.png.meta",
+								"prompt_overwrite": true,
+								"template": "fileFormatVersion: 2\nguid: $uid(1)\nTextureImporter:\n  internalIDToNameTable: []\n  externalObjects: {}\n  serializedVersion: 10\n  mipmaps:\n    mipMapMode: 0\n    enableMipMap: 1\n    sRGBTexture: 1\n    linearTexture: 0\n    fadeOut: 0\n    borderMipMap: 0\n    mipMapsPreserveCoverage: 0\n    alphaTestReferenceValue: 0.5\n    mipMapFadeDistanceStart: 1\n    mipMapFadeDistanceEnd: 3\n  bumpmap:\n    convertToNormalMap: 0\n    externalNormalMap: 0\n    heightScale: 0.25\n    normalMapFilter: 0\n  isReadable: 0\n  streamingMipmaps: 0\n  streamingMipmapsPriority: 0\n  grayScaleToAlpha: 0\n  generateCubemap: 6\n  cubemapConvolution: 0\n  seamlessCubemap: 0\n  textureFormat: 1\n  maxTextureSize: 2048\n  textureSettings:\n    serializedVersion: 2\n    filterMode: -1\n    aniso: -1\n    mipBias: -100\n    wrapU: -1\n    wrapV: -1\n    wrapW: -1\n  nPOTScale: 1\n  lightmap: 0\n  compressionQuality: 50\n  spriteMode: 0\n  spriteExtrude: 1\n  spriteMeshType: 1\n  alignment: 0\n  spritePivot: {x: 0.5, y: 0.5}\n  spritePixelsToUnits: 100\n  spriteBorder: {x: 0, y: 0, z: 0, w: 0}\n  spriteGenerateFallbackPhysicsShape: 1\n  alphaUsage: 1\n  alphaIsTransparency: 0\n  spriteTessellationDetail: -1\n  textureType: 0\n  textureShape: 1\n  singleChannelComponent: 0\n  maxTextureSizeSet: 0\n  compressionQualitySet: 0\n  textureFormatSet: 0\n  platformSettings:\n  - serializedVersion: 3\n    buildTarget: DefaultTexturePlatform\n    maxTextureSize: 2048\n    resizeAlgorithm: 0\n    textureFormat: -1\n    textureCompression: 1\n    compressionQuality: 50\n    crunchedCompression: 0\n    allowsAlphaSplitting: 0\n    overridden: 0\n    androidETC2FallbackOverride: 0\n    forceMaximumCompressionQuality_BC6H_BC7: 0\n  spriteSheet:\n    serializedVersion: 2\n    sprites: []\n    outline: []\n    physicsShape: []\n    bones: []\n    spriteID: \n    internalID: 0\n    vertices: []\n    indices: \n    edges: []\n    weights: []\n    secondaryTextures: []\n  spritePackingTag: \n  pSDRemoveMatte: 0\n  pSDShowRemoveMatteOption: 0\n  userData: \n  assetBundleName: \n  assetBundleVariant: \n",
+								"type": "template"
+							},
+							{
+								"conditions": "$(connected:normal_tex)",
+								"file_name": "$(path_prefix)_normal.png",
+								"output": 7,
+								"type": "texture"
+							},
+							{
+								"conditions": "$(connected:normal_tex)",
+								"file_name": "$(path_prefix)_normal.png.meta",
+								"prompt_overwrite": true,
+								"template": "fileFormatVersion: 2\nguid: $uid(2)\nTextureImporter:\n  internalIDToNameTable: []\n  externalObjects: {}\n  serializedVersion: 10\n  mipmaps:\n    mipMapMode: 0\n    enableMipMap: 1\n    sRGBTexture: 0\n    linearTexture: 0\n    fadeOut: 0\n    borderMipMap: 0\n    mipMapsPreserveCoverage: 0\n    alphaTestReferenceValue: 0.5\n    mipMapFadeDistanceStart: 1\n    mipMapFadeDistanceEnd: 3\n  bumpmap:\n    convertToNormalMap: 0\n    externalNormalMap: 0\n    heightScale: 0.25\n    normalMapFilter: 0\n  isReadable: 0\n  streamingMipmaps: 0\n  streamingMipmapsPriority: 0\n  grayScaleToAlpha: 0\n  generateCubemap: 6\n  cubemapConvolution: 0\n  seamlessCubemap: 0\n  textureFormat: 1\n  maxTextureSize: 2048\n  textureSettings:\n    serializedVersion: 2\n    filterMode: -1\n    aniso: -1\n    mipBias: -100\n    wrapU: -1\n    wrapV: -1\n    wrapW: -1\n  nPOTScale: 1\n  lightmap: 0\n  compressionQuality: 50\n  spriteMode: 0\n  spriteExtrude: 1\n  spriteMeshType: 1\n  alignment: 0\n  spritePivot: {x: 0.5, y: 0.5}\n  spritePixelsToUnits: 100\n  spriteBorder: {x: 0, y: 0, z: 0, w: 0}\n  spriteGenerateFallbackPhysicsShape: 1\n  alphaUsage: 1\n  alphaIsTransparency: 0\n  spriteTessellationDetail: -1\n  textureType: 1\n  textureShape: 1\n  singleChannelComponent: 0\n  maxTextureSizeSet: 0\n  compressionQualitySet: 0\n  textureFormatSet: 0\n  platformSettings:\n  - serializedVersion: 3\n    buildTarget: DefaultTexturePlatform\n    maxTextureSize: 2048\n    resizeAlgorithm: 0\n    textureFormat: -1\n    textureCompression: 1\n    compressionQuality: 50\n    crunchedCompression: 0\n    allowsAlphaSplitting: 0\n    overridden: 0\n    androidETC2FallbackOverride: 0\n    forceMaximumCompressionQuality_BC6H_BC7: 0\n  spriteSheet:\n    serializedVersion: 2\n    sprites: []\n    outline: []\n    physicsShape: []\n    bones: []\n    spriteID: \n    internalID: 0\n    vertices: []\n    indices: \n    edges: []\n    weights: []\n    secondaryTextures: []\n  spritePackingTag: \n  pSDRemoveMatte: 0\n  pSDShowRemoveMatteOption: 0\n  userData: \n  assetBundleName: \n  assetBundleVariant: \n",
+								"type": "template"
+							},
+							{
+								"conditions": "$(connected:depth_tex)",
+								"file_name": "$(path_prefix)_height.png",
+								"output": 8,
+								"type": "texture"
+							},
+							{
+								"conditions": "$(connected:depth_tex)",
+								"file_name": "$(path_prefix)_height.png.meta",
+								"prompt_overwrite": true,
+								"template": "fileFormatVersion: 2\nguid: $uid(3)\nTextureImporter:\n  internalIDToNameTable: []\n  externalObjects: {}\n  serializedVersion: 10\n  mipmaps:\n    mipMapMode: 0\n    enableMipMap: 1\n    sRGBTexture: 1\n    linearTexture: 0\n    fadeOut: 0\n    borderMipMap: 0\n    mipMapsPreserveCoverage: 0\n    alphaTestReferenceValue: 0.5\n    mipMapFadeDistanceStart: 1\n    mipMapFadeDistanceEnd: 3\n  bumpmap:\n    convertToNormalMap: 0\n    externalNormalMap: 0\n    heightScale: 0.25\n    normalMapFilter: 0\n  isReadable: 0\n  streamingMipmaps: 0\n  streamingMipmapsPriority: 0\n  grayScaleToAlpha: 0\n  generateCubemap: 6\n  cubemapConvolution: 0\n  seamlessCubemap: 0\n  textureFormat: 1\n  maxTextureSize: 2048\n  textureSettings:\n    serializedVersion: 2\n    filterMode: -1\n    aniso: -1\n    mipBias: -100\n    wrapU: -1\n    wrapV: -1\n    wrapW: -1\n  nPOTScale: 1\n  lightmap: 0\n  compressionQuality: 50\n  spriteMode: 0\n  spriteExtrude: 1\n  spriteMeshType: 1\n  alignment: 0\n  spritePivot: {x: 0.5, y: 0.5}\n  spritePixelsToUnits: 100\n  spriteBorder: {x: 0, y: 0, z: 0, w: 0}\n  spriteGenerateFallbackPhysicsShape: 1\n  alphaUsage: 1\n  alphaIsTransparency: 0\n  spriteTessellationDetail: -1\n  textureType: 0\n  textureShape: 1\n  singleChannelComponent: 0\n  maxTextureSizeSet: 0\n  compressionQualitySet: 0\n  textureFormatSet: 0\n  platformSettings:\n  - serializedVersion: 3\n    buildTarget: DefaultTexturePlatform\n    maxTextureSize: 2048\n    resizeAlgorithm: 0\n    textureFormat: -1\n    textureCompression: 1\n    compressionQuality: 50\n    crunchedCompression: 0\n    allowsAlphaSplitting: 0\n    overridden: 0\n    androidETC2FallbackOverride: 0\n    forceMaximumCompressionQuality_BC6H_BC7: 0\n  spriteSheet:\n    serializedVersion: 2\n    sprites: []\n    outline: []\n    physicsShape: []\n    bones: []\n    spriteID: \n    internalID: 0\n    vertices: []\n    indices: \n    edges: []\n    weights: []\n    secondaryTextures: []\n  spritePackingTag: \n  pSDRemoveMatte: 0\n  pSDShowRemoveMatteOption: 0\n  userData: \n  assetBundleName: \n  assetBundleVariant: \n",
+								"type": "template"
+							},
+							{
+								"conditions": "$(connected:ao_tex)",
+								"file_name": "$(path_prefix)_occlusion.png",
+								"output": 9,
+								"type": "texture"
+							},
+							{
+								"conditions": "$(connected:ao_tex)",
+								"file_name": "$(path_prefix)_occlusion.png.meta",
+								"prompt_overwrite": true,
+								"template": "fileFormatVersion: 2\nguid: $uid(4)\nTextureImporter:\n  internalIDToNameTable: []\n  externalObjects: {}\n  serializedVersion: 10\n  mipmaps:\n    mipMapMode: 0\n    enableMipMap: 1\n    sRGBTexture: 1\n    linearTexture: 0\n    fadeOut: 0\n    borderMipMap: 0\n    mipMapsPreserveCoverage: 0\n    alphaTestReferenceValue: 0.5\n    mipMapFadeDistanceStart: 1\n    mipMapFadeDistanceEnd: 3\n  bumpmap:\n    convertToNormalMap: 0\n    externalNormalMap: 0\n    heightScale: 0.25\n    normalMapFilter: 0\n  isReadable: 0\n  streamingMipmaps: 0\n  streamingMipmapsPriority: 0\n  grayScaleToAlpha: 0\n  generateCubemap: 6\n  cubemapConvolution: 0\n  seamlessCubemap: 0\n  textureFormat: 1\n  maxTextureSize: 2048\n  textureSettings:\n    serializedVersion: 2\n    filterMode: -1\n    aniso: -1\n    mipBias: -100\n    wrapU: -1\n    wrapV: -1\n    wrapW: -1\n  nPOTScale: 1\n  lightmap: 0\n  compressionQuality: 50\n  spriteMode: 0\n  spriteExtrude: 1\n  spriteMeshType: 1\n  alignment: 0\n  spritePivot: {x: 0.5, y: 0.5}\n  spritePixelsToUnits: 100\n  spriteBorder: {x: 0, y: 0, z: 0, w: 0}\n  spriteGenerateFallbackPhysicsShape: 1\n  alphaUsage: 1\n  alphaIsTransparency: 0\n  spriteTessellationDetail: -1\n  textureType: 0\n  textureShape: 1\n  singleChannelComponent: 0\n  maxTextureSizeSet: 0\n  compressionQualitySet: 0\n  textureFormatSet: 0\n  platformSettings:\n  - serializedVersion: 3\n    buildTarget: DefaultTexturePlatform\n    maxTextureSize: 2048\n    resizeAlgorithm: 0\n    textureFormat: -1\n    textureCompression: 1\n    compressionQuality: 50\n    crunchedCompression: 0\n    allowsAlphaSplitting: 0\n    overridden: 0\n    androidETC2FallbackOverride: 0\n    forceMaximumCompressionQuality_BC6H_BC7: 0\n  spriteSheet:\n    serializedVersion: 2\n    sprites: []\n    outline: []\n    physicsShape: []\n    bones: []\n    spriteID: \n    internalID: 0\n    vertices: []\n    indices: \n    edges: []\n    weights: []\n    secondaryTextures: []\n  spritePackingTag: \n  pSDRemoveMatte: 0\n  pSDShowRemoveMatteOption: 0\n  userData: \n  assetBundleName: \n  assetBundleVariant: \n",
+								"type": "template"
+							},
+							{
+								"conditions": "$(connected:emission_tex)",
+								"file_name": "$(path_prefix)_emission.png",
+								"output": 2,
+								"type": "texture"
+							},
+							{
+								"conditions": "$(connected:emission_tex)",
+								"file_name": "$(path_prefix)_emission.png.meta",
+								"prompt_overwrite": true,
+								"template": "fileFormatVersion: 2\nguid: $uid(5)\nTextureImporter:\n  internalIDToNameTable: []\n  externalObjects: {}\n  serializedVersion: 10\n  mipmaps:\n    mipMapMode: 0\n    enableMipMap: 1\n    sRGBTexture: 1\n    linearTexture: 0\n    fadeOut: 0\n    borderMipMap: 0\n    mipMapsPreserveCoverage: 0\n    alphaTestReferenceValue: 0.5\n    mipMapFadeDistanceStart: 1\n    mipMapFadeDistanceEnd: 3\n  bumpmap:\n    convertToNormalMap: 0\n    externalNormalMap: 0\n    heightScale: 0.25\n    normalMapFilter: 0\n  isReadable: 0\n  streamingMipmaps: 0\n  streamingMipmapsPriority: 0\n  grayScaleToAlpha: 0\n  generateCubemap: 6\n  cubemapConvolution: 0\n  seamlessCubemap: 0\n  textureFormat: 1\n  maxTextureSize: 2048\n  textureSettings:\n    serializedVersion: 2\n    filterMode: -1\n    aniso: -1\n    mipBias: -100\n    wrapU: -1\n    wrapV: -1\n    wrapW: -1\n  nPOTScale: 1\n  lightmap: 0\n  compressionQuality: 50\n  spriteMode: 0\n  spriteExtrude: 1\n  spriteMeshType: 1\n  alignment: 0\n  spritePivot: {x: 0.5, y: 0.5}\n  spritePixelsToUnits: 100\n  spriteBorder: {x: 0, y: 0, z: 0, w: 0}\n  spriteGenerateFallbackPhysicsShape: 1\n  alphaUsage: 1\n  alphaIsTransparency: 0\n  spriteTessellationDetail: -1\n  textureType: 0\n  textureShape: 1\n  singleChannelComponent: 0\n  maxTextureSizeSet: 0\n  compressionQualitySet: 0\n  textureFormatSet: 0\n  platformSettings:\n  - serializedVersion: 3\n    buildTarget: DefaultTexturePlatform\n    maxTextureSize: 2048\n    resizeAlgorithm: 0\n    textureFormat: -1\n    textureCompression: 1\n    compressionQuality: 50\n    crunchedCompression: 0\n    allowsAlphaSplitting: 0\n    overridden: 0\n    androidETC2FallbackOverride: 0\n    forceMaximumCompressionQuality_BC6H_BC7: 0\n  spriteSheet:\n    serializedVersion: 2\n    sprites: []\n    outline: []\n    physicsShape: []\n    bones: []\n    spriteID: \n    internalID: 0\n    vertices: []\n    indices: \n    edges: []\n    weights: []\n    secondaryTextures: []\n  spritePackingTag: \n  pSDRemoveMatte: 0\n  pSDShowRemoveMatteOption: 0\n  userData: \n  assetBundleName: \n  assetBundleVariant: \n",
+								"type": "template"
+							},
+							{
+								"file_name": "$(path_prefix).mat",
+								"prompt_overwrite": true,
+								"template": "%YAML 1.1\n%TAG !u! tag:unity3d.com,2011:\n--- !u!21 &2100000\nMaterial:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Name: $(file_prefix)\n  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}\n  m_ShaderKeywords: _METALLICGLOSSMAP _NORMALMAP _PARALLAXMAP\n  m_LightmapFlags: 4\n  m_EnableInstancingVariants: 0\n  m_DoubleSidedGI: 0\n  m_CustomRenderQueue: -1\n  stringTagMap: {}\n  disabledShaderPasses: []\n  m_SavedProperties:\n    serializedVersion: 3\n    m_TexEnvs:\n    - _BumpMap:\n$if $(connected:normal_tex)\n        m_Texture: {fileID: 2800000, guid: $uid(2), type: 3}\n$else\n        m_Texture: {fileID: 0}\n$fi\n        m_Scale: {x: 1, y: 1}\n        m_Offset: {x: 0, y: 0}\n    - _DetailAlbedoMap:\n        m_Texture: {fileID: 0}\n        m_Scale: {x: 1, y: 1}\n        m_Offset: {x: 0, y: 0}\n    - _DetailMask:\n        m_Texture: {fileID: 0}\n        m_Scale: {x: 1, y: 1}\n        m_Offset: {x: 0, y: 0}\n    - _DetailNormalMap:\n        m_Texture: {fileID: 0}\n        m_Scale: {x: 1, y: 1}\n        m_Offset: {x: 0, y: 0}\n    - _EmissionMap:\n        m_Texture: {fileID: 0}\n        m_Scale: {x: 1, y: 1}\n        m_Offset: {x: 0, y: 0}\n    - _MainTex:\n$if $(connected:albedo_tex)\n        m_Texture: {fileID: 2800000, guid: $uid(0), type: 3}\n$else\n        m_Texture: {fileID: 0}\n$fi\n        m_Scale: {x: 1, y: 1}\n        m_Offset: {x: 0, y: 0}\n    - _MetallicGlossMap:\n$if $(connected:roughness_tex) or $(connected:metallic_tex)\n        m_Texture: {fileID: 2800000, guid: $uid(1), type: 3}\n$else\n        m_Texture: {fileID: 0}\n$fi\n        m_Scale: {x: 1, y: 1}\n        m_Offset: {x: 0, y: 0}\n    - _OcclusionMap:\n$if $(connected:ao_tex)\n        m_Texture: {fileID: 2800000, guid: $uid(4), type: 3}\n$else\n        m_Texture: {fileID: 0}\n$fi\n        m_Scale: {x: 1, y: 1}\n        m_Offset: {x: 0, y: 0}\n    - _ParallaxMap:\n$if $(connected:depth_tex)\n        m_Texture: {fileID: 2800000, guid: $uid(3), type: 3}\n$else\n        m_Texture: {fileID: 0}\n$fi\n        m_Scale: {x: 1, y: 1}\n        m_Offset: {x: 0, y: 0}\n    m_Floats:\n    - _BumpScale: 1\n    - _Cutoff: 0.5\n    - _DetailNormalMapScale: 1\n    - _DstBlend: 0\n    - _GlossMapScale: 1\n    - _Glossiness: 0.5\n    - _GlossyReflections: 1\n    - _Metallic: 0\n    - _Mode: 0\n    - _OcclusionStrength: 1\n    - _Parallax: 0.02\n    - _SmoothnessTextureChannel: 0\n    - _SpecularHighlights: 1\n    - _SrcBlend: 1\n    - _UVSec: 0\n    - _ZWrite: 1\n    m_Colors:\n    - _Color: {r: 1, g: 1, b: 1, a: 1}\n    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}\n",
+								"type": "template"
+							}
+						],
+						"uids": 6
+					},
+					"Unity/HDRP": {
+						"export_extension": "mat",
+						"files": [
+							{
+								"conditions": "$(connected:albedo_tex)",
+								"file_name": "$(path_prefix)_albedo.png",
+								"output": 0,
+								"type": "texture"
+							},
+							{
+								"conditions": "$(connected:albedo_tex)",
+								"file_name": "$(path_prefix)_albedo.png.meta",
+								"template": "fileFormatVersion: 2\nguid: $uid(0)\nTextureImporter:\n  internalIDToNameTable: []\n  externalObjects: {}\n  serializedVersion: 10\n  mipmaps:\n    mipMapMode: 0\n    enableMipMap: 1\n    sRGBTexture: 1\n    linearTexture: 0\n    fadeOut: 0\n    borderMipMap: 0\n    mipMapsPreserveCoverage: 0\n    alphaTestReferenceValue: 0.5\n    mipMapFadeDistanceStart: 1\n    mipMapFadeDistanceEnd: 3\n  bumpmap:\n    convertToNormalMap: 0\n    externalNormalMap: 0\n    heightScale: 0.25\n    normalMapFilter: 0\n  isReadable: 0\n  streamingMipmaps: 0\n  streamingMipmapsPriority: 0\n  grayScaleToAlpha: 0\n  generateCubemap: 6\n  cubemapConvolution: 0\n  seamlessCubemap: 0\n  textureFormat: 1\n  maxTextureSize: 2048\n  textureSettings:\n    serializedVersion: 2\n    filterMode: -1\n    aniso: -1\n    mipBias: -100\n    wrapU: -1\n    wrapV: -1\n    wrapW: -1\n  nPOTScale: 1\n  lightmap: 0\n  compressionQuality: 50\n  spriteMode: 0\n  spriteExtrude: 1\n  spriteMeshType: 1\n  alignment: 0\n  spritePivot: {x: 0.5, y: 0.5}\n  spritePixelsToUnits: 100\n  spriteBorder: {x: 0, y: 0, z: 0, w: 0}\n  spriteGenerateFallbackPhysicsShape: 1\n  alphaUsage: 1\n  alphaIsTransparency: 0\n  spriteTessellationDetail: -1\n  textureType: 0\n  textureShape: 1\n  singleChannelComponent: 0\n  maxTextureSizeSet: 0\n  compressionQualitySet: 0\n  textureFormatSet: 0\n  platformSettings:\n  - serializedVersion: 3\n    buildTarget: DefaultTexturePlatform\n    maxTextureSize: 2048\n    resizeAlgorithm: 0\n    textureFormat: -1\n    textureCompression: 1\n    compressionQuality: 50\n    crunchedCompression: 0\n    allowsAlphaSplitting: 0\n    overridden: 0\n    androidETC2FallbackOverride: 0\n    forceMaximumCompressionQuality_BC6H_BC7: 0\n  spriteSheet:\n    serializedVersion: 2\n    sprites: []\n    outline: []\n    physicsShape: []\n    bones: []\n    spriteID: \n    internalID: 0\n    vertices: []\n    indices: \n    edges: []\n    weights: []\n    secondaryTextures: []\n  spritePackingTag: \n  pSDRemoveMatte: 0\n  pSDShowRemoveMatteOption: 0\n  userData: \n  assetBundleName: \n  assetBundleVariant: \n",
+								"type": "template"
+							},
+							{
+								"conditions": "$(connected:ao_tex) or $(connected:roughness_tex) or $(connected:metallic_tex)",
+								"file_name": "$(path_prefix)_maskmap.png",
+								"output": 11,
+								"type": "texture"
+							},
+							{
+								"conditions": "$(connected:ao_tex) or $(connected:roughness_tex) or $(connected:metallic_tex)",
+								"file_name": "$(path_prefix)_maskmap.png.meta",
+								"template": "fileFormatVersion: 2\nguid: $uid(1)\nTextureImporter:\n  internalIDToNameTable: []\n  externalObjects: {}\n  serializedVersion: 10\n  mipmaps:\n    mipMapMode: 0\n    enableMipMap: 1\n    sRGBTexture: 1\n    linearTexture: 0\n    fadeOut: 0\n    borderMipMap: 0\n    mipMapsPreserveCoverage: 0\n    alphaTestReferenceValue: 0.5\n    mipMapFadeDistanceStart: 1\n    mipMapFadeDistanceEnd: 3\n  bumpmap:\n    convertToNormalMap: 0\n    externalNormalMap: 0\n    heightScale: 0.25\n    normalMapFilter: 0\n  isReadable: 0\n  streamingMipmaps: 0\n  streamingMipmapsPriority: 0\n  grayScaleToAlpha: 0\n  generateCubemap: 6\n  cubemapConvolution: 0\n  seamlessCubemap: 0\n  textureFormat: 1\n  maxTextureSize: 2048\n  textureSettings:\n    serializedVersion: 2\n    filterMode: -1\n    aniso: -1\n    mipBias: -100\n    wrapU: -1\n    wrapV: -1\n    wrapW: -1\n  nPOTScale: 1\n  lightmap: 0\n  compressionQuality: 50\n  spriteMode: 0\n  spriteExtrude: 1\n  spriteMeshType: 1\n  alignment: 0\n  spritePivot: {x: 0.5, y: 0.5}\n  spritePixelsToUnits: 100\n  spriteBorder: {x: 0, y: 0, z: 0, w: 0}\n  spriteGenerateFallbackPhysicsShape: 1\n  alphaUsage: 1\n  alphaIsTransparency: 0\n  spriteTessellationDetail: -1\n  textureType: 0\n  textureShape: 1\n  singleChannelComponent: 0\n  maxTextureSizeSet: 0\n  compressionQualitySet: 0\n  textureFormatSet: 0\n  platformSettings:\n  - serializedVersion: 3\n    buildTarget: DefaultTexturePlatform\n    maxTextureSize: 2048\n    resizeAlgorithm: 0\n    textureFormat: -1\n    textureCompression: 1\n    compressionQuality: 50\n    crunchedCompression: 0\n    allowsAlphaSplitting: 0\n    overridden: 0\n    androidETC2FallbackOverride: 0\n    forceMaximumCompressionQuality_BC6H_BC7: 0\n  spriteSheet:\n    serializedVersion: 2\n    sprites: []\n    outline: []\n    physicsShape: []\n    bones: []\n    spriteID: \n    internalID: 0\n    vertices: []\n    indices: \n    edges: []\n    weights: []\n    secondaryTextures: []\n  spritePackingTag: \n  pSDRemoveMatte: 0\n  pSDShowRemoveMatteOption: 0\n  userData: \n  assetBundleName: \n  assetBundleVariant: \n",
+								"type": "template"
+							},
+							{
+								"conditions": "$(connected:normal_tex)",
+								"file_name": "$(path_prefix)_normal.png",
+								"output": 7,
+								"type": "texture"
+							},
+							{
+								"conditions": "$(connected:normal_tex)",
+								"file_name": "$(path_prefix)_normal.png.meta",
+								"template": "fileFormatVersion: 2\nguid: $uid(2)\nTextureImporter:\n  internalIDToNameTable: []\n  externalObjects: {}\n  serializedVersion: 10\n  mipmaps:\n    mipMapMode: 0\n    enableMipMap: 1\n    sRGBTexture: 0\n    linearTexture: 0\n    fadeOut: 0\n    borderMipMap: 0\n    mipMapsPreserveCoverage: 0\n    alphaTestReferenceValue: 0.5\n    mipMapFadeDistanceStart: 1\n    mipMapFadeDistanceEnd: 3\n  bumpmap:\n    convertToNormalMap: 0\n    externalNormalMap: 0\n    heightScale: 0.25\n    normalMapFilter: 0\n  isReadable: 0\n  streamingMipmaps: 0\n  streamingMipmapsPriority: 0\n  grayScaleToAlpha: 0\n  generateCubemap: 6\n  cubemapConvolution: 0\n  seamlessCubemap: 0\n  textureFormat: 1\n  maxTextureSize: 2048\n  textureSettings:\n    serializedVersion: 2\n    filterMode: -1\n    aniso: -1\n    mipBias: -100\n    wrapU: -1\n    wrapV: -1\n    wrapW: -1\n  nPOTScale: 1\n  lightmap: 0\n  compressionQuality: 50\n  spriteMode: 0\n  spriteExtrude: 1\n  spriteMeshType: 1\n  alignment: 0\n  spritePivot: {x: 0.5, y: 0.5}\n  spritePixelsToUnits: 100\n  spriteBorder: {x: 0, y: 0, z: 0, w: 0}\n  spriteGenerateFallbackPhysicsShape: 1\n  alphaUsage: 1\n  alphaIsTransparency: 0\n  spriteTessellationDetail: -1\n  textureType: 1\n  textureShape: 1\n  singleChannelComponent: 0\n  maxTextureSizeSet: 0\n  compressionQualitySet: 0\n  textureFormatSet: 0\n  platformSettings:\n  - serializedVersion: 3\n    buildTarget: DefaultTexturePlatform\n    maxTextureSize: 2048\n    resizeAlgorithm: 0\n    textureFormat: -1\n    textureCompression: 1\n    compressionQuality: 50\n    crunchedCompression: 0\n    allowsAlphaSplitting: 0\n    overridden: 0\n    androidETC2FallbackOverride: 0\n    forceMaximumCompressionQuality_BC6H_BC7: 0\n  spriteSheet:\n    serializedVersion: 2\n    sprites: []\n    outline: []\n    physicsShape: []\n    bones: []\n    spriteID: \n    internalID: 0\n    vertices: []\n    indices: \n    edges: []\n    weights: []\n    secondaryTextures: []\n  spritePackingTag: \n  pSDRemoveMatte: 0\n  pSDShowRemoveMatteOption: 0\n  userData: \n  assetBundleName: \n  assetBundleVariant: \n",
+								"type": "template"
+							},
+							{
+								"conditions": "$(connected:depth_tex)",
+								"file_name": "$(path_prefix)_height.png",
+								"output": 8,
+								"type": "texture"
+							},
+							{
+								"conditions": "$(connected:depth_tex)",
+								"file_name": "$(path_prefix)_height.png.meta",
+								"template": "fileFormatVersion: 2\nguid: $uid(3)\nTextureImporter:\n  internalIDToNameTable: []\n  externalObjects: {}\n  serializedVersion: 10\n  mipmaps:\n    mipMapMode: 0\n    enableMipMap: 1\n    sRGBTexture: 1\n    linearTexture: 0\n    fadeOut: 0\n    borderMipMap: 0\n    mipMapsPreserveCoverage: 0\n    alphaTestReferenceValue: 0.5\n    mipMapFadeDistanceStart: 1\n    mipMapFadeDistanceEnd: 3\n  bumpmap:\n    convertToNormalMap: 0\n    externalNormalMap: 0\n    heightScale: 0.25\n    normalMapFilter: 0\n  isReadable: 0\n  streamingMipmaps: 0\n  streamingMipmapsPriority: 0\n  grayScaleToAlpha: 0\n  generateCubemap: 6\n  cubemapConvolution: 0\n  seamlessCubemap: 0\n  textureFormat: 1\n  maxTextureSize: 2048\n  textureSettings:\n    serializedVersion: 2\n    filterMode: -1\n    aniso: -1\n    mipBias: -100\n    wrapU: -1\n    wrapV: -1\n    wrapW: -1\n  nPOTScale: 1\n  lightmap: 0\n  compressionQuality: 50\n  spriteMode: 0\n  spriteExtrude: 1\n  spriteMeshType: 1\n  alignment: 0\n  spritePivot: {x: 0.5, y: 0.5}\n  spritePixelsToUnits: 100\n  spriteBorder: {x: 0, y: 0, z: 0, w: 0}\n  spriteGenerateFallbackPhysicsShape: 1\n  alphaUsage: 1\n  alphaIsTransparency: 0\n  spriteTessellationDetail: -1\n  textureType: 0\n  textureShape: 1\n  singleChannelComponent: 0\n  maxTextureSizeSet: 0\n  compressionQualitySet: 0\n  textureFormatSet: 0\n  platformSettings:\n  - serializedVersion: 3\n    buildTarget: DefaultTexturePlatform\n    maxTextureSize: 2048\n    resizeAlgorithm: 0\n    textureFormat: -1\n    textureCompression: 1\n    compressionQuality: 50\n    crunchedCompression: 0\n    allowsAlphaSplitting: 0\n    overridden: 0\n    androidETC2FallbackOverride: 0\n    forceMaximumCompressionQuality_BC6H_BC7: 0\n  spriteSheet:\n    serializedVersion: 2\n    sprites: []\n    outline: []\n    physicsShape: []\n    bones: []\n    spriteID: \n    internalID: 0\n    vertices: []\n    indices: \n    edges: []\n    weights: []\n    secondaryTextures: []\n  spritePackingTag: \n  pSDRemoveMatte: 0\n  pSDShowRemoveMatteOption: 0\n  userData: \n  assetBundleName: \n  assetBundleVariant: \n",
+								"type": "template"
+							},
+							{
+								"conditions": "$(connected:emission_tex)",
+								"file_name": "$(path_prefix)_emission.png",
+								"output": 2,
+								"type": "texture"
+							},
+							{
+								"conditions": "$(connected:emission_tex)",
+								"file_name": "$(path_prefix)_emission.png.meta",
+								"template": "fileFormatVersion: 2\nguid: $uid(4)\nTextureImporter:\n  internalIDToNameTable: []\n  externalObjects: {}\n  serializedVersion: 10\n  mipmaps:\n    mipMapMode: 0\n    enableMipMap: 1\n    sRGBTexture: 1\n    linearTexture: 0\n    fadeOut: 0\n    borderMipMap: 0\n    mipMapsPreserveCoverage: 0\n    alphaTestReferenceValue: 0.5\n    mipMapFadeDistanceStart: 1\n    mipMapFadeDistanceEnd: 3\n  bumpmap:\n    convertToNormalMap: 0\n    externalNormalMap: 0\n    heightScale: 0.25\n    normalMapFilter: 0\n  isReadable: 0\n  streamingMipmaps: 0\n  streamingMipmapsPriority: 0\n  grayScaleToAlpha: 0\n  generateCubemap: 6\n  cubemapConvolution: 0\n  seamlessCubemap: 0\n  textureFormat: 1\n  maxTextureSize: 2048\n  textureSettings:\n    serializedVersion: 2\n    filterMode: -1\n    aniso: -1\n    mipBias: -100\n    wrapU: -1\n    wrapV: -1\n    wrapW: -1\n  nPOTScale: 1\n  lightmap: 0\n  compressionQuality: 50\n  spriteMode: 0\n  spriteExtrude: 1\n  spriteMeshType: 1\n  alignment: 0\n  spritePivot: {x: 0.5, y: 0.5}\n  spritePixelsToUnits: 100\n  spriteBorder: {x: 0, y: 0, z: 0, w: 0}\n  spriteGenerateFallbackPhysicsShape: 1\n  alphaUsage: 1\n  alphaIsTransparency: 0\n  spriteTessellationDetail: -1\n  textureType: 0\n  textureShape: 1\n  singleChannelComponent: 0\n  maxTextureSizeSet: 0\n  compressionQualitySet: 0\n  textureFormatSet: 0\n  platformSettings:\n  - serializedVersion: 3\n    buildTarget: DefaultTexturePlatform\n    maxTextureSize: 2048\n    resizeAlgorithm: 0\n    textureFormat: -1\n    textureCompression: 1\n    compressionQuality: 50\n    crunchedCompression: 0\n    allowsAlphaSplitting: 0\n    overridden: 0\n    androidETC2FallbackOverride: 0\n    forceMaximumCompressionQuality_BC6H_BC7: 0\n  spriteSheet:\n    serializedVersion: 2\n    sprites: []\n    outline: []\n    physicsShape: []\n    bones: []\n    spriteID: \n    internalID: 0\n    vertices: []\n    indices: \n    edges: []\n    weights: []\n    secondaryTextures: []\n  spritePackingTag: \n  pSDRemoveMatte: 0\n  pSDShowRemoveMatteOption: 0\n  userData: \n  assetBundleName: \n  assetBundleVariant: \n",
+								"type": "template"
+							},
+							{
+								"file_name": "$(path_prefix).mat",
+								"template": "%YAML 1.1\n%TAG !u! tag:unity3d.com,2011:\n--- !u!21 &2100000\nMaterial:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Name: $(file_prefix)\n  m_Shader: {fileID: 4800000, guid: 6e4ae4064600d784cac1e41a9e6f2e59, type: 3}\n  m_ShaderKeywords: _NORMALMAP_TANGENT_SPACE _NORMALMAP _HEIGHTMAP _PIXEL_DISPLACEMENT _PIXEL_DISPLACEMENT_LOCK_OBJECT_SCALE _DISPLACEMENT_LOCK_TILING_SCALE _MASKMAP _EMISSIVE_COLOR_MAP\n  m_LightmapFlags: 4\n  m_EnableInstancingVariants: 0\n  m_DoubleSidedGI: 0\n  m_CustomRenderQueue: -1\n  stringTagMap: {}\n  disabledShaderPasses:\n  - DistortionVectors\n  - MOTIONVECTORS\n  - TransparentDepthPrepass\n  - TransparentDepthPostpass\n  - TransparentBackface\n  m_SavedProperties:\n    serializedVersion: 3\n    m_TexEnvs:\n    - _AnisotropyMap:\n        m_Texture: {fileID: 0}\n        m_Scale: {x: 1, y: 1}\n        m_Offset: {x: 0, y: 0}\n    - _BaseColorMap:\n$if $(connected:albedo_tex)\n        m_Texture: {fileID: 2800000, guid: $uid(0), type: 3}\n$else\n        m_Texture: {fileID: 0}\n$fi\n        m_Scale: {x: 1, y: 1}\n        m_Offset: {x: 0, y: 0}\n    - _BentNormalMap:\n        m_Texture: {fileID: 0}\n        m_Scale: {x: 1, y: 1}\n        m_Offset: {x: 0, y: 0}\n    - _BentNormalMapOS:\n        m_Texture: {fileID: 0}\n        m_Scale: {x: 1, y: 1}\n        m_Offset: {x: 0, y: 0}\n    - _CoatMaskMap:\n        m_Texture: {fileID: 0}\n        m_Scale: {x: 1, y: 1}\n        m_Offset: {x: 0, y: 0}\n    - _DetailMap:\n        m_Texture: {fileID: 0}\n        m_Scale: {x: 1, y: 1}\n        m_Offset: {x: 0, y: 0}\n    - _DistortionVectorMap:\n        m_Texture: {fileID: 0}\n        m_Scale: {x: 1, y: 1}\n        m_Offset: {x: 0, y: 0}\n    - _EmissiveColorMap:\n$if $(connected:emission_tex)\n        m_Texture: {fileID: 2800000, guid: $uid(4), type: 3}\n$else\n        m_Texture: {fileID: 0}\n$fi\n        m_Scale: {x: 1, y: 1}\n        m_Offset: {x: 0, y: 0}\n    - _HeightMap:\n$if $(connected:depth_tex)\n        m_Texture: {fileID: 2800000, guid: $uid(3), type: 3}\n$else\n        m_Texture: {fileID: 0}\n$fi\n        m_Scale: {x: 1, y: 1}\n        m_Offset: {x: 0, y: 0}\n    - _IridescenceMaskMap:\n        m_Texture: {fileID: 0}\n        m_Scale: {x: 1, y: 1}\n        m_Offset: {x: 0, y: 0}\n    - _IridescenceThicknessMap:\n        m_Texture: {fileID: 0}\n        m_Scale: {x: 1, y: 1}\n        m_Offset: {x: 0, y: 0}\n    - _MainTex:\n$if $(connected:albedo_tex)\n        m_Texture: {fileID: 2800000, guid: $uid(0), type: 3}\n$else\n        m_Texture: {fileID: 0}\n$fi\n        m_Scale: {x: 1, y: 1}\n        m_Offset: {x: 0, y: 0}\n    - _MaskMap:\n$if $(connected:ao_tex) or $(connected:roughness_tex) or $(connected:metallic_tex)\n        m_Texture: {fileID: 2800000, guid: $uid(1), type: 3}\n$else\n        m_Texture: {fileID: 0}\n$fi\n        m_Scale: {x: 1, y: 1}\n        m_Offset: {x: 0, y: 0}\n    - _NormalMap:\n$if $(connected:normal_tex)\n        m_Texture: {fileID: 2800000, guid: $uid(2), type: 3}\n$else\n        m_Texture: {fileID: 0}\n$fi\n        m_Scale: {x: 1, y: 1}\n        m_Offset: {x: 0, y: 0}\n    - _NormalMapOS:\n        m_Texture: {fileID: 0}\n        m_Scale: {x: 1, y: 1}\n        m_Offset: {x: 0, y: 0}\n    - _SpecularColorMap:\n        m_Texture: {fileID: 0}\n        m_Scale: {x: 1, y: 1}\n        m_Offset: {x: 0, y: 0}\n    - _SubsurfaceMaskMap:\n        m_Texture: {fileID: 0}\n        m_Scale: {x: 1, y: 1}\n        m_Offset: {x: 0, y: 0}\n    - _TangentMap:\n        m_Texture: {fileID: 0}\n        m_Scale: {x: 1, y: 1}\n        m_Offset: {x: 0, y: 0}\n    - _TangentMapOS:\n        m_Texture: {fileID: 0}\n        m_Scale: {x: 1, y: 1}\n        m_Offset: {x: 0, y: 0}\n    - _ThicknessMap:\n        m_Texture: {fileID: 0}\n        m_Scale: {x: 1, y: 1}\n        m_Offset: {x: 0, y: 0}\n    - _TransmittanceColorMap:\n        m_Texture: {fileID: 0}\n        m_Scale: {x: 1, y: 1}\n        m_Offset: {x: 0, y: 0}\n    m_Floats:\n    - _AORemapMax: 1\n    - _AORemapMin: 0\n    - _ATDistance: 1\n    - _AddPrecomputedVelocity: 0\n    - _AlbedoAffectEmissive: 0\n    - _AlphaCutoff: 0.5\n    - _AlphaCutoffEnable: 0\n    - _AlphaCutoffPostpass: 0.5\n    - _AlphaCutoffPrepass: 0.5\n    - _AlphaCutoffShadow: 0.5\n    - _AlphaDstBlend: 0\n    - _AlphaSrcBlend: 1\n    - _Anisotropy: 0\n    - _BlendMode: 0\n    - _CoatMask: 0\n    - _CullMode: 2\n    - _CullModeForward: 2\n    - _Cutoff: 0.5\n    - _DepthOffsetEnable: 0\n    - _DetailAlbedoScale: 1\n    - _DetailNormalScale: 1\n    - _DetailSmoothnessScale: 1\n    - _DiffusionProfile: 0\n    - _DiffusionProfileHash: 0\n    - _DisplacementLockObjectScale: 1\n    - _DisplacementLockTilingScale: 1\n$if $(connected:depth_tex)\n    - _DisplacementMode: 2\n$else\n    - _DisplacementMode: 0\n$fi\n    - _DistortionBlendMode: 0\n    - _DistortionBlurBlendMode: 0\n    - _DistortionBlurDstBlend: 1\n    - _DistortionBlurRemapMax: 1\n    - _DistortionBlurRemapMin: 0\n    - _DistortionBlurScale: 1\n    - _DistortionBlurSrcBlend: 1\n    - _DistortionDepthTest: 1\n    - _DistortionDstBlend: 1\n    - _DistortionEnable: 0\n    - _DistortionScale: 1\n    - _DistortionSrcBlend: 1\n    - _DistortionVectorBias: -1\n    - _DistortionVectorScale: 2\n    - _DoubleSidedEnable: 0\n    - _DoubleSidedNormalMode: 1\n    - _DstBlend: 0\n    - _EmissiveColorMode: 1\n    - _EmissiveExposureWeight: 1\n    - _EmissiveIntensity: 1\n    - _EmissiveIntensityUnit: 0\n    - _EnableBlendModePreserveSpecularLighting: 1\n    - _EnableFogOnTransparent: 1\n    - _EnableGeometricSpecularAA: 0\n    - _EnergyConservingSpecularColor: 1\n    - _HeightAmplitude: $(expr:0.08*$(param:depth_scale))\n    - _HeightCenter: 1\n    - _HeightMapParametrization: 0\n    - _HeightMax: 1\n    - _HeightMin: -1\n    - _HeightOffset: 0\n    - _HeightPoMAmplitude: $(expr:8*$(param:depth_scale))\n    - _HeightTessAmplitude: 2\n    - _HeightTessCenter: 0.5\n    - _InvTilingScale: 1\n    - _Ior: 1.5\n    - _IridescenceMask: 1\n    - _IridescenceThickness: 1\n    - _LinkDetailsWithBase: 1\n    - _MaterialID: 1\n    - _Metallic: $(param:metallic)\n    - _NormalMapSpace: 0\n    - _NormalScale: $(param:normal)\n    - _PPDLodThreshold: 5\n    - _PPDMaxSamples: 15\n    - _PPDMinSamples: 5\n    - _PPDPrimitiveLength: 1\n    - _PPDPrimitiveWidth: 1\n    - _ReceivesSSR: 1\n    - _RefractionModel: 0\n    - _SSRefractionProjectionModel: 0\n    - _Smoothness: 1\n    - _SmoothnessRemapMax: 1\n    - _SmoothnessRemapMin: $(expr:1-$(param:roughness))\n    - _SpecularAAScreenSpaceVariance: 0.1\n    - _SpecularAAThreshold: 0.2\n    - _SpecularOcclusionMode: 1\n    - _SrcBlend: 1\n    - _StencilRef: 0\n    - _StencilRefDepth: 8\n    - _StencilRefDistortionVec: 4\n    - _StencilRefGBuffer: 10\n    - _StencilRefMV: 40\n    - _StencilWriteMask: 6\n    - _StencilWriteMaskDepth: 8\n    - _StencilWriteMaskDistortionVec: 4\n    - _StencilWriteMaskGBuffer: 14\n    - _StencilWriteMaskMV: 40\n    - _SubsurfaceMask: 1\n    - _SupportDecals: 1\n    - _SurfaceType: 0\n    - _TexWorldScale: 1\n    - _TexWorldScaleEmissive: 1\n    - _Thickness: 1\n    - _TransmissionEnable: 1\n    - _TransparentBackfaceEnable: 0\n    - _TransparentCullMode: 2\n    - _TransparentDepthPostpassEnable: 0\n    - _TransparentDepthPrepassEnable: 0\n    - _TransparentSortPriority: 0\n    - _TransparentWritingMotionVec: 0\n    - _TransparentZWrite: 0\n    - _UVBase: 0\n    - _UVDetail: 0\n    - _UVEmissive: 0\n    - _UseEmissiveIntensity: 0\n    - _UseShadowThreshold: 0\n    - _ZTestDepthEqualForOpaque: 3\n    - _ZTestGBuffer: 4\n    - _ZTestModeDistortion: 4\n    - _ZTestTransparent: 4\n    - _ZWrite: 1\n    m_Colors:\n    - _BaseColor: {r: 1, g: 1, b: 1, a: 1}\n    - _BaseColorMap_MipInfo: {r: 0, g: 0, b: 0, a: 0}\n    - _Color: {r: 1, g: 1, b: 1, a: 1}\n    - _DiffusionProfileAsset: {r: 0, g: 0, b: 0, a: 0}\n    - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}\n    - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}\n    - _EmissiveColor: {r: 0, g: 0, b: 0, a: 1}\n    - _EmissiveColorLDR: {r: 0, g: 0, b: 0, a: 1}\n    - _InvPrimScale: {r: 1, g: 1, b: 0, a: 0}\n    - _IridescenceThicknessRemap: {r: 0, g: 1, b: 0, a: 0}\n    - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}\n    - _ThicknessRemap: {r: 0, g: 1, b: 0, a: 0}\n    - _TransmittanceColor: {r: 1, g: 1, b: 1, a: 1}\n    - _UVDetailsMappingMask: {r: 1, g: 0, b: 0, a: 0}\n    - _UVMappingMask: {r: 1, g: 0, b: 0, a: 0}\n    - _UVMappingMaskEmissive: {r: 1, g: 0, b: 0, a: 0}\n--- !u!114 &8466335806480081788\nMonoBehaviour:\n  m_ObjectHideFlags: 11\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 0}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: da692e001514ec24dbc4cca1949ff7e8, type: 3}\n  m_Name: \n  m_EditorClassIdentifier: \n  version: 2\n",
+								"type": "template"
+							}
+						],
+						"uids": 5
+					},
+					"Unreal": {
+						"export_extension": "mm2ue",
+						"files": [
+							{
+								"conditions": "$(connected:albedo_tex)",
+								"file_name": "$(path_prefix)_albedo.png",
+								"output": 0,
+								"type": "texture"
+							},
+							{
+								"conditions": "$(connected:ao_tex) or $(connected:roughness_tex) or $(connected:metallic_tex)",
+								"file_name": "$(path_prefix)_orm.png",
+								"output": 1,
+								"type": "texture"
+							},
+							{
+								"conditions": "$(connected:emission_tex)",
+								"file_name": "$(path_prefix)_emission.png",
+								"output": 2,
+								"type": "texture"
+							},
+							{
+								"conditions": "$(connected:normal_tex)",
+								"file_name": "$(path_prefix)_normal.png",
+								"output": 10,
+								"type": "texture"
+							},
+							{
+								"conditions": "$(connected:depth_tex)",
+								"file_name": "$(path_prefix)_height.png",
+								"output": 8,
+								"type": "texture"
+							},
+							{
+								"file_name": "$(path_prefix).mm2ue",
+								"template": "/*\nInstructions to setup this material:\n- copy material.uasset and open the copy\n- copy the shader code below and paste it into the Custom node\n$if $(connected:albedo_tex)\n- assign $(file_prefix)_albedo.png to the Albedo texture in the graph\n$fi\n$if $(connected:ao_tex) or $(connected:roughness_tex) or $(connected:metallic_tex)\n- assign $(file_prefix)_orm.png to the ORM texture in the graph\n$fi\n$if $(connected:emission_tex)\n- assign $(file_prefix)_emission.png to the Emission texture in the graph\n$fi\n$if $(connected:normal_tex)\n- assign $(file_prefix)_normal.png to the Normal texture in the graph\n$fi\n$if $(connected:depth_tex)\n- assign $(file_prefix)_height.png to the Height texture in the graph\n$fi\n*/\n",
+								"type": "template"
+							}
+						]
+					}
+				},
+				"global": "",
+				"inputs": [
+					{
+						"default": "vec3(1.0)",
+						"group_size": 7,
+						"label": "",
+						"name": "albedo_tex",
+						"type": "rgb"
+					},
+					{
+						"default": "1.0",
+						"label": "",
+						"name": "metallic_tex",
+						"type": "f"
+					},
+					{
+						"default": "1.0",
+						"label": "",
+						"name": "roughness_tex",
+						"type": "f"
+					},
+					{
+						"default": "vec3(0.0)",
+						"label": "",
+						"name": "emission_tex",
+						"type": "rgb"
+					},
+					{
+						"default": "vec3(0.5)",
+						"label": "",
+						"name": "normal_tex",
+						"type": "rgb"
+					},
+					{
+						"default": "1.0",
+						"label": "",
+						"name": "ao_tex",
+						"type": "f"
+					},
+					{
+						"default": "0.0",
+						"label": "",
+						"name": "depth_tex",
+						"type": "f"
+					},
+					{
+						"default": "1.0",
+						"label": "",
+						"name": "opacity_tex",
+						"type": "f"
+					},
+					{
+						"default": "0.0",
+						"label": "",
+						"name": "sss_tex",
+						"type": "f"
+					}
+				],
+				"instance": "",
+				"name": "Static PBR Material",
+				"outputs": [
+					{
+						"rgba": "vec4($albedo_tex($uv), $opacity_tex($uv))",
+						"type": "rgba"
+					},
+					{
+						"rgb": "vec3($ao_tex($uv), $roughness_tex($uv), $metallic_tex($uv))",
+						"type": "rgb"
+					},
+					{
+						"rgb": "$emission_tex($uv)",
+						"type": "rgb"
+					},
+					{
+						"rgb": "$normal_tex($uv)*vec3(-1.0, 1.0, -1.0)+vec3(1.0, 0.0, 1.0)",
+						"type": "rgb"
+					},
+					{
+						"f": "clamp($depth_tex($uv), 0.0, 1.0)",
+						"type": "f"
+					},
+					{
+						"f": "$sss_tex($uv)",
+						"type": "f"
+					},
+					{
+						"rgba": "vec4(vec3($metallic_tex($uv)), 1.0-$roughness_tex($uv))",
+						"type": "rgba"
+					},
+					{
+						"rgb": "$normal_tex($uv)*vec3(-1.0, 1.0, -1.0)+vec3(1.0, 0.0, 1.0)",
+						"type": "rgb"
+					},
+					{
+						"f": "1.0-$depth_tex($uv)",
+						"type": "f"
+					},
+					{
+						"f": "$ao_tex($uv)",
+						"type": "f"
+					},
+					{
+						"rgb": "$normal_tex($uv)*vec3(-1.0)+vec3(1.0)",
+						"type": "rgb"
+					},
+					{
+						"rgba": "vec4($metallic_tex($uv), $ao_tex($uv), 1.0, 1.0-$roughness_tex($uv))",
+						"type": "rgba"
+					},
+					{
+						"f": "$metallic_tex($uv)",
+						"type": "f"
+					},
+					{
+						"f": "$roughness_tex($uv)",
+						"type": "f"
+					},
+					{
+						"rgba": "vec4($normal_tex($uv).rg * vec2(-1.0) + vec2(1.0), $ao_tex($uv), 1.0-$depth_tex($uv))",
+						"type": "rgba"
+					},
+					{
+						"rgba": "vec4(1.0-sqrt($roughness_tex($uv)), $metallic_tex($uv), $sss_tex($uv), 1.0-$emission_tex($uv).r)",
+						"type": "rgba"
+					}
+				],
+				"parameters": [
+					{
+						"default": {
+							"a": 1,
+							"b": 1,
+							"g": 1,
+							"r": 1
+						},
+						"label": "Albedo",
+						"name": "albedo_color",
+						"type": "color"
+					},
+					{
+						"control": "None",
+						"default": 1,
+						"label": "Metallic",
+						"max": 1,
+						"min": 0,
+						"name": "metallic",
+						"step": 0.01,
+						"type": "float"
+					},
+					{
+						"control": "None",
+						"default": 1,
+						"label": "Roughness",
+						"max": 1,
+						"min": 0,
+						"name": "roughness",
+						"step": 0.01,
+						"type": "float"
+					},
+					{
+						"control": "None",
+						"default": 1,
+						"label": "Emission",
+						"max": 1,
+						"min": 0,
+						"name": "emission_energy",
+						"step": 0.01,
+						"type": "float"
+					},
+					{
+						"control": "None",
+						"default": 1,
+						"label": "Normal",
+						"max": 10,
+						"min": 0,
+						"name": "normal",
+						"step": 0.01,
+						"type": "float"
+					},
+					{
+						"control": "None",
+						"default": 1,
+						"label": "Ambient occlusion",
+						"max": 1,
+						"min": 0,
+						"name": "ao",
+						"step": 0.01,
+						"type": "float"
+					},
+					{
+						"control": "None",
+						"default": 0.5,
+						"label": "Depth",
+						"max": 1,
+						"min": 0,
+						"name": "depth_scale",
+						"step": 0.01,
+						"type": "float"
+					},
+					{
+						"default": false,
+						"label": "Transparency",
+						"name": "flags_transparent",
+						"type": "boolean"
+					},
+					{
+						"control": "None",
+						"default": 0,
+						"label": "Subsurf. scatter.",
+						"max": 1,
+						"min": 0,
+						"name": "sss",
+						"step": 0.01,
+						"type": "float"
+					},
+					{
+						"default": 11,
+						"first": 6,
+						"label": "Size",
+						"last": 13,
+						"name": "size",
+						"type": "size"
+					}
+				],
+				"preview_shader": "shader_type spatial;\nrender_mode blend_mix,cull_back,diffuse_burley,specular_schlick_ggx\n$if $(connected:opacity_tex) and $(param:flags_transparent)\n,depth_draw_alpha_prepass\n$fi\n;\n\nuniform sampler2D texture_albedo : hint_albedo; // $output(0)\nuniform sampler2D texture_emission : hint_black_albedo; // $output(2)\nuniform sampler2D texture_normal : hint_normal; // $output(3)\nuniform sampler2D texture_orm : hint_white; // $output(1)\nuniform sampler2D texture_subsurface_scattering : hint_white; // $output(5)\nuniform sampler2D texture_depth : hint_black; // $output(4)\nuniform int depth_min_layers = 64;\nuniform int depth_max_layers = 64;\nuniform vec2 depth_flip = vec2(1.0);\n\nuniform vec3 uv1_scale;\nuniform vec3 uv1_offset;\n\n$definitions\n\nvoid vertex() {\n\tUV=UV*uv1_scale.xy+uv1_offset.xy;\n}\n\nvoid fragment() {\n\tvec2 base_uv = UV;\n$if $(connected:depth_tex)\n\t{\n$begin_generate\n\t\tfloat depth_scale = 0.2*$depth_scale;\n$end_generate\n\t\tvec3 view_dir = normalize(normalize(-VERTEX)*mat3(TANGENT*depth_flip.x,-BINORMAL*depth_flip.y,NORMAL));\n\t\tfloat num_layers = mix(float(depth_max_layers),float(depth_min_layers), abs(dot(vec3(0.0, 0.0, 1.0), view_dir)));\n\t\tfloat layer_depth = 1.0 / num_layers;\n\t\tfloat current_layer_depth = 0.0;\n\t\tvec2 P = view_dir.xy * depth_scale;\n\t\tvec2 delta = P / num_layers / dot(VIEW, NORMAL);\n\t\tvec2  ofs = base_uv;\n\t\tfloat depth = textureLod(texture_depth, ofs,0.0).r;\n\t\tfloat current_depth = 0.0;\n\t\twhile(current_depth < depth) {\n\t\t\tofs -= delta;\n\t\t\tdepth = textureLod(texture_depth, ofs,0.0).r;\n\t\t\tcurrent_depth += layer_depth;\n\t\t}\n\t\tvec2 prev_ofs = ofs + delta;\n\t\tfloat after_depth  = depth - current_depth;\n\t\tfloat before_depth = textureLod(texture_depth, prev_ofs, 0.0).r - current_depth + layer_depth;\n\t\tfloat weight = after_depth / (after_depth - before_depth);\n\t\tofs = mix(ofs,prev_ofs,weight);\n\t\tbase_uv=ofs;\n\t}\n$fi\n$begin_generate\n\tvec4 albedo_tex = texture(texture_albedo, base_uv);\n\tALBEDO = $albedo_color.rgb * albedo_tex.rgb;\n\tvec4 orm_tex = texture(texture_orm, base_uv);\n\tMETALLIC = $metallic*orm_tex.b;\n\tROUGHNESS = $roughness*orm_tex.g;\n\tSPECULAR = 0.5;\n\tNORMALMAP = texture(texture_normal, base_uv).rgb;\n\tNORMALMAP_DEPTH = $normal;\n\tvec3 emission_tex = texture(texture_emission, base_uv).rgb;\n\tEMISSION = emission_tex*$emission_energy;\n\tAO = orm_tex.r;\n\tAO_LIGHT_AFFECT = $ao;\n$if $(connected:opacity_tex) and $(param:flags_transparent)\n\tALPHA = albedo_tex.a;\n$fi\n\tfloat sss_tex = texture(texture_subsurface_scattering, base_uv).r;\n\tSSS_STRENGTH=$sss*sss_tex;\n$end_generate\n}\n"
+			},
+			"type": "material_export"
+		},
+		{
+			"name": "voronoi_triangle",
+			"node_position": {
+				"x": -548.5,
+				"y": -19
+			},
+			"parameters": {
+				"randomness": 0.85,
+				"scale_x": 30,
+				"scale_y": 30,
+				"stretch_x": 1,
+				"stretch_y": 1
+			},
+			"seed_int": 0,
+			"type": "voronoi_triangle"
+		},
+		{
+			"name": "tones_step",
+			"node_position": {
+				"x": -226.305573,
+				"y": -17.777767
+			},
+			"parameters": {
+				"invert": false,
+				"value": 0.015,
+				"width": 0.05
+			},
+			"seed_int": 0,
+			"type": "tones_step"
+		},
+		{
+			"name": "mwf_create_map",
+			"node_position": {
+				"x": 37.583302,
+				"y": 13.472233
+			},
+			"parameters": {
+				"angle": 0,
+				"height": 0.03
+			},
+			"seed_int": 0,
+			"type": "mwf_create_map"
+		},
+		{
+			"name": "mwf_map",
+			"node_position": {
+				"x": 265.361084,
+				"y": 40.555565
+			},
+			"parameters": {
+
+			},
+			"seed_int": 0,
+			"type": "mwf_map"
+		},
+		{
+			"connections": [
+				{
+					"from": "uniform_2",
+					"from_port": 0,
+					"to": "gen_outputs",
+					"to_port": 3
+				},
+				{
+					"from": "uniform_greyscale_3_2",
+					"from_port": 0,
+					"to": "combine",
+					"to_port": 0
+				},
+				{
+					"from": "uniform_greyscale_3",
+					"from_port": 0,
+					"to": "combine",
+					"to_port": 1
+				},
+				{
+					"from": "uniform_greyscale_4",
+					"from_port": 0,
+					"to": "combine",
+					"to_port": 2
+				},
+				{
+					"from": "uniform_3",
+					"from_port": 0,
+					"to": "gen_outputs",
+					"to_port": 0
+				},
+				{
+					"from": "combine",
+					"from_port": 0,
+					"to": "gen_outputs",
+					"to_port": 1
+				},
+				{
+					"from": "uniform",
+					"from_port": 0,
+					"to": "gen_outputs",
+					"to_port": 2
+				}
+			],
+			"label": "Metal",
+			"longdesc": "",
+			"name": "graph_2_2",
+			"node_position": {
+				"x": -686.277832,
+				"y": 202.666672
+			},
+			"nodes": [
+				{
+					"name": "uniform_greyscale_3_2",
+					"node_position": {
+						"x": -712.322693,
+						"y": -216.48642
+					},
+					"parameters": {
+						"color": 1
+					},
+					"seed": 36576,
+					"type": "uniform_greyscale"
+				},
+				{
+					"name": "uniform_greyscale_4",
+					"node_position": {
+						"x": -712.322693,
+						"y": -114.48642
+					},
+					"parameters": {
+						"color": 1
+					},
+					"seed": 36422,
+					"type": "uniform_greyscale"
+				},
+				{
+					"name": "uniform_greyscale_3",
+					"node_position": {
+						"x": -712.322693,
+						"y": -165.48642
+					},
+					"parameters": {
+						"color": 0.1
+					},
+					"seed": 36499,
+					"type": "uniform_greyscale"
+				},
+				{
+					"name": "uniform_2",
+					"node_position": {
+						"x": -674.908142,
+						"y": -0.333069
+					},
+					"parameters": {
+						"color": {
+							"a": 1,
+							"b": 0,
+							"g": 0.501961,
+							"r": 0.501961,
+							"type": "Color"
+						}
+					},
+					"seed": -61342,
+					"type": "uniform"
+				},
+				{
+					"name": "uniform_3",
+					"node_position": {
+						"x": -676.322693,
+						"y": -271.48642
+					},
+					"parameters": {
+						"color": {
+							"a": 1,
+							"b": 0.554,
+							"g": 0.556,
+							"r": 0.55,
+							"type": "Color"
+						}
+					},
+					"seed": 11477,
+					"type": "uniform"
+				},
+				{
+					"name": "combine",
+					"node_position": {
+						"x": -514.322693,
+						"y": -176.48642
+					},
+					"parameters": {
+
+					},
+					"seed": 31890,
+					"type": "combine"
+				},
+				{
+					"name": "gen_inputs",
+					"node_position": {
+						"x": -847.322693,
+						"y": -143.585464
+					},
+					"parameters": {
+
+					},
+					"ports": [
+
+					],
+					"seed": 63262,
+					"type": "ios"
+				},
+				{
+					"name": "gen_outputs",
+					"node_position": {
+						"x": -206.322693,
+						"y": -144.585464
+					},
+					"parameters": {
+
+					},
+					"ports": [
+						{
+							"group_size": 4,
+							"name": "Albedo",
+							"type": "rgb"
+						},
+						{
+							"name": "ORM",
+							"type": "rgb"
+						},
+						{
+							"name": "Emission",
+							"type": "rgb"
+						},
+						{
+							"name": "Normal",
+							"type": "rgb"
+						}
+					],
+					"seed": 2686,
+					"type": "ios"
+				},
+				{
+					"name": "gen_parameters",
+					"node_position": {
+						"x": -739.30249,
+						"y": -408.925568
+					},
+					"parameters": {
+						"param0": 1,
+						"param1": 0.1
+					},
+					"seed": 55275,
+					"type": "remote",
+					"widgets": [
+						{
+							"configurations": {
+								"Aluminum": [
+									{
+										"node": "uniform_3",
+										"value": {
+											"a": 1,
+											"b": 0.925,
+											"g": 0.921,
+											"r": 0.913,
+											"type": "Color"
+										},
+										"widget": "color"
+									}
+								],
+								"Chromium": [
+									{
+										"node": "uniform_3",
+										"value": {
+											"a": 1,
+											"b": 0.554,
+											"g": 0.556,
+											"r": 0.55,
+											"type": "Color"
+										},
+										"widget": "color"
+									}
+								],
+								"Cobalt": [
+									{
+										"node": "uniform_3",
+										"value": {
+											"a": 1,
+											"b": 0.634,
+											"g": 0.655,
+											"r": 0.662,
+											"type": "Color"
+										},
+										"widget": "color"
+									}
+								],
+								"Copper": [
+									{
+										"node": "uniform_3",
+										"value": {
+											"a": 1,
+											"b": 0.538,
+											"g": 0.637,
+											"r": 0.955,
+											"type": "Color"
+										},
+										"widget": "color"
+									}
+								],
+								"Gold": [
+									{
+										"node": "uniform_3",
+										"value": {
+											"a": 1,
+											"b": 0.336,
+											"g": 0.766,
+											"r": 1,
+											"type": "Color"
+										},
+										"widget": "color"
+									}
+								],
+								"Iron": [
+									{
+										"node": "uniform_3",
+										"value": {
+											"a": 1,
+											"b": 0.58,
+											"g": 0.57,
+											"r": 0.56,
+											"type": "Color"
+										},
+										"widget": "color"
+									}
+								],
+								"Nickel": [
+									{
+										"node": "uniform_3",
+										"value": {
+											"a": 1,
+											"b": 0.526,
+											"g": 0.609,
+											"r": 0.66,
+											"type": "Color"
+										},
+										"widget": "color"
+									}
+								],
+								"Platinum": [
+									{
+										"node": "uniform_3",
+										"value": {
+											"a": 1,
+											"b": 0.585,
+											"g": 0.637,
+											"r": 0.672,
+											"type": "Color"
+										},
+										"widget": "color"
+									}
+								],
+								"Silver": [
+									{
+										"node": "uniform_3",
+										"value": {
+											"a": 1,
+											"b": 0.915,
+											"g": 0.96,
+											"r": 0.972,
+											"type": "Color"
+										},
+										"widget": "color"
+									}
+								],
+								"Titanium": [
+									{
+										"node": "uniform_3",
+										"value": {
+											"a": 1,
+											"b": 0.449,
+											"g": 0.497,
+											"r": 0.542,
+											"type": "Color"
+										},
+										"widget": "color"
+									}
+								]
+							},
+							"label": "Metal",
+							"linked_widgets": [
+								{
+									"node": "uniform_3",
+									"widget": "color"
+								}
+							],
+							"name": "param0",
+							"type": "config_control"
+						},
+						{
+							"label": "Roughness",
+							"linked_widgets": [
+								{
+									"node": "uniform_greyscale_3",
+									"widget": "color"
+								}
+							],
+							"name": "param1",
+							"type": "linked_control"
+						}
+					]
+				},
+				{
+					"name": "uniform",
+					"node_position": {
+						"x": -673.80249,
+						"y": -56.425568
+					},
+					"parameters": {
+						"color": {
+							"a": 1,
+							"b": 0,
+							"g": 0,
+							"r": 0,
+							"type": "Color"
+						}
+					},
+					"seed": 53321,
+					"type": "uniform"
+				}
+			],
+			"parameters": {
+				"param0": 1,
+				"param1": 0.1
+			},
+			"seed_int": 0,
+			"shortdesc": "",
+			"type": "graph"
+		},
+		{
+			"connections": [
+				{
+					"from": "colorize_3",
+					"from_port": 0,
+					"to": "gen_outputs",
+					"to_port": 6
+				},
+				{
+					"from": "decompose",
+					"from_port": 1,
+					"to": "gen_outputs",
+					"to_port": 2
+				},
+				{
+					"from": "decompose",
+					"from_port": 2,
+					"to": "gen_outputs",
+					"to_port": 1
+				},
+				{
+					"from": "graph_6",
+					"from_port": 0,
+					"to": "blend",
+					"to_port": 1
+				},
+				{
+					"from": "decompose",
+					"from_port": 0,
+					"to": "blend",
+					"to_port": 0
+				},
+				{
+					"from": "blend",
+					"from_port": 0,
+					"to": "gen_outputs",
+					"to_port": 5
+				},
+				{
+					"from": "normal_map2",
+					"from_port": 0,
+					"to": "normal_blend",
+					"to_port": 1
+				},
+				{
+					"from": "normal_blend",
+					"from_port": 0,
+					"to": "gen_outputs",
+					"to_port": 4
+				},
+				{
+					"from": "gen_inputs",
+					"from_port": 0,
+					"to": "graph_2_2_3",
+					"to_port": 0
+				},
+				{
+					"from": "gen_inputs",
+					"from_port": 1,
+					"to": "graph_2_2_3",
+					"to_port": 1
+				},
+				{
+					"from": "gen_inputs",
+					"from_port": 2,
+					"to": "graph_2_2_3",
+					"to_port": 2
+				},
+				{
+					"from": "gen_inputs",
+					"from_port": 3,
+					"to": "graph_2_2_3",
+					"to_port": 3
+				},
+				{
+					"from": "gen_inputs",
+					"from_port": 4,
+					"to": "graph_2_2_3",
+					"to_port": 4
+				},
+				{
+					"from": "graph_2_2_4",
+					"from_port": 0,
+					"to": "switch",
+					"to_port": 5
+				},
+				{
+					"from": "graph_2_2_4",
+					"from_port": 1,
+					"to": "switch",
+					"to_port": 6
+				},
+				{
+					"from": "graph_2_2_4",
+					"from_port": 2,
+					"to": "switch",
+					"to_port": 7
+				},
+				{
+					"from": "graph_2_2_4",
+					"from_port": 3,
+					"to": "switch",
+					"to_port": 8
+				},
+				{
+					"from": "graph_2_2_4",
+					"from_port": 4,
+					"to": "switch",
+					"to_port": 9
+				},
+				{
+					"from": "graph_2_2_3",
+					"from_port": 0,
+					"to": "switch",
+					"to_port": 0
+				},
+				{
+					"from": "graph_2_2_3",
+					"from_port": 1,
+					"to": "switch",
+					"to_port": 1
+				},
+				{
+					"from": "graph_2_2_3",
+					"from_port": 2,
+					"to": "switch",
+					"to_port": 2
+				},
+				{
+					"from": "graph_2_2_3",
+					"from_port": 3,
+					"to": "switch",
+					"to_port": 3
+				},
+				{
+					"from": "graph_2_2_3",
+					"from_port": 4,
+					"to": "switch",
+					"to_port": 4
+				},
+				{
+					"from": "graph_2_2_3",
+					"from_port": 0,
+					"to": "graph_2_2_4",
+					"to_port": 0
+				},
+				{
+					"from": "graph_2_2_3",
+					"from_port": 1,
+					"to": "graph_2_2_4",
+					"to_port": 1
+				},
+				{
+					"from": "graph_2_2_3",
+					"from_port": 2,
+					"to": "graph_2_2_4",
+					"to_port": 2
+				},
+				{
+					"from": "graph_2_2_3",
+					"from_port": 3,
+					"to": "graph_2_2_4",
+					"to_port": 3
+				},
+				{
+					"from": "graph_2_2_3",
+					"from_port": 4,
+					"to": "graph_2_2_4",
+					"to_port": 4
+				},
+				{
+					"from": "reroute_5",
+					"from_port": 0,
+					"to": "normal_blend",
+					"to_port": 0
+				},
+				{
+					"from": "switch",
+					"from_port": 4,
+					"to": "reroute_5",
+					"to_port": 0
+				},
+				{
+					"from": "reroute_4",
+					"from_port": 0,
+					"to": "gen_outputs",
+					"to_port": 3
+				},
+				{
+					"from": "switch",
+					"from_port": 3,
+					"to": "reroute_4",
+					"to_port": 0
+				},
+				{
+					"from": "reroute_3",
+					"from_port": 0,
+					"to": "decompose",
+					"to_port": 0
+				},
+				{
+					"from": "switch",
+					"from_port": 2,
+					"to": "reroute_3",
+					"to_port": 0
+				},
+				{
+					"from": "reroute_2",
+					"from_port": 0,
+					"to": "gen_outputs",
+					"to_port": 0
+				},
+				{
+					"from": "switch",
+					"from_port": 1,
+					"to": "reroute_2",
+					"to_port": 0
+				},
+				{
+					"from": "reroute",
+					"from_port": 0,
+					"to": "colorize_3",
+					"to_port": 0
+				},
+				{
+					"from": "reroute",
+					"from_port": 0,
+					"to": "graph_6",
+					"to_port": 0
+				},
+				{
+					"from": "reroute",
+					"from_port": 0,
+					"to": "normal_map2",
+					"to_port": 0
+				},
+				{
+					"from": "switch",
+					"from_port": 0,
+					"to": "reroute",
+					"to_port": 0
+				}
+			],
+			"label": "Output",
+			"longdesc": "Converts a workflow mapped material (from an Apply Map or a Mix node) for a Material node",
+			"name": "mwf_output",
+			"node_position": {
+				"x": 432.487762,
+				"y": 43.045567
+			},
+			"nodes": [
+				{
+					"name": "colorize_3",
+					"node_position": {
+						"x": -958,
+						"y": 1111
+					},
+					"parameters": {
+						"gradient": {
+							"interpolation": 1,
+							"points": [
+								{
+									"a": 1,
+									"b": 1,
+									"g": 1,
+									"pos": 0,
+									"r": 1
+								},
+								{
+									"a": 1,
+									"b": 0,
+									"g": 0,
+									"pos": 1,
+									"r": 0
+								}
+							],
+							"type": "Gradient"
+						}
+					},
+					"seed": -9684,
+					"type": "colorize"
+				},
+				{
+					"name": "decompose",
+					"node_position": {
+						"x": -892.371338,
+						"y": 501.25
+					},
+					"parameters": {
+
+					},
+					"seed": -20954,
+					"type": "decompose"
+				},
+				{
+					"name": "gen_inputs",
+					"node_position": {
+						"x": -2450.805664,
+						"y": 640.758606
+					},
+					"parameters": {
+
+					},
+					"ports": [
+						{
+							"group_size": 5,
+							"name": "Height",
+							"type": "f"
+						},
+						{
+							"group_size": 0,
+							"name": "Albedo",
+							"type": "rgb"
+						},
+						{
+							"group_size": 0,
+							"name": "ORM",
+							"type": "rgb"
+						},
+						{
+							"group_size": 0,
+							"name": "Emission",
+							"type": "rgb"
+						},
+						{
+							"group_size": 0,
+							"name": "Normal",
+							"type": "rgb"
+						}
+					],
+					"seed": -43142,
+					"type": "ios"
+				},
+				{
+					"name": "gen_outputs",
+					"node_position": {
+						"x": -364.916626,
+						"y": 691.314148
+					},
+					"parameters": {
+
+					},
+					"ports": [
+						{
+							"group_size": 7,
+							"longdesc": "",
+							"name": "Albedo",
+							"shortdesc": "Albedo",
+							"type": "rgb"
+						},
+						{
+							"group_size": 0,
+							"longdesc": "",
+							"name": "Metallic",
+							"shortdesc": "Metallic",
+							"type": "f"
+						},
+						{
+							"group_size": 0,
+							"longdesc": "",
+							"name": "Roughness",
+							"shortdesc": "Roughness",
+							"type": "f"
+						},
+						{
+							"group_size": 0,
+							"longdesc": "",
+							"name": "Emission",
+							"shortdesc": "Emission",
+							"type": "rgb"
+						},
+						{
+							"group_size": 0,
+							"longdesc": "",
+							"name": "Normal",
+							"shortdesc": "Normal",
+							"type": "rgb"
+						},
+						{
+							"group_size": 0,
+							"longdesc": "",
+							"name": "Occlusion",
+							"shortdesc": "Occlusion",
+							"type": "f"
+						},
+						{
+							"group_size": 0,
+							"longdesc": "",
+							"name": "Depth",
+							"shortdesc": "Depth",
+							"type": "f"
+						}
+					],
+					"seed": -13234,
+					"type": "ios"
+				},
+				{
+					"name": "gen_parameters",
+					"node_position": {
+						"x": -1106.881836,
+						"y": 318.25
+					},
+					"parameters": {
+						"param0": 1,
+						"param1": 10,
+						"param2": 1
+					},
+					"seed": -13319,
+					"type": "remote",
+					"widgets": [
+						{
+							"label": "Size",
+							"linked_widgets": [
+								{
+									"node": "graph_6",
+									"widget": "param0"
+								},
+								{
+									"node": "normal_map2",
+									"widget": "size"
+								},
+								{
+									"node": "graph_2_2_3",
+									"widget": "param0"
+								}
+							],
+							"name": "param1",
+							"type": "linked_control"
+						},
+						{
+							"label": "AO Intensity",
+							"linked_widgets": [
+								{
+									"node": "graph_6",
+									"widget": "param5"
+								}
+							],
+							"name": "param2",
+							"type": "linked_control"
+						},
+						{
+							"configurations": {
+								"Displacement": [
+									{
+										"node": "switch",
+										"value": 0,
+										"widget": "source"
+									}
+								],
+								"Parallax": [
+									{
+										"node": "switch",
+										"value": 1,
+										"widget": "source"
+									}
+								]
+							},
+							"label": "Mode",
+							"linked_widgets": [
+								{
+									"node": "switch",
+									"widget": "source"
+								}
+							],
+							"name": "param0",
+							"type": "config_control"
+						}
+					]
+				},
+				{
+					"connections": [
+						{
+							"from": "voronoi_3",
+							"from_port": 0,
+							"to": "buffer_5",
+							"to_port": 0
+						},
+						{
+							"from": "voronoi_2",
+							"from_port": 0,
+							"to": "buffer_7",
+							"to_port": 0
+						},
+						{
+							"from": "buffer_7",
+							"from_port": 0,
+							"to": "gen_outputs",
+							"to_port": 0
+						},
+						{
+							"from": "gen_inputs",
+							"from_port": 0,
+							"to": "buffer_2",
+							"to_port": 0
+						},
+						{
+							"from": "buffer_2",
+							"from_port": 0,
+							"to": "voronoi_3",
+							"to_port": 0
+						},
+						{
+							"from": "buffer_5",
+							"from_port": 0,
+							"to": "voronoi_2",
+							"to_port": 0
+						}
+					],
+					"label": "HBAO",
+					"longdesc": "",
+					"name": "graph_6",
+					"node_position": {
+						"x": -1020,
+						"y": 800
+					},
+					"nodes": [
+						{
+							"name": "voronoi_3",
+							"node_position": {
+								"x": -600.80072,
+								"y": -894.601807
+							},
+							"parameters": {
+								"angleBiasDeg": 15,
+								"depth_scale": 0.08,
+								"intensity": 1,
+								"quality": 32,
+								"radius": 0.1
+							},
+							"seed": 49449,
+							"shader_model": {
+								"code": "",
+								"global": "",
+								"inputs": [
+									{
+										"default": "0.0",
+										"function": true,
+										"label": "",
+										"name": "in",
+										"type": "f"
+									}
+								],
+								"instance": "//inspired by:\n//http://developer.download.nvidia.com/presentations/2008/SIGGRAPH/HBAO_SIG08b.pdf\n//https://gist.github.com/dotModded/981206ae1f4e760b7348\n//https://github.com/scanberg/hbao/blob/master/resources/shaders/hbao_full_frag.glsl\n//radius - radius of influence in screen space\n//angleBiasDeg - ~minimum angle for AO\n//intensity - increase strength of caclulated AO\n//noiseScale - for randomization values\nfloat $(name)_hbao(vec2 uv, float radius, float angleBiasDeg, float intensity, vec2 noiseScale) {\n  int samplig_directions = 8;\n  int steps = int($quality);\n\n  float angleBias = 0.0174532925 * angleBiasDeg;\n\n  vec3 c_point = vec3(uv*2.0 - 1.0, $in(uv)*$depth_scale);\n  //fun with dfdx & dfdy - https://community.khronos.org/t/getting-the-normal-with-dfdx-and-dfdy/70177\n  vec3 c_normal = normalize(cross(dFdx(c_point), dFdy(c_point)));\n\n\n  float cosMaxRot = cos(6.28318530718 / float(samplig_directions));\n  float sinMaxROt = sin(6.28318530718 / float(samplig_directions));\n  \n  // it should be faster than standard rotation in each iteartion\n  mat2 deltaRotationMatrix = mat2(\n\tvec2(cosMaxRot, -sinMaxROt),\n\tvec2(sinMaxROt, cosMaxRot)\n  );\n  \n  // calculate starting offset, as the smallest step\n  vec2 offset_uv = vec2(1.0, 0.0) * (radius /float(steps));\n\n  //randomize angle\n  vec3 sampleNoise\t= rand3(uv * noiseScale);\n  sampleNoise.xy\t  = sampleNoise.xy * 2.0 - vec2(1.0);\n  mat2 rotationMatrix = mat2(vec2(sampleNoise.x, -sampleNoise.y), \n\t\t\t\t\t\t\t vec2(sampleNoise.y,  sampleNoise.x));\n  \n  // apply a random rotation to the base step vector\n  offset_uv = rotationMatrix * offset_uv;\n  \n  float jitter = sampleNoise.z;\n  float occlusion = 0.0;\n  \n  for (int i = 0; i < samplig_directions; ++i) {\n\t// incrementally rotate sample direction\n\toffset_uv = deltaRotationMatrix * offset_uv;\n\tfloat oldAngle   = angleBias;\n\tfor (int j = 0; j < steps; ++j) {\n\t  //add jitter & distance to offset UV\n\t  vec2 sample_uv\t = uv + (jitter + float(j)) * offset_uv;\n\t  vec3 s_point\t = vec3(sample_uv*2.0 - 1.0, $in(sample_uv)*$depth_scale);\n\t  vec3 sample_tan  = (s_point - c_point); //not sure if correct, but looks ok\n\t  // 90 deg - (angle between normal from current point &  sampled tangent)\n\t  //https://math.stackexchange.com/questions/654315/how-to-convert-a-dot-product-of-two-vectors-to-the-angle-between-the-vectors\n\t  float gamma = 1.57079632679 - acos(dot(c_normal, normalize(sample_tan)));\n\t  \n\t  if (gamma > oldAngle) {\n\t\tfloat value = sin(gamma) - sin(oldAngle);\n\t\tfloat attenuation = clamp(1.0 - pow(length(sample_tan.xy)/radius, 2.0), 0.0, 1.0);\n\t\tocclusion += attenuation * value;\n\t\t//occlusion += value;\n\t\toldAngle = gamma;\n\t  }\n\t}\n  }\n  \n  occlusion = 1.0 - occlusion / float(samplig_directions);\n  return clamp(pow(occlusion, 1.0 + intensity), 0.0, 1.0);\n}",
+								"longdesc": "A node that generates several images from a tileable voronoi noise",
+								"name": "HBAO",
+								"outputs": [
+									{
+										"f": "$(name)_hbao($uv,$radius, $angleBiasDeg, $intensity, vec2(16.0,16.0))",
+										"longdesc": "A color pattern that assigns a random color to each cell",
+										"shortdesc": "Random color",
+										"type": "f"
+									}
+								],
+								"parameters": [
+									{
+										"control": "None",
+										"default": 0.01,
+										"label": "Radius",
+										"longdesc": "The scale along the X axis",
+										"max": 1,
+										"min": 0,
+										"name": "radius",
+										"shortdesc": "Scale.x",
+										"step": 0.01,
+										"type": "float"
+									},
+									{
+										"control": "None",
+										"default": 30,
+										"label": "Angle Bias",
+										"longdesc": "Angle bias for AO",
+										"max": 90,
+										"min": 0,
+										"name": "angleBiasDeg",
+										"shortdesc": "Angle Bias",
+										"step": 1,
+										"type": "float"
+									},
+									{
+										"control": "None",
+										"default": 0.2,
+										"label": "Intensity",
+										"longdesc": "Change intensity of AO",
+										"max": 5,
+										"min": 0,
+										"name": "intensity",
+										"shortdesc": "Intensity",
+										"step": 0.01,
+										"type": "float"
+									},
+									{
+										"control": "None",
+										"default": 1,
+										"label": "Depth Scale",
+										"longdesc": "Lineary scales depth values afecting  cacluated normals & tangents",
+										"max": 1,
+										"min": 0,
+										"name": "depth_scale",
+										"shortdesc": "Depth Scale",
+										"step": 0.01,
+										"type": "float"
+									},
+									{
+										"control": "None",
+										"default": 4,
+										"label": "Steps",
+										"longdesc": "Steps in given direction per ray",
+										"max": 12,
+										"min": 1,
+										"name": "quality",
+										"shortdesc": "Quality",
+										"step": 1,
+										"type": "float"
+									}
+								],
+								"shortdesc": "Voronoi Noise"
+							},
+							"type": "shader"
+						},
+						{
+							"name": "gen_inputs",
+							"node_position": {
+								"x": -1338.030762,
+								"y": -788.080872
+							},
+							"parameters": {
+
+							},
+							"ports": [
+								{
+									"group_size": 0,
+									"longdesc": "Greyscale heightmap",
+									"name": "input",
+									"shortdesc": "Input",
+									"type": "f"
+								}
+							],
+							"seed": 43798,
+							"type": "ios"
+						},
+						{
+							"name": "gen_outputs",
+							"node_position": {
+								"x": -902.684204,
+								"y": -327.282288
+							},
+							"parameters": {
+
+							},
+							"ports": [
+								{
+									"group_size": 0,
+									"longdesc": "",
+									"name": "port0",
+									"shortdesc": "AO",
+									"type": "f"
+								}
+							],
+							"seed": 42623,
+							"type": "ios"
+						},
+						{
+							"name": "gen_parameters",
+							"node_position": {
+								"x": -1488.979004,
+								"y": -561.71167
+							},
+							"parameters": {
+								"param0": 10,
+								"param1": 0.1,
+								"param2": 15,
+								"param3": 0.08,
+								"param4": 32,
+								"param5": 1
+							},
+							"seed": 58911,
+							"type": "remote",
+							"widgets": [
+								{
+									"label": "Size",
+									"linked_widgets": [
+										{
+											"node": "voronoi_2",
+											"widget": "size"
+										},
+										{
+											"node": "buffer_2",
+											"widget": "size"
+										},
+										{
+											"node": "buffer_5",
+											"widget": "size"
+										},
+										{
+											"node": "buffer_7",
+											"widget": "size"
+										}
+									],
+									"name": "param0",
+									"shortdesc": "Size",
+									"type": "linked_control"
+								},
+								{
+									"label": "Radius",
+									"linked_widgets": [
+										{
+											"node": "voronoi_3",
+											"widget": "radius"
+										}
+									],
+									"longdesc": "Affected radius of point in UV size",
+									"name": "param1",
+									"shortdesc": "Radius",
+									"type": "linked_control"
+								},
+								{
+									"label": "Angle Bias",
+									"linked_widgets": [
+										{
+											"node": "voronoi_3",
+											"widget": "angleBiasDeg"
+										}
+									],
+									"longdesc": "Minimum angle on heightmap for AO to occur. Angle is calculated in UV space, where depth (grayscale input) is scaled by \"Depth Scale\" parameter",
+									"name": "param2",
+									"shortdesc": "Angle bias",
+									"type": "linked_control"
+								},
+								{
+									"label": "Depth Scale",
+									"linked_widgets": [
+										{
+											"node": "voronoi_3",
+											"widget": "depth_scale"
+										}
+									],
+									"longdesc": "Lineary scales depth values afecting  cacluated normals & tangents",
+									"name": "param3",
+									"shortdesc": "Depth Scale",
+									"type": "linked_control"
+								},
+								{
+									"label": "Quality",
+									"linked_widgets": [
+										{
+											"node": "voronoi_3",
+											"widget": "quality"
+										}
+									],
+									"longdesc": "Number of steps per direction sampling",
+									"name": "param4",
+									"shortdesc": "Quality",
+									"type": "linked_control"
+								},
+								{
+									"label": "Intensity",
+									"linked_widgets": [
+										{
+											"node": "voronoi_3",
+											"widget": "intensity"
+										}
+									],
+									"longdesc": "Change intensity of calculated AO",
+									"name": "param5",
+									"shortdesc": "Intensity",
+									"type": "linked_control"
+								}
+							]
+						},
+						{
+							"name": "voronoi_2",
+							"node_position": {
+								"x": -710.111145,
+								"y": -596.459534
+							},
+							"parameters": {
+								"ksigma": 4,
+								"sigma": 3,
+								"size": 10,
+								"threshold": 0.7
+							},
+							"seed": 38722,
+							"shader_model": {
+								"code": "",
+								"global": "",
+								"inputs": [
+									{
+										"default": "0.0",
+										"function": true,
+										"label": "",
+										"name": "in",
+										"type": "rgba"
+									}
+								],
+								"instance": "//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n//  Copyright (c) 2018-2019 Michele Morrone\n//  All rights reserved.\n//\n//  https://michelemorrone.eu - https://BrutPitt.com\n//\n//  me@michelemorrone.eu - brutpitt@gmail.com\n//  twitter: @BrutPitt - github: BrutPitt\n//  \n//  https://github.com/BrutPitt/glslSmartDeNoise/\n//\n//  This software is distributed under the terms of the BSD 2-Clause license\n//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n//  smartDeNoise - parameters\n//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n//\n//  sampler2D tex\t - sampler image / texture\n//  vec2 uv\t\t   - actual fragment coord\n//  float sigma  >  0 - sigma Standard Deviation\n//  float kSigma >= 0 - sigma coefficient \n//\t  kSigma * sigma  -->  radius of the circular kernel\n//  float threshold   - edge sharpening threshold \nvec4 $(name)_smartDeNoise(vec2 uv, float sigma, float kSigma, float threshold)\n{\n\tfloat INV_SQRT_OF_2PI = 0.39894228040143267793994605993439; // 1.0/SQRT_OF_2PI\n\tfloat INV_PI = 0.31830988618379067153776752674503;\n\tfloat radius = round(kSigma*sigma);\n\tfloat radQ = radius * radius;\n\n\tfloat invSigmaQx2 = .5 / (sigma * sigma);\t  // 1.0 / (sigma^2 * 2.0)\n\tfloat invSigmaQx2PI = INV_PI * invSigmaQx2;\t// 1/(2 * PI * sigma^2)\n\n\tfloat invThresholdSqx2 = .5 / (threshold * threshold);\t // 1.0 / (sigma^2 * 2.0)\n\tfloat invThresholdSqrt2PI = INV_SQRT_OF_2PI / threshold;   // 1.0 / (sqrt(2*PI) * sigma^2)\n\n\tvec4 centrPx = $in(uv); \n\n\tfloat zBuff = 0.0;\n\tvec4 aBuff = vec4(0.0);\n\tvec2 size = vec2($size, $size);\n\n\tvec2 d;\n\tfor (d.x=-radius; d.x <= radius; d.x++) {\n\t\tfloat pt = sqrt(radQ-d.x*d.x);\t   // pt = yRadius: have circular trend\n\t\tfor (d.y=-pt; d.y <= pt; d.y++) {\n\t\t\tfloat blurFactor = exp( -dot(d , d) * invSigmaQx2 ) * invSigmaQx2PI;\n\n\t\t\tvec4 walkPx =  $in(uv+d/size);\n\t\t\tvec4 dC = walkPx-centrPx;\n\t\t\tfloat deltaFactor = exp( -dot(dC, dC) * invThresholdSqx2) * invThresholdSqrt2PI * blurFactor;\n\n\t\t\tzBuff += deltaFactor;\n\t\t\taBuff += deltaFactor*walkPx;\n\t\t}\n\t}\n\treturn aBuff/zBuff;\n}",
+								"longdesc": "A node that generates several images from a tileable voronoi noise",
+								"name": "Denoiser",
+								"outputs": [
+									{
+										"longdesc": "A color pattern that assigns a random color to each cell",
+										"rgba": "$(name)_smartDeNoise($uv, $sigma, $ksigma, $threshold)",
+										"shortdesc": "Random color",
+										"type": "rgba"
+									}
+								],
+								"parameters": [
+									{
+										"default": 10,
+										"first": 0,
+										"label": "size",
+										"last": 12,
+										"longdesc": "The scale along the X axis",
+										"name": "size",
+										"shortdesc": "Scale.x",
+										"type": "size"
+									},
+									{
+										"control": "None",
+										"default": 0.5,
+										"label": "Sigma",
+										"max": 1,
+										"min": 0.005,
+										"name": "sigma",
+										"step": 0.1,
+										"type": "float"
+									},
+									{
+										"control": "None",
+										"default": 0.5,
+										"label": "kSigma",
+										"max": 1,
+										"min": 0,
+										"name": "ksigma",
+										"step": 0.1,
+										"type": "float"
+									},
+									{
+										"control": "None",
+										"default": 0.5,
+										"label": "threshold",
+										"max": 1,
+										"min": 0,
+										"name": "threshold",
+										"step": 0.1,
+										"type": "float"
+									}
+								],
+								"shortdesc": "Voronoi Noise"
+							},
+							"type": "shader"
+						},
+						{
+							"name": "buffer_5",
+							"node_position": {
+								"x": -931.449646,
+								"y": -724.330017
+							},
+							"parameters": {
+								"size": 10
+							},
+							"seed": 6771,
+							"type": "buffer",
+							"version": 1
+						},
+						{
+							"name": "buffer_7",
+							"node_position": {
+								"x": -948.36377,
+								"y": -449.796295
+							},
+							"parameters": {
+								"size": 10
+							},
+							"seed": 16139,
+							"type": "buffer",
+							"version": 1
+						},
+						{
+							"name": "buffer_2",
+							"node_position": {
+								"x": -976.009644,
+								"y": -975.5
+							},
+							"parameters": {
+								"size": 10
+							},
+							"seed": 42465,
+							"type": "buffer",
+							"version": 1
+						}
+					],
+					"parameters": {
+						"param0": 10,
+						"param1": 0.1,
+						"param2": 15,
+						"param3": 0.08,
+						"param4": 32,
+						"param5": 1
+					},
+					"seed": 6741,
+					"shortdesc": "",
+					"type": "graph"
+				},
+				{
+					"name": "blend",
+					"node_position": {
+						"x": -711.321533,
+						"y": 795.406433
+					},
+					"parameters": {
+						"amount": 1,
+						"blend_type": 5
+					},
+					"seed_int": 0,
+					"type": "blend"
+				},
+				{
+					"name": "normal_map2",
+					"node_position": {
+						"x": -1185.266113,
+						"y": 516.517578
+					},
+					"parameters": {
+						"buffer": 1,
+						"param2": 0,
+						"size": 10,
+						"strength": 1
+					},
+					"seed_int": 0,
+					"type": "normal_map2"
+				},
+				{
+					"name": "normal_blend",
+					"node_position": {
+						"x": -938.266113,
+						"y": 661.517578
+					},
+					"parameters": {
+						"amount": 0.5
+					},
+					"seed_int": 0,
+					"type": "normal_blend"
+				},
+				{
+					"connections": [
+						{
+							"from": "gen_inputs",
+							"from_port": 0,
+							"to": "buffer_2",
+							"to_port": 0
+						},
+						{
+							"from": "gen_inputs",
+							"from_port": 1,
+							"to": "buffer_3",
+							"to_port": 0
+						},
+						{
+							"from": "gen_inputs",
+							"from_port": 2,
+							"to": "buffer_4",
+							"to_port": 0
+						},
+						{
+							"from": "gen_inputs",
+							"from_port": 3,
+							"to": "buffer_5",
+							"to_port": 0
+						},
+						{
+							"from": "gen_inputs",
+							"from_port": 4,
+							"to": "buffer_6",
+							"to_port": 0
+						},
+						{
+							"from": "buffer_2",
+							"from_port": 0,
+							"to": "gen_outputs",
+							"to_port": 0
+						},
+						{
+							"from": "buffer_3",
+							"from_port": 0,
+							"to": "gen_outputs",
+							"to_port": 1
+						},
+						{
+							"from": "buffer_4",
+							"from_port": 0,
+							"to": "gen_outputs",
+							"to_port": 2
+						},
+						{
+							"from": "buffer_5",
+							"from_port": 0,
+							"to": "gen_outputs",
+							"to_port": 3
+						},
+						{
+							"from": "buffer_6",
+							"from_port": 0,
+							"to": "gen_outputs",
+							"to_port": 4
+						}
+					],
+					"label": "Buffer",
+					"longdesc": "",
+					"name": "graph_2_2_3",
+					"node_position": {
+						"x": -2051.980957,
+						"y": 638.692017
+					},
+					"nodes": [
+						{
+							"name": "gen_inputs",
+							"node_position": {
+								"x": -845.183838,
+								"y": -231.474365
+							},
+							"parameters": {
+
+							},
+							"ports": [
+								{
+									"group_size": 5,
+									"name": "Height",
+									"type": "f"
+								},
+								{
+									"group_size": 0,
+									"name": "Albedo",
+									"type": "rgb"
+								},
+								{
+									"group_size": 0,
+									"name": "ORM",
+									"type": "rgb"
+								},
+								{
+									"group_size": 0,
+									"name": "Emission",
+									"type": "rgb"
+								},
+								{
+									"group_size": 0,
+									"name": "Normal",
+									"type": "rgb"
+								}
+							],
+							"seed": 21096,
+							"type": "ios"
+						},
+						{
+							"name": "gen_outputs",
+							"node_position": {
+								"x": -75.072678,
+								"y": -201.529922
+							},
+							"parameters": {
+
+							},
+							"ports": [
+								{
+									"group_size": 5,
+									"name": "Height",
+									"type": "f"
+								},
+								{
+									"group_size": 0,
+									"name": "Albedo",
+									"type": "rgb"
+								},
+								{
+									"group_size": 0,
+									"name": "ORM",
+									"type": "rgb"
+								},
+								{
+									"group_size": 0,
+									"name": "Emission",
+									"type": "rgb"
+								},
+								{
+									"group_size": 0,
+									"name": "Normal",
+									"type": "rgb"
+								}
+							],
+							"seed": 2686,
+							"type": "ios"
+						},
+						{
+							"name": "gen_parameters",
+							"node_position": {
+								"x": -440.135773,
+								"y": -525.425537
+							},
+							"parameters": {
+								"param0": 10
+							},
+							"seed": 17278,
+							"type": "remote",
+							"widgets": [
+								{
+									"label": "size",
+									"linked_widgets": [
+										{
+											"node": "buffer_2",
+											"widget": "size"
+										},
+										{
+											"node": "buffer_3",
+											"widget": "size"
+										},
+										{
+											"node": "buffer_4",
+											"widget": "size"
+										},
+										{
+											"node": "buffer_5",
+											"widget": "size"
+										},
+										{
+											"node": "buffer_6",
+											"widget": "size"
+										}
+									],
+									"name": "param0",
+									"type": "linked_control"
+								}
+							]
+						},
+						{
+							"name": "buffer_2",
+							"node_position": {
+								"x": -382.464111,
+								"y": -235.309937
+							},
+							"parameters": {
+								"size": 10
+							},
+							"seed_int": 0,
+							"type": "buffer",
+							"version": 1
+						},
+						{
+							"name": "buffer_3",
+							"node_position": {
+								"x": -386.464111,
+								"y": -170.309937
+							},
+							"parameters": {
+								"size": 10
+							},
+							"seed_int": 0,
+							"type": "buffer",
+							"version": 1
+						},
+						{
+							"name": "buffer_4",
+							"node_position": {
+								"x": -376.464111,
+								"y": -105.309937
+							},
+							"parameters": {
+								"size": 10
+							},
+							"seed_int": 0,
+							"type": "buffer",
+							"version": 1
+						},
+						{
+							"name": "buffer_5",
+							"node_position": {
+								"x": -383.464111,
+								"y": -37.309937
+							},
+							"parameters": {
+								"size": 10
+							},
+							"seed_int": 0,
+							"type": "buffer",
+							"version": 1
+						},
+						{
+							"name": "buffer_6",
+							"node_position": {
+								"x": -381.464111,
+								"y": 26.690063
+							},
+							"parameters": {
+								"size": 10
+							},
+							"seed_int": 0,
+							"type": "buffer",
+							"version": 1
+						}
+					],
+					"parameters": {
+						"param0": 10
+					},
+					"seed_int": 0,
+					"shortdesc": "",
+					"type": "graph"
+				},
+				{
+					"name": "switch",
+					"node_position": {
+						"x": -1559.955688,
+						"y": 629.483704
+					},
+					"parameters": {
+						"choices": 2,
+						"outputs": 5,
+						"source": 1
+					},
+					"seed_int": 0,
+					"type": "switch"
+				},
+				{
+					"connections": [
+						{
+							"from": "gen_inputs",
+							"from_port": 2,
+							"to": "gen_outputs",
+							"to_port": 2
+						},
+						{
+							"from": "gen_inputs",
+							"from_port": 3,
+							"to": "gen_outputs",
+							"to_port": 3
+						},
+						{
+							"from": "gen_inputs",
+							"from_port": 4,
+							"to": "gen_outputs",
+							"to_port": 4
+						},
+						{
+							"from": "gen_inputs",
+							"from_port": 0,
+							"to": "graph_2",
+							"to_port": 0
+						},
+						{
+							"from": "graph_2",
+							"from_port": 0,
+							"to": "gen_outputs",
+							"to_port": 0
+						},
+						{
+							"from": "gen_inputs",
+							"from_port": 1,
+							"to": "gen_outputs",
+							"to_port": 1
+						}
+					],
+					"label": "Maximize Height",
+					"longdesc": "",
+					"name": "graph_2_2_4",
+					"node_position": {
+						"x": -1804.733398,
+						"y": 800.233704
+					},
+					"nodes": [
+						{
+							"name": "gen_inputs",
+							"node_position": {
+								"x": -873.183838,
+								"y": -234.474365
+							},
+							"parameters": {
+
+							},
+							"ports": [
+								{
+									"group_size": 5,
+									"name": "Height",
+									"type": "f"
+								},
+								{
+									"group_size": 0,
+									"name": "Albedo",
+									"type": "rgb"
+								},
+								{
+									"group_size": 0,
+									"name": "ORM",
+									"type": "rgb"
+								},
+								{
+									"group_size": 0,
+									"name": "Emission",
+									"type": "rgb"
+								},
+								{
+									"group_size": 0,
+									"name": "Normal",
+									"type": "rgb"
+								}
+							],
+							"seed": 21096,
+							"type": "ios"
+						},
+						{
+							"name": "gen_outputs",
+							"node_position": {
+								"x": -75.072678,
+								"y": -201.529922
+							},
+							"parameters": {
+
+							},
+							"ports": [
+								{
+									"group_size": 5,
+									"name": "Height",
+									"type": "f"
+								},
+								{
+									"group_size": 0,
+									"name": "Albedo",
+									"type": "rgb"
+								},
+								{
+									"group_size": 0,
+									"name": "ORM",
+									"type": "rgb"
+								},
+								{
+									"group_size": 0,
+									"name": "Emission",
+									"type": "rgb"
+								},
+								{
+									"group_size": 0,
+									"name": "Normal",
+									"type": "rgb"
+								}
+							],
+							"seed": 2686,
+							"type": "ios"
+						},
+						{
+							"name": "gen_parameters",
+							"node_position": {
+								"x": -373.135773,
+								"y": -461.425537
+							},
+							"parameters": {
+
+							},
+							"seed": 17278,
+							"type": "remote",
+							"widgets": [
+
+							]
+						},
+						{
+							"connections": [
+								{
+									"from": "gen_inputs",
+									"from_port": 0,
+									"to": "graph",
+									"to_port": 0
+								},
+								{
+									"from": "graph",
+									"from_port": 1,
+									"to": "math_2",
+									"to_port": 1
+								},
+								{
+									"from": "uniform_greyscale",
+									"from_port": 0,
+									"to": "math_2",
+									"to_port": 0
+								},
+								{
+									"from": "math_2",
+									"from_port": 0,
+									"to": "math_3",
+									"to_port": 1
+								},
+								{
+									"from": "gen_inputs",
+									"from_port": 0,
+									"to": "math_3",
+									"to_port": 0
+								},
+								{
+									"from": "math_3",
+									"from_port": 0,
+									"to": "gen_outputs",
+									"to_port": 0
+								}
+							],
+							"label": "Maximize Heightmap",
+							"longdesc": "",
+							"name": "graph_2",
+							"node_position": {
+								"x": -412.464111,
+								"y": -226.309937
+							},
+							"nodes": [
+								{
+									"connections": [
+										{
+											"from": "combine",
+											"from_port": 0,
+											"to": "iterate_buffer",
+											"to_port": 0
+										},
+										{
+											"from": "decompose",
+											"from_port": 0,
+											"to": "gen_outputs",
+											"to_port": 0
+										},
+										{
+											"from": "decompose",
+											"from_port": 1,
+											"to": "gen_outputs",
+											"to_port": 1
+										},
+										{
+											"from": "iterate_buffer",
+											"from_port": 0,
+											"to": "decompose",
+											"to_port": 0
+										},
+										{
+											"from": "iterate_buffer",
+											"from_port": 1,
+											"to": "14423",
+											"to_port": 0
+										},
+										{
+											"from": "14423",
+											"from_port": 0,
+											"to": "iterate_buffer",
+											"to_port": 1
+										},
+										{
+											"from": "gen_inputs",
+											"from_port": 0,
+											"to": "combine",
+											"to_port": 0
+										},
+										{
+											"from": "gen_inputs",
+											"from_port": 0,
+											"to": "combine",
+											"to_port": 1
+										}
+									],
+									"label": "Find Min Max",
+									"longdesc": "",
+									"name": "graph",
+									"node_position": {
+										"x": 687.758667,
+										"y": 589.79541
+									},
+									"nodes": [
+										{
+											"name": "14423",
+											"node_position": {
+												"x": 344,
+												"y": 217
+											},
+											"parameters": {
+												"size": 10
+											},
+											"seed": 53617,
+											"shader_model": {
+												"code": "",
+												"global": "",
+												"inputs": [
+													{
+														"default": "vec3(0.0)",
+														"function": true,
+														"label": "",
+														"name": "in",
+														"type": "rgb"
+													}
+												],
+												"instance": "vec3 $(name)_compare(vec2 uv, float size) {\n\tfloat iter = $in(uv).b;\n\tsize = size / pow(2.0, (iter * 100.0) );\n\titer += 0.01;\n\tfloat pixel_offset = 1.0 / size;\n\tvec2 half_res_uv = floor(uv * size / 2.0) / size * 2.0 + pixel_offset / 2.0;\n\tvec3 values[4];\n\tvalues[0] = $in(half_res_uv);\n\tvalues[1] = $in(half_res_uv + vec2(pixel_offset, 0.0));\n\tvalues[2] = $in(half_res_uv + vec2(0.0, pixel_offset));\n\tvalues[3] = $in(half_res_uv + vec2(pixel_offset, pixel_offset));\n\t\n\tfloat lowest = 1.0;\n\tfloat highest = 0.0;\n\t\n\tfor (int i = 0; i < 4; i++) {\n\t\tlowest = values[i].r < lowest ? values[i].r : lowest;\n\t\thighest = values[i].g > highest ? values[i].g : highest;\n\t}\n\t\n\treturn vec3( lowest, highest , iter);\n}",
+												"name": "Compare Neighbor",
+												"outputs": [
+													{
+														"rgb": "$(name)_compare($uv, $size)",
+														"type": "rgb"
+													}
+												],
+												"parameters": [
+													{
+														"default": 10,
+														"first": 1,
+														"label": "",
+														"last": 13,
+														"name": "size",
+														"type": "size"
+													}
+												]
+											},
+											"type": "shader"
+										},
+										{
+											"name": "iterate_buffer",
+											"node_position": {
+												"x": 328,
+												"y": 63
+											},
+											"parameters": {
+												"autostop": false,
+												"filter": false,
+												"iterations": 13,
+												"mipmap": false,
+												"shrink": false,
+												"size": 10
+											},
+											"seed": 29168,
+											"seed_locked": true,
+											"type": "iterate_buffer"
+										},
+										{
+											"name": "combine",
+											"node_position": {
+												"x": 376,
+												"y": -75
+											},
+											"parameters": {
+
+											},
+											"seed": -46531,
+											"type": "combine"
+										},
+										{
+											"name": "decompose",
+											"node_position": {
+												"x": 605,
+												"y": 64
+											},
+											"parameters": {
+
+											},
+											"seed": 35843,
+											"type": "decompose"
+										},
+										{
+											"name": "gen_inputs",
+											"node_position": {
+												"x": -199,
+												"y": 23
+											},
+											"parameters": {
+
+											},
+											"ports": [
+												{
+													"group_size": 0,
+													"longdesc": "",
+													"name": "in",
+													"shortdesc": "In",
+													"type": "f"
+												}
+											],
+											"seed": -12560,
+											"type": "ios"
+										},
+										{
+											"name": "gen_outputs",
+											"node_position": {
+												"x": 831,
+												"y": 42
+											},
+											"parameters": {
+
+											},
+											"ports": [
+												{
+													"group_size": 0,
+													"longdesc": "",
+													"name": "min",
+													"shortdesc": "Min",
+													"type": "f"
+												},
+												{
+													"group_size": 0,
+													"longdesc": "",
+													"name": "max",
+													"shortdesc": "Max",
+													"type": "f"
+												}
+											],
+											"seed": 1419,
+											"type": "ios"
+										},
+										{
+											"name": "gen_parameters",
+											"node_position": {
+												"x": 248.399994,
+												"y": -292
+											},
+											"parameters": {
+												"param0": 10
+											},
+											"seed": -10028,
+											"type": "remote",
+											"widgets": [
+												{
+													"label": "Size",
+													"linked_widgets": [
+														{
+															"node": "iterate_buffer",
+															"widget": "size"
+														},
+														{
+															"node": "14423",
+															"widget": "size"
+														}
+													],
+													"name": "param0",
+													"type": "linked_control"
+												}
+											]
+										}
+									],
+									"parameters": {
+										"param0": 10
+									},
+									"seed": -21630,
+									"shortdesc": "",
+									"type": "graph"
+								},
+								{
+									"name": "math_2",
+									"node_position": {
+										"x": 997.564209,
+										"y": 517.406494
+									},
+									"parameters": {
+										"clamp": false,
+										"default_in1": 0,
+										"default_in2": 0,
+										"op": 1
+									},
+									"seed_int": 0,
+									"type": "math"
+								},
+								{
+									"name": "math_3",
+									"node_position": {
+										"x": 1231.564209,
+										"y": 396.406525
+									},
+									"parameters": {
+										"clamp": false,
+										"default_in1": 0,
+										"default_in2": 0,
+										"op": 0
+									},
+									"seed_int": 0,
+									"type": "math"
+								},
+								{
+									"name": "uniform_greyscale",
+									"node_position": {
+										"x": 693.564209,
+										"y": 521.406494
+									},
+									"parameters": {
+										"color": 1
+									},
+									"seed_int": 0,
+									"type": "uniform_greyscale"
+								},
+								{
+									"name": "gen_inputs",
+									"node_position": {
+										"x": 298.564209,
+										"y": 440.503723
+									},
+									"parameters": {
+
+									},
+									"ports": [
+										{
+											"name": "port0",
+											"type": "f"
+										}
+									],
+									"seed_int": 0,
+									"type": "ios"
+								},
+								{
+									"name": "gen_outputs",
+									"node_position": {
+										"x": 1470.564209,
+										"y": 394.503723
+									},
+									"parameters": {
+
+									},
+									"ports": [
+										{
+											"name": "port0",
+											"type": "f"
+										}
+									],
+									"seed_int": 0,
+									"type": "ios"
+								},
+								{
+									"name": "gen_parameters",
+									"node_position": {
+										"x": 756.362854,
+										"y": -2.593475
+									},
+									"parameters": {
+
+									},
+									"seed_int": 0,
+									"type": "remote",
+									"widgets": [
+
+									]
+								}
+							],
+							"parameters": {
+
+							},
+							"seed_int": 0,
+							"shortdesc": "",
+							"type": "graph"
+						}
+					],
+					"parameters": {
+
+					},
+					"seed_int": 0,
+					"shortdesc": "",
+					"type": "graph"
+				},
+				{
+					"name": "reroute_5",
+					"node_position": {
+						"x": -1350.805542,
+						"y": 758.758606
+					},
+					"parameters": {
+
+					},
+					"seed": -40746,
+					"type": "reroute"
+				},
+				{
+					"name": "reroute_4",
+					"node_position": {
+						"x": -1350.805542,
+						"y": 732.758606
+					},
+					"parameters": {
+
+					},
+					"seed": -40708,
+					"type": "reroute"
+				},
+				{
+					"name": "reroute_3",
+					"node_position": {
+						"x": -1350.805542,
+						"y": 706.758606
+					},
+					"parameters": {
+
+					},
+					"seed": -40734,
+					"type": "reroute"
+				},
+				{
+					"name": "reroute_2",
+					"node_position": {
+						"x": -1350.805542,
+						"y": 680.758606
+					},
+					"parameters": {
+
+					},
+					"seed": -40824,
+					"type": "reroute"
+				},
+				{
+					"name": "reroute",
+					"node_position": {
+						"x": -1350.805542,
+						"y": 654.758606
+					},
+					"parameters": {
+
+					},
+					"seed": -40786,
+					"type": "reroute"
+				}
+			],
+			"parameters": {
+				"param0": 1,
+				"param1": 10,
+				"param2": 1
+			},
+			"seed_int": 0,
+			"shortdesc": "Output",
+			"type": "graph"
+		},
+		{
+			"name": "decompose",
+			"node_position": {
+				"x": -419.379883,
+				"y": 394.544495
+			},
+			"parameters": {
+
+			},
+			"seed_int": 0,
+			"type": "decompose"
+		},
+		{
+			"name": "combine",
+			"node_position": {
+				"x": 101.620117,
+				"y": 365.544495
+			},
+			"parameters": {
+
+			},
+			"seed_int": 0,
+			"type": "combine"
+		},
+		{
+			"name": "blend",
+			"node_position": {
+				"x": -161.379883,
+				"y": 304.544495
+			},
+			"parameters": {
+				"amount": 0.2,
+				"blend_type": 0
+			},
+			"seed_int": 0,
+			"type": "blend"
+		},
+		{
+			"connections": [
+				{
+					"from": "fbm_2",
+					"from_port": 0,
+					"to": "791_2",
+					"to_port": 0
+				},
+				{
+					"from": "fbm",
+					"from_port": 0,
+					"to": "791_2",
+					"to_port": 1
+				},
+				{
+					"from": "fbm_2",
+					"from_port": 0,
+					"to": "791_3",
+					"to_port": 1
+				},
+				{
+					"from": "fbm",
+					"from_port": 0,
+					"to": "791_3",
+					"to_port": 0
+				},
+				{
+					"from": "graph_2",
+					"from_port": 0,
+					"to": "791_3",
+					"to_port": 2
+				},
+				{
+					"from": "791_2",
+					"from_port": 0,
+					"to": "791_4",
+					"to_port": 0
+				},
+				{
+					"from": "791_3",
+					"from_port": 0,
+					"to": "791_4",
+					"to_port": 1
+				},
+				{
+					"from": "graph_2",
+					"from_port": 1,
+					"to": "791_4",
+					"to_port": 2
+				},
+				{
+					"from": "791_4",
+					"from_port": 0,
+					"to": "blend",
+					"to_port": 0
+				},
+				{
+					"from": "791_4",
+					"from_port": 1,
+					"to": "blend",
+					"to_port": 1
+				},
+				{
+					"from": "791_5",
+					"from_port": 0,
+					"to": "791_7",
+					"to_port": 0
+				},
+				{
+					"from": "791_6",
+					"from_port": 0,
+					"to": "791_7",
+					"to_port": 1
+				},
+				{
+					"from": "791_7",
+					"from_port": 0,
+					"to": "blend_2",
+					"to_port": 0
+				},
+				{
+					"from": "791_7",
+					"from_port": 1,
+					"to": "blend_2",
+					"to_port": 1
+				},
+				{
+					"from": "graph_2",
+					"from_port": 0,
+					"to": "791_5",
+					"to_port": 0
+				},
+				{
+					"from": "graph_3",
+					"from_port": 0,
+					"to": "791_5",
+					"to_port": 1
+				},
+				{
+					"from": "graph_4",
+					"from_port": 0,
+					"to": "791_5",
+					"to_port": 2
+				},
+				{
+					"from": "graph_3",
+					"from_port": 0,
+					"to": "791_6",
+					"to_port": 0
+				},
+				{
+					"from": "graph_3",
+					"from_port": 0,
+					"to": "791_2",
+					"to_port": 2
+				},
+				{
+					"from": "graph_2",
+					"from_port": 0,
+					"to": "791_6",
+					"to_port": 2
+				},
+				{
+					"from": "graph_4",
+					"from_port": 0,
+					"to": "791_6",
+					"to_port": 1
+				},
+				{
+					"from": "graph_4",
+					"from_port": 1,
+					"to": "791_7",
+					"to_port": 2
+				},
+				{
+					"from": "fbm_2",
+					"from_port": 0,
+					"to": "tones_step",
+					"to_port": 0
+				},
+				{
+					"from": "fbm",
+					"from_port": 0,
+					"to": "tones_step_2",
+					"to_port": 0
+				},
+				{
+					"from": "tones_step_2",
+					"from_port": 0,
+					"to": "blend_2",
+					"to_port": 2
+				},
+				{
+					"from": "tones_step",
+					"from_port": 0,
+					"to": "blend",
+					"to_port": 2
+				},
+				{
+					"from": "blend_2",
+					"from_port": 0,
+					"to": "tones_step_4",
+					"to_port": 0
+				},
+				{
+					"from": "blend",
+					"from_port": 0,
+					"to": "tones_step_3",
+					"to_port": 0
+				},
+				{
+					"from": "tones_step_3",
+					"from_port": 0,
+					"to": "gen_outputs",
+					"to_port": 0
+				},
+				{
+					"from": "tones_step_4",
+					"from_port": 0,
+					"to": "gen_outputs",
+					"to_port": 1
+				}
+			],
+			"label": "Plain Grunge",
+			"longdesc": "",
+			"name": "graph_7",
+			"node_position": {
+				"x": -877.963257,
+				"y": 362.072266
+			},
+			"nodes": [
+				{
+					"name": "791_3",
+					"node_position": {
+						"x": -300,
+						"y": 80
+					},
+					"parameters": {
+						"blend_type": 8,
+						"m_opacity": 1,
+						"m_smooth": 0.5,
+						"m_step": 0.5,
+						"warp_strength": 2,
+						"warp_x": -0.5,
+						"warp_y": -0.5
+					},
+					"seed": -30724,
+					"shader_model": {
+						"code": "vec2 $(name_uv)_warp_1 = $uv + $warp_strength *  vec2($warp_x*$warp($uv).r,  -$warp_y*$warp($uv).g);\nvec2 $(name_uv)_warp_2 = $uv - $warp_strength *  vec2($warp_x*$warp($uv).g,  -$warp_y*$warp($uv).r);\n// vec2 $(name_uv)_mingle = vec2($mingle_strength*$mingle_u, $mingle_strength*$mingle_v);\n//float $(name_uv)_blend =  smoothstep(mingle_$mingle_mode($warp($uv),$(name_uv)_mingle ), 0.5);\nfloat $(name_uv)_blend = smoothstep($m_step-$m_smooth,  $m_step+$m_smooth,  $warp($uv).b);\n\n",
+						"global": "",
+						"includes": [
+							"blend"
+						],
+						"inputs": [
+							{
+								"default": "0.0",
+								"label": "",
+								"name": "in_1",
+								"shortdesc": "Input 1",
+								"type": "rgb"
+							},
+							{
+								"default": "0.0",
+								"label": "",
+								"name": "in_2",
+								"shortdesc": "Input 2",
+								"type": "rgb"
+							},
+							{
+								"default": "0.0",
+								"label": "",
+								"longdesc": "A Warp image combines UV warping and blending.\n\nR,G\t\t\nare mapped to a vector, which warps UV coords.\n\nB,A\t\t\nare used to blend both input images. How they are blended is controlled by a smoothstep, which could be adjust with \"Step\" and \"Smooth\".",
+								"name": "warp",
+								"shortdesc": "Warp",
+								"type": "rgb"
+							}
+						],
+						"instance": "",
+						"longdesc": "Mingle node with one output.\nBasic node which could be used to create grunge images.\n\nMingle combines a warp operation and a blend operation. The blend operation is controlled by a step operation and an opacity value..",
+						"name": "Mingle",
+						"outputs": [
+							{
+								"rgb": "blend_$blend_type( $uv,  $in_1($(name_uv)_warp_1),  $in_2($(name_uv)_warp_2), $m_opacity*$(name_uv)_blend )",
+								"shortdesc": "Output",
+								"type": "rgb"
+							}
+						],
+						"parameters": [
+							{
+								"default": 0,
+								"label": "",
+								"longdesc": "Specify method how you like to warp input images.",
+								"name": "blend_type",
+								"shortdesc": "Blend Type",
+								"type": "enum",
+								"values": [
+									{
+										"name": "Normal",
+										"value": "normal"
+									},
+									{
+										"name": "Dissolve",
+										"value": "dissolve"
+									},
+									{
+										"name": "Multiply",
+										"value": "multiply"
+									},
+									{
+										"name": "Screen",
+										"value": "screen"
+									},
+									{
+										"name": "Overlay",
+										"value": "overlay"
+									},
+									{
+										"name": "Hard Light",
+										"value": "hard_light"
+									},
+									{
+										"name": "Soft Light",
+										"value": "soft_light"
+									},
+									{
+										"name": "Burn",
+										"value": "burn"
+									},
+									{
+										"name": "Dodge",
+										"value": "dodge"
+									},
+									{
+										"name": "Lighten",
+										"value": "lighten"
+									},
+									{
+										"name": "Darken",
+										"value": "darken"
+									},
+									{
+										"name": "Difference",
+										"value": "difference"
+									}
+								]
+							},
+							{
+								"control": "None",
+								"default": 1,
+								"label": "Opacity",
+								"longdesc": "The  amount of opacity used to blend input in_1 over in_2. \nDefaults to 1.",
+								"max": 1,
+								"min": 0,
+								"name": "m_opacity",
+								"shortdesc": "Opacity",
+								"step": 0.1,
+								"type": "float"
+							},
+							{
+								"control": "None",
+								"default": 0.5,
+								"label": "Step",
+								"max": 1,
+								"min": 0,
+								"name": "m_step",
+								"shortdesc": "Mingle U",
+								"step": 0,
+								"type": "float"
+							},
+							{
+								"control": "None",
+								"default": 0.5,
+								"label": "Smoothness",
+								"max": 1,
+								"min": 0,
+								"name": "m_smooth",
+								"shortdesc": "Mingle V",
+								"step": 0,
+								"type": "float"
+							},
+							{
+								"control": "P1.x",
+								"default": 0.5,
+								"label": "Warp X",
+								"max": 10,
+								"min": 0,
+								"name": "warp_x",
+								"step": 0.1,
+								"type": "float"
+							},
+							{
+								"control": "P1.y",
+								"default": 0.5,
+								"label": "Warp Y",
+								"max": 10,
+								"min": 0,
+								"name": "warp_y",
+								"step": 0.1,
+								"type": "float"
+							},
+							{
+								"control": "None",
+								"default": 1,
+								"label": "Warp Strength",
+								"max": 1,
+								"min": 0,
+								"name": "warp_strength",
+								"step": 0.1,
+								"type": "float"
+							}
+						],
+						"shortdesc": "Mingle 1"
+					},
+					"type": "shader"
+				},
+				{
+					"minimized": true,
+					"name": "fbm_2",
+					"node_position": {
+						"x": -1200,
+						"y": -200
+					},
+					"parameters": {
+						"folds": 0,
+						"iterations": 10,
+						"noise": 1,
+						"persistence": 0.6,
+						"scale_x": 8,
+						"scale_y": 8
+					},
+					"preview": 0,
+					"seed": 57736,
+					"type": "fbm"
+				},
+				{
+					"minimized": true,
+					"name": "fbm",
+					"node_position": {
+						"x": -1200,
+						"y": 0
+					},
+					"parameters": {
+						"folds": 0,
+						"iterations": 10,
+						"noise": 1,
+						"persistence": 0.6,
+						"scale_x": 8,
+						"scale_y": 8
+					},
+					"preview": 0,
+					"seed": -57680,
+					"type": "fbm"
+				},
+				{
+					"connections": [
+						{
+							"from": "combine",
+							"from_port": 0,
+							"to": "gen_outputs",
+							"to_port": 0
+						},
+						{
+							"from": "fbm_5",
+							"from_port": 0,
+							"to": "combine",
+							"to_port": 2
+						},
+						{
+							"from": "fbm_4",
+							"from_port": 0,
+							"to": "combine",
+							"to_port": 1
+						},
+						{
+							"from": "fbm_3",
+							"from_port": 0,
+							"to": "combine",
+							"to_port": 0
+						},
+						{
+							"from": "fbm_2",
+							"from_port": 0,
+							"to": "combine_2",
+							"to_port": 3
+						},
+						{
+							"from": "fbm_5",
+							"from_port": 0,
+							"to": "combine_2",
+							"to_port": 2
+						},
+						{
+							"from": "fbm_4",
+							"from_port": 0,
+							"to": "combine_2",
+							"to_port": 1
+						},
+						{
+							"from": "fbm_3",
+							"from_port": 0,
+							"to": "combine_2",
+							"to_port": 0
+						},
+						{
+							"from": "combine_2",
+							"from_port": 0,
+							"to": "gen_outputs",
+							"to_port": 1
+						}
+					],
+					"label": "FBM Vec",
+					"longdesc": "",
+					"minimized": true,
+					"name": "graph_2",
+					"node_position": {
+						"x": -1200,
+						"y": 200
+					},
+					"nodes": [
+						{
+							"name": "fbm_3",
+							"node_position": {
+								"x": -495.760742,
+								"y": 1025.774536
+							},
+							"parameters": {
+								"folds": 0,
+								"iterations": 10,
+								"noise": 1,
+								"persistence": 0.6,
+								"scale_x": 8,
+								"scale_y": 8
+							},
+							"seed": -10482,
+							"type": "fbm"
+						},
+						{
+							"name": "fbm_4",
+							"node_position": {
+								"x": -497.094055,
+								"y": 1196.270996
+							},
+							"parameters": {
+								"folds": 0,
+								"iterations": 10,
+								"noise": 1,
+								"persistence": 0.6,
+								"scale_x": 8,
+								"scale_y": 8
+							},
+							"seed": -28547,
+							"type": "fbm"
+						},
+						{
+							"name": "fbm_5",
+							"node_position": {
+								"x": -497.094086,
+								"y": 1364.103638
+							},
+							"parameters": {
+								"folds": 0,
+								"iterations": 10,
+								"noise": 1,
+								"persistence": 0.6,
+								"scale_x": 8,
+								"scale_y": 8
+							},
+							"seed": -28283,
+							"type": "fbm"
+						},
+						{
+							"name": "combine",
+							"node_position": {
+								"x": 294.405914,
+								"y": 1146.736694
+							},
+							"parameters": {
+
+							},
+							"seed": 47584,
+							"type": "combine"
+						},
+						{
+							"name": "gen_inputs",
+							"node_position": {
+								"x": -971.094116,
+								"y": 1119.45166
+							},
+							"parameters": {
+
+							},
+							"ports": [
+
+							],
+							"seed": -3788,
+							"type": "ios"
+						},
+						{
+							"name": "gen_outputs",
+							"node_position": {
+								"x": 502.405945,
+								"y": 1152.739136
+							},
+							"parameters": {
+
+							},
+							"ports": [
+								{
+									"group_size": 0,
+									"name": "unnamed",
+									"type": "rgb"
+								},
+								{
+									"group_size": 0,
+									"name": "unnamed",
+									"type": "rgba"
+								}
+							],
+							"seed": 586,
+							"type": "ios"
+						},
+						{
+							"name": "gen_parameters",
+							"node_position": {
+								"x": -863.885681,
+								"y": 1508.326782
+							},
+							"parameters": {
+								"param0": 1,
+								"param1": 8,
+								"param2": 8,
+								"param3": 0,
+								"param4": 10,
+								"param5": 0.6
+							},
+							"seed": -60517,
+							"type": "remote",
+							"widgets": [
+								{
+									"label": "Noise",
+									"linked_widgets": [
+										{
+											"node": "fbm_3",
+											"widget": "noise"
+										},
+										{
+											"node": "fbm_4",
+											"widget": "noise"
+										},
+										{
+											"node": "fbm_5",
+											"widget": "noise"
+										},
+										{
+											"node": "fbm_2",
+											"widget": "noise"
+										}
+									],
+									"name": "param0",
+									"type": "linked_control"
+								},
+								{
+									"label": "Scale X",
+									"linked_widgets": [
+										{
+											"node": "fbm_3",
+											"widget": "scale_x"
+										},
+										{
+											"node": "fbm_4",
+											"widget": "scale_x"
+										},
+										{
+											"node": "fbm_5",
+											"widget": "scale_x"
+										},
+										{
+											"node": "fbm_2",
+											"widget": "scale_x"
+										}
+									],
+									"name": "param1",
+									"type": "linked_control"
+								},
+								{
+									"label": "Scale Y",
+									"linked_widgets": [
+										{
+											"node": "fbm_3",
+											"widget": "scale_y"
+										},
+										{
+											"node": "fbm_4",
+											"widget": "scale_y"
+										},
+										{
+											"node": "fbm_5",
+											"widget": "scale_y"
+										},
+										{
+											"node": "fbm_2",
+											"widget": "scale_y"
+										}
+									],
+									"name": "param2",
+									"type": "linked_control"
+								},
+								{
+									"label": "Folds",
+									"linked_widgets": [
+										{
+											"node": "fbm_3",
+											"widget": "folds"
+										},
+										{
+											"node": "fbm_4",
+											"widget": "folds"
+										},
+										{
+											"node": "fbm_5",
+											"widget": "folds"
+										},
+										{
+											"node": "fbm_2",
+											"widget": "folds"
+										}
+									],
+									"name": "param3",
+									"type": "linked_control"
+								},
+								{
+									"label": "Iterations",
+									"linked_widgets": [
+										{
+											"node": "fbm_3",
+											"widget": "iterations"
+										},
+										{
+											"node": "fbm_4",
+											"widget": "iterations"
+										},
+										{
+											"node": "fbm_5",
+											"widget": "iterations"
+										},
+										{
+											"node": "fbm_2",
+											"widget": "iterations"
+										}
+									],
+									"name": "param4",
+									"type": "linked_control"
+								},
+								{
+									"label": "Persistence",
+									"linked_widgets": [
+										{
+											"node": "fbm_3",
+											"widget": "persistence"
+										},
+										{
+											"node": "fbm_4",
+											"widget": "persistence"
+										},
+										{
+											"node": "fbm_5",
+											"widget": "persistence"
+										},
+										{
+											"node": "fbm_2",
+											"widget": "persistence"
+										}
+									],
+									"name": "param5",
+									"type": "linked_control"
+								}
+							]
+						},
+						{
+							"name": "fbm_2",
+							"node_position": {
+								"x": -495.298431,
+								"y": 1543.288208
+							},
+							"parameters": {
+								"folds": 0,
+								"iterations": 10,
+								"noise": 1,
+								"persistence": 0.6,
+								"scale_x": 8,
+								"scale_y": 8
+							},
+							"seed": -11000,
+							"type": "fbm"
+						},
+						{
+							"name": "combine_2",
+							"node_position": {
+								"x": 292.968933,
+								"y": 1276.987427
+							},
+							"parameters": {
+
+							},
+							"seed": 31648,
+							"type": "combine"
+						}
+					],
+					"parameters": {
+						"param0": 1,
+						"param1": 8,
+						"param2": 8,
+						"param3": 0,
+						"param4": 10,
+						"param5": 0.6
+					},
+					"preview": 0,
+					"seed": -57736,
+					"shortdesc": "",
+					"type": "graph"
+				},
+				{
+					"name": "791_2",
+					"node_position": {
+						"x": -300,
+						"y": -120
+					},
+					"parameters": {
+						"blend_type": 7,
+						"m_opacity": 1,
+						"m_smooth": 0.5,
+						"m_step": 0.5,
+						"warp_strength": 2,
+						"warp_x": 0.5,
+						"warp_y": 0.5
+					},
+					"seed": 30756,
+					"shader_model": {
+						"code": "vec2 $(name_uv)_warp_1 = $uv + $warp_strength *  vec2($warp_x*$warp($uv).r,  -$warp_y*$warp($uv).g);\nvec2 $(name_uv)_warp_2 = $uv - $warp_strength *  vec2($warp_x*$warp($uv).g,  -$warp_y*$warp($uv).r);\n// vec2 $(name_uv)_mingle = vec2($mingle_strength*$mingle_u, $mingle_strength*$mingle_v);\n//float $(name_uv)_blend =  smoothstep(mingle_$mingle_mode($warp($uv),$(name_uv)_mingle ), 0.5);\nfloat $(name_uv)_blend = smoothstep($m_step-$m_smooth,  $m_step+$m_smooth,  $warp($uv).b);\n\n",
+						"global": "",
+						"includes": [
+							"blend"
+						],
+						"inputs": [
+							{
+								"default": "0.0",
+								"label": "",
+								"name": "in_1",
+								"shortdesc": "Input 1",
+								"type": "rgb"
+							},
+							{
+								"default": "0.0",
+								"label": "",
+								"name": "in_2",
+								"shortdesc": "Input 2",
+								"type": "rgb"
+							},
+							{
+								"default": "0.0",
+								"label": "",
+								"longdesc": "A Warp image combines UV warping and blending.\n\nR,G\t\t\nare mapped to a vector, which warps UV coords.\n\nB,A\t\t\nare used to blend both input images. How they are blended is controlled by a smoothstep, which could be adjust with \"Step\" and \"Smooth\".",
+								"name": "warp",
+								"shortdesc": "Warp",
+								"type": "rgb"
+							}
+						],
+						"instance": "",
+						"longdesc": "Mingle node with one output.\nBasic node which could be used to create grunge images.\n\nMingle combines a warp operation and a blend operation. The blend operation is controlled by a step operation and an opacity value..",
+						"name": "Mingle",
+						"outputs": [
+							{
+								"rgb": "blend_$blend_type( $uv,  $in_1($(name_uv)_warp_1),  $in_2($(name_uv)_warp_2), $m_opacity*$(name_uv)_blend )",
+								"shortdesc": "Output",
+								"type": "rgb"
+							}
+						],
+						"parameters": [
+							{
+								"default": 0,
+								"label": "",
+								"longdesc": "Specify method how you like to warp input images.",
+								"name": "blend_type",
+								"shortdesc": "Blend Type",
+								"type": "enum",
+								"values": [
+									{
+										"name": "Normal",
+										"value": "normal"
+									},
+									{
+										"name": "Dissolve",
+										"value": "dissolve"
+									},
+									{
+										"name": "Multiply",
+										"value": "multiply"
+									},
+									{
+										"name": "Screen",
+										"value": "screen"
+									},
+									{
+										"name": "Overlay",
+										"value": "overlay"
+									},
+									{
+										"name": "Hard Light",
+										"value": "hard_light"
+									},
+									{
+										"name": "Soft Light",
+										"value": "soft_light"
+									},
+									{
+										"name": "Burn",
+										"value": "burn"
+									},
+									{
+										"name": "Dodge",
+										"value": "dodge"
+									},
+									{
+										"name": "Lighten",
+										"value": "lighten"
+									},
+									{
+										"name": "Darken",
+										"value": "darken"
+									},
+									{
+										"name": "Difference",
+										"value": "difference"
+									}
+								]
+							},
+							{
+								"control": "None",
+								"default": 1,
+								"label": "Opacity",
+								"longdesc": "The  amount of opacity used to blend input in_1 over in_2. \nDefaults to 1.",
+								"max": 1,
+								"min": 0,
+								"name": "m_opacity",
+								"shortdesc": "Opacity",
+								"step": 0.1,
+								"type": "float"
+							},
+							{
+								"control": "None",
+								"default": 0.5,
+								"label": "Step",
+								"max": 1,
+								"min": 0,
+								"name": "m_step",
+								"shortdesc": "Mingle U",
+								"step": 0,
+								"type": "float"
+							},
+							{
+								"control": "None",
+								"default": 0.5,
+								"label": "Smoothness",
+								"max": 1,
+								"min": 0,
+								"name": "m_smooth",
+								"shortdesc": "Mingle V",
+								"step": 0,
+								"type": "float"
+							},
+							{
+								"control": "P1.x",
+								"default": 0.5,
+								"label": "Warp X",
+								"max": 10,
+								"min": 0,
+								"name": "warp_x",
+								"step": 0.1,
+								"type": "float"
+							},
+							{
+								"control": "P1.y",
+								"default": 0.5,
+								"label": "Warp Y",
+								"max": 10,
+								"min": 0,
+								"name": "warp_y",
+								"step": 0.1,
+								"type": "float"
+							},
+							{
+								"control": "None",
+								"default": 1,
+								"label": "Warp Strength",
+								"max": 1,
+								"min": 0,
+								"name": "warp_strength",
+								"step": 0.1,
+								"type": "float"
+							}
+						],
+						"shortdesc": "Mingle 1"
+					},
+					"type": "shader"
+				},
+				{
+					"name": "791_4",
+					"node_position": {
+						"x": 460,
+						"y": -40
+					},
+					"parameters": {
+						"blend_type": 4,
+						"m_opacity": 1,
+						"m_smooth": 0.5,
+						"m_step": 0.5,
+						"warp_strength": 2,
+						"warp_x": 0.5,
+						"warp_y": -0.5
+					},
+					"seed": -60308,
+					"shader_model": {
+						"code": "vec2 $(name_uv)_warp_1 = $uv + $warp_strength *  vec2($warp_x*$warp($uv).r,  -$warp_y*$warp($uv).g);\nvec2 $(name_uv)_warp_2 = $uv - $warp_strength *  vec2($warp_x*$warp($uv).g,  -$warp_y*$warp($uv).r);\n\nfloat $(name_uv)_blend_1 = smoothstep($m_step-$m_smooth,  $m_step+$m_smooth,  $warp($uv).b);\nfloat $(name_uv)_blend_2 = smoothstep($m_step-$m_smooth,  $m_step+$m_smooth,  $warp($uv).b);\n\n",
+						"global": "",
+						"includes": [
+							"blend"
+						],
+						"inputs": [
+							{
+								"default": "0.0",
+								"label": "",
+								"name": "in_1",
+								"shortdesc": "Input 1",
+								"type": "rgb"
+							},
+							{
+								"default": "0.0",
+								"label": "",
+								"name": "in_2",
+								"shortdesc": "Input 2",
+								"type": "rgb"
+							},
+							{
+								"default": "0.0",
+								"label": "",
+								"longdesc": "A Warp image combines UV warping and blending.\n\nR,G\t\t\nare mapped to a vector, which warps UV coords.\n\nB,A\t\t\nare used to blend both input images. How they are blended is controlled by a smoothstep, which could be adjust with \"Step\" and \"Smooth\".",
+								"name": "warp",
+								"shortdesc": "Warp",
+								"type": "rgba"
+							}
+						],
+						"instance": "",
+						"longdesc": "Mingle node with one output.\nBasic node which could be used to create grunge images.\n\nMingle combines a warp operation and a blend operation. The blend operation is controlled by a step operation and an opacity value..",
+						"name": "Mingle Extended",
+						"outputs": [
+							{
+								"rgb": "blend_$blend_type( $uv,  $in_1($(name_uv)_warp_1),  $in_2($(name_uv)_warp_2),  $m_opacity*$(name_uv)_blend_1 )",
+								"shortdesc": "Output",
+								"type": "rgb"
+							},
+							{
+								"rgb": "blend_$blend_type( $uv,  $in_1($(name_uv)_warp_2),  $in_2($(name_uv)_warp_1),  $m_opacity*$(name_uv)_blend_2 )",
+								"type": "rgb"
+							}
+						],
+						"parameters": [
+							{
+								"default": 0,
+								"label": "",
+								"longdesc": "Specify method how you like to warp input images.",
+								"name": "blend_type",
+								"shortdesc": "Blend Type",
+								"type": "enum",
+								"values": [
+									{
+										"name": "Normal",
+										"value": "normal"
+									},
+									{
+										"name": "Dissolve",
+										"value": "dissolve"
+									},
+									{
+										"name": "Multiply",
+										"value": "multiply"
+									},
+									{
+										"name": "Screen",
+										"value": "screen"
+									},
+									{
+										"name": "Overlay",
+										"value": "overlay"
+									},
+									{
+										"name": "Hard Light",
+										"value": "hard_light"
+									},
+									{
+										"name": "Soft Light",
+										"value": "soft_light"
+									},
+									{
+										"name": "Burn",
+										"value": "burn"
+									},
+									{
+										"name": "Dodge",
+										"value": "dodge"
+									},
+									{
+										"name": "Lighten",
+										"value": "lighten"
+									},
+									{
+										"name": "Darken",
+										"value": "darken"
+									},
+									{
+										"name": "Difference",
+										"value": "difference"
+									}
+								]
+							},
+							{
+								"control": "None",
+								"default": 1,
+								"label": "Opacity",
+								"longdesc": "The  amount of opacity used to blend input in_1 over in_2. \nDefaults to 1.",
+								"max": 1,
+								"min": 0,
+								"name": "m_opacity",
+								"shortdesc": "Opacity",
+								"step": 0.1,
+								"type": "float"
+							},
+							{
+								"control": "None",
+								"default": 0.5,
+								"label": "Step",
+								"max": 1,
+								"min": 0,
+								"name": "m_step",
+								"shortdesc": "Mingle U",
+								"step": 0,
+								"type": "float"
+							},
+							{
+								"control": "None",
+								"default": 0.5,
+								"label": "Smoothness",
+								"max": 1,
+								"min": 0,
+								"name": "m_smooth",
+								"shortdesc": "Mingle V",
+								"step": 0,
+								"type": "float"
+							},
+							{
+								"control": "P1.x",
+								"default": 0.5,
+								"label": "Warp X",
+								"max": 10,
+								"min": 0,
+								"name": "warp_x",
+								"step": 0.1,
+								"type": "float"
+							},
+							{
+								"control": "P1.y",
+								"default": 0.5,
+								"label": "Warp Y",
+								"max": 10,
+								"min": 0,
+								"name": "warp_y",
+								"step": 0.1,
+								"type": "float"
+							},
+							{
+								"control": "None",
+								"default": 1,
+								"label": "Warp Strength",
+								"max": 1,
+								"min": 0,
+								"name": "warp_strength",
+								"step": 0.1,
+								"type": "float"
+							}
+						],
+						"shortdesc": "Mingle Extended"
+					},
+					"type": "shader"
+				},
+				{
+					"name": "blend",
+					"node_position": {
+						"x": 1000,
+						"y": -40
+					},
+					"parameters": {
+						"amount": 1,
+						"blend_type": 7
+					},
+					"seed": -37184,
+					"type": "blend"
+				},
+				{
+					"name": "gen_inputs",
+					"node_position": {
+						"x": -1479.069092,
+						"y": -1.328649
+					},
+					"parameters": {
+
+					},
+					"ports": [
+
+					],
+					"seed": 52248,
+					"type": "ios"
+				},
+				{
+					"name": "gen_outputs",
+					"node_position": {
+						"x": 1600,
+						"y": -40
+					},
+					"parameters": {
+
+					},
+					"ports": [
+						{
+							"group_size": 0,
+							"name": "Heights",
+							"type": "f"
+						},
+						{
+							"group_size": 0,
+							"name": "Colors",
+							"type": "rgb"
+						}
+					],
+					"seed": -33256,
+					"type": "ios"
+				},
+				{
+					"name": "gen_parameters",
+					"node_position": {
+						"x": 1605.008667,
+						"y": 149.425598
+					},
+					"parameters": {
+						"param0": 2,
+						"param1": 0.5,
+						"param2": 8,
+						"param3": 1,
+						"param4": 10,
+						"param5": 0.6,
+						"param6": 8
+					},
+					"seed": 7630,
+					"type": "remote",
+					"widgets": [
+						{
+							"label": "Warp",
+							"linked_widgets": [
+								{
+									"node": "791_2",
+									"widget": "warp_strength"
+								},
+								{
+									"node": "791_3",
+									"widget": "warp_strength"
+								},
+								{
+									"node": "791_4",
+									"widget": "warp_strength"
+								},
+								{
+									"node": "791_6",
+									"widget": "warp_strength"
+								},
+								{
+									"node": "791_5",
+									"widget": "warp_strength"
+								},
+								{
+									"node": "791_7",
+									"widget": "warp_strength"
+								}
+							],
+							"name": "param0",
+							"type": "linked_control"
+						},
+						{
+							"label": "Iterations",
+							"linked_widgets": [
+								{
+									"node": "fbm_2",
+									"widget": "iterations"
+								},
+								{
+									"node": "fbm",
+									"widget": "iterations"
+								},
+								{
+									"node": "graph_2",
+									"widget": "param4"
+								},
+								{
+									"node": "graph_3",
+									"widget": "param4"
+								},
+								{
+									"node": "graph_4",
+									"widget": "param4"
+								}
+							],
+							"name": "param4",
+							"type": "linked_control"
+						},
+						{
+							"label": "Persistence",
+							"linked_widgets": [
+								{
+									"node": "fbm_2",
+									"widget": "persistence"
+								},
+								{
+									"node": "fbm",
+									"widget": "persistence"
+								},
+								{
+									"node": "graph_2",
+									"widget": "param5"
+								},
+								{
+									"node": "graph_3",
+									"widget": "param5"
+								},
+								{
+									"node": "graph_4",
+									"widget": "param5"
+								}
+							],
+							"name": "param5",
+							"type": "linked_control"
+						},
+						{
+							"label": "Scale X",
+							"linked_widgets": [
+								{
+									"node": "graph_2",
+									"widget": "param1"
+								},
+								{
+									"node": "graph_4",
+									"widget": "param1"
+								},
+								{
+									"node": "fbm_2",
+									"widget": "scale_x"
+								},
+								{
+									"node": "fbm",
+									"widget": "scale_y"
+								},
+								{
+									"node": "graph_3",
+									"widget": "param2"
+								}
+							],
+							"name": "param2",
+							"type": "linked_control"
+						},
+						{
+							"label": "Scale Y",
+							"linked_widgets": [
+								{
+									"node": "fbm_2",
+									"widget": "scale_y"
+								},
+								{
+									"node": "fbm",
+									"widget": "scale_x"
+								},
+								{
+									"node": "graph_2",
+									"widget": "param2"
+								},
+								{
+									"node": "graph_3",
+									"widget": "param1"
+								},
+								{
+									"node": "graph_4",
+									"widget": "param2"
+								}
+							],
+							"name": "param6",
+							"type": "linked_control"
+						},
+						{
+							"label": "Level",
+							"linked_widgets": [
+								{
+									"node": "tones_step",
+									"widget": "value"
+								},
+								{
+									"node": "tones_step_2",
+									"widget": "value"
+								},
+								{
+									"node": "tones_step_4",
+									"widget": "value"
+								},
+								{
+									"node": "tones_step_3",
+									"widget": "value"
+								}
+							],
+							"name": "param1",
+							"type": "linked_control"
+						},
+						{
+							"label": "Smooth",
+							"linked_widgets": [
+								{
+									"node": "tones_step",
+									"widget": "width"
+								},
+								{
+									"node": "tones_step_2",
+									"widget": "width"
+								},
+								{
+									"node": "tones_step_4",
+									"widget": "width"
+								},
+								{
+									"node": "tones_step_3",
+									"widget": "width"
+								}
+							],
+							"name": "param3",
+							"type": "linked_control"
+						}
+					]
+				},
+				{
+					"connections": [
+						{
+							"from": "combine",
+							"from_port": 0,
+							"to": "gen_outputs",
+							"to_port": 0
+						},
+						{
+							"from": "fbm_5",
+							"from_port": 0,
+							"to": "combine",
+							"to_port": 2
+						},
+						{
+							"from": "fbm_4",
+							"from_port": 0,
+							"to": "combine",
+							"to_port": 1
+						},
+						{
+							"from": "fbm_3",
+							"from_port": 0,
+							"to": "combine",
+							"to_port": 0
+						},
+						{
+							"from": "fbm_2",
+							"from_port": 0,
+							"to": "combine_2",
+							"to_port": 3
+						},
+						{
+							"from": "fbm_5",
+							"from_port": 0,
+							"to": "combine_2",
+							"to_port": 2
+						},
+						{
+							"from": "fbm_4",
+							"from_port": 0,
+							"to": "combine_2",
+							"to_port": 1
+						},
+						{
+							"from": "fbm_3",
+							"from_port": 0,
+							"to": "combine_2",
+							"to_port": 0
+						},
+						{
+							"from": "combine_2",
+							"from_port": 0,
+							"to": "gen_outputs",
+							"to_port": 1
+						}
+					],
+					"label": "FBM Vec",
+					"longdesc": "",
+					"minimized": true,
+					"name": "graph_3",
+					"node_position": {
+						"x": -1200,
+						"y": 400
+					},
+					"nodes": [
+						{
+							"name": "fbm_3",
+							"node_position": {
+								"x": -495.760742,
+								"y": 1025.774536
+							},
+							"parameters": {
+								"folds": 0,
+								"iterations": 10,
+								"noise": 1,
+								"persistence": 0.6,
+								"scale_x": 8,
+								"scale_y": 8
+							},
+							"seed": -10482,
+							"type": "fbm"
+						},
+						{
+							"name": "fbm_4",
+							"node_position": {
+								"x": -497.094055,
+								"y": 1196.270996
+							},
+							"parameters": {
+								"folds": 0,
+								"iterations": 10,
+								"noise": 1,
+								"persistence": 0.6,
+								"scale_x": 8,
+								"scale_y": 8
+							},
+							"seed": -28547,
+							"type": "fbm"
+						},
+						{
+							"name": "fbm_5",
+							"node_position": {
+								"x": -497.094086,
+								"y": 1364.103638
+							},
+							"parameters": {
+								"folds": 0,
+								"iterations": 10,
+								"noise": 1,
+								"persistence": 0.6,
+								"scale_x": 8,
+								"scale_y": 8
+							},
+							"seed": -28283,
+							"type": "fbm"
+						},
+						{
+							"name": "combine",
+							"node_position": {
+								"x": 294.405914,
+								"y": 1146.736694
+							},
+							"parameters": {
+
+							},
+							"seed": 47584,
+							"type": "combine"
+						},
+						{
+							"name": "gen_inputs",
+							"node_position": {
+								"x": -971.094116,
+								"y": 1119.45166
+							},
+							"parameters": {
+
+							},
+							"ports": [
+
+							],
+							"seed": -3788,
+							"type": "ios"
+						},
+						{
+							"name": "gen_outputs",
+							"node_position": {
+								"x": 502.405945,
+								"y": 1152.739136
+							},
+							"parameters": {
+
+							},
+							"ports": [
+								{
+									"group_size": 0,
+									"name": "unnamed",
+									"type": "rgb"
+								},
+								{
+									"group_size": 0,
+									"name": "unnamed",
+									"type": "rgba"
+								}
+							],
+							"seed": 586,
+							"type": "ios"
+						},
+						{
+							"name": "gen_parameters",
+							"node_position": {
+								"x": -863.885681,
+								"y": 1508.326782
+							},
+							"parameters": {
+								"param0": 1,
+								"param1": 8,
+								"param2": 8,
+								"param3": 0,
+								"param4": 10,
+								"param5": 0.6
+							},
+							"seed": -60517,
+							"type": "remote",
+							"widgets": [
+								{
+									"label": "Noise",
+									"linked_widgets": [
+										{
+											"node": "fbm_3",
+											"widget": "noise"
+										},
+										{
+											"node": "fbm_4",
+											"widget": "noise"
+										},
+										{
+											"node": "fbm_5",
+											"widget": "noise"
+										},
+										{
+											"node": "fbm_2",
+											"widget": "noise"
+										}
+									],
+									"name": "param0",
+									"type": "linked_control"
+								},
+								{
+									"label": "Scale X",
+									"linked_widgets": [
+										{
+											"node": "fbm_3",
+											"widget": "scale_x"
+										},
+										{
+											"node": "fbm_4",
+											"widget": "scale_x"
+										},
+										{
+											"node": "fbm_5",
+											"widget": "scale_x"
+										},
+										{
+											"node": "fbm_2",
+											"widget": "scale_x"
+										}
+									],
+									"name": "param1",
+									"type": "linked_control"
+								},
+								{
+									"label": "Scale Y",
+									"linked_widgets": [
+										{
+											"node": "fbm_3",
+											"widget": "scale_y"
+										},
+										{
+											"node": "fbm_4",
+											"widget": "scale_y"
+										},
+										{
+											"node": "fbm_5",
+											"widget": "scale_y"
+										},
+										{
+											"node": "fbm_2",
+											"widget": "scale_y"
+										}
+									],
+									"name": "param2",
+									"type": "linked_control"
+								},
+								{
+									"label": "Folds",
+									"linked_widgets": [
+										{
+											"node": "fbm_3",
+											"widget": "folds"
+										},
+										{
+											"node": "fbm_4",
+											"widget": "folds"
+										},
+										{
+											"node": "fbm_5",
+											"widget": "folds"
+										},
+										{
+											"node": "fbm_2",
+											"widget": "folds"
+										}
+									],
+									"name": "param3",
+									"type": "linked_control"
+								},
+								{
+									"label": "Iterations",
+									"linked_widgets": [
+										{
+											"node": "fbm_3",
+											"widget": "iterations"
+										},
+										{
+											"node": "fbm_4",
+											"widget": "iterations"
+										},
+										{
+											"node": "fbm_5",
+											"widget": "iterations"
+										},
+										{
+											"node": "fbm_2",
+											"widget": "iterations"
+										}
+									],
+									"name": "param4",
+									"type": "linked_control"
+								},
+								{
+									"label": "Persistence",
+									"linked_widgets": [
+										{
+											"node": "fbm_3",
+											"widget": "persistence"
+										},
+										{
+											"node": "fbm_4",
+											"widget": "persistence"
+										},
+										{
+											"node": "fbm_5",
+											"widget": "persistence"
+										},
+										{
+											"node": "fbm_2",
+											"widget": "persistence"
+										}
+									],
+									"name": "param5",
+									"type": "linked_control"
+								}
+							]
+						},
+						{
+							"name": "fbm_2",
+							"node_position": {
+								"x": -495.298431,
+								"y": 1543.288208
+							},
+							"parameters": {
+								"folds": 0,
+								"iterations": 10,
+								"noise": 1,
+								"persistence": 0.6,
+								"scale_x": 8,
+								"scale_y": 8
+							},
+							"seed": -11000,
+							"type": "fbm"
+						},
+						{
+							"name": "combine_2",
+							"node_position": {
+								"x": 292.968933,
+								"y": 1276.987427
+							},
+							"parameters": {
+
+							},
+							"seed": 31648,
+							"type": "combine"
+						}
+					],
+					"parameters": {
+						"param0": 1,
+						"param1": 8,
+						"param2": 8,
+						"param3": 0,
+						"param4": 10,
+						"param5": 0.6
+					},
+					"preview": 0,
+					"seed": -57568,
+					"shortdesc": "",
+					"type": "graph"
+				},
+				{
+					"connections": [
+						{
+							"from": "combine",
+							"from_port": 0,
+							"to": "gen_outputs",
+							"to_port": 0
+						},
+						{
+							"from": "fbm_5",
+							"from_port": 0,
+							"to": "combine",
+							"to_port": 2
+						},
+						{
+							"from": "fbm_4",
+							"from_port": 0,
+							"to": "combine",
+							"to_port": 1
+						},
+						{
+							"from": "fbm_3",
+							"from_port": 0,
+							"to": "combine",
+							"to_port": 0
+						},
+						{
+							"from": "fbm_2",
+							"from_port": 0,
+							"to": "combine_2",
+							"to_port": 3
+						},
+						{
+							"from": "fbm_5",
+							"from_port": 0,
+							"to": "combine_2",
+							"to_port": 2
+						},
+						{
+							"from": "fbm_4",
+							"from_port": 0,
+							"to": "combine_2",
+							"to_port": 1
+						},
+						{
+							"from": "fbm_3",
+							"from_port": 0,
+							"to": "combine_2",
+							"to_port": 0
+						},
+						{
+							"from": "combine_2",
+							"from_port": 0,
+							"to": "gen_outputs",
+							"to_port": 1
+						}
+					],
+					"label": "FBM Vec",
+					"longdesc": "",
+					"minimized": true,
+					"name": "graph_4",
+					"node_position": {
+						"x": -1200,
+						"y": 600
+					},
+					"nodes": [
+						{
+							"name": "fbm_3",
+							"node_position": {
+								"x": -495.760742,
+								"y": 1025.774536
+							},
+							"parameters": {
+								"folds": 0,
+								"iterations": 10,
+								"noise": 1,
+								"persistence": 0.6,
+								"scale_x": 8,
+								"scale_y": 8
+							},
+							"seed": -10482,
+							"type": "fbm"
+						},
+						{
+							"name": "fbm_4",
+							"node_position": {
+								"x": -497.094055,
+								"y": 1196.270996
+							},
+							"parameters": {
+								"folds": 0,
+								"iterations": 10,
+								"noise": 1,
+								"persistence": 0.6,
+								"scale_x": 8,
+								"scale_y": 8
+							},
+							"seed": -28547,
+							"type": "fbm"
+						},
+						{
+							"name": "fbm_5",
+							"node_position": {
+								"x": -497.094086,
+								"y": 1364.103638
+							},
+							"parameters": {
+								"folds": 0,
+								"iterations": 10,
+								"noise": 1,
+								"persistence": 0.6,
+								"scale_x": 8,
+								"scale_y": 8
+							},
+							"seed": -28283,
+							"type": "fbm"
+						},
+						{
+							"name": "combine",
+							"node_position": {
+								"x": 294.405914,
+								"y": 1146.736694
+							},
+							"parameters": {
+
+							},
+							"seed": 47584,
+							"type": "combine"
+						},
+						{
+							"name": "gen_inputs",
+							"node_position": {
+								"x": -971.094116,
+								"y": 1119.45166
+							},
+							"parameters": {
+
+							},
+							"ports": [
+
+							],
+							"seed": -3788,
+							"type": "ios"
+						},
+						{
+							"name": "gen_outputs",
+							"node_position": {
+								"x": 502.405945,
+								"y": 1152.739136
+							},
+							"parameters": {
+
+							},
+							"ports": [
+								{
+									"group_size": 0,
+									"name": "unnamed",
+									"type": "rgb"
+								},
+								{
+									"group_size": 0,
+									"name": "unnamed",
+									"type": "rgba"
+								}
+							],
+							"seed": 586,
+							"type": "ios"
+						},
+						{
+							"name": "gen_parameters",
+							"node_position": {
+								"x": -863.885681,
+								"y": 1508.326782
+							},
+							"parameters": {
+								"param0": 1,
+								"param1": 8,
+								"param2": 8,
+								"param3": 0,
+								"param4": 10,
+								"param5": 0.6
+							},
+							"seed": -60517,
+							"type": "remote",
+							"widgets": [
+								{
+									"label": "Noise",
+									"linked_widgets": [
+										{
+											"node": "fbm_3",
+											"widget": "noise"
+										},
+										{
+											"node": "fbm_4",
+											"widget": "noise"
+										},
+										{
+											"node": "fbm_5",
+											"widget": "noise"
+										},
+										{
+											"node": "fbm_2",
+											"widget": "noise"
+										}
+									],
+									"name": "param0",
+									"type": "linked_control"
+								},
+								{
+									"label": "Scale X",
+									"linked_widgets": [
+										{
+											"node": "fbm_3",
+											"widget": "scale_x"
+										},
+										{
+											"node": "fbm_4",
+											"widget": "scale_x"
+										},
+										{
+											"node": "fbm_5",
+											"widget": "scale_x"
+										},
+										{
+											"node": "fbm_2",
+											"widget": "scale_x"
+										}
+									],
+									"name": "param1",
+									"type": "linked_control"
+								},
+								{
+									"label": "Scale Y",
+									"linked_widgets": [
+										{
+											"node": "fbm_3",
+											"widget": "scale_y"
+										},
+										{
+											"node": "fbm_4",
+											"widget": "scale_y"
+										},
+										{
+											"node": "fbm_5",
+											"widget": "scale_y"
+										},
+										{
+											"node": "fbm_2",
+											"widget": "scale_y"
+										}
+									],
+									"name": "param2",
+									"type": "linked_control"
+								},
+								{
+									"label": "Folds",
+									"linked_widgets": [
+										{
+											"node": "fbm_3",
+											"widget": "folds"
+										},
+										{
+											"node": "fbm_4",
+											"widget": "folds"
+										},
+										{
+											"node": "fbm_5",
+											"widget": "folds"
+										},
+										{
+											"node": "fbm_2",
+											"widget": "folds"
+										}
+									],
+									"name": "param3",
+									"type": "linked_control"
+								},
+								{
+									"label": "Iterations",
+									"linked_widgets": [
+										{
+											"node": "fbm_3",
+											"widget": "iterations"
+										},
+										{
+											"node": "fbm_4",
+											"widget": "iterations"
+										},
+										{
+											"node": "fbm_5",
+											"widget": "iterations"
+										},
+										{
+											"node": "fbm_2",
+											"widget": "iterations"
+										}
+									],
+									"name": "param4",
+									"type": "linked_control"
+								},
+								{
+									"label": "Persistence",
+									"linked_widgets": [
+										{
+											"node": "fbm_3",
+											"widget": "persistence"
+										},
+										{
+											"node": "fbm_4",
+											"widget": "persistence"
+										},
+										{
+											"node": "fbm_5",
+											"widget": "persistence"
+										},
+										{
+											"node": "fbm_2",
+											"widget": "persistence"
+										}
+									],
+									"name": "param5",
+									"type": "linked_control"
+								}
+							]
+						},
+						{
+							"name": "fbm_2",
+							"node_position": {
+								"x": -495.298431,
+								"y": 1543.288208
+							},
+							"parameters": {
+								"folds": 0,
+								"iterations": 10,
+								"noise": 1,
+								"persistence": 0.6,
+								"scale_x": 8,
+								"scale_y": 8
+							},
+							"seed": -11000,
+							"type": "fbm"
+						},
+						{
+							"name": "combine_2",
+							"node_position": {
+								"x": 292.968933,
+								"y": 1276.987427
+							},
+							"parameters": {
+
+							},
+							"seed": 31648,
+							"type": "combine"
+						}
+					],
+					"parameters": {
+						"param0": 1,
+						"param1": 8,
+						"param2": 8,
+						"param3": 0,
+						"param4": 10,
+						"param5": 0.6
+					},
+					"preview": 0,
+					"seed": -58136,
+					"shortdesc": "",
+					"type": "graph"
+				},
+				{
+					"name": "791_5",
+					"node_position": {
+						"x": -300,
+						"y": 340
+					},
+					"parameters": {
+						"blend_type": 7,
+						"m_opacity": 1,
+						"m_smooth": 0.5,
+						"m_step": 0.5,
+						"warp_strength": 2,
+						"warp_x": 0.5,
+						"warp_y": 0.5
+					},
+					"seed": -30984,
+					"shader_model": {
+						"code": "vec2 $(name_uv)_warp_1 = $uv + $warp_strength *  vec2($warp_x*$warp($uv).r,  -$warp_y*$warp($uv).g);\nvec2 $(name_uv)_warp_2 = $uv - $warp_strength *  vec2($warp_x*$warp($uv).g,  -$warp_y*$warp($uv).r);\n// vec2 $(name_uv)_mingle = vec2($mingle_strength*$mingle_u, $mingle_strength*$mingle_v);\n//float $(name_uv)_blend =  smoothstep(mingle_$mingle_mode($warp($uv),$(name_uv)_mingle ), 0.5);\nfloat $(name_uv)_blend = smoothstep($m_step-$m_smooth,  $m_step+$m_smooth,  $warp($uv).b);\n\n",
+						"global": "",
+						"includes": [
+							"blend"
+						],
+						"inputs": [
+							{
+								"default": "0.0",
+								"label": "",
+								"name": "in_1",
+								"shortdesc": "Input 1",
+								"type": "rgb"
+							},
+							{
+								"default": "0.0",
+								"label": "",
+								"name": "in_2",
+								"shortdesc": "Input 2",
+								"type": "rgb"
+							},
+							{
+								"default": "0.0",
+								"label": "",
+								"longdesc": "A Warp image combines UV warping and blending.\n\nR,G\t\t\nare mapped to a vector, which warps UV coords.\n\nB,A\t\t\nare used to blend both input images. How they are blended is controlled by a smoothstep, which could be adjust with \"Step\" and \"Smooth\".",
+								"name": "warp",
+								"shortdesc": "Warp",
+								"type": "rgb"
+							}
+						],
+						"instance": "",
+						"longdesc": "Mingle node with one output.\nBasic node which could be used to create grunge images.\n\nMingle combines a warp operation and a blend operation. The blend operation is controlled by a step operation and an opacity value..",
+						"name": "Mingle",
+						"outputs": [
+							{
+								"rgb": "blend_$blend_type( $uv,  $in_1($(name_uv)_warp_1),  $in_2($(name_uv)_warp_2), $m_opacity*$(name_uv)_blend )",
+								"shortdesc": "Output",
+								"type": "rgb"
+							}
+						],
+						"parameters": [
+							{
+								"default": 0,
+								"label": "",
+								"longdesc": "Specify method how you like to warp input images.",
+								"name": "blend_type",
+								"shortdesc": "Blend Type",
+								"type": "enum",
+								"values": [
+									{
+										"name": "Normal",
+										"value": "normal"
+									},
+									{
+										"name": "Dissolve",
+										"value": "dissolve"
+									},
+									{
+										"name": "Multiply",
+										"value": "multiply"
+									},
+									{
+										"name": "Screen",
+										"value": "screen"
+									},
+									{
+										"name": "Overlay",
+										"value": "overlay"
+									},
+									{
+										"name": "Hard Light",
+										"value": "hard_light"
+									},
+									{
+										"name": "Soft Light",
+										"value": "soft_light"
+									},
+									{
+										"name": "Burn",
+										"value": "burn"
+									},
+									{
+										"name": "Dodge",
+										"value": "dodge"
+									},
+									{
+										"name": "Lighten",
+										"value": "lighten"
+									},
+									{
+										"name": "Darken",
+										"value": "darken"
+									},
+									{
+										"name": "Difference",
+										"value": "difference"
+									}
+								]
+							},
+							{
+								"control": "None",
+								"default": 1,
+								"label": "Opacity",
+								"longdesc": "The  amount of opacity used to blend input in_1 over in_2. \nDefaults to 1.",
+								"max": 1,
+								"min": 0,
+								"name": "m_opacity",
+								"shortdesc": "Opacity",
+								"step": 0.1,
+								"type": "float"
+							},
+							{
+								"control": "None",
+								"default": 0.5,
+								"label": "Step",
+								"max": 1,
+								"min": 0,
+								"name": "m_step",
+								"shortdesc": "Mingle U",
+								"step": 0,
+								"type": "float"
+							},
+							{
+								"control": "None",
+								"default": 0.5,
+								"label": "Smoothness",
+								"max": 1,
+								"min": 0,
+								"name": "m_smooth",
+								"shortdesc": "Mingle V",
+								"step": 0,
+								"type": "float"
+							},
+							{
+								"control": "P1.x",
+								"default": 0.5,
+								"label": "Warp X",
+								"max": 10,
+								"min": 0,
+								"name": "warp_x",
+								"step": 0.1,
+								"type": "float"
+							},
+							{
+								"control": "P1.y",
+								"default": 0.5,
+								"label": "Warp Y",
+								"max": 10,
+								"min": 0,
+								"name": "warp_y",
+								"step": 0.1,
+								"type": "float"
+							},
+							{
+								"control": "None",
+								"default": 1,
+								"label": "Warp Strength",
+								"max": 1,
+								"min": 0,
+								"name": "warp_strength",
+								"step": 0.1,
+								"type": "float"
+							}
+						],
+						"shortdesc": "Mingle 1"
+					},
+					"type": "shader"
+				},
+				{
+					"name": "791_6",
+					"node_position": {
+						"x": -300,
+						"y": 560
+					},
+					"parameters": {
+						"blend_type": 8,
+						"m_opacity": 1,
+						"m_smooth": 0.5,
+						"m_step": 0.5,
+						"warp_strength": 2,
+						"warp_x": -0.5,
+						"warp_y": -0.5
+					},
+					"seed": -31332,
+					"shader_model": {
+						"code": "vec2 $(name_uv)_warp_1 = $uv + $warp_strength *  vec2($warp_x*$warp($uv).r,  -$warp_y*$warp($uv).g);\nvec2 $(name_uv)_warp_2 = $uv - $warp_strength *  vec2($warp_x*$warp($uv).g,  -$warp_y*$warp($uv).r);\n// vec2 $(name_uv)_mingle = vec2($mingle_strength*$mingle_u, $mingle_strength*$mingle_v);\n//float $(name_uv)_blend =  smoothstep(mingle_$mingle_mode($warp($uv),$(name_uv)_mingle ), 0.5);\nfloat $(name_uv)_blend = smoothstep($m_step-$m_smooth,  $m_step+$m_smooth,  $warp($uv).b);\n\n",
+						"global": "",
+						"includes": [
+							"blend"
+						],
+						"inputs": [
+							{
+								"default": "0.0",
+								"label": "",
+								"name": "in_1",
+								"shortdesc": "Input 1",
+								"type": "rgb"
+							},
+							{
+								"default": "0.0",
+								"label": "",
+								"name": "in_2",
+								"shortdesc": "Input 2",
+								"type": "rgb"
+							},
+							{
+								"default": "0.0",
+								"label": "",
+								"longdesc": "A Warp image combines UV warping and blending.\n\nR,G\t\t\nare mapped to a vector, which warps UV coords.\n\nB,A\t\t\nare used to blend both input images. How they are blended is controlled by a smoothstep, which could be adjust with \"Step\" and \"Smooth\".",
+								"name": "warp",
+								"shortdesc": "Warp",
+								"type": "rgb"
+							}
+						],
+						"instance": "",
+						"longdesc": "Mingle node with one output.\nBasic node which could be used to create grunge images.\n\nMingle combines a warp operation and a blend operation. The blend operation is controlled by a step operation and an opacity value..",
+						"name": "Mingle",
+						"outputs": [
+							{
+								"rgb": "blend_$blend_type( $uv,  $in_1($(name_uv)_warp_1),  $in_2($(name_uv)_warp_2), $m_opacity*$(name_uv)_blend )",
+								"shortdesc": "Output",
+								"type": "rgb"
+							}
+						],
+						"parameters": [
+							{
+								"default": 0,
+								"label": "",
+								"longdesc": "Specify method how you like to warp input images.",
+								"name": "blend_type",
+								"shortdesc": "Blend Type",
+								"type": "enum",
+								"values": [
+									{
+										"name": "Normal",
+										"value": "normal"
+									},
+									{
+										"name": "Dissolve",
+										"value": "dissolve"
+									},
+									{
+										"name": "Multiply",
+										"value": "multiply"
+									},
+									{
+										"name": "Screen",
+										"value": "screen"
+									},
+									{
+										"name": "Overlay",
+										"value": "overlay"
+									},
+									{
+										"name": "Hard Light",
+										"value": "hard_light"
+									},
+									{
+										"name": "Soft Light",
+										"value": "soft_light"
+									},
+									{
+										"name": "Burn",
+										"value": "burn"
+									},
+									{
+										"name": "Dodge",
+										"value": "dodge"
+									},
+									{
+										"name": "Lighten",
+										"value": "lighten"
+									},
+									{
+										"name": "Darken",
+										"value": "darken"
+									},
+									{
+										"name": "Difference",
+										"value": "difference"
+									}
+								]
+							},
+							{
+								"control": "None",
+								"default": 1,
+								"label": "Opacity",
+								"longdesc": "The  amount of opacity used to blend input in_1 over in_2. \nDefaults to 1.",
+								"max": 1,
+								"min": 0,
+								"name": "m_opacity",
+								"shortdesc": "Opacity",
+								"step": 0.1,
+								"type": "float"
+							},
+							{
+								"control": "None",
+								"default": 0.5,
+								"label": "Step",
+								"max": 1,
+								"min": 0,
+								"name": "m_step",
+								"shortdesc": "Mingle U",
+								"step": 0,
+								"type": "float"
+							},
+							{
+								"control": "None",
+								"default": 0.5,
+								"label": "Smoothness",
+								"max": 1,
+								"min": 0,
+								"name": "m_smooth",
+								"shortdesc": "Mingle V",
+								"step": 0,
+								"type": "float"
+							},
+							{
+								"control": "P1.x",
+								"default": 0.5,
+								"label": "Warp X",
+								"max": 10,
+								"min": 0,
+								"name": "warp_x",
+								"step": 0.1,
+								"type": "float"
+							},
+							{
+								"control": "P1.y",
+								"default": 0.5,
+								"label": "Warp Y",
+								"max": 10,
+								"min": 0,
+								"name": "warp_y",
+								"step": 0.1,
+								"type": "float"
+							},
+							{
+								"control": "None",
+								"default": 1,
+								"label": "Warp Strength",
+								"max": 1,
+								"min": 0,
+								"name": "warp_strength",
+								"step": 0.1,
+								"type": "float"
+							}
+						],
+						"shortdesc": "Mingle 1"
+					},
+					"type": "shader"
+				},
+				{
+					"name": "blend_2",
+					"node_position": {
+						"x": 1000,
+						"y": 420
+					},
+					"parameters": {
+						"amount": 1,
+						"blend_type": 7
+					},
+					"seed": 37052,
+					"type": "blend"
+				},
+				{
+					"name": "791_7",
+					"node_position": {
+						"x": 460,
+						"y": 420
+					},
+					"parameters": {
+						"blend_type": 4,
+						"m_opacity": 1,
+						"m_smooth": 0.5,
+						"m_step": 0.5,
+						"warp_strength": 2,
+						"warp_x": 0.5,
+						"warp_y": -0.5
+					},
+					"seed": 59920,
+					"shader_model": {
+						"code": "vec2 $(name_uv)_warp_1 = $uv + $warp_strength *  vec2($warp_x*$warp($uv).r,  -$warp_y*$warp($uv).g);\nvec2 $(name_uv)_warp_2 = $uv - $warp_strength *  vec2($warp_x*$warp($uv).g,  -$warp_y*$warp($uv).r);\n\nfloat $(name_uv)_blend_1 = smoothstep($m_step-$m_smooth,  $m_step+$m_smooth,  $warp($uv).b);\nfloat $(name_uv)_blend_2 = smoothstep($m_step-$m_smooth,  $m_step+$m_smooth,  $warp($uv).b);\n\n",
+						"global": "",
+						"includes": [
+							"blend"
+						],
+						"inputs": [
+							{
+								"default": "0.0",
+								"label": "",
+								"name": "in_1",
+								"shortdesc": "Input 1",
+								"type": "rgb"
+							},
+							{
+								"default": "0.0",
+								"label": "",
+								"name": "in_2",
+								"shortdesc": "Input 2",
+								"type": "rgb"
+							},
+							{
+								"default": "0.0",
+								"label": "",
+								"longdesc": "A Warp image combines UV warping and blending.\n\nR,G\t\t\nare mapped to a vector, which warps UV coords.\n\nB,A\t\t\nare used to blend both input images. How they are blended is controlled by a smoothstep, which could be adjust with \"Step\" and \"Smooth\".",
+								"name": "warp",
+								"shortdesc": "Warp",
+								"type": "rgba"
+							}
+						],
+						"instance": "",
+						"longdesc": "Mingle node with one output.\nBasic node which could be used to create grunge images.\n\nMingle combines a warp operation and a blend operation. The blend operation is controlled by a step operation and an opacity value..",
+						"name": "Mingle Extended",
+						"outputs": [
+							{
+								"rgb": "blend_$blend_type( $uv,  $in_1($(name_uv)_warp_1),  $in_2($(name_uv)_warp_2),  $m_opacity*$(name_uv)_blend_1 )",
+								"shortdesc": "Output",
+								"type": "rgb"
+							},
+							{
+								"rgb": "blend_$blend_type( $uv,  $in_1($(name_uv)_warp_2),  $in_2($(name_uv)_warp_1),  $m_opacity*$(name_uv)_blend_2 )",
+								"type": "rgb"
+							}
+						],
+						"parameters": [
+							{
+								"default": 0,
+								"label": "",
+								"longdesc": "Specify method how you like to warp input images.",
+								"name": "blend_type",
+								"shortdesc": "Blend Type",
+								"type": "enum",
+								"values": [
+									{
+										"name": "Normal",
+										"value": "normal"
+									},
+									{
+										"name": "Dissolve",
+										"value": "dissolve"
+									},
+									{
+										"name": "Multiply",
+										"value": "multiply"
+									},
+									{
+										"name": "Screen",
+										"value": "screen"
+									},
+									{
+										"name": "Overlay",
+										"value": "overlay"
+									},
+									{
+										"name": "Hard Light",
+										"value": "hard_light"
+									},
+									{
+										"name": "Soft Light",
+										"value": "soft_light"
+									},
+									{
+										"name": "Burn",
+										"value": "burn"
+									},
+									{
+										"name": "Dodge",
+										"value": "dodge"
+									},
+									{
+										"name": "Lighten",
+										"value": "lighten"
+									},
+									{
+										"name": "Darken",
+										"value": "darken"
+									},
+									{
+										"name": "Difference",
+										"value": "difference"
+									}
+								]
+							},
+							{
+								"control": "None",
+								"default": 1,
+								"label": "Opacity",
+								"longdesc": "The  amount of opacity used to blend input in_1 over in_2. \nDefaults to 1.",
+								"max": 1,
+								"min": 0,
+								"name": "m_opacity",
+								"shortdesc": "Opacity",
+								"step": 0.1,
+								"type": "float"
+							},
+							{
+								"control": "None",
+								"default": 0.5,
+								"label": "Step",
+								"max": 1,
+								"min": 0,
+								"name": "m_step",
+								"shortdesc": "Mingle U",
+								"step": 0,
+								"type": "float"
+							},
+							{
+								"control": "None",
+								"default": 0.5,
+								"label": "Smoothness",
+								"max": 1,
+								"min": 0,
+								"name": "m_smooth",
+								"shortdesc": "Mingle V",
+								"step": 0,
+								"type": "float"
+							},
+							{
+								"control": "P1.x",
+								"default": 0.5,
+								"label": "Warp X",
+								"max": 10,
+								"min": 0,
+								"name": "warp_x",
+								"step": 0.1,
+								"type": "float"
+							},
+							{
+								"control": "P1.y",
+								"default": 0.5,
+								"label": "Warp Y",
+								"max": 10,
+								"min": 0,
+								"name": "warp_y",
+								"step": 0.1,
+								"type": "float"
+							},
+							{
+								"control": "None",
+								"default": 1,
+								"label": "Warp Strength",
+								"max": 1,
+								"min": 0,
+								"name": "warp_strength",
+								"step": 0.1,
+								"type": "float"
+							}
+						],
+						"shortdesc": "Mingle Extended"
+					},
+					"type": "shader"
+				},
+				{
+					"color": {
+						"a": 1,
+						"b": 0,
+						"g": 0.5,
+						"r": 1,
+						"type": "Color"
+					},
+					"name": "comment",
+					"node_position": {
+						"x": -1320,
+						"y": -240
+					},
+					"parameters": {
+
+					},
+					"seed": 30520,
+					"size": {
+						"x": 368.727295,
+						"y": 1045.166504
+					},
+					"text": "",
+					"title": "Noises",
+					"type": "comment"
+				},
+				{
+					"color": {
+						"a": 1,
+						"b": 0,
+						"g": 0.5,
+						"r": 1,
+						"type": "Color"
+					},
+					"name": "comment_2",
+					"node_position": {
+						"x": -340,
+						"y": -240
+					},
+					"parameters": {
+
+					},
+					"seed": 21956,
+					"size": {
+						"x": 341.228088,
+						"y": 1036.673462
+					},
+					"text": "",
+					"title": "Warp Layer 1",
+					"type": "comment"
+				},
+				{
+					"color": {
+						"a": 1,
+						"b": 0,
+						"g": 0.5,
+						"r": 1,
+						"type": "Color"
+					},
+					"name": "comment_3",
+					"node_position": {
+						"x": 420,
+						"y": -240
+					},
+					"parameters": {
+
+					},
+					"seed": -3636,
+					"size": {
+						"x": 334.144196,
+						"y": 1038.109619
+					},
+					"text": "",
+					"title": "Warp Layer 2",
+					"type": "comment"
+				},
+				{
+					"name": "tones_step",
+					"node_position": {
+						"x": 1000,
+						"y": 100
+					},
+					"parameters": {
+						"invert": false,
+						"value": 0.5,
+						"width": 1
+					},
+					"seed": 37244,
+					"type": "tones_step"
+				},
+				{
+					"name": "tones_step_2",
+					"node_position": {
+						"x": 1000,
+						"y": 560
+					},
+					"parameters": {
+						"invert": false,
+						"value": 0.5,
+						"width": 1
+					},
+					"seed": 37672,
+					"type": "tones_step"
+				},
+				{
+					"name": "tones_step_3",
+					"node_position": {
+						"x": 1300,
+						"y": -40
+					},
+					"parameters": {
+						"invert": false,
+						"value": 0.5,
+						"width": 1
+					},
+					"seed": -2380,
+					"type": "tones_step"
+				},
+				{
+					"name": "tones_step_4",
+					"node_position": {
+						"x": 1300,
+						"y": 420
+					},
+					"parameters": {
+						"invert": false,
+						"value": 0.5,
+						"width": 1
+					},
+					"seed": 2248,
+					"type": "tones_step"
+				}
+			],
+			"parameters": {
+				"param0": 2,
+				"param1": 0.5,
+				"param2": 8,
+				"param3": 1,
+				"param4": 10,
+				"param5": 0.6,
+				"param6": 8
+			},
+			"seed_int": 3457126144,
+			"shortdesc": "",
+			"type": "graph"
+		}
+	],
+	"parameters": {
+
+	},
+	"seed_int": 0,
+	"shortdesc": "",
+	"type": "graph"
+}
