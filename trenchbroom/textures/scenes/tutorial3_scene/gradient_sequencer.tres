@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[ext_resource path="res://Game/Common/Shaders/Textures/y_color_blend.tres" type="Shader" id=1]
+
+[resource]
+shader = ExtResource( 1 )
+shader_param/color_1 = Color( 0.0588235, 0.890196, 0.380392, 1 )
+shader_param/color_2 = Color( 0.529412, 0.945098, 0.686275, 1 )
+shader_param/cursor = 0.0

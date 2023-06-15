@@ -13,6 +13,7 @@ const PLAYER_MASK_VALUE := 0  # index 0 on the mask collision value, to get the 
 
 #---- MAPS -----
 const START_POINT_GROUP := "start_point"
+const SKYBOX_GROUP := "skybox"
 
 #---- INPUTS -----
 const INPUT_MVT_FORWARD := "movement_forward"

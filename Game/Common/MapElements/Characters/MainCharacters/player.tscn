@@ -27,7 +27,6 @@ collision/safe_margin = 0.015
 script = ExtResource( 1 )
 
 [node name="Body" type="MeshInstance" parent="."]
-visible = false
 mesh = SubResource( 4 )
 
 [node name="RayCasts" type="Spatial" parent="."]

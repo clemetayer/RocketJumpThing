@@ -59,6 +59,7 @@ func _ready_func() -> void:
 	_init_end_level()
 	_init_song()
 	_init_node_paths()
+	_init_skybox()
 	_last_cp = _start_point
 	_player.ROCKETS_ENABLED = ENABLE_ROCKETS
 	_player.SLIDE_ENABLED = ENABLE_SLIDE
@@ -97,6 +98,11 @@ func _init_node_paths() -> void:
 	var start_points = get_tree().get_nodes_in_group(GlobalConstants.START_POINT_GROUP)
 	if start_points != null && start_points.size() > 0:
 		_start_point = start_points[0]
+
+func _init_skybox() -> void:
+	var skyboxes = get_tree().get_nodes_in_group(GlobalConstants.SKYBOX_GROUP)
+	if skyboxes != null and skyboxes.size() > 0 and skyboxes[0] is Skybox:
+		skyboxes[0].set_target(get_player())
 
 
 # Connects the autoload signals on init

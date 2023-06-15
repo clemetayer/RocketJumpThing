@@ -6,7 +6,7 @@
 panorama = SubResource( 2 )
 
 [resource]
-background_mode = 2
+background_mode = 1
 background_sky = SubResource( 1 )
 background_canvas_max_layer = 123
 ambient_light_energy = 0.0

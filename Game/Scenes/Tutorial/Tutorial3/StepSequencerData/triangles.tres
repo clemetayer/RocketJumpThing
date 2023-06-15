@@ -9,16 +9,16 @@
 [sub_resource type="Resource" id=5]
 script = ExtResource( 2 )
 VAR_NODEPATH = {
-"material:albedo_color": Color( 0.133333, 0.682353, 0.501961, 1 ),
-"material:emission": Color( 0.133333, 0.682353, 0.501961, 1 ),
+"material:albedo_color": Color( 0.0588235, 0.890196, 0.380392, 1 ),
+"material:emission": Color( 0.0588235, 0.890196, 0.380392, 1 ),
 "material:flags_transparent": true
 }
 
 [sub_resource type="Resource" id=6]
 script = ExtResource( 2 )
 VAR_NODEPATH = {
-"material:albedo_color": Color( 1, 0.745098, 0, 1 ),
-"material:emission": Color( 1, 0.745098, 0, 1 ),
+"material:albedo_color": Color( 0.278431, 0.694118, 0.439216, 1 ),
+"material:emission": Color( 0.278431, 0.694118, 0.439216, 1 ),
 "material:flags_transparent": true
 }
 
