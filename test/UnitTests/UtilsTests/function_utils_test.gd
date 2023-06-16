@@ -79,3 +79,14 @@ func test_is_start_point() -> void:
 	assert_bool(FunctionUtils.is_start_point(obj2)).is_false()
 	obj1.free()
 	obj2.free()
+
+
+func test_is_laser() -> void:
+	var obj1 := Area.new()
+	obj1.add_to_group("laser")
+	assert_bool(FunctionUtils.is_laser(obj1)).is_true()
+	var obj2 := Area.new()
+	obj2.add_to_group("not laser")
+	assert_bool(FunctionUtils.is_laser(obj2)).is_false()
+	obj1.free()
+	obj2.free()

@@ -2,10 +2,11 @@
 #warning-ignore-all:unused_argument
 #warning-ignore-all:return_value_discarded
 extends GlobalTests
+class_name StandardDoorTest
 # tests the standard door
 
 ##### VARIABLES #####
-const standard_door_path := "res://test/UnitTests/MapElementsTests/Doors/standard_door_mock.tscn"
+var standard_door_path := "res://test/UnitTests/MapElementsTests/Doors/standard_door_mock.tscn"
 var standard_door
 
 

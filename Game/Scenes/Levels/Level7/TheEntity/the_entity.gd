@@ -45,7 +45,8 @@ func _process(_delta):
 # triggers the "hurt" animation
 func hurt() -> void:
 	onready_paths.animation_player.play(HURT_ANIM)
-	_hp -= 1
+	if _hp > 0:
+		_hp -= 1
 	Logger.debug("Hp left : %d" % _hp)
 	if _hp <= 0:
 		Logger.debug("game_done")

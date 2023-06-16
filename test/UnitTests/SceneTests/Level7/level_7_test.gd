@@ -2,13 +2,13 @@
 #warning-ignore-all:unused_argument
 #warning-ignore-all:return_value_discarded
 extends StandardSceneTest
-# tests for the level 4
+# tests for the level 7
 
 
 ##### TESTS #####
 #---- PRE/POST -----
 func before():
-	scene_path = "res://Game/Scenes/Levels/Level4/level_4.tscn"
+	scene_path = "res://Game/Scenes/Levels/Level7/level_7.tscn"
 	.before()
 
 
@@ -18,9 +18,3 @@ func before():
 func test_start_player_abilities() -> void:
 	assert_bool(scene_instance.ENABLE_ROCKETS).is_true()
 	assert_bool(scene_instance.ENABLE_SLIDE).is_true()
-
-# end area in scene
-func test_end_in_scene() -> void:
-	assert_int(GlobalTestUtilities.count_in_group_in_children(scene_instance, "end_point", true)).is_equal(
-		1
-	)

@@ -35,7 +35,6 @@ func after():
 func test_mandatory_elements() -> void:
 	_test_player_in_scene()
 	_test_start_in_scene()
-	_test_end_in_scene()
 
 
 # player in the scene
@@ -48,13 +47,6 @@ func _test_player_in_scene() -> void:
 # start point in scene
 func _test_start_in_scene() -> void:
 	assert_int(GlobalTestUtilities.count_in_group_in_children(scene_instance, "start_point", true)).is_equal(
-		1
-	)
-
-
-# end area in scene
-func _test_end_in_scene() -> void:
-	assert_int(GlobalTestUtilities.count_in_group_in_children(scene_instance, "end_point", true)).is_equal(
 		1
 	)
 
