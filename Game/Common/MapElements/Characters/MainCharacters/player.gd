@@ -55,6 +55,8 @@ const GROUND_TARGET_SPEED := AIR_TARGET_SPEED * 2.0 / 3.0  # Ground target speed
 const GROUND_ACCELERATION := 11  # Acceleration on the ground. For some reason, should be > 10 to counter the friction
 const GROUND_FRICTION := 5.0  # Ground friction
 const SLIDE_SPEED_BONUS_JUMP := AIR_TARGET_SPEED * 1.0 / 3.0  # Speed added when jumping after a slide
+const SLIDE_JUMP_SPEED_CAP := 2.5 * GROUND_TARGET_SPEED # Speed cap for the slide jump
+const SLIDE_JUMP_SPEED_CAP_EASE := 0.6 # see https://raw.githubusercontent.com/godotengine/godot-docs/3.4/img/ease_cheatsheet.png
 const SLIDE_FRICTION := 0.1  # Friction when sliding on the ground. Equivalent to the movement in air, but with a little friction
 const AIR_MOVE_TOWARD := 47  # When pressing forward in the air, how much it should stick to the aim direction
 
@@ -488,7 +490,12 @@ func _ground_jump() -> void:
 
 # Executed when jumping while sliding
 func _slide_jump():
-	vel += Vector3(vel.x, 0, vel.z).normalized() * SLIDE_SPEED_BONUS_JUMP
+	var added_vel = Vector3(vel.x, 0, vel.z).normalized() * SLIDE_SPEED_BONUS_JUMP
+	if (vel + added_vel).length() <= SLIDE_JUMP_SPEED_CAP:
+		var slide_speed_cap_percents = ease((vel + added_vel).length()/SLIDE_JUMP_SPEED_CAP, SLIDE_JUMP_SPEED_CAP_EASE)
+		vel = Vector3(vel.x, 0, vel.z).normalized() * slide_speed_cap_percents * SLIDE_JUMP_SPEED_CAP
+	elif vel.length() <= SLIDE_JUMP_SPEED_CAP:
+		vel = Vector3(vel.x, 0, vel.z).normalized() * SLIDE_JUMP_SPEED_CAP
 	_slide = false
 	self.rotate_object_local(Vector3(1, 0, 0), PI / 4)
 	rotation_helper.rotate_object_local(Vector3(1, 0, 0), -PI / 4)
