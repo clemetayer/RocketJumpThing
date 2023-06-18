@@ -45,6 +45,8 @@ const AIR_ACCELERATION := 0.75  # Acceleration in air to get to the AIR_TARGET_S
 #==== WALL RIDE =====
 const WALL_RIDE_ASCEND_AMOUNT := 8.0  # How much the player ascend during a wall ride
 const WALL_RIDE_WALL_DISTANCE := 0.03  # distance from the wall normal, to avoid possibly getting stuck in it on some cases
+const WALL_RIDE_TILT_ANGLE := PI/10.0 # Camera tilt angle during a wall ride 
+const WALL_RIDE_TILT_SPEED := 0.075 # speed to tilt the camera when wall riding (in seconds)
 const WALL_JUMP_BOOST := AIR_TARGET_SPEED * 1.0 / 3.0  # How much speed is given to the player when jumping while wall riding
 const WALL_JUMP_UP_BOOST := JUMP_POWER * 1.5  # The up vector that is added when jumping off a wall
 const WALL_JUMP_ANGLE := PI / 4  # Angle from the wall forward vector when wall jumping
@@ -63,7 +65,7 @@ const AIR_MOVE_TOWARD := 47  # When pressing forward in the air, how much it sho
 #~~~~~ PROJECTILES ~~~~~
 const ROCKET_DELAY := 0.75  # Time before you can shoot another rocket
 const ROCKET_START_OFFSET := Vector3(0, 0, 0)  # offest position from the player to throw the rocket
-const ROCKET_SCENE_PATH := "res://Game/Common/MovementUtils/Rocket/rocket.tscn"  # Path to the rocket scene
+const ROCKET_SCENE_PATH := "res://Game/Common/MovementUtils/Rocket/rocket.tscn" # Path to the rocket scene
 
 #---- EXPORTS -----
 export(bool) var ROCKETS_ENABLED = true
@@ -90,6 +92,7 @@ var _charge_shot_time := 0  # time when the shot key was pressed (as unix timest
 var _wall_ride_lock := false  # lock for the wall ride to avoid sticking to the wall when jumping
 var _mix_to_direction_amount := 1.0  # when in air and pressing forward, how much the velocity should stick to the direction
 var _last_floor_velocity := Vector3.ZERO  # Last floor velocity
+var _last_wall_ride_tilt_direction := 0 # Used to avoid cancelling the head tilt animation at each frame
 
 #==== ONREADY ====
 onready var onready_paths := {
@@ -108,7 +111,11 @@ onready var onready_paths := {
 	"wall_ride": $"Sounds/WallRide",
 	"timers":
 	{"update_speed": $"Timers/UpdateSpeed", "wall_ride_jump_lock": $"Timers/WallRideJumpLock"},
-	"tweens": {"wall_jump_mix_mvt": $"WallJumpMixMovement"}
+	"tweens": 
+	{
+		"wall_jump_mix_mvt": $"WallJumpMixMovement",
+		"wall_ride_tilt": $"WallRideTilt"
+	}
 }
 
 
@@ -341,7 +348,10 @@ func _process_movement(delta):
 	# Movement process
 	if not is_on_floor() and _slide and _RC_wall_direction != 0 and !_wall_ride_lock:
 		_wall_ride_movement(delta)
+		# rotates the camera
+		_set_wall_ride_camera_tilt(_RC_wall_direction  * WALL_RIDE_TILT_ANGLE, _RC_wall_direction)
 	else:
+		_set_wall_ride_camera_tilt(0,0)
 		_reset_wallride_raycasts()
 		if is_on_floor():
 			_ground_movement(delta)
@@ -552,6 +562,18 @@ func _add_movement_queue_to_vel():
 		vel += vect
 	_add_velocity_vector_queue = []
 
+# adds an 'head tilt' when wall riding
+func _set_wall_ride_camera_tilt(angle : float, wall_ride_dir : int) -> void:
+	if wall_ride_dir != _last_wall_ride_tilt_direction:
+		DebugUtils.log_tween_stop_all(onready_paths.tweens.wall_ride_tilt)
+		DebugUtils.log_tween_interpolate_property(onready_paths.tweens.wall_ride_tilt,
+		rotation_helper,
+		"rotation:z",
+		rotation_helper.rotation.z,
+		angle,
+		WALL_RIDE_TILT_SPEED)
+		DebugUtils.log_tween_start(onready_paths.tweens.wall_ride_tilt)
+		_last_wall_ride_tilt_direction = wall_ride_dir
 
 #---- Process states -----
 # updates the states
@@ -584,7 +606,6 @@ func _process_states():
 		)
 	):
 		set_state_value(states_idx.WALL_RIDING, false)
-
 
 ##### SIGNAL MANAGEMENT #####
 func _remove_shooting_state():

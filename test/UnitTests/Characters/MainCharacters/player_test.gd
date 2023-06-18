@@ -314,4 +314,15 @@ func test_add_movement_queue_to_vel() -> void:
 	player._add_movement_queue_to_vel()
 	assert_vector3(player.vel).is_equal(Vector3.FORWARD + Vector3.RIGHT)
 
+# can only test the _last_wall_ride_tilt_direction because tweens are complex to test
+func test_set_wall_ride_camera_tilt() -> void:
+	player._set_wall_ride_camera_tilt(PI/4.0,1)
+	assert_int(player._last_wall_ride_tilt_direction).is_equal(1)
+	player._set_wall_ride_camera_tilt(PI/2.0,1)
+	assert_int(player._last_wall_ride_tilt_direction).is_equal(1)
+	player._set_wall_ride_camera_tilt(-PI/4.0,-1)
+	assert_int(player._last_wall_ride_tilt_direction).is_equal(-1)
+	player._set_wall_ride_camera_tilt(0,0)
+	assert_int(player._last_wall_ride_tilt_direction).is_equal(0)
+
 #==== UTILITIES =====
