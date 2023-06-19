@@ -325,4 +325,22 @@ func test_set_wall_ride_camera_tilt() -> void:
 	player._set_wall_ride_camera_tilt(0,0)
 	assert_int(player._last_wall_ride_tilt_direction).is_equal(0)
 
-#==== UTILITIES =====
+func test_manage_slide_wallride_visual_effect() -> void:
+	player.vel = Vector3.RIGHT
+	# test slide
+	player.set_state_value(player.states_idx.SLIDING,true)
+	player.set_state_value(player.states_idx.WALL_RIDING,false)
+	player._manage_slide_wallride_visual_effect()
+	assert_vector3(player.onready_paths.slide_visual_effects.rotation).is_equal(Vector3.UP * PI/2.0)
+	assert_bool(player.onready_paths.slide_visual_effects.visible).is_true()
+	# test wall ride
+	player.set_state_value(player.states_idx.SLIDING,false)
+	player.set_state_value(player.states_idx.WALL_RIDING,true)
+	player._manage_slide_wallride_visual_effect()
+	assert_vector3(player.onready_paths.slide_visual_effects.rotation).is_equal(Vector3.UP * PI/2.0)
+	assert_bool(player.onready_paths.slide_visual_effects.visible).is_true()
+	# test none
+	player.set_state_value(player.states_idx.SLIDING,false)
+	player.set_state_value(player.states_idx.WALL_RIDING,false)
+	player._manage_slide_wallride_visual_effect()
+	assert_bool(player.onready_paths.slide_visual_effects.visible).is_false()

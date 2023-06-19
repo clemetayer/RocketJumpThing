@@ -115,7 +115,8 @@ onready var onready_paths := {
 	{
 		"wall_jump_mix_mvt": $"WallJumpMixMovement",
 		"wall_ride_tilt": $"WallRideTilt"
-	}
+	},
+	"slide_visual_effects": $"SlideVisualEffects"
 }
 
 
@@ -152,6 +153,7 @@ func _physics_process(delta):
 	_process_input(delta)
 	_process_movement(delta)
 	_process_states()
+	_manage_slide_wallride_visual_effect()
 
 
 # when an input is pressed
@@ -606,6 +608,24 @@ func _process_states():
 		)
 	):
 		set_state_value(states_idx.WALL_RIDING, false)
+
+func _manage_slide_wallride_visual_effect() -> void:
+	var look_at_vect = self.global_transform.origin - Vector3(vel.x,0.0,vel.z)
+	var visual_effect_slide_offset = Vector3(0.0,0.0,-1.0)
+	var visual_effect_wall_ride_offset = Vector3(1.0 * _RC_wall_direction,2.0,-1.0)
+	# Refactor : make a method to check if a vector can be looked at (used a fair amount of times)
+	if(onready_paths.slide_visual_effects.global_transform.origin != look_at_vect and look_at_vect != Vector3.ZERO and look_at_vect != Vector3.UP and look_at_vect != Vector3.DOWN):
+		onready_paths.slide_visual_effects.look_at(look_at_vect, Vector3.UP)
+	if get_state_value(states_idx.SLIDING):
+		onready_paths.slide_visual_effects.visible = true
+		onready_paths.slide_visual_effects.transform.origin = visual_effect_slide_offset
+	elif get_state_value(states_idx.WALL_RIDING):
+		onready_paths.slide_visual_effects.visible = true
+		onready_paths.slide_visual_effects.rotation.z = PI/2.0 * _RC_wall_direction
+		onready_paths.slide_visual_effects.transform.origin = visual_effect_wall_ride_offset
+	else:
+		onready_paths.slide_visual_effects.visible = false
+
 
 ##### SIGNAL MANAGEMENT #####
 func _remove_shooting_state():

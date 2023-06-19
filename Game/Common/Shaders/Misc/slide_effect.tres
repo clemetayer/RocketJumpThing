@@ -1,0 +1,56 @@
+[gd_resource type="Shader" format=2]
+
+[resource]
+code = "shader_type spatial;
+render_mode unshaded;
+
+const int number_of_waves = 6;
+const float max_freq = 30.0;
+const float max_amplitude = 0.25;
+const float max_y_value = 0.2;
+const float max_speed = 25.0;
+const float edge_limit = 0.33;
+
+uniform sampler2D gradient;
+uniform bool front_to_back = true;
+
+float random (vec2 uv) {
+    return fract(sin(dot(uv.xy,
+        vec2(12.9898,78.233))) * 43758.5453123);
+}
+
+float add_wave(vec2 uv, float frequency, float time, float amplitude,float y_value, float speed){
+	float f2b_mult = front_to_back ? 1.0 : -1.0;
+	float sin_ampl = ((sin(uv.x * frequency + time * speed * f2b_mult)/2.0)+0.5) * amplitude + y_value;
+	if(uv.y > sin_ampl){
+		return 1.0;
+	}
+	return 0.0;
+}
+
+float smooth_edges(vec2 uv){
+	float smooth_x_borders = smoothstep(0.0,edge_limit,uv.x) * (1.0 - smoothstep(1.0-edge_limit,1.0,uv.x));
+	float smooth_y_value = 1.0 - smoothstep(0.0,max_y_value,1.0-uv.y);
+	return smooth_x_borders * smooth_y_value;
+}
+
+void fragment(){
+	ALPHA = 0.0;
+	ALBEDO = vec3(0.0);
+	for(int wave_idx; wave_idx < number_of_waves; wave_idx++){
+		float wave_freq = random(vec2(float(wave_idx),0.0)) * max_freq;
+		float wave_amplitude = random(vec2(0.0,float(wave_idx))) * max_amplitude;
+		float wave_y_val = 1.0 - random(vec2(1.0,float(wave_idx))) * max_y_value;
+		float wave_speed = random(vec2(float(wave_idx),1.0)) * max_speed;
+		float wave_color_pos = random(vec2(0.0,float(wave_idx)));
+		ALPHA += add_wave(UV,wave_freq,TIME,wave_amplitude,wave_y_val,wave_speed)/float(number_of_waves);
+	}
+	ALPHA *= smooth_edges(UV);
+	if(front_to_back){
+		ALBEDO = texture(gradient,vec2(UV.x,0.0)).rgb;
+	}
+	else{
+		ALBEDO = texture(gradient,vec2(1.0 - UV.x,0.0)).rgb
+	}
+	
+}"
