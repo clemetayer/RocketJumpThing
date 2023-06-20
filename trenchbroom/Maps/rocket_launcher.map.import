@@ -1,0 +1,13 @@
+[remap]
+
+importer="qodot.map"
+type="Resource"
+path="res://.import/rocket_launcher.map-544227d742ab7838f25d0f3643771ce4.tres"
+
+[deps]
+
+source_file="res://trenchbroom/Maps/rocket_launcher.map"
+dest_files=[ "res://.import/rocket_launcher.map-544227d742ab7838f25d0f3643771ce4.tres" ]
+
+[params]
+

@@ -66,10 +66,15 @@ func test_override_velocity_vector() -> void:
 func test_toggle_ability() -> void:
 	player.SLIDE_ENABLED = false
 	player.ROCKETS_ENABLED = false
+	player.onready_paths.rocket_launcher.visible = false
 	player.toggle_ability(GlobalConstants.ABILITY_SLIDE, true)
 	assert_bool(player.SLIDE_ENABLED).is_true()
 	player.toggle_ability(GlobalConstants.ABILITY_ROCKETS, true)
 	assert_bool(player.ROCKETS_ENABLED).is_true()
+	assert_bool(player.onready_paths.rocket_launcher.visible).is_true()
+	player.toggle_ability(GlobalConstants.ABILITY_ROCKETS, false)
+	assert_bool(player.ROCKETS_ENABLED).is_false()
+	assert_bool(player.onready_paths.rocket_launcher.visible).is_false()
 
 
 func test_checkpoint_process() -> void:

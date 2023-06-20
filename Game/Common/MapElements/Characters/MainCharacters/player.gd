@@ -116,7 +116,8 @@ onready var onready_paths := {
 		"wall_jump_mix_mvt": $"WallJumpMixMovement",
 		"wall_ride_tilt": $"WallRideTilt"
 	},
-	"slide_visual_effects": $"SlideVisualEffects"
+	"slide_visual_effects": $"SlideVisualEffects",
+	"rocket_launcher": $"RotationHelper/RocketLauncherPos/RocketLauncher"
 }
 
 
@@ -134,6 +135,7 @@ func _ready():
 	onready_paths.timers.update_speed.start()
 	onready_paths.run_sound.pitch.play()
 	onready_paths.run_sound.unpitch.play()
+	onready_paths.rocket_launcher.visible = ROCKETS_ENABLED
 
 
 func _process(_delta):
@@ -183,6 +185,7 @@ func toggle_ability(name: String, enabled: bool) -> void:
 			SLIDE_ENABLED = enabled
 		GlobalConstants.ABILITY_ROCKETS:
 			ROCKETS_ENABLED = enabled
+			onready_paths.rocket_launcher.visible = enabled
 
 
 # returns the value of a specific state
@@ -294,6 +297,7 @@ func _process_input(_delta):
 func _shoot(cam_xform: Transform) -> void:
 	set_state_value(states_idx.SHOOTING, true)
 	var rocket := _init_rocket(cam_xform)
+	onready_paths.rocket_launcher.fire()
 	if get_parent():
 		get_parent().add_child(rocket)
 	var _err = get_tree().create_timer(ROCKET_DELAY).connect(

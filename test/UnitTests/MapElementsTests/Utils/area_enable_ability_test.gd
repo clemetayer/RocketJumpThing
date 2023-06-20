@@ -38,12 +38,19 @@ func test_on_body_entered() -> void:
 	player.ROCKETS_ENABLED = false
 	player.SLIDE_ENABLED = false
 	player.add_to_group("player")
+	player.onready_paths = {}
+	player.onready_paths.rocket_launcher = MeshInstance.new()
+	player.onready_paths.rocket_launcher.visible = player.ROCKETS_ENABLED
 	area_enable_ability._on_body_entered(player)
 	assert_bool(player.ROCKETS_ENABLED).is_true()
 	assert_bool(player.SLIDE_ENABLED).is_true()
+	assert_bool(player.onready_paths.rocket_launcher.visible).is_true()
 	area_enable_ability._slide = false
 	area_enable_ability._rockets = false
 	area_enable_ability._on_body_entered(player)
 	assert_bool(player.ROCKETS_ENABLED).is_false()
 	assert_bool(player.SLIDE_ENABLED).is_false()
+	assert_bool(player.onready_paths.rocket_launcher.visible).is_false()
+	player.onready_paths.rocket_launcher.free()
 	player.free()
+
