@@ -15,36 +15,14 @@ var _time: float
 ##### PROCESSING #####
 # Called when the object is initialized.
 func _init():
-	if connect("body_entered", self, "_on_area_tutorial_trigger_body_entered") != OK:
-		Logger.error(
-			(
-				"Error connecting %s to %s in %s"
-				% [
-					"body_entered",
-					"_on_area_tutorial_trigger_body_entered",
-					DebugUtils.print_stack_trace(get_stack())
-				]
-			)
-		)
-	if (
-		SignalManager.connect(
-			"respawn_player_on_last_cp", self, "_on_SignalManager_respawn_player_on_last_cp"
-		)
-		!= OK
-	):
-		Logger.error(
-			(
-				"Error connecting %s to %s in %s"
-				% [
-					"respawn_player_on_last_cp",
-					"_on_SignalManager_respawn_player_on_last_cp",
-					DebugUtils.print_stack_trace(get_stack())
-				]
-			)
-		)
+	_connect_signals()
 
 
 ##### PROTECTED METHODS #####
+func _connect_signals() -> void:
+	DebugUtils.log_connect(self,self,"body_entered", "_on_area_tutorial_trigger_body_entered")
+	DebugUtils.log_connect(SignalManager,self,"respawn_player_on_last_cp", "_on_SignalManager_respawn_player_on_last_cp")
+
 func _set_TB_params() -> void:
 	._set_TB_params()
 	TrenchBroomEntityUtils._map_trenchbroom_properties(self, properties, TB_AREA_TUTORIAL_MAPPER)

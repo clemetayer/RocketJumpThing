@@ -6484,3 +6484,30 @@
 ( 4272 1616 80 ) ( 4272 1632 80 ) ( 4272 1632 64 ) scenes/tutorial2_scene/cool_material_2 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
+// entity 249
+{
+"classname" "TutorialInteractible"
+"origin" "-3672 328 8"
+"collision_layer" "2"
+"collision_mask" "5"
+"key" "tutorial_wall_ride_1"
+"time" "0.5"
+}
+// entity 250
+{
+"classname" "TutorialInteractible"
+"origin" "-4760 328 8"
+"collision_layer" "2"
+"collision_mask" "5"
+"key" "tutorial_scene_2_slide_1"
+"time" "0.5"
+}
+// entity 251
+{
+"classname" "TutorialInteractible"
+"origin" "-4360 328 8"
+"collision_layer" "2"
+"collision_mask" "5"
+"key" "tutorial_scene_2_slide_2"
+"time" "0.5"
+}

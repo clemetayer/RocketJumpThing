@@ -1,4 +1,4 @@
-[gd_scene load_steps=534 format=2]
+[gd_scene load_steps=535 format=2]
 
 [ext_resource path="res://addons/qodot/src/nodes/qodot_map.gd" type="Script" id=1]
 [ext_resource path="res://trenchbroom/textures/common/material_override/Transparent.tres" type="Material" id=2]
@@ -43,6 +43,7 @@
 [ext_resource path="res://Misc/Skyboxes/tutorial3/tutorial_3_left.png" type="Texture" id=41]
 [ext_resource path="res://Misc/Skyboxes/tutorial3/tutorial_3_front.png" type="Texture" id=42]
 [ext_resource path="res://addons/simple_skybox/Skybox.tscn" type="PackedScene" id=43]
+[ext_resource path="res://Game/Common/MapElements/TutorialTrigger/tutorial_interactible.tscn" type="PackedScene" id=44]
 [ext_resource path="res://trenchbroom/textures/scenes/tutorial3_scene/pattern_floor.tres" type="Material" id=47]
 
 [sub_resource type="Gradient" id=273]
@@ -7298,6 +7299,50 @@ mesh = SubResource( 754 )
 
 [node name="entity_209_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_209_StaticBodyGroup"]
 shape = SubResource( 755 )
+
+[node name="entity_210_TutorialInteractible" parent="QodotMap" instance=ExtResource( 44 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 20.5, 18, -134.5 )
+properties = {
+"classname": "TutorialInteractible",
+"collision_layer": 2,
+"collision_mask": 5,
+"key": "tutorial_rockets_1",
+"origin": "-2152 328 288",
+"time": 0.75
+}
+
+[node name="entity_211_TutorialInteractible" parent="QodotMap" instance=ExtResource( 44 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -3.5, -13.5, 161.5 )
+properties = {
+"classname": "TutorialInteractible",
+"collision_layer": 2,
+"collision_mask": 5,
+"key": "tutorial_rockets_2",
+"origin": "2584 -56 -216",
+"time": 0.75
+}
+
+[node name="entity_212_TutorialInteractible" parent="QodotMap" instance=ExtResource( 44 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 143.5, 1.5, 274.5 )
+properties = {
+"classname": "TutorialInteractible",
+"collision_layer": 2,
+"collision_mask": 5,
+"key": "tutorial_rockets_3",
+"origin": "4392 2296 24",
+"time": 1.0
+}
+
+[node name="entity_213_TutorialInteractible" parent="QodotMap" instance=ExtResource( 44 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 116.5, 14.5, 324.5 )
+properties = {
+"classname": "TutorialInteractible",
+"collision_layer": 2,
+"collision_mask": 5,
+"key": "tutorial_rockets_4",
+"origin": "5192 1864 232",
+"time": 1.0
+}
 
 [connection signal="timeout" from="AdditionalThings/Timers/KickTimer" to="." method="_on_KickTimer_timeout"]
 [connection signal="trigger" from="QodotMap/entity_132_Breakables_Area_Rocket" to="QodotMap/entity_120_Breakables_Wall" method="use"]

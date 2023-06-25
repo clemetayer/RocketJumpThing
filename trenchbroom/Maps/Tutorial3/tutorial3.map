@@ -6692,3 +6692,39 @@
 ( 5584 0 2256 ) ( 5584 16 2240 ) ( 5584 0 2240 ) scenes/tutorial3_scene/wall_with_windows [ 2.2204460492503128e-16 1 2.220446049250313e-16 0 ] [ 0 -2.220446049250313e-16 1 0 ] 0 1 1
 }
 }
+// entity 210
+{
+"classname" "TutorialInteractible"
+"origin" "-2152 328 288"
+"collision_layer" "2"
+"collision_mask" "5"
+"key" "tutorial_rockets_1"
+"time" "0.75"
+}
+// entity 211
+{
+"classname" "TutorialInteractible"
+"origin" "2584 -56 -216"
+"collision_layer" "2"
+"collision_mask" "5"
+"key" "tutorial_rockets_2"
+"time" "0.75"
+}
+// entity 212
+{
+"classname" "TutorialInteractible"
+"origin" "4392 2296 24"
+"collision_layer" "2"
+"collision_mask" "5"
+"key" "tutorial_rockets_3"
+"time" "1"
+}
+// entity 213
+{
+"classname" "TutorialInteractible"
+"origin" "5192 1864 232"
+"collision_layer" "2"
+"key" "tutorial_rockets_4"
+"collision_mask" "5"
+"time" "1"
+}
