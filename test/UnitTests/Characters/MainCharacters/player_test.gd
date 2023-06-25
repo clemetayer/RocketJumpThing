@@ -6,6 +6,7 @@ extends GlobalTests
 
 ##### VARIABLES #####
 const FLOAT_APPROX := 0.5
+const TOGGLE_ABILITY_UI_PATH := "res://Game/Common/MapElements/Characters/toggle_ability_ui.tscn"
 const player_path = "res://Game/Common/MapElements/Characters/MainCharacters/player.tscn"
 const portal_path := "res://Game/Common/MapElements/Portal/portal.tscn"
 var player: KinematicBody
@@ -64,9 +65,12 @@ func test_override_velocity_vector() -> void:
 
 
 func test_toggle_ability() -> void:
+	var toggle_ability_ui = load(TOGGLE_ABILITY_UI_PATH).instance()
+	toggle_ability_ui._ready()
 	player.SLIDE_ENABLED = false
 	player.ROCKETS_ENABLED = false
 	player.onready_paths.rocket_launcher.visible = false
+	player.onready_paths.toggle_ability_ui = toggle_ability_ui
 	player.toggle_ability(GlobalConstants.ABILITY_SLIDE, true)
 	assert_bool(player.SLIDE_ENABLED).is_true()
 	player.toggle_ability(GlobalConstants.ABILITY_ROCKETS, true)

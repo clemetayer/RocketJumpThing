@@ -5,6 +5,7 @@ extends GlobalTests
 # tests the enable ability area
 
 ##### VARIABLES #####
+const TOGGLE_ABILITY_UI_PATH := "res://Game/Common/MapElements/Characters/toggle_ability_ui.tscn"
 const area_enable_ability_path := "res://test/UnitTests/MapElementsTests/Utils/area_enable_ability_mock.tscn"
 var area_enable_ability
 
@@ -32,6 +33,8 @@ func test_connect_signals() -> void:
 
 
 func test_on_body_entered() -> void:
+	var toggle_ability_ui = load(TOGGLE_ABILITY_UI_PATH).instance()
+	toggle_ability_ui._ready()
 	area_enable_ability._slide = true
 	area_enable_ability._rockets = true
 	var player = load(GlobalTestUtilities.player_path).instance()
@@ -41,6 +44,7 @@ func test_on_body_entered() -> void:
 	player.onready_paths = {}
 	player.onready_paths.rocket_launcher = MeshInstance.new()
 	player.onready_paths.rocket_launcher.visible = player.ROCKETS_ENABLED
+	player.onready_paths.toggle_ability_ui = toggle_ability_ui
 	area_enable_ability._on_body_entered(player)
 	assert_bool(player.ROCKETS_ENABLED).is_true()
 	assert_bool(player.SLIDE_ENABLED).is_true()
@@ -52,5 +56,7 @@ func test_on_body_entered() -> void:
 	assert_bool(player.SLIDE_ENABLED).is_false()
 	assert_bool(player.onready_paths.rocket_launcher.visible).is_false()
 	player.onready_paths.rocket_launcher.free()
+	toggle_ability_ui.free()
 	player.free()
+
 

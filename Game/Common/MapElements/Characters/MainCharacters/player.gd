@@ -117,7 +117,8 @@ onready var onready_paths := {
 		"wall_ride_tilt": $"WallRideTilt"
 	},
 	"slide_visual_effects": $"SlideVisualEffects",
-	"rocket_launcher": $"RotationHelper/RocketLauncherPos/RocketLauncher"
+	"rocket_launcher": $"RotationHelper/RocketLauncherPos/RocketLauncher",
+	"toggle_ability_ui": $"ToggleAbilityUI"
 }
 
 
@@ -135,7 +136,6 @@ func _ready():
 	onready_paths.timers.update_speed.start()
 	onready_paths.run_sound.pitch.play()
 	onready_paths.run_sound.unpitch.play()
-	onready_paths.rocket_launcher.visible = ROCKETS_ENABLED
 
 
 func _process(_delta):
@@ -179,13 +179,19 @@ func override_velocity_vector(vector: Vector3) -> void:
 
 
 # toggles a player ability
-func toggle_ability(name: String, enabled: bool) -> void:
+func toggle_ability(name: String, enabled: bool, play_anim : bool = true) -> void:
 	match name:
 		GlobalConstants.ABILITY_SLIDE:
-			SLIDE_ENABLED = enabled
+			if SLIDE_ENABLED != enabled:
+				SLIDE_ENABLED = enabled
+				if play_anim:
+					onready_paths.toggle_ability_ui.toggle_slide(enabled)
 		GlobalConstants.ABILITY_ROCKETS:
-			ROCKETS_ENABLED = enabled
-			onready_paths.rocket_launcher.visible = enabled
+			if ROCKETS_ENABLED != enabled:
+				ROCKETS_ENABLED = enabled
+				onready_paths.rocket_launcher.visible = enabled
+				if play_anim:
+					onready_paths.toggle_ability_ui.toggle_rocket(enabled)
 
 
 # returns the value of a specific state

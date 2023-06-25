@@ -2,8 +2,6 @@ extends Collidable
 # An area to enable or disable some of the player's abilities
 
 ##### VARIABLES #####
-#---- CONSTANTS -----
-const TB_AREA_ENABLE_MAPPER := [["slide", "_slide"], ["rockets", "_rockets"]]  # mapper for TrenchBroom parameters
 #---- STANDARD -----
 #==== PRIVATE ====
 var _slide: bool
@@ -19,7 +17,11 @@ func _init():
 ##### PROTECTED METHODS #####
 func _set_TB_params() -> void:
 	._set_TB_params()
-	TrenchBroomEntityUtils._map_trenchbroom_properties(self, properties, TB_AREA_ENABLE_MAPPER)
+	# special case because some properties as booleans represented as integers
+	if properties.has("slide"):
+		_slide = int(properties.slide) == TrenchBroomEntityUtils.TB_TRUE
+	if properties.has("rockets"):
+		_rockets = int(properties.rockets) == TrenchBroomEntityUtils.TB_TRUE
 
 
 func _connect_signals() -> void:

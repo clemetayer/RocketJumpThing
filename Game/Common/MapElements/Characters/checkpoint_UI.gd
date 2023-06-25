@@ -1,6 +1,5 @@
 extends CanvasLayer
 # Effect that appear when entering a checkpoint
-# TODO : arrivé ici
 
 ##### VARIABLES #####
 #---- CONSTANTS -----

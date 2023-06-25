@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Game/Common/MapElements/Characters/MainCharacters/player.gd" type="Script" id=1]
 [ext_resource path="res://Game/Common/MapElements/Characters/player_UI.tscn" type="PackedScene" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://Game/Common/Shaders/Misc/slide_effect.tres" type="Shader" id=10]
 [ext_resource path="res://Game/Common/MapElements/Characters/MainCharacters/slide_effect_gradient.tres" type="Texture" id=11]
 [ext_resource path="res://Game/Common/MapElements/Characters/MainCharacters/rocket_launcher.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Game/Common/MapElements/Characters/toggle_ability_ui.tscn" type="PackedScene" id=13]
 
 [sub_resource type="CylinderMesh" id=4]
 top_radius = 0.6
@@ -116,10 +117,13 @@ follow_viewport_enable = true
 [node name="CheckpointUI" parent="." instance=ExtResource( 4 )]
 layer = 2
 
-[node name="TutorialHints" parent="." instance=ExtResource( 3 )]
-layer = 3
-
 [node name="ChronometerUI" parent="." instance=ExtResource( 5 )]
+
+[node name="ToggleAbilityUI" parent="." instance=ExtResource( 13 )]
+layer = 4
+
+[node name="TutorialHints" parent="." instance=ExtResource( 3 )]
+layer = 5
 
 [node name="Timers" type="Node" parent="."]
 

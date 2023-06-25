@@ -19,18 +19,22 @@ const TB_TR_MAPPER := {
 	"tutorial_rockets_3": TranslationKeys.TUTORIAL_ROCKET_WALL_JUMP,
 	"tutorial_rockets_4": TranslationKeys.TUTORIAL_ROCKET_PADS
 }
-
+const TB_TRUE := 1 # true value for trenchbroom
 
 ##### PROTECTED METHODS #####
 # maps the trenchbroom properties to the corresponding variables
 # mapper : [["tb_property as a string","gd_property as a string"],...]
-static func _map_trenchbroom_properties(object: Object, properties: Dictionary, mapper: Array) -> void:
+static func _map_trenchbroom_properties(
+	object: Object, properties: Dictionary, mapper: Array
+) -> void:
 	for param in mapper:
 		_map_trenchbroom_property(object, properties, param)
 
 
 # maps one trenchbroom property
-static func _map_trenchbroom_property(object: Object, properties: Dictionary, mapper: Array) -> void:
+static func _map_trenchbroom_property(
+	object: Object, properties: Dictionary, mapper: Array
+) -> void:
 	if mapper.size() == 2:
 		if mapper[0] is String and mapper[1] is String:
 			if mapper[0] in properties and mapper[1] in object:
@@ -42,6 +46,7 @@ static func _map_trenchbroom_property(object: Object, properties: Dictionary, ma
 						% [mapper, DebugUtils.print_stack_trace(get_stack())]
 					)
 				)
+
 		else:
 			Logger.error(
 				(

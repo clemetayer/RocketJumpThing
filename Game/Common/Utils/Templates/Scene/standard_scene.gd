@@ -61,8 +61,8 @@ func _ready_func() -> void:
 	_init_node_paths()
 	_init_skybox()
 	_last_cp = _start_point
-	_player.ROCKETS_ENABLED = ENABLE_ROCKETS
-	_player.SLIDE_ENABLED = ENABLE_SLIDE
+	_player.toggle_ability(GlobalConstants.ABILITY_ROCKETS,ENABLE_ROCKETS, false)
+	_player.toggle_ability(GlobalConstants.ABILITY_SLIDE,ENABLE_SLIDE, false)
 	SignalManager.emit_start_level_chronometer()
 
 
