@@ -62,7 +62,7 @@ func _init_target() -> void:
 
 
 func _init_rocket() -> void:
-	transform.origin = START_POS
+	global_transform.origin = START_POS
 	_speed = SPEED
 	var target: Vector3 = START_POS - DIRECTION
 	if FunctionUtils.check_in_epsilon(

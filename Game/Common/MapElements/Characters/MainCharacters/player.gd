@@ -118,6 +118,7 @@ onready var onready_paths := {
 	},
 	"slide_visual_effects": $"SlideVisualEffects",
 	"rocket_launcher": $"RotationHelper/RocketLauncherPos/RocketLauncher",
+	"rocket_fire_pos": $"RotationHelper/RocketLauncherPos/RocketFirePos",
 	"toggle_ability_ui": $"ToggleAbilityUI"
 }
 
@@ -313,7 +314,7 @@ func _shoot(cam_xform: Transform) -> void:
 
 func _init_rocket(cam_xform: Transform) -> Area:
 	var rocket = load(ROCKET_SCENE_PATH).instance()
-	rocket.START_POS = transform.origin + transform.basis * ROCKET_START_OFFSET
+	rocket.START_POS = onready_paths.rocket_fire_pos.global_transform.origin
 	rocket.DIRECTION = -cam_xform.basis.z
 	rocket.UP_VECTOR = Vector3(0, 1, 0)
 	return rocket
