@@ -47,13 +47,14 @@ func _ready():
 ## @param size: size of the box in world units
 ## @param color
 func draw_box(position: Vector3, size: Vector3, color: Color = Color(1, 1, 1)):
-	var mi := _get_box()
-	var mat := _get_line_material()
-	mat.albedo_color = color
-	mi.material_override = mat
-	mi.translation = position
-	mi.scale = size
-	_boxes.append({"node": mi, "frame": Engine.get_frames_drawn() + LINES_LINGER_FRAMES})
+	if GlobalParameters.DEBUG_DRAW_ENABLED.draw_box:
+		var mi := _get_box()
+		var mat := _get_line_material()
+		mat.albedo_color = color
+		mi.material_override = mat
+		mi.translation = position
+		mi.scale = size
+		_boxes.append({"node": mi, "frame": Engine.get_frames_drawn() + LINES_LINGER_FRAMES})
 
 
 ## @brief Draws an unshaded 3D line.
@@ -61,20 +62,21 @@ func draw_box(position: Vector3, size: Vector3, color: Color = Color(1, 1, 1)):
 ## @param b: end position in world units
 ## @param color
 func draw_line_3d(a: Vector3, b: Vector3, color: Color):
-	var g = ImmediateGeometry.new()
-	g.material_override = _get_line_material()
-	g.begin(Mesh.PRIMITIVE_LINES)
-	g.set_color(color)
-	g.add_vertex(a)
-	g.add_vertex(b)
-	g.end()
-	add_child(g)
-	_lines.append(
-		{
-			"node": g,
-			"frame": Engine.get_frames_drawn() + LINES_LINGER_FRAMES,
-		}
-	)
+	if GlobalParameters.DEBUG_DRAW_ENABLED.draw_line_3d:
+		var g = ImmediateGeometry.new()
+		g.material_override = _get_line_material()
+		g.begin(Mesh.PRIMITIVE_LINES)
+		g.set_color(color)
+		g.add_vertex(a)
+		g.add_vertex(b)
+		g.end()
+		add_child(g)
+		_lines.append(
+			{
+				"node": g,
+				"frame": Engine.get_frames_drawn() + LINES_LINGER_FRAMES,
+			}
+		)
 
 
 ## @brief Draws an unshaded 3D line defined as a ray.
@@ -83,7 +85,8 @@ func draw_line_3d(a: Vector3, b: Vector3, color: Color):
 ## @param length: length of the line in world units
 ## @param color
 func draw_ray_3d(origin: Vector3, direction: Vector3, length: float, color: Color):
-	draw_line_3d(origin, origin + direction * length, color)
+	if GlobalParameters.DEBUG_DRAW_ENABLED.draw_ray_3d:
+		draw_line_3d(origin, origin + direction * length, color)
 
 
 ## @brief Adds a text monitoring line to the HUD, from the provided value.
@@ -92,10 +95,11 @@ func draw_ray_3d(origin: Vector3, direction: Vector3, length: float, color: Colo
 ## @param key: identifier of the line
 ## @param text: text to show next to the key
 func set_text(key: String, value):
-	_texts[key] = {
-		"text": value if typeof(value) == TYPE_STRING else str(value),
-		"frame": Engine.get_idle_frames() + TEXT_LINGER_FRAMES
-	}
+	if GlobalParameters.DEBUG_DRAW_ENABLED.set_text:
+		_texts[key] = {
+			"text": value if typeof(value) == TYPE_STRING else str(value),
+			"frame": Engine.get_idle_frames() + TEXT_LINGER_FRAMES
+		}
 
 
 func _get_box() -> MeshInstance:
@@ -145,29 +149,28 @@ func _process_3d_lines_delayed_free(_items: Array):
 
 
 func _process(_delta: float):
-	if GlobalParameters.DEBUG_DRAW_ENABLED:
-		_process_3d_lines_delayed_free(_lines)
-		_process_3d_lines_delayed_free(_boxes)
+	_process_3d_lines_delayed_free(_lines)
+	_process_3d_lines_delayed_free(_boxes)
 
-		# Progressively delete boxes
-		if len(_box_pool) > 0:
-			var last = _box_pool[-1]
-			_box_pool.pop_back()
-			last.queue_free()
+	# Progressively delete boxes
+	if len(_box_pool) > 0:
+		var last = _box_pool[-1]
+		_box_pool.pop_back()
+		last.queue_free()
 
-		# Remove text lines after some time
-		for key in _texts.keys():
-			var t = _texts[key]
-			if t.frame <= Engine.get_idle_frames():
-				var _unused = _texts.erase(key)
+	# Remove text lines after some time
+	for key in _texts.keys():
+		var t = _texts[key]
+		if t.frame <= Engine.get_idle_frames():
+			var _unused = _texts.erase(key)
 
-		# Update canvas
-		if _canvas_item == null:
-			_canvas_item = Node2D.new()
-			_canvas_item.position = Vector2(8, 8)
-			DebugUtils.log_connect(_canvas_item,self,"draw","_on_CanvasItem_draw")
-			add_child(_canvas_item)
-		_canvas_item.update()
+	# Update canvas
+	if _canvas_item == null:
+		_canvas_item = Node2D.new()
+		_canvas_item.position = Vector2(8, 8)
+		DebugUtils.log_connect(_canvas_item, self, "draw", "_on_CanvasItem_draw")
+		add_child(_canvas_item)
+	_canvas_item.update()
 
 
 func _on_CanvasItem_draw():

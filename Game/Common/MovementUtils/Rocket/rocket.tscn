@@ -1,7 +1,9 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Game/Common/MovementUtils/Rocket/rocket.gd" type="Script" id=1]
 [ext_resource path="res://Misc/Audio/FX/Rocket/RocketTrailBase_loop.wav" type="AudioStream" id=2]
+[ext_resource path="res://Game/Common/MovementUtils/Rocket/rocket_material.tres" type="Material" id=3]
+[ext_resource path="res://Game/Common/MovementUtils/Rocket/rocket_emission_draw_pass.tres" type="Material" id=4]
 
 [sub_resource type="CapsuleShape" id=12]
 margin = 0.5
@@ -9,8 +11,8 @@ radius = 0.063
 height = 0.25
 
 [sub_resource type="Gradient" id=7]
-offsets = PoolRealArray( 0, 0.00555556, 1 )
-colors = PoolColorArray( 1, 1, 0, 0, 1, 0, 0, 1, 1, 1, 0.0611111, 0.0611111 )
+offsets = PoolRealArray( 0, 0.33 )
+colors = PoolColorArray( 1, 0, 0, 1, 1, 0.6, 0, 1 )
 
 [sub_resource type="GradientTexture" id=8]
 gradient = SubResource( 7 )
@@ -23,38 +25,13 @@ initial_velocity = 4.69
 initial_velocity_random = 0.5
 color_ramp = SubResource( 8 )
 
-[sub_resource type="SpatialMaterial" id=11]
-flags_transparent = true
-flags_unshaded = true
-vertex_color_use_as_albedo = true
+[sub_resource type="CubeMesh" id=14]
+material = ExtResource( 4 )
+size = Vector3( 0.05, 0.05, 0.05 )
 
-[sub_resource type="SphereMesh" id=6]
-material = SubResource( 11 )
-radius = 0.063
-height = 0.125
-radial_segments = 32
-rings = 16
-
-[sub_resource type="Gradient" id=9]
-colors = PoolColorArray( 1, 0, 0, 0.490196, 1, 0.886275, 0, 0.490196 )
-
-[sub_resource type="GradientTexture" id=10]
-gradient = SubResource( 9 )
-
-[sub_resource type="SpatialMaterial" id=1]
-flags_transparent = true
-albedo_texture = SubResource( 10 )
-emission_enabled = true
-emission = Color( 1, 0, 0, 1 )
-emission_energy = 3.0
-emission_operator = 0
-emission_on_uv2 = false
-
-[sub_resource type="CapsuleMesh" id=2]
-material = SubResource( 1 )
-radius = 0.063
-mid_height = 0.25
-radial_segments = 32
+[sub_resource type="CubeMesh" id=13]
+material = ExtResource( 3 )
+size = Vector3( 0.075, 0.075, 0.33 )
 
 [sub_resource type="CubeMesh" id=3]
 size = Vector3( 0.006, 0.006, 0.063 )
@@ -68,13 +45,15 @@ script = ExtResource( 1 )
 shape = SubResource( 12 )
 
 [node name="EmissionParticles" type="Particles" parent="."]
+transform = Transform( 0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 0, 0, 1, 0, 0, 0 )
 amount = 128
 lifetime = 2.0
 process_material = SubResource( 5 )
-draw_pass_1 = SubResource( 6 )
+draw_pass_1 = SubResource( 14 )
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
-mesh = SubResource( 2 )
+transform = Transform( 0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 0, 0, 1, 0, 0, 0 )
+mesh = SubResource( 13 )
 
 [node name="Nose" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.349669 )

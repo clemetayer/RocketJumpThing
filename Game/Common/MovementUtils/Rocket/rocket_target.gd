@@ -3,7 +3,7 @@ extends Sprite3D
 
 ##### VARIABLES #####
 #---- CONSTANTS -----
-const MAX_SCALE = 3.0
+const MAX_SCALE = 10.0
 const MAX_DIST = 10.0
 
 
