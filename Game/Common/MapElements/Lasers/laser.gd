@@ -9,19 +9,23 @@ const TB_LASER_MAPPER := [
 	["color", "_color"],
 	["mangle", "_mangle"]
 ]  # mapper for TrenchBroom parameters
+const PARTICLES_RING_OUTER_RADIUS_ADD = 0.5 # Outer radius to add to the inner radius
+const PARTICLES_STD_AMOUNT = 1 # Amount of particles for a laser length of 1
 
 #---- STANDARD -----
 #==== PRIVATE ====
 var _max_length := 1.0  # length of the laser
 var _thickness := 1.0  # thickness of the laser
 var _mangle := Vector3.ZERO  # trenchbroom angle
+var _last_length := 0.0 # keeps the last length to avoid refreshing the particles at each frame
 
 #==== ONREADY ====
 onready var onready_paths := {
 	"mesh": $"LaserMesh",
 	"collision": $"LaserCollision",
 	"raycast": $"RayCast",
-	"update_timer": $"UpdateTimer"
+	"update_timer": $"UpdateTimer",
+	"particles":$"Particles"
 }
 
 
@@ -52,7 +56,15 @@ func _init_laser() -> void:
 	onready_paths.mesh.mesh.height = _max_length
 	onready_paths.mesh.mesh.top_radius = _thickness
 	onready_paths.mesh.mesh.bottom_radius = _thickness
+	onready_paths.particles.transform.origin.z = _max_length / 2.0
+	onready_paths.particles.process_material.emission_ring_inner_radius = _thickness
+	onready_paths.particles.process_material.emission_ring_radius = _thickness + PARTICLES_RING_OUTER_RADIUS_ADD
+	onready_paths.particles.process_material.emission_ring_height = _max_length
+	onready_paths.particles.visibility_aabb.size.z = _max_length
+	onready_paths.particles.visibility_aabb.position.z = -_max_length / 2.0
+	onready_paths.particles.amount = int(_max_length * PARTICLES_STD_AMOUNT)
 	onready_paths.raycast.cast_to = Vector3(0, 0, _max_length)
+	_last_length = _max_length
 	rotation_degrees = _mangle
 	# sets the positions according to the heights
 	onready_paths.collision.translation.z = _max_length / 2.0
@@ -63,6 +75,13 @@ func _update_laser(length: float) -> void:
 	# length
 	onready_paths.collision.shape.height = length
 	onready_paths.mesh.mesh.height = length
+	if not is_equal_approx(length,_last_length):
+		onready_paths.particles.transform.origin.z = length / 2.0
+		onready_paths.particles.process_material.emission_ring_height = length
+		onready_paths.particles.visibility_aabb.size.z = length
+		onready_paths.particles.visibility_aabb.position.z = -length / 2.0
+		onready_paths.particles.amount = int(length * PARTICLES_STD_AMOUNT)
+		_last_length = length
 	# position
 	onready_paths.collision.translation.z = length / 2.0
 	onready_paths.mesh.translation.z = length / 2.0
