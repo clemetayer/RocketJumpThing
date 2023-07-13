@@ -1,0 +1,24 @@
+[gd_resource type="Theme" load_steps=7 format=2]
+
+[ext_resource path="res://Game/Common/Themes/Menus/Common/BoxesB2/grey_box_b2.tres" type="StyleBox" id=1]
+[ext_resource path="res://Misc/Fonts/Oswald/Oswald-VariableFont_wght.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Game/Common/Themes/Menus/Common/BoxesB2/aquamarine_box_b2.tres" type="StyleBox" id=3]
+[ext_resource path="res://Game/Common/Themes/Menus/Common/transparent_background.tres" type="StyleBox" id=4]
+[ext_resource path="res://Game/Common/Themes/Menus/Common/BoxesB2/white_box_b2.tres" type="StyleBox" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+use_filter = true
+font_data = ExtResource( 2 )
+
+[resource]
+default_font = SubResource( 1 )
+Button/fonts/font = SubResource( 1 )
+Button/styles/disabled = ExtResource( 1 )
+Button/styles/focus = ExtResource( 3 )
+Button/styles/hover = ExtResource( 3 )
+Button/styles/normal = ExtResource( 5 )
+Button/styles/pressed = ExtResource( 3 )
+GridContainer/constants/hseparation = 32
+GridContainer/constants/vseparation = 64
+Panel/styles/panel = ExtResource( 4 )
+VBoxContainer/constants/separation = 16

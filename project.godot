@@ -719,6 +719,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/gs_logger/layout.gd"
 }, {
+"base": "Resource",
+"class": "LevelData",
+"language": "GDScript",
+"path": "res://Game/Common/Utils/Resources/level_data.gd"
+}, {
+"base": "Resource",
+"class": "LevelsData",
+"language": "GDScript",
+"path": "res://Game/Common/Utils/Resources/levels_data.gd"
+}, {
 "base": "Area",
 "class": "LiquidLayer",
 "language": "GDScript",
@@ -1337,6 +1347,8 @@ _global_script_class_icons={
 "JUnitXmlReport": "",
 "LavaLayer": "",
 "Layout": "",
+"LevelData": "",
+"LevelsData": "",
 "LiquidLayer": "",
 "LocalTime": "",
 "Message": "",

@@ -2,8 +2,22 @@ extends Node
 # kind of like function_utils.gd but for everything that cannot be static
 # TODO : Actually translate all the mouse inputs
 
+##### VARIABLES #####
+#---- CONSTANTS -----
+const DEFAULT_LEVELS_DATA_PATH := "res://Game/Scenes/levels_data.tres"
+
+#---- STANDARD -----
+#==== PRIVATE ====
+var levels_data: LevelsData = null
+
 
 #### Display #####
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	_create_default_levels_data()
+	_load_levels_data()
+
+
 # returns a string to display a pretty version of the input
 func display_input_as_string(input: InputEvent) -> String:
 	if input is InputEventKey:
@@ -49,3 +63,14 @@ func _translate_mouse_button(key_str: String) -> String:
 		if TranslationKeys.MOUSE_BUTTON_MAPPER.has(key_str)
 		else key_str
 	)
+
+
+func _create_default_levels_data() -> void:
+	if not ResourceLoader.exists(LevelsData.SAVE_PATH):
+		var res = load(DEFAULT_LEVELS_DATA_PATH)
+		if res != null and res is LevelsData:
+			res.save()
+
+
+func _load_levels_data() -> void:
+	levels_data = DebugUtils.log_load_resource(LevelsData.SAVE_PATH)

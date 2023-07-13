@@ -5,6 +5,7 @@ extends Node2D
 #---- CONSTANTS -----
 const PATHS := {"tutorial_scene": "res://Game/Scenes/Tutorial/Tutorial1/tutorial_1.tscn"}
 const SETTINGS_MENU_LAYER_PATH := "res://Game/Common/Menus/SettingsMenu/settings_menu_layer.tscn"
+const LEVEL_SELECT_MENU_PATH := "res://Game/Common/Menus/LevelSelect/level_select_layer.tscn"
 
 #---- STANDARD -----
 #==== ONREADY ====
@@ -23,6 +24,9 @@ func _ready():
 
 
 ##### PROTECTED METHODS #####
+func _load_start_levels() -> void:
+	ScenesManager.load_level(RuntimeUtils.levels_data,0)
+
 func _set_labels() -> void:
 	onready_paths.play.text = tr(TranslationKeys.MENU_PLAY)
 	onready_paths.options.text = tr(TranslationKeys.MENU_OPTIONS)
@@ -35,7 +39,7 @@ func _enable_mouse_visible() -> void:
 
 ##### SIGNAL MANAGEMENT #####
 func _on_PlayButton_pressed():
-	ScenesManager.load_level("Proof of concept")
+	_load_start_levels()
 
 
 func _on_OptionsButton_pressed():
@@ -44,3 +48,7 @@ func _on_OptionsButton_pressed():
 
 func _on_QuitButton_pressed():
 	get_tree().quit()
+
+
+func _on_LevelSelectButton_pressed():
+	ScenesManager.load_level_select_menu()

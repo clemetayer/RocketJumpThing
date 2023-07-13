@@ -46,7 +46,6 @@ func _unpause():
 	get_tree().paused = false
 	onready_paths.root_ui.hide()
 
-
 ##### SIGNAL MANAGEMENT #####
 func _on_SignalManager_end_reached() -> void:
 	if StandardSongManager.get_current() != null:

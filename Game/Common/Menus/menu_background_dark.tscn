@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Game/Common/Menus/MainMenu/wavy_shader.shader" type="Shader" id=1]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 1 )
+shader_param/back_color1 = Color( 0, 0.121569, 0.184314, 1 )
+shader_param/back_color2 = Color( 0.0156863, 0, 0.188235, 1 )
+shader_param/back_cycle_speed = null
+shader_param/wave1_color = Color( 0, 1, 0.905882, 1 )
+shader_param/wave1_thick = 0.4
+shader_param/wave1_up_sine_speed = 0.25
+shader_param/wave1_up_sine_amplitude = 0.08
+shader_param/wave1_down_sine_speed = 0.15
+shader_param/wave1_down_sine_amplitude = 0.08
+shader_param/wave2_color = Color( 0, 0.952941, 1, 1 )
+shader_param/wave2_thick = 0.5
+shader_param/wave2_up_sine_speed = 0.2
+shader_param/wave2_up_sine_amplitude = 0.08
+shader_param/wave2_down_sine_speed = 0.3
+shader_param/wave2_down_sine_amplitude = 0.03
+
+[node name="MenuBackgroundDark" type="Panel"]
+material = SubResource( 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0

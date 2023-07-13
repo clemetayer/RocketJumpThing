@@ -108,18 +108,34 @@ static func log_load_cfg(path: String) -> ConfigFile:
 
 
 static func log_save_cfg(config_file: ConfigFile, path: String) -> void:
-	# creates the file if it does not exist
-	var file = File.new()
-	if not file.file_exists(path):
-		file.open(path, File.WRITE)
-		file.store_string(" ")  # Stores an (almost) empty string to create the file
-	file.close()
+	_create_empty_file(path)
 	var error := config_file.save(path)
 	if error != OK:
 		Logger.error(
 			(
 				"Error while saving the cfg file at %s with error %d, at %s"
 				% [path, error, print_stack_trace(get_stack())]
+			)
+		)
+
+
+static func log_load_resource(path: String) -> Resource:
+	if ResourceLoader.exists(path):
+		return ResourceLoader.load(path)
+	Logger.error(
+		"Error while loading the resource at %s, at %s" % [path, print_stack_trace(get_stack())]
+	)
+	return Resource.new()
+
+
+static func log_save_resource(resource: Resource, path: String) -> void:
+	_create_empty_file(path)
+	var error := ResourceSaver.save(path, resource)
+	if error != OK:
+		Logger.error(
+			(
+				"Error while saving the resource %s at %s. Error %d, at %s"
+				% [resource, path, error, print_stack_trace(get_stack())]
 			)
 		)
 
@@ -142,3 +158,12 @@ static func log_shell_open(cmd: String) -> void:
 		Logger.error(
 			"Error on shell_open with command %s, at %s" % [cmd, print_stack_trace(get_stack())]
 		)
+
+
+static func _create_empty_file(path: String) -> void:
+	# creates the file if it does not exist
+	var file = File.new()
+	if not file.file_exists(path):
+		file.open(path, File.WRITE)
+		file.store_string(" ")  # Stores an (almost) empty string to create the file
+	file.close()

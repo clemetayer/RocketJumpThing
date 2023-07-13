@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Game/Scenes/Tutorial/Tutorial1/tutorial_1_preview.png" type="Texture" id=1]
+[ext_resource path="res://Game/Common/Menus/LevelSelect/level_icon.gd" type="Script" id=2]
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[node name="MarginContainer" type="MarginContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/margin_right = 4
+custom_constants/margin_top = 4
+custom_constants/margin_left = 4
+custom_constants/margin_bottom = 4
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 1020.0
+margin_bottom = 596.0
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+margin_right = 1016.0
+margin_bottom = 574.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/normal = SubResource( 1 )
+icon = ExtResource( 1 )
+icon_align = 1
+expand_icon = true
+
+[node name="LevelName" type="Label" parent="VBoxContainer"]
+margin_top = 578.0
+margin_right = 1016.0
+margin_bottom = 592.0
+text = "Level name"
+align = 1

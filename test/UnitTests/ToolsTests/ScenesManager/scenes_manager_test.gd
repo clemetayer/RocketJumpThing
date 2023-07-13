@@ -14,8 +14,7 @@ var mock
 #---- PRE/POST -----
 func before_test():
 	mock = mock(scenes_manager_path)
-	mock.levels = {"main_menu": "main_menu", "game_scenes": {"list1": ["l1", "l2", "l3"]}}
-	do_return(null).on(mock)._goto_scene("main_menu")
+	do_return(null).on(mock)._goto_scene(mock.MAIN_MENU_PATH)
 	do_return(null).on(mock)._goto_scene("l1")
 	do_return(null).on(mock)._goto_scene("l2")
 	do_return(null).on(mock)._goto_scene("l3")
@@ -25,8 +24,7 @@ func before():
 	element_path = scenes_manager_path
 	.before()
 	scenes_manager = load(scenes_manager_path).instance()
-	scenes_manager.levels = {"main_menu": "main_menu", "game_scenes": {"list1": ["l1", "l2", "l3"]}}
-
+	scenes_manager._current_level_data = _generate_test_LevelsData()
 
 func after():
 	scenes_manager.free()
@@ -36,29 +34,30 @@ func after():
 #---- TESTS -----
 #==== ACTUAL TESTS =====
 func test_has_next_level() -> void:
-	scenes_manager._current_level_list = "list1"
 	scenes_manager._current_level_idx = 0
 	assert_bool(scenes_manager.has_next_level()).is_true()
-	scenes_manager._current_level_list = "list1"
 	scenes_manager._current_level_idx = 2
 	assert_bool(scenes_manager.has_next_level()).is_false()
 
 
 func test_has_previous_level() -> void:
-	scenes_manager._current_level_list = "list1"
 	scenes_manager._current_level_idx = 2
 	assert_bool(scenes_manager.has_previous_level()).is_true()
-	scenes_manager._current_level_list = "list1"
 	scenes_manager._current_level_idx = 0
 	assert_bool(scenes_manager.has_previous_level()).is_false()
 
 
 func test_load_main_menu() -> void:
 	mock.load_main_menu()
-	verify(mock, 2)._goto_scene(mock.MAIN_MENU)  # FIXME : for some reason it is called one more time somewhere...
-	assert_str(mock._current_level_list).is_equal("")
+	verify(mock, 2)._goto_scene(mock.MAIN_MENU_PATH)  # FIXME : for some reason it is called one more time somewhere...
+	assert_object(mock._current_level_data).is_null()
 	assert_int(mock._current_level_idx).is_equal(0)
 
+func test_load_level_select_menu() -> void:
+	mock.load_level_select_menu()
+	verify(mock, 1)._goto_scene(mock.LEVEL_SELECT_PATH)  # FIXME : for some reason it is called one more time somewhere...
+	assert_object(mock._current_level_data).is_null()
+	assert_int(mock._current_level_idx).is_equal(0)
 
 func test_level_switch() -> void:
 	_test_load_level_0()
@@ -67,21 +66,36 @@ func test_level_switch() -> void:
 
 
 func _test_load_level_0() -> void:
-	mock.load_level("list1", 0)
+	var levels = _generate_test_LevelsData()
+	mock.load_level(levels, 0)
 	verify(mock, 2)._goto_scene("l1")  # FIXME : for some reason it is called one more time somewhere...
-	assert_str(mock._current_level_list).is_equal("list1")
+	assert_object(mock._current_level_data).is_equal(levels)
 	assert_int(mock._current_level_idx).is_equal(0)
 
 
 func _test_next_level() -> void:
+	var original_levels = mock._current_level_data
 	mock.next_level()
 	verify(mock, 2)._goto_scene("l2")  # FIXME : for some reason it is called one more time somewhere...
-	assert_str(mock._current_level_list).is_equal("list1")
+	assert_object(mock._current_level_data).is_equal(original_levels)
 	assert_int(mock._current_level_idx).is_equal(1)
 
 
 func _test_prev_level() -> void:
+	var original_levels = mock._current_level_data
 	mock.previous_level()
 	verify(mock, 3)._goto_scene("l1")  # FIXME : for some reason it is called one more time somewhere...
-	assert_str(mock._current_level_list).is_equal("list1")
+	assert_object(mock._current_level_data).is_equal(original_levels)
 	assert_int(mock._current_level_idx).is_equal(0)
+
+#---- UTILS -----
+func _generate_test_LevelsData() -> LevelsData:
+	var levels := LevelsData.new()
+	var level1 := LevelData.new()
+	level1.SCENE_PATH = "l1"
+	var level2 := LevelData.new()
+	level2.SCENE_PATH = "l2"
+	var level3 := LevelData.new()
+	level3.SCENE_PATH = "l3"
+	levels.LEVELS = [level1,level2,level3]
+	return levels

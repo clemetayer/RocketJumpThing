@@ -105,9 +105,9 @@ theme = ExtResource( 2 )
 
 [node name="Buttons" type="VBoxContainer" parent="Menu/CenterContainer"]
 margin_left = 387.0
-margin_top = 164.0
+margin_top = 111.0
 margin_right = 637.0
-margin_bottom = 435.0
+margin_bottom = 489.0
 rect_min_size = Vector2( 250, 0 )
 
 [node name="PlayButton" type="Button" parent="Menu/CenterContainer/Buttons"]
@@ -115,16 +115,22 @@ margin_right = 250.0
 margin_bottom = 57.0
 text = "Play"
 
-[node name="OptionsButton" type="Button" parent="Menu/CenterContainer/Buttons"]
+[node name="LevelSelectButton" type="Button" parent="Menu/CenterContainer/Buttons"]
 margin_top = 107.0
 margin_right = 250.0
 margin_bottom = 164.0
-text = "Options"
+text = "Level selection"
 
-[node name="QuitButton" type="Button" parent="Menu/CenterContainer/Buttons"]
+[node name="OptionsButton" type="Button" parent="Menu/CenterContainer/Buttons"]
 margin_top = 214.0
 margin_right = 250.0
 margin_bottom = 271.0
+text = "Options"
+
+[node name="QuitButton" type="Button" parent="Menu/CenterContainer/Buttons"]
+margin_top = 321.0
+margin_right = 250.0
+margin_bottom = 378.0
 custom_colors/font_color_focus = Color( 0.337255, 0.172549, 0.172549, 1 )
 custom_colors/font_color_hover = Color( 0.94902, 0.329412, 0.176471, 1 )
 custom_colors/font_color_pressed = Color( 0.337255, 0.172549, 0.172549, 1 )
@@ -134,5 +140,6 @@ custom_styles/focus = SubResource( 11 )
 text = "Quit"
 
 [connection signal="pressed" from="Menu/CenterContainer/Buttons/PlayButton" to="." method="_on_PlayButton_pressed"]
+[connection signal="pressed" from="Menu/CenterContainer/Buttons/LevelSelectButton" to="." method="_on_LevelSelectButton_pressed"]
 [connection signal="pressed" from="Menu/CenterContainer/Buttons/OptionsButton" to="." method="_on_OptionsButton_pressed"]
 [connection signal="pressed" from="Menu/CenterContainer/Buttons/QuitButton" to="." method="_on_QuitButton_pressed"]

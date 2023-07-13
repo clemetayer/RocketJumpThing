@@ -105,6 +105,9 @@ msgstr "Retour"
 msgid "Play"
 msgstr "Jouer"
 
+msgid "Level selection"
+msgstr "Sélection de niveau"
+
 #----------------------------- END LEVEL MENU -----------------------------
 msgid "Next level"
 msgstr "Niveau suivant"

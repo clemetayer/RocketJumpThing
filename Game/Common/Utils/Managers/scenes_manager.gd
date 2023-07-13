@@ -9,73 +9,70 @@ extends Node
 
 ##### VARIABLES #####
 #---- CONSTANTS -----
-const LEVELS_JSON_PATH := "res://scenes.json"
-const GAME_SCENES := "game_scenes"
-const MAIN_MENU := "main_menu"
+const MAIN_MENU_PATH := "res://Game/Common/Menus/MainMenu/main_menu.tscn"
+const LEVEL_SELECT_PATH := "res://Game/Common/Menus/LevelSelect/level_select.tscn"
 
 #---- STANDARD -----
-#==== PUBLIC ====
-# TODO : use a resource
-#{
-#	"list1":[
-#		"level1 path",
-#		"level2 path",
-#		...
-#	],
-#	...
-#}
-var levels = {}  # Dictionnary of levels
-
 #==== PRIVATE ====
-var _current_level_list: String
+var _current_level_data: LevelsData
 var _current_level_idx := 0
 var _current_scene_instance: Node = null  # instance of the current scene
 
 
-##### PROCESSING #####
-# Called when the object is initialized.
-func _init():
-	_load_levels_json_data()
-
-
 ##### PUBLIC METHODS #####
+func get_current_level_idx() -> int:
+	return _current_level_idx
+
+
 func has_next_level() -> bool:
-	return (
-		(_current_level_list != null or _current_level_list != "")
-		and levels[GAME_SCENES].has(_current_level_list)
-		and _current_level_idx < levels[GAME_SCENES][_current_level_list].size() - 1
-	)
+	return _current_level_data != null and _current_level_data.has_next_level(_current_level_idx)
 
 
 func has_previous_level() -> bool:
 	return (
-		(_current_level_list != null or _current_level_list != "")
-		and levels[GAME_SCENES].has(_current_level_list)
-		and _current_level_idx > 0
+		_current_level_data != null and _current_level_data.has_previous_level(_current_level_idx)
 	)
 
 
+func enable_next_level() -> void:
+	if _current_level_data != null and _current_level_data.has_next_level(_current_level_idx):
+		_current_level_data.get_level(_current_level_idx + 1).UNLOCKED = true
+
+
 func load_main_menu() -> void:
-	_goto_scene(levels[MAIN_MENU])
-	_current_level_list = ""  # because it is a "special" list
+	_goto_scene(MAIN_MENU_PATH)
+	_current_level_data = null
+	_current_level_idx = 0
+	_current_scene_instance = null
+
+func load_level_select_menu() -> void:
+	_goto_scene(LEVEL_SELECT_PATH)
+	_current_level_data = null
 	_current_level_idx = 0
 	_current_scene_instance = null
 
 
-func load_level(name: String, idx: int = 0) -> void:
-	_switch_to_game_scene(name, idx)
+func load_end() -> void:
+	# TODO : implement this
+	pass
+
+
+func load_level(levels: LevelsData, idx: int = 0) -> void:
+	_switch_to_game_scene(levels, idx)
 
 
 func previous_level() -> void:
-	_switch_to_game_scene(_current_level_list, _current_level_idx - 1)
+	if _current_level_data != null and _current_level_data.has_previous_level(_current_level_idx):
+		_switch_to_game_scene(_current_level_data, _current_level_idx - 1)
 
 
 func next_level() -> void:
-	_switch_to_game_scene(_current_level_list, _current_level_idx + 1)
+	if _current_level_data != null and _current_level_data.has_next_level(_current_level_idx):
+		_switch_to_game_scene(_current_level_data, _current_level_idx + 1)
 
 
 func reload_current() -> void:
-	_switch_to_game_scene(_current_level_list, _current_level_idx)
+	_switch_to_game_scene(_current_level_data, _current_level_idx)
 
 
 func get_current() -> Node:
@@ -85,46 +82,15 @@ func get_current() -> Node:
 	return get_tree().get_current_scene()
 
 
-func load_end() -> void:
-	# TODO : implement this
-	pass
-
-
 ##### PROTECTED METHODS #####
-func _load_levels_json_data() -> void:
-	levels = FunctionUtils.load_json(LEVELS_JSON_PATH)
-
-
-func _switch_to_game_scene(name: String, idx: int) -> void:
-	if levels[GAME_SCENES].has(name):
-		if levels[GAME_SCENES][name].size() > 0:
-			if idx < levels[GAME_SCENES][name].size() and idx >= 0:
-				_goto_scene(levels[GAME_SCENES][name][idx])
-				_current_level_list = name
-				_current_level_idx = idx
-			else:
-				Logger.error(
-					(
-						"attempted to load level index %d of levels[%s], but has size %d at %s"
-						% [
-							idx,
-							name,
-							levels[GAME_SCENES][name].size(),
-							DebugUtils.print_stack_trace(get_stack())
-						]
-					)
-				)
-		else:
-			Logger.error(
-				"levels[%s] is size 0 at %s" % [name, DebugUtils.print_stack_trace(get_stack())]
-			)
-	else:
-		Logger.error(
-			(
-				"levels does not have the level list %s at %s"
-				% [name, DebugUtils.print_stack_trace(get_stack())]
-			)
-		)
+func _switch_to_game_scene(levels: LevelsData, idx: int) -> void:
+	if levels != null and levels.check_has_level(idx):
+		var current_level = levels.get_level(idx)
+		if current_level != null:
+			if levels != _current_level_data:
+				_current_level_data = levels
+			_goto_scene(current_level.SCENE_PATH)
+			_current_level_idx = idx
 
 
 func _goto_scene(path: String) -> void:
