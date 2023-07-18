@@ -32,7 +32,7 @@ func _connect_signals() -> void:
 func _is_best_time(level_data: LevelData) -> bool:
 	if level_data != null:
 		return VariableManager.chronometer.level < level_data.BEST_TIME
-	Logger.error("Level data is null, at %s" % [DebugUtils.print_stack_trace(get_stack())])
+	DebugUtils.log_stacktrace("Level data is null", DebugUtils.LOG_LEVEL.error)
 	return false
 
 

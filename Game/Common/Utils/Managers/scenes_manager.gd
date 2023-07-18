@@ -45,6 +45,7 @@ func load_main_menu() -> void:
 	_current_level_idx = 0
 	_current_scene_instance = null
 
+
 func load_level_select_menu() -> void:
 	_goto_scene(LEVEL_SELECT_PATH)
 	_current_level_data = null
@@ -96,11 +97,8 @@ func _switch_to_game_scene(levels: LevelsData, idx: int) -> void:
 func _goto_scene(path: String) -> void:
 	# call_deferred("deferred_goto_scene", path)
 	if get_tree() != null and get_tree().change_scene(path) != OK:
-		Logger.error(
-			(
-				"Error while changing scene to %s at %s"
-				% [path, DebugUtils.print_stack_trace(get_stack())]
-			)
+		DebugUtils.log_stacktrace(
+			"Error while changing scene to %s" % path, DebugUtils.LOG_LEVEL.error
 		)
 
 # func deferred_goto_scene(path: String) -> void:

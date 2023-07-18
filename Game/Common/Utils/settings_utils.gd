@@ -171,9 +171,12 @@ func load_inputs_cfg(cfg: ConfigFile) -> void:
 							_generate_input_from_cfg_val(cfg.get_value(section, key))
 						)
 				else:
-					Logger.warn("No section %s or key %s in cfg inputs" % [section, key])
+					DebugUtils.log_stacktrace(
+						"No section %s or key %s in cfg inputs" % [section, key],
+						DebugUtils.LOG_LEVEL.warn
+					)
 	else:
-		Logger.warn("No cfg inputs config")
+		DebugUtils.log_stacktrace("No cfg inputs config", DebugUtils.LOG_LEVEL.warn)
 
 
 # returns a cfg file from the inputs
@@ -199,11 +202,12 @@ func _load_cfg_root_file(cfg: ConfigFile) -> void:
 		):
 			settings_presets.controls = cfg.get_value(ROOT_SECTION_CONTROLS, ROOT_KEY_PRESET)
 		else:
-			Logger.warn(
-				"No section %s or key %s in cfg root" % [ROOT_SECTION_CONTROLS, ROOT_KEY_PRESET]
+			DebugUtils.log_stacktrace(
+				"No section %s or key %s in cfg root" % [ROOT_SECTION_CONTROLS, ROOT_KEY_PRESET],
+				DebugUtils.LOG_LEVEL.warn
 			)
 	else:
-		Logger.warn("No cfg root config")
+		DebugUtils.log_stacktrace("No cfg root config", DebugUtils.LOG_LEVEL.warn)
 
 
 func _generate_cfg_root_file() -> ConfigFile:
@@ -223,14 +227,15 @@ func _load_cfg_general_file(cfg: ConfigFile) -> void:
 				cfg.get_value(GENERAL_SECTION_LANGUAGE, GENERAL_SECTION_LANGUAGE_TEXT)
 			)
 		else:
-			Logger.warn(
+			DebugUtils.log_stacktrace(
 				(
-					"No section %s or key %s in cfg general"
+					"No section %s or key %s in cfg root"
 					% [GENERAL_SECTION_LANGUAGE, GENERAL_SECTION_LANGUAGE_TEXT]
-				)
+				),
+				DebugUtils.LOG_LEVEL.warn
 			)
 	else:
-		Logger.warn("No cfg general config")
+		DebugUtils.log_stacktrace("No cfg general config", DebugUtils.LOG_LEVEL.warn)
 
 
 func _generate_cfg_general_file() -> ConfigFile:
@@ -280,8 +285,9 @@ func _load_cfg_audio_file(cfg: ConfigFile) -> void:
 				linear2db(cfg.get_value(AUDIO_SECTION_MAIN, AUDIO_KEY_VOLUME))
 			)
 		else:
-			Logger.warn(
-				"No section %s or key %s in cfg audio" % [AUDIO_SECTION_MAIN, AUDIO_KEY_VOLUME]
+			DebugUtils.log_stacktrace(
+				"No section %s or key %s in cfg root" % [AUDIO_SECTION_MAIN, AUDIO_KEY_VOLUME],
+				DebugUtils.LOG_LEVEL.warn
 			)
 		if (
 			cfg.has_section(AUDIO_SECTION_MAIN)
@@ -292,8 +298,9 @@ func _load_cfg_audio_file(cfg: ConfigFile) -> void:
 				not cfg.get_value(AUDIO_SECTION_MAIN, AUDIO_KEY_UNMUTED)
 			)
 		else:
-			Logger.warn(
-				"No section %s or key %s in cfg audio" % [AUDIO_SECTION_MAIN, AUDIO_KEY_UNMUTED]
+			DebugUtils.log_stacktrace(
+				"No section %s or key %s in cfg root" % [AUDIO_SECTION_MAIN, AUDIO_KEY_UNMUTED],
+				DebugUtils.LOG_LEVEL.warn
 			)
 		# BGM
 		if (
@@ -305,8 +312,9 @@ func _load_cfg_audio_file(cfg: ConfigFile) -> void:
 				linear2db(cfg.get_value(AUDIO_SECTION_BGM, AUDIO_KEY_VOLUME))
 			)
 		else:
-			Logger.warn(
-				"No section %s or key %s in cfg audio" % [AUDIO_SECTION_BGM, AUDIO_KEY_VOLUME]
+			DebugUtils.log_stacktrace(
+				"No section %s or key %s in cfg root" % [AUDIO_SECTION_BGM, AUDIO_KEY_VOLUME],
+				DebugUtils.LOG_LEVEL.warn
 			)
 		if (
 			cfg.has_section(AUDIO_SECTION_BGM)
@@ -317,8 +325,9 @@ func _load_cfg_audio_file(cfg: ConfigFile) -> void:
 				not cfg.get_value(AUDIO_SECTION_BGM, AUDIO_KEY_UNMUTED)
 			)
 		else:
-			Logger.warn(
-				"No section %s or key %s in cfg audio" % [AUDIO_SECTION_BGM, AUDIO_KEY_UNMUTED]
+			DebugUtils.log_stacktrace(
+				"No section %s or key %s in cfg root" % [AUDIO_SECTION_BGM, AUDIO_KEY_UNMUTED],
+				DebugUtils.LOG_LEVEL.warn
 			)
 		# Effects
 		if (
@@ -330,8 +339,9 @@ func _load_cfg_audio_file(cfg: ConfigFile) -> void:
 				linear2db(cfg.get_value(AUDIO_SECTION_EFFECTS, AUDIO_KEY_VOLUME))
 			)
 		else:
-			Logger.warn(
-				"No section %s or key %s in cfg audio" % [AUDIO_SECTION_EFFECTS, AUDIO_KEY_UNMUTED]
+			DebugUtils.log_stacktrace(
+				"No section %s or key %s in cfg root" % [AUDIO_SECTION_EFFECTS, AUDIO_KEY_VOLUME],
+				DebugUtils.LOG_LEVEL.warn
 			)
 		if (
 			cfg.has_section(AUDIO_SECTION_EFFECTS)
@@ -342,11 +352,12 @@ func _load_cfg_audio_file(cfg: ConfigFile) -> void:
 				not cfg.get_value(AUDIO_SECTION_EFFECTS, AUDIO_KEY_UNMUTED)
 			)
 		else:
-			Logger.warn(
-				"No section %s or key %s in cfg audio" % [AUDIO_SECTION_EFFECTS, AUDIO_KEY_UNMUTED]
+			DebugUtils.log_stacktrace(
+				"No section %s or key %s in cfg root" % [AUDIO_SECTION_EFFECTS, AUDIO_KEY_UNMUTED],
+				DebugUtils.LOG_LEVEL.warn
 			)
 	else:
-		Logger.warn("No cfg audio config")
+		DebugUtils.log_stacktrace("No cfg audio config", DebugUtils.LOG_LEVEL.warn)
 
 
 func _generate_cfg_audio_file() -> ConfigFile:
@@ -400,11 +411,12 @@ func _load_cfg_video_file(cfg: ConfigFile) -> void:
 		):
 			OS.window_fullscreen = cfg.get_value(VIDEO_SECTION_MODE, VIDEO_KEY_MODE)
 		else:
-			Logger.warn(
-				"No section %s or key %s in cfg video" % [VIDEO_SECTION_MODE, VIDEO_KEY_MODE]
+			DebugUtils.log_stacktrace(
+				"No section %s or key %s in cfg root" % [VIDEO_SECTION_MODE, VIDEO_KEY_MODE],
+				DebugUtils.LOG_LEVEL.warn
 			)
 	else:
-		Logger.warn("No cfg video config")
+		DebugUtils.log_stacktrace("No cfg video config", DebugUtils.LOG_LEVEL.warn)
 
 
 func _generate_cfg_video_file() -> ConfigFile:

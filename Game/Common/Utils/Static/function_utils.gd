@@ -9,7 +9,9 @@ const PORTAL_PROCESS_METHOD_NAME := "portal_process"
 
 #### Maths and vectors #####
 # chacks if a value is between an epsilon (strictly)
-static func check_in_epsilon(value: float, compare: float, epsilon: float, equals: bool = false) -> bool:
+static func check_in_epsilon(
+	value: float, compare: float, epsilon: float, equals: bool = false
+) -> bool:
 	return (
 		(value < compare + epsilon and value > compare - epsilon)
 		or (equals and (value == compare + epsilon or value == compare - epsilon))
@@ -25,9 +27,7 @@ static func load_json(path: String) -> Dictionary:
 		file.open(path, File.READ)
 		data = _json_data_to_objects(parse_json(file.get_as_text()))
 	else:
-		Logger.error(
-			"Failed to load json %s at %s" % [path, DebugUtils.print_stack_trace(get_stack())]
-		)
+		DebugUtils.log_stacktrace("Failed to load json %s" % [path], DebugUtils.LOG_LEVEL.error)
 	file.close()
 	return data
 
@@ -39,14 +39,11 @@ static func parse_json_string_to_objects(json_str: String) -> Dictionary:
 		if parsed_json != null:
 			dict = _json_data_to_objects(parsed_json)
 		else:
-			Logger.error(
-				(
-					"Failed to load json %s at %s"
-					% [json_str, DebugUtils.print_stack_trace(get_stack())]
-				)
+			DebugUtils.log_stacktrace(
+				"Failed to load json %s" % [json_str], DebugUtils.LOG_LEVEL.error
 			)
 	else:
-		Logger.error("json parameter is empty, at %s" % DebugUtils.print_stack_trace(get_stack()))
+		DebugUtils.log_stacktrace("json parameter is empty", DebugUtils.LOG_LEVEL.error)
 	return dict
 
 
@@ -94,9 +91,7 @@ static func list_dir_files(path: String, regex_pattern: String = "*") -> Array:
 				file_list.append(file_name)
 			file_name = dir.get_next()
 	else:
-		Logger.error(
-			"No folder found at path %s, at %s" % [path, DebugUtils.print_stack_trace(get_stack())]
-		)
+		DebugUtils.log_stacktrace("No folder found at path %s" % path, DebugUtils.LOG_LEVEL.error)
 	return file_list
 
 

@@ -19,7 +19,8 @@ const TB_TR_MAPPER := {
 	"tutorial_rockets_3": TranslationKeys.TUTORIAL_ROCKET_WALL_JUMP,
 	"tutorial_rockets_4": TranslationKeys.TUTORIAL_ROCKET_PADS
 }
-const TB_TRUE := 1 # true value for trenchbroom
+const TB_TRUE := 1  # true value for trenchbroom
+
 
 ##### PROTECTED METHODS #####
 # maps the trenchbroom properties to the corresponding variables
@@ -40,24 +41,15 @@ static func _map_trenchbroom_property(
 			if mapper[0] in properties and mapper[1] in object:
 				object.set(mapper[1], properties[mapper[0]])
 			else:
-				Logger.error(
-					(
-						"One of the property of the mapper %s is either not in self or _properties, at %s"
-						% [mapper, DebugUtils.print_stack_trace(get_stack())]
-					)
+				DebugUtils.log_stacktrace(
+					"One of the property of the mapper %s is either not in self or _properties" % [mapper],
+					DebugUtils.LOG_LEVEL.error
 				)
-
 		else:
-			Logger.error(
-				(
-					"One of the mapper %s element is not a String, at %s"
-					% [mapper, DebugUtils.print_stack_trace(get_stack())]
-				)
+			DebugUtils.log_stacktrace(
+				"One of the mapper %s element is not a String" % [mapper], DebugUtils.LOG_LEVEL.error
 			)
 	else:
-		Logger.error(
-			(
-				"Mapper %s does not have exactly 2 elements, at %s"
-				% [mapper, DebugUtils.print_stack_trace(get_stack())]
-			)
+		DebugUtils.log_stacktrace(
+			"Mapper %s does not have exactly 2 elements" % [mapper], DebugUtils.LOG_LEVEL.error
 		)

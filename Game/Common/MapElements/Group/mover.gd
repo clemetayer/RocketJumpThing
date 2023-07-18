@@ -63,19 +63,9 @@ func _init_travel_data() -> void:
 		if travel_data_resource is MoverTravelDataArray:
 			_travel_data = travel_data_resource.TRAVEL_DATA_ARRAY
 		else:
-			Logger.error(
-				(
-					"The resource at path %s is invalid, at %s"
-					% [_travel_data_path, DebugUtils.print_stack_trace(get_stack())]
-				)
-			)
+			DebugUtils.log_stacktrace("The resource at path %s is invalid" % _travel_data_path, DebugUtils.LOG_LEVEL.error)
 	else:
-		Logger.error(
-			(
-				"No resource found at path %s, at %s"
-				% [_travel_data_path, DebugUtils.print_stack_trace(get_stack())]
-			)
-		)
+		DebugUtils.log_stacktrace("No resource found at path %s" % _travel_data_path, DebugUtils.LOG_LEVEL.error)
 
 
 # adds (all) the path meshes to the parent

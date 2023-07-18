@@ -19,17 +19,7 @@ func _init():
 
 ##### PROTECTED METHODS #####
 func _connect_signals() -> void:
-	if connect("body_entered", self, "_on_area_open_door_body_entered") != OK:
-		Logger.error(
-			(
-				"Error connecting %s to %s in %s"
-				% [
-					"body_entered",
-					"_on_area_open_door_body_entered",
-					DebugUtils.print_stack_trace(get_stack())
-				]
-			)
-		)
+	DebugUtils.log_connect(self, self, "body_entered", "_on_area_open_door_body_entered")
 
 
 ##### SIGNAL MANAGEMENT #####

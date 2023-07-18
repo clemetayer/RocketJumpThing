@@ -149,6 +149,6 @@ func _on_respawn_player_on_last_cp() -> void:
 			elif null != PATHS.bgm.path and PATHS.bgm.path != "":
 				_change_song_anim(_last_cp.song_animation)
 		else:
-			Logger.error("Player is null at %s" % DebugUtils.print_stack_trace(get_stack()))
+			DebugUtils.log_stacktrace("Player is null", DebugUtils.LOG_LEVEL.error)
 	else:
-		Logger.error("_last_cp is null at %s" % DebugUtils.print_stack_trace(get_stack()))
+		DebugUtils.log_stacktrace("_last_cp is null", DebugUtils.LOG_LEVEL.error)

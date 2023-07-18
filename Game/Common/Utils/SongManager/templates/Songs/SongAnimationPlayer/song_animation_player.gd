@@ -33,7 +33,9 @@ var _buses_cleared := true  # if the buses have been cleared or not
 ##### PROCESSING #####
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	Logger.debug("SongAnimationPlayer - Playing : %s with animation %s" % [name, ANIMATION])
+	DebugUtils.log_stacktrace(
+		"SongAnimationPlayer - Playing : %s with animation %s" % [name, ANIMATION], DebugUtils.LOG_LEVEL.debug
+	)
 	DebugUtils.log_connect(
 		get_node(ANIMATION_PLAYER), self, "animation_started", "_on_animation_started"
 	)
@@ -77,8 +79,8 @@ func update(song: Song) -> Array:
 	if _buses_cleared:
 		_init_buses()
 	if ANIMATION != song.ANIMATION:
-		Logger.debug(
-			"Song animation player - Updating current from %s to %s" % [ANIMATION, song.ANIMATION]
+		DebugUtils.log_stacktrace(
+			"Song animation player - Updating current from %s to %s" % [ANIMATION, song.ANIMATION], DebugUtils.LOG_LEVEL.debug
 		)
 		var common_track_name = _get_same_track(song.ANIMATION)
 		var animation_time: float
@@ -386,8 +388,8 @@ func _on_parent_effect_done() -> void:
 						_reset_bus(_tracks[track].bus)
 						_tracks[track].volume = 0.0
 		else:
-			Logger.warn(
-				"No common track between %s and %s" % [ANIMATION, _update_track_infos.animation]
+			DebugUtils.log_stacktrace(
+				"No common track between %s and %s" % [ANIMATION, _update_track_infos.animation], DebugUtils.LOG_LEVEL.warn
 			)
 			var anim_player := get_node(ANIMATION_PLAYER)
 			# new animation time = old animation time modulo total new animation time
@@ -427,20 +429,18 @@ func _print_buses():
 		var bus_effects = []
 		for effect_idx in AudioServer.get_bus_effect_count(bus_idx):
 			bus_effects.append(AudioServer.get_bus_effect(bus_idx, effect_idx))
-		Logger.debug(
-			(
-				"bus N°%d : %s, has effects : %s and sends to %s. Volume is %d db"
-				% [
-					bus_idx,
-					AudioServer.get_bus_name(bus_idx),
-					bus_effects,
-					AudioServer.get_bus_send(bus_idx),
-					AudioServer.get_bus_volume_db(bus_idx)
-				]
-			)
+		DebugUtils.log_stacktrace(
+			"bus N°%d : %s, has effects : %s and sends to %s. Volume is %d db" % [
+				bus_idx,
+				AudioServer.get_bus_name(bus_idx),
+				bus_effects,
+				AudioServer.get_bus_send(bus_idx),
+				AudioServer.get_bus_volume_db(bus_idx)
+			], DebugUtils.LOG_LEVEL.debug
 		)
-
 
 # prints the track infos
 func _print_track_infos():
-	Logger.debug("%s" % _tracks)
+	DebugUtils.log_stacktrace(
+		"%s" % _tracks, DebugUtils.LOG_LEVEL.debug
+	)

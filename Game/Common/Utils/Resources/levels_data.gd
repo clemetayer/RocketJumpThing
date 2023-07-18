@@ -24,27 +24,23 @@ func check_has_level(idx: int) -> bool:
 	var valid = true
 	if LEVELS == null or LEVELS.size() <= 0:
 		valid = false
-		Logger.warn(
-			"levels list is empty or null, at %s" % [DebugUtils.print_stack_trace(get_stack())]
+		DebugUtils.log_stacktrace(
+			"levels list is empty or null", DebugUtils.LOG_LEVEL.warn
 		)
 	if idx < 0:
 		valid = false
-		Logger.error("level index is negative, at %s" % [DebugUtils.print_stack_trace(get_stack())])
+		DebugUtils.log_stacktrace(
+			"level index is negative", DebugUtils.LOG_LEVEL.error
+		)
 	if idx >= LEVELS.size():
 		valid = false
-		Logger.warn(
-			(
-				"can't load level index %d of %s, that has a size of %d, at %s"
-				% [idx, LEVELS, LEVELS.size(), DebugUtils.print_stack_trace(get_stack())]
-			)
+		DebugUtils.log_stacktrace(
+			"can't load level index %d of %s, that has a size of %d" % [idx, LEVELS, LEVELS.size()], DebugUtils.LOG_LEVEL.warn
 		)
 	if valid and not LEVELS[idx] is LevelData:
 		valid = false
-		Logger.warn(
-			(
-				"%s is not of type LevelData, at %s"
-				% [LEVELS[idx], DebugUtils.print_stack_trace(get_stack())]
-			)
+		DebugUtils.log_stacktrace(
+			"%s is not of type LevelData" % LEVELS[idx], DebugUtils.LOG_LEVEL.warn
 		)
 	return valid
 

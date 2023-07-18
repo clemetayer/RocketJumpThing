@@ -17,4 +17,6 @@ func call_steps_process(step_sequencer: Node) -> void:
 		if step_data_item is SequencerStepDataItem:
 			step_data_item.step(step_sequencer)
 		else:
-			Logger.error("resource associated to %s is not a subtype of SequencerStepDataItem")
+			DebugUtils.log_stacktrace(
+				"resource associated to %s is not a subtype of SequencerStepDataItem" % step_sequencer, DebugUtils.LOG_LEVEL.error
+			)
