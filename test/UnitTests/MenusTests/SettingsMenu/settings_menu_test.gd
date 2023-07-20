@@ -38,5 +38,5 @@ func test_init_tab_names() -> void:
 	settings_menu._init_tab_names()
 	for child_idx in range(settings_menu.onready_paths.tabs.get_children().size()):
 		assert_str(settings_menu.onready_paths.tabs.get_tab_title(child_idx)).is_equal(
-			settings_menu.onready_paths.tabs.get_child(child_idx).TAB_NAME
-		)
+			tr(settings_menu.onready_paths.tabs.get_child(child_idx).TAB_NAME)
+		)		

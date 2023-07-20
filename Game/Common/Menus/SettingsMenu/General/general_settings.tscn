@@ -32,11 +32,11 @@ size_flags_vertical = 3
 
 [node name="LanguageLabel" type="Label" parent="VBox/LanguageCategory/LanguageHBox"]
 margin_top = 3.0
-margin_right = 67.0
+margin_right = 260.0
 margin_bottom = 17.0
-text = "Language :"
+text = "SETTINGS_GENERAL_LANGUAGE_OPTION"
 
 [node name="LanguageOptions" type="OptionButton" parent="VBox/LanguageCategory/LanguageHBox"]
-margin_left = 71.0
-margin_right = 100.0
+margin_left = 264.0
+margin_right = 293.0
 margin_bottom = 20.0

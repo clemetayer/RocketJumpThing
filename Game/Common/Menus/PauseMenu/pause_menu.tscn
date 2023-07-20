@@ -31,25 +31,25 @@ rect_min_size = Vector2( 200, 0 )
 [node name="ResumeButton" type="Button" parent="UI/Menu/VBoxContainer"]
 margin_right = 200.0
 margin_bottom = 46.0
-text = "Resume"
+text = "MENU_RESUME"
 
 [node name="RestartButton" type="Button" parent="UI/Menu/VBoxContainer"]
 margin_top = 91.0
 margin_right = 200.0
 margin_bottom = 137.0
-text = "Restart"
+text = "MENU_RESTART"
 
 [node name="OptionButton" type="Button" parent="UI/Menu/VBoxContainer"]
 margin_top = 182.0
 margin_right = 200.0
 margin_bottom = 228.0
-text = "Options"
+text = "MENU_SETTINGS"
 
 [node name="MainMenuButton" type="Button" parent="UI/Menu/VBoxContainer"]
 margin_top = 273.0
 margin_right = 200.0
 margin_bottom = 319.0
-text = "Main menu"
+text = "MAIN_MENU"
 
 [connection signal="pressed" from="UI/Menu/VBoxContainer/ResumeButton" to="." method="_on_ResumeButton_pressed"]
 [connection signal="pressed" from="UI/Menu/VBoxContainer/RestartButton" to="." method="_on_RestartButton_pressed"]

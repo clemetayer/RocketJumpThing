@@ -3,7 +3,7 @@ extends MarginContainer
 
 ##### VARIABLES #####
 #---- CONSTANTS -----
-const TAB_NAME := "Controls"
+const TAB_NAME := "MENU_SETTINGS_TAB_CONTROLS"
 const EDITABLE_KEY_PATH := "res://Game/Common/Menus/SettingsMenu/Controls/common_editable_key.tscn"
 const MOVEMENT_CAT := [  # actions for the movement category
 	GlobalConstants.INPUT_MVT_FORWARD,

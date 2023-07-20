@@ -11,6 +11,7 @@ const LEVEL_SELECT_MENU_PATH := "res://Game/Common/Menus/LevelSelect/level_selec
 #==== ONREADY ====
 onready var onready_paths := {
 	"play": $"Menu/CenterContainer/Buttons/PlayButton",
+	"level_selection": $"Menu/CenterContainer/Buttons/LevelSelectButton",
 	"options": $"Menu/CenterContainer/Buttons/OptionsButton",
 	"quit": $"Menu/CenterContainer/Buttons/QuitButton"
 }
@@ -28,8 +29,9 @@ func _load_start_levels() -> void:
 	ScenesManager.load_level(RuntimeUtils.levels_data,0)
 
 func _set_labels() -> void:
+	onready_paths.level_selection.text = tr(TranslationKeys.MENU_LEVEL_SELECTION)
 	onready_paths.play.text = tr(TranslationKeys.MENU_PLAY)
-	onready_paths.options.text = tr(TranslationKeys.MENU_OPTIONS)
+	onready_paths.options.text = tr(TranslationKeys.MENU_SETTINGS)
 	onready_paths.quit.text = tr(TranslationKeys.MENU_QUIT)
 
 

@@ -6,7 +6,7 @@ enum window_modes { FULL_SCREEN, WINDOWED }
 
 ##### VARIABLES #####
 #---- CONSTANTS -----
-const TAB_NAME := "Video"
+const TAB_NAME := "MENU_SETTINGS_TAB_VIDEO"
 
 #---- STANDARD -----
 #==== ONREADY ====

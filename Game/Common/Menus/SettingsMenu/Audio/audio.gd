@@ -4,7 +4,7 @@ extends MarginContainer
 ##### VARIABLES #####
 #---- CONSTANTS -----
 const VOLUME_TEXT := "%d%%"  # label displaying the volume
-const TAB_NAME := "Audio"
+const TAB_NAME := "SETTINGS_AUDIO_MAIN_CATEGORY"
 
 #---- STANDARD -----
 #==== ONREADY ====

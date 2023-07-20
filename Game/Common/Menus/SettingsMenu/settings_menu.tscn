@@ -31,11 +31,11 @@ margin_right = 1020.0
 margin_bottom = 596.0
 
 [node name="Return" type="Button" parent="Margin/VBoxContainer"]
-margin_right = 46.0
+margin_right = 99.0
 margin_bottom = 18.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
-text = "Return"
+text = "MENU_RETURN"
 
 [node name="Settings" type="TabContainer" parent="Margin/VBoxContainer"]
 margin_top = 34.0
@@ -84,3 +84,5 @@ dialog_text = ""
 [node name="SaveCfgPopup" parent="." instance=ExtResource( 7 )]
 margin_right = 279.0
 popup_exclusive = true
+window_title = "MENU_SETTINGS_SAVE_CFG_POPUP_TITLE"
+dialog_text = "MENU_SETTINGS_SAVE_CFG_POPUP_LABEL"

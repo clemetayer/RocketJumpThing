@@ -28,7 +28,7 @@ func after():
 func test_set_labels() -> void:
 	main_menu._set_labels()
 	assert_str(main_menu.onready_paths.play.text).is_equal(tr(TranslationKeys.MENU_PLAY))
-	assert_str(main_menu.onready_paths.options.text).is_equal(tr(TranslationKeys.MENU_OPTIONS))
+	assert_str(main_menu.onready_paths.options.text).is_equal(tr(TranslationKeys.MENU_SETTINGS))
 	assert_str(main_menu.onready_paths.quit.text).is_equal(tr(TranslationKeys.MENU_QUIT))
 
 

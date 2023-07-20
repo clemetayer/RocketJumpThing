@@ -23,7 +23,7 @@ anchor_bottom = 0.0
 margin_right = 1004.0
 margin_bottom = 49.0
 size_flags_vertical = 1
-CATEGORY_NAME = "settings_presets_category"
+CATEGORY_NAME = "PRESET_CATEGORY"
 
 [node name="PresetsCenter" type="CenterContainer" parent="VBox/Presets"]
 margin_top = 18.0
@@ -32,8 +32,8 @@ margin_bottom = 49.0
 size_flags_horizontal = 3
 
 [node name="PresetsControls" parent="VBox/Presets/PresetsCenter" instance=ExtResource( 3 )]
-margin_left = 375.0
-margin_right = 628.0
+margin_left = 359.0
+margin_right = 645.0
 margin_bottom = 31.0
 script = ExtResource( 4 )
 
@@ -44,7 +44,7 @@ margin_top = 53.0
 margin_right = 1004.0
 margin_bottom = 71.0
 size_flags_vertical = 1
-CATEGORY_NAME = "Movement"
+CATEGORY_NAME = "SETTINGS_CONTROLS_MOVEMENT_CATEGORY"
 
 [node name="MovementGrid" type="GridContainer" parent="VBox/Movement"]
 margin_top = 18.0
@@ -60,7 +60,7 @@ margin_top = 75.0
 margin_right = 1004.0
 margin_bottom = 93.0
 size_flags_vertical = 1
-CATEGORY_NAME = "Action"
+CATEGORY_NAME = "SETTINGS_CONTROLS_ACTION_CATEGORY"
 
 [node name="ActionGrid" type="GridContainer" parent="VBox/Action"]
 margin_top = 18.0
@@ -76,7 +76,7 @@ margin_top = 97.0
 margin_right = 1004.0
 margin_bottom = 115.0
 size_flags_vertical = 1
-CATEGORY_NAME = "UI"
+CATEGORY_NAME = "SETTINGS_CONTROLS_UI_CATEGORY"
 
 [node name="UIGrid" type="GridContainer" parent="VBox/UI"]
 margin_top = 18.0

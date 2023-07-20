@@ -3,7 +3,7 @@ extends MarginContainer
 
 ##### VARIABLES #####
 #---- CONSTANTS -----
-const TAB_NAME := "General"
+const TAB_NAME := "MENU_SETTINGS_TAB_GENERAL"
 
 #---- STANDARD -----
 #==== ONREADY ====

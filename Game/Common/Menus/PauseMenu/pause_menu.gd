@@ -48,7 +48,7 @@ func _process(_delta):
 func _set_labels() -> void:
 	onready_paths.resume.text = tr(TranslationKeys.MENU_RESUME)
 	onready_paths.restart.text = tr(TranslationKeys.MENU_RESTART)
-	onready_paths.options.text = tr(TranslationKeys.MENU_OPTIONS)
+	onready_paths.options.text = tr(TranslationKeys.MENU_SETTINGS)
 	onready_paths.main_menu.text = tr(TranslationKeys.MAIN_MENU)
 
 

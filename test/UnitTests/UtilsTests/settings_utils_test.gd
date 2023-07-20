@@ -101,7 +101,7 @@ func test_generate_cfg_root_file() -> void:
 
 
 func test_load_cfg_general_file() -> void:
-	var locale := "en"
+	var locale := "fr"
 	# init
 	var cfg := ConfigFile.new()
 	cfg.set_value(
@@ -113,7 +113,7 @@ func test_load_cfg_general_file() -> void:
 
 
 func test_generate_cfg_general_file() -> void:
-	var locale := "en"
+	var locale := "fr"
 	# init
 	TranslationServer.set_locale(locale)
 	# test
