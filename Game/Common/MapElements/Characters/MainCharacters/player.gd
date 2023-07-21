@@ -93,6 +93,7 @@ var _wall_ride_lock := false  # lock for the wall ride to avoid sticking to the 
 var _mix_to_direction_amount := 1.0  # when in air and pressing forward, how much the velocity should stick to the direction
 var _last_floor_velocity := Vector3.ZERO  # Last floor velocity
 var _last_wall_ride_tilt_direction := 0 # Used to avoid cancelling the head tilt animation at each frame
+var _can_jump_on_fall := false # To allow jumping for a short period of time after exiting a platform
 
 #==== ONREADY ====
 onready var onready_paths := {
@@ -110,7 +111,7 @@ onready var onready_paths := {
 	"jump_sound": $"Sounds/JumpSound",
 	"wall_ride": $"Sounds/WallRide",
 	"timers":
-	{"update_speed": $"Timers/UpdateSpeed", "wall_ride_jump_lock": $"Timers/WallRideJumpLock"},
+	{"update_speed": $"Timers/UpdateSpeed", "wall_ride_jump_lock": $"Timers/WallRideJumpLock", "fall_timer": $"Timers/FallTimer"},
 	"tweens": 
 	{
 		"wall_jump_mix_mvt": $"WallJumpMixMovement",
@@ -567,6 +568,11 @@ func _air_movement(delta: float) -> void:
 	else:  # accelerate and strafe
 		_accelerate(wish_dir, AIR_TARGET_SPEED, AIR_ACCELERATION, delta)
 	vel.y += GRAVITY * delta
+	# allows for a jump shortly after exiting a platform
+	if Input.is_action_pressed(GlobalConstants.INPUT_MVT_JUMP) and _can_jump_on_fall:
+		vel.y = 0
+		_ground_jump()
+		_can_jump_on_fall = false
 
 
 # adds the vectors stored in the _add_velocity_vector_queue to velocity
@@ -651,6 +657,15 @@ func _on_UpdateSpeed_timeout():
 func _on_WallRideJumpLock_timeout():
 	_wall_ride_lock = false
 
+func _on_FloorDetectArea_body_exited(_body:Node):
+	# Just exited a floor and not jumping
+	if not is_on_floor() and not Input.is_action_pressed(GlobalConstants.INPUT_MVT_JUMP):
+		_can_jump_on_fall = true
+		onready_paths.timers.fall_timer.start()
+		
+
+func _on_FallTimer_timeout():
+	_can_jump_on_fall = false
 
 #### DEBUG #####
 func _debug_process_movement(_delta: float):

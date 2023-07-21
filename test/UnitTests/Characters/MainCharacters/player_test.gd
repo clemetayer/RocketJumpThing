@@ -316,7 +316,6 @@ func test_air_movement() -> void:
 	player._air_movement(0.1)
 	assert_float(player.vel.x).is_negative()  # checks if the velocity angle actually moved to the desired direction (RIGHT < 0)
 
-
 func test_add_movement_queue_to_vel() -> void:
 	player.vel = Vector3.RIGHT
 	player.add_velocity_vector(Vector3.FORWARD)
