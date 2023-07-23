@@ -5,6 +5,7 @@ class_name FunctionUtils
 #### Variables & Consts #####
 const REGEX_COLOR_PATTERN := "#[0-9a-fA-F]{6,6}"
 const PORTAL_PROCESS_METHOD_NAME := "portal_process"
+const PHYSICS_FPS_PARAM_PATH := "physics/common/physics_fps"
 
 
 #### Maths and vectors #####
@@ -93,6 +94,16 @@ static func list_dir_files(path: String, regex_pattern: String = "*") -> Array:
 	else:
 		DebugUtils.log_stacktrace("No folder found at path %s" % path, DebugUtils.LOG_LEVEL.error)
 	return file_list
+
+
+#### FPS #####
+# Compares the delta in parameter to the theorical frame delta time to have a ration close to 1
+static func get_delta_compared_to_physics_fps(delta: float) -> float:
+	return delta / (1.0 / get_physics_fps())
+
+
+static func get_physics_fps() -> float:
+	return ProjectSettings.get_setting(PHYSICS_FPS_PARAM_PATH)
 
 
 #### Song manager #####

@@ -297,6 +297,17 @@ func test_accelerate() -> void:
 	player._accelerate(Vector3.FORWARD.rotated(Vector3.UP, PI / 6.0), 50.0, 5.0, 0.1)
 	assert_float(player.vel.length()).is_greater(Vector3.FORWARD.length() * 50.0)
 
+func test_deccelerate() -> void:
+	# Standard test
+	var original_vel = Vector3.FORWARD * 50.0
+	player.vel = original_vel
+	player._deccelerate(0,0.9, 1.0/FunctionUtils.get_physics_fps())
+	assert_float(player.vel.length()).is_less(original_vel.length())
+	# not negative test
+	original_vel = Vector3.FORWARD * 50.0
+	player.vel = original_vel
+	player._deccelerate(original_vel.length() + 50.0, 0.9, 1.0/FunctionUtils.get_physics_fps())
+	assert_float(player.vel.length()).is_not_negative()
 
 func test_air_movement() -> void:
 	# test moving forward, accelerating

@@ -41,6 +41,7 @@ const STOP_SPEED := 1.0  # Minimum speed to consider the player "stopped"
 #==== AIR =====
 const AIR_TARGET_SPEED := 8.5  # Target acceleration when just pressing forward in the air
 const AIR_ACCELERATION := 0.75  # Acceleration in air to get to the AIR_TARGET_SPEED
+const AIR_NO_INPUT_DECELERATION := 0.98 # Deceleration mid air when not pressing anything
 
 #==== WALL RIDE =====
 const WALL_RIDE_ASCEND_AMOUNT := 8.0  # How much the player ascend during a wall ride
@@ -554,6 +555,13 @@ func _accelerate(wish_dir: Vector3, wish_speed: float, accel: float, delta: floa
 		vel.x += accel_amount * wish_dir.x
 		vel.z += accel_amount * wish_dir.z
 
+# simpler than _accelerate, no need to do something complex
+func _deccelerate(wish_speed: float, deccel: float, delta : float):
+	if wish_speed < vel.length():
+		var vel_dir = vel.normalized()
+		var add_wish_speed_vel = (vel.length() - wish_speed) * deccel * FunctionUtils.get_delta_compared_to_physics_fps(delta) 
+		vel.x = vel_dir.x * (wish_speed + add_wish_speed_vel)
+		vel.z = vel_dir.z * (wish_speed + add_wish_speed_vel)
 
 # movement management when in the air
 func _air_movement(delta: float) -> void:
@@ -565,6 +573,8 @@ func _air_movement(delta: float) -> void:
 		var direction_vec := wish_dir * linear_speed  # direction and speed of the velocity on a linear axis
 		direction_vec.y = vel.y
 		vel = vel.move_toward(direction_vec, delta * _mix_to_direction_amount * AIR_MOVE_TOWARD)
+	elif(input_movement_vector == Vector2.ZERO): # not pressing anything, should decelerate slowly
+		_deccelerate(0,AIR_NO_INPUT_DECELERATION,delta)
 	else:  # accelerate and strafe
 		_accelerate(wish_dir, AIR_TARGET_SPEED, AIR_ACCELERATION, delta)
 	vel.y += GRAVITY * delta
@@ -642,7 +652,6 @@ func _manage_slide_wallride_visual_effect() -> void:
 		onready_paths.slide_visual_effects.transform.origin = visual_effect_wall_ride_offset
 	else:
 		onready_paths.slide_visual_effects.visible = false
-
 
 ##### SIGNAL MANAGEMENT #####
 func _remove_shooting_state():
