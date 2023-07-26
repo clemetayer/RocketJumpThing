@@ -23,7 +23,7 @@ func _ready():
 	DebugUtils.log_connect(
 		SignalManager, self, SignalManager.TRIGGER_TUTORIAL, "_on_SignalManager_trigger_tutorial"
 	)
-	onready_paths.screen_root.hide()
+	onready_paths.screen_root.modulate.a = 0.0
 	onready_paths.label.set_text("")
 
 

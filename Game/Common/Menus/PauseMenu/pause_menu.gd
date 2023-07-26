@@ -9,7 +9,6 @@ extends CanvasLayer
 
 ##### VARIABLES #####
 #---- CONSTANTS -----
-const FADE_IN_TIME := 0.5
 const SETTINGS_MENU_LAYER_PATH := "res://Game/Common/Menus/SettingsMenu/settings_menu_layer.tscn"
 
 #---- STANDARD -----
@@ -59,34 +58,11 @@ func _connect_signals() -> void:
 func _manage_inputs() -> void:
 	if Input.is_action_just_pressed("pause"):
 		if _paused:
-			_unpause()
+			ScenesManager.unpause()
+			onready_paths.root_ui.hide()
 		else:
-			_pause()
-
-
-func _pause():
-	if StandardSongManager.get_current() != null:
-		StandardSongManager.apply_effect(
-			FunctionUtils.create_filter_auto_effect(FADE_IN_TIME),
-			{StandardSongManager.get_current().name: {"fade_in": false}}
-		)
-	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	get_tree().paused = true
-	onready_paths.root_ui.show()
-	_paused = true
-
-
-func _unpause():
-	if StandardSongManager.get_current() != null:
-		StandardSongManager.apply_effect(
-			FunctionUtils.create_filter_auto_effect(FADE_IN_TIME),
-			{StandardSongManager.get_current().name: {"fade_in": true}}
-		)
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	get_tree().paused = false
-	onready_paths.root_ui.hide()
-	_paused = false
-
+			ScenesManager.pause()
+			onready_paths.root_ui.show()
 
 ##### SIGNAL MANAGEMENT #####
 func _on_SignalManager_end_reached() -> void:
@@ -94,11 +70,11 @@ func _on_SignalManager_end_reached() -> void:
 
 
 func _on_ResumeButton_pressed():
-	_unpause()
+	ScenesManager.unpause()
 
 
 func _on_MainMenuButton_pressed():
-	_unpause()
+	ScenesManager.unpause()
 	ScenesManager.load_main_menu()
 
 
@@ -107,5 +83,5 @@ func _on_OptionButton_pressed():
 
 
 func _on_RestartButton_pressed():
-	_unpause()
+	ScenesManager.unpause()
 	ScenesManager.reload_current()

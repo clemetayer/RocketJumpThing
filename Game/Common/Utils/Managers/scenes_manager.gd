@@ -9,10 +9,15 @@ extends Node
 
 ##### VARIABLES #####
 #---- CONSTANTS -----
+const FADE_IN_TIME := 0.5
+const LOADING_SCREEN_PATH := "res://Game/Common/Menus/LoadingScreen/loading_screen.tscn"
 const MAIN_MENU_PATH := "res://Game/Common/Menus/MainMenu/main_menu.tscn"
 const LEVEL_SELECT_PATH := "res://Game/Common/Menus/LevelSelect/level_select.tscn"
 
 #---- STANDARD -----
+#==== PUBLIC ====
+var paused := false
+
 #==== PRIVATE ====
 var _current_level_data: LevelsData
 var _current_level_idx := 0
@@ -40,6 +45,7 @@ func enable_next_level() -> void:
 
 
 func load_main_menu() -> void:
+	LoadingScreen.LEVEL_NAME = tr(TranslationKeys.MAIN_MENU)
 	_goto_scene(MAIN_MENU_PATH)
 	_current_level_data = null
 	_current_level_idx = 0
@@ -83,6 +89,28 @@ func get_current() -> Node:
 	return get_tree().get_current_scene()
 
 
+func pause() -> void:
+	if StandardSongManager.get_current() != null:
+		StandardSongManager.apply_effect(
+			FunctionUtils.create_filter_auto_effect(FADE_IN_TIME),
+			{StandardSongManager.get_current().name: {"fade_in": false}}
+		)
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	get_tree().paused = true
+	paused = true
+
+
+func unpause() -> void:
+	if StandardSongManager.get_current() != null:
+		StandardSongManager.apply_effect(
+			FunctionUtils.create_filter_auto_effect(FADE_IN_TIME),
+			{StandardSongManager.get_current().name: {"fade_in": true}}
+		)
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	get_tree().paused = false
+	paused = false
+
+
 ##### PROTECTED METHODS #####
 func _switch_to_game_scene(levels: LevelsData, idx: int) -> void:
 	if levels != null and levels.check_has_level(idx):
@@ -90,16 +118,23 @@ func _switch_to_game_scene(levels: LevelsData, idx: int) -> void:
 		if current_level != null:
 			if levels != _current_level_data:
 				_current_level_data = levels
+			LoadingScreen.LEVEL_NAME = current_level.NAME
 			_goto_scene(current_level.SCENE_PATH)
 			_current_level_idx = idx
 
 
 func _goto_scene(path: String) -> void:
 	# call_deferred("deferred_goto_scene", path)
+	LoadingScreen.appear()
+	yield(LoadingScreen, LoadingScreen.APPEAR_FINISHED_SIGNAL_NAME)
 	if get_tree() != null and get_tree().change_scene(path) != OK:
 		DebugUtils.log_stacktrace(
 			"Error while changing scene to %s" % path, DebugUtils.LOG_LEVEL.error
 		)
+	pause()
+	LoadingScreen.disappear()
+	yield(LoadingScreen, LoadingScreen.DISAPPEAR_FINISHED_SIGNAL_NAME)
+	unpause()
 
 # func deferred_goto_scene(path: String) -> void:
 # 	if get_tree() != null:
