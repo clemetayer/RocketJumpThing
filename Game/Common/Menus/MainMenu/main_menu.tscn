@@ -1,29 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://Game/Common/Menus/MainMenu/wavy_shader.shader" type="Shader" id=1]
+[ext_resource path="res://Game/Common/Menus/MainMenu/main_menu_background.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Game/Common/Themes/Menus/MainMenu/main_menu.tres" type="Theme" id=2]
 [ext_resource path="res://Game/Common/Menus/MainMenu/main_menu.gd" type="Script" id=3]
 
-[sub_resource type="ShaderMaterial" id=1]
-shader = ExtResource( 1 )
-shader_param/back_color1 = Color( 0.14902, 0.729412, 0.686275, 1 )
-shader_param/back_color2 = Color( 0.0666667, 0.776471, 0.811765, 1 )
-shader_param/back_cycle_speed = 0.5
-shader_param/wave1_color = Color( 1, 1, 1, 1 )
-shader_param/wave1_thick = 0.4
-shader_param/wave1_up_sine_speed = 0.25
-shader_param/wave1_up_sine_amplitude = 0.08
-shader_param/wave1_down_sine_speed = 0.15
-shader_param/wave1_down_sine_amplitude = 0.08
-shader_param/wave2_color = Color( 1, 1, 1, 1 )
-shader_param/wave2_thick = 0.5
-shader_param/wave2_up_sine_speed = 0.2
-shader_param/wave2_up_sine_amplitude = 0.08
-shader_param/wave2_down_sine_speed = 0.3
-shader_param/wave2_down_sine_amplitude = 0.03
-
 [sub_resource type="StyleBoxFlat" id=2]
-bg_color = Color( 0, 0, 0, 0.180392 )
+bg_color = Color( 0, 0, 0, 0.392157 )
 
 [sub_resource type="StyleBoxFlat" id=9]
 bg_color = Color( 0.6, 0.6, 0.6, 0 )
@@ -68,35 +50,18 @@ anti_aliasing_size = 0.75
 position = Vector2( -3, 0 )
 script = ExtResource( 3 )
 
-[node name="Camera2D" type="Camera2D" parent="."]
-anchor_mode = 0
-current = true
+[node name="MainMenuBackground" parent="." instance=ExtResource( 1 )]
 
 [node name="Menu" type="CanvasLayer" parent="."]
 
 [node name="Backgrouds" type="Control" parent="Menu"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Background" type="Panel" parent="Menu/Backgrouds"]
-material = SubResource( 1 )
-anchor_right = 1.0
-anchor_bottom = 1.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Panel" type="Panel" parent="Menu/Backgrouds"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_styles/panel = SubResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="CenterContainer" type="CenterContainer" parent="Menu"]
 anchor_right = 1.0

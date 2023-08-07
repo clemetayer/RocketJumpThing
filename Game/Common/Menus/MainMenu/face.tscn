@@ -1,0 +1,71 @@
+[gd_scene load_steps=6 format=2]
+
+[sub_resource type="QuadMesh" id=1]
+
+[sub_resource type="Shader" id=2]
+code = "shader_type spatial;
+
+uniform vec4 back_color : hint_color = vec4(0,0,0,1.0);
+uniform sampler2D color_gradient;
+
+const float FRACT_DIVIDER = 5.0;
+const float SQUARE_SIZE = 0.75;
+const float SQUARE_CORNER_RADIUS = 0.75;
+const float PI = 3.1415;
+
+float random (vec2 uv) {
+    return fract(sin(dot(uv.xy,
+        vec2(12.9898,78.233))) * 43758.5453123);
+}
+
+float square_rounded(vec2 uv, float width, float radius){
+	uv = uv * 2.0 - 1.0;
+	
+	radius *= width; // make radius go from 0-1 instead of 0-width
+	vec2 abs_uv = abs(uv.xy) - radius;
+	vec2 dist = vec2(max(abs_uv.xy, 0.0));
+	float square = step(width - radius, length(dist));
+	return square;
+}
+
+float smooth_appear_square(vec2 uv, float time){
+	return sin(random(uv) * 2.0 *  PI + time)/2.0 + 0.5;
+}
+
+vec2 round_uv(vec2 uv, float fract_divider) {
+	return round(uv * fract_divider + 0.5) / fract_divider;
+}
+
+void fragment(){
+	vec2 fract_uv = fract(UV * FRACT_DIVIDER);
+	if(square_rounded(fract_uv,SQUARE_SIZE,SQUARE_CORNER_RADIUS) == 0.0){
+		vec4 color = texture(color_gradient,UV);
+		float smooth_appear = smooth_appear_square(round_uv(UV,FRACT_DIVIDER), TIME);
+		vec4 mixed_color = mix(back_color,color,smooth_appear);
+		ALBEDO = mixed_color.rgb;
+		ALPHA = mixed_color.a;
+	}
+	else{
+		ALBEDO = back_color.rgb;
+		ALPHA = back_color.a;
+	}
+	EMISSION = ALBEDO;
+}
+"
+
+[sub_resource type="Gradient" id=4]
+colors = PoolColorArray( 1, 0.0117647, 0.0117647, 1, 0, 0.0235294, 1, 1 )
+
+[sub_resource type="GradientTexture2D" id=5]
+gradient = SubResource( 4 )
+fill = 1
+fill_to = Vector2( 1, 1 )
+
+[sub_resource type="ShaderMaterial" id=3]
+shader = SubResource( 2 )
+shader_param/back_color = Color( 0, 0, 0, 1 )
+shader_param/color_gradient = SubResource( 5 )
+
+[node name="Face" type="MeshInstance"]
+mesh = SubResource( 1 )
+material/0 = SubResource( 3 )

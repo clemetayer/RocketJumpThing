@@ -86,3 +86,4 @@ enum TWEEN_EASE_TYPES { IN, OUT, IN_OUT, OUT_IN }  # Tween ease types to be used
 #---- MISC -----
 const THE_ENTITY_GROUP := "the_entity"
 const LASER_GROUP := "laser"
+const MIRROR_GROUP := "mirror"

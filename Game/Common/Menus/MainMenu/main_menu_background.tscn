@@ -1,0 +1,108 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://Game/Common/Menus/MainMenu/cube.tres" type="ArrayMesh" id=1]
+[ext_resource path="res://Misc/Skyboxes/menus/menus_down.png" type="Texture" id=2]
+[ext_resource path="res://Misc/Skyboxes/menus/menus_back.png" type="Texture" id=3]
+[ext_resource path="res://Misc/Skyboxes/menus/menus_front.png" type="Texture" id=4]
+[ext_resource path="res://Misc/Skyboxes/menus/menus_up.png" type="Texture" id=5]
+[ext_resource path="res://Misc/Skyboxes/menus/menus_right.png" type="Texture" id=6]
+[ext_resource path="res://Misc/Skyboxes/menus/menus_left.png" type="Texture" id=7]
+[ext_resource path="res://addons/simple_skybox/Skybox.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Game/Common/MapElements/BaseClasses/rotating_spatial.gd" type="Script" id=9]
+[ext_resource path="res://Game/Common/Menus/MainMenu/main_menu_background.gd" type="Script" id=10]
+[ext_resource path="res://Game/Common/Menus/MainMenu/cube.tscn" type="PackedScene" id=12]
+
+[sub_resource type="Environment" id=1]
+background_mode = 1
+background_energy = 0.0
+ambient_light_energy = 0.0
+tonemap_mode = 3
+ssao_radius = 108.2
+ssao_intensity = 128.0
+ssao_radius2 = 128.0
+ssao_color = Color( 1, 1, 1, 1 )
+glow_enabled = true
+glow_intensity = 0.1
+glow_strength = 0.95
+glow_bloom = 0.1
+glow_blend_mode = 0
+glow_high_quality = true
+
+[sub_resource type="Gradient" id=5]
+offsets = PoolRealArray( 0, 0.5, 1 )
+colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=6]
+gradient = SubResource( 5 )
+
+[sub_resource type="ParticlesMaterial" id=18]
+emission_shape = 2
+emission_box_extents = Vector3( 2, 2, 2 )
+gravity = Vector3( 0, 0, 0 )
+color_ramp = SubResource( 6 )
+
+[sub_resource type="Shader" id=7]
+code = "shader_type spatial;
+
+const float emission_intensity = 2.0;
+
+void fragment() {
+	ALBEDO = COLOR.rgb;
+	EMISSION = COLOR.rgb * emission_intensity;
+	ALPHA = COLOR.a;
+}
+"
+
+[sub_resource type="ShaderMaterial" id=8]
+shader = SubResource( 7 )
+
+[sub_resource type="CubeMesh" id=4]
+material = SubResource( 8 )
+size = Vector3( 0.1, 0.1, 0.1 )
+
+[node name="MainMenuBackground" type="Spatial"]
+script = ExtResource( 10 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 1 )
+
+[node name="Cube" parent="." instance=ExtResource( 12 )]
+transform = Transform( 0.0982531, -0.475343, -0.119982, 0.478351, 0.11975, -0.082701, 0.107358, -0.0985362, 0.478294, 0, 0, 0 )
+properties = {
+"rotation_speed": Vector3( 0.5, 0.25, -0.33 )
+}
+
+[node name="Cube_bkp" type="MeshInstance" parent="."]
+transform = Transform( 0.0182499, 0.0946532, 0.0266028, -0.0980561, 0.0155387, 0.0119809, 0.00720656, -0.0282721, 0.095649, 0, 0, 0 )
+visible = false
+mesh = ExtResource( 1 )
+script = ExtResource( 9 )
+properties = {
+"rotation_speed": Vector3( 0.5, 0.25, -0.33 )
+}
+
+[node name="Skybox" parent="." instance=ExtResource( 8 )]
+transform = Transform( 40, 0, 0, 0, 40, 0, 0, 0, 40, 0, 0, 0 )
+TextureFront = ExtResource( 4 )
+TextureBack = ExtResource( 3 )
+TextureBottom = ExtResource( 2 )
+TextureUp = ExtResource( 5 )
+TextureLeft = ExtResource( 7 )
+TextureRight = ExtResource( 6 )
+
+[node name="Particles" type="Particles" parent="."]
+amount = 18
+process_material = SubResource( 18 )
+draw_pass_1 = SubResource( 4 )
+
+[node name="CameraFocus" type="Spatial" parent="."]
+transform = Transform( -0.446217, 0.891971, -0.0726503, 0.20212, 0.179529, 0.962765, 0.871801, 0.414918, -0.260394, 0, 0, 0 )
+script = ExtResource( 9 )
+properties = {
+"rotation_speed": Vector3( 0.05, 0.25, -0.1 )
+}
+
+[node name="Camera" type="Camera" parent="CameraFocus"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.75 )
+current = true
+far = 1024.0

@@ -1,0 +1,161 @@
+// Game: RocketJumpThing
+// Format: Valve
+// entity 0
+{
+"mapversion" "220"
+"classname" "worldspawn"
+"_tb_textures" "textures/entities/MainMenuCube"
+// brush 0
+{
+( -60 -64 -64 ) ( -60 -63 -64 ) ( -60 -64 -63 ) __TB_empty [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -64 -60 -64 ) ( -64 -60 -63 ) ( -63 -60 -64 ) __TB_empty [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -64 -64 -64 ) ( -63 -64 -64 ) ( -64 -63 -64 ) entities/MainMenuCube/reflect_part [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 64 64 64 ) ( 64 65 64 ) ( 65 64 64 ) entities/MainMenuCube/reflect_part [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 64 60 -32 ) ( 65 60 -32 ) ( 64 60 -31 ) __TB_empty [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 60 64 -32 ) ( 60 64 -31 ) ( 60 65 -32 ) __TB_empty [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+// brush 1
+{
+( -64 -64 -64 ) ( -64 -63 -64 ) ( -64 -64 -63 ) entities/MainMenuCube/reflect_part [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -64 -60 -64 ) ( -64 -60 -63 ) ( -63 -60 -64 ) __TB_empty [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -64 -64 -60 ) ( -63 -64 -60 ) ( -64 -63 -60 ) __TB_empty [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 64 64 60 ) ( 64 65 60 ) ( 65 64 60 ) __TB_empty [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 64 60 -32 ) ( 65 60 -32 ) ( 64 60 -31 ) __TB_empty [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -60 -64 -64 ) ( -60 -64 -63 ) ( -60 -63 -64 ) __TB_empty [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+// brush 2
+{
+( -60 -64 -64 ) ( -60 -63 -64 ) ( -60 -64 -63 ) __TB_empty [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -64 -64 -64 ) ( -64 -64 -63 ) ( -63 -64 -64 ) entities/MainMenuCube/reflect_part [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -64 -64 -60 ) ( -63 -64 -60 ) ( -64 -63 -60 ) __TB_empty [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 64 64 60 ) ( 64 65 60 ) ( 65 64 60 ) __TB_empty [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -64 -60 -64 ) ( -63 -60 -64 ) ( -64 -60 -63 ) __TB_empty [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 60 64 -32 ) ( 60 64 -31 ) ( 60 65 -32 ) __TB_empty [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+// brush 3
+{
+( 60 64 -32 ) ( 60 65 -32 ) ( 60 64 -31 ) __TB_empty [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -64 -60 -64 ) ( -64 -60 -63 ) ( -63 -60 -64 ) __TB_empty [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -64 -64 -60 ) ( -63 -64 -60 ) ( -64 -63 -60 ) __TB_empty [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 64 64 60 ) ( 64 65 60 ) ( 65 64 60 ) __TB_empty [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 64 60 -32 ) ( 65 60 -32 ) ( 64 60 -31 ) __TB_empty [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 64 64 -32 ) ( 64 64 -31 ) ( 64 65 -32 ) entities/MainMenuCube/reflect_part [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+// brush 4
+{
+( -60 -64 -64 ) ( -60 -63 -64 ) ( -60 -64 -63 ) __TB_empty [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 64 60 -32 ) ( 64 60 -31 ) ( 65 60 -32 ) __TB_empty [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -64 -64 -60 ) ( -63 -64 -60 ) ( -64 -63 -60 ) __TB_empty [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 64 64 60 ) ( 64 65 60 ) ( 65 64 60 ) __TB_empty [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 64 64 -32 ) ( 65 64 -32 ) ( 64 64 -31 ) entities/MainMenuCube/reflect_part [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 60 64 -32 ) ( 60 64 -31 ) ( 60 65 -32 ) __TB_empty [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+// brush 5
+{
+( 60 64 -32 ) ( 60 65 -32 ) ( 60 64 -31 ) entities/MainMenuCube/light [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -64 -60 -64 ) ( -64 -60 -63 ) ( -63 -60 -64 ) entities/MainMenuCube/light [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 64 64 60 ) ( 65 64 60 ) ( 64 65 60 ) entities/MainMenuCube/light [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 64 64 64 ) ( 64 65 64 ) ( 65 64 64 ) entities/MainMenuCube/light [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 64 64 -32 ) ( 65 64 -32 ) ( 64 64 -31 ) entities/MainMenuCube/light [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 64 64 -32 ) ( 64 64 -31 ) ( 64 65 -32 ) entities/MainMenuCube/light [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+// brush 6
+{
+( -60 -64 -64 ) ( -60 -63 -64 ) ( -60 -64 -63 ) entities/MainMenuCube/light [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 64 60 -32 ) ( 64 60 -31 ) ( 65 60 -32 ) entities/MainMenuCube/light [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 64 64 60 ) ( 65 64 60 ) ( 64 65 60 ) entities/MainMenuCube/light [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 64 64 64 ) ( 64 65 64 ) ( 65 64 64 ) entities/MainMenuCube/light [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 64 64 -32 ) ( 65 64 -32 ) ( 64 64 -31 ) entities/MainMenuCube/light [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 60 64 -32 ) ( 60 64 -31 ) ( 60 65 -32 ) entities/MainMenuCube/light [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+// brush 7
+{
+( -64 -64 -64 ) ( -64 -63 -64 ) ( -64 -64 -63 ) entities/MainMenuCube/light [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -64 -64 -64 ) ( -64 -64 -63 ) ( -63 -64 -64 ) entities/MainMenuCube/light [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 64 64 60 ) ( 65 64 60 ) ( 64 65 60 ) entities/MainMenuCube/light [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 64 64 64 ) ( 64 65 64 ) ( 65 64 64 ) entities/MainMenuCube/light [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 64 64 -32 ) ( 65 64 -32 ) ( 64 64 -31 ) entities/MainMenuCube/light [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -60 -64 -64 ) ( -60 -64 -63 ) ( -60 -63 -64 ) entities/MainMenuCube/light [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+// brush 8
+{
+( -60 -64 -64 ) ( -60 -63 -64 ) ( -60 -64 -63 ) entities/MainMenuCube/light [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -64 -64 -64 ) ( -64 -64 -63 ) ( -63 -64 -64 ) entities/MainMenuCube/light [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 64 64 60 ) ( 65 64 60 ) ( 64 65 60 ) entities/MainMenuCube/light [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 64 64 64 ) ( 64 65 64 ) ( 65 64 64 ) entities/MainMenuCube/light [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -64 -60 -64 ) ( -63 -60 -64 ) ( -64 -60 -63 ) entities/MainMenuCube/light [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 64 64 -32 ) ( 64 64 -31 ) ( 64 65 -32 ) entities/MainMenuCube/light [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+// brush 9
+{
+( 60 64 -32 ) ( 60 65 -32 ) ( 60 64 -31 ) entities/MainMenuCube/light [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -64 -60 -64 ) ( -64 -60 -63 ) ( -63 -60 -64 ) entities/MainMenuCube/light [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -64 -64 -64 ) ( -63 -64 -64 ) ( -64 -63 -64 ) entities/MainMenuCube/light [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -64 -64 -60 ) ( -64 -63 -60 ) ( -63 -64 -60 ) entities/MainMenuCube/light [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 64 64 -32 ) ( 65 64 -32 ) ( 64 64 -31 ) entities/MainMenuCube/light [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 64 64 -32 ) ( 64 64 -31 ) ( 64 65 -32 ) entities/MainMenuCube/light [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+// brush 10
+{
+( -60 -64 -64 ) ( -60 -63 -64 ) ( -60 -64 -63 ) entities/MainMenuCube/light [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 64 60 -32 ) ( 64 60 -31 ) ( 65 60 -32 ) entities/MainMenuCube/light [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -64 -64 -64 ) ( -63 -64 -64 ) ( -64 -63 -64 ) entities/MainMenuCube/light [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -64 -64 -60 ) ( -64 -63 -60 ) ( -63 -64 -60 ) entities/MainMenuCube/light [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 64 64 -32 ) ( 65 64 -32 ) ( 64 64 -31 ) entities/MainMenuCube/light [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 60 64 -32 ) ( 60 64 -31 ) ( 60 65 -32 ) entities/MainMenuCube/light [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+// brush 11
+{
+( -64 -64 -64 ) ( -64 -63 -64 ) ( -64 -64 -63 ) entities/MainMenuCube/light [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -64 -64 -64 ) ( -64 -64 -63 ) ( -63 -64 -64 ) entities/MainMenuCube/light [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -64 -64 -64 ) ( -63 -64 -64 ) ( -64 -63 -64 ) entities/MainMenuCube/light [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -64 -64 -60 ) ( -64 -63 -60 ) ( -63 -64 -60 ) entities/MainMenuCube/light [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 64 64 -32 ) ( 65 64 -32 ) ( 64 64 -31 ) entities/MainMenuCube/light [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -60 -64 -64 ) ( -60 -64 -63 ) ( -60 -63 -64 ) entities/MainMenuCube/light [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+// brush 12
+{
+( -60 -64 -64 ) ( -60 -63 -64 ) ( -60 -64 -63 ) entities/MainMenuCube/light [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -64 -64 -64 ) ( -64 -64 -63 ) ( -63 -64 -64 ) entities/MainMenuCube/light [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -64 -64 -64 ) ( -63 -64 -64 ) ( -64 -63 -64 ) entities/MainMenuCube/light [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -64 -64 -60 ) ( -64 -63 -60 ) ( -63 -64 -60 ) entities/MainMenuCube/light [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -64 -60 -64 ) ( -63 -60 -64 ) ( -64 -60 -63 ) entities/MainMenuCube/light [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 64 64 -32 ) ( 64 64 -31 ) ( 64 65 -32 ) entities/MainMenuCube/light [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+// brush 13
+{
+( -64 -64 -64 ) ( -64 -63 -64 ) ( -64 -64 -63 ) entities/MainMenuCube/light [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 64 60 -32 ) ( 64 60 -31 ) ( 65 60 -32 ) entities/MainMenuCube/light [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -64 -64 -60 ) ( -63 -64 -60 ) ( -64 -63 -60 ) entities/MainMenuCube/light [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 64 64 60 ) ( 64 65 60 ) ( 65 64 60 ) entities/MainMenuCube/light [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 64 64 -32 ) ( 65 64 -32 ) ( 64 64 -31 ) entities/MainMenuCube/light [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -60 -64 -64 ) ( -60 -64 -63 ) ( -60 -63 -64 ) entities/MainMenuCube/light [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+// brush 14
+{
+( 60 64 -32 ) ( 60 65 -32 ) ( 60 64 -31 ) entities/MainMenuCube/light [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 64 60 -32 ) ( 64 60 -31 ) ( 65 60 -32 ) entities/MainMenuCube/light [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -64 -64 -60 ) ( -63 -64 -60 ) ( -64 -63 -60 ) entities/MainMenuCube/light [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 64 64 60 ) ( 64 65 60 ) ( 65 64 60 ) entities/MainMenuCube/light [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 64 64 -32 ) ( 65 64 -32 ) ( 64 64 -31 ) entities/MainMenuCube/light [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 64 64 -32 ) ( 64 64 -31 ) ( 64 65 -32 ) entities/MainMenuCube/light [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+// brush 15
+{
+( -64 -64 -64 ) ( -64 -63 -64 ) ( -64 -64 -63 ) entities/MainMenuCube/light [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -64 -64 -64 ) ( -64 -64 -63 ) ( -63 -64 -64 ) entities/MainMenuCube/light [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -64 -64 -60 ) ( -63 -64 -60 ) ( -64 -63 -60 ) entities/MainMenuCube/light [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 64 64 60 ) ( 64 65 60 ) ( 65 64 60 ) entities/MainMenuCube/light [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -64 -60 -64 ) ( -63 -60 -64 ) ( -64 -60 -63 ) entities/MainMenuCube/light [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -60 -64 -64 ) ( -60 -64 -63 ) ( -60 -63 -64 ) entities/MainMenuCube/light [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+// brush 16
+{
+( 60 64 -32 ) ( 60 65 -32 ) ( 60 64 -31 ) entities/MainMenuCube/light [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -64 -64 -64 ) ( -64 -64 -63 ) ( -63 -64 -64 ) entities/MainMenuCube/light [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -64 -64 -60 ) ( -63 -64 -60 ) ( -64 -63 -60 ) entities/MainMenuCube/light [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 64 64 60 ) ( 64 65 60 ) ( 65 64 60 ) entities/MainMenuCube/light [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -64 -60 -64 ) ( -63 -60 -64 ) ( -64 -60 -63 ) entities/MainMenuCube/light [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 64 64 -32 ) ( 64 64 -31 ) ( 64 65 -32 ) entities/MainMenuCube/light [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+}
