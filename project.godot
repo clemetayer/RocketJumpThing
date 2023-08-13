@@ -1469,6 +1469,7 @@ ScenesManager="*res://Game/Common/Utils/Managers/scenes_manager.gd"
 RuntimeUtils="*res://Game/Common/Utils/runtime_utils.gd"
 GlobalScreenEffects="*res://Game/Common/Shaders/GlobalScreenEffects/global_screen_effects.tscn"
 LoadingScreen="*res://Game/Common/Menus/LoadingScreen/loading_screen.tscn"
+MenuNavigator="*res://Game/Common/Menus/menu_navigator.tscn"
 
 [debug]
 

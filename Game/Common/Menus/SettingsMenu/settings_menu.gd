@@ -2,7 +2,7 @@ extends Control
 # Settings menu
 
 ##### SIGNALS #####
-signal return_signal
+signal return_to_prev_menu
 
 ##### VARIABLES #####
 #---- CONSTANTS -----
@@ -43,4 +43,4 @@ func _init_tab_names() -> void:
 ##### SIGNAL MANAGEMENT #####
 func _on_Return_pressed() -> void:
 	SettingsUtils.save_current_settings()
-	emit_signal("return_signal")
+	emit_signal("return_to_prev_menu")

@@ -1,0 +1,56 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Game/Common/Menus/MainMenu/main_menu_ui.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Game/Common/Menus/SettingsMenu/settings_menu.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Game/Common/Menus/PauseMenu/pause_menu.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Game/Common/Menus/LevelSelect/level_select.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Game/Common/Menus/menu_navigator.gd" type="Script" id=5]
+
+[node name="MenuNavigator" type="CanvasLayer"]
+pause_mode = 2
+layer = 50
+script = ExtResource( 5 )
+
+[node name="DarkLayer" type="CanvasLayer" parent="."]
+layer = 50
+
+[node name="ColorRect" type="ColorRect" parent="DarkLayer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.392157 )
+
+[node name="MainMenu" type="CanvasLayer" parent="."]
+layer = 51
+
+[node name="MainMenu" parent="MainMenu" instance=ExtResource( 1 )]
+visible = false
+
+[node name="PauseMenu" type="CanvasLayer" parent="."]
+layer = 51
+
+[node name="PauseMenu" parent="PauseMenu" instance=ExtResource( 3 )]
+visible = false
+
+[node name="SettingsMenu" type="CanvasLayer" parent="."]
+layer = 52
+
+[node name="SettingsMenu" parent="SettingsMenu" instance=ExtResource( 2 )]
+visible = false
+
+[node name="LevelSelectMenu" type="CanvasLayer" parent="."]
+layer = 52
+
+[node name="LevelSelectMenu" parent="LevelSelectMenu" instance=ExtResource( 4 )]
+visible = false
+
+[node name="TheForbiddenMenu" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_editor_description_": "Used to avoid errors when the navigator lost track of the current menu.
+
+This should not be modified"
+}
+
+[node name="ToggleMenuTransition" type="Tween" parent="."]

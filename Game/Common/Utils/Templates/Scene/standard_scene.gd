@@ -74,8 +74,7 @@ func _manage_inputs() -> void:
 
 
 func _init_pause() -> void:
-	_pause_menu = load(PAUSE_MENU_PATH).instance()
-	add_child(_pause_menu)
+	MenuNavigator.toggle_pause_enabled(true)
 
 
 func _init_end_level() -> void:

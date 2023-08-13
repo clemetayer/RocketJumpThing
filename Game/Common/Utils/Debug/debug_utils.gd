@@ -36,12 +36,21 @@ static func print_stack_trace(stack: Array) -> String:
 #### Logger #####
 # connects and logs if it fails
 static func log_connect(caller, receiver, caller_signal_name: String, receiver_func_name: String):
-	var error = caller.connect(caller_signal_name, receiver, receiver_func_name)
-	if error != OK:
+	if caller != null and receiver != null:
+		var error = caller.connect(caller_signal_name, receiver, receiver_func_name)
+		if error != OK:
+			log_stacktrace(
+				(
+					"Error connecting %s to %s, with error %d"
+					% [caller_signal_name, receiver_func_name, error]
+				),
+				LOG_LEVEL.error
+			)
+	else:
 		log_stacktrace(
 			(
-				"Error connecting %s to %s, with error %d"
-				% [caller_signal_name, receiver_func_name, error]
+				"Error connecting %s to %s, one of the part is null - %s -> %s"
+				% [caller_signal_name, receiver_func_name, caller, receiver]
 			),
 			LOG_LEVEL.error
 		)

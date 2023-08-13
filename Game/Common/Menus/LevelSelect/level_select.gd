@@ -1,6 +1,9 @@
 extends Control
 # The level select menu
 
+##### SIGNALS #####
+signal return_to_prev_menu
+
 ##### VARIABLES #####
 #---- CONSTANTS -----
 const LEVEL_ICON_PATH := "res://Game/Common/Menus/LevelSelect/level_icon.tscn"
@@ -44,4 +47,4 @@ func _create_level_icon(levels_data : LevelsData, level_idx : int) -> Control:
 
 ##### SIGNAL MANAGEMENT #####
 func _on_button_pressed() -> void:
-	_scenes_manager.load_main_menu()
+	emit_signal("return_to_prev_menu")

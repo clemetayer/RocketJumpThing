@@ -1,19 +1,25 @@
 # GdUnit generated TestSuite
 #warning-ignore-all:unused_argument
 #warning-ignore-all:return_value_discarded
-extends %BASE%
+extends GlobalTests
 # description
 
 ##### VARIABLES #####
-const __source = '${source_resource_path}' # TestSuite generated from
+const scene_path := "path_to_scene.tscn"
+var scene
+
 
 ##### TESTS #####
 #---- PRE/POST -----
 func before():
-	pass
+	element_path = scene_path
+	.before()
+	scene = load(scene_path).instance()
+	scene._ready()
 
 func after():
-	pass
+	scene.free()
+	.after()
 
 func after_test():
 	pass

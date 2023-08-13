@@ -35,19 +35,9 @@ func _set_labels() -> void:
 func _connect_signals() -> void:
 	DebugUtils.log_connect(SignalManager, self, "end_reached", "_on_SignalManager_end_reached")
 
-
-func _unpause():
-	if StandardSongManager.get_current() != null:
-		StandardSongManager.apply_effect(
-			FunctionUtils.create_filter_auto_effect(FADE_IN_TIME),
-			{StandardSongManager.get_current().name: {"fade_in": true}}
-		)
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	get_tree().paused = false
-	onready_paths.root_ui.hide()
-
 ##### SIGNAL MANAGEMENT #####
 func _on_SignalManager_end_reached() -> void:
+	MenuNavigator.toggle_pause_enabled(false)
 	if StandardSongManager.get_current() != null:
 		StandardSongManager.apply_effect(
 			FunctionUtils.create_filter_auto_effect(FADE_IN_TIME),
@@ -70,15 +60,18 @@ func _on_SignalManager_end_reached() -> void:
 
 
 func _on_NextButton_pressed():
-	_unpause()
+	ScenesManager.unpause(Input.MOUSE_MODE_CAPTURED)
+	onready_paths.root_ui.hide()
 	ScenesManager.next_level()
 
 
 func _on_RestartButton_pressed():
-	_unpause()
+	ScenesManager.unpause(Input.MOUSE_MODE_CAPTURED)
+	onready_paths.root_ui.hide()
 	ScenesManager.reload_current()
 
 
 func _on_MainMenuButton_pressed():
-	_unpause()
+	ScenesManager.unpause(Input.MOUSE_MODE_VISIBLE)
+	onready_paths.root_ui.hide()
 	ScenesManager.load_main_menu()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://trenchbroom/textures/entities/MainMenuCube/light.tres" type="Material" id=1]
 [ext_resource path="res://Game/Common/Menus/MainMenu/cube.gd" type="Script" id=2]
@@ -59,10 +59,17 @@ void fragment(){
 }
 "
 
+[sub_resource type="Gradient" id=12]
+colors = PoolColorArray( 0, 0.85098, 1, 1, 0, 1, 0.227451, 1 )
+
+[sub_resource type="GradientTexture" id=13]
+gradient = SubResource( 12 )
+
 [sub_resource type="ShaderMaterial" id=4]
 resource_local_to_scene = true
 shader = SubResource( 2 )
 shader_param/back_color = Color( 0, 0, 0, 1 )
+shader_param/color_gradient = SubResource( 13 )
 
 [sub_resource type="QuadMesh" id=6]
 

@@ -46,5 +46,6 @@ func _load_preview(path : String) -> Texture:
 
 ##### SIGNAL MANAGEMENT #####
 func _on_button_pressed() -> void:
+	MenuNavigator.exit_navigation()
 	_scenes_manager.load_level(LEVELS_DATA,LEVEL_IDX)
 		

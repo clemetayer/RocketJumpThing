@@ -12,7 +12,6 @@ extends Node
 const FADE_IN_TIME := 0.5
 const LOADING_SCREEN_PATH := "res://Game/Common/Menus/LoadingScreen/loading_screen.tscn"
 const MAIN_MENU_PATH := "res://Game/Common/Menus/MainMenu/main_menu.tscn"
-const LEVEL_SELECT_PATH := "res://Game/Common/Menus/LevelSelect/level_select.tscn"
 
 #---- STANDARD -----
 #==== PUBLIC ====
@@ -46,14 +45,7 @@ func enable_next_level() -> void:
 
 func load_main_menu() -> void:
 	LoadingScreen.LEVEL_NAME = tr(TranslationKeys.MAIN_MENU)
-	_goto_scene(MAIN_MENU_PATH)
-	_current_level_data = null
-	_current_level_idx = 0
-	_current_scene_instance = null
-
-
-func load_level_select_menu() -> void:
-	_goto_scene(LEVEL_SELECT_PATH)
+	_goto_scene(MAIN_MENU_PATH, Input.MOUSE_MODE_VISIBLE)
 	_current_level_data = null
 	_current_level_idx = 0
 	_current_scene_instance = null
@@ -65,21 +57,25 @@ func load_end() -> void:
 
 
 func load_level(levels: LevelsData, idx: int = 0) -> void:
-	_switch_to_game_scene(levels, idx)
+	_switch_to_game_scene(levels, idx, Input.MOUSE_MODE_CAPTURED)
 
 
 func previous_level() -> void:
 	if _current_level_data != null and _current_level_data.has_previous_level(_current_level_idx):
-		_switch_to_game_scene(_current_level_data, _current_level_idx - 1)
+		_switch_to_game_scene(
+			_current_level_data, _current_level_idx - 1, Input.MOUSE_MODE_CAPTURED
+		)
 
 
 func next_level() -> void:
 	if _current_level_data != null and _current_level_data.has_next_level(_current_level_idx):
-		_switch_to_game_scene(_current_level_data, _current_level_idx + 1)
+		_switch_to_game_scene(
+			_current_level_data, _current_level_idx + 1, Input.MOUSE_MODE_CAPTURED
+		)
 
 
 func reload_current() -> void:
-	_switch_to_game_scene(_current_level_data, _current_level_idx)
+	_switch_to_game_scene(_current_level_data, _current_level_idx, Input.MOUSE_MODE_CAPTURED)
 
 
 func get_current() -> Node:
@@ -100,30 +96,33 @@ func pause() -> void:
 	paused = true
 
 
-func unpause() -> void:
+# by default, shows the mouse.
+func unpause(input_mode: int = Input.MOUSE_MODE_VISIBLE) -> void:
 	if StandardSongManager.get_current() != null:
 		StandardSongManager.apply_effect(
 			FunctionUtils.create_filter_auto_effect(FADE_IN_TIME),
 			{StandardSongManager.get_current().name: {"fade_in": true}}
 		)
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	Input.set_mouse_mode(input_mode)
 	get_tree().paused = false
 	paused = false
 
 
 ##### PROTECTED METHODS #####
-func _switch_to_game_scene(levels: LevelsData, idx: int) -> void:
+func _switch_to_game_scene(
+	levels: LevelsData, idx: int, input_mode: int = Input.MOUSE_MODE_VISIBLE
+) -> void:
 	if levels != null and levels.check_has_level(idx):
 		var current_level = levels.get_level(idx)
 		if current_level != null:
 			if levels != _current_level_data:
 				_current_level_data = levels
 			LoadingScreen.LEVEL_NAME = current_level.NAME
-			_goto_scene(current_level.SCENE_PATH)
+			_goto_scene(current_level.SCENE_PATH, input_mode)
 			_current_level_idx = idx
 
 
-func _goto_scene(path: String) -> void:
+func _goto_scene(path: String, input_mode: int = Input.MOUSE_MODE_VISIBLE) -> void:
 	# call_deferred("deferred_goto_scene", path)
 	LoadingScreen.appear()
 	yield(LoadingScreen, LoadingScreen.APPEAR_FINISHED_SIGNAL_NAME)
@@ -134,7 +133,7 @@ func _goto_scene(path: String) -> void:
 	pause()
 	LoadingScreen.disappear()
 	yield(LoadingScreen, LoadingScreen.DISAPPEAR_FINISHED_SIGNAL_NAME)
-	unpause()
+	unpause(input_mode)
 
 # func deferred_goto_scene(path: String) -> void:
 # 	if get_tree() != null:
