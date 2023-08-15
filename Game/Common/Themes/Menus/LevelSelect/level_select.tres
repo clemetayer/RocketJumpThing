@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Game/Common/Themes/Menus/Common/BoxesB2/grey_box_b2.tres" type="StyleBox" id=1]
 [ext_resource path="res://Misc/Fonts/Oswald/Oswald-VariableFont_wght.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://Game/Common/Themes/Menus/Common/BoxesB2/aquamarine_box_b2.tres" type="StyleBox" id=3]
+[ext_resource path="res://Game/Common/Themes/Menus/LevelSelect/stylebox_flat.tres" type="StyleBox" id=3]
 [ext_resource path="res://Game/Common/Themes/Menus/Common/transparent_background.tres" type="StyleBox" id=4]
 [ext_resource path="res://Game/Common/Themes/Menus/Common/BoxesB2/white_box_b2.tres" type="StyleBox" id=5]
 

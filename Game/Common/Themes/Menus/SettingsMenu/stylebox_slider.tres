@@ -1,0 +1,14 @@
+[gd_resource type="StyleBoxTexture" load_steps=3 format=2]
+
+[sub_resource type="Gradient" id=131]
+colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 1 )
+
+[sub_resource type="GradientTexture" id=132]
+gradient = SubResource( 131 )
+width = 800
+
+[resource]
+texture = SubResource( 132 )
+region_rect = Rect2( 0, 0, 800, 1 )
+axis_stretch_horizontal = 1
+modulate_color = Color( 1, 0.470588, 0, 1 )
