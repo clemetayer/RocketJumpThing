@@ -28,5 +28,6 @@ size = Vector3( 6, 0, 6 )
 [node name="UpTriangles" type="Particles"]
 amount = 16
 lifetime = 16.0
+visibility_aabb = AABB( -6.00001, -6.00001, -6.00001, 12, 47.9833, 12 )
 process_material = SubResource( 3452 )
 draw_pass_1 = SubResource( 5010 )

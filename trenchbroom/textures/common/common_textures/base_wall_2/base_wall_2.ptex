@@ -1,0 +1,193 @@
+{
+	"connections": [
+		{
+			"from": "mwf_output",
+			"from_port": 0,
+			"to": "Material",
+			"to_port": 0
+		},
+		{
+			"from": "mwf_output",
+			"from_port": 4,
+			"to": "Material",
+			"to_port": 4
+		},
+		{
+			"from": "mwf_output",
+			"from_port": 5,
+			"to": "Material",
+			"to_port": 5
+		},
+		{
+			"from": "mwf_output",
+			"from_port": 6,
+			"to": "Material",
+			"to_port": 6
+		},
+		{
+			"from": "mwf_map",
+			"from_port": 0,
+			"to": "mwf_output",
+			"to_port": 0
+		},
+		{
+			"from": "mwf_map",
+			"from_port": 1,
+			"to": "mwf_output",
+			"to_port": 1
+		},
+		{
+			"from": "mwf_map",
+			"from_port": 2,
+			"to": "mwf_output",
+			"to_port": 2
+		},
+		{
+			"from": "mwf_map",
+			"from_port": 3,
+			"to": "mwf_output",
+			"to_port": 3
+		},
+		{
+			"from": "mwf_map",
+			"from_port": 4,
+			"to": "mwf_output",
+			"to_port": 4
+		},
+		{
+			"from": "mwf_create_map",
+			"from_port": 0,
+			"to": "mwf_map",
+			"to_port": 0
+		},
+		{
+			"from": "fbm2",
+			"from_port": 0,
+			"to": "math",
+			"to_port": 0
+		},
+		{
+			"from": "math",
+			"from_port": 0,
+			"to": "mwf_create_map",
+			"to_port": 0
+		}
+	],
+	"label": "Graph",
+	"longdesc": "",
+	"name": "@@322",
+	"node_position": {
+		"x": 0,
+		"y": 0
+	},
+	"nodes": [
+		{
+			"export_last_target": "Godot/Godot 3 Spatial",
+			"export_paths": {
+				"Godot/Godot 3 Spatial": "/home/clemetayer/Projects/RocketJumpThing/trenchbroom/textures/common/common_textures/base_wall_2/base_wall_2"
+			},
+			"name": "Material",
+			"node_position": {
+				"x": 0,
+				"y": 0
+			},
+			"parameters": {
+				"albedo_color": {
+					"a": 1,
+					"b": 1,
+					"g": 1,
+					"r": 1,
+					"type": "Color"
+				},
+				"ao": 1,
+				"depth_scale": 0.5,
+				"emission_energy": 0,
+				"flags_transparent": true,
+				"metallic": 0,
+				"normal": 1,
+				"roughness": 0.5,
+				"size": 9,
+				"sss": 1
+			},
+			"seed_int": 0,
+			"type": "material"
+		},
+		{
+			"name": "mwf_map",
+			"node_position": {
+				"x": -698.63678,
+				"y": 145.841522
+			},
+			"parameters": {
+
+			},
+			"seed_int": 0,
+			"type": "mwf_map"
+		},
+		{
+			"name": "mwf_output",
+			"node_position": {
+				"x": -450.63678,
+				"y": 137.841522
+			},
+			"parameters": {
+				"param0": 0.1,
+				"param2": 1
+			},
+			"seed_int": 0,
+			"type": "mwf_output"
+		},
+		{
+			"name": "mwf_create_map",
+			"node_position": {
+				"x": -944.811157,
+				"y": 151.927673
+			},
+			"parameters": {
+				"angle": 0,
+				"height": 0.1
+			},
+			"seed_int": 0,
+			"type": "mwf_create_map"
+		},
+		{
+			"name": "fbm2",
+			"node_position": {
+				"x": -1463.251099,
+				"y": -18.792356
+			},
+			"parameters": {
+				"folds": 0,
+				"iterations": 5,
+				"noise": 0,
+				"offset": 0,
+				"persistence": 0.5,
+				"scale_x": 100,
+				"scale_y": 100
+			},
+			"seed_int": 0,
+			"type": "fbm2"
+		},
+		{
+			"name": "math",
+			"node_position": {
+				"x": -1196.371216,
+				"y": 155.647659
+			},
+			"parameters": {
+				"clamp": false,
+				"default_in1": 0,
+				"default_in2": 0.02,
+				"op": 2
+			},
+			"seed_int": 0,
+			"type": "math"
+		}
+	],
+	"parameters": {
+
+	},
+	"seed_int": 0,
+	"shortdesc": "",
+	"type": "graph"
+}

@@ -7,6 +7,7 @@
 [ext_resource path="res://trenchbroom/textures/common/common_textures/base_wall/base_wall_albedo.png" type="Texture" id=5]
 
 [resource]
+albedo_color = Color( 0.113725, 0.113725, 0.113725, 1 )
 albedo_texture = ExtResource( 5 )
 metallic = 0.5
 roughness = 0.4

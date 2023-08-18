@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[ext_resource path="res://Game/Common/Shaders/ChangeAlbedo/Speed/speed_color_blend_1.tres" type="Shader" id=1]
+
+[resource]
+shader = ExtResource( 1 )
+shader_param/color_1 = Color( 0, 0.321569, 1, 1 )
+shader_param/color_2 = Color( 0, 0.921569, 1, 1 )
+shader_param/speed = 1.0
+shader_param/max_speed = 25.0
+shader_param/intensity = 8.0

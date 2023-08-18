@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=16 format=2]
+[gd_resource type="Resource" load_steps=13 format=2]
 
 [ext_resource path="res://Game/Common/Utils/Resources/sequencer_step_data.gd" type="Script" id=1]
 [ext_resource path="res://Game/Common/Utils/Resources/sequencer_init_param.gd" type="Script" id=2]
@@ -9,29 +9,29 @@
 [sub_resource type="Resource" id=11]
 script = ExtResource( 2 )
 VAR_NODEPATH = {
-"material:albedo_color": Color( 0.521569, 0.294118, 1, 1 ),
-"material:emission": Color( 0.521569, 0.294118, 1, 1 )
+"material:albedo_color": Color( 0, 0.160784, 0.498039, 1 ),
+"material:emission": Color( 0, 0.160784, 0.498039, 1 )
 }
 
 [sub_resource type="Resource" id=12]
 script = ExtResource( 2 )
 VAR_NODEPATH = {
-"material:albedo_color": Color( 0, 0.529412, 0.843137, 1 ),
-"material:emission": Color( 0, 0.529412, 0.843137, 1 )
+"material:albedo_color": Color( 0, 0.396078, 0.654902, 1 ),
+"material:emission": Color( 0, 0.396078, 0.654902, 1 )
 }
 
 [sub_resource type="Resource" id=13]
 script = ExtResource( 2 )
 VAR_NODEPATH = {
-"material:albedo_color": Color( 0, 0.784314, 0.666667, 1 ),
-"material:emission": Color( 0, 0.784314, 0.666667, 1 )
+"material:albedo_color": Color( 0, 0.666667, 0.831373, 1 ),
+"material:emission": Color( 0, 0.666667, 0.831373, 1 )
 }
 
 [sub_resource type="Resource" id=14]
 script = ExtResource( 2 )
 VAR_NODEPATH = {
-"material:albedo_color": Color( 0, 1, 0.509804, 1 ),
-"material:emission": Color( 0, 1, 0.509804, 1 )
+"material:albedo_color": Color( 0, 0.921569, 1, 1 ),
+"material:emission": Color( 0, 0.921569, 1, 1 )
 }
 
 [sub_resource type="Resource" id=15]
@@ -62,22 +62,10 @@ VALUES = {
 script = ExtResource( 1 )
 STEP_DATA_ITEMS = [ SubResource( 15 ) ]
 
-[sub_resource type="Resource" id=7]
-script = ExtResource( 1 )
-STEP_DATA_ITEMS = [  ]
-
-[sub_resource type="Resource" id=8]
-script = ExtResource( 1 )
-STEP_DATA_ITEMS = [  ]
-
-[sub_resource type="Resource" id=9]
-script = ExtResource( 1 )
-STEP_DATA_ITEMS = [  ]
-
 [sub_resource type="Resource" id=17]
 script = ExtResource( 3 )
 SIGNAL_KEY = "kick"
-SEQUENCER_STEPS = [ SubResource( 16 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ) ]
+SEQUENCER_STEPS = [ SubResource( 16 ), SubResource( 16 ), SubResource( 16 ), SubResource( 16 ) ]
 
 [resource]
 script = ExtResource( 5 )

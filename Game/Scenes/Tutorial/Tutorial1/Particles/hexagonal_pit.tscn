@@ -3,7 +3,7 @@
 [ext_resource path="res://Game/Common/MapElements/Particles/regular_polygon_on_cube.tres" type="Shader" id=1]
 
 [sub_resource type="Gradient" id=3448]
-colors = PoolColorArray( 0.0196078, 0, 1, 1, 0, 1, 0.25098, 1 )
+colors = PoolColorArray( 0, 0.160784, 0.498039, 1, 0, 0.921569, 1, 1 )
 
 [sub_resource type="GradientTexture" id=3449]
 gradient = SubResource( 3448 )
@@ -39,5 +39,6 @@ size = Vector3( 18.75, 0, 18.75 )
 [node name="HexagonalPit" type="Particles"]
 amount = 15
 lifetime = 6.0
+visibility_aabb = AABB( -18.75, -18.75, -18.75, 37.5, 68.649, 37.5 )
 process_material = SubResource( 3447 )
 draw_pass_1 = SubResource( 5018 )

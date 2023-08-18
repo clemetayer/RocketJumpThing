@@ -28,10 +28,10 @@ uniform vec3 uv1_offset;
 uniform vec3 uv2_scale;
 uniform vec3 uv2_offset;
 // Custom things
-const vec2 window_size = vec2(0.3,0.05);
-const float window_intensity = 4.0;
-const float window_fract = 4.0;
-const float window_draw_trigger = 0.75; // Chance a window will be drawn
+uniform float window_intensity = 4.0;
+uniform float window_draw_trigger = 0.75; // Chance a window will be drawn
+uniform float window_fract = 4.0;
+uniform vec2 window_size = vec2(0.3,0.05);
 uniform vec4 window_color : hint_color;
 
 float random (vec2 uv) {
