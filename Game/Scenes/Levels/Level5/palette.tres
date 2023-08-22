@@ -1,0 +1,7 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Game/Common/Utils/Resources/color_palette.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+PALETTE = [ Color( 0, 0.419608, 0.8, 1 ), Color( 0.247059, 0.458824, 0.647059, 1 ), Color( 0, 0.207843, 0.4, 1 ), Color( 0.498039, 0.709804, 0.898039, 1 ), Color( 0.8, 0.380392, 0, 1 ), Color( 0.647059, 0.439216, 0.247059, 1 ), Color( 0.4, 0.188235, 0, 1 ), Color( 0.898039, 0.690196, 0.498039, 1 ) ]

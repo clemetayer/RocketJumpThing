@@ -4,14 +4,14 @@
 
 [resource]
 shader = ExtResource( 1 )
-shader_param/max_size = 0.02
-shader_param/ss_e = 0.4
+shader_param/max_size = 0.01
+shader_param/ss_e = 0.002
+shader_param/trail_epsilon = 0.3
 shader_param/number_of_squares = 8
 shader_param/max_velocity = 0.5
 shader_param/min_velocity = 0.1
-shader_param/left_to_right = true
 shader_param/back_color = Color( 0, 0, 0, 1 )
 shader_param/color_1 = Color( 0, 0.254902, 1, 1 )
 shader_param/color_2 = Color( 0.423529, 1, 0.945098, 1 )
-shader_param/intensity = 4.0
-shader_param/size_divider = 12.0
+shader_param/intensity = 3.0
+shader_param/size_divider = 4.0

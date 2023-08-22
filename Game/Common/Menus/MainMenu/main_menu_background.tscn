@@ -1,12 +1,12 @@
 [gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Game/Common/Menus/MainMenu/cube.tres" type="ArrayMesh" id=1]
-[ext_resource path="res://Misc/Skyboxes/menus/menus_down.png" type="Texture" id=2]
-[ext_resource path="res://Misc/Skyboxes/menus/menus_back.png" type="Texture" id=3]
-[ext_resource path="res://Misc/Skyboxes/menus/menus_front.png" type="Texture" id=4]
-[ext_resource path="res://Misc/Skyboxes/menus/menus_up.png" type="Texture" id=5]
-[ext_resource path="res://Misc/Skyboxes/menus/menus_right.png" type="Texture" id=6]
-[ext_resource path="res://Misc/Skyboxes/menus/menus_left.png" type="Texture" id=7]
+[ext_resource path="res://Game/Common/Menus/MainMenu/Skybox/menus_down.png" type="Texture" id=2]
+[ext_resource path="res://Game/Common/Menus/MainMenu/Skybox/menus_back.png" type="Texture" id=3]
+[ext_resource path="res://Game/Common/Menus/MainMenu/Skybox/menus_front.png" type="Texture" id=4]
+[ext_resource path="res://Game/Common/Menus/MainMenu/Skybox/menus_up.png" type="Texture" id=5]
+[ext_resource path="res://Game/Common/Menus/MainMenu/Skybox/menus_right.png" type="Texture" id=6]
+[ext_resource path="res://Game/Common/Menus/MainMenu/Skybox/menus_left.png" type="Texture" id=7]
 [ext_resource path="res://addons/simple_skybox/Skybox.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Game/Common/MapElements/BaseClasses/rotating_spatial.gd" type="Script" id=9]
 [ext_resource path="res://Game/Common/Menus/MainMenu/main_menu_background.gd" type="Script" id=10]
@@ -95,13 +95,13 @@ LEVEL_SELECT_MENU_PARTICLES_COLOR = Color( 0.12549, 0, 1, 1 )
 environment = SubResource( 1 )
 
 [node name="Cube" parent="." instance=ExtResource( 12 )]
-transform = Transform( -0.136154, 0.354405, -0.32536, -0.0301324, -0.343756, -0.361834, -0.480159, -0.0789225, 0.114966, 0, 0, 0 )
+transform = Transform( -0.458544, 0.199178, 0.00805205, -0.00450569, 0.0098355, -0.499883, -0.199289, -0.45851, -0.00722517, 0, 0, 0 )
 properties = {
 "rotation_speed": Vector3( 0.5, 0.25, -0.33 )
 }
 
 [node name="Cube_bkp" type="MeshInstance" parent="."]
-transform = Transform( 0.0470542, -0.0714804, 0.0517342, -0.0375602, -0.0692792, -0.0615597, 0.0798444, 0.00953497, -0.059447, 0, 0, 0 )
+transform = Transform( 0.0954016, -0.0297138, 0.00395325, 0.000250536, -0.0123974, -0.0992281, 0.0299746, 0.0946751, -0.0117528, 0, 0, 0 )
 visible = false
 mesh = ExtResource( 1 )
 script = ExtResource( 9 )
@@ -124,7 +124,7 @@ process_material = SubResource( 18 )
 draw_pass_1 = SubResource( 4 )
 
 [node name="CameraFocus" type="Spatial" parent="."]
-transform = Transform( -0.744214, 0.384997, 0.545823, 0.663419, 0.520985, 0.537075, -0.0775933, 0.761807, -0.643139, 0, 0, 0 )
+transform = Transform( -0.79545, 0.542, 0.271099, 0.600845, 0.647016, 0.469419, 0.0790194, 0.536287, -0.840328, 0, 0, 0 )
 script = ExtResource( 9 )
 properties = {
 "rotation_speed": Vector3( 0.05, 0.25, -0.1 )
