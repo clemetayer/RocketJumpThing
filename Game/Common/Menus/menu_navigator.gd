@@ -6,7 +6,7 @@ extends CanvasLayer
 signal menu_activated(menu)
 
 ##### ENUMS #####
-enum MENU { hidden, main, pause, settings, level_select }
+enum MENU { hidden, main, pause, settings, level_select, end_level }
 
 ##### VARIABLES #####
 #---- CONSTANTS -----
@@ -32,6 +32,7 @@ onready var onready_paths := {
 	"pause":$"PauseMenu/PauseMenu",
 	"settings":$"SettingsMenu/SettingsMenu",
 	"level_select":$"LevelSelectMenu/LevelSelectMenu",
+	"end_level": $"EndLevelMenu/EndLevelMenu",
 	"transition_tween": $"ToggleMenuTransition",
 	"forbidden_menu": $"TheForbiddenMenu"
 }
@@ -163,6 +164,8 @@ func _get_menu_by_id(id : int) -> CanvasItem:
 			return onready_paths.settings
 		MENU.level_select:
 			return onready_paths.level_select
+		MENU.end_level:
+			return onready_paths.end_level
 	DebugUtils.log_stacktrace("Unable to get the menu %d" % id,  DebugUtils.LOG_LEVEL.warn)
 	return onready_paths.forbidden_menu
 

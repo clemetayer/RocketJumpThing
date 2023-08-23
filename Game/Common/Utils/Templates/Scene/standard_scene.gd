@@ -56,7 +56,6 @@ func _init_func() -> void:
 
 func _ready_func() -> void:
 	_init_pause()
-	_init_end_level()
 	_init_song()
 	_init_node_paths()
 	_init_skybox()
@@ -75,11 +74,6 @@ func _manage_inputs() -> void:
 
 func _init_pause() -> void:
 	MenuNavigator.toggle_pause_enabled(true)
-
-
-func _init_end_level() -> void:
-	_end_level_ui = load(END_LEVEL_PATH).instance()
-	add_child(_end_level_ui)
 
 
 func _init_song() -> void:

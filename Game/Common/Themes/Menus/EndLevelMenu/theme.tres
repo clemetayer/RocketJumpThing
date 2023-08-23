@@ -1,13 +1,12 @@
-[gd_scene load_steps=12 format=2]
+[gd_resource type="Theme" load_steps=10 format=2]
 
-[ext_resource path="res://Game/Common/Menus/EndLevel/end_level_ui.gd" type="Script" id=1]
-[ext_resource path="res://Misc/Fonts/Oswald/Oswald-VariableFont_wght.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Misc/Fonts/Oswald/Oswald-VariableFont_wght.ttf" type="DynamicFontData" id=1]
 
 [sub_resource type="DynamicFont" id=3]
 size = 25
 use_mipmaps = true
 use_filter = true
-font_data = ExtResource( 2 )
+font_data = ExtResource( 1 )
 
 [sub_resource type="StyleBoxFlat" id=5]
 bg_color = Color( 0.6, 0.6, 0.6, 0 )
@@ -83,12 +82,12 @@ anti_aliasing_size = 0.75
 size = 50
 use_mipmaps = true
 use_filter = true
-font_data = ExtResource( 2 )
+font_data = ExtResource( 1 )
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0, 0, 0, 0.784314 )
 
-[sub_resource type="Theme" id=2]
+[resource]
 default_font = SubResource( 3 )
 Button/colors/font_color = Color( 1, 1, 1, 1 )
 Button/colors/font_color_disabled = Color( 0.482353, 0.482353, 0.482353, 1 )
@@ -114,80 +113,3 @@ Label/fonts/font = SubResource( 4 )
 Label/styles/normal = null
 Panel/styles/panel = SubResource( 1 )
 VBoxContainer/constants/separation = 45
-
-[node name="EndLevelUI" type="CanvasLayer"]
-pause_mode = 2
-layer = 4
-script = ExtResource( 1 )
-
-[node name="OpacityTween" type="Tween" parent="."]
-
-[node name="UI" type="Control" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-theme = SubResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Background" type="Panel" parent="UI"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="CenterContainer" type="CenterContainer" parent="UI"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/CenterContainer"]
-margin_left = 258.0
-margin_top = 217.0
-margin_right = 766.0
-margin_bottom = 383.0
-
-[node name="Time" type="Label" parent="UI/CenterContainer/VBoxContainer"]
-margin_right = 508.0
-margin_bottom = 75.0
-text = "99:99:999"
-align = 1
-
-[node name="Buttons" type="HBoxContainer" parent="UI/CenterContainer/VBoxContainer"]
-margin_top = 120.0
-margin_right = 508.0
-margin_bottom = 166.0
-rect_min_size = Vector2( 500, 0 )
-alignment = 1
-
-[node name="MainMenuButton" type="Button" parent="UI/CenterContainer/VBoxContainer/Buttons"]
-margin_right = 119.0
-margin_bottom = 46.0
-size_flags_horizontal = 3
-text = "MAIN_MENU"
-
-[node name="RestartButton" type="Button" parent="UI/CenterContainer/VBoxContainer/Buttons"]
-margin_left = 149.0
-margin_right = 300.0
-margin_bottom = 46.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-text = "MENU_RESTART"
-
-[node name="NextButton" type="Button" parent="UI/CenterContainer/VBoxContainer/Buttons"]
-margin_left = 330.0
-margin_right = 508.0
-margin_bottom = 46.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-text = "MENU_NEXT_LEVEL"
-
-[connection signal="pressed" from="UI/CenterContainer/VBoxContainer/Buttons/MainMenuButton" to="." method="_unpause"]
-[connection signal="pressed" from="UI/CenterContainer/VBoxContainer/Buttons/MainMenuButton" to="." method="_on_MainMenuButton_pressed"]
-[connection signal="pressed" from="UI/CenterContainer/VBoxContainer/Buttons/RestartButton" to="." method="_unpause"]
-[connection signal="pressed" from="UI/CenterContainer/VBoxContainer/Buttons/RestartButton" to="." method="_on_RestartButton_pressed"]
-[connection signal="pressed" from="UI/CenterContainer/VBoxContainer/Buttons/NextButton" to="." method="_unpause"]
-[connection signal="pressed" from="UI/CenterContainer/VBoxContainer/Buttons/NextButton" to="." method="_on_NextButton_pressed"]
