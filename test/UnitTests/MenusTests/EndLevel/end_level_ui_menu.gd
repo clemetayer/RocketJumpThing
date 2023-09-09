@@ -5,7 +5,7 @@ extends GlobalTests
 # tests the end level ui
 
 ##### VARIABLES #####
-const end_level_ui_path := "res://Game/Common/Menus/EndLevel/end_level_ui.tscn"
+const end_level_ui_path := "res://Game/Common/Menus/EndLevel/end_level_menu.tscn"
 var end_level_ui
 
 

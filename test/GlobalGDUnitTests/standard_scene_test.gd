@@ -56,16 +56,10 @@ func test_pause() -> void:
 	scene_instance._init_pause()
 
 
-# tests the end level
-func test_end_level() -> void:
-	scene_instance._init_end_level()
-
-
 # tests the signal connections
 func test_signal_connections() -> void:
 	scene_instance._connect_autoload_signals()
 	assert_bool(SignalManager.is_connected(SignalManager.CHECKPOINT_TRIGGERED, scene_instance, "_on_checkpoint_triggered")).is_true()
-	assert_bool(SignalManager.is_connected(SignalManager.RESPAWN_PLAYER_ON_LAST_CP, scene_instance, "_on_respawn_player_on_last_cp")).is_true()
 
 
 # tests the restart method
@@ -111,7 +105,7 @@ func test_respawn_player_on_last_cp() -> void:
 	var player = scene_instance._player
 	player._ready()
 	scene_instance._last_cp = last_cp_test
-	scene_instance._on_respawn_player_on_last_cp()
+	scene_instance._respawn_player_on_last_cp()
 	# assert_signal(SignalManager).is_not_emitted("start_level_chronometer")
 	assert_vector3(player.transform.origin).is_equal(last_cp_test.get_spawn_point())
 	assert_float(player.rotation_degrees.y).is_equal(last_cp_test.get_spawn_rotation().y)

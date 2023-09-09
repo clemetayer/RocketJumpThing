@@ -4,8 +4,7 @@
 [ext_resource path="res://Game/Scenes/Tutorial/Tutorial2/geometric_shape_emitter.gd" type="Script" id=2]
 
 [sub_resource type="Gradient" id=2412]
-offsets = PoolRealArray( 0, 0.753304, 1 )
-colors = PoolColorArray( 1, 0, 1, 1, 0, 1, 0.958984, 1, 0, 0.996078, 1, 1 )
+colors = PoolColorArray( 1, 0, 0.972549, 1, 0, 0.972549, 1, 1 )
 
 [sub_resource type="GradientTexture" id=2413]
 gradient = SubResource( 2412 )
@@ -42,6 +41,7 @@ size = Vector3( 0.313, 0, 0.313 )
 transform = Transform( 40, 0, 0, 0, 40, 0, 0, 0, 40, 0, 0, 0 )
 amount = 16
 lifetime = 8.0
+visibility_aabb = AABB( -0.31301, -0.31301, -0.31301, 0.62602, 3.18425, 0.62602 )
 process_material = SubResource( 2407 )
 draw_pass_1 = SubResource( 2409 )
 script = ExtResource( 2 )

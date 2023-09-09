@@ -1,57 +1,39 @@
-[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+[gd_resource type="ShaderMaterial" load_steps=7 format=2]
 
-[sub_resource type="Shader" id=1]
-code = "shader_type spatial;
-
-uniform vec4 back_color  : hint_color;
-uniform vec4 window_color_1 : hint_color;
-uniform vec4 window_color_2 : hint_color;
-const vec2 uv1_scale = vec2(1.0/20.0);
-const float window_size = 0.6;
-const float intensity = 5.0;
-const float ss_e = 0.33;
-const float metallic = 0.75;
-const float roughness = 0.5;
-const float specular = 0.5;
-
-float random (vec2 uv) {
-    return fract(sin(dot(uv.xy,
-        vec2(12.9898,78.233))) * 43758.5453123);
-}
-
-
-float square(vec2 uv)
-{
-	uv = uv * 2.0 - 1.0;
-	
-	vec2 abs_uv = abs(uv.xy);
-	float square = step(window_size/2.0, max(abs_uv.x, abs_uv.y));
-	return 1.0 - square;
-}
-
-
-void vertex(){
-	UV *= uv1_scale;
-}
-
-void fragment(){
-	vec2 uv = fract(UV * 10.0);
-	float window = square(uv);
-	vec4 window_color = mix(window_color_1,window_color_2,(sin(UV.x + TIME / 3.0) / 2.0 + 0.5)  * (sin(UV.y + TIME / 2.0) / 2.0 + 0.5));
-	if(window > 0.0){
-		ALBEDO = window_color.rgb * window;
-		EMISSION = ALBEDO * intensity * window * max(sin(UV.x + TIME / 1.5) * sin(UV.y + TIME),0.1);
-	}
-	else{
-		ALBEDO = back_color.rgb;
-		METALLIC = metallic;
-		ROUGHNESS = roughness;
-		SPECULAR = specular;
-	}
-}"
+[ext_resource path="res://trenchbroom/textures/scenes/tutorial2_scene/windows.gdshader" type="Shader" id=1]
+[ext_resource path="res://trenchbroom/textures/common/common_textures/base_wall/base_wall_emission.png" type="Texture" id=2]
+[ext_resource path="res://trenchbroom/textures/common/common_textures/base_wall/base_wall_orm.png" type="Texture" id=3]
+[ext_resource path="res://trenchbroom/textures/common/common_textures/base_wall/base_wall_depth.png" type="Texture" id=4]
+[ext_resource path="res://trenchbroom/textures/common/common_textures/base_wall/base_wall_normal.png" type="Texture" id=5]
+[ext_resource path="res://trenchbroom/textures/common/common_textures/base_wall/base_wall_albedo.png" type="Texture" id=6]
 
 [resource]
-shader = SubResource( 1 )
-shader_param/back_color = Color( 0.533333, 0.533333, 0.533333, 1 )
+shader = ExtResource( 1 )
+shader_param/albedo = Color( 0, 0, 0, 1 )
+shader_param/specular = 0.5
+shader_param/metallic = 0.5
+shader_param/roughness = 0.4
+shader_param/point_size = 1.0
+shader_param/roughness_texture_channel = Plane( 0, 1, 0, 0 )
+shader_param/emission = null
+shader_param/emission_energy = 0.0
+shader_param/normal_scale = 0.125
+shader_param/ao_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/ao_light_affect = null
+shader_param/depth_scale = 0.002
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
+shader_param/uv1_offset = null
+shader_param/uv2_scale = Vector3( 1, 1, 0 )
+shader_param/uv2_offset = null
+shader_param/back_color = Color( 0.2, 0.2, 0.2, 1 )
 shader_param/window_color_1 = Color( 0, 1, 0.929412, 1 )
 shader_param/window_color_2 = Color( 1, 0, 0.984314, 1 )
+shader_param/uv1_scale = Vector2( 0.25, 0.25 )
+shader_param/texture_albedo = ExtResource( 6 )
+shader_param/texture_roughness = ExtResource( 3 )
+shader_param/texture_emission = ExtResource( 2 )
+shader_param/texture_normal = ExtResource( 5 )
+shader_param/texture_ambient_occlusion = ExtResource( 3 )
+shader_param/texture_depth = ExtResource( 4 )

@@ -69,7 +69,7 @@ func _manage_inputs() -> void:
 	if Input.is_action_just_pressed(GlobalConstants.INPUT_RESTART):
 		_restart()
 	elif Input.is_action_just_pressed(GlobalConstants.INPUT_RESTART_LAST_CP):
-		_on_respawn_player_on_last_cp()
+		_respawn_player_on_last_cp()
 
 
 func _init_pause() -> void:
@@ -103,17 +103,11 @@ func _connect_autoload_signals() -> void:
 	DebugUtils.log_connect(
 		SignalManager, self, SignalManager.CHECKPOINT_TRIGGERED, "_on_checkpoint_triggered"
 	)
-	DebugUtils.log_connect(
-		SignalManager,
-		self,
-		SignalManager.RESPAWN_PLAYER_ON_LAST_CP,
-		"_on_respawn_player_on_last_cp"
-	)
 
 
 func _restart() -> void:
 	_last_cp = _start_point
-	_on_respawn_player_on_last_cp()
+	_respawn_player_on_last_cp()
 
 
 # changes the scene song animation
@@ -130,10 +124,11 @@ func _on_checkpoint_triggered(checkpoint: Checkpoint) -> void:
 	_last_cp = checkpoint
 
 
-func _on_respawn_player_on_last_cp() -> void:
+func _respawn_player_on_last_cp() -> void:
 	if _last_cp != null:
 		var player = get_player()
 		if player != null:
+			SignalManager.emit_respawn_player_on_last_cp()
 			player.checkpoint_process(_last_cp.get_spawn_point(), _last_cp.get_spawn_rotation())
 			if FunctionUtils.is_start_point(_last_cp):  # if restart at the beginning of the level, restart the chronometer
 				SignalManager.emit_start_level_chronometer()

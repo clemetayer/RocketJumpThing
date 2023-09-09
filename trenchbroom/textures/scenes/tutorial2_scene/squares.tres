@@ -1,79 +1,17 @@
 [gd_resource type="ShaderMaterial" load_steps=2 format=2]
 
-[sub_resource type="Shader" id=1]
-code = "shader_type spatial;
-
-const vec2 uv1_scale = vec2(1.0/100.0,1.0/100.0);
-const float max_size = 1.0/50.0;
-const float metallic = 0.75;
-const float roughness = 0.5;
-const float specular = 0.5;
-
-uniform float ss_e = 0.2; // smoothstep epsilon
-uniform int number_of_squares = 50;
-uniform float max_velocity = 0.01;
-uniform float min_velocity = 0.1;
-uniform bool left_to_right = true;
-uniform vec4 back_color : hint_color;
-uniform vec4 color_1 : hint_color;
-uniform vec4 color_2 : hint_color;
-uniform float intensity = 1.0;
-uniform float size_divider = 1.0;
-
-float random (vec2 uv) {
-    return fract(sin(dot(uv.xy,
-        vec2(12.9898,78.233))) * 43758.5453123);
-}
-
-vec4 square_stroke(vec2 uv, float rand, vec2 pos)
-{
-	float square = step(pos.x, uv.x) * step(uv.x, pos.x + max_size) * smoothstep(pos.y - ss_e, pos.y + ss_e, uv.y) * step(uv.y, pos.y + max_size);
-	return mix(color_1,color_2,rand) * square;
-}
-
-void vertex(){
-	UV = UV * uv1_scale;
-}
-
-void fragment(){
-	vec2 uv = UV;
-	uv.x = fract(uv.x * (3.0/size_divider));
-	uv.y = fract(uv.y * (2.0/size_divider));
-	vec4 color = back_color;
-	float left_to_right_val = 1.0;
-	if(!left_to_right)
-		left_to_right_val = -1.0;
-	for(int i = 0; i < number_of_squares; i++){
-		float rand_x = random(vec2(float(i)/float(number_of_squares)));
-		float rand_y = random(vec2(float(i)/float(number_of_squares),0.0));
-		float rand_vel = max(0.15,random(vec2(0.0,float(i)/float(number_of_squares))) * 0.25);
-		vec2 pos = vec2(0);
-		pos.x = rand_y;
-		pos.y = mod(TIME * rand_vel * left_to_right_val, 1.0) ;
-		vec4 square = square_stroke(uv,rand_x, pos);
-		if(square.rgb == vec3(0)){
-			METALLIC = metallic;
-			ROUGHNESS = roughness;
-			SPECULAR = specular;
-		}
-		else{
-			color.rgb += square.rgb * square.a;
-			EMISSION = square.rgb * 5.0 * square.a;
-		}
-	}
-	ALBEDO = color.rgb;
-}
-"
+[ext_resource path="res://Game/Common/Shaders/Directional/moving_squares_2.gdshader" type="Shader" id=1]
 
 [resource]
-shader = SubResource( 1 )
-shader_param/ss_e = 0.2
-shader_param/number_of_squares = 10
-shader_param/max_velocity = 1.0
+shader = ExtResource( 1 )
+shader_param/max_size = 0.01
+shader_param/ss_e = 0.005
+shader_param/trail_epsilon = 0.4
+shader_param/number_of_squares = 8
+shader_param/max_velocity = 0.6
 shader_param/min_velocity = 0.1
-shader_param/left_to_right = true
-shader_param/back_color = Color( 0.341176, 0.341176, 0.341176, 1 )
-shader_param/color_1 = Color( 0, 1, 0.952941, 1 )
-shader_param/color_2 = Color( 1, 0, 0.937255, 1 )
-shader_param/intensity = 1.0
-shader_param/size_divider = 1.0
+shader_param/back_color = Color( 0, 0, 0, 1 )
+shader_param/color_1 = Color( 0.74902, 0.247059, 0.733333, 1 )
+shader_param/color_2 = Color( 0, 0.972549, 1, 1 )
+shader_param/intensity = 2.0
+shader_param/size_divider = 8.0

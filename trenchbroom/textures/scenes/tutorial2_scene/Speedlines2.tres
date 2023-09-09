@@ -45,12 +45,12 @@ noise = SubResource( 1 )
 
 [resource]
 shader = SubResource( 3 )
-shader_param/material_color = Color( 1, 0, 0.960784, 0.862745 )
-shader_param/line_color_a = Color( 1, 0, 0.890196, 0.501961 )
+shader_param/material_color = Color( 1, 0, 0.960784, 0.996078 )
+shader_param/line_color_a = Color( 1, 0, 0.890196, 0.509804 )
 shader_param/line_color_b = Color( 0.901961, 0.490196, 1, 1 )
-shader_param/line_threshold = 0.68
+shader_param/line_threshold = 0.65
 shader_param/inverse_speed = 10.0
-shader_param/line_length = 80.0
+shader_param/line_length = 70.0
 shader_param/angle = 180.0
 shader_param/intensity = 5.0
 shader_param/noise = SubResource( 2 )

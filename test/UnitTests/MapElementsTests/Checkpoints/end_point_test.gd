@@ -38,6 +38,7 @@ func test_on_EndPoint_body_entered() -> void:
 	var player = load(GlobalTestUtilities.player_path).instance()
 	player.add_to_group("player")
 	end_point._on_EndPoint_body_entered(player)
+	ScenesManager.unpause()
 	assert_bool(VariableManager.scene_unloading).is_true()
 	assert_signal(SignalManager).is_emitted(SignalManager.END_REACHED)
 	player.free()

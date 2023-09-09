@@ -9,6 +9,7 @@ const TB_MOVER_MAPPER := [
 	["path_emission", "_path_emission"],
 	["path_alpha", "_path_alpha"]
 ]  # mapper for TrenchBroom parameters
+const TB_RESET_ON_CHECKPOINT := "reset_on_checkpoint" # special TB param to convert to a bool
 const PATH_MESH_RADIUS = 0.03125  # radius of the cylinder mesh
 #---- EXPORTS -----
 export(Dictionary) var properties
@@ -25,6 +26,7 @@ var _path_emission: float = 0.0  # Emission of the path
 var _path_alpha: float = 0.0  #  Transparency of the path
 var _tween: Tween  # Tween to move the spatial
 var _step_idx := 0  # index of the position in the array
+var _reset_on_checkpoint := false # if the mover position should reset on checkpoint
 
 #==== ONREADY ====
 onready var onready_position := self.translation  # keeps a record of the original position of the spatial
@@ -48,11 +50,21 @@ func _ready():
 	# sets the first step
 	if _travel_data.size() > 1:
 		_set_tween_to_pos_idx(_step_idx)
-
+	# inits the mover to reset on respawn
+	if _reset_on_checkpoint:
+		DebugUtils.log_connect(
+			SignalManager,
+			self,
+			SignalManager.RESPAWN_PLAYER_ON_LAST_CP,
+			"_on_respawn_player_on_last_cp"
+		)
 
 ##### PROTECTED METHODS #####
 func _set_TB_params() -> void:
 	TrenchBroomEntityUtils._map_trenchbroom_properties(self, properties, TB_MOVER_MAPPER)
+	if TB_RESET_ON_CHECKPOINT in properties:
+		_reset_on_checkpoint = properties[TB_RESET_ON_CHECKPOINT] != 0
+
 
 
 #==== Other =====
@@ -71,20 +83,25 @@ func _init_travel_data() -> void:
 # adds (all) the path meshes to the parent
 func _create_show_path_meshes() -> void:
 	for travel_data_idx in range(1, _travel_data.size()):
-		var mesh = _create_show_path_mesh(
-			_travel_data[travel_data_idx - 1].POSITION, _travel_data[travel_data_idx].POSITION
-		)
-		var mid_pos = (
-			(_travel_data[travel_data_idx - 1].POSITION - _travel_data[travel_data_idx].POSITION)
-			/ 2.0
-		)  # middle position, since a cylinder mesh starts at the middle
-		mesh.transform.origin += (
-			self.transform.origin
-			- mid_pos
-			+ _travel_data[travel_data_idx - 1].POSITION
-		)  # adds the position of the spatial in the world
-		if get_parent() != null:
-			get_parent().call_deferred("add_child", mesh)
+		_create_show_path_meshes_between_idx(travel_data_idx - 1, travel_data_idx)
+	# mesh between last position and start position
+	_create_show_path_meshes_between_idx(_travel_data.size() - 1, 0)
+	
+func _create_show_path_meshes_between_idx(idx1 : int, idx2 : int) -> void:
+	var mesh = _create_show_path_mesh(
+		_travel_data[idx1].POSITION, _travel_data[idx2].POSITION
+	)
+	var mid_pos = (
+		(_travel_data[idx1].POSITION - _travel_data[idx2].POSITION)
+		/ 2.0
+	)  # middle position, since a cylinder mesh starts at the middle
+	mesh.transform.origin += (
+		self.transform.origin
+		- mid_pos
+		+ _travel_data[idx1].POSITION
+	)  # adds the position of the spatial in the world
+	if get_parent() != null:
+		get_parent().call_deferred("add_child", mesh)
 
 
 # adds (one) path mesh to the parent
@@ -153,3 +170,10 @@ func _set_tween_to_pos_idx(idx: int) -> void:
 func _on_tween_all_completed() -> void:
 	_step_idx = (_step_idx + 1) % _travel_data.size()
 	_set_tween_to_pos_idx(_step_idx)
+
+func _on_respawn_player_on_last_cp() -> void:
+	if _reset_on_checkpoint: # A bit overkill, but you never know
+		DebugUtils.log_tween_stop_all(_tween)
+		self.translation = onready_position
+		_step_idx = 0
+		_set_tween_to_pos_idx(_step_idx)

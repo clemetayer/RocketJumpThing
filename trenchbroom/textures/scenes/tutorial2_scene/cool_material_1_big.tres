@@ -1,73 +1,38 @@
-[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+[gd_resource type="ShaderMaterial" load_steps=7 format=2]
 
-[sub_resource type="Shader" id=1]
-code = "shader_type spatial;
-
-const float metallic = 0.75;
-const float roughness = 0.5;
-const float specular = 0.5;
-const vec2 uv1_scale = vec2(1.0/25.0);
-
-uniform float max_size = 0.1;
-uniform float ss_e = 0.0; // smoothstep epsilon
-uniform int number_of_squares = 10;
-uniform vec4 back_color : hint_color;
-uniform vec4 color_1 : hint_color;
-uniform vec4 color_2 : hint_color;
-
-float random (vec2 uv) {
-    return fract(sin(dot(uv.xy,
-        vec2(12.9898,78.233))) * 43758.5453123);
-}
-
-vec4 square_stroke(vec2 uv, vec2 pos, float fade, float size, float rand)
-{
-	float square = smoothstep(pos.x - ss_e, pos.x + ss_e, uv.x) 
-		* smoothstep(uv.x - ss_e, uv.x + ss_e, pos.x + size) 
-		* smoothstep(pos.y - ss_e, pos.y + ss_e, uv.y) 
-		* smoothstep(uv.y - ss_e, uv.y + ss_e, pos.y + size);
-	vec4 col = mix(color_1,color_2,rand) * square;
-	col.a = fade;
-	return col;
-}
-
-void vertex(){
-	UV = UV * uv1_scale;
-}
-
-void fragment(){
-	float emission_val = 0.0;
-	vec2 uv = UV;
-	uv.x = fract(uv.x * 3.0);
-	uv.y = fract(uv.y * 2.0);
-	vec4 color = back_color;
-	for(int i = 0; i < number_of_squares; i++){
-		float rand_x = random(vec2(float(i)/float(number_of_squares)));
-		float rand_y = random(vec2(float(i)/float(number_of_squares),0.0));
-		float rand_size = random(vec2(float(i)/float(number_of_squares))) * max_size;
-		float rand_fade_sin_offset = random(vec2(0.0,float(i)/float(number_of_squares))) * 50.0;
-		vec2 pos = vec2(rand_x, rand_y);
-		float fade_amount = (sin(TIME * 2.0 + rand_fade_sin_offset) / 2.0) + 0.5;
-		vec4 square = square_stroke(uv,pos,fade_amount/3.0,rand_size,random(vec2(float(i),3.0)));
-		if(square.rgb == vec3(0)){
-			METALLIC = metallic;
-			ROUGHNESS = roughness;
-			SPECULAR = specular;
-		}
-		else{
-			color.rgb += square.rgb * square.a;
-			EMISSION = square.rgb * 20.0 * square.a;
-		}
-	}
-	ALBEDO = color.rgb;
-}
-"
+[ext_resource path="res://trenchbroom/textures/scenes/tutorial2_scene/windows.gdshader" type="Shader" id=1]
+[ext_resource path="res://trenchbroom/textures/common/common_textures/base_wall/base_wall_emission.png" type="Texture" id=2]
+[ext_resource path="res://trenchbroom/textures/common/common_textures/base_wall/base_wall_orm.png" type="Texture" id=3]
+[ext_resource path="res://trenchbroom/textures/common/common_textures/base_wall/base_wall_depth.png" type="Texture" id=4]
+[ext_resource path="res://trenchbroom/textures/common/common_textures/base_wall/base_wall_normal.png" type="Texture" id=5]
+[ext_resource path="res://trenchbroom/textures/common/common_textures/base_wall/base_wall_albedo.png" type="Texture" id=6]
 
 [resource]
-shader = SubResource( 1 )
-shader_param/max_size = 0.04
-shader_param/ss_e = 0.004
-shader_param/number_of_squares = 60
+shader = ExtResource( 1 )
+shader_param/albedo = Color( 0.160784, 0.160784, 0.160784, 1 )
+shader_param/specular = 0.5
+shader_param/metallic = 0.5
+shader_param/roughness = 0.4
+shader_param/point_size = 1.0
+shader_param/roughness_texture_channel = Plane( 0, 1, 0, 0 )
+shader_param/emission = null
+shader_param/emission_energy = null
+shader_param/normal_scale = 0.125
+shader_param/ao_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/ao_light_affect = null
+shader_param/depth_scale = 0.002
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
+shader_param/uv1_offset = null
+shader_param/uv2_scale = Vector3( 0, 0, 0 )
+shader_param/uv2_offset = null
 shader_param/back_color = Color( 0.294118, 0.294118, 0.294118, 1 )
-shader_param/color_1 = Color( 1, 0, 1, 1 )
-shader_param/color_2 = Color( 0, 1, 1, 1 )
+shader_param/window_color_1 = Color( 0, 1, 0.929412, 1 )
+shader_param/window_color_2 = Color( 1, 0, 0.984314, 1 )
+shader_param/uv1_scale = Vector2( 0.5, 0.5 )
+shader_param/texture_albedo = ExtResource( 6 )
+shader_param/texture_roughness = ExtResource( 3 )
+shader_param/texture_emission = ExtResource( 2 )
+shader_param/texture_normal = ExtResource( 5 )
+shader_param/texture_depth = ExtResource( 4 )

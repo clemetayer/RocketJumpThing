@@ -1,0 +1,42 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://addons/qodot/src/resources/game-definitions/fgd/qodot_fgd_point_class.gd" type="Script" id=1]
+[ext_resource path="res://Game/Common/MapElements/Lights/spot_light.tscn" type="PackedScene" id=2]
+
+[resource]
+script = ExtResource( 1 )
+class_options = "----------------------------------------------------------------"
+classname = "Lights_SpotLight"
+description = "An omni light entity point class"
+qodot_internal = false
+base_classes = [  ]
+class_properties = {
+"angle_size": 45.0,
+"attenuation": 0.0,
+"color": Color( 1, 1, 1, 1 ),
+"energy": 1.0,
+"mangle": Vector3( 0, 0, 0 ),
+"range": 150.0,
+"shadow_enabled": false,
+"specular": 0.5
+}
+class_property_descriptions = {
+"angle_size": "Angle size of the spotlight, in degrees",
+"attenuation": "Attenuation of the light",
+"color": "color of the light",
+"energy": "energy of the light",
+"mangle": "Direction of the spot light (Note : the arrow should be pointing at the opposite to the direction of the light. Why ? Because Godot made it that way)",
+"range": "range of the spot light",
+"shadow_enabled": "if the light should compute shadows or not",
+"specular": "Specular value of the light"
+}
+meta_properties = {
+"color": Color( 1, 0.937255, 0, 1 ),
+"size": AABB( -2, -2, -2, 2, 2, 2 )
+}
+node_options = "----------------------------------------------------------------"
+node_class = ""
+transient_node = false
+scene = "----------------------------------------------------------------"
+scene_file = ExtResource( 2 )
+scripting = "----------------------------------------------------------------"
