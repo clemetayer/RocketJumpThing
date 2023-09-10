@@ -55,8 +55,8 @@ func _ready():
 		DebugUtils.log_connect(
 			SignalManager,
 			self,
-			SignalManager.RESPAWN_PLAYER_ON_LAST_CP,
-			"_on_respawn_player_on_last_cp"
+			SignalManager.PLAYER_RESPAWNED_ON_LAST_CP,
+			"_on_player_respawned_on_last_cp"
 		)
 
 ##### PROTECTED METHODS #####
@@ -171,7 +171,7 @@ func _on_tween_all_completed() -> void:
 	_step_idx = (_step_idx + 1) % _travel_data.size()
 	_set_tween_to_pos_idx(_step_idx)
 
-func _on_respawn_player_on_last_cp() -> void:
+func _on_player_respawned_on_last_cp() -> void:
 	if _reset_on_checkpoint: # A bit overkill, but you never know
 		DebugUtils.log_tween_stop_all(_tween)
 		self.translation = onready_position

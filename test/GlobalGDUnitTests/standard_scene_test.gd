@@ -60,6 +60,7 @@ func test_pause() -> void:
 func test_signal_connections() -> void:
 	scene_instance._connect_autoload_signals()
 	assert_bool(SignalManager.is_connected(SignalManager.CHECKPOINT_TRIGGERED, scene_instance, "_on_checkpoint_triggered")).is_true()
+	assert_bool(SignalManager.is_connected(SignalManager.RESPAWN_PLAYER_ON_LAST_CP, scene_instance, "_respawn_player_on_last_cp")).is_true()
 
 
 # tests the restart method

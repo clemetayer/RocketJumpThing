@@ -42,6 +42,7 @@ size = Vector3( 5, 0, 5 )
 [node name="ParticleFlatPolyScale" type="Particles"]
 amount = 4
 lifetime = 3.0
+visibility_aabb = AABB( -5.00001, -5.00001, -5.00001, 10, 10, 10 )
 process_material = SubResource( 7 )
 draw_pass_1 = SubResource( 2 )
 script = ExtResource( 2 )

@@ -6,6 +6,8 @@ extends Node
 #warning-ignore:UNUSED_SIGNAL
 signal respawn_player_on_last_cp
 #warning-ignore:UNUSED_SIGNAL
+signal player_respawned_on_last_cp
+#warning-ignore:UNUSED_SIGNAL
 signal trigger_tutorial(key, time)
 #warning-ignore:UNUSED_SIGNAL
 signal speed_updated(speed)
@@ -45,6 +47,7 @@ signal entity_destroyed
 ##### VARIABLES #####
 #==== PLAYER =====
 const RESPAWN_PLAYER_ON_LAST_CP := "respawn_player_on_last_cp"
+const PLAYER_RESPAWNED_ON_LAST_CP := "player_respawned_on_last_cp"
 const TRIGGER_TUTORIAL := "trigger_tutorial"
 const SPEED_UPDATED := "speed_updated"
 const POSITION_UPDATED := "position_updated"
@@ -74,6 +77,10 @@ const GAME_OVER := "game_over"
 #==== PLAYER =====
 func emit_respawn_player_on_last_cp() -> void:
 	emit_signal(RESPAWN_PLAYER_ON_LAST_CP)
+
+
+func emit_player_respawned_on_last_cp() -> void:
+	emit_signal(PLAYER_RESPAWNED_ON_LAST_CP)
 
 
 func emit_trigger_tutorial(key: String, time: float) -> void:

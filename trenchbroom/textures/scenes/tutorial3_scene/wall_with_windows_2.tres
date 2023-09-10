@@ -1,0 +1,41 @@
+[gd_resource type="ShaderMaterial" load_steps=7 format=2]
+
+[ext_resource path="res://trenchbroom/textures/common/common_textures/base_wall/base_wall_albedo.png" type="Texture" id=1]
+[ext_resource path="res://trenchbroom/textures/common/common_textures/base_wall/base_wall_orm.png" type="Texture" id=2]
+[ext_resource path="res://trenchbroom/textures/common/common_textures/base_wall/base_wall_normal.png" type="Texture" id=3]
+[ext_resource path="res://trenchbroom/textures/common/common_textures/base_wall/base_wall_depth.png" type="Texture" id=4]
+[ext_resource path="res://trenchbroom/textures/common/common_textures/base_wall/base_wall_emission.png" type="Texture" id=5]
+[ext_resource path="res://Game/Common/Shaders/Textures/wall_with_windows.gdshader" type="Shader" id=6]
+
+[resource]
+shader = ExtResource( 6 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/specular = 0.5
+shader_param/metallic = 0.5
+shader_param/roughness = 0.4
+shader_param/point_size = 1.0
+shader_param/roughness_texture_channel = Plane( 0, 1, 0, 0 )
+shader_param/emission = Color( 0, 0, 0, 1 )
+shader_param/emission_energy = 0.0
+shader_param/normal_scale = 0.125
+shader_param/ao_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/ao_light_affect = 0.0
+shader_param/depth_scale = 0.0025
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
+shader_param/uv1_scale = Vector3( 3, 3, 3 )
+shader_param/uv1_offset = Vector3( 0, 0, 0 )
+shader_param/uv2_scale = Vector3( 1, 1, 1 )
+shader_param/uv2_offset = Vector3( 0, 0, 0 )
+shader_param/window_intensity = 4.0
+shader_param/window_draw_trigger = 0.75
+shader_param/window_fract = 4.0
+shader_param/window_size = Vector2( 0.3, 0.05 )
+shader_param/window_color = Color( 0.0588235, 0.890196, 0.878431, 1 )
+shader_param/texture_albedo = ExtResource( 1 )
+shader_param/texture_roughness = ExtResource( 2 )
+shader_param/texture_emission = ExtResource( 5 )
+shader_param/texture_normal = ExtResource( 3 )
+shader_param/texture_ambient_occlusion = ExtResource( 2 )
+shader_param/texture_depth = ExtResource( 4 )

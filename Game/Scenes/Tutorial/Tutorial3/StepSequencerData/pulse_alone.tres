@@ -17,8 +17,8 @@ VAR_NODEPATH = {
 [sub_resource type="Resource" id=1]
 script = ExtResource( 2 )
 VAR_NODEPATH = {
-"material:albedo_color": Color( 0.027451, 0.443137, 0.188235, 1 ),
-"material:emission": Color( 0.027451, 0.443137, 0.188235, 1 ),
+"material:albedo_color": Color( 0.0588235, 0.890196, 0.878431, 1 ),
+"material:emission": Color( 0.0588235, 0.890196, 0.878431, 1 ),
 "material:flags_transparent": true
 }
 

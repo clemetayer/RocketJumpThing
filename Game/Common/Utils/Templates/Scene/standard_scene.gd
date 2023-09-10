@@ -103,6 +103,12 @@ func _connect_autoload_signals() -> void:
 	DebugUtils.log_connect(
 		SignalManager, self, SignalManager.CHECKPOINT_TRIGGERED, "_on_checkpoint_triggered"
 	)
+	DebugUtils.log_connect(
+		SignalManager,
+		self,
+		SignalManager.RESPAWN_PLAYER_ON_LAST_CP,
+		"_respawn_player_on_last_cp"
+	)
 
 
 func _restart() -> void:
@@ -128,7 +134,6 @@ func _respawn_player_on_last_cp() -> void:
 	if _last_cp != null:
 		var player = get_player()
 		if player != null:
-			SignalManager.emit_respawn_player_on_last_cp()
 			player.checkpoint_process(_last_cp.get_spawn_point(), _last_cp.get_spawn_rotation())
 			if FunctionUtils.is_start_point(_last_cp):  # if restart at the beginning of the level, restart the chronometer
 				SignalManager.emit_start_level_chronometer()
@@ -136,6 +141,7 @@ func _respawn_player_on_last_cp() -> void:
 					_change_song_anim(PATHS.bgm.animation)
 			elif null != PATHS.bgm.path and PATHS.bgm.path != "":
 				_change_song_anim(_last_cp.song_animation)
+			SignalManager.emit_player_respawned_on_last_cp()
 		else:
 			DebugUtils.log_stacktrace("Player is null", DebugUtils.LOG_LEVEL.error)
 	else:
