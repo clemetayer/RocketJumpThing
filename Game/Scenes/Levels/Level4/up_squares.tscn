@@ -28,5 +28,6 @@ size = Vector3( 16, 0, 16 )
 [node name="UpSquares" type="Particles"]
 amount = 20
 lifetime = 30.0
+visibility_aabb = AABB( -16, -16, -16, 32, 99.4805, 32 )
 process_material = SubResource( 3455 )
 draw_pass_1 = SubResource( 3454 )

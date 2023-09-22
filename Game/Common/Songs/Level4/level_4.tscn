@@ -108,6 +108,68 @@ tracks/1/keys = {
 "method": "step_sequencer_emit_step"
 } ]
 }
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"values": [ {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+} ]
+}
 
 [sub_resource type="Animation" id=2]
 resource_name = "part_2"
@@ -575,6 +637,209 @@ tracks/3/keys = {
 "method": "step_sequencer_emit_step"
 }, {
 "args": [ "stomp" ],
+"method": "step_sequencer_emit_step"
+} ]
+}
+tracks/4/type = "method"
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10, 10.5, 11, 11.5, 12, 12.5, 13, 13.5, 14, 14.5, 15, 15.5, 16, 16.5, 17, 17.5, 18, 18.5, 19, 19.5, 20, 20.5, 21, 21.5, 22, 22.5, 23, 23.5, 24, 24.5, 25, 25.5, 26, 26.5, 27, 27.5, 28, 28.5, 29, 29.5, 30, 30.5, 31, 31.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"values": [ {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
 "method": "step_sequencer_emit_step"
 } ]
 }
@@ -1346,6 +1611,209 @@ tracks/7/keys = {
 "method": "step_sequencer_emit_step"
 }, {
 "args": [ "pop" ],
+"method": "step_sequencer_emit_step"
+} ]
+}
+tracks/8/type = "method"
+tracks/8/path = NodePath(".")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10, 10.5, 11, 11.5, 12, 12.5, 13, 13.5, 14, 14.5, 15, 15.5, 16, 16.5, 17, 17.5, 18, 18.5, 19, 19.5, 20, 20.5, 21, 21.5, 22, 22.5, 23, 23.5, 24, 24.5, 25, 25.5, 26, 26.5, 27, 27.5, 28, 28.5, 29, 29.5, 30, 30.5, 31, 31.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"values": [ {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
 "method": "step_sequencer_emit_step"
 } ]
 }
@@ -2237,6 +2705,209 @@ tracks/9/keys = {
 "method": "step_sequencer_emit_step"
 }, {
 "args": [ "hollow_cube" ],
+"method": "step_sequencer_emit_step"
+} ]
+}
+tracks/10/type = "method"
+tracks/10/path = NodePath(".")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10, 10.5, 11, 11.5, 12, 12.5, 13, 13.5, 14, 14.5, 15, 15.5, 16, 16.5, 17, 17.5, 18, 18.5, 19, 19.5, 20, 20.5, 21, 21.5, 22, 22.5, 23, 23.5, 24, 24.5, 25, 25.5, 26, 26.5, 27, 27.5, 28, 28.5, 29, 29.5, 30, 30.5, 31, 31.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"values": [ {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
+"method": "step_sequencer_emit_step"
+}, {
+"args": [ "kick" ],
 "method": "step_sequencer_emit_step"
 } ]
 }

@@ -17,7 +17,7 @@ class_properties = {
 "energy": 1.0,
 "mangle": Vector3( 0, 0, 0 ),
 "range": 150.0,
-"shadow_enabled": false,
+"shadow_enabled": 0,
 "specular": 0.5
 }
 class_property_descriptions = {

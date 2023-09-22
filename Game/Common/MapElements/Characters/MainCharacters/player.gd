@@ -20,9 +20,6 @@ enum states_idx {
 #~~~~ STATES ~~~~~
 const STATES_SIZE := 5  # How many states the player has
 
-#~~~~ TRENCHBROOM ~~~~~
-const TB_PLAYER_MAPPER := [["angle", "rotation_degrees:y"]]  # mapper for TrenchBroom parameters
-
 #~~~~ CAMERA ~~~~~
 const MIN_FOV := 80  # Min and max fov of the camera that changes depending on the character speed
 const MAX_FOV := 100
@@ -133,6 +130,7 @@ func _init():
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	_set_TB_params()
 	camera = onready_paths.camera
 	rotation_helper = onready_paths.rotation_helper
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -231,7 +229,8 @@ func portal_process(exit_portal: Area) -> void:
 ##### PROTECTED METHODS #####
 #---- Trenchbroom -----
 func _set_TB_params() -> void:
-	TrenchBroomEntityUtils._map_trenchbroom_properties(self, properties, TB_PLAYER_MAPPER)
+	if "angle" in properties:
+		rotation_degrees.y = properties["angle"]
 
 
 #---- UI data -----

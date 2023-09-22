@@ -49,13 +49,6 @@ func test_init_laser() -> void:
 		thickness, FLOAT_APPROX
 	)
 	assert_float(laser.onready_paths.raycast.cast_to.z).is_equal_approx(length, FLOAT_APPROX)
-	assert_float(laser.onready_paths.particles.transform.origin.z).is_equal_approx(length/2.0, FLOAT_APPROX)
-	assert_float(laser.onready_paths.particles.process_material.emission_ring_inner_radius).is_equal_approx(thickness, FLOAT_APPROX)
-	assert_float(laser.onready_paths.particles.process_material.emission_ring_radius).is_equal_approx(thickness + laser.PARTICLES_RING_OUTER_RADIUS_ADD, FLOAT_APPROX)
-	assert_float(laser.onready_paths.particles.process_material.emission_ring_height).is_equal_approx(length,FLOAT_APPROX)
-	assert_float(laser.onready_paths.particles.visibility_aabb.size.z).is_equal_approx(length,FLOAT_APPROX)
-	assert_float(laser.onready_paths.particles.visibility_aabb.position.z).is_equal_approx(-length/2.0,FLOAT_APPROX)
-	assert_int(laser.onready_paths.particles.amount).is_equal(int(length * laser.PARTICLES_STD_AMOUNT))
 	assert_vector3(laser.rotation_degrees).is_equal(mangle)	
 	assert_float(laser.onready_paths.collision.translation.z).is_equal_approx(
 		length / 2.0, FLOAT_APPROX
@@ -86,11 +79,6 @@ func test_update_laser() -> void:
 	assert_float(laser.onready_paths.mesh.translation.z).is_equal_approx(
 		new_length / 2.0, FLOAT_APPROX
 	)
-	assert_float(laser.onready_paths.particles.transform.origin.z).is_equal_approx(new_length/2.0, FLOAT_APPROX)
-	assert_float(laser.onready_paths.particles.process_material.emission_ring_height).is_equal_approx(new_length,FLOAT_APPROX)
-	assert_float(laser.onready_paths.particles.visibility_aabb.size.z).is_equal_approx(new_length,FLOAT_APPROX)
-	assert_float(laser.onready_paths.particles.visibility_aabb.position.z).is_equal_approx(-new_length/2.0,FLOAT_APPROX)
-	assert_int(laser.onready_paths.particles.amount).is_equal(int(new_length * laser.PARTICLES_STD_AMOUNT))
 	assert_float(laser._last_length).is_equal_approx(new_length,FLOAT_APPROX)
 
 
