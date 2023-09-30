@@ -1,0 +1,13 @@
+[remap]
+
+importer="qodot.map"
+type="Resource"
+path="res://.import/Dodecahedron.map-81903439d3f2e615b4f84f777f62ba1c.tres"
+
+[deps]
+
+source_file="res://trenchbroom/Maps/Temp/Dodecahedron.map"
+dest_files=[ "res://.import/Dodecahedron.map-81903439d3f2e615b4f84f777f62ba1c.tres" ]
+
+[params]
+

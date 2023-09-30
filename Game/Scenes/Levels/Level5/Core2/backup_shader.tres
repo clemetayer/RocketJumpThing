@@ -1,0 +1,25 @@
+[gd_resource type="Shader" format=2]
+
+[resource]
+code = "shader_type spatial;
+render_mode unshaded;
+
+uniform sampler2D color_gradient;
+uniform float line_size = 0.1;
+uniform int nb_of_lines = 5;
+
+float line_val(float uv_y, float y_pos){
+	return  step(uv_y, y_pos + line_size) - step(uv_y,y_pos);
+}
+
+void fragment(){
+	vec2 fract_uv = fract(vec2(UV.x * float(nb_of_lines), UV.y));
+	if(line_val(fract_uv.x,mod(TIME,1.0)) == 1.0){
+		vec4 col = texture(color_gradient, vec2((sin(UV.x + TIME)/2.0) + 0.5,0.0));
+		ALBEDO = col.rgb;
+		EMISSION = ALBEDO * 2.0;
+	}
+	else{
+		ALBEDO = vec3(0.0);
+	}
+}"

@@ -11,7 +11,11 @@ extends StandardScene
 #---- CONSTANTS -----
 const GROUP_REACTOR_CORE := "reactor_core"
 const GROUP_BREAKABLE_LINK := "breakable_link"
-const PART_1_ANIM_NAME := "part_1"
+const ANIMATION_PARTS := ["part_0","part_1","part_2","part_3","part_4","part_5"]
+const NUMBER_OF_WALLS := 5 # the amount of walls to break at the start
+const TIME_TO_WAIT_FOR_ACCESS_GRANTED_MESSAGE := 2 # time in seconds to show the "access tho the anomaly granted message"
+const COLOR_PALETTE_GRADIENT_STEPS := ["#0000ff","#4b00b4","#870078","#be0041","#ff0000"]
+const TEXT_COLOR_ACCESS_TO_ENTITY_GRANTED := "#ffffff"
 
 #---- EXPORTS -----
 # export(int) var EXPORT_NAME # Optionnal comment
@@ -22,9 +26,11 @@ const PART_1_ANIM_NAME := "part_1"
 
 #==== PRIVATE ====
 var _env_switched := false
+var _animation_idx := 0
+var _walls_remaining := NUMBER_OF_WALLS
 
 #==== ONREADY ====
-onready var onready_paths := {"env_anim_tree": $WorldEnvironment/AnimationTree}
+onready var onready_paths := {"env_anim_tree": $DirectionalLight/AnimationTree}
 
 
 ##### PROCESSING #####
@@ -73,9 +79,39 @@ func _init_breakable_links() -> void:
 
 ##### SIGNAL MANAGEMENT #####
 func _on_signal_manager_wall_broken() -> void:
-	if !_env_switched:
-		var state_machine = onready_paths.env_anim_tree["parameters/playback"]
-		if state_machine != null:
-			state_machine.travel(PART_1_ANIM_NAME)
-			_env_switched = true
+	# alters the environment
+	var state_machine = onready_paths.env_anim_tree["parameters/playback"]
+	if state_machine != null and _animation_idx <= ANIMATION_PARTS.size():
+		_animation_idx += 1
+		state_machine.travel(ANIMATION_PARTS[_animation_idx])
 	onready_paths["reactor_core"][0].next_anim()
+	# shows a special message
+	_walls_remaining -= 1
+	if _walls_remaining <= 0:
+		SignalManager.emit_ui_message(
+			TextUtils.BBCode_color_text(
+				TextUtils.BBCode_center_text(
+					tr(TranslationKeys.PLAYER_MESSAGE_SECURITY_DISABLED)
+				)
+			, TEXT_COLOR_ACCESS_TO_ENTITY_GRANTED)
+		)
+		yield(get_tree().create_timer(TIME_TO_WAIT_FOR_ACCESS_GRANTED_MESSAGE),"timeout")
+		SignalManager.emit_ui_message(
+			TextUtils.BBCode_color_text(
+				TextUtils.BBCode_center_text(
+					tr(TranslationKeys.PLAYER_MESSAGE_ACCESS_TO_ANOMALY_GRANTED)
+				)
+			, TEXT_COLOR_ACCESS_TO_ENTITY_GRANTED)
+		)
+	else:
+		SignalManager.emit_ui_message(
+				TextUtils.BBCode_center_text(
+					tr(TranslationKeys.PLAYER_MESSAGE_SECURITY_STATUS) 
+					+ TextUtils.BBCode_color_text("%s%%" % (_walls_remaining*100.0/NUMBER_OF_WALLS)
+						, COLOR_PALETTE_GRADIENT_STEPS[clamp(NUMBER_OF_WALLS - _walls_remaining,0,NUMBER_OF_WALLS)])
+				) 
+
+		)
+
+func _on_Kick_timeout() -> void:
+	SignalManager.emit_sequencer_step("kick")

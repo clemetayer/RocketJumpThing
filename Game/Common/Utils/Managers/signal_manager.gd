@@ -13,6 +13,8 @@ signal trigger_tutorial(key, time)
 signal speed_updated(speed)
 #warning-ignore:UNUSED_SIGNAL
 signal position_updated(position)
+#warning-ignore:UNUSED_SIGNAL
+signal ui_message(RTL_message)
 
 #==== MAP =====
 #warning-ignore:UNUSED_SIGNAL
@@ -51,6 +53,7 @@ const PLAYER_RESPAWNED_ON_LAST_CP := "player_respawned_on_last_cp"
 const TRIGGER_TUTORIAL := "trigger_tutorial"
 const SPEED_UPDATED := "speed_updated"
 const POSITION_UPDATED := "position_updated"
+const UI_MESSAGE := "ui_message"
 
 #==== MAP =====
 const CHECKPOINT_TRIGGERED := "checkpoint_triggered"
@@ -94,6 +97,10 @@ func emit_speed_updated(speed: float) -> void:
 
 func emit_position_updated(position: Vector3) -> void:
 	emit_signal(POSITION_UPDATED, position)
+
+
+func emit_ui_message(RTL_message: String) -> void:
+	emit_signal(UI_MESSAGE, RTL_message)
 
 
 #==== MAP =====

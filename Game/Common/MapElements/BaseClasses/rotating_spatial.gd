@@ -25,6 +25,12 @@ func _physics_process(delta):
 	_rotate_spatial(delta)
 
 
+
+##### PUBLIC METHODS #####
+# sets the rotation speed. Usefull for animations
+func set_rotation_speed(rotation_speed : Vector3) -> void:
+	_rotation_speed = rotation_speed
+
 ##### PROTECTED METHODS #####
 func _set_TB_params() -> void:
 	TrenchBroomEntityUtils._map_trenchbroom_properties(self, properties, TB_ROTATING_SPATIAL_MAPPER)

@@ -210,6 +210,15 @@ msgstr "Checkpoint !"
 msgid "PLAYER_UI_SPEED"
 msgstr "Vitesse : %s"
 
+msgid "PLAYER_MESSAGE_SECURITY_STATUS"
+msgstr "Niveau de sécurité : "
+
+msgid "PLAYER_MESSAGE_SECURITY_DISABLED"
+msgstr "Sécurité désactivée"
+
+msgid "PLAYER_MESSAGE_ACCESS_TO_ANOMALY_GRANTED"
+msgstr "Ouverture du portail"
+
 #=============================== TUTORIALS ===============================
 #----------------------------- TUTORIAL SCENES ----------------------------
 msgid "TUTORIAL_MOVE"

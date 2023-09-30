@@ -1,0 +1,29 @@
+[gd_resource type="ShaderMaterial" load_steps=6 format=2]
+
+[ext_resource path="res://trenchbroom/textures/scenes/level_5/MaterialMaker/core_2_runes_albedo.png" type="Texture" id=1]
+[ext_resource path="res://trenchbroom/textures/scenes/level_5/MaterialMaker/core_2_runes_normal.png" type="Texture" id=2]
+[ext_resource path="res://Game/Scenes/Levels/Level5/Core2/core_2_interior.gdshader" type="Shader" id=3]
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0, 0.5, 1 )
+colors = PoolColorArray( 0, 0, 1, 1, 1, 0, 0, 1, 0, 0, 1, 1 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
+
+[resource]
+shader = ExtResource( 3 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/specular = 0.5
+shader_param/metallic = 0.6
+shader_param/roughness = 0.2
+shader_param/point_size = 1.0
+shader_param/normal_scale = 1.0
+shader_param/uv1_scale = Vector3( 50, 50, 50 )
+shader_param/uv1_offset = Vector3( 0, 0, 0 )
+shader_param/uv2_scale = Vector3( 1, 1, 1 )
+shader_param/uv2_offset = Vector3( 0, 0, 0 )
+shader_param/emission = 1.0
+shader_param/texture_albedo = ExtResource( 1 )
+shader_param/texture_normal = ExtResource( 2 )
+shader_param/runes_color_gradient = SubResource( 2 )

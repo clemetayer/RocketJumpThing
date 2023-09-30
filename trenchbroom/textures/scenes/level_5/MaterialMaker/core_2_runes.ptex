@@ -1,0 +1,332 @@
+{
+	"connections": [
+		{
+			"from": "mwf_map",
+			"from_port": 0,
+			"to": "mwf_output",
+			"to_port": 0
+		},
+		{
+			"from": "mwf_map",
+			"from_port": 1,
+			"to": "mwf_output",
+			"to_port": 1
+		},
+		{
+			"from": "mwf_map",
+			"from_port": 2,
+			"to": "mwf_output",
+			"to_port": 2
+		},
+		{
+			"from": "mwf_map",
+			"from_port": 3,
+			"to": "mwf_output",
+			"to_port": 3
+		},
+		{
+			"from": "mwf_map",
+			"from_port": 4,
+			"to": "mwf_output",
+			"to_port": 4
+		},
+		{
+			"from": "mwf_create_map",
+			"from_port": 0,
+			"to": "mwf_map",
+			"to_port": 0
+		},
+		{
+			"from": "fbm2",
+			"from_port": 0,
+			"to": "math",
+			"to_port": 0
+		},
+		{
+			"from": "math",
+			"from_port": 0,
+			"to": "mwf_create_map",
+			"to_port": 0
+		},
+		{
+			"from": "uniform",
+			"from_port": 0,
+			"to": "blend_3",
+			"to_port": 1
+		},
+		{
+			"from": "math_4",
+			"from_port": 0,
+			"to": "blend_3",
+			"to_port": 0
+		},
+		{
+			"from": "math_2",
+			"from_port": 0,
+			"to": "math_3",
+			"to_port": 1
+		},
+		{
+			"from": "math_3",
+			"from_port": 0,
+			"to": "Material",
+			"to_port": 4
+		},
+		{
+			"from": "mwf_output",
+			"from_port": 4,
+			"to": "math_3",
+			"to_port": 0
+		},
+		{
+			"from": "mwf_output",
+			"from_port": 0,
+			"to": "blend2",
+			"to_port": 0
+		},
+		{
+			"from": "blend2",
+			"from_port": 0,
+			"to": "Material",
+			"to_port": 0
+		},
+		{
+			"from": "blend_3",
+			"from_port": 0,
+			"to": "blend2",
+			"to_port": 1
+		},
+		{
+			"from": "blend2",
+			"from_port": 0,
+			"to": "Material",
+			"to_port": 3
+		},
+		{
+			"from": "runes",
+			"from_port": 0,
+			"to": "math_4",
+			"to_port": 1
+		}
+	],
+	"label": "Graph",
+	"longdesc": "",
+	"name": "322",
+	"node_position": {
+		"x": 0,
+		"y": 0
+	},
+	"nodes": [
+		{
+			"export_last_target": "Godot/Godot 3 Spatial",
+			"export_paths": {
+				"Godot/Godot 3 Spatial": "/home/clemetayer/Projects/RocketJumpThing/trenchbroom/textures/scenes/level_5/MaterialMaker/core_2_runes"
+			},
+			"name": "Material",
+			"node_position": {
+				"x": 184.032043,
+				"y": 491.673706
+			},
+			"parameters": {
+				"albedo_color": {
+					"a": 1,
+					"b": 1,
+					"g": 1,
+					"r": 1,
+					"type": "Color"
+				},
+				"ao": 1,
+				"depth_scale": 0.5,
+				"emission_energy": 0,
+				"flags_transparent": true,
+				"metallic": 0.6,
+				"normal": 1,
+				"roughness": 0.2,
+				"size": 10,
+				"sss": 1
+			},
+			"seed_int": 0,
+			"type": "material"
+		},
+		{
+			"name": "mwf_map",
+			"node_position": {
+				"x": -698.63678,
+				"y": 145.841522
+			},
+			"parameters": {
+
+			},
+			"seed_int": 0,
+			"type": "mwf_map"
+		},
+		{
+			"name": "mwf_output",
+			"node_position": {
+				"x": -450.63678,
+				"y": 137.841522
+			},
+			"parameters": {
+				"param0": 0.1,
+				"param2": 1
+			},
+			"seed_int": 0,
+			"type": "mwf_output"
+		},
+		{
+			"name": "mwf_create_map",
+			"node_position": {
+				"x": -944.811157,
+				"y": 151.927673
+			},
+			"parameters": {
+				"angle": 0,
+				"height": 0.1
+			},
+			"seed_int": 0,
+			"type": "mwf_create_map"
+		},
+		{
+			"name": "fbm2",
+			"node_position": {
+				"x": -1463.251099,
+				"y": -18.792356
+			},
+			"parameters": {
+				"folds": 0,
+				"iterations": 5,
+				"noise": 0,
+				"offset": 0,
+				"persistence": 0.5,
+				"scale_x": 100,
+				"scale_y": 100
+			},
+			"seed_int": 0,
+			"type": "fbm2"
+		},
+		{
+			"name": "math",
+			"node_position": {
+				"x": -1196.371216,
+				"y": 155.647659
+			},
+			"parameters": {
+				"clamp": false,
+				"default_in1": 0,
+				"default_in2": 0.02,
+				"op": 2
+			},
+			"seed_int": 0,
+			"type": "math"
+		},
+		{
+			"name": "math_3",
+			"node_position": {
+				"x": -112.470329,
+				"y": 480.011749
+			},
+			"parameters": {
+				"clamp": false,
+				"default_in1": 0,
+				"default_in2": 0,
+				"op": 13
+			},
+			"seed_int": 0,
+			"type": "math"
+		},
+		{
+			"name": "math_2",
+			"node_position": {
+				"x": -691.883057,
+				"y": 558.54718
+			},
+			"parameters": {
+				"clamp": false,
+				"default_in1": 0.54,
+				"default_in2": 0.54,
+				"op": 15
+			},
+			"seed_int": 0,
+			"type": "math"
+		},
+		{
+			"name": "uniform",
+			"node_position": {
+				"x": -951.424805,
+				"y": 1053.954834
+			},
+			"parameters": {
+				"color": {
+					"a": 1,
+					"b": 1,
+					"g": 1,
+					"r": 1,
+					"type": "Color"
+				}
+			},
+			"seed_int": 0,
+			"type": "uniform"
+		},
+		{
+			"name": "blend_3",
+			"node_position": {
+				"x": -761.164978,
+				"y": 953.714905
+			},
+			"parameters": {
+				"amount": 1,
+				"blend_type": 2
+			},
+			"seed_int": 0,
+			"type": "blend"
+		},
+		{
+			"name": "math_4",
+			"node_position": {
+				"x": -1158.528687,
+				"y": 706.367859
+			},
+			"parameters": {
+				"clamp": false,
+				"default_in1": 0.54,
+				"default_in2": 0,
+				"op": 15
+			},
+			"seed_int": 0,
+			"type": "math"
+		},
+		{
+			"generic_size": 1,
+			"name": "blend2",
+			"node_position": {
+				"x": -128.556732,
+				"y": 654.365173
+			},
+			"parameters": {
+				"amount1": 0.5,
+				"blend_type1": 0
+			},
+			"seed_int": 0,
+			"type": "blend2"
+		},
+		{
+			"name": "runes",
+			"node_position": {
+				"x": -1440.917725,
+				"y": 742.827393
+			},
+			"parameters": {
+				"columns": 4,
+				"rows": 4
+			},
+			"seed_int": 0,
+			"type": "runes"
+		}
+	],
+	"parameters": {
+
+	},
+	"seed_int": 0,
+	"shortdesc": "",
+	"type": "graph"
+}

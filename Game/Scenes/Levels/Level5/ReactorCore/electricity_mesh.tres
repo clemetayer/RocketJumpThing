@@ -2,9 +2,10 @@
 
 [sub_resource type="Shader" id=16]
 code = "shader_type spatial;
+render_mode unshaded;
 
 const vec2 NOISE_TRESHOLD = vec2(0.25,0.265);
-const float EMISSION_VAL = 2.0;
+const float EMISSION_VAL = 1.0;
 
 uniform sampler2D noise;
 uniform vec4 col_1 : hint_color;
@@ -36,9 +37,9 @@ noise = SubResource( 17 )
 
 [sub_resource type="ShaderMaterial" id=10]
 shader = SubResource( 16 )
-shader_param/col_1 = Color( 0, 1, 0.219608, 1 )
-shader_param/col_2 = Color( 0, 0.0941176, 1, 1 )
-shader_param/speed = 0.75
+shader_param/col_1 = Color( 0.247059, 0.247059, 0.74902, 1 )
+shader_param/col_2 = Color( 0, 0, 1, 1 )
+shader_param/speed = 0.5
 shader_param/noise = SubResource( 18 )
 
 [resource]

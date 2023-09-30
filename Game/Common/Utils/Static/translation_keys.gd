@@ -98,6 +98,9 @@ const SETTINGS_VIDEO_WINDOWED := "SETTINGS_VIDEO_WINDOWED"
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ PLAYER ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 const PLAYER_UI_CHECKPOINT := "PLAYER_UI_CHECKPOINT"
 const PLAYER_UI_SPEED := "PLAYER_UI_SPEED"
+const PLAYER_MESSAGE_SECURITY_STATUS := "PLAYER_MESSAGE_SECURITY_STATUS"
+const PLAYER_MESSAGE_SECURITY_DISABLED := "PLAYER_MESSAGE_SECURITY_DISABLED"
+const PLAYER_MESSAGE_ACCESS_TO_ANOMALY_GRANTED := "PLAYER_MESSAGE_ACCESS_TO_ANOMALY_GRANTED"
 
 #=============================== TUTORIALS ===============================
 #----------------------------- TUTORIAL SCENES ----------------------------

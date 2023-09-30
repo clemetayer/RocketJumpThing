@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Game/Common/MapElements/Characters/MainCharacters/player.gd" type="Script" id=1]
 [ext_resource path="res://Game/Common/MapElements/Characters/player_UI.tscn" type="PackedScene" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://Game/Common/MapElements/Characters/MainCharacters/slide_effect_gradient.tres" type="Texture" id=11]
 [ext_resource path="res://Game/Common/MapElements/Characters/MainCharacters/rocket_launcher.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Game/Common/MapElements/Characters/toggle_ability_ui.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Game/Common/MapElements/Characters/special_ui_messages.tscn" type="PackedScene" id=14]
 
 [sub_resource type="CylinderShape" id=11]
 height = 0.33
@@ -136,8 +137,11 @@ layer = 2
 [node name="ToggleAbilityUI" parent="." instance=ExtResource( 13 )]
 layer = 4
 
-[node name="TutorialHints" parent="." instance=ExtResource( 3 )]
+[node name="SpecialUIMessages" parent="." instance=ExtResource( 14 )]
 layer = 5
+
+[node name="TutorialHints" parent="." instance=ExtResource( 3 )]
+layer = 6
 
 [node name="Timers" type="Node" parent="."]
 

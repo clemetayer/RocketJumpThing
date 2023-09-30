@@ -2,11 +2,12 @@
 
 [sub_resource type="Shader" id=2]
 code = "shader_type spatial;
+render_mode unshaded;
 
 const float FRACT = 7.0;
 const float COL_ROT_SPEED_DIVIDER = 5.0;
 const float LINE_PCT = 0.05;
-const float EMISSION_VAL = 2.0;
+const float EMISSION_VAL = 1.0;
 
 const vec3 BACK_COLOR = vec3(0.0);
 
@@ -42,5 +43,5 @@ void fragment(){
 
 [resource]
 shader = SubResource( 2 )
-shader_param/COL_1 = Color( 0, 0.576471, 1, 1 )
-shader_param/COL_2 = Color( 0, 0.0862745, 1, 1 )
+shader_param/COL_1 = Color( 0.247059, 0.247059, 0.74902, 1 )
+shader_param/COL_2 = Color( 0, 0, 1, 1 )

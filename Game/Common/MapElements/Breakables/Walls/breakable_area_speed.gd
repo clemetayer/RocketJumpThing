@@ -62,5 +62,5 @@ func _on_breakable_area_speed_body_entered(body):
 		)
 		if _break_wall_sound != null:
 			_break_wall_sound.play()
-		yield(_break_wall_sound, "finished")
 		self.queue_free()
+		yield(_break_wall_sound, "finished")

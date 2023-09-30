@@ -1,0 +1,74 @@
+[gd_resource type="Resource" load_steps=13 format=2]
+
+[ext_resource path="res://Game/Common/Utils/Resources/sequencer_data.gd" type="Script" id=1]
+[ext_resource path="res://Game/Common/Utils/Resources/sequencer_init_param.gd" type="Script" id=2]
+[ext_resource path="res://Game/Common/Utils/Resources/sequencer_steps.gd" type="Script" id=3]
+[ext_resource path="res://Game/Common/Utils/Resources/sequencer_step_data.gd" type="Script" id=4]
+[ext_resource path="res://Game/Common/Utils/Resources/sequencer_step_data_item_pulse.gd" type="Script" id=5]
+
+[sub_resource type="Resource" id=1]
+script = ExtResource( 2 )
+VAR_NODEPATH = {
+"material:albedo_color": Color( 0, 0, 1, 1 ),
+"material:emission": Color( 0, 0, 1, 1 )
+}
+
+[sub_resource type="Resource" id=2]
+script = ExtResource( 2 )
+VAR_NODEPATH = {
+"material:albedo_color": Color( 0.294118, 0, 0.705882, 1 ),
+"material:emission": Color( 0.294118, 0, 0.705882, 1 )
+}
+
+[sub_resource type="Resource" id=3]
+script = ExtResource( 2 )
+VAR_NODEPATH = {
+"material:albedo_color": Color( 0.745098, 0, 0.254902, 1 ),
+"material:emission": Color( 0.745098, 0, 0.254902, 1 )
+}
+
+[sub_resource type="Resource" id=10]
+script = ExtResource( 2 )
+VAR_NODEPATH = {
+"material:albedo_color": Color( 1, 0, 0, 1 ),
+"material:emission": Color( 1, 0, 0, 1 )
+}
+
+[sub_resource type="Resource" id=4]
+script = ExtResource( 5 )
+VARPATH = "material:albedo_color:a"
+VALUES = {
+"delay": {
+"in": 0.0,
+"out": 0.0
+},
+"duration": {
+"in": 0.1,
+"out": 0.75
+},
+"ease_type": {
+"in": 1,
+"out": 1
+},
+"final_value": 1.0,
+"initial_value": 0.0,
+"transition_type": {
+"in": 0,
+"out": 1
+}
+}
+
+[sub_resource type="Resource" id=5]
+script = ExtResource( 4 )
+STEP_DATA_ITEMS = [ SubResource( 4 ) ]
+
+[sub_resource type="Resource" id=9]
+script = ExtResource( 3 )
+SIGNAL_KEY = "kick"
+SEQUENCER_STEPS = [ SubResource( 5 ), SubResource( 5 ), SubResource( 5 ), SubResource( 5 ) ]
+
+[resource]
+script = ExtResource( 1 )
+DUPLICATE_MATERIAL = true
+INIT_PARAMS = [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 10 ) ]
+STEPS = [ SubResource( 9 ) ]

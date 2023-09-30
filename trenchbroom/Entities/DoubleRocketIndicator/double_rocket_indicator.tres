@@ -1,0 +1,32 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://addons/qodot/src/resources/game-definitions/fgd/qodot_fgd_point_class.gd" type="Script" id=1]
+[ext_resource path="res://Game/Common/MapElements/DoubleRocketIndicator/double_rocket_indicator.gd" type="Script" id=2]
+
+[resource]
+script = ExtResource( 1 )
+class_options = "----------------------------------------------------------------"
+classname = "DoubleRocketIndicator"
+description = "A sign to indicate that you have to do a synchronized rocket jump"
+qodot_internal = false
+base_classes = [  ]
+class_properties = {
+"color": Color( 0, 0, 0, 1 ),
+"mangle": Vector3( 1, 1, 1 ),
+"scale": Vector3( 1, 1, 1 )
+}
+class_property_descriptions = {
+"color": "Color of the text",
+"mangle": "Orientation of the sign",
+"scale": "Scale of the sign"
+}
+meta_properties = {
+"color": Color( 0.8, 0.8, 0.8, 1 ),
+"size": AABB( -8, -8, -8, 8, 8, 8 )
+}
+node_options = "----------------------------------------------------------------"
+node_class = "Spatial"
+transient_node = false
+scene = "----------------------------------------------------------------"
+scripting = "----------------------------------------------------------------"
+script_class = ExtResource( 2 )
