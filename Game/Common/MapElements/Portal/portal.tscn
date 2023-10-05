@@ -7,6 +7,7 @@ code = "// Kind of a mix between https://godotshaders.com/shader/simple-energy-s
 // With some snippets from https://godotshaders.com/snippet/
 // And with additional things
 shader_type spatial;
+render_mode async_visible,blend_mix,depth_draw_opaque,cull_back,diffuse_burley,specular_schlick_ggx;
 
 const float OFFSET = 0.1;
 const float EMISSION_VALUE = 5.0;

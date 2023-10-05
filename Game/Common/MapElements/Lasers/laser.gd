@@ -9,6 +9,9 @@ const TB_LASER_MAPPER := [
 	["color", "_color"],
 	["mangle", "_mangle"]
 ]  # mapper for TrenchBroom parameters
+const PARTICLES_EMISSION_BOX_HEIGHT := 1.0
+const PARTICLES_EMISSION_BOX_DIVIDER:= Vector2.ONE * 1.5
+const CUBE_MESH_SCALE_MULTIPLIER := 1.5
 
 #---- STANDARD -----
 #==== PRIVATE ====
@@ -22,7 +25,9 @@ onready var onready_paths := {
 	"mesh": $"LaserMesh",
 	"collision": $"LaserCollision",
 	"raycast": $"RayCast",
-	"update_timer": $"UpdateTimer"
+	"update_timer": $"UpdateTimer",
+	"particles": $"Particles",
+	"cube_mesh": $"CubeMesh"
 }
 
 
@@ -53,12 +58,16 @@ func _init_laser() -> void:
 	onready_paths.mesh.mesh.height = _max_length
 	onready_paths.mesh.mesh.top_radius = _thickness
 	onready_paths.mesh.mesh.bottom_radius = _thickness
+	onready_paths.cube_mesh.scale = Vector3.ONE * _thickness * CUBE_MESH_SCALE_MULTIPLIER
 	onready_paths.raycast.cast_to = Vector3(0, 0, _max_length)
+	onready_paths.particles.process_material.emission_box_extents = Vector3(_thickness / PARTICLES_EMISSION_BOX_DIVIDER.x, _thickness / PARTICLES_EMISSION_BOX_DIVIDER.y, PARTICLES_EMISSION_BOX_HEIGHT)
+	onready_paths.particles.emitting = false
 	_last_length = _max_length
 	rotation_degrees = _mangle
 	# sets the positions according to the heights
 	onready_paths.collision.translation.z = _max_length / 2.0
 	onready_paths.mesh.translation.z = _max_length / 2.0
+	onready_paths.cube_mesh.translation.z = _max_length
 
 
 func _update_laser(length: float) -> void:
@@ -70,6 +79,7 @@ func _update_laser(length: float) -> void:
 	# position
 	onready_paths.collision.translation.z = length / 2.0
 	onready_paths.mesh.translation.z = length / 2.0
+	onready_paths.cube_mesh.translation.z = length
 
 
 func _check_raycast() -> void:
@@ -77,8 +87,10 @@ func _check_raycast() -> void:
 		_update_laser(
 			self.global_transform.origin.distance_to(onready_paths.raycast.get_collision_point())
 		)
+		onready_paths.particles.emitting = true
 	else:
 		_update_laser(_max_length)
+		onready_paths.particles.emitting = false
 
 
 ##### SIGNAL MANAGEMENT #####

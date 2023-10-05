@@ -4190,7 +4190,7 @@ wait_time = 0.5
 autostart = true
 
 [node name="Dodecahedron" type="MeshInstance" parent="."]
-transform = Transform( 75.7848, 12.6387, 22.2921, -18.694, -20.3332, 75.0806, 17.5274, -76.3336, -16.3085, 0, 0, 0 )
+transform = Transform( 58.677, 49.5174, -22.473, 14.8364, 17.2292, 76.701, 52.3154, -60.425, 3.4537, 0, 0, 0 )
 mesh = ExtResource( 39 )
 script = ExtResource( 40 )
 properties = {

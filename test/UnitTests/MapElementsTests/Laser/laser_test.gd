@@ -49,11 +49,14 @@ func test_init_laser() -> void:
 		thickness, FLOAT_APPROX
 	)
 	assert_float(laser.onready_paths.raycast.cast_to.z).is_equal_approx(length, FLOAT_APPROX)
+	assert_vector3(laser.onready_paths.cube_mesh.scale).is_equal(Vector3.ONE * thickness * laser.CUBE_MESH_SCALE_MULTIPLIER)
+	assert_vector3(laser.onready_paths.particles.process_material.emission_box_extents).is_equal(Vector3(thickness / laser.PARTICLES_EMISSION_BOX_DIVIDER.x, thickness / laser.PARTICLES_EMISSION_BOX_DIVIDER.y, laser.PARTICLES_EMISSION_BOX_HEIGHT))
 	assert_vector3(laser.rotation_degrees).is_equal(mangle)	
 	assert_float(laser.onready_paths.collision.translation.z).is_equal_approx(
 		length / 2.0, FLOAT_APPROX
 	)
 	assert_float(laser.onready_paths.mesh.translation.z).is_equal_approx(length / 2.0, FLOAT_APPROX)
+	assert_float(laser.onready_paths.cube_mesh.translation.z).is_equal_approx(length, FLOAT_APPROX)
 
 
 func test_update_laser() -> void:
@@ -80,6 +83,7 @@ func test_update_laser() -> void:
 		new_length / 2.0, FLOAT_APPROX
 	)
 	assert_float(laser._last_length).is_equal_approx(new_length,FLOAT_APPROX)
+	assert_float(laser.onready_paths.cube_mesh.translation.z).is_equal_approx(new_length, FLOAT_APPROX)
 
 
 # FIXME : Can't mock things for some reason
