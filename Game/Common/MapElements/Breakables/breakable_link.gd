@@ -14,7 +14,10 @@ export(NodePath) var target
 export(Dictionary) var properties
 
 #==== ONREADY ====
-onready var _onready_paths := {"animation_player": $"AnimationPlayer", "particles": $"Particles"}
+onready var _onready_paths := {
+	"animation_player": $"AnimationPlayer", 
+	"particles": $"Particles"
+}
 
 
 ##### PUBLIC METHODS #####
@@ -32,7 +35,7 @@ func update_particles() -> void:
 		_onready_paths.particles.process_material.emission_box_extents = Vector3(
 			RECTANGLE_SIDE, RECTANGLE_SIDE, target_distance / 2.0
 		)
-		_onready_paths.particles.amount = int(PARTICLE_AMOUNT * target_distance)
+		# _onready_paths.particles.amount = int(PARTICLE_AMOUNT * target_distance)
 		_onready_paths.particles.visibility_aabb = AABB(
 			Vector3(0, 0, -target_distance / 2.0),
 			Vector3(RECTANGLE_SIDE, RECTANGLE_SIDE, target_distance)

@@ -12,7 +12,7 @@ extends StandardScene
 #---- CONSTANTS -----
 const RED_BREAKABLE_LINK_GROUP := "breakable_link_red"
 const GREEN_BREAKABLE_LINK_GROUP := "breakable_link_green"
-const ENTITY_DESTROYED_ANIMATION := "entity_destroyed"
+const ENTITY_DESTROYED_ANIMATION := "game_over"
 
 #---- EXPORTS -----
 # export(int) var EXPORT_NAME # Optionnal comment
@@ -102,4 +102,5 @@ func _on_EmitStomp_timeout():
 
 func _on_SignalManager_GameOver() -> void:
 	onready_paths.scene_animation_player.play(ENTITY_DESTROYED_ANIMATION)
-	# onready_paths.animation_player.play("destroy")
+	yield(onready_paths.scene_animation_player,"animation_finished")
+	ScenesManager.load_end()

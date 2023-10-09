@@ -15,7 +15,7 @@ const ENTITY_HP := 7  # Entity's health points
 #---- STANDARD -----
 #==== PRIVATE ====
 var _player: KinematicBody
-var _hp := 1
+var _hp := ENTITY_HP
 var _eye_shakers := [null, null, null]  # wow that's a weird variable name, anyway, those represent the xyz position value nodes that are shaken
 var _armor_shakers := [null, null, null]  # kind of the same
 

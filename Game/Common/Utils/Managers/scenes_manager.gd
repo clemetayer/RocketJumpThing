@@ -12,6 +12,7 @@ extends Node
 const FADE_IN_TIME := 0.5
 const LOADING_SCREEN_PATH := "res://Game/Common/Menus/LoadingScreen/loading_screen.tscn"
 const MAIN_MENU_PATH := "res://Game/Common/Menus/MainMenu/main_menu.tscn"
+const CREDITS_PATH := "res://Game/Common/Menus/EndGame/end_game.tscn"
 
 #---- STANDARD -----
 #==== PUBLIC ====
@@ -52,8 +53,15 @@ func load_main_menu() -> void:
 
 
 func load_end() -> void:
-	# TODO : implement this
-	pass
+	LoadingScreen.LEVEL_NAME = tr(TranslationKeys.MAIN_MENU)
+	if get_tree() != null and get_tree().change_scene(CREDITS_PATH) != OK:
+		DebugUtils.log_stacktrace(
+			"Error while changing scene to %s" % CREDITS_PATH, DebugUtils.LOG_LEVEL.error
+		)
+	MenuNavigator.toggle_pause_enabled(false)
+	_current_level_data = null
+	_current_level_idx = 0
+	_current_scene_instance = null
 
 
 func load_level(levels: LevelsData, idx: int = 0) -> void:

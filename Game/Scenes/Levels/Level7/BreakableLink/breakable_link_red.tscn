@@ -151,6 +151,7 @@ script = ExtResource( 2 )
 [node name="Particles" type="Particles" parent="."]
 transform = Transform( -0.0203707, -0.515431, -0.856689, 0, 0.856867, -0.515538, 0.999793, -0.0105019, -0.0174549, 0, 0, 0 )
 amount = 64
+draw_order = 1
 process_material = SubResource( 129 )
 draw_pass_1 = SubResource( 130 )
 

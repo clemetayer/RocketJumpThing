@@ -1,0 +1,39 @@
+[gd_resource type="ShaderMaterial" load_steps=7 format=2]
+
+[ext_resource path="res://trenchbroom/textures/common/common_textures/base_wall/base_wall_emission.png" type="Texture" id=1]
+[ext_resource path="res://trenchbroom/textures/scenes/tutorial2_scene/windows.gdshader" type="Shader" id=2]
+[ext_resource path="res://trenchbroom/textures/common/common_textures/base_wall/base_wall_normal.png" type="Texture" id=3]
+[ext_resource path="res://trenchbroom/textures/common/common_textures/base_wall/base_wall_depth.png" type="Texture" id=4]
+[ext_resource path="res://trenchbroom/textures/common/common_textures/base_wall/base_wall_albedo.png" type="Texture" id=5]
+[ext_resource path="res://trenchbroom/textures/common/common_textures/base_wall/base_wall_orm.png" type="Texture" id=6]
+
+[resource]
+shader = ExtResource( 2 )
+shader_param/albedo = Color( 0, 0, 0, 1 )
+shader_param/specular = 0.5
+shader_param/metallic = 0.5
+shader_param/roughness = 0.4
+shader_param/point_size = 1.0
+shader_param/roughness_texture_channel = Plane( 0, 1, 0, 0 )
+shader_param/emission = null
+shader_param/emission_energy = 0.0
+shader_param/normal_scale = 0.125
+shader_param/ao_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/ao_light_affect = null
+shader_param/depth_scale = 0.002
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
+shader_param/uv1_offset = null
+shader_param/uv2_scale = Vector3( 1, 1, 0 )
+shader_param/uv2_offset = null
+shader_param/back_color = Color( 0.2, 0.2, 0.2, 1 )
+shader_param/window_color_1 = Color( 0.792157, 0.792157, 0.792157, 1 )
+shader_param/window_color_2 = Color( 1, 0, 0, 1 )
+shader_param/uv1_scale = Vector2( 0.75, 0.75 )
+shader_param/texture_albedo = ExtResource( 5 )
+shader_param/texture_roughness = ExtResource( 6 )
+shader_param/texture_emission = ExtResource( 1 )
+shader_param/texture_normal = ExtResource( 3 )
+shader_param/texture_ambient_occlusion = ExtResource( 6 )
+shader_param/texture_depth = ExtResource( 4 )

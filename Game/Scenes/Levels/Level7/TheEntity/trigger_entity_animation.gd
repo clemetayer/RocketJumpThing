@@ -39,3 +39,4 @@ func _connect_signals():
 func _on_TriggerEntityAnimation_body_entered(body) -> void:
 	if FunctionUtils.is_player(body):
 		SignalManager.emit_trigger_entity_animation(_animation)
+		queue_free()

@@ -77,7 +77,9 @@ cast_to = Vector3( 0, 0, 50 )
 collision_mask = 3
 
 [node name="Particles" type="Particles" parent="."]
-amount = 100
+amount = 50
+lifetime = 0.5
+visibility_aabb = AABB( -5.93393, -11.001, -6.42092, 11.277, 12.8749, 11.9036 )
 process_material = SubResource( 6 )
 draw_pass_1 = SubResource( 8 )
 
