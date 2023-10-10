@@ -5052,3 +5052,16 @@
 ( 7040 -60 -4464 ) ( 7040 -60 -4463 ) ( 7040 -59 -4464 ) common/material_override/death_grid [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
+// entity 176
+{
+"classname" "Lights_SpotLight"
+"origin" "6700.85 398.775 1615.27"
+"angle_size" "45"
+"attenuation" "0"
+"color" "255 0 0"
+"energy" "1"
+"mangle" "30 -15 0"
+"range" "150"
+"shadow_enabled" "0"
+"specular" "0.5"
+}
