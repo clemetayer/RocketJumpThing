@@ -5,6 +5,7 @@ const vec2 ASCII_CHAR_RATIO = vec2(2.0,1.0);
 
 uniform sampler2D ascii_char;
 uniform float FRACT_SIZE = 10.0;
+uniform float PERCENTS_VISIBLE : hint_range(0.0, 1.0) = 0.0;
 
 vec4 pixelate_texture(vec2 uv, sampler2D texture, vec2 fract_size) {
 	vec2 step_uv = round(uv * fract_size)/fract_size;

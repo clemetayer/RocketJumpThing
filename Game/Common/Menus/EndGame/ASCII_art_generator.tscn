@@ -1,0 +1,71 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Game/Common/Menus/EndGame/ASCII_art_generator.gd" type="Script" id=3]
+[ext_resource path="res://Game/Common/Menus/EndGame/icon_outline.png" type="Texture" id=4]
+[ext_resource path="res://Misc/Fonts/CourierPrimeCode/Courier Prime Code.ttf" type="DynamicFontData" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 20
+use_filter = true
+font_data = ExtResource( 5 )
+
+[node name="ASCIIArtGenerator" type="RichTextLabel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/normal_font = SubResource( 1 )
+bbcode_enabled = true
+bbcode_text = "                                                  
+                                                  
+                                                  
+                 [color=#1a3346] [/color][color=#284e6b].[/color][color=#336489]o[/color][color=#35698f]o[/color][color=#316185].[/color][color=#183042] [/color]    [color=#10202c] [/color][color=#2f5c7e].[/color][color=#35698f]o[/color][color=#34678c]o[/color][color=#2a5372].[/color][color=#1c384c] [/color]                 
+               [color=#3a729c].[/color][color=#478cbf]O[/color][color=#478cbf]O[/color][color=#478cbf]#[/color][color=#478cbf]O[/color][color=#478cbf]O[/color][color=#478cbf]#[/color][color=#478cbf]I[/color][color=#264a65] [/color][color=#193143] [/color][color=#193143] [/color][color=#1d3a4f] [/color][color=#468abc]I[/color][color=#478cbf]#[/color][color=#478cbf]#[/color][color=#478cbf]O[/color][color=#478cbf]#[/color][color=#478cbf]#[/color][color=#478cbf]O[/color][color=#407dab]o[/color]               
+               [color=#478cbf]I[/color][color=#478cbf]#[/color][color=#478cbf]#[/color][color=#3a739d].[/color][color=#203e55] [/color][color=#4486b6]o[/color][color=#478cbf]O[/color][color=#478cbf]#[/color][color=#478cbf]#[/color][color=#478cbf]#[/color][color=#478cbf]#[/color][color=#478cbf]#[/color][color=#478cbf]#[/color][color=#478cbf]#[/color][color=#478bbe]I[/color][color=#244761] [/color][color=#336489].[/color][color=#478cbf]O[/color][color=#478cbf]#[/color][color=#478cbf]O[/color][color=#204057] [/color]              
+        [color=#1b3548] [/color][color=#29516e].[/color][color=#2a5372].[/color][color=#1f3c52] [/color]  [color=#326388] [/color][color=#478cbf]O[/color][color=#478cbf]#[/color][color=#478cbf]O[/color][color=#1d394d] [/color]  [color=#214159] [/color][color=#274c68].[/color][color=#274d69].[/color][color=#274d69].[/color][color=#274d69].[/color][color=#274d69].[/color][color=#274d69].[/color][color=#23455e].[/color][color=#101f2a] [/color]  [color=#478cbf]I[/color][color=#478cbf]#[/color][color=#478cbf]#[/color][color=#3b759f].[/color]  [color=#1b3548] [/color][color=#2a5270].[/color][color=#2a5371].[/color][color=#1f3d53] [/color]        
+      [color=#1c384c] [/color][color=#4385b5]o[/color][color=#478cbf]O[/color][color=#478cbf]#[/color][color=#478cbf]#[/color][color=#478cbf]O[/color][color=#478cbf]O[/color][color=#4588b9]I[/color][color=#478cbf]O[/color][color=#478cbf]#[/color][color=#478cbf]O[/color][color=#366a91].[/color]              [color=#2c5675] [/color][color=#478cbf]I[/color][color=#478cbf]#[/color][color=#478cbf]O[/color][color=#4589ba]I[/color][color=#478bbe]I[/color][color=#478cbf]O[/color][color=#478cbf]#[/color][color=#478cbf]#[/color][color=#478cbf]O[/color][color=#468abc]I[/color][color=#274e6a] [/color]      
+      [color=#478cbf]I[/color][color=#478cbf]#[/color][color=#478cbf]O[/color][color=#4181b0]o[/color][color=#2e5a7b].[/color][color=#3f7daa]o[/color][color=#478cbf]I[/color][color=#478cbf]O[/color][color=#478cbf]I[/color][color=#407eac]o[/color][color=#1e3c51] [/color]                [color=#152938] [/color][color=#3b759f]o[/color][color=#478cbf]I[/color][color=#478cbf]O[/color][color=#478cbf]O[/color][color=#4282b2]I[/color][color=#316184].[/color][color=#3b759f]o[/color][color=#478cbf]O[/color][color=#478cbf]#[/color][color=#478cbf]O[/color][color=#22435c] [/color]     
+     [color=#1f3d53] [/color][color=#478cbf]O[/color][color=#478cbf]#[/color][color=#478cbf]O[/color][color=#3d79a5].[/color]                              [color=#366a90].[/color][color=#478cbf]O[/color][color=#478cbf]#[/color][color=#478cbf]O[/color][color=#2d5979] [/color]     
+      [color=#254963] [/color][color=#478bbe]I[/color][color=#478cbf]#[/color][color=#478cbf]O[/color][color=#397099].[/color]   [color=#555555] [/color][color=#6a6a6a] [/color][color=#737373].[/color][color=#6a6a6a] [/color][color=#474747] [/color]            [color=#3e3e3e] [/color][color=#656565] [/color][color=#737373].[/color][color=#6c6c6c] [/color][color=#5b5b5b] [/color]   [color=#2c5877] [/color][color=#478cbf]O[/color][color=#478cbf]#[/color][color=#478cbf]O[/color][color=#2f5d7f] [/color]      
+       [color=#376c93].[/color][color=#478cbf]#[/color][color=#478cbf]#[/color][color=#478cbf]I[/color]  [color=#e8e8e8]o[/color][color=#ffffff]O[/color][color=#ecebec]O[/color][color=#c5c5c5]#[/color][color=#d2d2d2]#[/color][color=#fdfdfd]O[/color][color=#f9f9f9]I[/color][color=#838383] [/color]        [color=#595959] [/color][color=#f0f0f0]o[/color][color=#ffffff]O[/color][color=#dcdcdc]#[/color][color=#c3c3c4]#[/color][color=#e1e1e2]#[/color][color=#ffffff]O[/color][color=#fafafa]I[/color][color=#3e3e3e] [/color] [color=#3e7aa6]o[/color][color=#478cbf]#[/color][color=#478cbf]#[/color][color=#4588b9]o[/color]       
+       [color=#33658a].[/color][color=#478cbf]#[/color][color=#478cbf]#[/color][color=#478cbf]I[/color] [color=#797979] [/color][color=#ffffff]O[/color][color=#eae9ea]#[/color][color=#474648]#[/color][color=#414042]#[/color][color=#414042]#[/color][color=#908f91]#[/color][color=#ffffff]#[/color][color=#fcfcfc]o[/color]   [color=#ffffff]I[/color][color=#ffffff]I[/color]   [color=#ececec].[/color][color=#ffffff]#[/color][color=#b6b6b6]#[/color][color=#414042]#[/color][color=#414042]#[/color][color=#424142]#[/color][color=#c9c8c9]#[/color][color=#ffffff]#[/color][color=#acacac] [/color] [color=#3f7ca9]o[/color][color=#478cbf]#[/color][color=#478cbf]#[/color][color=#4181b0]o[/color]       
+       [color=#326286].[/color][color=#478cbf]#[/color][color=#478cbf]#[/color][color=#478cbf]I[/color] [color=#525252] [/color][color=#fcfcfc]I[/color][color=#fefefe]#[/color][color=#b8b8b9]#[/color][color=#8c8b8c]#[/color][color=#99999a]#[/color][color=#e5e5e6]#[/color][color=#ffffff]O[/color][color=#e0e0e0].[/color]   [color=#ffffff]I[/color][color=#ffffff]O[/color]   [color=#b5b5b5] [/color][color=#ffffff]O[/color][color=#f3f3f3]#[/color][color=#a3a2a3]#[/color][color=#8a8a8b]#[/color][color=#a9a8a9]#[/color][color=#f8f8f8]#[/color][color=#ffffff]O[/color][color=#828282] [/color] [color=#4486b6]o[/color][color=#478cbf]#[/color][color=#478cbf]#[/color][color=#407eac]o[/color]       
+       [color=#316185].[/color][color=#478cbf]#[/color][color=#478cbf]#[/color][color=#478cbf]I[/color]   [color=#787878] [/color][color=#a1a1a1].[/color][color=#a6a6a6]o[/color][color=#9f9f9f].[/color][color=#959595].[/color][color=#707070] [/color]    [color=#dbdbdb].[/color][color=#e3e3e3]o[/color]    [color=#606060] [/color][color=#939393].[/color][color=#9d9d9d].[/color][color=#a6a6a6]o[/color][color=#a3a3a3].[/color][color=#838383].[/color][color=#3e3e3e] [/color]  [color=#478cbf]o[/color][color=#478cbf]#[/color][color=#478cbf]#[/color][color=#407dab]o[/color]       
+       [color=#284e6b] [/color][color=#478cbf]#[/color][color=#478cbf]#[/color][color=#478cbf]O[/color][color=#305f82].[/color][color=#2b5473].[/color][color=#2b5473].[/color][color=#2b5473].[/color][color=#29516f].[/color][color=#0e1b25] [/color]                 [color=#274d69].[/color][color=#2b5473].[/color][color=#2b5473].[/color][color=#2b5473].[/color][color=#2b5473].[/color][color=#478cbf]I[/color][color=#478cbf]#[/color][color=#478cbf]#[/color][color=#366a91].[/color]       
+       [color=#244660] [/color][color=#478cbf]#[/color][color=#478cbf]#[/color][color=#478cbf]O[/color][color=#3d78a4]o[/color][color=#397099]o[/color][color=#3d78a4]o[/color][color=#478cbf]O[/color][color=#478cbf]#[/color][color=#29516f] [/color]   [color=#22435c] [/color][color=#478cbf]O[/color][color=#478cbf]O[/color][color=#478cbf]O[/color][color=#478cbf]O[/color][color=#478cbf]O[/color][color=#478cbf]O[/color][color=#478cbf]O[/color][color=#478cbf]O[/color][color=#305f82] [/color]    [color=#478cbf]O[/color][color=#478cbf]O[/color][color=#407eac]o[/color][color=#397099]o[/color][color=#3a739d]o[/color][color=#478cbf]O[/color][color=#478cbf]#[/color][color=#478cbf]#[/color][color=#326286].[/color]       
+       [color=#1e3b50] [/color][color=#478cbf]O[/color][color=#478cbf]#[/color][color=#478cbf]O[/color][color=#1f3d53] [/color]  [color=#478cbf]I[/color][color=#478cbf]#[/color][color=#417fae]o[/color][color=#2f5c7e]o[/color][color=#2e5b7c]o[/color][color=#2e5b7c]o[/color][color=#3d78a4]o[/color][color=#478cbf]#[/color][color=#478cbf]I[/color][color=#1c384c] [/color][color=#122330] [/color][color=#122330] [/color][color=#122330] [/color][color=#478cbf]o[/color][color=#478cbf]#[/color][color=#4282b2]I[/color][color=#2e5b7c]o[/color][color=#2e5b7c]o[/color][color=#2e5b7c]o[/color][color=#3c77a2]o[/color][color=#478cbf]O[/color][color=#478cbf]O[/color]   [color=#478cbf]I[/color][color=#478cbf]#[/color][color=#478cbf]#[/color][color=#2c5776] [/color]       
+        [color=#468bbd]I[/color][color=#478cbf]#[/color][color=#478cbf]#[/color][color=#4283b3]o[/color][color=#1b3548] [/color] [color=#2c5776].[/color][color=#35698f]o[/color][color=#35698f]o[/color][color=#35698f]o[/color][color=#35698f]o[/color][color=#35698f]o[/color][color=#35698f]o[/color][color=#35698f]o[/color][color=#2c5776].[/color]    [color=#254963] [/color][color=#35688e]o[/color][color=#35698f]o[/color][color=#35698f]o[/color][color=#35698f]o[/color][color=#35698f]o[/color][color=#35698f]o[/color][color=#35698f]o[/color][color=#316083].[/color] [color=#152938] [/color][color=#3c77a2].[/color][color=#478cbf]O[/color][color=#478cbf]#[/color][color=#478cbf]O[/color][color=#1c374b] [/color]       
+        [color=#1a3447] [/color][color=#4486b6]o[/color][color=#478cbf]O[/color][color=#478cbf]#[/color][color=#478cbf]O[/color][color=#468bbd]I[/color][color=#376d95]o[/color][color=#29516e].[/color][color=#22435c].[/color][color=#1b3548] [/color][color=#142735] [/color]            [color=#122431] [/color][color=#193244] [/color][color=#203f56] [/color][color=#284e6b].[/color][color=#33668a]o[/color][color=#4588b9]I[/color][color=#478cbf]O[/color][color=#478cbf]#[/color][color=#478cbf]O[/color][color=#468bbd]I[/color][color=#264a65] [/color]        
+          [color=#1e3c51] [/color][color=#316185].[/color][color=#4486b7]I[/color][color=#478cbf]O[/color][color=#478cbf]#[/color][color=#478cbf]#[/color][color=#478cbf]#[/color][color=#478cbf]#[/color][color=#478cbf]O[/color][color=#478cbf]O[/color][color=#478cbf]O[/color][color=#478cbf]O[/color][color=#478cbf]I[/color][color=#4385b5]I[/color][color=#407eac]I[/color][color=#407eac]I[/color][color=#4282b2]I[/color][color=#478cbf]I[/color][color=#478cbf]O[/color][color=#478cbf]O[/color][color=#478cbf]O[/color][color=#478cbf]O[/color][color=#478cbf]#[/color][color=#478cbf]#[/color][color=#478cbf]#[/color][color=#478cbf]#[/color][color=#478cbf]O[/color][color=#468abc]I[/color][color=#366a90]o[/color][color=#22435b] [/color]          
+             [color=#0f1d28] [/color][color=#183041] [/color][color=#1d3a4f] [/color][color=#244760].[/color][color=#2c5776].[/color][color=#305e80]o[/color][color=#34678c]o[/color][color=#3a739d]o[/color][color=#3f7ca9]I[/color][color=#4283b3]I[/color][color=#478cbf]I[/color][color=#478cbf]I[/color][color=#478cbf]I[/color][color=#478cbf]I[/color][color=#4486b6]I[/color][color=#407dab]I[/color][color=#3b749f]o[/color][color=#366a90]o[/color][color=#305f82]o[/color][color=#2d5979].[/color][color=#264a65].[/color][color=#1f3c52] [/color][color=#193244] [/color][color=#11222f] [/color]             
+                                                  
+                                                  
+                                                  
+"
+text = "                                                  
+                                                  
+                                                  
+                  .oo.      .oo.                  
+               .OO#OO#I    I##O##Oo               
+               I##. oO#######I .O#O               
+         ..    O#O    .......   I##.   ..         
+       oO##OOIO#O.               I#OIIO##OI       
+      I#Oo.oIOIo                  oIOOI.oO#O      
+      O#O.                              .O#O      
+       I#O.     .                .      O#O       
+       .##I  oOO##OI          oO###OI  o##o       
+       .##I  O######o   II   .#######  o##o       
+       .##I  I#####O.   IO    O#####O  o##o       
+       .##I    .o..     .o     ..o..   o##o       
+        ##O.....                  .....I##.       
+        ##OoooO#     OOOOOOOO     OOoooO##.       
+        O#O   I#ooooo#I    o#IooooOO   I##        
+        I##o  .ooooooo.     ooooooo.  .O#O        
+         oO#OIo..                 .oIO#OI         
+           .IO####OOOOIIIIIIOOOO####OIo           
+                ..oooIIIIIIIIooo..                
+                                                  
+                                                  
+                                                  
+"
+fit_content_height = true
+script = ExtResource( 3 )
+IMAGE = ExtResource( 4 )

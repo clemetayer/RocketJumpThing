@@ -26,6 +26,7 @@ const INPUT_ACTION_SHOOT := "action_shoot"
 const INPUT_RESTART_LAST_CP := "restart_last_cp"
 const INPUT_RESTART := "restart"
 const INPUT_PAUSE := "pause"
+const INPUT_CANCEL := "ui_cancel"
 
 #---- REPLACE KEYS -----
 const TR_REPLACE_PATTERN := "##"
