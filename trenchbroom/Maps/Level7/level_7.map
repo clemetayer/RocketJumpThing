@@ -15003,3 +15003,11 @@
 ( -908 -504 -2772 ) ( -908 -504 -2771 ) ( -908 -503 -2772 ) common/material_override/death_grid [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
+// entity 867
+{
+"classname" "DoubleRocketIndicator"
+"origin" "3112 2904 -920"
+"color" "202 202 202"
+"scale" "5 5 5"
+"mangle" "-15 -90 0"
+}
