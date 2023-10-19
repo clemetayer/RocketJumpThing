@@ -11,13 +11,8 @@ func _init():
 
 ##### PROTECTED METHODS #####
 func _save_level_data() -> void:
-	var current_idx = ScenesManager.get_current_level_idx()
-	if _is_best_time(RuntimeUtils.levels_data.get_level(current_idx)):
-		RuntimeUtils.levels_data.get_level(current_idx).BEST_TIME = (
-			VariableManager.chronometer.level
-		)
+	RuntimeUtils.save_level_times(VariableManager.chronometer.level)
 	ScenesManager.enable_next_level()
-	RuntimeUtils.levels_data.save()
 
 
 # adds the end point to the end_point group

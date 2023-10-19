@@ -13,7 +13,7 @@ BEST_TIME = 0.0
 
 [sub_resource type="Resource" id=2]
 script = ExtResource( 2 )
-NAME = "Characters that 🅱️reaks your game"
+NAME = "Characters that ßreaks your game"
 SCENE_PATH = "res://Game/Scenes/Tutorial/Tutorial2/tutorial_2.tscn"
 PREVIEW_PATH = "res://Game/Scenes/Tutorial/Tutorial1/tutorial_1_preview.png"
 UNLOCKED = false

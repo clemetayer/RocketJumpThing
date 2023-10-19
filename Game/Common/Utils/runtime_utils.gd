@@ -57,6 +57,24 @@ func display_input_as_string(input: InputEvent) -> String:
 	return ""  # TODO : put a better string for unrecognized inputs ?
 
 
+func save_level_times(time: float) -> void:
+	var level_data = levels_data.get_level(ScenesManager.get_current_level_idx())
+	if level_data != null:
+		if time < level_data.BEST_TIME:  # if best time, set best time
+			level_data.BEST_TIME = time
+		level_data.LAST_TIME = time
+		levels_data.save()
+	DebugUtils.log_stacktrace("Level data is null", DebugUtils.LOG_LEVEL.error)
+
+
+#returns the total time (in unix timestamp millis) of the level in the current LevelsData
+func get_levels_total_time() -> int:
+	var time_sum = 0
+	for level in levels_data.get_levels():
+		time_sum += level.LAST_TIME
+	return time_sum
+
+
 func _translate_mouse_button(key_str: String) -> String:
 	return (
 		TranslationKeys.MOUSE_BUTTON_MAPPER[key_str]

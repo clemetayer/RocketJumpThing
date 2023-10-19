@@ -260,3 +260,93 @@ msgstr "##rocket_jump_icon## sur le mur pour escalader."
 msgid "TUTORIAL_ROCKET_PADS"
 msgstr "##rocket_icon## + ##boost_pad## pour plus de puissance."
  
+#============================= END GAME ================================
+msgid "END_GAME_SIMULATION_COMPLETED"
+msgstr "Simulation terminée"
+
+msgid "END_GAME_TEST_X_PASSED"
+msgstr "Test %d - [color=#00ff00]RÉUSSI[/color] - [color=#00ffff]%s[/color]"
+
+msgid "END_GAME_TOTAL_TIME_SEPARATOR"
+msgstr "-------- RESULTATS --------"
+
+msgid "END_GAME_TESTS_RESULTS"
+msgstr "[color=#00ff00]TOUS RÉUSSIS[/color] - [color=#00ffff]%s[/color]"
+
+msgid "END_GAME_APPRECIATION_HOW"
+msgstr "[shake rate=30 level=10]... Comment est-ce possible ?[/shake]"
+
+msgid "END_GAME_APPRECIATION_WOW"
+msgstr "[wave amp=50 freq=2][rainbow freq=0.2 sat=10 val=20]Wow ![/rainbow][/wave]"
+
+msgid "END_GAME_APPRECIATION_AMAZING"
+msgstr "[wave amp=50 freq=2]Incroyable ![/wave]"
+
+msgid "END_GAME_APPRECIATION_WELL_DONE"
+msgstr "Bien joué !"
+
+msgid "END_GAME_APPRECIATION_NOT_BAD"
+msgstr "Pas mal !"
+
+msgid "END_GAME_EXIT"
+msgstr "Vous pouvez quitter en appuyant sur echap"
+
+msgid "END_GAME_CREDITS_LOADING"
+msgstr "Chargement des crédits"
+
+msgid "END_GAME_GAME_MADE_BY"
+msgstr "Un jeu fait par clemetayer"
+
+msgid "END_GAME_WITH_GODOT"
+msgstr "Avec le moteur de jeu Godot"
+
+msgid "END_GAME_WITH_LMMS"
+msgstr "Sons et musiques réalisés avec LMMS"
+
+msgid "END_GAME_WITH_QODOT_TB"
+msgstr "Niveaux réalisés avec Trenchbroom et Qodot"
+
+msgid "END_GAME_WITH_MATERIAL_MAKER"
+msgstr "Textures réalisées avec MaterialMaker"
+
+msgid "END_GAME_WITH_SPACESCAPE"
+msgstr "Skyboxes réalisées avec Spacescape"
+
+msgid "END_GAME_WITH_KENNEY"
+msgstr "Icônes et particules par Kenney : https://kenney.nl/"
+
+msgid "END_GAME_FONTS"
+msgstr "Polices : Oswald, CourierPrimeCode"
+
+msgid "END_GAME_OTHER_TOOLS"
+msgstr "Autres outils utilisés : GDUnit3 par NullPointer, Godot-Stuff Logger par paulhocker, DebugDraw par DmitriySalnikov, Simple Skybox par Chaosus."
+
+msgid "END_GAME_ADDITIONAL_CREDITS"
+msgstr "Crédits additionnels : Speedlines par Exuin (godotshaders.com), Screen shakes (codingkaiju.com)"
+
+msgid "END_GAME_FAMILY_AND_FRIENDS"
+msgstr "Avec un grand merci à ma famille et mes amis"
+
+msgid "END_GAME_AND_YOU"
+msgstr "[center][rainbow freq=0.2 sat=10 val=20][wave amp=50 freq=2]Et vous pour avoir joué au jeu ![/wave][/rainbow][/center]"
+
+msgid "END_GAME_PRETTY_MUCH_IT"
+msgstr "Et, euh, c'est à peu près tout je crois"
+
+msgid "END_GAME_CREDITS_TOO_LONG"
+msgstr "Ok, j'avoue, j'ai fait la musique un peu trop longue par rapport aux crédits..."
+
+msgid "END_GAME_WONT_BE_LONG"
+msgstr "Mais ça sera plus très long, promis !"
+
+msgid "END_GAME_ANY_SECOND_NOW"
+msgstr "C'est pour bientôt"
+
+msgid "END_GAME_ANY_SECOND"
+msgstr "Bientôôôôôôôôôt"
+
+msgid "END_GAME_THERE_WE_GO"
+msgstr "Ah, ça y est !"
+
+msgid "END_GAME_RESTARTING_SIMULATION"
+msgstr "Redémarrage de la simulation"

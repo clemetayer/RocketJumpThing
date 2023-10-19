@@ -8,7 +8,7 @@ class_name LevelsData
 const SAVE_PATH := "user://levels_data.tres"
 
 #---- EXPORTS -----
-export(Array) var LEVELS setget , _get_levels
+export(Array) var LEVELS setget , get_levels
 
 ##### PUBLIC METHODS #####
 func save() -> void:
@@ -50,7 +50,7 @@ func get_level(idx : int) -> LevelData:
 	return null
 
 ##### PROTECTED METHODS #####
-func _get_levels() -> Array:
+func get_levels() -> Array:
 	if Engine.is_editor_hint():
 		var levels = LEVELS
 		for level_idx in range(levels.size()):
