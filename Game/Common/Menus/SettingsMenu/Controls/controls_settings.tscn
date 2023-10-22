@@ -13,7 +13,7 @@ script = ExtResource( 2 )
 
 [node name="VBox" type="VBoxContainer" parent="."]
 margin_right = 1004.0
-margin_bottom = 115.0
+margin_bottom = 161.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -37,12 +37,46 @@ margin_right = 645.0
 margin_bottom = 31.0
 script = ExtResource( 4 )
 
-[node name="Movement" parent="VBox" instance=ExtResource( 1 )]
+[node name="General" parent="VBox" instance=ExtResource( 1 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 53.0
 margin_right = 1004.0
-margin_bottom = 71.0
+margin_bottom = 95.0
+size_flags_vertical = 1
+CATEGORY_NAME = "SETTINGS_CONTROLS_GENERAL_CATEGORY"
+
+[node name="Sensitivity" type="HBoxContainer" parent="VBox/General"]
+margin_top = 18.0
+margin_right = 1004.0
+margin_bottom = 42.0
+
+[node name="SensitivityLabel" type="Label" parent="VBox/General/Sensitivity"]
+margin_top = 5.0
+margin_right = 280.0
+margin_bottom = 19.0
+text = "SETTINGS_CONTROLS_GENERAL_SENSITIVITY"
+
+[node name="HSlider" type="HSlider" parent="VBox/General/Sensitivity"]
+margin_left = 284.0
+margin_right = 942.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+step = 0.1
+value = 5.0
+
+[node name="LineEdit" type="LineEdit" parent="VBox/General/Sensitivity"]
+margin_left = 946.0
+margin_right = 1004.0
+margin_bottom = 24.0
+text = "%d"
+
+[node name="Movement" parent="VBox" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 99.0
+margin_right = 1004.0
+margin_bottom = 117.0
 size_flags_vertical = 1
 CATEGORY_NAME = "SETTINGS_CONTROLS_MOVEMENT_CATEGORY"
 
@@ -56,9 +90,9 @@ columns = 3
 [node name="Action" parent="VBox" instance=ExtResource( 1 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 75.0
+margin_top = 121.0
 margin_right = 1004.0
-margin_bottom = 93.0
+margin_bottom = 139.0
 size_flags_vertical = 1
 CATEGORY_NAME = "SETTINGS_CONTROLS_ACTION_CATEGORY"
 
@@ -72,9 +106,9 @@ columns = 3
 [node name="UI" parent="VBox" instance=ExtResource( 1 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 97.0
+margin_top = 143.0
 margin_right = 1004.0
-margin_bottom = 115.0
+margin_bottom = 161.0
 size_flags_vertical = 1
 CATEGORY_NAME = "SETTINGS_CONTROLS_UI_CATEGORY"
 

@@ -32,14 +32,26 @@ func test_load_inputs_cfg() -> void:
 	cfg.set_value("ui", "pause", SettingsUtils.MOUSE_BUTTON_CFG_PREFIX + str(BUTTON_MIDDLE))
 	# test
 	SettingsUtils.load_inputs_cfg(cfg)
-	assert_int(InputMap.get_action_list(SettingsUtils.CONTROLS_SETTINGS_CFG_MAPPER["movement"]["forward"])[0].scancode).is_equal(
-		KEY_ESCAPE
+	(
+		assert_int(
+			(
+				InputMap.get_action_list(SettingsUtils.CONTROLS_SETTINGS_CFG_MAPPER["movement"]["forward"])[0]. scancode
+			)
+		). is_equal(KEY_ESCAPE)
 	)
-	assert_int(InputMap.get_action_list(SettingsUtils.CONTROLS_SETTINGS_CFG_MAPPER["action"]["shoot"])[0].scancode).is_equal(
-		KEY_2
+	(
+		assert_int(
+			(
+				InputMap.get_action_list(SettingsUtils.CONTROLS_SETTINGS_CFG_MAPPER["action"]["shoot"])[0].scancode
+			)
+		). is_equal(KEY_2)
 	)
-	assert_int(InputMap.get_action_list(SettingsUtils.CONTROLS_SETTINGS_CFG_MAPPER["ui"]["pause"])[0].button_index).is_equal(
-		BUTTON_MIDDLE
+	(
+		assert_int(
+			(
+				InputMap.get_action_list(SettingsUtils.CONTROLS_SETTINGS_CFG_MAPPER["ui"]["pause"])[0].button_index
+			)
+		).is_equal(BUTTON_MIDDLE)
 	)
 
 
@@ -95,12 +107,14 @@ func test_generate_cfg_root_file() -> void:
 	SettingsUtils.settings_presets.controls = preset_name
 	# test
 	var cfg := SettingsUtils._generate_cfg_root_file()
-	assert_str(cfg.get_value(SettingsUtils.ROOT_SECTION_CONTROLS, SettingsUtils.ROOT_KEY_PRESET)).is_equal(
-		preset_name
+	(
+		assert_str(
+			cfg.get_value(SettingsUtils.ROOT_SECTION_CONTROLS, SettingsUtils.ROOT_KEY_PRESET)
+		).is_equal(preset_name)
 	)
 
 
-func test_load_cfg_general_file() -> void:
+func testload_cfg_general_file() -> void:
 	var locale := "fr"
 	# init
 	var cfg := ConfigFile.new()
@@ -108,30 +122,48 @@ func test_load_cfg_general_file() -> void:
 		SettingsUtils.GENERAL_SECTION_LANGUAGE, SettingsUtils.GENERAL_SECTION_LANGUAGE_TEXT, locale
 	)
 	# test
-	SettingsUtils._load_cfg_general_file(cfg)
+	SettingsUtils.load_cfg_general_file(cfg)
 	assert_str(TranslationServer.get_locale()).is_equal(locale)
 
 
-func test_generate_cfg_general_file() -> void:
+func testgenerate_cfg_general_file() -> void:
 	var locale := "fr"
 	# init
 	TranslationServer.set_locale(locale)
 	# test
-	var cfg := SettingsUtils._generate_cfg_general_file()
-	assert_str(cfg.get_value(SettingsUtils.GENERAL_SECTION_LANGUAGE, SettingsUtils.GENERAL_SECTION_LANGUAGE_TEXT)).is_equal(
-		locale
+	var cfg := SettingsUtils.generate_cfg_general_file()
+	(
+		assert_str(
+			cfg.get_value(
+				SettingsUtils.GENERAL_SECTION_LANGUAGE, SettingsUtils.GENERAL_SECTION_LANGUAGE_TEXT
+			)
+		).is_equal(locale)
 	)
 
 
 func test_generate_input_from_cfg_val() -> void:
-	assert_int(SettingsUtils._generate_input_from_cfg_val(SettingsUtils.KEY_CFG_PREFIX + str(KEY_A)).scancode).is_equal(
-		KEY_A
+	(
+		assert_int(
+			(
+				SettingsUtils._generate_input_from_cfg_val(SettingsUtils.KEY_CFG_PREFIX + str(KEY_A)).scancode
+			)
+		).is_equal(KEY_A)
 	)
-	assert_int(SettingsUtils._generate_input_from_cfg_val(SettingsUtils.MOUSE_BUTTON_CFG_PREFIX + str(BUTTON_LEFT)).button_index).is_equal(
-		BUTTON_LEFT
+	(
+		assert_int(
+			(
+				SettingsUtils._generate_input_from_cfg_val(
+					SettingsUtils.MOUSE_BUTTON_CFG_PREFIX + str(BUTTON_LEFT)
+				).button_index
+			)
+		).is_equal(BUTTON_LEFT)
 	)
-	assert_int(SettingsUtils._generate_input_from_cfg_val(SettingsUtils.JOYPAD_CFG_PREFIX + str(JOY_BUTTON_0)).button_index).is_equal(
-		JOY_BUTTON_0
+	(
+		assert_int(
+			(
+				SettingsUtils._generate_input_from_cfg_val(SettingsUtils.JOYPAD_CFG_PREFIX + str(JOY_BUTTON_0)).button_index
+			)
+		).is_equal(JOY_BUTTON_0)
 	)
 
 
@@ -148,26 +180,26 @@ func test_generate_cfg_input_from_action() -> void:
 	if InputMap.has_action(GlobalTestUtilities.TEST_ACTION):  # remove the existing action if exists
 		InputMap.action_erase_events(GlobalTestUtilities.TEST_ACTION)
 		InputMap.action_add_event(GlobalTestUtilities.TEST_ACTION, input_key)
-	assert_str(SettingsUtils._generate_cfg_input_from_action(GlobalTestUtilities.TEST_ACTION)).is_equal(
-		SettingsUtils.KEY_CFG_PREFIX + str(input_key.scancode)
+	(
+		assert_str(SettingsUtils._generate_cfg_input_from_action(GlobalTestUtilities.TEST_ACTION)).is_equal(SettingsUtils.KEY_CFG_PREFIX + str(input_key.scancode))
 	)
 	## mouse
 	if InputMap.has_action(GlobalTestUtilities.TEST_ACTION):  # remove the existing action if exists
 		InputMap.action_erase_events(GlobalTestUtilities.TEST_ACTION)
 		InputMap.action_add_event(GlobalTestUtilities.TEST_ACTION, input_mouse)
-	assert_str(SettingsUtils._generate_cfg_input_from_action(GlobalTestUtilities.TEST_ACTION)).is_equal(
-		SettingsUtils.MOUSE_BUTTON_CFG_PREFIX + str(input_mouse.button_index)
+	(
+		assert_str(SettingsUtils._generate_cfg_input_from_action(GlobalTestUtilities.TEST_ACTION)).is_equal(SettingsUtils.MOUSE_BUTTON_CFG_PREFIX + str(input_mouse.button_index))
 	)
 	## joypad
 	if InputMap.has_action(GlobalTestUtilities.TEST_ACTION):  # remove the existing action if exists
 		InputMap.action_erase_events(GlobalTestUtilities.TEST_ACTION)
 		InputMap.action_add_event(GlobalTestUtilities.TEST_ACTION, input_joy)
-	assert_str(SettingsUtils._generate_cfg_input_from_action(GlobalTestUtilities.TEST_ACTION)).is_equal(
-		SettingsUtils.JOYPAD_CFG_PREFIX + str(input_joy.button_index)
+	(
+		assert_str(SettingsUtils._generate_cfg_input_from_action(GlobalTestUtilities.TEST_ACTION)).is_equal(SettingsUtils.JOYPAD_CFG_PREFIX + str(input_joy.button_index))
 	)
 
 
-func test_load_cfg_audio_file() -> void:
+func testload_cfg_audio_file() -> void:
 	var main_volume := 50.0
 	var main_unmute := false
 	var bgm_volume := 20.2
@@ -190,31 +222,45 @@ func test_load_cfg_audio_file() -> void:
 		SettingsUtils.AUDIO_SECTION_EFFECTS, SettingsUtils.AUDIO_KEY_UNMUTED, effects_unmute
 	)
 	# test
-	SettingsUtils._load_cfg_audio_file(cfg)
+	SettingsUtils.load_cfg_audio_file(cfg)
 	## main
-	assert_float(db2linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index(GlobalConstants.MAIN_BUS)))).is_equal_approx(
-		main_volume, FLOAT_APPROX
+	(
+		assert_float(
+			db2linear(
+				AudioServer.get_bus_volume_db(AudioServer.get_bus_index(GlobalConstants.MAIN_BUS))
+			)
+		).is_equal_approx(main_volume, FLOAT_APPROX)
 	)
-	assert_bool(AudioServer.is_bus_mute(AudioServer.get_bus_index(GlobalConstants.MAIN_BUS))).is_equal(
-		not main_unmute
+	(
+		assert_bool(AudioServer.is_bus_mute(AudioServer.get_bus_index(GlobalConstants.MAIN_BUS))).is_equal(not main_unmute)
 	)
 	## bgm
-	assert_float(db2linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index(GlobalConstants.BGM_BUS)))).is_equal_approx(
-		bgm_volume, FLOAT_APPROX
+	(
+		assert_float(
+			db2linear(
+				AudioServer.get_bus_volume_db(AudioServer.get_bus_index(GlobalConstants.BGM_BUS))
+			)
+		).is_equal_approx(bgm_volume, FLOAT_APPROX)
 	)
-	assert_bool(AudioServer.is_bus_mute(AudioServer.get_bus_index(GlobalConstants.BGM_BUS))).is_equal(
-		not bgm_unmute
+	(
+		assert_bool(AudioServer.is_bus_mute(AudioServer.get_bus_index(GlobalConstants.BGM_BUS))).is_equal(not bgm_unmute)
 	)
 	## effects
-	assert_float(db2linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index(GlobalConstants.EFFECTS_BUS)))).is_equal_approx(
-		effects_volume, FLOAT_APPROX
+	(
+		assert_float(
+			db2linear(
+				AudioServer.get_bus_volume_db(
+					AudioServer.get_bus_index(GlobalConstants.EFFECTS_BUS)
+				)
+			)
+		).is_equal_approx(effects_volume, FLOAT_APPROX)
 	)
-	assert_bool(AudioServer.is_bus_mute(AudioServer.get_bus_index(GlobalConstants.EFFECTS_BUS))).is_equal(
-		not effects_unmute
+	(
+		assert_bool(AudioServer.is_bus_mute(AudioServer.get_bus_index(GlobalConstants.EFFECTS_BUS))).is_equal(not effects_unmute)
 	)
 
 
-func test_generate_cfg_audio_file() -> void:
+func testgenerate_cfg_audio_file() -> void:
 	var main_volume := 50.0
 	var main_unmute := false
 	var bgm_volume := 20.2
@@ -240,46 +286,54 @@ func test_generate_cfg_audio_file() -> void:
 		AudioServer.get_bus_index(GlobalConstants.EFFECTS_BUS), not effects_unmute
 	)
 	# test
-	var cfg := SettingsUtils._generate_cfg_audio_file()
+	var cfg := SettingsUtils.generate_cfg_audio_file()
 	## main
-	assert_float(cfg.get_value(SettingsUtils.AUDIO_SECTION_MAIN, SettingsUtils.AUDIO_KEY_VOLUME)).is_equal_approx(
-		main_volume, FLOAT_APPROX
+	(
+		assert_float(
+			cfg.get_value(SettingsUtils.AUDIO_SECTION_MAIN, SettingsUtils.AUDIO_KEY_VOLUME)
+		).is_equal_approx(main_volume, FLOAT_APPROX)
 	)
-	assert_bool(cfg.get_value(SettingsUtils.AUDIO_SECTION_MAIN, SettingsUtils.AUDIO_KEY_UNMUTED)).is_equal(
-		main_unmute
+	(
+		assert_bool(
+			cfg.get_value(SettingsUtils.AUDIO_SECTION_MAIN, SettingsUtils.AUDIO_KEY_UNMUTED)
+		).is_equal(main_unmute)
 	)
 	## bgm
-	assert_float(cfg.get_value(SettingsUtils.AUDIO_SECTION_BGM, SettingsUtils.AUDIO_KEY_VOLUME)).is_equal_approx(
-		bgm_volume, FLOAT_APPROX
+	(
+		assert_float(cfg.get_value(SettingsUtils.AUDIO_SECTION_BGM, SettingsUtils.AUDIO_KEY_VOLUME)).is_equal_approx(bgm_volume, FLOAT_APPROX)
 	)
-	assert_bool(cfg.get_value(SettingsUtils.AUDIO_SECTION_BGM, SettingsUtils.AUDIO_KEY_UNMUTED)).is_equal(
-		bgm_unmute
+	(
+		assert_bool(cfg.get_value(SettingsUtils.AUDIO_SECTION_BGM, SettingsUtils.AUDIO_KEY_UNMUTED)).is_equal(bgm_unmute)
 	)
 	## main
-	assert_float(cfg.get_value(SettingsUtils.AUDIO_SECTION_EFFECTS, SettingsUtils.AUDIO_KEY_VOLUME)).is_equal_approx(
-		effects_volume, FLOAT_APPROX
+	(
+		assert_float(
+			cfg.get_value(SettingsUtils.AUDIO_SECTION_EFFECTS, SettingsUtils.AUDIO_KEY_VOLUME)
+		).is_equal_approx(effects_volume, FLOAT_APPROX)
 	)
-	assert_bool(cfg.get_value(SettingsUtils.AUDIO_SECTION_EFFECTS, SettingsUtils.AUDIO_KEY_UNMUTED)).is_equal(
-		effects_unmute
+	(
+		assert_bool(
+			cfg.get_value(SettingsUtils.AUDIO_SECTION_EFFECTS, SettingsUtils.AUDIO_KEY_UNMUTED)
+		).is_equal(effects_unmute)
 	)
 
 
-func test_load_cfg_video_file() -> void:
+func testload_cfg_video_file() -> void:
 	var fullscreen := true
 	# init
 	var cfg := ConfigFile.new()
 	cfg.set_value(SettingsUtils.VIDEO_SECTION_MODE, SettingsUtils.VIDEO_KEY_MODE, fullscreen)
 	# test
-	SettingsUtils._load_cfg_video_file(cfg)
+	SettingsUtils.load_cfg_video_file(cfg)
 	assert_bool(OS.window_fullscreen).is_equal(fullscreen)
 
 
-func test_generate_cfg_video_file() -> void:
+func testgenerate_cfg_video_file() -> void:
 	var fullscreen := false
 	# init
 	OS.window_fullscreen = fullscreen
 	# test
-	var cfg := SettingsUtils._generate_cfg_video_file()
-	assert_bool(cfg.get_value(SettingsUtils.VIDEO_SECTION_MODE, SettingsUtils.VIDEO_KEY_MODE)).is_equal(
-		fullscreen
+	var cfg := SettingsUtils.generate_cfg_video_file()
+	(
+		assert_bool(cfg.get_value(SettingsUtils.VIDEO_SECTION_MODE, SettingsUtils.VIDEO_KEY_MODE)).is_equal(fullscreen)
 	)

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: c.lemetayer@laposte.net\n"
 "POT-Creation-Date: 2021-12-19\n"
-"PO-Revision-Date: 2023-10-18 22:10+0200\n"
+"PO-Revision-Date: 2023-10-22 12:04+0200\n"
 "Last-Translator: Corentin Le Métayer <c.lemetayer@laposte.net>\n"
 "Language: fr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -164,6 +164,12 @@ msgid "SETTINGS_GENERAL_LANGUAGE_OPTION"
 msgstr "Langue :"
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ CONTROLS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+msgid "SETTINGS_CONTROLS_GENERAL_CATEGORY"
+msgstr "Géneral"
+
+msgid "SETTINGS_CONTROLS_GENERAL_SENSITIVITY"
+msgstr "Sensibilité de la souris : "
+
 msgid "SETTINGS_CONTROLS_MOVEMENT_CATEGORY"
 msgstr "Mouvement"
 

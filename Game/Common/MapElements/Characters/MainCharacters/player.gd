@@ -72,7 +72,6 @@ export(Dictionary) var properties
 
 #---- STANDARD -----
 #==== PUBLIC ====
-var mouse_sensitivity = 0.05  # mouse sensitivity
 var states := BitMap.new()  # player current states
 var input_movement_vector = Vector2()  # vector for the movement
 var vel := Vector3()  # velocity vector
@@ -162,8 +161,8 @@ func _physics_process(delta):
 # when an input is pressed
 func _input(event):
 	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
-		rotation_helper.rotate_x(deg2rad(event.relative.y * mouse_sensitivity))
-		self.rotate_y(deg2rad(event.relative.x * mouse_sensitivity * -1))
+		rotation_helper.rotate_x(deg2rad(event.relative.y * _get_mouse_sensitivity()))
+		self.rotate_y(deg2rad(event.relative.x * _get_mouse_sensitivity() * -1))
 		var camera_rot = rotation_helper.rotation_degrees
 		camera_rot.x = clamp(camera_rot.x, -89, 89)
 		rotation_helper.rotation_degrees = camera_rot
@@ -651,6 +650,9 @@ func _manage_slide_wallride_visual_effect() -> void:
 		onready_paths.slide_visual_effects.transform.origin = visual_effect_wall_ride_offset
 	else:
 		onready_paths.slide_visual_effects.visible = false
+
+func _get_mouse_sensitivity() -> float:
+	return SettingsUtils.settings_data.controls.mouse_sensitivity
 
 ##### SIGNAL MANAGEMENT #####
 func _remove_shooting_state():

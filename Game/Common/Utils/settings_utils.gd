@@ -8,8 +8,12 @@ const CFG_FILE_EXTENSION := ".cfg"
 const CURRENT_PRESET_FILE_NAME := "current"
 const REGEX_PATTERN_CFG_FILE := "^(?!" + CURRENT_PRESET_FILE_NAME + ".cfg$).+\\.(?:cfg)$"
 const ROOT_PRESETS_FOLDER := "user://conf/"
+const ROOT_SECTION_GENERAL := "general"
 const ROOT_SECTION_CONTROLS := "controls"
+const ROOT_SECTION_AUDIO := "audio"
+const ROOT_SECTION_VIDEO := "video"
 const ROOT_KEY_PRESET := "preset"
+const FOLDER_SEPARATOR := "/"
 
 #==== GENERAL =====
 const GENERAL_PRESETS_PATH := ROOT_PRESETS_FOLDER + "general/"
@@ -39,6 +43,8 @@ const CONTROLS_SETTINGS_CFG_MAPPER := {
 		"pause": GlobalConstants.INPUT_PAUSE
 	}
 }
+const CONTROLS_SECTION_GENERAL := "general"
+const CONTROLS_SECTION_GENERAL_SENSITIVITY := "mouse_sensitivity"
 
 #==== AUDIO =====
 const AUDIO_PRESETS_PATH := ROOT_PRESETS_FOLDER + "audio/"
@@ -55,7 +61,14 @@ const VIDEO_KEY_MODE := "mode"
 
 #---- STANDARD -----
 #==== PUBLIC ====
-var settings_presets := {"controls": CURRENT_PRESET_FILE_NAME + CFG_FILE_EXTENSION}  # name of the selected option preset
+var settings_presets := {
+	"general": CURRENT_PRESET_FILE_NAME + CFG_FILE_EXTENSION,
+	"controls": CURRENT_PRESET_FILE_NAME + CFG_FILE_EXTENSION,
+	"audio": CURRENT_PRESET_FILE_NAME + CFG_FILE_EXTENSION,
+	"video": CURRENT_PRESET_FILE_NAME + CFG_FILE_EXTENSION
+}  # name of the selected option preset
+
+var settings_data := {"controls": {"mouse_sensitivity": 0.05}}  # Misc data for parameters that can't be set directly
 
 
 ##### PROCESSING #####
@@ -95,7 +108,7 @@ func save_current_settings() -> void:
 
 func save_general_settings() -> void:
 	DebugUtils.log_save_cfg(
-		_generate_cfg_general_file(),
+		generate_cfg_general_file(),
 		GENERAL_PRESETS_PATH + CURRENT_PRESET_FILE_NAME + CFG_FILE_EXTENSION
 	)
 
@@ -109,14 +122,14 @@ func save_controls_settings() -> void:
 
 func save_audio_settings() -> void:
 	DebugUtils.log_save_cfg(
-		_generate_cfg_audio_file(),
+		generate_cfg_audio_file(),
 		AUDIO_PRESETS_PATH + CURRENT_PRESET_FILE_NAME + CFG_FILE_EXTENSION
 	)
 
 
 func save_video_settings() -> void:
 	DebugUtils.log_save_cfg(
-		_generate_cfg_video_file(),
+		generate_cfg_video_file(),
 		VIDEO_PRESETS_PATH + CURRENT_PRESET_FILE_NAME + CFG_FILE_EXTENSION
 	)
 
@@ -132,7 +145,7 @@ func load_current_settings() -> void:
 
 
 func load_general_settings() -> void:
-	_load_cfg_general_file(
+	load_cfg_general_file(
 		DebugUtils.log_load_cfg(
 			GENERAL_PRESETS_PATH + CURRENT_PRESET_FILE_NAME + CFG_FILE_EXTENSION
 		)
@@ -146,13 +159,13 @@ func load_controls_settings() -> void:
 
 
 func load_audio_settings() -> void:
-	_load_cfg_audio_file(
+	load_cfg_audio_file(
 		DebugUtils.log_load_cfg(AUDIO_PRESETS_PATH + CURRENT_PRESET_FILE_NAME + CFG_FILE_EXTENSION)
 	)
 
 
 func load_video_settings() -> void:
-	_load_cfg_video_file(
+	load_cfg_video_file(
 		DebugUtils.log_load_cfg(VIDEO_PRESETS_PATH + CURRENT_PRESET_FILE_NAME + CFG_FILE_EXTENSION)
 	)
 
@@ -175,6 +188,24 @@ func load_inputs_cfg(cfg: ConfigFile) -> void:
 						"No section %s or key %s in cfg inputs" % [section, key],
 						DebugUtils.LOG_LEVEL.warn
 					)
+		if (
+			cfg.has_section(CONTROLS_SECTION_GENERAL)
+			and (
+				cfg.get_value(CONTROLS_SECTION_GENERAL, CONTROLS_SECTION_GENERAL_SENSITIVITY)
+				!= null
+			)
+		):
+			settings_data.controls.mouse_sensitivity = cfg.get_value(
+				CONTROLS_SECTION_GENERAL, CONTROLS_SECTION_GENERAL_SENSITIVITY
+			)
+		else:
+			DebugUtils.log_stacktrace(
+				(
+					"No section %s or key %s in cfg root"
+					% [CONTROLS_SECTION_GENERAL, CONTROLS_SECTION_GENERAL_SENSITIVITY]
+				),
+				DebugUtils.LOG_LEVEL.warn
+			)
 	else:
 		DebugUtils.log_stacktrace("No cfg inputs config", DebugUtils.LOG_LEVEL.warn)
 
@@ -189,6 +220,11 @@ func generate_cfg_input_file() -> ConfigFile:
 				key,
 				_generate_cfg_input_from_action(CONTROLS_SETTINGS_CFG_MAPPER[section][key])
 			)
+	cfg_file.set_value(
+		CONTROLS_SECTION_GENERAL,
+		CONTROLS_SECTION_GENERAL_SENSITIVITY,
+		settings_data.controls.mouse_sensitivity
+	)
 	return cfg_file
 
 
@@ -196,28 +232,39 @@ func generate_cfg_input_file() -> ConfigFile:
 #---- ROOT -----
 func _load_cfg_root_file(cfg: ConfigFile) -> void:
 	if cfg != null:
-		if (
-			cfg.has_section(ROOT_SECTION_CONTROLS)
-			and cfg.get_value(ROOT_SECTION_CONTROLS, ROOT_KEY_PRESET) != null
-		):
-			settings_presets.controls = cfg.get_value(ROOT_SECTION_CONTROLS, ROOT_KEY_PRESET)
-		else:
-			DebugUtils.log_stacktrace(
-				"No section %s or key %s in cfg root" % [ROOT_SECTION_CONTROLS, ROOT_KEY_PRESET],
-				DebugUtils.LOG_LEVEL.warn
-			)
+		_load_cfg_subfolders(cfg, ROOT_SECTION_GENERAL, "general")
+		_load_cfg_subfolders(cfg, ROOT_SECTION_CONTROLS, "controls")
+		_load_cfg_subfolders(cfg, ROOT_SECTION_AUDIO, "audio")
+		_load_cfg_subfolders(cfg, ROOT_SECTION_VIDEO, "video")
 	else:
 		DebugUtils.log_stacktrace("No cfg root config", DebugUtils.LOG_LEVEL.warn)
 
 
+func _load_cfg_subfolders(cfg: ConfigFile, section: String, settings_preset_key: String) -> void:
+	if (
+		cfg.has_section(section)
+		and cfg.get_value(section, ROOT_KEY_PRESET) != null
+		and settings_preset_key in settings_presets
+	):
+		settings_presets[settings_preset_key] = cfg.get_value(section, ROOT_KEY_PRESET)
+	else:
+		DebugUtils.log_stacktrace(
+			"No section %s or key %s in cfg root" % [section, ROOT_KEY_PRESET],
+			DebugUtils.LOG_LEVEL.warn
+		)
+
+
 func _generate_cfg_root_file() -> ConfigFile:
 	var cfg_file := ConfigFile.new()
+	cfg_file.set_value(ROOT_SECTION_GENERAL, ROOT_KEY_PRESET, settings_presets.general)
 	cfg_file.set_value(ROOT_SECTION_CONTROLS, ROOT_KEY_PRESET, settings_presets.controls)
+	cfg_file.set_value(ROOT_SECTION_AUDIO, ROOT_KEY_PRESET, settings_presets.audio)
+	cfg_file.set_value(ROOT_SECTION_VIDEO, ROOT_KEY_PRESET, settings_presets.video)
 	return cfg_file
 
 
 #---- GENERAL -----
-func _load_cfg_general_file(cfg: ConfigFile) -> void:
+func load_cfg_general_file(cfg: ConfigFile) -> void:
 	if cfg != null:
 		if (
 			cfg.has_section(GENERAL_SECTION_LANGUAGE)
@@ -238,7 +285,7 @@ func _load_cfg_general_file(cfg: ConfigFile) -> void:
 		DebugUtils.log_stacktrace("No cfg general config", DebugUtils.LOG_LEVEL.warn)
 
 
-func _generate_cfg_general_file() -> ConfigFile:
+func generate_cfg_general_file() -> ConfigFile:
 	var cfg_file := ConfigFile.new()
 	cfg_file.set_value(
 		GENERAL_SECTION_LANGUAGE, GENERAL_SECTION_LANGUAGE_TEXT, TranslationServer.get_locale()
@@ -273,7 +320,7 @@ func _generate_cfg_input_from_action(action: String) -> String:
 
 
 #---- AUDIO -----
-func _load_cfg_audio_file(cfg: ConfigFile) -> void:
+func load_cfg_audio_file(cfg: ConfigFile) -> void:
 	if cfg != null:
 		# Main
 		if (
@@ -360,7 +407,7 @@ func _load_cfg_audio_file(cfg: ConfigFile) -> void:
 		DebugUtils.log_stacktrace("No cfg audio config", DebugUtils.LOG_LEVEL.warn)
 
 
-func _generate_cfg_audio_file() -> ConfigFile:
+func generate_cfg_audio_file() -> ConfigFile:
 	var cfg_file := ConfigFile.new()
 	# Main
 	cfg_file.set_value(
@@ -403,7 +450,7 @@ func _generate_cfg_audio_file() -> ConfigFile:
 
 
 #---- VIDEO -----
-func _load_cfg_video_file(cfg: ConfigFile) -> void:
+func load_cfg_video_file(cfg: ConfigFile) -> void:
 	if cfg != null:
 		if (
 			cfg.has_section(VIDEO_SECTION_MODE)
@@ -419,7 +466,7 @@ func _load_cfg_video_file(cfg: ConfigFile) -> void:
 		DebugUtils.log_stacktrace("No cfg video config", DebugUtils.LOG_LEVEL.warn)
 
 
-func _generate_cfg_video_file() -> ConfigFile:
+func generate_cfg_video_file() -> ConfigFile:
 	var cfg_file := ConfigFile.new()
 	cfg_file.set_value(VIDEO_SECTION_MODE, VIDEO_KEY_MODE, OS.window_fullscreen)
 	return cfg_file

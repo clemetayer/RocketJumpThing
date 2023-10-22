@@ -26,6 +26,14 @@ const UI_CAT := [  # actions for the UI category
 #==== ONREADY ====
 onready var onready_paths := {
 	"presets": $"VBox/Presets",
+	"general": {
+		"category": $"VBox/General",
+		"sensitivity" : {
+			"label":$"VBox/General/Sensitivity/SensitivityLabel",
+			"slider":$"VBox/General/Sensitivity/HSlider",
+			"line_edit": $"VBox/General/Sensitivity/LineEdit"
+		}
+	},
 	"movement_cat": $"VBox/Movement",
 	"movement": $"VBox/Movement/MovementGrid",
 	"action_cat": $"VBox/Action",
@@ -39,12 +47,18 @@ onready var onready_paths := {
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	_init_tr()
+	_set_default_values()
+	_connect_signals()
 	_add_key_settings_to_groups()
 
 
 ##### PROTECTED METHODS #####
 func _init_tr():
 	onready_paths.presets.set_category_name(tr(TranslationKeys.PRESET_CATEGORY))
+	onready_paths.general.category.set_category_name(
+		tr(TranslationKeys.SETTINGS_CONTROLS_GENERAL_CATEGORY)
+	)
+	onready_paths.general.sensitivity.label.set_text(tr(TranslationKeys.SETTINGS_CONTROLS_GENERAL_SENSITIVITY))
 	onready_paths.movement_cat.set_category_name(
 		tr(TranslationKeys.SETTINGS_CONTROLS_MOVEMENT_CATEGORY)
 	)
@@ -53,6 +67,15 @@ func _init_tr():
 	)
 	onready_paths.ui_cat.set_category_name(tr(TranslationKeys.SETTINGS_CONTROLS_UI_CATEGORY))
 
+func _set_default_values():
+	onready_paths.general.sensitivity.slider.value = SettingsUtils.settings_data.controls.mouse_sensitivity * 100.0
+	onready_paths.general.sensitivity.line_edit.text = "%f" % (SettingsUtils.settings_data.controls.mouse_sensitivity * 100.0)
+
+func _connect_signals() -> void:
+	DebugUtils.log_connect(
+		onready_paths.general.sensitivity.slider, self, "value_changed", "_on_SensitivitySlider_value_changed"
+	)
+	DebugUtils.log_connect(onready_paths.general.sensitivity.line_edit, self, "text_changed", "_on_SensitivityLineEdit_text_changed")
 
 func _add_key_settings_to_groups() -> void:
 	_free_categories()
@@ -79,3 +102,15 @@ func _free_categories() -> void:
 		child.free()
 	for child in onready_paths.ui.get_children():
 		child.free()
+
+##### SIGNAL MANAGEMENT #####
+func _on_SensitivitySlider_value_changed(value : float) -> void:
+	if(onready_paths.general.sensitivity.line_edit.text != "%f" % value):
+		onready_paths.general.sensitivity.line_edit.set_text("%f" % value )
+	SettingsUtils.settings_data.controls.mouse_sensitivity = value / 100.0
+
+func _on_SensitivityLineEdit_text_changed(new_text : String) -> void:
+	if(new_text.is_valid_float()):
+		SettingsUtils.settings_data.controls.mouse_sensitivity = new_text.to_float() / 100.0
+		if(onready_paths.general.sensitivity.slider.value != new_text.to_float()):
+			onready_paths.general.sensitivity.slider.value = new_text.to_float()

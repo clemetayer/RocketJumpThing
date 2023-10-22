@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Game/Common/Menus/SettingsMenu/common_category.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Game/Common/Menus/SettingsMenu/Audio/audio.gd" type="Script" id=2]
+[ext_resource path="res://Game/Common/Menus/SettingsMenu/Presets/Presets.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Game/Common/Menus/SettingsMenu/Audio/presets_audio.gd" type="Script" id=4]
 
 [node name="Audio" type="MarginContainer"]
 anchor_right = 1.0
@@ -13,11 +15,22 @@ margin_right = 1024.0
 margin_bottom = 600.0
 size_flags_horizontal = 3
 
+[node name="CenterContainer" type="CenterContainer" parent="AudioVBox"]
+margin_right = 1024.0
+margin_bottom = 31.0
+
+[node name="Presets" parent="AudioVBox/CenterContainer" instance=ExtResource( 3 )]
+margin_left = 369.0
+margin_right = 655.0
+margin_bottom = 31.0
+script = ExtResource( 4 )
+
 [node name="Main" parent="AudioVBox" instance=ExtResource( 1 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
+margin_top = 35.0
 margin_right = 1024.0
-margin_bottom = 58.0
+margin_bottom = 93.0
 size_flags_vertical = 1
 CATEGORY_NAME = "SETTINGS_AUDIO_MAIN_CATEGORY"
 
@@ -56,9 +69,9 @@ margin_bottom = 40.0
 [node name="BGM" parent="AudioVBox" instance=ExtResource( 1 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 62.0
+margin_top = 97.0
 margin_right = 1024.0
-margin_bottom = 120.0
+margin_bottom = 155.0
 size_flags_vertical = 1
 CATEGORY_NAME = "SETTINGS_AUDIO_BGM_CATEGORY"
 
@@ -97,9 +110,9 @@ margin_bottom = 40.0
 [node name="Effects" parent="AudioVBox" instance=ExtResource( 1 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 124.0
+margin_top = 159.0
 margin_right = 1024.0
-margin_bottom = 182.0
+margin_bottom = 217.0
 size_flags_vertical = 1
 CATEGORY_NAME = "SETTINGS_AUDIO_EFFECTS_CATEGORY"
 

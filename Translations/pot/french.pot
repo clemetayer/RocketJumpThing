@@ -160,6 +160,12 @@ msgid "SETTINGS_GENERAL_LANGUAGE_OPTION"
 msgstr "Langue :"
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ CONTROLS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+msgid "SETTINGS_CONTROLS_GENERAL_CATEGORY"
+msgstr "Géneral"
+
+msgid "SETTINGS_CONTROLS_GENERAL_SENSITIVITY"
+msgstr "Sensibilité de la souris : "
+
 msgid "SETTINGS_CONTROLS_MOVEMENT_CATEGORY"
 msgstr "Mouvement"
 
@@ -168,6 +174,7 @@ msgstr "Action"
 
 msgid "SETTINGS_CONTROLS_UI_CATEGORY"
 msgstr "IU"
+
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ AUDIO ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 msgid "SETTINGS_AUDIO_MAIN_CATEGORY"
