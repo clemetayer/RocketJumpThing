@@ -45,8 +45,9 @@ func test_init_tr() -> void:
 	)
 
 func test_set_default_values() -> void:
+	SettingsUtils.settings_data.controls.mouse_sensitivity = 0.5
 	controls._set_default_values()
-	assert_float(controls.onready_paths.general.sensitivity.slider.value).is_equal_approx(SettingsUtils.settings_data.controls.mouse_sensitivity * 100.0,FLOAT_APPROX)
+	assert_float(controls.onready_paths.general.sensitivity.slider.value).is_equal_approx(SettingsUtils.settings_data.controls.mouse_sensitivity * 100.0, FLOAT_APPROX)
 	assert_str(controls.onready_paths.general.sensitivity.line_edit.text).is_equal("%f" % (SettingsUtils.settings_data.controls.mouse_sensitivity * 100.0))
 
 func test_connect_signals() -> void:

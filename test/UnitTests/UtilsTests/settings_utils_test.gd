@@ -26,6 +26,26 @@ func test_load_inputs_cfg() -> void:
 					SettingsUtils.CONTROLS_SETTINGS_CFG_MAPPER[section][key]
 				)
 			)
+	cfg.set_value(
+		SettingsUtils.CONTROLS_SECTION_GENERAL,
+		SettingsUtils.CONTROLS_SECTION_GENERAL_SENSITIVITY,
+		1.5
+	)
+	cfg.set_value(
+		SettingsUtils.CONTROLS_SECTION_GENERAL,
+		SettingsUtils.CONTROLS_SECTION_GENERAL_CROSSHAIR_PATH,
+		"test"
+	)
+	cfg.set_value(
+		SettingsUtils.CONTROLS_SECTION_GENERAL,
+		SettingsUtils.CONTROLS_SECTION_GENERAL_CROSSHAIR_SIZE,
+		1.3
+	)
+	cfg.set_value(
+		SettingsUtils.CONTROLS_SECTION_GENERAL,
+		SettingsUtils.CONTROLS_SECTION_GENERAL_CROSSHAIR_COLOR,
+		Color.azure
+	)
 	## Some overrides
 	cfg.set_value("movement", "forward", SettingsUtils.KEY_CFG_PREFIX + str(KEY_ESCAPE))
 	cfg.set_value("action", "shoot", SettingsUtils.KEY_CFG_PREFIX + str(KEY_2))
@@ -35,16 +55,16 @@ func test_load_inputs_cfg() -> void:
 	(
 		assert_int(
 			(
-				InputMap.get_action_list(SettingsUtils.CONTROLS_SETTINGS_CFG_MAPPER["movement"]["forward"])[0]. scancode
+				InputMap.get_action_list(SettingsUtils.CONTROLS_SETTINGS_CFG_MAPPER["movement"]["forward"])[0].scancode
 			)
-		). is_equal(KEY_ESCAPE)
+		).is_equal(KEY_ESCAPE)
 	)
 	(
 		assert_int(
 			(
 				InputMap.get_action_list(SettingsUtils.CONTROLS_SETTINGS_CFG_MAPPER["action"]["shoot"])[0].scancode
 			)
-		). is_equal(KEY_2)
+		).is_equal(KEY_2)
 	)
 	(
 		assert_int(
@@ -53,6 +73,26 @@ func test_load_inputs_cfg() -> void:
 			)
 		).is_equal(BUTTON_MIDDLE)
 	)
+	assert_float(
+		(
+			SettingsUtils.settings_data.controls.mouse_sensitivity
+		)
+	).is_equal_approx(1.5, FLOAT_APPROX)
+	assert_str(
+		(
+			SettingsUtils.settings_data.controls.crosshair_path
+		)
+	).is_equal("test")
+	assert_object(
+		(
+			SettingsUtils.settings_data.controls.crosshair_color
+		)
+	).is_equal(Color.azure)
+	assert_float(
+		(
+			SettingsUtils.settings_data.controls.crosshair_size
+		)
+	).is_equal_approx(1.3, FLOAT_APPROX)
 
 
 func test_generate_cfg_input_file() -> void:
@@ -80,6 +120,10 @@ func test_generate_cfg_input_file() -> void:
 		InputMap.action_add_event(
 			SettingsUtils.CONTROLS_SETTINGS_CFG_MAPPER["ui"]["pause"], input_pause
 		)
+	SettingsUtils.set_crosshair_path("test_2")
+	SettingsUtils.set_crosshair_size(1.4)
+	SettingsUtils.set_crosshair_color(Color.beige)
+	SettingsUtils.settings_data.controls.mouse_sensitivity = 1.2
 	# test
 	var cfg := SettingsUtils.generate_cfg_input_file()
 	assert_str(cfg.get_value("movement", "forward")).is_equal(
@@ -89,6 +133,10 @@ func test_generate_cfg_input_file() -> void:
 	assert_str(cfg.get_value("ui", "pause")).is_equal(
 		SettingsUtils.MOUSE_BUTTON_CFG_PREFIX + str(BUTTON_LEFT)
 	)
+	assert_float(cfg.get_value("general","mouse_sensitivity")).is_equal_approx(1.2, FLOAT_APPROX)
+	assert_float(cfg.get_value("general","crosshair_size")).is_equal_approx(1.4, FLOAT_APPROX)
+	assert_str(cfg.get_value("general","crosshair_path")).is_equal("test_2")
+	assert_object(cfg.get_value("general","crosshair_color")).is_equal(Color.beige)
 
 
 func test_load_cfg_root_file() -> void:

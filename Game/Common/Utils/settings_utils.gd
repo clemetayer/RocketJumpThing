@@ -7,6 +7,7 @@ extends Node
 const CFG_FILE_EXTENSION := ".cfg"
 const CURRENT_PRESET_FILE_NAME := "current"
 const REGEX_PATTERN_CFG_FILE := "^(?!" + CURRENT_PRESET_FILE_NAME + ".cfg$).+\\.(?:cfg)$"
+const REGEX_PATTERN_PNG_FILE := "(?:png)$"
 const ROOT_PRESETS_FOLDER := "user://conf/"
 const ROOT_SECTION_GENERAL := "general"
 const ROOT_SECTION_CONTROLS := "controls"
@@ -45,6 +46,10 @@ const CONTROLS_SETTINGS_CFG_MAPPER := {
 }
 const CONTROLS_SECTION_GENERAL := "general"
 const CONTROLS_SECTION_GENERAL_SENSITIVITY := "mouse_sensitivity"
+const CONTROLS_SECTION_GENERAL_CROSSHAIR_PATH := "crosshair_path"
+const CONTROLS_SECTION_GENERAL_CROSSHAIR_COLOR := "crosshair_color"
+const CONTROLS_SECTION_GENERAL_CROSSHAIR_SIZE := "crosshair_size"
+const DEFAULT_CROSSHAIR := "res://Misc/UI/Crosshairs/PNG/WhiteRetina/crosshair013.png"
 
 #==== AUDIO =====
 const AUDIO_PRESETS_PATH := ROOT_PRESETS_FOLDER + "audio/"
@@ -68,7 +73,15 @@ var settings_presets := {
 	"video": CURRENT_PRESET_FILE_NAME + CFG_FILE_EXTENSION
 }  # name of the selected option preset
 
-var settings_data := {"controls": {"mouse_sensitivity": 0.05}}  # Misc data for parameters that can't be set directly
+var settings_data := {
+	"controls":
+	{
+		"mouse_sensitivity": 0.05,
+		"crosshair_path": DEFAULT_CROSSHAIR,
+		"crosshair_color": Color.white,
+		"crosshair_size": 1
+	}
+}  # Misc data for parameters that can't be set directly
 
 
 ##### PROCESSING #####
@@ -76,10 +89,9 @@ var settings_data := {"controls": {"mouse_sensitivity": 0.05}}  # Misc data for 
 func _ready():
 	load_current_settings()
 
-	##### PUBLIC METHODS #####
-	# checks if the cfg directories are created, and creates these if that's not the case
 
-
+##### PUBLIC METHODS #####
+# checks if the cfg directories are created, and creates these if that's not the case
 func check_cfg_dir_init() -> void:
 	var dir := Directory.new()
 	if not dir.dir_exists(ROOT_PRESETS_FOLDER):
@@ -176,36 +188,32 @@ func load_inputs_cfg(cfg: ConfigFile) -> void:
 	if cfg != null:
 		for section in CONTROLS_SETTINGS_CFG_MAPPER.keys():
 			for key in CONTROLS_SETTINGS_CFG_MAPPER[section].keys():
-				if cfg.has_section(section) and cfg.get_value(section, key) != null:
+				if _check_has_value(cfg, section, key):
 					if InputMap.has_action(CONTROLS_SETTINGS_CFG_MAPPER[section][key]):  # remove the existing action if exists
 						InputMap.action_erase_events(CONTROLS_SETTINGS_CFG_MAPPER[section][key])
 						InputMap.action_add_event(
 							CONTROLS_SETTINGS_CFG_MAPPER[section][key],
 							_generate_input_from_cfg_val(cfg.get_value(section, key))
 						)
-				else:
-					DebugUtils.log_stacktrace(
-						"No section %s or key %s in cfg inputs" % [section, key],
-						DebugUtils.LOG_LEVEL.warn
-					)
-		if (
-			cfg.has_section(CONTROLS_SECTION_GENERAL)
-			and (
-				cfg.get_value(CONTROLS_SECTION_GENERAL, CONTROLS_SECTION_GENERAL_SENSITIVITY)
-				!= null
-			)
-		):
+		if _check_has_value(cfg, CONTROLS_SECTION_GENERAL, CONTROLS_SECTION_GENERAL_SENSITIVITY):
 			settings_data.controls.mouse_sensitivity = cfg.get_value(
 				CONTROLS_SECTION_GENERAL, CONTROLS_SECTION_GENERAL_SENSITIVITY
 			)
-		else:
-			DebugUtils.log_stacktrace(
-				(
-					"No section %s or key %s in cfg root"
-					% [CONTROLS_SECTION_GENERAL, CONTROLS_SECTION_GENERAL_SENSITIVITY]
-				),
-				DebugUtils.LOG_LEVEL.warn
+		if _check_has_value(cfg, CONTROLS_SECTION_GENERAL, CONTROLS_SECTION_GENERAL_CROSSHAIR_PATH):
+			settings_data.controls.crosshair_path = cfg.get_value(
+				CONTROLS_SECTION_GENERAL, CONTROLS_SECTION_GENERAL_CROSSHAIR_PATH
 			)
+		if _check_has_value(
+			cfg, CONTROLS_SECTION_GENERAL, CONTROLS_SECTION_GENERAL_CROSSHAIR_COLOR
+		):
+			settings_data.controls.crosshair_color = cfg.get_value(
+				CONTROLS_SECTION_GENERAL, CONTROLS_SECTION_GENERAL_CROSSHAIR_COLOR
+			)
+		if _check_has_value(cfg, CONTROLS_SECTION_GENERAL, CONTROLS_SECTION_GENERAL_CROSSHAIR_SIZE):
+			settings_data.controls.crosshair_size = cfg.get_value(
+				CONTROLS_SECTION_GENERAL, CONTROLS_SECTION_GENERAL_CROSSHAIR_SIZE
+			)
+
 	else:
 		DebugUtils.log_stacktrace("No cfg inputs config", DebugUtils.LOG_LEVEL.warn)
 
@@ -225,10 +233,53 @@ func generate_cfg_input_file() -> ConfigFile:
 		CONTROLS_SECTION_GENERAL_SENSITIVITY,
 		settings_data.controls.mouse_sensitivity
 	)
+	cfg_file.set_value(
+		CONTROLS_SECTION_GENERAL,
+		CONTROLS_SECTION_GENERAL_CROSSHAIR_PATH,
+		settings_data.controls.crosshair_path
+	)
+	cfg_file.set_value(
+		CONTROLS_SECTION_GENERAL,
+		CONTROLS_SECTION_GENERAL_CROSSHAIR_COLOR,
+		settings_data.controls.crosshair_color
+	)
+	cfg_file.set_value(
+		CONTROLS_SECTION_GENERAL,
+		CONTROLS_SECTION_GENERAL_CROSSHAIR_SIZE,
+		settings_data.controls.crosshair_size
+	)
 	return cfg_file
 
 
+# sets the crosshair path
+func set_crosshair_path(path: String) -> void:
+	settings_data.controls.crosshair_path = path
+	_emit_crosshair_changed()
+
+
+# sets the crosshair color
+func set_crosshair_color(color: Color) -> void:
+	settings_data.controls.crosshair_color = color
+	_emit_crosshair_changed()
+
+
+# sets the crosshair color
+func set_crosshair_size(size: float) -> void:
+	settings_data.controls.crosshair_size = size
+	_emit_crosshair_changed()
+
+
 ##### PROTECTED METHODS #####
+func _check_has_value(cfg: ConfigFile, section: String, value: String) -> bool:
+	if cfg.has_section(section) and (cfg.get_value(section, value) != null):
+		return true
+	else:
+		DebugUtils.log_stacktrace(
+			"No section %s or key %s in cfg root" % [section, value], DebugUtils.LOG_LEVEL.warn
+		)
+	return false
+
+
 #---- ROOT -----
 func _load_cfg_root_file(cfg: ConfigFile) -> void:
 	if cfg != null:
@@ -317,6 +368,14 @@ func _generate_cfg_input_from_action(action: String) -> String:
 	elif input is InputEventJoypadButton:
 		return JOYPAD_CFG_PREFIX + str(input.button_index)
 	return ""
+
+
+func _emit_crosshair_changed() -> void:
+	SignalManager.emit_update_crosshair(
+		settings_data.controls.crosshair_path,
+		settings_data.controls.crosshair_color,
+		settings_data.controls.crosshair_size
+	)
 
 
 #---- AUDIO -----

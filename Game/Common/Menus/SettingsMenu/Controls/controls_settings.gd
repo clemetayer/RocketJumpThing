@@ -68,7 +68,7 @@ func _init_tr():
 	onready_paths.ui_cat.set_category_name(tr(TranslationKeys.SETTINGS_CONTROLS_UI_CATEGORY))
 
 func _set_default_values():
-	onready_paths.general.sensitivity.slider.value = SettingsUtils.settings_data.controls.mouse_sensitivity * 100.0
+	onready_paths.general.sensitivity.slider.set_value(SettingsUtils.settings_data.controls.mouse_sensitivity * 100.0)
 	onready_paths.general.sensitivity.line_edit.text = "%f" % (SettingsUtils.settings_data.controls.mouse_sensitivity * 100.0)
 
 func _connect_signals() -> void:

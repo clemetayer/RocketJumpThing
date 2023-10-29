@@ -41,6 +41,8 @@ signal update_keys
 signal save_cfg_popup(cfg_path, cfg_name, cfg)
 #warning-ignore:UNUSED_SIGNAL
 signal add_cfg_popup(cfg_path, cfg)
+#warning-ignore:UNUSED_SIGNAL
+signal update_crosshair(path, color, scale)
 
 #==== MISC =====
 #warning-ignore:UNUSED_SIGNAL
@@ -70,6 +72,7 @@ const CHANGE_KEY_POPUP := "change_key_popup"
 const UPDATE_KEYS := "update_keys"
 const SAVE_CFG_POPUP := "save_cfg_popup"
 const ADD_CFG_POPUP := "add_cfg_popup"
+const UPDATE_CROSSHAIR := "update_crosshair"
 
 #==== MISC =====
 const ENTITY_DESTROYED := "entity_destroyed"
@@ -144,6 +147,10 @@ func emit_save_cfg_popup(cfg_path: String, cfg_name: String, cfg: ConfigFile) ->
 
 func emit_add_cfg_popup(cfg_path: String, cfg: ConfigFile) -> void:
 	emit_signal(ADD_CFG_POPUP, cfg_path, cfg)
+
+
+func emit_update_crosshair(path: String, color: Color, scale: float) -> void:
+	emit_signal(UPDATE_CROSSHAIR, path, color, scale)
 
 
 #==== MISC =====

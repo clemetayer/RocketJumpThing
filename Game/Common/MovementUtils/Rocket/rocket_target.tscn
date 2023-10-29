@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Misc/UI/Crosshairs/PNG/Outline Retina/crosshair186.png" type="Texture" id=1]
+[ext_resource path="res://Misc/UI/Crosshairs/PNG/WhiteRetina/crosshair186.png" type="Texture" id=1]
 [ext_resource path="res://Game/Common/MovementUtils/Rocket/rocket_target.gd" type="Script" id=2]
 
 [node name="RocketTarget" type="Sprite3D"]

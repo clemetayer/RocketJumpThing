@@ -142,3 +142,14 @@ static func is_portal_compatible(element: Node) -> bool:
 #### String control #####
 static func scene_path_valid(scene_path: String) -> bool:
 	return scene_path != null and not scene_path.empty() and ResourceLoader.exists(scene_path)
+
+
+#### Resource loading #####
+# returns an image texture from a path (at a specific size)
+static func get_texture_at_path(file_path: String, size: Vector2) -> ImageTexture:
+	var texture = ImageTexture.new()
+	var image = Image.new()
+	image.load(file_path)
+	image.resize(size.x, size.y)
+	texture.create_from_image(image)
+	return texture

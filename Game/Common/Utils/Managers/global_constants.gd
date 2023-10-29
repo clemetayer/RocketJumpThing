@@ -27,6 +27,7 @@ const INPUT_RESTART_LAST_CP := "restart_last_cp"
 const INPUT_RESTART := "restart"
 const INPUT_PAUSE := "pause"
 const INPUT_CANCEL := "ui_cancel"
+const CROSSHAIR_STANDARD_SIZE := 128.0
 
 #---- REPLACE KEYS -----
 const TR_REPLACE_PATTERN := "##"
