@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Game/Common/MapElements/Characters/MainCharacters/player.gd" type="Script" id=1]
 [ext_resource path="res://Game/Common/MapElements/Characters/player_UI.tscn" type="PackedScene" id=2]
@@ -14,6 +14,8 @@
 [ext_resource path="res://Game/Common/MapElements/Characters/MainCharacters/rocket_launcher.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Game/Common/MapElements/Characters/toggle_ability_ui.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Game/Common/MapElements/Characters/special_ui_messages.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Game/Common/MapElements/Characters/MainCharacters/wall_ride_standard.gd" type="Script" id=15]
+[ext_resource path="res://Game/Common/MapElements/Characters/MainCharacters/wall_ride_space_to_wall_ride.gd" type="Script" id=16]
 
 [sub_resource type="CylinderShape" id=11]
 height = 0.33
@@ -178,6 +180,14 @@ stream = ExtResource( 9 )
 volume_db = -5.0
 pitch_scale = 0.7
 bus = "FX"
+
+[node name="WallRideStrategy" type="Node" parent="."]
+
+[node name="Standard" type="Node" parent="WallRideStrategy"]
+script = ExtResource( 15 )
+
+[node name="SpaceToWallRide" type="Node" parent="WallRideStrategy"]
+script = ExtResource( 16 )
 
 [connection signal="body_exited" from="FloorDetectArea" to="." method="_on_FloorDetectArea_body_exited"]
 [connection signal="timeout" from="Timers/WallRideJumpLock" to="." method="_on_WallRideJumpLock_timeout"]

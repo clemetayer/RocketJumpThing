@@ -91,6 +91,7 @@ var _mix_to_direction_amount := 1.0  # when in air and pressing forward, how muc
 var _last_floor_velocity := Vector3.ZERO  # Last floor velocity
 var _last_wall_ride_tilt_direction := 0 # Used to avoid cancelling the head tilt animation at each frame
 var _can_jump_on_fall := false # To allow jumping for a short period of time after exiting a platform
+var _wall_ride_strategy : WallRideStrategy # Strategy to use for the wall ride
 
 #==== ONREADY ====
 onready var onready_paths := {
@@ -117,7 +118,11 @@ onready var onready_paths := {
 	"slide_visual_effects": $"SlideVisualEffects",
 	"rocket_launcher": $"RotationHelper/RocketLauncherPos/RocketLauncher",
 	"rocket_fire_pos": $"RotationHelper/RocketLauncherPos/RocketFirePos",
-	"toggle_ability_ui": $"ToggleAbilityUI"
+	"toggle_ability_ui": $"ToggleAbilityUI",
+	"wall_ride_strategy": {
+		"standard":$"WallRideStrategy/Standard",
+		"space_to_wall_ride":$"WallRideStrategy/SpaceToWallRide"
+	}
 }
 
 
@@ -130,12 +135,15 @@ func _init():
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	_set_TB_params()
+	_connect_signals()
 	camera = onready_paths.camera
 	rotation_helper = onready_paths.rotation_helper
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	onready_paths.timers.update_speed.start()
 	onready_paths.run_sound.pitch.play()
 	onready_paths.run_sound.unpitch.play()
+	onready_paths.camera.fov = SettingsUtils.settings_data.gameplay.fov
+	_choose_wall_ride_strategy()
 
 
 func _process(_delta):
@@ -145,11 +153,6 @@ func _process(_delta):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame. Remove the "_" to use it.
 func _physics_process(delta):
-	# onready_paths.camera.fov = (
-	# 	MIN_FOV
-	# 	+ (MAX_FOV - MIN_FOV) * ease(min(1, current_speed / FOV_MAX_SPEED), 1.6)
-	# )
-	# DebugDraw.set_text("fov", onready_paths.camera.fov)
 	_set_UI_data()
 	_process_collision()
 	_process_input(delta)
@@ -226,6 +229,17 @@ func portal_process(exit_portal: Area) -> void:
 
 
 ##### PROTECTED METHODS #####
+#---- General -----
+func _connect_signals() -> void:
+	DebugUtils.log_connect(SignalManager,self,SignalManager.UPDATE_FOV,"_on_SignalManager_update_fov")
+	DebugUtils.log_connect(SignalManager,self,SignalManager.UPDATE_WALL_RIDE_STRATEGY, "_on_SignalManager_update_wall_ride_strategy")
+
+func _choose_wall_ride_strategy() -> void:
+	if SettingsUtils.settings_data.gameplay.space_to_wall_ride:
+		_wall_ride_strategy = onready_paths.wall_ride_strategy.space_to_wall_ride
+	else:
+		_wall_ride_strategy = onready_paths.wall_ride_strategy.standard
+
 #---- Trenchbroom -----
 func _set_TB_params() -> void:
 	if "angle" in properties:
@@ -293,12 +307,13 @@ func _process_input(_delta):
 	):
 		_shoot(cam_xform)
 
-	# Slide
+	# Slide/Wall ride
 	if Input.is_action_just_pressed(GlobalConstants.INPUT_MVT_SLIDE) and SLIDE_ENABLED:
 		_slide = true
 	elif Input.is_action_just_released(GlobalConstants.INPUT_MVT_SLIDE):
 		_slide = false
-
+	if SLIDE_ENABLED: # slide also unlocks wall ride
+		_wall_ride_strategy.process_input()
 
 # Shoots a rocket
 func _shoot(cam_xform: Transform) -> void:
@@ -359,7 +374,7 @@ func _process_movement(delta):
 		_find_wall_direction()
 
 	# Movement process
-	if not is_on_floor() and _slide and _RC_wall_direction != 0 and !_wall_ride_lock:
+	if _wall_ride_strategy.can_wall_ride(is_on_floor(), _RC_wall_direction, _wall_ride_lock):
 		_wall_ride_movement(delta)
 		# rotates the camera
 		_set_wall_ride_camera_tilt(_RC_wall_direction  * WALL_RIDE_TILT_ANGLE, _RC_wall_direction)
@@ -405,10 +420,10 @@ func _wall_ride_movement(delta: float) -> void:
 		if !get_state_value(states_idx.WALL_RIDING):  # first contact with the wall, snap the player to it
 			_init_wall_riding(rc)
 		var wall_fw = _get_wall_fw_vector(rc)
-		if Input.is_action_pressed(GlobalConstants.INPUT_MVT_JUMP):
+		if _wall_ride_strategy.should_wall_jump():
 			_wall_jump(wall_fw)
 		else:
-			_wall_ride(rc, wall_fw, delta)
+			_wall_ride_process(rc, wall_fw, delta)
 	else:  # resets the wall ride direction
 		_RC_wall_direction = 0
 
@@ -431,7 +446,7 @@ func _init_wall_riding(rc: RayCast) -> void:
 		+ rc.get_collision_normal() * WALL_RIDE_WALL_DISTANCE
 	)  # keep a small distance from the wall to avoid getting stuck in it
 	set_state_value(states_idx.WALL_RIDING, true)
-
+	_wall_ride_strategy.wall_riding = true
 
 # returns the vector aligned with the wall, to a forward direction of the player
 func _get_wall_fw_vector(rc: RayCast) -> Vector3:
@@ -450,15 +465,17 @@ func _wall_jump(wall_fw: Vector3) -> void:
 		onready_paths.jump_sound.play()
 
 
-func _wall_ride(rc: RayCast, wall_fw: Vector3, delta: float) -> void:
+func _wall_ride_process(rc: RayCast, wall_fw: Vector3, delta: float) -> void:
 	_keep_wallride_raycasts_perpendicular(rc)
 	set_state_value(states_idx.WALL_RIDING, true)
+	_wall_ride_strategy.wall_riding = true
 	var vel_dir = Vector3(wall_fw.x, WALL_RIDE_ASCEND_AMOUNT * delta, wall_fw.z).normalized()
 	vel = vel_dir * vel.length()
 
 
 func _init_wall_ride_lock() -> void:
 	set_state_value(states_idx.WALL_RIDING, false)
+	_wall_ride_strategy.wall_riding = false
 	onready_paths.timers.wall_ride_jump_lock.start()  # to avoid sticking and accelerating back on the wall after jumping
 	_wall_ride_lock = true
 	if Input.is_action_pressed(GlobalConstants.INPUT_MVT_FORWARD):  # FIXME : probably creates a bug that can make the player wall jump easily to the same wall (but that might make a cool mechanic)
@@ -626,13 +643,10 @@ func _process_states():
 		set_state_value(states_idx.SLIDING, false)
 	if (
 		get_state_value(states_idx.WALL_RIDING)
-		and (
-			not Input.is_action_pressed(GlobalConstants.INPUT_MVT_SLIDE)
-			or is_on_floor()
-			or _RC_wall_direction == 0
-		)
+		and _wall_ride_strategy.wall_ride_exited(is_on_floor(), _RC_wall_direction)
 	):
 		set_state_value(states_idx.WALL_RIDING, false)
+		_wall_ride_strategy.wall_riding = false
 
 func _manage_slide_wallride_visual_effect() -> void:
 	var look_at_vect = self.global_transform.origin - Vector3(vel.x,0.0,vel.z)
@@ -658,11 +672,9 @@ func _get_mouse_sensitivity() -> float:
 func _remove_shooting_state():
 	set_state_value(states_idx.SHOOTING, false)
 
-
 func _on_UpdateSpeed_timeout():
 	SignalManager.emit_speed_updated(current_speed)
 	SignalManager.emit_position_updated(self.global_transform.origin)
-
 
 func _on_WallRideJumpLock_timeout():
 	_wall_ride_lock = false
@@ -673,9 +685,14 @@ func _on_FloorDetectArea_body_exited(_body:Node):
 		_can_jump_on_fall = true
 		onready_paths.timers.fall_timer.start()
 		
-
 func _on_FallTimer_timeout():
 	_can_jump_on_fall = false
+
+func _on_SignalManager_update_fov(value : float):
+	onready_paths.camera.fov = value
+
+func _on_SignalManager_update_wall_ride_strategy() -> void:
+	_choose_wall_ride_strategy()
 
 #### DEBUG #####
 func _debug_process_movement(_delta: float):

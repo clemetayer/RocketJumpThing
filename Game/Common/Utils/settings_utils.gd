@@ -1,6 +1,9 @@
 extends Node
 # A bunch of methods to load or save settings
 
+##### ENUMS #####
+enum TUTORIAL_LEVEL { all, some, none }  # How much the game should explain things to the user
+
 ##### VARIABLES #####
 #---- CONSTANTS -----
 #==== GLOBAL =====
@@ -64,13 +67,22 @@ const VIDEO_PRESETS_PATH := ROOT_PRESETS_FOLDER + "video/"
 const VIDEO_SECTION_MODE := "mode"
 const VIDEO_KEY_MODE := "mode"
 
+#==== GAMEPLAY =====
+const GAMEPLAY_PRESETS_PATH := ROOT_PRESETS_FOLDER + "gameplay/"
+const GAMEPLAY_SECTION_GAMEPLAY := "gameplay"
+const GAMEPLAY_KEY_FOV := "fov"
+const GAMEPLAY_KEY_SPACE_WALL_RIDE := "space_to_wall_ride"
+const GAMEPLAY_SECTION_TUTORIAL := "tutorial"
+const GAMEPLAY_KEY_LEVEL := "level"
+
 #---- STANDARD -----
 #==== PUBLIC ====
 var settings_presets := {
 	"general": CURRENT_PRESET_FILE_NAME + CFG_FILE_EXTENSION,
 	"controls": CURRENT_PRESET_FILE_NAME + CFG_FILE_EXTENSION,
 	"audio": CURRENT_PRESET_FILE_NAME + CFG_FILE_EXTENSION,
-	"video": CURRENT_PRESET_FILE_NAME + CFG_FILE_EXTENSION
+	"video": CURRENT_PRESET_FILE_NAME + CFG_FILE_EXTENSION,
+	"gameplay": CURRENT_PRESET_FILE_NAME + CFG_FILE_EXTENSION
 }  # name of the selected option preset
 
 var settings_data := {
@@ -80,7 +92,8 @@ var settings_data := {
 		"crosshair_path": DEFAULT_CROSSHAIR,
 		"crosshair_color": Color.white,
 		"crosshair_size": 1
-	}
+	},
+	"gameplay": {"fov": 90, "space_to_wall_ride": false, "tutorial_level": TUTORIAL_LEVEL.all}
 }  # Misc data for parameters that can't be set directly
 
 
@@ -104,6 +117,8 @@ func check_cfg_dir_init() -> void:
 		DebugUtils.log_create_directory(AUDIO_PRESETS_PATH)
 	if not dir.dir_exists(VIDEO_PRESETS_PATH):
 		DebugUtils.log_create_directory(VIDEO_PRESETS_PATH)
+	if not dir.dir_exists(GAMEPLAY_PRESETS_PATH):
+		DebugUtils.log_create_directory(GAMEPLAY_PRESETS_PATH)
 
 
 func save_current_settings() -> void:
@@ -116,6 +131,7 @@ func save_current_settings() -> void:
 	save_controls_settings()
 	save_audio_settings()
 	save_video_settings()
+	save_gameplay_settings()
 
 
 func save_general_settings() -> void:
@@ -146,6 +162,13 @@ func save_video_settings() -> void:
 	)
 
 
+func save_gameplay_settings() -> void:
+	DebugUtils.log_save_cfg(
+		generate_cfg_gameplay_file(),
+		GAMEPLAY_PRESETS_PATH + CURRENT_PRESET_FILE_NAME + CFG_FILE_EXTENSION
+	)
+
+
 func load_current_settings() -> void:
 	_load_cfg_root_file(
 		DebugUtils.log_load_cfg(ROOT_PRESETS_FOLDER + CURRENT_PRESET_FILE_NAME + CFG_FILE_EXTENSION)
@@ -154,6 +177,7 @@ func load_current_settings() -> void:
 	load_controls_settings()
 	load_audio_settings()
 	load_video_settings()
+	load_gameplay_settings()
 
 
 func load_general_settings() -> void:
@@ -179,6 +203,14 @@ func load_audio_settings() -> void:
 func load_video_settings() -> void:
 	load_cfg_video_file(
 		DebugUtils.log_load_cfg(VIDEO_PRESETS_PATH + CURRENT_PRESET_FILE_NAME + CFG_FILE_EXTENSION)
+	)
+
+
+func load_gameplay_settings() -> void:
+	load_cfg_gameplay_file(
+		DebugUtils.log_load_cfg(
+			GAMEPLAY_PRESETS_PATH + CURRENT_PRESET_FILE_NAME + CFG_FILE_EXTENSION
+		)
 	)
 
 
@@ -529,3 +561,52 @@ func generate_cfg_video_file() -> ConfigFile:
 	var cfg_file := ConfigFile.new()
 	cfg_file.set_value(VIDEO_SECTION_MODE, VIDEO_KEY_MODE, OS.window_fullscreen)
 	return cfg_file
+
+
+#---- GAMEPLAY -----
+func load_cfg_gameplay_file(cfg: ConfigFile) -> void:
+	if cfg != null:
+		if _check_has_value(cfg, GAMEPLAY_SECTION_GAMEPLAY, GAMEPLAY_KEY_FOV):
+			SettingsUtils.settings_data.gameplay.fov = cfg.get_value(
+				GAMEPLAY_SECTION_GAMEPLAY, GAMEPLAY_KEY_FOV
+			)
+		if _check_has_value(cfg, GAMEPLAY_SECTION_GAMEPLAY, GAMEPLAY_KEY_SPACE_WALL_RIDE):
+			SettingsUtils.settings_data.gameplay.space_to_wall_ride = cfg.get_value(
+				GAMEPLAY_SECTION_GAMEPLAY, GAMEPLAY_KEY_SPACE_WALL_RIDE
+			)
+		if _check_has_value(cfg, GAMEPLAY_SECTION_TUTORIAL, GAMEPLAY_KEY_LEVEL):
+			SettingsUtils.settings_data.gameplay.tutorial_level = cfg.get_value(
+				GAMEPLAY_SECTION_TUTORIAL, GAMEPLAY_KEY_LEVEL
+			)
+	else:
+		DebugUtils.log_stacktrace("No cfg video config", DebugUtils.LOG_LEVEL.warn)
+
+
+func generate_cfg_gameplay_file() -> ConfigFile:
+	var cfg_file := ConfigFile.new()
+	cfg_file.set_value(
+		GAMEPLAY_SECTION_GAMEPLAY, GAMEPLAY_KEY_FOV, SettingsUtils.settings_data.gameplay.fov
+	)
+	cfg_file.set_value(
+		GAMEPLAY_SECTION_GAMEPLAY,
+		GAMEPLAY_KEY_SPACE_WALL_RIDE,
+		SettingsUtils.settings_data.gameplay.space_to_wall_ride
+	)
+	cfg_file.set_value(
+		GAMEPLAY_SECTION_TUTORIAL,
+		GAMEPLAY_KEY_LEVEL,
+		SettingsUtils.settings_data.gameplay.tutorial_level
+	)
+	return cfg_file
+
+
+# sets the fov
+func set_fov(fov: float) -> void:
+	settings_data.gameplay.fov = fov
+	SignalManager.emit_update_fov(fov)
+
+
+# toggles the space to wall ride option
+func set_space_to_wall_ride(enabled: bool) -> void:
+	settings_data.gameplay.space_to_wall_ride = enabled
+	SignalManager.emit_update_wall_ride_strategy()

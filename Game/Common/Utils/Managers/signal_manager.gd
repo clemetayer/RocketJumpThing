@@ -43,6 +43,10 @@ signal save_cfg_popup(cfg_path, cfg_name, cfg)
 signal add_cfg_popup(cfg_path, cfg)
 #warning-ignore:UNUSED_SIGNAL
 signal update_crosshair(path, color, scale)
+#warning-ignore:UNUSED_SIGNAL
+signal update_fov(value)
+#warning-ignore:UNUSED_SIGNAL
+signal update_wall_ride_strategy
 
 #==== MISC =====
 #warning-ignore:UNUSED_SIGNAL
@@ -73,6 +77,8 @@ const UPDATE_KEYS := "update_keys"
 const SAVE_CFG_POPUP := "save_cfg_popup"
 const ADD_CFG_POPUP := "add_cfg_popup"
 const UPDATE_CROSSHAIR := "update_crosshair"
+const UPDATE_FOV := "update_fov"
+const UPDATE_WALL_RIDE_STRATEGY := "update_wall_ride_strategy"
 
 #==== MISC =====
 const ENTITY_DESTROYED := "entity_destroyed"
@@ -151,6 +157,14 @@ func emit_add_cfg_popup(cfg_path: String, cfg: ConfigFile) -> void:
 
 func emit_update_crosshair(path: String, color: Color, scale: float) -> void:
 	emit_signal(UPDATE_CROSSHAIR, path, color, scale)
+
+
+func emit_update_fov(value: float) -> void:
+	emit_signal(UPDATE_FOV, value)
+
+
+func emit_update_wall_ride_strategy() -> void:
+	emit_signal(UPDATE_WALL_RIDE_STRATEGY)
 
 
 #==== MISC =====

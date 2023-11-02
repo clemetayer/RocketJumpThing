@@ -22,4 +22,3 @@ func _get_config_path() -> String:
 func _apply_preset(path: String) -> void:
 	SettingsUtils.load_cfg_general_file(DebugUtils.log_load_cfg(path))
 	SettingsUtils.settings_presets.audio = _get_cfg_name()
-	SignalManager.emit_update_keys()

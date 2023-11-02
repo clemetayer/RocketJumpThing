@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: c.lemetayer@laposte.net\n"
 "POT-Creation-Date: 2021-12-19\n"
-"PO-Revision-Date: 2022-09-05\n"
+"PO-Revision-Date: 2023-11-01\n"
 "Last-Translator: Corentin Le Métayer <c.lemetayer@laposte.net>\n"
 "Language: fr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -130,6 +130,9 @@ msgstr "Son"
 msgid "MENU_SETTINGS_TAB_VIDEO"
 msgstr "Vidéo"
 
+msgid "MENU_SETTINGS_TAB_GAMEPLAY"
+msgstr "Jouabilité"
+
 msgid "MENU_SETTINGS_CHANGE_KEY_POPUP"
 msgstr "Appuyez sur une touche pour l'action %s :"
 
@@ -207,6 +210,33 @@ msgstr "Plein écran"
 
 msgid "SETTINGS_VIDEO_WINDOWED"
 msgstr "Fenêtré"
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ GAMEPLAY ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+msgid "SETTINGS_GAMEPLAY_GAMEPLAY_CATEGORY"
+msgstr "Jouabilité"
+
+msgid "SETTINGS_GAMEPLAY_FOV_LABEL"
+msgstr "FOV : "
+
+msgid "SETTINGS_GAMEPLAY_SPACE_TO_WALL_RIDE_LABEL"
+msgstr "Espace pour wallride :"
+
+msgid "SETTINGS_GAMEPLAY_TUTORIAL_CATEGORY"
+msgstr "Tutoriel"
+
+msgid "SETTINGS_GAMEPLAY_TUTORIAL_LEVEL_LABEL"
+msgstr "Niveau de tutoriel :"
+
+msgid "SETTINGS_GAMEPLAY_TUTORIAL_LEVEL_ALL"
+msgstr "Je ne joue pas aux jeux-vidéo"
+
+msgid "SETTINGS_GAMEPLAY_TUTORIAL_LEVEL_SOME"
+msgstr "Je joue aux jeux-vidéo"
+
+msgid "SETTINGS_GAMEPLAY_TUTORIAL_LEVEL_NONE"
+msgstr "J'ai déjà joué au jeu"
+
+
 
 #================================ COMMON =================================
 #---------------------------------- UI -----------------------------------

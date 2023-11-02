@@ -1184,6 +1184,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Game/Common/Utils/SongManager/templates/EffectManagers/VolumeEffectManager/volume_effect_manager.gd"
 }, {
+"base": "Node",
+"class": "WallRideStrategy",
+"language": "GDScript",
+"path": "res://Game/Common/MapElements/Characters/MainCharacters/wall_ride_strategy.gd"
+}, {
 "base": "LiquidLayer",
 "class": "WaterLayer",
 "language": "GDScript",
@@ -1440,6 +1445,7 @@ _global_script_class_icons={
 "VerticalBoost": "",
 "VerticalBoostTest": "",
 "VolumeEffectManager": "",
+"WallRideStrategy": "",
 "WaterLayer": "",
 "XmlElement": "",
 "_TestCase": "",

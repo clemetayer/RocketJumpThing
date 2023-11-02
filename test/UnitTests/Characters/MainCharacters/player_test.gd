@@ -53,6 +53,18 @@ func after_test():
 # 	# free
 # 	portal.free()
 
+func test_connect_signals() -> void:
+	player._connect_signals()
+	assert_bool(SignalManager.is_connected(SignalManager.UPDATE_FOV, player, "_on_SignalManager_update_fov")).is_true()
+	assert_bool(SignalManager.is_connected(SignalManager.UPDATE_WALL_RIDE_STRATEGY, player, "_on_SignalManager_update_wall_ride_strategy")).is_true()
+
+func test_choose_wall_ride_strategy() -> void:
+	SettingsUtils.settings_data.gameplay.space_to_wall_ride = false
+	player._choose_wall_ride_strategy()
+	assert_str(player._wall_ride_strategy.TEST_CLASS_NAME).is_equal("standard")
+	SettingsUtils.settings_data.gameplay.space_to_wall_ride = true
+	player._choose_wall_ride_strategy()
+	assert_str(player._wall_ride_strategy.TEST_CLASS_NAME).is_equal("space to wall ride")
 
 func test_add_velocity_vector() -> void:
 	player.add_velocity_vector(Vector3.ONE)
@@ -224,14 +236,14 @@ func test_wall_jump() -> void:
 	assert_bool(player.onready_paths.jump_sound.playing).is_true()
 
 
-func test_wall_ride() -> void:
+func test_wall_ride_process() -> void:
 	var delta := 0.1
 	var rc = mock(RayCast) as RayCast
 	player.vel = Vector3.FORWARD * 100.0
 	player._RC_wall_direction = 1
 	do_return(Vector3.RIGHT).on(rc).get_collision_normal()
 	do_return(Vector3.ZERO).on(rc).get_collision_point()
-	player._wall_ride(rc, Vector3.FORWARD, delta)
+	player._wall_ride_process(rc, Vector3.FORWARD, delta)
 	assert_float(player.vel.length()).is_equal_approx(100.0, FLOAT_APPROX)
 	assert_vector3(player.vel).is_equal(
 		(
@@ -363,3 +375,16 @@ func test_manage_slide_wallride_visual_effect() -> void:
 	player.set_state_value(player.states_idx.WALL_RIDING,false)
 	player._manage_slide_wallride_visual_effect()
 	assert_bool(player.onready_paths.slide_visual_effects.visible).is_false()
+
+func test_on_SignalManager_update_fov() -> void:
+	var test_val = 50.0
+	player._on_SignalManager_update_fov(test_val)
+	assert_float(player.onready_paths.camera.fov).is_equal(test_val)
+
+func test_on_SignalManager_update_wall_ride_strategy() -> void:
+	SettingsUtils.settings_data.gameplay.space_to_wall_ride = false
+	player._on_SignalManager_update_wall_ride_strategy()
+	assert_str(player._wall_ride_strategy.TEST_CLASS_NAME).is_equal("standard")
+	SettingsUtils.settings_data.gameplay.space_to_wall_ride = true
+	player._on_SignalManager_update_wall_ride_strategy()
+	assert_str(player._wall_ride_strategy.TEST_CLASS_NAME).is_equal("space to wall ride")
