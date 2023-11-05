@@ -33,6 +33,9 @@ func test_init_tr() -> void:
 	assert_str(general.onready_paths.language.category.CATEGORY_NAME).is_equal(
 		tr(TranslationKeys.SETTINGS_GENERAL_LANGUAGE_CATEGORY)
 	)
+	assert_str(general.onready_paths.language.options.hint_tooltip).is_equal(
+		tr(TranslationKeys.SETTINGS_GENERAL_LANGUAGE_TOOLTIP)
+	)
 
 
 func test_init_option() -> void:

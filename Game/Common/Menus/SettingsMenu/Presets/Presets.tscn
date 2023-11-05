@@ -22,6 +22,7 @@ text = "PRESET_LABEL"
 margin_left = 93.0
 margin_right = 122.0
 margin_bottom = 31.0
+hint_tooltip = "PRESET_OPTION_TOOLTIP"
 
 [node name="SaveButton" type="Button" parent="."]
 margin_left = 126.0

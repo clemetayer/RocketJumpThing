@@ -30,6 +30,14 @@ func after():
 
 ##### TESTS #####
 #---- TESTS -----
+func test_init_tr() -> void:
+	assert_str(presets.onready_paths.label.text).is_equal(tr(TranslationKeys.PRESET_LABEL))
+	assert_str(presets.onready_paths.options_menu.hint_tooltip).is_equal(tr(TranslationKeys.PRESET_OPTION_TOOLTIP))
+	assert_str(presets.onready_paths.save_button.hint_tooltip).is_equal(tr(TranslationKeys.PRESET_SAVE_TOOLTIP))
+	assert_str(presets.onready_paths.add_preset.hint_tooltip).is_equal(tr(TranslationKeys.PRESET_ADD_TOOLTIP))
+	assert_str(presets.onready_paths.folder_button.hint_tooltip).is_equal(tr(TranslationKeys.PRESET_FOLDER_TOOLTIP))
+	assert_str(presets.onready_paths.refresh_button.hint_tooltip).is_equal(tr(TranslationKeys.PRESET_REFRESH_TOOLTIP))
+
 func test_connect_signals() -> void:
 	assert_bool(presets.onready_paths.save_button.is_connected("pressed", presets, "_on_SaveButton_pressed")).is_true()
 	assert_bool(presets.onready_paths.add_preset.is_connected("pressed", presets, "_on_AddPresetButton_pressed")).is_true()

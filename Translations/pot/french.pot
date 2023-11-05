@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: c.lemetayer@laposte.net\n"
 "POT-Creation-Date: 2021-12-19\n"
-"PO-Revision-Date: 2023-11-01\n"
+"PO-Revision-Date: 2023-11-03\n"
 "Last-Translator: Corentin Le Métayer <c.lemetayer@laposte.net>\n"
 "Language: fr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -155,6 +155,21 @@ msgstr "Presets"
 msgid "PRESET_LABEL"
 msgstr "Presets :"
 
+msgid "PRESET_OPTION_TOOLTIP"
+msgstr "Option de preset"
+
+msgid "PRESET_SAVE_TOOLTIP"
+msgstr "Sauvegarder le preset"
+
+msgid "PRESET_ADD_TOOLTIP"
+msgstr "Ajouter un preset"
+
+msgid "PRESET_FOLDER_TOOLTIP"
+msgstr "Ouvrir le dossier des presets"
+
+msgid "PRESET_REFRESH_TOOLTIP"
+msgstr "Rafraichir les presets"
+
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ GENERAL ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 msgid "SETTINGS_GENERAL_LANGUAGE_CATEGORY"
 msgstr "Langue"
@@ -162,12 +177,30 @@ msgstr "Langue"
 msgid "SETTINGS_GENERAL_LANGUAGE_OPTION"
 msgstr "Langue :"
 
+msgid "SETTINGS_GENERAL_LANGUAGE_TOOLTIP"
+msgstr "Langue du jeu"
+
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ CONTROLS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 msgid "SETTINGS_CONTROLS_GENERAL_CATEGORY"
 msgstr "Géneral"
 
 msgid "SETTINGS_CONTROLS_GENERAL_SENSITIVITY"
 msgstr "Sensibilité de la souris : "
+
+msgid "SETTINGS_CONTROLS_GENERAL_CROSSHAIR_LABEL"
+msgstr "Réticule : "
+
+msgid "SETTINGS_CONTROLS_GENERAL_CROSSHAIR_SIZE"
+msgstr "Taille : "
+
+msgid "SETTINGS_CONTROLS_GENERAL_CROSSHAIR_COLOR"
+msgstr "Couleur : "
+
+msgid "SETTINGS_CONTROLS_GENERAL_CROSSHAIR_OPTION_TOOLTIP"
+msgstr "Choix de la réticule"
+
+msgid "SETTINGS_CONTROLS_GENERAL_CROSSHAIR_COLOR_TOOLTIP"
+msgstr "Choix de la couleur de la réticule"
 
 msgid "SETTINGS_CONTROLS_MOVEMENT_CATEGORY"
 msgstr "Mouvement"
@@ -198,12 +231,16 @@ msgstr "Effets"
 msgid "SETTINGS_AUDIO_EFFECTS_LABEL"
 msgstr "Effets :"
 
+msgid "SETTINGS_AUDIO_MUTE_TOOLTIP"
+msgstr "Muet"
+
+
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ VIDEO ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 msgid "SETTINGS_VIDEO_DISPLAY_CATEGORY"
 msgstr "Affichage"
 
 msgid "SETTINGS_VIDEO_DISPLAY_MODE"
-msgstr "Mode :"
+msgstr "Mode d'affichage :"
 
 msgid "SETTINGS_VIDEO_FULL_SCREEN"
 msgstr "Plein écran"
@@ -236,7 +273,23 @@ msgstr "Je joue aux jeux-vidéo"
 msgid "SETTINGS_GAMEPLAY_TUTORIAL_LEVEL_NONE"
 msgstr "J'ai déjà joué au jeu"
 
+msgid "SETTINGS_GAMEPLAY_FOV_TOOLTIP"
+msgstr "Field Of View (Champ De Vision)"
 
+msgid "SETTINGS_GAMEPLAY_SPACE_TO_WALL_RIDE_TOOLTIP"
+msgstr "Utilisation de la touche de saut pour wallride.\nSi vous êtes familier avec une grenouille DJ d'un certain jeu de tir en vue à la première personne,\nil est préférable d'activer cette option."
+
+msgid "SETTINGS_GAMEPLAY_TUTORIAL_LEVEL_TOOLTIP"
+msgstr "Quantité d'affichage des tutoriels."
+
+msgid "SETTINGS_GAMEPLAY_TUTORIAL_LEVEL_ALL_TOOLTIP"
+msgstr "Affichera tous les tutoriels, même les plus basiques.\nOption recommandée si vous n'êtes pas familier avec les jeux-vidéo."
+
+msgid "SETTINGS_GAMEPLAY_TUTORIAL_LEVEL_SOME_TOOLTIP"
+msgstr "Affichera seulement les tutoriels spécifiques au jeu lui-même\n(ne va donc pas indiquer comment bouger, sauter, etc.).\nOption recommandée si vous êtes familier avec les jeux-vidéo."
+
+msgid "SETTINGS_GAMEPLAY_TUTORIAL_LEVEL_NONE_TOOLTIP"
+msgstr "Ne va afficher aucun tutoriel.\nOption recommandée si vous connaissez déjà le jeu\nou si vous souhaitez découvrir comment jouer par vous même."
 
 #================================ COMMON =================================
 #---------------------------------- UI -----------------------------------

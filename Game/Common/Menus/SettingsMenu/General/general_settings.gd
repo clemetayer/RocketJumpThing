@@ -30,6 +30,7 @@ func _init_tr() -> void:
 	onready_paths.language.category.set_category_name(
 		tr(TranslationKeys.SETTINGS_GENERAL_LANGUAGE_CATEGORY)
 	)
+	onready_paths.language.options.hint_tooltip = tr(TranslationKeys.SETTINGS_GENERAL_LANGUAGE_TOOLTIP)
 
 
 func _init_options() -> void:

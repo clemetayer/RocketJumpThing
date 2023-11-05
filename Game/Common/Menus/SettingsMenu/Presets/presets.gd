@@ -42,6 +42,11 @@ func _ready():
 ##### PROTECTED METHODS #####
 func _init_tr() -> void:
 	onready_paths.label.text = tr(TranslationKeys.PRESET_LABEL)
+	onready_paths.options_menu.hint_tooltip = tr(TranslationKeys.PRESET_OPTION_TOOLTIP)
+	onready_paths.save_button.hint_tooltip = tr(TranslationKeys.PRESET_SAVE_TOOLTIP)
+	onready_paths.add_preset.hint_tooltip = tr(TranslationKeys.PRESET_ADD_TOOLTIP)
+	onready_paths.folder_button.hint_tooltip = tr(TranslationKeys.PRESET_FOLDER_TOOLTIP)
+	onready_paths.refresh_button.hint_tooltip = tr(TranslationKeys.PRESET_REFRESH_TOOLTIP)
 
 
 func _connect_signals() -> void:

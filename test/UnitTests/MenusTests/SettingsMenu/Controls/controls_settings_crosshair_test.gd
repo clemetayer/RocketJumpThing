@@ -24,6 +24,11 @@ func after():
 
 #---- TESTS -----
 #==== ACTUAL TESTS =====
+func test_init_tr() -> void:
+	controls_settings_crosshair._init_tr()
+	assert_str(controls_settings_crosshair.onready_paths.options.hint_tooltip).is_equal(tr(TranslationKeys.SETTINGS_CONTROLS_GENERAL_CROSSHAIR_OPTION_TOOLTIP))
+	assert_str(controls_settings_crosshair.onready_paths.color_picker.hint_tooltip).is_equal(tr(TranslationKeys.SETTINGS_CONTROLS_GENERAL_CROSSHAIR_COLOR_TOOLTIP))
+
 func test_connect_signals() -> void:
 	controls_settings_crosshair._connect_signals()
 	assert_bool(controls_settings_crosshair.onready_paths.options.is_connected("item_selected",controls_settings_crosshair,"_on_ToolButton_item_selected")).is_true()

@@ -54,6 +54,9 @@ func _init_tr() -> void:
 		tr(TranslationKeys.SETTINGS_AUDIO_EFFECTS_CATEGORY)
 	)
 	onready_paths.effects.label.text = tr(TranslationKeys.SETTINGS_AUDIO_EFFECTS_LABEL)
+	onready_paths.main.unmute.hint_tooltip = tr(TranslationKeys.SETTINGS_AUDIO_MUTE_TOOLTIP)
+	onready_paths.BGM.unmute.hint_tooltip = tr(TranslationKeys.SETTINGS_AUDIO_MUTE_TOOLTIP)
+	onready_paths.effects.unmute.hint_tooltip = tr(TranslationKeys.SETTINGS_AUDIO_MUTE_TOOLTIP)
 
 
 func _connect_signals() -> void:

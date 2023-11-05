@@ -11,11 +11,14 @@ onready var onready_paths := {
 	"gameplay_category":$"VBoxContainer/Gameplay",
 	"tutorial_category":$"VBoxContainer/Tutorials",
 	"fov": {
+		"label":$"VBoxContainer/Gameplay/FOV/Label",
 		"slider":$"VBoxContainer/Gameplay/FOV/HSlider",
 		"edit":$"VBoxContainer/Gameplay/FOV/LineEdit"
 	},
 	"space_to_wallride_check":$"VBoxContainer/Gameplay/SpaceToWallRide/CheckButton",
+	"space_to_wallride_check_label":$"VBoxContainer/Gameplay/SpaceToWallRide/Label",
 	"tutorial": {
+		"level_label":$"VBoxContainer/Tutorials/TutorialLevel/Label",
 		"level":$"VBoxContainer/Tutorials/TutorialLevel/OptionButton"
 	}
 }
@@ -31,6 +34,19 @@ func _ready():
 func _init_tr() -> void:
 	onready_paths.gameplay_category.set_category_name(tr(TranslationKeys.SETTINGS_GAMEPLAY_GAMEPLAY_CATEGORY))
 	onready_paths.tutorial_category.set_category_name(tr(TranslationKeys.SETTINGS_GAMEPLAY_TUTORIAL_CATEGORY))
+	onready_paths.fov.label.hint_tooltip = tr(TranslationKeys.SETTINGS_GAMEPLAY_FOV_TOOLTIP)
+	onready_paths.fov.slider.hint_tooltip = tr(TranslationKeys.SETTINGS_GAMEPLAY_FOV_TOOLTIP)
+	onready_paths.fov.edit.hint_tooltip = tr(TranslationKeys.SETTINGS_GAMEPLAY_FOV_TOOLTIP)
+	onready_paths.space_to_wallride_check.hint_tooltip = tr(TranslationKeys.SETTINGS_GAMEPLAY_SPACE_TO_WALL_RIDE_TOOLTIP)
+	onready_paths.space_to_wallride_check_label.hint_tooltip = tr(TranslationKeys.SETTINGS_GAMEPLAY_SPACE_TO_WALL_RIDE_TOOLTIP)
+	onready_paths.tutorial.level_label.hint_tooltip = tr(TranslationKeys.SETTINGS_GAMEPLAY_TUTORIAL_LEVEL_TOOLTIP)
+	onready_paths.tutorial.level.hint_tooltip = tr(TranslationKeys.SETTINGS_GAMEPLAY_TUTORIAL_LEVEL_TOOLTIP)
+	onready_paths.tutorial.level.set_item_text(0,tr(TranslationKeys.SETTINGS_GAMEPLAY_TUTORIAL_LEVEL_ALL))
+	onready_paths.tutorial.level.set_item_tooltip(0,tr(TranslationKeys.SETTINGS_GAMEPLAY_TUTORIAL_LEVEL_ALL_TOOLTIP))
+	onready_paths.tutorial.level.set_item_text(1,tr(TranslationKeys.SETTINGS_GAMEPLAY_TUTORIAL_LEVEL_SOME))
+	onready_paths.tutorial.level.set_item_tooltip(1,tr(TranslationKeys.SETTINGS_GAMEPLAY_TUTORIAL_LEVEL_SOME_TOOLTIP))
+	onready_paths.tutorial.level.set_item_text(2,tr(TranslationKeys.SETTINGS_GAMEPLAY_TUTORIAL_LEVEL_NONE))
+	onready_paths.tutorial.level.set_item_tooltip(2,tr(TranslationKeys.SETTINGS_GAMEPLAY_TUTORIAL_LEVEL_NONE_TOOLTIP))
 
 func _set_default_values():
 	onready_paths.fov.edit.text = "%f" % SettingsUtils.settings_data.gameplay.fov

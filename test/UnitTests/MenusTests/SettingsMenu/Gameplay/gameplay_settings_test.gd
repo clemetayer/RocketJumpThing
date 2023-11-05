@@ -30,6 +30,19 @@ func test_init_tr() -> void:
 	gameplay._init_tr()
 	assert_str(gameplay.onready_paths.gameplay_category.CATEGORY_NAME).is_equal(tr(TranslationKeys.SETTINGS_GAMEPLAY_GAMEPLAY_CATEGORY))
 	assert_str(gameplay.onready_paths.tutorial_category.CATEGORY_NAME).is_equal(tr(TranslationKeys.SETTINGS_GAMEPLAY_TUTORIAL_CATEGORY))
+	assert_str(gameplay.onready_paths.fov.label.hint_tooltip).is_equal(tr(TranslationKeys.SETTINGS_GAMEPLAY_FOV_TOOLTIP))
+	assert_str(gameplay.onready_paths.fov.slider.hint_tooltip).is_equal(tr(TranslationKeys.SETTINGS_GAMEPLAY_FOV_TOOLTIP))
+	assert_str(gameplay.onready_paths.fov.edit.hint_tooltip).is_equal(tr(TranslationKeys.SETTINGS_GAMEPLAY_FOV_TOOLTIP))
+	assert_str(gameplay.onready_paths.space_to_wallride_check.hint_tooltip).is_equal(tr(TranslationKeys.SETTINGS_GAMEPLAY_SPACE_TO_WALL_RIDE_TOOLTIP))
+	assert_str(gameplay.onready_paths.space_to_wallride_check_label.hint_tooltip).is_equal(tr(TranslationKeys.SETTINGS_GAMEPLAY_SPACE_TO_WALL_RIDE_TOOLTIP))
+	assert_str(gameplay.onready_paths.tutorial.level_label.hint_tooltip).is_equal(tr(TranslationKeys.SETTINGS_GAMEPLAY_TUTORIAL_LEVEL_TOOLTIP))
+	assert_str(gameplay.onready_paths.tutorial.level.hint_tooltip).is_equal(tr(TranslationKeys.SETTINGS_GAMEPLAY_TUTORIAL_LEVEL_TOOLTIP))
+	assert_str(gameplay.onready_paths.tutorial.level.get_item_text(0)).is_equal(tr(TranslationKeys.SETTINGS_GAMEPLAY_TUTORIAL_LEVEL_ALL))
+	assert_str(gameplay.onready_paths.tutorial.level.get_item_tooltip(0)).is_equal(tr(TranslationKeys.SETTINGS_GAMEPLAY_TUTORIAL_LEVEL_ALL_TOOLTIP))
+	assert_str(gameplay.onready_paths.tutorial.level.get_item_text(1)).is_equal(tr(TranslationKeys.SETTINGS_GAMEPLAY_TUTORIAL_LEVEL_SOME))
+	assert_str(gameplay.onready_paths.tutorial.level.get_item_tooltip(1)).is_equal(tr(TranslationKeys.SETTINGS_GAMEPLAY_TUTORIAL_LEVEL_SOME_TOOLTIP))
+	assert_str(gameplay.onready_paths.tutorial.level.get_item_text(2)).is_equal(tr(TranslationKeys.SETTINGS_GAMEPLAY_TUTORIAL_LEVEL_NONE))
+	assert_str(gameplay.onready_paths.tutorial.level.get_item_tooltip(2)).is_equal(tr(TranslationKeys.SETTINGS_GAMEPLAY_TUTORIAL_LEVEL_NONE_TOOLTIP))
 
 func test_set_default_values() -> void:
 	SettingsUtils.settings_data.gameplay.fov = 78.95

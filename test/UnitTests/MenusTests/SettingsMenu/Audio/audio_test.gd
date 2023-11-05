@@ -49,6 +49,16 @@ func test_init_tr() -> void:
 	assert_str(audio.onready_paths.effects.label.text).is_equal(
 		tr(TranslationKeys.SETTINGS_AUDIO_EFFECTS_LABEL)
 	)
+	# Tooltips
+	assert_str(audio.onready_paths.main.unmute.hint_tooltip).is_equal(
+		tr(TranslationKeys.SETTINGS_AUDIO_MUTE_TOOLTIP)
+	)
+	assert_str(audio.onready_paths.BGM.unmute.hint_tooltip).is_equal(
+		tr(TranslationKeys.SETTINGS_AUDIO_MUTE_TOOLTIP)
+	)
+	assert_str(audio.onready_paths.effects.unmute.hint_tooltip).is_equal(
+		tr(TranslationKeys.SETTINGS_AUDIO_MUTE_TOOLTIP)
+	)
 
 
 func test_connect_signals() -> void:

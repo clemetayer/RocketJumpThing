@@ -24,6 +24,7 @@ onready var onready_paths := {
 ##### PROCESSING #####
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	_init_tr()
 	_connect_signals()
 	var crosshair_file_names = FunctionUtils.list_dir_files(CROSSHAIR_FOLDER,SettingsUtils.REGEX_PATTERN_PNG_FILE)
 	crosshair_file_names.sort()
@@ -34,6 +35,10 @@ func _ready():
 	_init_current_crosshair()
 
 ##### PROTECTED METHODS #####
+func _init_tr() -> void:
+	onready_paths.options.hint_tooltip = tr(TranslationKeys.SETTINGS_CONTROLS_GENERAL_CROSSHAIR_OPTION_TOOLTIP)
+	onready_paths.color_picker.hint_tooltip = tr(TranslationKeys.SETTINGS_CONTROLS_GENERAL_CROSSHAIR_COLOR_TOOLTIP)
+
 func _connect_signals() -> void:
 	DebugUtils.log_connect(onready_paths.options,self,"item_selected","_on_ToolButton_item_selected")
 	DebugUtils.log_connect(onready_paths.size_edit,self,"text_changed", "_on_SizeEdit_text_changed")
