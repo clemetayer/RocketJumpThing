@@ -26,6 +26,12 @@ func _ready():
 	_connect_signals()
 	_init_skybox()
 
+##### PUBLIC METHODS #####
+# turns on or of the cube particles around the... cube
+func toggle_particles(value : bool) -> void:
+	if onready_paths != null and onready_paths.particles != null:
+		onready_paths.particles.emitting = value
+
 ##### PROTECTED METHODS #####
 func _connect_signals() -> void:
 	DebugUtils.log_connect(MenuNavigator,self,MenuNavigator.MENU_ACTIVATED_SIGNAL_NAME,"_on_MenuNavigator_menu_activated")

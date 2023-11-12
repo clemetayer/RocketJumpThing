@@ -2,6 +2,9 @@ tool
 extends Spatial
 # The big bad spooky entity
 
+##### SIGNALS #####
+signal health_updated(health_points)
+
 ##### VARIABLES #####
 #---- CONSTANTS -----
 const SHOCKWAVE_ANIM := "explode"
@@ -47,6 +50,7 @@ func hurt() -> void:
 	onready_paths.animation_player.play(HURT_ANIM)
 	if _hp > 0:
 		_hp -= 1
+		emit_signal("health_updated", _hp)
 	Logger.debug("Hp left : %d" % _hp)
 	if _hp <= 0:
 		Logger.debug("game_done")

@@ -27,7 +27,8 @@ onready var onready_paths := {
 	"raycast": $"RayCast",
 	"update_timer": $"UpdateTimer",
 	"particles": $"Particles",
-	"cube_mesh": $"CubeMesh"
+	"cube_mesh": $"CubeMesh",
+	"sound": $"LaserSound"
 }
 
 
@@ -50,6 +51,7 @@ func _connect_signals() -> void:
 	DebugUtils.log_connect(onready_paths.update_timer, self, "timeout", "_on_UpdateTimer_timeout")
 
 
+
 func _init_laser() -> void:
 	add_to_group(GlobalConstants.LASER_GROUP)
 	# sets the general height, etc.
@@ -68,6 +70,7 @@ func _init_laser() -> void:
 	onready_paths.collision.translation.z = _max_length / 2.0
 	onready_paths.mesh.translation.z = _max_length / 2.0
 	onready_paths.cube_mesh.translation.z = _max_length
+	onready_paths.sound.translation.z = _max_length / 2.0
 
 
 func _update_laser(length: float) -> void:
@@ -80,6 +83,10 @@ func _update_laser(length: float) -> void:
 	onready_paths.collision.translation.z = length / 2.0
 	onready_paths.mesh.translation.z = length / 2.0
 	onready_paths.cube_mesh.translation.z = length
+	if ScenesManager.get_current() != null and ScenesManager.get_current().has_method("get_player"): # avoids a crash on tests
+		var player = ScenesManager.get_current().get_player()
+		if player != null: # Kind of a trick to make the laser sound even on its length
+			onready_paths.sound.global_transform.origin = Geometry.get_closest_point_to_segment(player.global_transform.origin, onready_paths.raycast.get_collision_point(), global_transform.origin)
 
 
 func _check_raycast() -> void:
@@ -101,3 +108,5 @@ func _on_UpdateTimer_timeout() -> void:
 func _on_body_entered(body: Node) -> void:
 	if FunctionUtils.is_player(body):
 		SignalManager.emit_respawn_player_on_last_cp()
+		RuntimeUtils.play_death_sound()
+		

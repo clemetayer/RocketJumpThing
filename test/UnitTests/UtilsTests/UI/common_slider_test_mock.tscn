@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Game/Common/Utils/UI/common_slider.gd" type="Script" id=1]
+
+[node name="CommonSliderTestMock" type="HSlider"]
+margin_right = 16.0
+margin_bottom = 16.0
+script = ExtResource( 1 )

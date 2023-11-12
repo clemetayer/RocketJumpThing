@@ -1,6 +1,7 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Game/Common/MapElements/BoostPads/Vertical/vertical_boost_area.gd" type="Script" id=1]
+[ext_resource path="res://Misc/Audio/FX/Booster/booster.wav" type="AudioStream" id=2]
 
 [sub_resource type="BoxShape" id=19]
 resource_local_to_scene = true
@@ -116,3 +117,8 @@ lifetime = 1.5
 visibility_aabb = AABB( -1, -1, -1, 2, 2, 2 )
 process_material = SubResource( 23 )
 draw_pass_1 = SubResource( 12 )
+
+[node name="BoostSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource( 2 )
+unit_db = 5.0
+bus = "FX"

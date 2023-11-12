@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Game/Common/MovementUtils/Rocket/rocket.gd" type="Script" id=1]
-[ext_resource path="res://Misc/Audio/FX/Rocket/RocketTrailBase_loop.wav" type="AudioStream" id=2]
+[ext_resource path="res://Misc/Audio/FX/Rocket/rocket_trail_base.wav" type="AudioStream" id=2]
 [ext_resource path="res://Game/Common/MovementUtils/Rocket/rocket_material.tres" type="Material" id=3]
 [ext_resource path="res://Game/Common/MovementUtils/Rocket/rocket_emission_draw_pass.tres" type="Material" id=4]
 
@@ -68,7 +68,7 @@ collision_mask = 3
 
 [node name="TrailSound" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource( 2 )
-unit_db = 30.0
+unit_db = 2.0
 bus = "FX"
 
 [connection signal="area_entered" from="." to="." method="_on_Rocket_area_entered"]

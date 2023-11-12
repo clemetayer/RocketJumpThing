@@ -94,6 +94,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Game/Common/Utils/Resources/color_palette.gd"
 }, {
+"base": "Button",
+"class": "CommonButton",
+"language": "GDScript",
+"path": "res://Game/Common/Utils/UI/common_button.gd"
+}, {
 "base": "HBoxContainer",
 "class": "CommonEditableKey",
 "language": "GDScript",
@@ -103,6 +108,11 @@ _global_script_classes=[ {
 "class": "CommonSettingsCategory",
 "language": "GDScript",
 "path": "res://Game/Common/Menus/SettingsMenu/common_category.gd"
+}, {
+"base": "Slider",
+"class": "CommonSlider",
+"language": "GDScript",
+"path": "res://Game/Common/Utils/UI/common_slider.gd"
 }, {
 "base": "Resource",
 "class": "Comparator",
@@ -1227,8 +1237,10 @@ _global_script_class_icons={
 "CmdOptions": "",
 "Collidable": "",
 "ColorPalette": "",
+"CommonButton": "",
 "CommonEditableKey": "",
 "CommonSettingsCategory": "",
+"CommonSlider": "",
 "Comparator": "",
 "ConsoleAppender": "",
 "DeathGrid": "",

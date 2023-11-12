@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Game/Common/Menus/SettingsMenu/General/general_settings.gd" type="Script" id=1]
 [ext_resource path="res://Game/Common/Menus/SettingsMenu/common_category.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Game/Common/Menus/SettingsMenu/Presets/Presets.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Game/Common/Menus/SettingsMenu/General/presets_general.gd" type="Script" id=4]
+[ext_resource path="res://Game/Common/Utils/UI/common_button.gd" type="Script" id=5]
 
 [node name="GeneralSettings" type="MarginContainer"]
 margin_top = 42.0
@@ -53,3 +54,4 @@ text = "SETTINGS_GENERAL_LANGUAGE_OPTION"
 margin_left = 264.0
 margin_right = 293.0
 margin_bottom = 20.0
+script = ExtResource( 5 )

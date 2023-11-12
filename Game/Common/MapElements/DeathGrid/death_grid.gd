@@ -26,3 +26,4 @@ func _on_player_position_updated(position: Vector3) -> void:
 func _on_body_entered(body: Node):
 	if FunctionUtils.is_player(body):
 		SignalManager.emit_respawn_player_on_last_cp()
+		RuntimeUtils.play_death_sound()

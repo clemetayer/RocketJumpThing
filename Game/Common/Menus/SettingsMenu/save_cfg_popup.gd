@@ -43,5 +43,6 @@ func _on_SignalManager_save_cfg_popup(path: String, name: String, cfg: ConfigFil
 
 
 func _on_popup_confirmed() -> void:
+	RuntimeUtils.play_button_clicked_sound()
 	DebugUtils.log_save_cfg(_cfg, _path + _name)
 	SettingsUtils.save_current_settings()

@@ -104,13 +104,8 @@ onready var onready_paths := {
 	"slide_collision": $"SlideCollision",
 	"rotation_helper": $"RotationHelper",
 	"UI": $"PlayerUI",
-	"run_sound":
-	{
-		"pitch": $"Sounds/Run/Pitch",
-		"unpitch": $"Sounds/Run/Pitch",
-	},
 	"jump_sound": $"Sounds/JumpSound",
-	"wall_ride": $"Sounds/WallRide",
+	"slide_sound": $"Sounds/SlideSound",
 	"timers":
 	{"update_speed": $"Timers/UpdateSpeed", "wall_ride_jump_lock": $"Timers/WallRideJumpLock", "fall_timer": $"Timers/FallTimer"},
 	"tweens": 
@@ -147,8 +142,6 @@ func _ready():
 	rotation_helper = onready_paths.rotation_helper
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	onready_paths.timers.update_speed.start()
-	onready_paths.run_sound.pitch.play()
-	onready_paths.run_sound.unpitch.play()
 	onready_paths.camera.fov = SettingsUtils.settings_data.gameplay.fov
 	_choose_wall_ride_strategy()
 
@@ -347,31 +340,10 @@ func _init_rocket(cam_xform: Transform) -> Area:
 
 #---- Process sounds -----
 func _process_sounds() -> void:
-	if (current_speed / SOUND_MAX_SPEED) * 4.0 > 0.0:
-		if !onready_paths.run_sound.pitch.playing:
-			onready_paths.run_sound.pitch.play()
-		if !onready_paths.run_sound.unpitch.playing:
-			onready_paths.run_sound.unpitch.play()
-		onready_paths.run_sound.pitch.pitch_scale = clamp(
-			current_speed / (SOUND_MAX_SPEED / 3.0), 0.0, 4.0
-		)
-		onready_paths.run_sound.unpitch.volume_db = clamp(
-			linear2db(current_speed / (SOUND_MAX_SPEED / 2.0)), -72.0, 0.0
-		)
-	elif onready_paths.run_sound.pitch.playing:
-		onready_paths.run_sound.pitch.stop()
-	elif onready_paths.run_sound.unpitch.playing:
-		onready_paths.run_sound.unpitch.stop()
-	if (
-		(get_state_value(states_idx.WALL_RIDING) or get_state_value(states_idx.SLIDING))
-		and not onready_paths.wall_ride.playing
-	):
-		onready_paths.wall_ride.play()
-	elif (
-		!(get_state_value(states_idx.WALL_RIDING) or get_state_value(states_idx.SLIDING))
-		and onready_paths.wall_ride.playing
-	):
-		onready_paths.wall_ride.stop()
+	if (get_state_value(states_idx.SLIDING) or get_state_value(states_idx.WALL_RIDING)) and not onready_paths.slide_sound.is_playing():
+		onready_paths.slide_sound.play()
+	elif not (get_state_value(states_idx.SLIDING) or get_state_value(states_idx.WALL_RIDING)) and onready_paths.slide_sound.is_playing():
+		onready_paths.slide_sound.stop()
 
 
 #---- Process movement -----

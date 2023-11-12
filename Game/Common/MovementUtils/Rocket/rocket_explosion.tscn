@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Game/Common/MovementUtils/Rocket/rocket_explosion.gd" type="Script" id=1]
-[ext_resource path="res://Misc/Audio/FX/Rocket/RocketExplosion.wav" type="AudioStream" id=2]
+[ext_resource path="res://Misc/Audio/FX/Rocket/rocket_explosion.wav" type="AudioStream" id=2]
 
 [sub_resource type="SphereShape" id=1]
 radius = 0.75
@@ -157,7 +157,6 @@ shape = SubResource( 1 )
 mesh = SubResource( 8 )
 
 [node name="ExplosionParticles" type="Particles" parent="."]
-emitting = false
 amount = 128
 one_shot = true
 explosiveness = 1.0
@@ -174,5 +173,5 @@ anims/explode = SubResource( 10 )
 
 [node name="ExplosionAudio" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource( 2 )
-unit_db = 40.0
+unit_db = 2.0
 bus = "FX"

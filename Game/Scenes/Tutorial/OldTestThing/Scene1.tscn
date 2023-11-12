@@ -1,16 +1,12 @@
-[gd_scene load_steps=411 format=2]
+[gd_scene load_steps=407 format=2]
 
 [ext_resource path="res://Game/Common/MapElements/Characters/MainCharacters/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://addons/qodot/src/nodes/qodot_map.gd" type="Script" id=2]
 [ext_resource path="res://Game/Common/MapElements/Checkpoint/start_point.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Game/Common/MapElements/DeathGrid/death_grid.gd" type="Script" id=4]
-[ext_resource path="res://RocketJumpThing_fgd.tres" type="Resource" id=5]
 [ext_resource path="res://Game/Common/MapElements/Checkpoint/checkpoint.gd" type="Script" id=7]
 [ext_resource path="res://Game/Common/Utils/Templates/Scene/standard_scene.gd" type="Script" id=8]
-[ext_resource path="res://trenchbroom/textures/scenes/tutorial_scene/wall.tres" type="Material" id=9]
 [ext_resource path="res://addons/qodot/game_definitions/fgd/point_classes/light.gd" type="Script" id=10]
-[ext_resource path="res://trenchbroom/textures/scenes/tutorial_scene/LightGuide.tres" type="Material" id=11]
-[ext_resource path="res://trenchbroom/textures/scenes/tutorial_scene/Floor.tres" type="Material" id=12]
 [ext_resource path="res://Game/Common/MapElements/static_body_group_solid_class.gd" type="Script" id=13]
 [ext_resource path="res://Game/Scenes/Tutorial/OldTestThing/Scene1.lmbake" type="BakedLightmapData" id=14]
 [ext_resource path="res://trenchbroom/textures/entities/checkpoint/checkpoint_1.tres" type="Material" id=15]
@@ -48,7 +44,6 @@ surfaces/0 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 36,
-"material": ExtResource( 9 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 24
@@ -79,7 +74,6 @@ surfaces/1 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 102,
-"material": ExtResource( 9 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 68
@@ -91,7 +85,6 @@ surfaces/2 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 42,
-"material": ExtResource( 11 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 28
@@ -174,7 +167,6 @@ surfaces/1 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 498,
-"material": ExtResource( 9 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 334
@@ -186,7 +178,6 @@ surfaces/2 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 180,
-"material": ExtResource( 11 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 120
@@ -198,7 +189,6 @@ surfaces/3 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 36,
-"material": ExtResource( 12 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 24
@@ -287,7 +277,6 @@ surfaces/1 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 636,
-"material": ExtResource( 9 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 440
@@ -299,7 +288,6 @@ surfaces/2 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 180,
-"material": ExtResource( 11 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 126
@@ -311,7 +299,6 @@ surfaces/3 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 216,
-"material": ExtResource( 12 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 144
@@ -418,7 +405,6 @@ surfaces/0 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 3483,
-"material": ExtResource( 9 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 2323
@@ -430,7 +416,6 @@ surfaces/1 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 735,
-"material": ExtResource( 11 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 489
@@ -442,7 +427,6 @@ surfaces/2 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 252,
-"material": ExtResource( 12 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 168
@@ -828,7 +812,6 @@ surfaces/0 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 720,
-"material": ExtResource( 9 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 478
@@ -840,7 +823,6 @@ surfaces/1 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 372,
-"material": ExtResource( 11 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 248
@@ -852,7 +834,6 @@ surfaces/2 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 84,
-"material": ExtResource( 12 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 54
@@ -962,7 +943,6 @@ surfaces/0 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 396,
-"material": ExtResource( 9 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 264
@@ -974,7 +954,6 @@ surfaces/1 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 144,
-"material": ExtResource( 11 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 96
@@ -986,7 +965,6 @@ surfaces/2 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 36,
-"material": ExtResource( 12 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 24
@@ -1048,7 +1026,6 @@ surfaces/0 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 192,
-"material": ExtResource( 9 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 126
@@ -1060,7 +1037,6 @@ surfaces/1 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 72,
-"material": ExtResource( 11 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 48
@@ -1072,7 +1048,6 @@ surfaces/2 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 96,
-"material": ExtResource( 12 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 60
@@ -1113,7 +1088,6 @@ surfaces/0 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 252,
-"material": ExtResource( 9 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 168
@@ -1125,7 +1099,6 @@ surfaces/1 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 108,
-"material": ExtResource( 11 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 72
@@ -1137,7 +1110,6 @@ surfaces/2 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 36,
-"material": ExtResource( 12 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 24
@@ -1184,7 +1156,6 @@ surfaces/0 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 1308,
-"material": ExtResource( 9 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 868
@@ -1196,7 +1167,6 @@ surfaces/1 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 444,
-"material": ExtResource( 11 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 296
@@ -1208,7 +1178,6 @@ surfaces/2 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 168,
-"material": ExtResource( 12 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 108
@@ -1378,7 +1347,6 @@ surfaces/0 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 396,
-"material": ExtResource( 9 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 264
@@ -1390,7 +1358,6 @@ surfaces/1 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 144,
-"material": ExtResource( 11 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 96
@@ -1402,7 +1369,6 @@ surfaces/2 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 36,
-"material": ExtResource( 12 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 24
@@ -1464,7 +1430,6 @@ surfaces/0 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 420,
-"material": ExtResource( 9 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 276
@@ -1476,7 +1441,6 @@ surfaces/1 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 84,
-"material": ExtResource( 11 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 54
@@ -1488,7 +1452,6 @@ surfaces/2 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 36,
-"material": ExtResource( 12 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 24
@@ -1544,7 +1507,6 @@ surfaces/0 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 72,
-"material": ExtResource( 9 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 48
@@ -1556,7 +1518,6 @@ surfaces/1 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 36,
-"material": ExtResource( 11 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 24
@@ -1579,7 +1540,6 @@ surfaces/0 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 36,
-"material": ExtResource( 9 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 24
@@ -1591,7 +1551,6 @@ surfaces/1 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 36,
-"material": ExtResource( 11 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 24
@@ -1611,7 +1570,6 @@ surfaces/0 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 36,
-"material": ExtResource( 9 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 24
@@ -1623,7 +1581,6 @@ surfaces/1 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 36,
-"material": ExtResource( 11 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 24
@@ -1643,7 +1600,6 @@ surfaces/0 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 156,
-"material": ExtResource( 9 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 102
@@ -1655,7 +1611,6 @@ surfaces/1 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 72,
-"material": ExtResource( 11 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 48
@@ -1836,7 +1791,7 @@ shape = SubResource( 291 )
 script = ExtResource( 2 )
 map_file = "D:/Godot/RocketJumpThing/trenchbroom/Maps/Tutorial/tutorialV2.map"
 inverse_scale_factor = 16.0
-entity_fgd = ExtResource( 5 )
+entity_fgd = null
 base_texture_dir = "res://trenchbroom/textures"
 texture_file_extensions = PoolStringArray( "png", "jpg" )
 worldspawn_layers = [  ]
@@ -1856,7 +1811,6 @@ set_owner_batch_size = 16
 [node name="entity_0_mesh_instance" type="MeshInstance" parent="QodotMap/entity_0_worldspawn"]
 use_in_baked_light = true
 mesh = SubResource( 587 )
-material/0 = null
 
 [node name="entity_24_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_0_worldspawn"]
 shape = SubResource( 588 )
@@ -1876,9 +1830,6 @@ properties = {
 
 [node name="entity_1_mesh_instance" type="MeshInstance" parent="QodotMap/entity_1_static_body_group"]
 mesh = SubResource( 590 )
-material/0 = null
-material/1 = null
-material/2 = null
 
 [node name="entity_1_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_1_static_body_group"]
 shape = SubResource( 591 )
@@ -1939,11 +1890,6 @@ shape = SubResource( 609 )
 
 [node name="entity_2_player" parent="QodotMap" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 4, -2 )
-PATHS = {
-"UI": NodePath("PlayerUI"),
-"camera": NodePath("RotationHelper/Camera"),
-"rotation_helper": NodePath("RotationHelper")
-}
 properties = {
 "angle": 0.0,
 "classname": "player",
@@ -2035,10 +1981,6 @@ properties = {
 
 [node name="entity_9_mesh_instance" type="MeshInstance" parent="QodotMap/entity_9_static_body_group"]
 mesh = SubResource( 610 )
-material/0 = null
-material/1 = null
-material/2 = null
-material/3 = null
 
 [node name="entity_9_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_9_static_body_group"]
 shape = SubResource( 611 )
@@ -2116,10 +2058,6 @@ properties = {
 
 [node name="entity_10_mesh_instance" type="MeshInstance" parent="QodotMap/entity_10_static_body_group"]
 mesh = SubResource( 632 )
-material/0 = null
-material/1 = null
-material/2 = null
-material/3 = null
 
 [node name="entity_10_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_10_static_body_group"]
 shape = SubResource( 633 )
@@ -2227,9 +2165,6 @@ properties = {
 
 [node name="entity_11_mesh_instance" type="MeshInstance" parent="QodotMap/entity_11_static_body_group"]
 mesh = SubResource( 664 )
-material/0 = null
-material/1 = null
-material/2 = null
 
 [node name="entity_11_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_11_static_body_group"]
 shape = SubResource( 665 )
@@ -2616,9 +2551,6 @@ properties = {
 
 [node name="entity_12_mesh_instance" type="MeshInstance" parent="QodotMap/entity_12_static_body_group"]
 mesh = SubResource( 789 )
-material/0 = null
-material/1 = null
-material/2 = null
 
 [node name="entity_12_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_12_static_body_group"]
 shape = SubResource( 790 )
@@ -2729,9 +2661,6 @@ properties = {
 
 [node name="entity_13_mesh_instance" type="MeshInstance" parent="QodotMap/entity_13_static_body_group"]
 mesh = SubResource( 822 )
-material/0 = null
-material/1 = null
-material/2 = null
 
 [node name="entity_13_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_13_static_body_group"]
 shape = SubResource( 823 )
@@ -2794,9 +2723,6 @@ properties = {
 
 [node name="entity_14_mesh_instance" type="MeshInstance" parent="QodotMap/entity_14_static_body_group"]
 mesh = SubResource( 839 )
-material/0 = null
-material/1 = null
-material/2 = null
 
 [node name="entity_14_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_14_static_body_group"]
 shape = SubResource( 840 )
@@ -2838,9 +2764,6 @@ properties = {
 
 [node name="entity_15_mesh_instance" type="MeshInstance" parent="QodotMap/entity_15_static_body_group"]
 mesh = SubResource( 849 )
-material/0 = null
-material/1 = null
-material/2 = null
 
 [node name="entity_15_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_15_static_body_group"]
 shape = SubResource( 850 )
@@ -2888,9 +2811,6 @@ properties = {
 
 [node name="entity_16_mesh_instance" type="MeshInstance" parent="QodotMap/entity_16_static_body_group"]
 mesh = SubResource( 861 )
-material/0 = null
-material/1 = null
-material/2 = null
 
 [node name="entity_16_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_16_static_body_group"]
 shape = SubResource( 862 )
@@ -3061,9 +2981,6 @@ properties = {
 
 [node name="entity_17_mesh_instance" type="MeshInstance" parent="QodotMap/entity_17_static_body_group"]
 mesh = SubResource( 914 )
-material/0 = null
-material/1 = null
-material/2 = null
 
 [node name="entity_17_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_17_static_body_group"]
 shape = SubResource( 915 )
@@ -3126,9 +3043,6 @@ properties = {
 
 [node name="entity_18_mesh_instance" type="MeshInstance" parent="QodotMap/entity_18_static_body_group"]
 mesh = SubResource( 931 )
-material/0 = null
-material/1 = null
-material/2 = null
 
 [node name="entity_18_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_18_static_body_group"]
 shape = SubResource( 932 )
@@ -3192,8 +3106,6 @@ properties = {
 
 [node name="entity_20_mesh_instance" type="MeshInstance" parent="QodotMap/entity_20_static_body_group"]
 mesh = SubResource( 946 )
-material/0 = null
-material/1 = null
 
 [node name="entity_20_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_20_static_body_group"]
 shape = SubResource( 947 )
@@ -3213,8 +3125,6 @@ properties = {
 
 [node name="entity_21_mesh_instance" type="MeshInstance" parent="QodotMap/entity_21_static_body_group"]
 mesh = SubResource( 950 )
-material/0 = null
-material/1 = null
 
 [node name="entity_21_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_21_static_body_group"]
 shape = SubResource( 951 )
@@ -3231,8 +3141,6 @@ properties = {
 
 [node name="entity_22_mesh_instance" type="MeshInstance" parent="QodotMap/entity_22_static_body_group"]
 mesh = SubResource( 953 )
-material/0 = null
-material/1 = null
 
 [node name="entity_22_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_22_static_body_group"]
 shape = SubResource( 954 )
@@ -3253,8 +3161,6 @@ properties = {
 
 [node name="entity_23_mesh_instance" type="MeshInstance" parent="QodotMap/entity_23_static_body_group"]
 mesh = SubResource( 956 )
-material/0 = null
-material/1 = null
 
 [node name="entity_23_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_23_static_body_group"]
 shape = SubResource( 957 )
@@ -3283,7 +3189,6 @@ properties = {
 
 [node name="entity_25_mesh_instance" type="MeshInstance" parent="QodotMap/entity_25_CheckpointSolidClass"]
 mesh = SubResource( 963 )
-material/0 = null
 
 [node name="entity_25_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_25_CheckpointSolidClass"]
 shape = SubResource( 964 )
@@ -3297,7 +3202,6 @@ properties = {
 
 [node name="entity_26_mesh_instance" type="MeshInstance" parent="QodotMap/entity_26_CheckpointSolidClass"]
 mesh = SubResource( 965 )
-material/0 = null
 
 [node name="entity_26_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_26_CheckpointSolidClass"]
 shape = SubResource( 966 )
@@ -3311,7 +3215,6 @@ properties = {
 
 [node name="entity_27_mesh_instance" type="MeshInstance" parent="QodotMap/entity_27_CheckpointSolidClass"]
 mesh = SubResource( 967 )
-material/0 = null
 
 [node name="entity_27_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_27_CheckpointSolidClass"]
 shape = SubResource( 968 )
@@ -3325,7 +3228,6 @@ properties = {
 
 [node name="entity_28_mesh_instance" type="MeshInstance" parent="QodotMap/entity_28_CheckpointSolidClass"]
 mesh = SubResource( 969 )
-material/0 = null
 
 [node name="entity_28_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_28_CheckpointSolidClass"]
 shape = SubResource( 970 )
@@ -3339,7 +3241,6 @@ properties = {
 
 [node name="entity_29_mesh_instance" type="MeshInstance" parent="QodotMap/entity_29_CheckpointSolidClass"]
 mesh = SubResource( 971 )
-material/0 = null
 
 [node name="entity_29_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_29_CheckpointSolidClass"]
 shape = SubResource( 972 )
@@ -3353,7 +3254,6 @@ properties = {
 
 [node name="entity_30_mesh_instance" type="MeshInstance" parent="QodotMap/entity_30_CheckpointSolidClass"]
 mesh = SubResource( 973 )
-material/0 = null
 
 [node name="entity_30_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_30_CheckpointSolidClass"]
 shape = SubResource( 974 )
@@ -3367,7 +3267,6 @@ properties = {
 
 [node name="entity_31_mesh_instance" type="MeshInstance" parent="QodotMap/entity_31_CheckpointSolidClass"]
 mesh = SubResource( 975 )
-material/0 = null
 
 [node name="entity_31_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_31_CheckpointSolidClass"]
 shape = SubResource( 976 )
@@ -3381,7 +3280,6 @@ properties = {
 
 [node name="entity_32_mesh_instance" type="MeshInstance" parent="QodotMap/entity_32_CheckpointSolidClass"]
 mesh = SubResource( 977 )
-material/0 = null
 
 [node name="entity_32_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_32_CheckpointSolidClass"]
 shape = SubResource( 978 )

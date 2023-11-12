@@ -7,12 +7,12 @@ extends Collidable
 func _init():
 	_connect_signals()
 
-
 ##### SIGNAL MANAGEMENT #####
 func _connect_signals() -> void:
 	DebugUtils.log_connect(self, self, "body_entered", "_on_body_entered")
 
 
 func _on_body_entered(body: Node):
-	if FunctionUtils.is_player(body):  # REFACTOR : create a global check is player
+	if FunctionUtils.is_player(body): 
 		SignalManager.emit_respawn_player_on_last_cp()
+		RuntimeUtils.play_death_sound()

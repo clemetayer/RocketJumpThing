@@ -1,0 +1,6 @@
+[gd_resource type="AudioEffectReverb" format=2]
+
+[resource]
+resource_name = "Reverb"
+room_size = 0.7
+dry = 0.8

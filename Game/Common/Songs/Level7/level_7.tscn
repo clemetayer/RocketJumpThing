@@ -1,0 +1,1663 @@
+[gd_scene load_steps=39 format=2]
+
+[ext_resource path="res://Game/Common/Utils/SongManager/templates/Songs/SongAnimationPlayer/song_animation_player.gd" type="Script" id=1]
+[ext_resource path="res://Misc/Audio/BGM/Level7/cymbals.wav" type="AudioStream" id=2]
+[ext_resource path="res://Misc/Audio/BGM/Level7/StringsPitchP2/strings_pitch_p2_1.wav" type="AudioStream" id=3]
+[ext_resource path="res://Misc/Audio/BGM/Level7/StringsPitchP2/strings_pitch_p2_2.wav" type="AudioStream" id=4]
+[ext_resource path="res://Game/Common/Songs/Level7/glitch_audio.gd" type="Script" id=5]
+[ext_resource path="res://Misc/Audio/BGM/Level7/hats.wav" type="AudioStream" id=6]
+[ext_resource path="res://Misc/Audio/BGM/Level7/heavy_guitar_p1_loop.wav" type="AudioStream" id=7]
+[ext_resource path="res://Misc/Audio/BGM/Level7/heavy_guitar_p2_loop.wav" type="AudioStream" id=9]
+[ext_resource path="res://Misc/Audio/BGM/Level7/kicks.wav" type="AudioStream" id=10]
+[ext_resource path="res://Misc/Audio/BGM/Level7/snares_rides.wav" type="AudioStream" id=13]
+[ext_resource path="res://Misc/Audio/BGM/Level7/StringsPitchP1/strings_pitch_p1_2.wav" type="AudioStream" id=14]
+[ext_resource path="res://Game/Common/Songs/Level7/heavy_guitar_reverb.tres" type="AudioEffectReverb" id=16]
+[ext_resource path="res://Misc/Audio/BGM/Level7/DarkStrings/dark_strings_3.wav" type="AudioStream" id=17]
+[ext_resource path="res://Misc/Audio/BGM/Level7/GrittyBass/gritty_bass_1.wav" type="AudioStream" id=18]
+[ext_resource path="res://Misc/Audio/BGM/Level7/BrightPad/bright_pad_2.wav" type="AudioStream" id=19]
+[ext_resource path="res://Misc/Audio/BGM/Level7/DarkStrings/dark_strings_4.wav" type="AudioStream" id=20]
+[ext_resource path="res://Misc/Audio/BGM/Level7/BrightPad/bright_pad_1.wav" type="AudioStream" id=21]
+[ext_resource path="res://Misc/Audio/BGM/Level7/DarkStrings/dark_strings_1.wav" type="AudioStream" id=22]
+[ext_resource path="res://Misc/Audio/BGM/Level7/BrightPad/bright_pad_3.wav" type="AudioStream" id=23]
+[ext_resource path="res://Misc/Audio/BGM/Level7/BrightPad/bright_pad_4.wav" type="AudioStream" id=24]
+[ext_resource path="res://Misc/Audio/BGM/Level7/DarkStrings/dark_strings_2.wav" type="AudioStream" id=25]
+[ext_resource path="res://Misc/Audio/BGM/Level7/GrittyBass/gritty_bass_2.wav" type="AudioStream" id=26]
+[ext_resource path="res://Misc/Audio/BGM/Level7/LightChoir/light_choir_1.wav" type="AudioStream" id=27]
+[ext_resource path="res://Misc/Audio/BGM/Level7/LightChoir/light_choir_3.wav" type="AudioStream" id=28]
+[ext_resource path="res://Misc/Audio/BGM/Level7/Melody/melody_3.wav" type="AudioStream" id=29]
+[ext_resource path="res://Misc/Audio/BGM/Level7/Melody/melody_4.wav" type="AudioStream" id=30]
+[ext_resource path="res://Misc/Audio/BGM/Level7/LightChoir/light_choir_4.wav" type="AudioStream" id=31]
+[ext_resource path="res://Misc/Audio/BGM/Level7/Melody/melody_1.wav" type="AudioStream" id=32]
+[ext_resource path="res://Misc/Audio/BGM/Level7/LightChoir/light_choir_2.wav" type="AudioStream" id=33]
+[ext_resource path="res://Misc/Audio/BGM/Level7/Melody/melody_2.wav" type="AudioStream" id=34]
+[ext_resource path="res://Misc/Audio/BGM/Level7/StringsPitchP1/strings_pitch_p1_1.wav" type="AudioStream" id=35]
+
+[sub_resource type="Animation" id=1]
+resource_name = "part_0"
+length = 5.648
+step = 0.353
+tracks/0/type = "audio"
+tracks/0/path = NodePath("HeavyGuitar_p1")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 7 )
+} ],
+"times": PoolRealArray( 0 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath(".:SLIDE_FX_FILTER_CUTOFF")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.616, 0.704, 1.32, 1.408, 2.024, 2.112, 2.728, 2.816, 3.432, 3.52, 4.136, 4.224, 4.84, 4.928, 5.544, 6.248, 6.336, 6.952, 7.04, 7.656, 7.744, 8.36, 8.448, 9.064, 9.152, 9.768, 9.856, 10.472, 10.56, 11.176, 11.264, 11.88, 11.968, 12.584, 12.672, 13.288, 13.376, 13.992, 14.08, 14.696, 14.784, 15.4, 15.488, 16.104, 16.192, 16.808, 16.896, 17.512, 17.6, 18.216, 18.304, 18.92, 19.008, 19.624, 19.712, 20.328, 20.416, 21.032, 21.12, 21.736, 21.824, 22.44 )
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "part_1"
+length = 5.648
+loop = true
+step = 0.353
+tracks/0/type = "audio"
+tracks/0/path = NodePath("HeavyGuitar_p2")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 9 )
+} ],
+"times": PoolRealArray( 0 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath(".:SLIDE_FX_FILTER_CUTOFF")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.616, 0.704, 1.32, 1.408, 2.024, 2.112, 2.728, 2.816, 3.432, 3.52, 4.136, 4.224, 4.84, 4.928, 5.544, 6.248, 6.336, 6.952, 7.04, 7.656, 7.744, 8.36, 8.448, 9.064, 9.152, 9.768, 9.856, 10.472, 10.56, 11.176, 11.264, 11.88, 11.968, 12.584, 12.672, 13.288, 13.376, 13.992, 14.08, 14.696, 14.784, 15.4, 15.488, 16.104, 16.192, 16.808, 16.896, 17.512, 17.6, 18.216, 18.304, 18.92, 19.008, 19.624, 19.712, 20.328, 20.416, 21.032, 21.12, 21.736, 21.824, 22.44 )
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "part_2"
+length = 22.592
+loop = true
+step = 0.353
+tracks/0/type = "audio"
+tracks/0/path = NodePath("GrittyBass")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 18 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 26 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 18 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 26 )
+} ],
+"times": PoolRealArray( 0, 5.648, 11.296, 16.944 )
+}
+tracks/1/type = "audio"
+tracks/1/path = NodePath("DarkStrings")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 22 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 25 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 17 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 20 )
+} ],
+"times": PoolRealArray( 0, 5.648, 11.296, 16.944 )
+}
+tracks/2/type = "audio"
+tracks/2/path = NodePath("BrightPad")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 21 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 19 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 23 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 24 )
+} ],
+"times": PoolRealArray( 0, 5.648, 11.296, 16.944 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath(".:SLIDE_FX_FILTER_CUTOFF")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.616, 0.704, 1.32, 1.408, 2.024, 2.112, 2.728, 2.816, 3.432, 3.52, 4.136, 4.224, 4.84, 4.928, 5.544, 5.632, 6.248, 6.336, 6.952, 7.04, 7.656, 7.744, 8.36, 8.448, 9.064, 9.152, 9.768, 9.856, 10.472, 10.56, 11.176, 11.264, 11.88, 11.968, 12.584, 12.672, 13.288, 13.376, 13.992, 14.08, 14.696, 14.784, 15.4, 15.488, 16.104, 16.192, 16.808, 16.896, 17.512, 17.6, 18.216, 18.304, 18.92, 19.008, 19.624, 19.712, 20.328, 20.416, 21.032, 21.12, 21.736, 21.824, 22.44 )
+}
+tracks/4/type = "audio"
+tracks/4/path = NodePath("HeavyGuitar_p2")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 9 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 9 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 9 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 9 )
+} ],
+"times": PoolRealArray( 0, 5.648, 11.296, 16.944 )
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "part_3"
+length = 22.592
+loop = true
+step = 0.353
+tracks/0/type = "audio"
+tracks/0/path = NodePath("LightChoir")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 27 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 33 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 28 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 31 )
+} ],
+"times": PoolRealArray( 0, 5.648, 11.296, 16.944 )
+}
+tracks/1/type = "audio"
+tracks/1/path = NodePath("Melody")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 32 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 34 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 29 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 30 )
+} ],
+"times": PoolRealArray( 0, 5.648, 11.296, 16.944 )
+}
+tracks/2/type = "audio"
+tracks/2/path = NodePath("Kicks")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 10 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 10 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 10 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 10 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 10 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 10 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 10 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 10 )
+} ],
+"times": PoolRealArray( 0, 2.824, 5.648, 8.472, 11.296, 14.12, 16.944, 19.768 )
+}
+tracks/3/type = "audio"
+tracks/3/path = NodePath("SnaresRides")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 13 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 13 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 13 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 13 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 13 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 13 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 13 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 13 )
+} ],
+"times": PoolRealArray( 0, 2.824, 5.648, 8.472, 11.296, 14.12, 16.944, 19.768 )
+}
+tracks/4/type = "audio"
+tracks/4/path = NodePath("Hats")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+} ],
+"times": PoolRealArray( 0, 1.412, 2.824, 4.236, 5.648, 7.06, 8.472, 9.884, 11.296, 12.708, 14.12, 15.532, 16.944, 18.356, 19.768, 21.18 )
+}
+tracks/5/type = "bezier"
+tracks/5/path = NodePath(".:SLIDE_FX_FILTER_CUTOFF")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"points": PoolRealArray( 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.616, 0.704, 1.32, 1.408, 2.024, 2.112, 2.728, 2.816, 3.432, 3.52, 4.136, 4.224, 4.84, 4.928, 5.544, 5.632, 6.248, 6.336, 6.952, 7.04, 7.656, 7.744, 8.36, 8.448, 9.064, 9.152, 9.768, 9.856, 10.472, 10.56, 11.176, 11.264, 11.88, 11.968, 12.584, 12.672, 13.288, 13.376, 13.992, 14.08, 14.696, 14.784, 15.4, 15.488, 16.104, 16.192, 16.808, 16.896, 17.512, 17.6, 18.216, 18.304, 18.92, 19.008, 19.624, 19.712, 20.328, 20.416, 21.032, 21.12, 21.736, 21.824, 22.44 )
+}
+tracks/6/type = "audio"
+tracks/6/path = NodePath("GrittyBass")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 18 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 26 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 18 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 26 )
+} ],
+"times": PoolRealArray( 0, 5.648, 11.296, 16.944 )
+}
+tracks/7/type = "audio"
+tracks/7/path = NodePath("DarkStrings")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 22 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 25 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 17 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 20 )
+} ],
+"times": PoolRealArray( 0, 5.648, 11.296, 16.944 )
+}
+tracks/8/type = "audio"
+tracks/8/path = NodePath("BrightPad")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 21 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 19 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 23 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 24 )
+} ],
+"times": PoolRealArray( 0, 5.648, 11.296, 16.944 )
+}
+tracks/9/type = "audio"
+tracks/9/path = NodePath("HeavyGuitar_p2")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 9 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 9 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 9 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 9 )
+} ],
+"times": PoolRealArray( 0, 5.648, 11.296, 16.944 )
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "part_4"
+length = 22.592
+loop = true
+step = 0.353
+tracks/0/type = "audio"
+tracks/0/path = NodePath("Kicks")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 10 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 10 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 10 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 10 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 10 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 10 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 10 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 10 )
+} ],
+"times": PoolRealArray( 0, 2.824, 5.648, 8.472, 11.296, 14.12, 16.944, 19.768 )
+}
+tracks/1/type = "audio"
+tracks/1/path = NodePath("SnaresRides")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 13 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 13 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 13 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 13 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 13 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 13 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 13 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 13 )
+} ],
+"times": PoolRealArray( 0, 2.824, 5.648, 8.472, 11.296, 14.12, 16.944, 19.768 )
+}
+tracks/2/type = "audio"
+tracks/2/path = NodePath("Hats")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+} ],
+"times": PoolRealArray( 0, 1.412, 2.824, 4.236, 5.648, 7.06, 8.472, 9.884, 11.296, 12.708, 14.12, 15.532, 16.944, 18.356, 19.768, 21.18 )
+}
+tracks/3/type = "audio"
+tracks/3/path = NodePath("StringsPitch_p1")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 35 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 14 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 35 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 14 )
+} ],
+"times": PoolRealArray( 0, 5.648, 11.296, 16.944 )
+}
+tracks/4/type = "bezier"
+tracks/4/path = NodePath(".:SLIDE_FX_FILTER_CUTOFF")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"points": PoolRealArray( 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.616, 0.704, 1.32, 1.408, 2.024, 2.112, 2.728, 2.816, 3.432, 3.52, 4.136, 4.224, 4.84, 4.928, 5.544, 5.632, 6.248, 6.336, 6.952, 7.04, 7.656, 7.744, 8.36, 8.448, 9.064, 9.152, 9.768, 9.856, 10.472, 10.56, 11.176, 11.264, 11.88, 11.968, 12.584, 12.672, 13.288, 13.376, 13.992, 14.08, 14.696, 14.784, 15.4, 15.488, 16.104, 16.192, 16.808, 16.896, 17.512, 17.6, 18.216, 18.304, 18.92, 19.008, 19.624, 19.712, 20.328, 20.416, 21.032, 21.12, 21.736, 21.824, 22.44 )
+}
+tracks/5/type = "audio"
+tracks/5/path = NodePath("LightChoir")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 27 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 33 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 28 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 31 )
+} ],
+"times": PoolRealArray( 0, 5.648, 11.296, 16.944 )
+}
+tracks/6/type = "audio"
+tracks/6/path = NodePath("Melody")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 32 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 34 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 29 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 30 )
+} ],
+"times": PoolRealArray( 0, 5.648, 11.296, 16.944 )
+}
+tracks/7/type = "audio"
+tracks/7/path = NodePath("GrittyBass")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 18 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 26 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 18 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 26 )
+} ],
+"times": PoolRealArray( 0, 5.648, 11.296, 16.944 )
+}
+tracks/8/type = "audio"
+tracks/8/path = NodePath("DarkStrings")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 22 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 25 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 17 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 20 )
+} ],
+"times": PoolRealArray( 0, 5.648, 11.296, 16.944 )
+}
+tracks/9/type = "audio"
+tracks/9/path = NodePath("BrightPad")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 21 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 19 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 23 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 24 )
+} ],
+"times": PoolRealArray( 0, 5.648, 11.296, 16.944 )
+}
+tracks/10/type = "audio"
+tracks/10/path = NodePath("HeavyGuitar_p2")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 9 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 9 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 9 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 9 )
+} ],
+"times": PoolRealArray( 0, 5.648, 11.296, 16.944 )
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "part_5"
+length = 22.592
+loop = true
+step = 0.353
+tracks/0/type = "audio"
+tracks/0/path = NodePath("Kicks")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 10 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 10 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 10 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 10 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 10 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 10 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 10 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 10 )
+} ],
+"times": PoolRealArray( 0, 2.824, 5.648, 8.472, 11.296, 14.12, 16.944, 19.768 )
+}
+tracks/1/type = "audio"
+tracks/1/path = NodePath("SnaresRides")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 13 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 13 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 13 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 13 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 13 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 13 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 13 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 13 )
+} ],
+"times": PoolRealArray( 0, 2.824, 5.648, 8.472, 11.296, 14.12, 16.944, 19.768 )
+}
+tracks/2/type = "audio"
+tracks/2/path = NodePath("Hats")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+} ],
+"times": PoolRealArray( 0, 1.412, 2.824, 4.236, 5.648, 7.06, 8.472, 9.884, 11.296, 12.708, 14.12, 15.532, 16.944, 18.356, 19.768, 21.18 )
+}
+tracks/3/type = "audio"
+tracks/3/path = NodePath("StringsPitch_p2")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 3 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 4 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 3 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 4 )
+} ],
+"times": PoolRealArray( 0, 5.648, 11.296, 16.944 )
+}
+tracks/4/type = "audio"
+tracks/4/path = NodePath("Cymbals")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 2 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 2 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 2 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 2 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 2 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 2 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 2 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 2 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 2 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 2 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 2 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 2 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 2 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 2 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 2 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 2 )
+} ],
+"times": PoolRealArray( 0, 1.412, 2.824, 4.236, 5.648, 7.06, 8.472, 9.884, 11.296, 12.708, 14.12, 15.532, 16.944, 18.356, 19.768, 21.18 )
+}
+tracks/5/type = "bezier"
+tracks/5/path = NodePath(".:SLIDE_FX_FILTER_CUTOFF")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"points": PoolRealArray( 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.616, 0.704, 1.32, 1.408, 2.024, 2.112, 2.728, 2.816, 3.432, 3.52, 4.136, 4.224, 4.84, 4.928, 5.544, 5.632, 6.248, 6.336, 6.952, 7.04, 7.656, 7.744, 8.36, 8.448, 9.064, 9.152, 9.768, 9.856, 10.472, 10.56, 11.176, 11.264, 11.88, 11.968, 12.584, 12.672, 13.288, 13.376, 13.992, 14.08, 14.696, 14.784, 15.4, 15.488, 16.104, 16.192, 16.808, 16.896, 17.512, 17.6, 18.216, 18.304, 18.92, 19.008, 19.624, 19.712, 20.328, 20.416, 21.032, 21.12, 21.736, 21.824, 22.44 )
+}
+tracks/6/type = "audio"
+tracks/6/path = NodePath("LightChoir")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 27 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 33 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 28 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 31 )
+} ],
+"times": PoolRealArray( 0, 5.648, 11.296, 16.944 )
+}
+tracks/7/type = "audio"
+tracks/7/path = NodePath("Melody")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 32 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 34 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 29 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 30 )
+} ],
+"times": PoolRealArray( 0, 5.648, 11.296, 16.944 )
+}
+tracks/8/type = "audio"
+tracks/8/path = NodePath("GrittyBass")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 18 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 26 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 18 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 26 )
+} ],
+"times": PoolRealArray( 0, 5.648, 11.296, 16.944 )
+}
+tracks/9/type = "audio"
+tracks/9/path = NodePath("DarkStrings")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 22 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 25 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 17 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 20 )
+} ],
+"times": PoolRealArray( 0, 5.648, 11.296, 16.944 )
+}
+tracks/10/type = "audio"
+tracks/10/path = NodePath("BrightPad")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 21 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 19 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 23 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 24 )
+} ],
+"times": PoolRealArray( 0, 5.648, 11.296, 16.944 )
+}
+tracks/11/type = "audio"
+tracks/11/path = NodePath("HeavyGuitar_p2")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 9 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 9 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 9 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 9 )
+} ],
+"times": PoolRealArray( 0, 5.648, 11.296, 16.944 )
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "part_6"
+length = 22.592
+loop = true
+step = 0.353
+tracks/0/type = "audio"
+tracks/0/path = NodePath("Kicks")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 10 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 10 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 10 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 10 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 10 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 10 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 10 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 10 )
+} ],
+"times": PoolRealArray( 0, 2.824, 5.648, 8.472, 11.296, 14.12, 16.944, 19.768 )
+}
+tracks/1/type = "audio"
+tracks/1/path = NodePath("SnaresRides")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 13 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 13 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 13 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 13 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 13 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 13 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 13 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 13 )
+} ],
+"times": PoolRealArray( 0, 2.824, 5.648, 8.472, 11.296, 14.12, 16.944, 19.768 )
+}
+tracks/2/type = "audio"
+tracks/2/path = NodePath("Hats")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+} ],
+"times": PoolRealArray( 0, 1.412, 2.824, 4.236, 5.648, 7.06, 8.472, 9.884, 11.296, 12.708, 14.12, 15.532, 16.944, 18.356, 19.768, 21.18 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath(".:SLIDE_FX_FILTER_CUTOFF")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.616, 0.704, 1.32, 1.408, 2.024, 2.112, 2.728, 2.816, 3.432, 3.52, 4.136, 4.224, 4.84, 4.928, 5.544, 5.632, 6.248, 6.336, 6.952, 7.04, 7.656, 7.744, 8.36, 8.448, 9.064, 9.152, 9.768, 9.856, 10.472, 10.56, 11.176, 11.264, 11.88, 11.968, 12.584, 12.672, 13.288, 13.376, 13.992, 14.08, 14.696, 14.784, 15.4, 15.488, 16.104, 16.192, 16.808, 16.896, 17.512, 17.6, 18.216, 18.304, 18.92, 19.008, 19.624, 19.712, 20.328, 20.416, 21.032, 21.12, 21.736, 21.824, 22.44 )
+}
+tracks/4/type = "audio"
+tracks/4/path = NodePath("LightChoir")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 27 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 33 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 28 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 31 )
+} ],
+"times": PoolRealArray( 0, 5.648, 11.296, 16.944 )
+}
+tracks/5/type = "audio"
+tracks/5/path = NodePath("Melody")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 32 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 34 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 29 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 30 )
+} ],
+"times": PoolRealArray( 0, 5.648, 11.296, 16.944 )
+}
+tracks/6/type = "audio"
+tracks/6/path = NodePath("GrittyBass")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 18 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 26 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 18 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 26 )
+} ],
+"times": PoolRealArray( 0, 5.648, 11.296, 16.944 )
+}
+
+[node name="Level7" type="Node"]
+script = ExtResource( 1 )
+ANIMATION_PLAYER = NodePath("AnimationPlayer")
+SONG_SEND_TO = "BGM"
+ANIMATION = "part_0"
+TRACK_CUSTOM_EFFECTS = {
+"HeavyGuitar_p1": [ ExtResource( 16 ) ]
+}
+SLIDE_FX_FILTER_CUTOFF = 881.948
+
+[node name="GlitchAudio" type="Node" parent="."]
+script = ExtResource( 5 )
+
+[node name="Glitch" type="AudioStreamPlayer" parent="GlitchAudio"]
+
+[node name="BrightPad" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 21 )
+bus = "BGM"
+
+[node name="Cymbals" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+bus = "BGM"
+
+[node name="DarkStrings" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 22 )
+bus = "BGM"
+
+[node name="GrittyBass" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 18 )
+bus = "BGM"
+
+[node name="Hats" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+bus = "BGM"
+
+[node name="HeavyGuitar_p1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+bus = "BGM"
+
+[node name="HeavyGuitar_p2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+bus = "BGM"
+
+[node name="HeavyGuitar_p3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+bus = "BGM"
+
+[node name="Kicks" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+bus = "BGM"
+
+[node name="LightChoir" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 27 )
+bus = "BGM"
+
+[node name="Melody" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 32 )
+bus = "BGM"
+
+[node name="SnaresRides" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 13 )
+bus = "BGM"
+
+[node name="StringsPitch_p1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 35 )
+volume_db = -2.0
+bus = "BGM"
+
+[node name="StringsPitch_p2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = -2.0
+bus = "BGM"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/part_0 = SubResource( 1 )
+anims/part_1 = SubResource( 2 )
+anims/part_2 = SubResource( 3 )
+anims/part_3 = SubResource( 4 )
+anims/part_4 = SubResource( 5 )
+anims/part_5 = SubResource( 6 )
+anims/part_6 = SubResource( 7 )
+next/part_0 = "part_1"

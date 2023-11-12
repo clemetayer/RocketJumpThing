@@ -8,8 +8,8 @@ signal trigger(parameters)
 
 ##### VARIABLES #####
 #---- CONSTANTS -----
-const BREAK_WALL_SOUND_PATH := "res://Misc/Audio/FX/BreakWall/BreakWall.wav"  # Path to the break wall sound
-const BREAK_WALL_SOUND_VOLUME_DB := -18.0  # Volume of the break wall sound
+const BREAK_WALL_SOUND_PATH := "res://Misc/Audio/FX/BreakWall/break_wall.wav"  # Path to the break wall sound
+const BREAK_WALL_SOUND_VOLUME_DB := 7.0  # Volume of the break wall sound
 const CAMERA_SHAKE_DURATION = 0.6
 const CAMERA_SHAKE_FREQ = 13
 const CAMERA_SHAKE_AMP = 0.0375

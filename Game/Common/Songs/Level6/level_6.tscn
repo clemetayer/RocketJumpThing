@@ -1,0 +1,782 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://Misc/Audio/BGM/Level6/Arpeggios/arpeggios_1.wav" type="AudioStream" id=1]
+[ext_resource path="res://Game/Common/Utils/SongManager/templates/Songs/SongAnimationPlayer/song_animation_player.gd" type="Script" id=2]
+[ext_resource path="res://Misc/Audio/BGM/Level6/bass.wav" type="AudioStream" id=3]
+[ext_resource path="res://Misc/Audio/BGM/Level6/hats.wav" type="AudioStream" id=4]
+[ext_resource path="res://Misc/Audio/BGM/Level6/plucks.wav" type="AudioStream" id=5]
+[ext_resource path="res://Misc/Audio/BGM/Level6/kick.wav" type="AudioStream" id=6]
+[ext_resource path="res://Misc/Audio/BGM/Level6/snares.wav" type="AudioStream" id=7]
+[ext_resource path="res://Misc/Audio/BGM/Level6/white_noise.wav" type="AudioStream" id=9]
+[ext_resource path="res://Misc/Audio/BGM/Level6/SquareMelody/square_melody_1.wav" type="AudioStream" id=10]
+[ext_resource path="res://Misc/Audio/BGM/Level6/Arpeggios/arpeggios_2.wav" type="AudioStream" id=11]
+[ext_resource path="res://Misc/Audio/BGM/Level6/SquareMelody/square_melody_2.wav" type="AudioStream" id=12]
+
+[sub_resource type="Animation" id=1]
+resource_name = "part_0"
+length = 7.68
+loop = true
+step = 0.48
+tracks/0/type = "audio"
+tracks/0/path = NodePath("WhiteNoise")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 9 )
+} ],
+"times": PoolRealArray( 0 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath(".:SLIDE_FX_FILTER_CUTOFF")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.42, 0.48, 0.9, 0.96, 1.38, 1.44, 1.86, 1.92, 2.34, 2.4, 2.82, 2.88, 3.3, 3.36, 3.78, 3.84, 4.26, 4.32, 4.74, 4.8, 5.22, 5.28, 5.7, 5.76, 6.18, 6.24, 6.66, 6.72, 7.14, 7.2, 7.62, 8.1, 8.16, 8.58, 8.64, 9.06, 9.12, 9.54, 9.6, 10.02, 10.08, 10.5, 10.56, 10.98, 11.04, 11.46, 11.52, 11.94, 12, 12.42, 12.48, 12.9, 12.96, 13.38, 13.44, 13.86, 13.92, 14.34, 14.4, 14.82, 14.88, 15.3 )
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "part_1"
+length = 15.36
+loop = true
+step = 0.48
+tracks/0/type = "audio"
+tracks/0/path = NodePath("Bass")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 3 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 3 )
+} ],
+"times": PoolRealArray( 0, 7.68 )
+}
+tracks/1/type = "audio"
+tracks/1/path = NodePath("SquareMelody")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 10 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 12 )
+} ],
+"times": PoolRealArray( 0, 7.68 )
+}
+tracks/2/type = "audio"
+tracks/2/path = NodePath("WhiteNoise")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 9 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 9 )
+} ],
+"times": PoolRealArray( 0, 7.68 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath(".:SLIDE_FX_FILTER_CUTOFF")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.42, 0.48, 0.9, 0.96, 1.38, 1.44, 1.86, 1.92, 2.34, 2.4, 2.82, 2.88, 3.3, 3.36, 3.78, 3.84, 4.26, 4.32, 4.74, 4.8, 5.22, 5.28, 5.7, 5.76, 6.18, 6.24, 6.66, 6.72, 7.14, 7.2, 7.62, 7.68, 8.1, 8.16, 8.58, 8.64, 9.06, 9.12, 9.54, 9.6, 10.02, 10.08, 10.5, 10.56, 10.98, 11.04, 11.46, 11.52, 11.94, 12, 12.42, 12.48, 12.9, 12.96, 13.38, 13.44, 13.86, 13.92, 14.34, 14.4, 14.82, 14.88, 15.3 )
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "part_2"
+length = 15.36
+loop = true
+step = 0.48
+tracks/0/type = "audio"
+tracks/0/path = NodePath("Bass")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 3 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 3 )
+} ],
+"times": PoolRealArray( 0, 7.68 )
+}
+tracks/1/type = "audio"
+tracks/1/path = NodePath("WhiteNoise")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 9 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 9 )
+} ],
+"times": PoolRealArray( 0, 7.68 )
+}
+tracks/2/type = "audio"
+tracks/2/path = NodePath("Kick")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+} ],
+"times": PoolRealArray( 0, 1.92, 3.84, 5.76, 7.68, 9.6, 11.52, 13.44 )
+}
+tracks/3/type = "audio"
+tracks/3/path = NodePath("Plucks")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 5 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 5 )
+} ],
+"times": PoolRealArray( 0, 7.68 )
+}
+tracks/4/type = "bezier"
+tracks/4/path = NodePath(".:SLIDE_FX_FILTER_CUTOFF")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"points": PoolRealArray( 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.42, 0.48, 0.9, 0.96, 1.38, 1.44, 1.86, 1.92, 2.34, 2.4, 2.82, 2.88, 3.3, 3.36, 3.78, 3.84, 4.26, 4.32, 4.74, 4.8, 5.22, 5.28, 5.7, 5.76, 6.18, 6.24, 6.66, 6.72, 7.14, 7.2, 7.62, 7.68, 8.1, 8.16, 8.58, 8.64, 9.06, 9.12, 9.54, 9.6, 10.02, 10.08, 10.5, 10.56, 10.98, 11.04, 11.46, 11.52, 11.94, 12, 12.42, 12.48, 12.9, 12.96, 13.38, 13.44, 13.86, 13.92, 14.34, 14.4, 14.82, 14.88, 15.3 )
+}
+tracks/5/type = "audio"
+tracks/5/path = NodePath("SquareMelody")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 10 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 12 )
+} ],
+"times": PoolRealArray( 0, 7.68 )
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "part_3"
+length = 15.36
+loop = true
+step = 0.06
+tracks/0/type = "audio"
+tracks/0/path = NodePath("Bass")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 3 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 3 )
+} ],
+"times": PoolRealArray( 0, 7.68 )
+}
+tracks/1/type = "audio"
+tracks/1/path = NodePath("WhiteNoise")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 9 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 9 )
+} ],
+"times": PoolRealArray( 0, 7.68 )
+}
+tracks/2/type = "audio"
+tracks/2/path = NodePath("Kick")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+} ],
+"times": PoolRealArray( 0, 1.92, 3.84, 5.76, 7.68, 9.6, 11.52, 13.44 )
+}
+tracks/3/type = "audio"
+tracks/3/path = NodePath("Plucks")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 5 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 5 )
+} ],
+"times": PoolRealArray( 0, 7.68 )
+}
+tracks/4/type = "audio"
+tracks/4/path = NodePath("Snares")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 7 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 7 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 7 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 7 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 7 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 7 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 7 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 7 )
+} ],
+"times": PoolRealArray( 0, 1.92, 3.84, 5.76, 7.68, 9.6, 11.52, 13.44 )
+}
+tracks/5/type = "bezier"
+tracks/5/path = NodePath(".:SLIDE_FX_FILTER_CUTOFF")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"points": PoolRealArray( 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.42, 0.48, 0.9, 0.96, 1.38, 1.44, 1.86, 1.92, 2.34, 2.4, 2.82, 2.88, 3.3, 3.36, 3.78, 3.84, 4.26, 4.32, 4.74, 4.8, 5.22, 5.28, 5.7, 5.76, 6.18, 6.24, 6.66, 6.72, 7.14, 7.2, 7.62, 7.68, 8.1, 8.16, 8.58, 8.64, 9.06, 9.12, 9.54, 9.6, 10.02, 10.08, 10.5, 10.56, 10.98, 11.04, 11.46, 11.52, 11.94, 12, 12.42, 12.48, 12.9, 12.96, 13.38, 13.44, 13.86, 13.92, 14.34, 14.4, 14.82, 14.88, 15.3 )
+}
+tracks/6/type = "audio"
+tracks/6/path = NodePath("SquareMelody")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 10 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 12 )
+} ],
+"times": PoolRealArray( 0, 7.68 )
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "part_4"
+length = 15.36
+loop = true
+step = 0.48
+tracks/0/type = "audio"
+tracks/0/path = NodePath("Bass")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 3 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 3 )
+} ],
+"times": PoolRealArray( 0, 7.68 )
+}
+tracks/1/type = "audio"
+tracks/1/path = NodePath("WhiteNoise")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 9 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 9 )
+} ],
+"times": PoolRealArray( 0, 7.68 )
+}
+tracks/2/type = "audio"
+tracks/2/path = NodePath("Kick")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+} ],
+"times": PoolRealArray( 0, 1.92, 3.84, 5.76, 7.68, 9.6, 11.52, 13.44 )
+}
+tracks/3/type = "audio"
+tracks/3/path = NodePath("Plucks")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 5 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 5 )
+} ],
+"times": PoolRealArray( 0, 7.68 )
+}
+tracks/4/type = "audio"
+tracks/4/path = NodePath("Snares")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 7 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 7 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 7 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 7 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 7 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 7 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 7 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 7 )
+} ],
+"times": PoolRealArray( 0, 1.92, 3.84, 5.76, 7.68, 9.6, 11.52, 13.44 )
+}
+tracks/5/type = "audio"
+tracks/5/path = NodePath("Arpeggios")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 1 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 11 )
+} ],
+"times": PoolRealArray( 0, 7.68 )
+}
+tracks/6/type = "audio"
+tracks/6/path = NodePath("Hats")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 4 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 4 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 4 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 4 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 4 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 4 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 4 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 4 )
+} ],
+"times": PoolRealArray( 0, 1.92, 3.84, 5.76, 7.68, 9.6, 11.52, 13.44 )
+}
+tracks/7/type = "bezier"
+tracks/7/path = NodePath(".:SLIDE_FX_FILTER_CUTOFF")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"points": PoolRealArray( 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.42, 0.48, 0.9, 0.96, 1.38, 1.44, 1.86, 1.92, 2.34, 2.4, 2.82, 2.88, 3.3, 3.36, 3.78, 3.84, 4.26, 4.32, 4.74, 4.8, 5.22, 5.28, 5.7, 5.76, 6.18, 6.24, 6.66, 6.72, 7.14, 7.2, 7.62, 7.68, 8.1, 8.16, 8.58, 8.64, 9.06, 9.12, 9.54, 9.6, 10.02, 10.08, 10.5, 10.56, 10.98, 11.04, 11.46, 11.52, 11.94, 12, 12.42, 12.48, 12.9, 12.96, 13.38, 13.44, 13.86, 13.92, 14.34, 14.4, 14.82, 14.88, 15.3 )
+}
+tracks/8/type = "audio"
+tracks/8/path = NodePath("SquareMelody")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 10 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 12 )
+} ],
+"times": PoolRealArray( 0, 7.68 )
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "part_5"
+length = 15.36
+loop = true
+step = 0.48
+tracks/0/type = "audio"
+tracks/0/path = NodePath("Bass")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 3 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 3 )
+} ],
+"times": PoolRealArray( 0, 7.68 )
+}
+tracks/1/type = "audio"
+tracks/1/path = NodePath("SquareMelody")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 10 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 12 )
+} ],
+"times": PoolRealArray( 0, 7.68 )
+}
+tracks/2/type = "audio"
+tracks/2/path = NodePath("WhiteNoise")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 9 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 9 )
+} ],
+"times": PoolRealArray( 0, 7.68 )
+}
+tracks/3/type = "audio"
+tracks/3/path = NodePath("Plucks")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 5 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 5 )
+} ],
+"times": PoolRealArray( 0, 7.68 )
+}
+tracks/4/type = "bezier"
+tracks/4/path = NodePath(".:SLIDE_FX_FILTER_CUTOFF")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"points": PoolRealArray( 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.42, 0.48, 0.9, 0.96, 1.38, 1.44, 1.86, 1.92, 2.34, 2.4, 2.82, 2.88, 3.3, 3.36, 3.78, 3.84, 4.26, 4.32, 4.74, 4.8, 5.22, 5.28, 5.7, 5.76, 6.18, 6.24, 6.66, 6.72, 7.14, 7.2, 7.62, 7.68, 8.1, 8.16, 8.58, 8.64, 9.06, 9.12, 9.54, 9.6, 10.02, 10.08, 10.5, 10.56, 10.98, 11.04, 11.46, 11.52, 11.94, 12, 12.42, 12.48, 12.9, 12.96, 13.38, 13.44, 13.86, 13.92, 14.34, 14.4, 14.82, 14.88, 15.3 )
+}
+
+[node name="Level6" type="Node"]
+script = ExtResource( 2 )
+ANIMATION_PLAYER = NodePath("AnimationPlayer")
+SONG_SEND_TO = "BGM"
+ANIMATION = "part_0"
+SLIDE_FX_FILTER_CUTOFF = 1398.45
+
+[node name="Arpeggios" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
+bus = "BGM"
+
+[node name="Bass" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+bus = "BGM"
+
+[node name="Hats" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+bus = "BGM"
+
+[node name="Kick" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+bus = "BGM"
+
+[node name="Plucks" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+bus = "BGM"
+
+[node name="Snares" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+bus = "BGM"
+
+[node name="SquareMelody" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+bus = "BGM"
+
+[node name="WhiteNoise" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+bus = "BGM"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/part_0 = SubResource( 1 )
+anims/part_1 = SubResource( 2 )
+anims/part_2 = SubResource( 3 )
+anims/part_3 = SubResource( 4 )
+anims/part_4 = SubResource( 5 )
+anims/part_5 = SubResource( 6 )

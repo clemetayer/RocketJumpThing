@@ -13,6 +13,9 @@ extends StandardScene
 const RED_BREAKABLE_LINK_GROUP := "breakable_link_red"
 const GREEN_BREAKABLE_LINK_GROUP := "breakable_link_green"
 const ENTITY_DESTROYED_ANIMATION := "game_over"
+const MIN_ENTITY_HP_TO_UPDATE_SONG := 3
+const SONG_LAST_PART := "part_5"
+const SONG_ENTITY_DESTROYED_PART := "part_6"
 
 #---- EXPORTS -----
 # export(int) var EXPORT_NAME # Optionnal comment
@@ -34,13 +37,9 @@ onready var onready_paths := {
 
 
 ##### PROCESSING #####
-# Called when the object is initialized.
-func _init():
-	_connect_signals()
-
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	_connect_signals()
 	_connect_breakable_links()
 
 
@@ -48,6 +47,8 @@ func _ready():
 func toggle_glitch(enabled: bool) -> void:
 	GlobalScreenEffects.toggle_effect(GlobalScreenEffects.EFFECTS.glitch, enabled)
 
+func glitch_audio(part : int) -> void:
+	SignalManager.emit_glitch_audio(part)
 
 func switch_to_credits() -> void:
 	VariableManager.scene_unloading = true
@@ -65,6 +66,7 @@ func _connect_signals() -> void:
 	DebugUtils.log_connect(
 		SignalManager, self, SignalManager.ENTITY_DESTROYED, "_on_SignalManager_GameOver"
 	)
+	DebugUtils.log_connect(onready_paths.entity,self,"health_updated","_on_entity_health_updated")
 
 
 func _connect_breakable_links() -> void:
@@ -104,3 +106,14 @@ func _on_SignalManager_GameOver() -> void:
 	onready_paths.scene_animation_player.play(ENTITY_DESTROYED_ANIMATION)
 	yield(onready_paths.scene_animation_player,"animation_finished")
 	ScenesManager.load_end()
+
+func _on_entity_health_updated(health : int) -> void:
+	var song = StandardSongManager.get_current().duplicate()
+	var effect = FilterEffectManager.new()
+	effect.TIME = 1.0
+	if health <= MIN_ENTITY_HP_TO_UPDATE_SONG:
+		song.ANIMATION = SONG_LAST_PART
+		StandardSongManager.add_to_queue(song,effect)
+	elif health <= 0:
+		song.ANIMATION = SONG_ENTITY_DESTROYED_PART
+		StandardSongManager.add_to_queue(song,effect)

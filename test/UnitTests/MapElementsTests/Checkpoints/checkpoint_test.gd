@@ -40,5 +40,6 @@ func test_on_Checkpoint_body_entered() -> void:
 	checkpoint._on_Checkpoint_body_entered(player)
 	assert_signal(SignalManager).is_emitted(SignalManager.CHECKPOINT_TRIGGERED, [checkpoint])
 	assert_str(checkpoint.song_animation).is_equal("test")
+	assert_bool(checkpoint._entered_sound.is_playing()).is_true()
 	player.free()
 	song.free()

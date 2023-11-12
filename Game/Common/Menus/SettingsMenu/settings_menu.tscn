@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Game/Common/Menus/SettingsMenu/settings_menu.gd" type="Script" id=1]
 [ext_resource path="res://Game/Common/Menus/SettingsMenu/General/general_settings.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Game/Common/Menus/SettingsMenu/Video/video.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Game/Common/Themes/Menus/SettingsMenu/setting_menu.tres" type="Theme" id=9]
 [ext_resource path="res://Game/Common/Menus/SettingsMenu/Gameplay/gameplay_settings.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Game/Common/Utils/UI/common_button.gd" type="Script" id=11]
 
 [node name="SettingsMenu" type="Control"]
 anchor_right = 1.0
@@ -37,6 +38,7 @@ margin_bottom = 18.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 text = "MENU_RETURN"
+script = ExtResource( 11 )
 
 [node name="Settings" type="TabContainer" parent="Margin/VBoxContainer"]
 margin_top = 34.0

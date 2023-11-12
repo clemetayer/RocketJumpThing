@@ -47,5 +47,6 @@ func test_on_body_entered() -> void:
 		assert_signal(SignalManager).is_emitted(SignalManager.RESPAWN_PLAYER_ON_LAST_CP),
 		"completed"
 	)
+	assert_bool(RuntimeUtils.paths.death_sound.is_playing()).is_true()
 	player.free()
 	not_player.free()

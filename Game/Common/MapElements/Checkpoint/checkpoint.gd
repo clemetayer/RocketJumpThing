@@ -5,6 +5,9 @@ class_name Checkpoint
 ##### VARIABLES #####
 #---- CONSTANTS -----
 const TB_CHECKPOINT_MAPPER := [["spawn_position", "_spawn_position"], ["mangle", "_mangle"]]  # mapper for TrenchBroom parameters
+const ENTERED_SOUND_PATH := "res://Misc/Audio/FX/Checkpoint/checkpoint.wav"
+const ENTERED_SOUND_VOLUME_DB := 13.0
+
 #---- EXPORTS -----
 export(Dictionary) var properties
 
@@ -15,6 +18,7 @@ var song_animation: String  # keeps the song animation name, to change the curre
 #==== PRIVATE ====
 var _spawn_position: Vector3
 var _mangle: Vector3  # rotation angles, in degrees
+var _entered_sound : AudioStreamPlayer
 
 
 ##### PROCESSING #####
@@ -26,6 +30,7 @@ func _init():
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	_set_TB_params()
+	_init_entered_sound()
 
 
 ##### PUBLIC METHODS #####
@@ -48,6 +53,17 @@ func get_spawn_rotation() -> Vector3:
 
 
 ##### PROTECTED METHODS #####
+func _play_entered_sound() -> void:
+	_entered_sound.play()
+
+func _init_entered_sound() -> void:
+	var sound = AudioStreamPlayer.new()
+	sound.stream = load(ENTERED_SOUND_PATH)
+	sound.bus = GlobalConstants.EFFECTS_BUS
+	sound.volume_db = ENTERED_SOUND_VOLUME_DB
+	add_child(sound)
+	_entered_sound = sound
+
 func _set_TB_params() -> void:
 	TrenchBroomEntityUtils._map_trenchbroom_properties(self, properties, TB_CHECKPOINT_MAPPER)
 
@@ -61,6 +77,7 @@ func _connect_signals() -> void:
 func _on_Checkpoint_body_entered(body: Node):
 	if FunctionUtils.is_player(body):
 		SignalManager.emit_checkpoint_triggered(self)
+		_play_entered_sound()
 		if (
 			(song_animation == null or song_animation == "")
 			and StandardSongManager.get_current() != null

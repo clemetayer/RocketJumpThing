@@ -51,6 +51,8 @@ signal update_wall_ride_strategy
 #==== MISC =====
 #warning-ignore:UNUSED_SIGNAL
 signal entity_destroyed
+#warning-ignore:UNUSED_SIGNAL
+signal glitch_audio(part)
 
 ##### VARIABLES #####
 #==== PLAYER =====
@@ -83,6 +85,7 @@ const UPDATE_WALL_RIDE_STRATEGY := "update_wall_ride_strategy"
 #==== MISC =====
 const ENTITY_DESTROYED := "entity_destroyed"
 const GAME_OVER := "game_over"
+const GLITCH_AUDIO := "glitch_audio"
 
 
 ##### PUBLIC METHODS #####
@@ -174,3 +177,6 @@ func emit_entity_destroyed() -> void:
 
 func emit_game_over() -> void:
 	emit_signal(GAME_OVER)
+
+func emit_glitch_audio(part : int) -> void:
+	emit_signal(GLITCH_AUDIO, part)

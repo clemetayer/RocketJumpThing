@@ -15,8 +15,10 @@ const TB_STOMPER_MAPPER := [
 ]  # mapper for TrenchBroom parameters
 const STD_SHAKE_DURATION := 1.0  # standard shake duration for a shake intensity of 1
 const SHAKE_FREQUENCY := 20  # standard shake frequency for a shake intensity of 1
-const STD_SHAKE_AMPLITUDE := 0.1  # shake amplitude for a shake intensity of 1
+const STD_SHAKE_AMPLITUDE := 1.0/100.0  # shake amplitude for a shake intensity of 1
 const SHAKE_PRIORITY := 1.0  # shake priority
+const STOMP_SOUND_PATH := "res://Misc/Audio/FX/Stomper/stomper.wav"
+const STOMP_SOUND_VOLUME_DB := 15.0
 
 #---- STANDARD -----
 #==== PUBLIC ====
@@ -31,9 +33,7 @@ var _release := 0.5  # time it takes to go back to initial position
 var _shake_intensity := 1.0  # intensity of the camera shake on a stomp
 var _max_shake_distance := 50.0  # max distance where the player should "feel" the stomps
 var _original_position := Vector3.ZERO  # original position of the stomper
-
-#==== ONREADY ====
-# onready var onready_var # Optionnal comment
+var _stomp_sound : AudioStreamPlayer3D # AudioStreamPlayer to play the stomp sound
 
 
 ##### PROCESSING #####
@@ -42,6 +42,9 @@ func _init():
 	_connect_signals()
 	_original_position = self.translation
 
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	_init_stomp_sound()
 
 ##### PUBLIC METHODS #####
 func stomp() -> void:
@@ -57,6 +60,7 @@ func stomp() -> void:
 	add_child(tween)
 	DebugUtils.log_tween_start(tween)
 	yield(tween, "tween_all_completed")
+	_stomp_sound.play()
 	# Camera shake
 	if ScenesManager.get_current() is StandardScene:
 		var distance := global_transform.origin.distance_to(
@@ -87,6 +91,13 @@ func stomp() -> void:
 
 
 ##### PROTECTED METHODS #####
+func _init_stomp_sound() -> void:
+	_stomp_sound = AudioStreamPlayer3D.new()
+	_stomp_sound.stream = load(STOMP_SOUND_PATH)
+	_stomp_sound.bus = GlobalConstants.EFFECTS_BUS
+	_stomp_sound.unit_db = STOMP_SOUND_VOLUME_DB
+	add_child(_stomp_sound)
+
 func _connect_signals() -> void:
 	DebugUtils.log_connect(self, self, "body_entered", "_on_body_entered")
 
@@ -100,3 +111,4 @@ func _set_TB_params() -> void:
 func _on_body_entered(body: Node) -> void:
 	if FunctionUtils.is_player(body):
 		SignalManager.emit_respawn_player_on_last_cp()
+		RuntimeUtils.play_death_sound()

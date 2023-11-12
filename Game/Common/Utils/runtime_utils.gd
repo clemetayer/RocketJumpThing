@@ -5,10 +5,24 @@ extends Node
 ##### VARIABLES #####
 #---- CONSTANTS -----
 const DEFAULT_LEVELS_DATA_PATH := "res://Game/Scenes/levels_data.tres"
+const DEATH_SOUND_PATH := "res://Misc/Audio/FX/DeathSound/death.wav"
+const BUTTON_CLICKED_SOUND := "res://Misc/Audio/FX/Menus/button_pressed.wav"
+const BUTTON_CLICKED_VOLUME := 15.0
+const BUTTON_HOVERED_SOUND := "res://Misc/Audio/FX/Menus/button_hover.wav"
+const BUTTON_HOVER_VOLUME := 15.0
+const SLIDER_MOVED_SOUND := "res://Misc/Audio/FX/Menus/slider_moved.wav"
+const SLIDER_MOVED_VOLUME := -2.0
+
 
 #---- STANDARD -----
 #==== PRIVATE ====
 var levels_data: LevelsData = null
+var paths := {
+	"death_sound":"",
+	"button_clicked":"",
+	"button_hover":"",
+	"slider_moved":""
+}
 
 
 #### Display #####
@@ -16,7 +30,20 @@ var levels_data: LevelsData = null
 func _ready() -> void:
 	_create_default_levels_data()
 	_load_levels_data()
+	_init_death_sound()
+	_init_ui_sound()
 
+func play_death_sound() -> void:
+	paths.death_sound.play()
+
+func play_button_clicked_sound() -> void:
+	paths.button_clicked.play()
+
+func play_button_hover_sound() -> void:
+	paths.button_hover.play()
+
+func play_slider_moved_sound() -> void:
+	paths.slider_moved.play()
 
 # returns a string to display a pretty version of the input
 func display_input_as_string(input: InputEvent) -> String:
@@ -74,7 +101,6 @@ func get_levels_total_time() -> int:
 		time_sum += level.LAST_TIME
 	return time_sum
 
-
 func _translate_mouse_button(key_str: String) -> String:
 	return (
 		TranslationKeys.MOUSE_BUTTON_MAPPER[key_str]
@@ -92,3 +118,36 @@ func _create_default_levels_data() -> void:
 
 func _load_levels_data() -> void:
 	levels_data = DebugUtils.log_load_resource(LevelsData.SAVE_PATH)
+
+func _init_death_sound() -> void:
+	paths.death_sound = AudioStreamPlayer.new()
+	paths.death_sound.stream = load(DEATH_SOUND_PATH)
+	paths.death_sound.bus = GlobalConstants.EFFECTS_BUS
+	add_child(paths.death_sound)
+
+# UI sounds are placed in runtime utils to save resources
+func _init_ui_sound() -> void:
+	_init_button_clicked_sound()
+	_init_button_hover_sound()
+	_init_slider_moved_sound()
+
+func _init_button_clicked_sound() -> void:
+	paths.button_clicked = AudioStreamPlayer.new()
+	paths.button_clicked.stream = load(BUTTON_CLICKED_SOUND)
+	paths.button_clicked.volume_db = BUTTON_CLICKED_VOLUME
+	paths.button_clicked.bus = GlobalConstants.MAIN_BUS
+	add_child(paths.button_clicked)
+
+func _init_button_hover_sound() -> void:
+	paths.button_hover = AudioStreamPlayer.new()
+	paths.button_hover.stream = load(BUTTON_HOVERED_SOUND)
+	paths.button_hover.volume_db = BUTTON_HOVER_VOLUME
+	paths.button_hover.bus = GlobalConstants.MAIN_BUS
+	add_child(paths.button_hover)
+
+func _init_slider_moved_sound() -> void:
+	paths.slider_moved = AudioStreamPlayer.new()
+	paths.slider_moved.stream = load(SLIDER_MOVED_SOUND)
+	paths.slider_moved.volume_db = SLIDER_MOVED_VOLUME
+	paths.slider_moved.bus = GlobalConstants.MAIN_BUS
+	add_child(paths.slider_moved)

@@ -52,6 +52,7 @@ const TR_REPLACE_TUTORIAL_BOOST_PAD_ENHANCED := "boost_pad_enhanced"
 const MAIN_BUS := "Master"
 const BGM_BUS := "BGM"
 const EFFECTS_BUS := "FX"
+const SLIDE_FX_BUS := "SlideFX"
 
 #---- MOUSE BUTTONS TEXTS ----
 const MOUSE_LEFT := "left_click"
@@ -68,6 +69,9 @@ const MOUSE_MASK_RIGHT := "mask_right_click"
 const MOUSE_MASK_MIDDLE := "mask_middle_click"
 const MOUSE_MASK_SPECIAL_1 := "mask_mouse_special_1"
 const MOUSE_MASK_SPECIAL_2 := "mask_mouse_special_2"
+
+#---- SOUNDS -----
+const DEATH_SOUND_PATH := "res://Misc/Audio/FX/DeathSound/death.wav"
 
 #---- UTILITIES -----
 enum TWEEN_TRANSITION_TYPES {  # Tween transition types to be used in export variables

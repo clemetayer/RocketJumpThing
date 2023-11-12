@@ -16,7 +16,8 @@ onready var onready_paths := {
 	"collision": $"Collision",
 	"triangle_particles": $"TriangleParticles",
 	"square_particles": $"UpSquares",
-	"mesh": $"LightBumperMesh"
+	"mesh": $"LightBumperMesh",
+	"boost_sound": $"BoostSound"
 }
 onready var onready_gradient_tween := Tween.new()
 
@@ -99,6 +100,12 @@ func _set_rocket_tween_properties() -> void:
 
 
 ##### SIGNAL MANAGEMENT #####
+func _on_body_entered(body: Node) -> void:
+	._on_body_entered(body)
+	if FunctionUtils.is_player(body):
+		onready_paths.boost_sound.play()
+
+
 func _on_area_entered(area: Node) -> void:
 	DebugUtils.log_tween_stop_all(onready_gradient_tween)
 	._on_area_entered(area)

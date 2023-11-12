@@ -31,37 +31,39 @@ func add_to_queue(song: Song, effect: EffectManager) -> void:
 
 # stops the current song entirely
 func stop_current(effect: EffectManager) -> void:
-	var effect_data := _current_song.stop()
-	if effect != null:
-		add_child(effect)
-		effect.init_updating_properties(effect_data)
-		_cancel_current_effects(effect)
-		_current_effects.append(effect)
-		effect.start_effect(effect_data)
-		_updating = true
-		yield(effect, "effect_done")
-		_current_effects.erase(effect)
-		effect.queue_free()
-		_updating = false
-	_current_song.queue_free()
-	emit_signal("effect_done")
+	if _current_song != null:
+		var effect_data := _current_song.stop()
+		if effect != null:
+			add_child(effect)
+			effect.init_updating_properties(effect_data)
+			_cancel_current_effects(effect)
+			_current_effects.append(effect)
+			effect.start_effect(effect_data)
+			_updating = true
+			yield(effect, "effect_done")
+			_current_effects.erase(effect)
+			effect.queue_free()
+			_updating = false
+		_current_song.queue_free()
+		emit_signal("effect_done")
 
 
 # applies an auto transition to the current song
 func apply_effect(effect: EffectManager, params = {}) -> void:
-	var effect_data := _current_song.get_neutral_effect_data(params)
-	if effect != null:
-		add_child(effect)
-		effect.init_updating_properties(effect_data)
-		_cancel_current_effects(effect)
-		_current_effects.append(effect)
-		effect.start_effect(effect_data)
-		_updating = true
-		yield(effect, "effect_done")
-		_current_effects.erase(effect)
-		effect.queue_free()
-		_updating = false
-	emit_signal("effect_done")
+	if _current_song != null:
+		var effect_data := _current_song.get_neutral_effect_data(params)
+		if effect != null:
+			add_child(effect)
+			effect.init_updating_properties(effect_data)
+			_cancel_current_effects(effect)
+			_current_effects.append(effect)
+			effect.start_effect(effect_data)
+			_updating = true
+			yield(effect, "effect_done")
+			_current_effects.erase(effect)
+			effect.queue_free()
+			_updating = false
+		emit_signal("effect_done")
 
 
 # returns the current song playing (to maybe bind some values, idk)

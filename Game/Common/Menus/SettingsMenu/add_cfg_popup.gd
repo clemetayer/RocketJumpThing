@@ -42,6 +42,7 @@ func _on_SignalManager_add_cfg_popup(path: String, cfg: ConfigFile) -> void:
 
 
 func _on_popup_confirmed() -> void:
+	RuntimeUtils.play_button_clicked_sound()
 	DebugUtils.log_save_cfg(
 		_cfg, _path + onready_paths.line_edit.text + SettingsUtils.CFG_FILE_EXTENSION
 	)

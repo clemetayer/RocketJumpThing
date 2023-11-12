@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Game/Common/MapElements/Lasers/laser.gd" type="Script" id=1]
 [ext_resource path="res://Misc/Particles/kenney_particle_pack/PNG (Transparent)/trace_05.png" type="Texture" id=2]
 [ext_resource path="res://trenchbroom/textures/common/common_textures/base_wall/base_wall.tres" type="Material" id=3]
+[ext_resource path="res://Misc/Audio/FX/Laser/laser_sound.wav" type="AudioStream" id=4]
 
 [sub_resource type="CubeMesh" id=9]
 
@@ -58,6 +59,17 @@ size = Vector2( 0.25, 0.25 )
 [node name="Laser" type="Area" groups=["update_editor"]]
 collision_layer = 8
 script = ExtResource( 1 )
+
+[node name="LaserSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource( 4 )
+unit_db = 2.0
+unit_size = 7.0
+max_db = 1.0
+autoplay = true
+max_distance = 7.0
+out_of_range_mode = 1
+bus = "LaserFX"
+attenuation_filter_cutoff_hz = 200.0
 
 [node name="CubeMesh" type="MeshInstance" parent="."]
 mesh = SubResource( 9 )

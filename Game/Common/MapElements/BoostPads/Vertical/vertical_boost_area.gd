@@ -12,7 +12,8 @@ var _color := Color.white  # general color of the bumper
 onready var onready_paths := {
 	"collision": $"Collision",
 	"triangle_particles": $"TriangleParticles",
-	"square_particles": $"UpSquares"
+	"square_particles": $"UpSquares",
+	"boost_sound": $"BoostSound"
 }
 
 
@@ -59,3 +60,8 @@ func _set_colors() -> void:
 # disables the boost when interacting with a rocket
 func _on_area_entered(_area: Node) -> void:
 	pass
+
+func _on_body_entered(body: Node) -> void:
+	._on_body_entered(body)
+	if FunctionUtils.is_player(body):
+		onready_paths.boost_sound.play()

@@ -1,14 +1,13 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Game/Common/MapElements/Characters/MainCharacters/player.gd" type="Script" id=1]
 [ext_resource path="res://Game/Common/MapElements/Characters/player_UI.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Game/Common/MapElements/Characters/tutorial_hints.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Game/Common/MapElements/Characters/checkpoint_UI.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Game/Common/MapElements/Characters/chronometer_UI.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Misc/Audio/FX/RunSound/RunSound_pitch_loop.wav" type="AudioStream" id=6]
-[ext_resource path="res://Misc/Audio/FX/JumpSound/JumpSound.wav" type="AudioStream" id=7]
-[ext_resource path="res://Misc/Audio/FX/RunSound/RunSound_unpitch.wav" type="AudioStream" id=8]
-[ext_resource path="res://Misc/Audio/FX/WallRideSound/WallRideSound.wav" type="AudioStream" id=9]
+[ext_resource path="res://Misc/Audio/FX/JumpSound/jump_sound.wav" type="AudioStream" id=6]
+[ext_resource path="res://Misc/Audio/FX/DeathSound/death.wav" type="AudioStream" id=7]
+[ext_resource path="res://Misc/Audio/FX/Slide/slide_noise.wav" type="AudioStream" id=9]
 [ext_resource path="res://Game/Common/Shaders/Misc/slide_effect.tres" type="Shader" id=10]
 [ext_resource path="res://Game/Common/MapElements/Characters/MainCharacters/slide_effect_gradient.tres" type="Texture" id=11]
 [ext_resource path="res://Game/Common/MapElements/Characters/MainCharacters/rocket_launcher.tscn" type="PackedScene" id=12]
@@ -159,26 +158,17 @@ one_shot = true
 
 [node name="Sounds" type="Node" parent="."]
 
-[node name="Run" type="Node" parent="Sounds"]
-
-[node name="Pitch" type="AudioStreamPlayer" parent="Sounds/Run"]
-stream = ExtResource( 6 )
-volume_db = -10.0
-bus = "FX"
-
-[node name="Unpitch" type="AudioStreamPlayer" parent="Sounds/Run"]
-stream = ExtResource( 8 )
-volume_db = 5.0
-bus = "FX"
-
 [node name="JumpSound" type="AudioStreamPlayer" parent="Sounds"]
-stream = ExtResource( 7 )
+stream = ExtResource( 6 )
+volume_db = 10.0
 bus = "FX"
 
-[node name="WallRide" type="AudioStreamPlayer" parent="Sounds"]
+[node name="SlideSound" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource( 9 )
-volume_db = -5.0
-pitch_scale = 0.7
+bus = "SlideFX"
+
+[node name="DeathSound" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 7 )
 bus = "FX"
 
 [node name="WallRideStrategy" type="Node" parent="."]

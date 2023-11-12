@@ -15,6 +15,7 @@ func before():
 	element_path = end_point_path
 	.before()
 	end_point = load(end_point_path).instance()
+	end_point._ready()
 
 
 func after():
@@ -41,4 +42,5 @@ func test_on_EndPoint_body_entered() -> void:
 	ScenesManager.unpause()
 	assert_bool(VariableManager.scene_unloading).is_true()
 	assert_signal(SignalManager).is_emitted(SignalManager.END_REACHED)
+	assert_bool(end_point._entered_sound.is_playing()).is_true()
 	player.free()

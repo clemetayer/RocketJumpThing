@@ -23,7 +23,9 @@ export(String) var SONG_SEND_TO = "Master"  # where the song bus should send
 export(String) var ANIMATION  # Animation that should play
 export(bool) var ALLOW_RECURSIVE_INIT = false  # If it should enable the search for AudioStream in recursive children nodes on init (can be usefull for organisation purposes) # OPTIMIZATION : make this option true by default ?
 export(Dictionary) var TRACK_CUSTOM_EFFECTS = {}  # Custom buses for tracks. Should be like {"track_name":[AudioEffect]}. Usefull to handle loops with reverbs or delay
+export(float) var SLIDE_FX_FILTER_CUTOFF # Lowpass frequency filter for the slide bus
 
+#---- STANDARD -----
 #==== PRIVATE ====
 var _tracks: Dictionary = {}  # track infos
 var _update_track_infos := {"animation": "", "fade_out": []}
@@ -48,7 +50,7 @@ func _process(_delta):
 	var anim_player = get_node(ANIMATION_PLAYER)
 	if anim_player.is_playing():
 		anim_player.playback_speed = 1.0 / Engine.time_scale  # HACK : when using a slowmotion effect, to avoid having the animation be slowed down too
-
+	set_slide_fx_filter_cutoff(SLIDE_FX_FILTER_CUTOFF)
 
 ##### PUBLIC METHODS #####
 # plays the song, returns an array to give to the EffectManager as a parameter
@@ -151,6 +153,12 @@ func update_volumes(_percents: float):
 func step_sequencer_emit_step(name: String) -> void:
 	SignalManager.emit_sequencer_step(name)
 
+func set_slide_fx_filter_cutoff(cutoff : float) -> void:
+	var filter : AudioEffectFilter = AudioServer.get_bus_effect(
+		AudioServer.get_bus_index(GlobalConstants.SLIDE_FX_BUS),
+		0
+	)
+	filter.cutoff_hz = cutoff
 
 ##### PROTECTED METHODS #####
 # inits the tracks infos
@@ -393,10 +401,11 @@ func _on_parent_effect_done() -> void:
 			)
 			var anim_player := get_node(ANIMATION_PLAYER)
 			# new animation time = old animation time modulo total new animation time
-			animation_time = fmod(
-				anim_player.current_animation_position,
-				anim_player.get_animation(_update_track_infos.animation).length
-			)
+			if anim_player.get_animation(_update_track_infos.animation) != null:
+				animation_time = fmod(
+					anim_player.current_animation_position,
+					anim_player.get_animation(_update_track_infos.animation).length
+				)
 		# sets the infos of the new song
 		ANIMATION = _update_track_infos.animation
 		get_node(ANIMATION_PLAYER).play(_update_track_infos.animation)
