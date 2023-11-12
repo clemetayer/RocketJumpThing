@@ -388,3 +388,9 @@ func test_on_SignalManager_update_wall_ride_strategy() -> void:
 	SettingsUtils.settings_data.gameplay.space_to_wall_ride = true
 	player._on_SignalManager_update_wall_ride_strategy()
 	assert_str(player._wall_ride_strategy.TEST_CLASS_NAME).is_equal("space to wall ride")
+
+func set_trail_gradient_texture_test() -> void:
+	var gradient_test = GradientTexture.new()
+	player.set_trail_gradient_texture(gradient_test)
+	assert_object(player.onready_paths.trails.left.get_surface_material(0).get_shader_param(player.TRAIL_GRADIENT_SHADER_PARAM)).is_equal(gradient_test)
+	assert_object(player.onready_paths.trails.right.get_surface_material(0).get_shader_param(player.TRAIL_GRADIENT_SHADER_PARAM)).is_equal(gradient_test)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=579 format=2]
+[gd_scene load_steps=581 format=2]
 
 [ext_resource path="res://addons/qodot/src/nodes/qodot_map.gd" type="Script" id=1]
 [ext_resource path="res://trenchbroom/Entities/Scenes/Level5/level_5_fgd.tres" type="Resource" id=2]
@@ -45,6 +45,12 @@
 [ext_resource path="res://Game/Common/Utils/StepSequencer/Spatial/spatial_step_sequencer.gd" type="Script" id=43]
 [ext_resource path="res://Game/Common/Utils/StepSequencer/Static/static_body_step_sequencer.gd" type="Script" id=44]
 [ext_resource path="res://Game/Common/MapElements/DoubleRocketIndicator/double_rocket_indicator.gd" type="Script" id=45]
+
+[sub_resource type="Gradient" id=1380]
+colors = PoolColorArray( 0, 0, 1, 1, 0.498039, 0, 0, 1 )
+
+[sub_resource type="GradientTexture" id=1381]
+gradient = SubResource( 1380 )
 
 [sub_resource type="Environment" id=15]
 background_mode = 1
@@ -4182,6 +4188,7 @@ PATHS = {
 "path": "res://Game/Common/Songs/Level5/level_5.tscn"
 }
 }
+PLAYER_SLIDE_TEXTURE = SubResource( 1381 )
 
 [node name="Timers" type="Node" parent="."]
 
@@ -4190,7 +4197,7 @@ wait_time = 0.5
 autostart = true
 
 [node name="Dodecahedron" type="MeshInstance" parent="."]
-transform = Transform( 58.677, 49.5174, -22.473, 14.8364, 17.2292, 76.701, 52.3154, -60.425, 3.4537, 0, 0, 0 )
+transform = Transform( 33.7119, 69.3329, 21.3649, -14.2955, -16.7488, 76.9099, 71.1277, -36.2274, 5.33143, 0, 0, 0 )
 mesh = ExtResource( 39 )
 script = ExtResource( 40 )
 properties = {

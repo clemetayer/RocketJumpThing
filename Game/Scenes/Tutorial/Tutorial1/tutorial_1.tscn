@@ -1,4 +1,4 @@
-[gd_scene load_steps=809 format=2]
+[gd_scene load_steps=811 format=2]
 
 [ext_resource path="res://Game/Scenes/Tutorial/Tutorial1/tutorial_1.gd" type="Script" id=1]
 [ext_resource path="res://addons/qodot/src/nodes/qodot_map.gd" type="Script" id=2]
@@ -48,6 +48,12 @@
 [ext_resource path="res://Game/Scenes/Tutorial/Tutorial1/skybox/tutorial_1_up.png" type="Texture" id=46]
 [ext_resource path="res://Game/Scenes/Tutorial/Tutorial1/skybox/tutorial_1_front.png" type="Texture" id=47]
 [ext_resource path="res://Game/Scenes/Tutorial/Tutorial1/skybox/tutorial_1_right.png" type="Texture" id=48]
+
+[sub_resource type="Gradient" id=3564]
+colors = PoolColorArray( 0, 0.160784, 0.498039, 1, 0, 0.921569, 1, 1 )
+
+[sub_resource type="GradientTexture" id=3565]
+gradient = SubResource( 3564 )
 
 [sub_resource type="ProceduralSky" id=2183]
 radiance_size = 0
@@ -5416,6 +5422,7 @@ PATHS = {
 }
 ENABLE_ROCKETS = false
 ENABLE_SLIDE = false
+PLAYER_SLIDE_TEXTURE = SubResource( 3565 )
 NEXT_SCENE_PATH = "res://Game/Scenes/Tutorial/Tutorial2/tutorial_2.tscn"
 
 [node name="Skybox" parent="." instance=ExtResource( 45 )]

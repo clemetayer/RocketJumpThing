@@ -1,4 +1,4 @@
-[gd_scene load_steps=535 format=2]
+[gd_scene load_steps=537 format=2]
 
 [ext_resource path="res://addons/qodot/src/nodes/qodot_map.gd" type="Script" id=1]
 [ext_resource path="res://trenchbroom/textures/common/material_override/Transparent.tres" type="Material" id=2]
@@ -46,6 +46,12 @@
 [ext_resource path="res://Game/Common/MapElements/TutorialTrigger/tutorial_interactible.tscn" type="PackedScene" id=44]
 [ext_resource path="res://trenchbroom/textures/scenes/tutorial3_scene/wall_with_windows_2.tres" type="Material" id=45]
 [ext_resource path="res://trenchbroom/textures/scenes/tutorial3_scene/pattern_floor.tres" type="Material" id=47]
+
+[sub_resource type="Gradient" id=755]
+colors = PoolColorArray( 0.027451, 0.443137, 0.439216, 1, 0.0588235, 0.890196, 0.380392, 1 )
+
+[sub_resource type="GradientTexture" id=756]
+gradient = SubResource( 755 )
 
 [sub_resource type="Gradient" id=273]
 offsets = PoolRealArray( 0, 0.133333, 0.833333, 1 )
@@ -3706,6 +3712,7 @@ PATHS = {
 }
 }
 ENABLE_ROCKETS = false
+PLAYER_SLIDE_TEXTURE = SubResource( 756 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource( 5 )

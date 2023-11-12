@@ -17,6 +17,7 @@ const PAUSE_MENU_PATH := "res://Game/Common/Menus/PauseMenu/pause_menu.tscn"
 export(Dictionary) var PATHS = {"bgm": {"path": "", "animation": ""}}  # various paths for the scene
 export(bool) var ENABLE_ROCKETS = true
 export(bool) var ENABLE_SLIDE = true
+export(GradientTexture) var PLAYER_SLIDE_TEXTURE
 export(String) var NEXT_SCENE_PATH = null
 
 #---- STANDARD -----
@@ -59,6 +60,7 @@ func _ready_func() -> void:
 	_init_song()
 	_init_node_paths()
 	_init_skybox()
+	_init_player_slide_texture()
 	_last_cp = _start_point
 	_player.toggle_ability(GlobalConstants.ABILITY_ROCKETS,ENABLE_ROCKETS, false)
 	_player.toggle_ability(GlobalConstants.ABILITY_SLIDE,ENABLE_SLIDE, false)
@@ -97,6 +99,8 @@ func _init_skybox() -> void:
 	if skyboxes != null and skyboxes.size() > 0 and skyboxes[0] is Skybox:
 		skyboxes[0].set_target(get_player())
 
+func _init_player_slide_texture() -> void:
+	get_player().set_trail_gradient_texture(PLAYER_SLIDE_TEXTURE)
 
 # Connects the autoload signals on init
 func _connect_autoload_signals() -> void:

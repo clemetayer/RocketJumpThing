@@ -17,6 +17,9 @@ enum states_idx {
 
 ##### VARIABLES #####
 #---- CONSTANTS -----
+#~~~~ VISUALS ~~~~~
+const TRAIL_GRADIENT_SHADER_PARAM := "gradient"
+
 #~~~~ STATES ~~~~~
 const STATES_SIZE := 5  # How many states the player has
 
@@ -122,6 +125,10 @@ onready var onready_paths := {
 	"wall_ride_strategy": {
 		"standard":$"WallRideStrategy/Standard",
 		"space_to_wall_ride":$"WallRideStrategy/SpaceToWallRide"
+	},
+	"trails": {
+		"left":$"SlideVisualEffects/Left",
+		"right":$"SlideVisualEffects/Right"
 	}
 }
 
@@ -227,6 +234,9 @@ func portal_process(exit_portal: Area) -> void:
 	# sets to the new angle
 	_look_at_mangle(exit_portal.get_rotation_degrees())
 
+func set_trail_gradient_texture(gradient : GradientTexture) -> void:
+	onready_paths.trails.left.get_surface_material(0).set_shader_param(TRAIL_GRADIENT_SHADER_PARAM, gradient)
+	onready_paths.trails.right.get_surface_material(0).set_shader_param(TRAIL_GRADIENT_SHADER_PARAM, gradient)
 
 ##### PROTECTED METHODS #####
 #---- General -----

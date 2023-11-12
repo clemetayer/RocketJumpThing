@@ -1,4 +1,4 @@
-[gd_scene load_steps=486 format=2]
+[gd_scene load_steps=488 format=2]
 
 [ext_resource path="res://Game/Scenes/Levels/Level6/level_6.gd" type="Script" id=1]
 [ext_resource path="res://addons/qodot/src/nodes/qodot_map.gd" type="Script" id=2]
@@ -40,6 +40,12 @@
 [ext_resource path="res://Game/Common/MapElements/DeathGrid/death_grid.gd" type="Script" id=38]
 [ext_resource path="res://trenchbroom/textures/common/material_override/death_grid.tres" type="Material" id=39]
 [ext_resource path="res://Game/Common/MapElements/Lights/spot_light.tscn" type="PackedScene" id=40]
+
+[sub_resource type="Gradient" id=453]
+colors = PoolColorArray( 0.498039, 0, 0, 1, 1, 0, 0, 1 )
+
+[sub_resource type="GradientTexture" id=454]
+gradient = SubResource( 453 )
 
 [sub_resource type="ProceduralSky" id=9]
 sky_top_color = Color( 0, 0, 0, 1 )
@@ -3194,6 +3200,7 @@ points = PoolVector3Array( -141.125, 1.25, -226.5, -141.125, -1.25, -226.5, 141.
 
 [node name="Level6" type="Spatial"]
 script = ExtResource( 1 )
+PLAYER_SLIDE_TEXTURE = SubResource( 454 )
 
 [node name="Skybox" parent="." instance=ExtResource( 27 )]
 transform = Transform( 200, 0, 0, 0, 200, 0, 0, 0, 200, 0, 0, 0 )

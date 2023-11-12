@@ -1,4 +1,4 @@
-[gd_scene load_steps=449 format=2]
+[gd_scene load_steps=451 format=2]
 
 [ext_resource path="res://Game/Scenes/Levels/Level4/level_4.gd" type="Script" id=1]
 [ext_resource path="res://addons/qodot/src/nodes/qodot_map.gd" type="Script" id=2]
@@ -36,6 +36,12 @@
 [ext_resource path="res://trenchbroom/textures/common/common_textures/base_floor_2.tres" type="Material" id=34]
 [ext_resource path="res://trenchbroom/textures/common/common_textures/base_wall.tres" type="Material" id=35]
 [ext_resource path="res://trenchbroom/textures/entities/DeathMesh/death_mesh.tres" type="Material" id=36]
+
+[sub_resource type="Gradient" id=606]
+colors = PoolColorArray( 0.160784, 0.8, 0, 1, 0, 0.0784314, 0.4, 1 )
+
+[sub_resource type="GradientTexture" id=607]
+gradient = SubResource( 606 )
 
 [sub_resource type="SpatialMaterial" id=1]
 
@@ -2549,6 +2555,7 @@ PATHS = {
 "path": "res://Game/Common/Songs/Level4/level_4.tscn"
 }
 }
+PLAYER_SLIDE_TEXTURE = SubResource( 607 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource( 20 )
