@@ -29,7 +29,7 @@ func test_set_speed() -> void:
 	player_ui.set_speed(100.638)
 	assert_float(player_ui.speed).is_equal(100.64)
 	assert_str(player_ui.onready_paths.speed_text.get_bbcode()).is_equal(
-		TextUtils.BBCode_center_text(tr(TranslationKeys.PLAYER_UI_SPEED) % "100.64")
+		TextUtils.BBCode_center_text("%.2f" % 100.64)
 	)
 
 func test_connect_signals() -> void:

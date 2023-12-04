@@ -5,7 +5,7 @@
 [ext_resource path="res://Game/Common/MapElements/Characters/player_UI.gd" type="Script" id=3]
 
 [sub_resource type="DynamicFont" id=1]
-size = 45
+size = 25
 font_data = ExtResource( 2 )
 
 [node name="PlayerUI" type="CanvasLayer"]
@@ -52,21 +52,21 @@ anchor_bottom = 1.0
 
 [node name="SpeedContainer" type="MarginContainer" parent="Screen/SpeedCenter"]
 margin_left = 362.0
-margin_top = 162.0
+margin_top = 175.0
 margin_right = 662.0
-margin_bottom = 437.0
+margin_bottom = 425.0
 size_flags_vertical = 0
-custom_constants/margin_top = 175
+custom_constants/margin_top = 150
 
 [node name="SpeedText" type="RichTextLabel" parent="Screen/SpeedCenter/SpeedContainer"]
-margin_top = 175.0
+margin_top = 150.0
 margin_right = 300.0
-margin_bottom = 275.0
+margin_bottom = 250.0
 rect_min_size = Vector2( 300, 100 )
 custom_fonts/normal_font = SubResource( 1 )
 bbcode_enabled = true
-bbcode_text = "[center]Speed : 500[/center]"
-text = "Speed : 500"
+bbcode_text = "[center]500[/center]"
+text = "500"
 
 [node name="UpdateUIOnInit" type="Timer" parent="."]
 wait_time = 0.1

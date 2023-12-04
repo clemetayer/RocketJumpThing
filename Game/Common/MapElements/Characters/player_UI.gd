@@ -44,9 +44,7 @@ func _set_crosshair(path : String, color : Color, scale : float) -> void:
 
 func _set_speed_text() -> void:
 	if onready_paths.speed_text != null:
-		onready_paths.speed_text.bbcode_text = TextUtils.BBCode_center_text(
-			tr(TranslationKeys.PLAYER_UI_SPEED) % speed
-		)
+		onready_paths.speed_text.bbcode_text = TextUtils.BBCode_center_text("%.2f" % speed)
 
 ##### SIGNAL MANAGEMENT #####
 func _on_SignalManager_update_crosshair(path : String, color : Color, scale : float) -> void:

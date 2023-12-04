@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: c.lemetayer@laposte.net\n"
 "POT-Creation-Date: 2021-12-19\n"
-"PO-Revision-Date: 2023-11-04 18:03+0100\n"
+"PO-Revision-Date: 2023-12-04 21:46+0100\n"
 "Last-Translator: Corentin Le Métayer <c.lemetayer@laposte.net>\n"
 "Language: fr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -310,9 +310,6 @@ msgstr ""
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ PLAYER ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 msgid "PLAYER_UI_CHECKPOINT"
 msgstr "Checkpoint !"
-
-msgid "PLAYER_UI_SPEED"
-msgstr "Vitesse : %s"
 
 msgid "PLAYER_MESSAGE_SECURITY_STATUS"
 msgstr "Niveau de sécurité : "

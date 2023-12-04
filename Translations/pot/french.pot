@@ -297,9 +297,6 @@ msgstr "Ne va afficher aucun tutoriel.\nOption recommandée si vous connaissez d
 msgid "PLAYER_UI_CHECKPOINT"
 msgstr "Checkpoint !"
 
-msgid "PLAYER_UI_SPEED"
-msgstr "Vitesse : %s"
-
 msgid "PLAYER_MESSAGE_SECURITY_STATUS"
 msgstr "Niveau de sécurité : "
 
