@@ -15,7 +15,7 @@ const TB_STOMPER_MAPPER := [
 ]  # mapper for TrenchBroom parameters
 const STD_SHAKE_DURATION := 1.0  # standard shake duration for a shake intensity of 1
 const SHAKE_FREQUENCY := 20  # standard shake frequency for a shake intensity of 1
-const STD_SHAKE_AMPLITUDE := 1.0/100.0  # shake amplitude for a shake intensity of 1
+const STD_SHAKE_AMPLITUDE := 2.0/100.0  # shake amplitude for a shake intensity of 1
 const SHAKE_PRIORITY := 1.0  # shake priority
 const STOMP_SOUND_PATH := "res://Misc/Audio/FX/Stomper/stomper.wav"
 const STOMP_SOUND_VOLUME_DB := 15.0
