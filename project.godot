@@ -799,6 +799,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/qodot/game_definitions/fgd/solid_classes/physics.gd"
 }, {
+"base": "KinematicBody",
+"class": "Player",
+"language": "GDScript",
+"path": "res://Game/Common/MapElements/Characters/MainCharacters/player.gd"
+}, {
 "base": "HBoxContainer",
 "class": "Presets",
 "language": "GDScript",
@@ -953,6 +958,16 @@ _global_script_classes=[ {
 "class": "RPCMessage",
 "language": "GDScript",
 "path": "res://addons/gdUnit3/src/network/rpc/RPCMessage.gd"
+}, {
+"base": "Resource",
+"class": "RecordFrameResource",
+"language": "GDScript",
+"path": "res://Game/Common/Utils/InputRecorder/frame_resource.gd"
+}, {
+"base": "Resource",
+"class": "RecordResource",
+"language": "GDScript",
+"path": "res://Game/Common/Utils/InputRecorder/record_resource.gd"
 }, {
 "base": "Reference",
 "class": "Result",
@@ -1378,6 +1393,7 @@ _global_script_class_icons={
 "PeriodicMovingSpatialTest": "",
 "PhysicsBall": "",
 "PhysicsEntity": "",
+"Player": "",
 "Presets": "",
 "PresetsTest": "",
 "ProductionModeTest": "",
@@ -1409,6 +1425,8 @@ _global_script_class_icons={
 "RPCGdUnitEvent": "",
 "RPCGdUnitTestSuite": "",
 "RPCMessage": "",
+"RecordFrameResource": "",
+"RecordResource": "",
 "Result": "",
 "RichTextEffectBackground": "",
 "RichTextLabelExt": "",
@@ -1488,6 +1506,7 @@ RuntimeUtils="*res://Game/Common/Utils/runtime_utils.gd"
 GlobalScreenEffects="*res://Game/Common/Shaders/GlobalScreenEffects/global_screen_effects.tscn"
 LoadingScreen="*res://Game/Common/Menus/LoadingScreen/loading_screen.tscn"
 MenuNavigator="*res://Game/Common/Menus/menu_navigator.tscn"
+InputRecorder="*res://Game/Common/Utils/InputRecorder/input_recorder.gd"
 
 [debug]
 
@@ -1559,6 +1578,11 @@ test={
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":84,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
  ]
 }
+record_inputs={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":178,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
 
 [layer_names]
 
@@ -1566,6 +1590,8 @@ test={
 3d_physics/layer_2="static_env"
 3d_physics/layer_3="explosive"
 3d_physics/layer_4="player_killer"
+3d_physics/layer_5="player_record_viewer"
+3d_physics/layer_6="breakable_obstacle"
 
 [locale]
 

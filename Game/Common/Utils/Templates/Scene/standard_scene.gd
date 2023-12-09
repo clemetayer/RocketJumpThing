@@ -12,6 +12,7 @@ class_name StandardScene
 #---- CONSTANTS -----
 const END_LEVEL_PATH := "res://Game/Common/Menus/EndLevel/end_level_ui.tscn"
 const PAUSE_MENU_PATH := "res://Game/Common/Menus/PauseMenu/pause_menu.tscn"
+const PLAYER_RECORD_VIEWER_PATH := "res://Game/Common/MapElements/Characters/MainCharacters/player_record_viewer.tscn"
 
 #---- EXPORTS ----
 export(Dictionary) var PATHS = {"bgm": {"path": "", "animation": ""}}  # various paths for the scene
@@ -49,7 +50,6 @@ func _process(_delta):
 func get_player() -> Node:
 	return _player
 
-
 ##### PROTECTED METHODS #####
 func _init_func() -> void:
 	_connect_autoload_signals()
@@ -61,11 +61,15 @@ func _ready_func() -> void:
 	_init_node_paths()
 	_init_skybox()
 	_init_player_slide_texture()
+	_init_record_viewer_player()
 	_last_cp = _start_point
 	_player.toggle_ability(GlobalConstants.ABILITY_ROCKETS,ENABLE_ROCKETS, false)
 	_player.toggle_ability(GlobalConstants.ABILITY_SLIDE,ENABLE_SLIDE, false)
 	SignalManager.emit_start_level_chronometer()
 
+
+func _init_record_viewer_player():
+	add_child(load(PLAYER_RECORD_VIEWER_PATH).instance())
 
 func _manage_inputs() -> void:
 	if Input.is_action_just_pressed(GlobalConstants.INPUT_RESTART):
@@ -88,7 +92,10 @@ func _init_node_paths() -> void:
 	# keep an instance of player
 	var player_nodes = get_tree().get_nodes_in_group(GlobalConstants.PLAYER_GROUP)
 	if player_nodes != null && player_nodes.size() > 0:
-		_player = player_nodes[0]
+		for player in player_nodes:
+			if not player.is_in_group(GlobalConstants.RECORD_VIEWER_GROUP):
+				_player = player
+				break
 	# keep an instance of the start_point
 	var start_points = get_tree().get_nodes_in_group(GlobalConstants.START_POINT_GROUP)
 	if start_points != null && start_points.size() > 0:

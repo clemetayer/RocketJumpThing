@@ -14,6 +14,7 @@ const PLAYER_MASK_VALUE := 0  # index 0 on the mask collision value, to get the 
 #---- MAPS -----
 const START_POINT_GROUP := "start_point"
 const SKYBOX_GROUP := "skybox"
+const RECORD_VIEWER_GROUP := "record_viewer"
 
 #---- INPUTS -----
 const INPUT_MVT_FORWARD := "movement_forward"
@@ -27,6 +28,7 @@ const INPUT_RESTART_LAST_CP := "restart_last_cp"
 const INPUT_RESTART := "restart"
 const INPUT_PAUSE := "pause"
 const INPUT_CANCEL := "ui_cancel"
+const INPUT_RECORD_INPUTS := "record_inputs"
 const CROSSHAIR_STANDARD_SIZE := 128.0
 
 #---- REPLACE KEYS -----

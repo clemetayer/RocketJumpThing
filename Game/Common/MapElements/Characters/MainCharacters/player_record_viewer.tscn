@@ -1,0 +1,186 @@
+[gd_scene load_steps=24 format=2]
+
+[ext_resource path="res://Game/Common/MapElements/Characters/MainCharacters/player_record_viewer.gd" type="Script" id=1]
+[ext_resource path="res://Game/Common/MapElements/Characters/player_UI.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Game/Common/MapElements/Characters/tutorial_hints.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Game/Common/MapElements/Characters/checkpoint_UI.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Game/Common/MapElements/Characters/chronometer_UI.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Misc/Audio/FX/JumpSound/jump_sound.wav" type="AudioStream" id=6]
+[ext_resource path="res://Misc/Audio/FX/DeathSound/death.wav" type="AudioStream" id=7]
+[ext_resource path="res://Misc/Audio/FX/Slide/slide_noise.wav" type="AudioStream" id=9]
+[ext_resource path="res://Game/Common/Shaders/Misc/slide_effect.tres" type="Shader" id=10]
+[ext_resource path="res://Game/Common/MapElements/Characters/MainCharacters/slide_effect_gradient.tres" type="Texture" id=11]
+[ext_resource path="res://Game/Common/MapElements/Characters/MainCharacters/rocket_launcher.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Game/Common/MapElements/Characters/toggle_ability_ui.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Game/Common/MapElements/Characters/special_ui_messages.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Game/Common/MapElements/Characters/MainCharacters/wall_ride_standard.gd" type="Script" id=15]
+[ext_resource path="res://Game/Common/MapElements/Characters/MainCharacters/wall_ride_space_to_wall_ride.gd" type="Script" id=16]
+
+[sub_resource type="CylinderShape" id=11]
+height = 0.33
+radius = 0.95
+
+[sub_resource type="CylinderMesh" id=4]
+top_radius = 0.6
+bottom_radius = 0.6
+height = 3.0
+
+[sub_resource type="QuadMesh" id=6]
+size = Vector2( 8, 3 )
+
+[sub_resource type="ShaderMaterial" id=8]
+shader = ExtResource( 10 )
+shader_param/front_to_back = true
+shader_param/gradient = ExtResource( 11 )
+
+[sub_resource type="QuadMesh" id=9]
+size = Vector2( 8, 3 )
+
+[sub_resource type="ShaderMaterial" id=10]
+shader = ExtResource( 10 )
+shader_param/front_to_back = false
+shader_param/gradient = ExtResource( 11 )
+
+[sub_resource type="CylinderShape" id=5]
+height = 5.0
+
+[sub_resource type="SphereShape" id=3]
+
+[node name="PlayerRecordViewer" type="KinematicBody" groups=["player", "portal_compatible", "record_viewer"]]
+transform = Transform( 0.063, 0, 0, 0, 0.063, 0, 0, 0, 0.063, 0, 0, 0 )
+collision_layer = 16
+collision_mask = 6
+collision/safe_margin = 0.015
+script = ExtResource( 1 )
+
+[node name="FloorDetectArea" type="Area" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.5, 0 )
+collision_mask = 2
+
+[node name="CollisionShape" type="CollisionShape" parent="FloorDetectArea"]
+shape = SubResource( 11 )
+
+[node name="Body" type="MeshInstance" parent="."]
+visible = false
+mesh = SubResource( 4 )
+
+[node name="SlideVisualEffects" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.5 )
+
+[node name="Left" type="MeshInstance" parent="SlideVisualEffects"]
+transform = Transform( -0.173648, 0.17101, -0.969845, 0, 0.984808, 0.173648, 0.984807, 0.0301537, -0.17101, 2, 1.5, 0 )
+mesh = SubResource( 6 )
+material/0 = SubResource( 8 )
+
+[node name="Right" type="MeshInstance" parent="SlideVisualEffects"]
+transform = Transform( -0.17394, -0.171001, 0.969795, 0, 0.984808, 0.173648, -0.984755, 0.0302044, -0.171298, -2, 1.5, 0 )
+mesh = SubResource( 9 )
+material/0 = SubResource( 10 )
+
+[node name="RayCasts" type="Spatial" parent="."]
+
+[node name="left" type="RayCast" parent="RayCasts"]
+enabled = true
+cast_to = Vector3( 5, 0, 0 )
+collision_mask = 3
+
+[node name="right" type="RayCast" parent="RayCasts"]
+enabled = true
+cast_to = Vector3( -5, 0, 0 )
+collision_mask = 3
+
+[node name="RotationHelper" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0 )
+
+[node name="RocketLauncherPos" type="Position3D" parent="RotationHelper"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -1.8, 2 )
+
+[node name="RocketFirePos" type="Position3D" parent="RotationHelper/RocketLauncherPos"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.5 )
+
+[node name="RocketLauncher" parent="RotationHelper/RocketLauncherPos" instance=ExtResource( 12 )]
+transform = Transform( 0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0 )
+skeleton = NodePath("../../..")
+
+[node name="Camera" type="Camera" parent="RotationHelper"]
+transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0 )
+fov = 90.0
+far = 8192.0
+
+[node name="ThirdPersonCamera" type="Camera" parent="RotationHelper"]
+transform = Transform( -1, -2.99003e-08, 8.21506e-08, 0, 0.939693, 0.34202, -8.74228e-08, 0.34202, -0.939693, 0, 3.62379, -6.16924 )
+current = true
+far = 8192.0
+
+[node name="PlayerCollision" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
+shape = SubResource( 5 )
+__meta__ = {
+"_editor_description_": "Cylinder shape to match steps and corner well
+"
+}
+
+[node name="SlideCollision" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0 )
+shape = SubResource( 3 )
+
+[node name="WallJumpMixMovement" type="Tween" parent="."]
+
+[node name="WallRideTilt" type="Tween" parent="."]
+
+[node name="PlayerUI" parent="." instance=ExtResource( 2 )]
+follow_viewport_enable = true
+
+[node name="CheckpointUI" parent="." instance=ExtResource( 4 )]
+layer = 2
+
+[node name="ChronometerUI" parent="." instance=ExtResource( 5 )]
+
+[node name="ToggleAbilityUI" parent="." instance=ExtResource( 13 )]
+layer = 4
+
+[node name="SpecialUIMessages" parent="." instance=ExtResource( 14 )]
+layer = 5
+
+[node name="TutorialHints" parent="." instance=ExtResource( 3 )]
+layer = 6
+
+[node name="Timers" type="Node" parent="."]
+
+[node name="WallRideJumpLock" type="Timer" parent="Timers"]
+one_shot = true
+
+[node name="UpdateSpeed" type="Timer" parent="Timers"]
+wait_time = 0.1
+
+[node name="FallTimer" type="Timer" parent="Timers"]
+wait_time = 0.33
+one_shot = true
+
+[node name="Sounds" type="Node" parent="."]
+
+[node name="JumpSound" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 6 )
+volume_db = 10.0
+bus = "FX"
+
+[node name="SlideSound" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 9 )
+bus = "SlideFX"
+
+[node name="DeathSound" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 7 )
+bus = "FX"
+
+[node name="WallRideStrategy" type="Node" parent="."]
+
+[node name="Standard" type="Node" parent="WallRideStrategy"]
+script = ExtResource( 15 )
+
+[node name="SpaceToWallRide" type="Node" parent="WallRideStrategy"]
+script = ExtResource( 16 )
+
+[connection signal="body_exited" from="FloorDetectArea" to="." method="_on_FloorDetectArea_body_exited"]
+[connection signal="timeout" from="Timers/WallRideJumpLock" to="." method="_on_WallRideJumpLock_timeout"]
+[connection signal="timeout" from="Timers/UpdateSpeed" to="." method="_on_UpdateSpeed_timeout"]
+[connection signal="timeout" from="Timers/FallTimer" to="." method="_on_FallTimer_timeout"]

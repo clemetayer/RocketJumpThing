@@ -1,4 +1,5 @@
 extends KinematicBody
+class_name Player
 # Script for the player
 
 """
@@ -95,6 +96,11 @@ var _last_floor_velocity := Vector3.ZERO  # Last floor velocity
 var _last_wall_ride_tilt_direction := 0 # Used to avoid cancelling the head tilt animation at each frame
 var _can_jump_on_fall := false # To allow jumping for a short period of time after exiting a platform
 var _wall_ride_strategy : WallRideStrategy # Strategy to use for the wall ride
+var _current_inputs := { # kind of an hack, since there are input tests outside the _process_inputs method
+	forward_pressed = false,
+	jump_pressed = false,
+	slide_pressed = false
+}
 
 #==== ONREADY ====
 onready var onready_paths := {
@@ -146,10 +152,13 @@ func _ready():
 	_choose_wall_ride_strategy()
 
 
-func _process(_delta):
+func _process(delta):
+	_process_func(delta)
+
+# to be overriden by children classes
+func _process_func(_delta):
 	_print_debug_data()
 	_process_sounds()
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame. Remove the "_" to use it.
 func _physics_process(delta):
@@ -163,13 +172,12 @@ func _physics_process(delta):
 
 # when an input is pressed
 func _input(event):
-	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
-		rotation_helper.rotate_x(deg2rad(event.relative.y * _get_mouse_sensitivity()))
-		self.rotate_y(deg2rad(event.relative.x * _get_mouse_sensitivity() * -1))
-		var camera_rot = rotation_helper.rotation_degrees
-		camera_rot.x = clamp(camera_rot.x, -89, 89)
-		rotation_helper.rotation_degrees = camera_rot
+	_input_func(event)
 
+# to be overriden by children classes
+func _input_func(event):
+	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
+		_set_camera_from_input_relative(event.relative * _get_mouse_sensitivity())
 
 ##### PUBLIC METHODS #####
 # Adds some vector to move the player (to be queued)
@@ -242,6 +250,13 @@ func _choose_wall_ride_strategy() -> void:
 		_wall_ride_strategy = onready_paths.wall_ride_strategy.space_to_wall_ride
 	else:
 		_wall_ride_strategy = onready_paths.wall_ride_strategy.standard
+
+func _set_camera_from_input_relative(relative : Vector2) -> void:
+	rotation_helper.rotate_x(deg2rad(relative.y))
+	self.rotate_y(deg2rad(-relative.x ))
+	var camera_rot = rotation_helper.rotation_degrees
+	camera_rot.x = clamp(camera_rot.x, -89, 89)
+	rotation_helper.rotation_degrees = camera_rot
 
 #---- Trenchbroom -----
 func _set_TB_params() -> void:
@@ -318,6 +333,20 @@ func _process_input(_delta):
 	if SLIDE_ENABLED: # slide also unlocks wall ride
 		_wall_ride_strategy.process_input()
 
+	# Input recorder 
+	if Input.is_action_just_pressed(GlobalConstants.INPUT_RECORD_INPUTS):
+		if not InputRecorder.recording:
+			var record_resource = RecordResource.new()
+			record_resource.PLAYER_START_POS = global_transform.origin
+			InputRecorder.start_recording(record_resource)
+		else:
+			InputRecorder.stop_recording()
+	
+	# Other inputs, usefull later
+	_current_inputs.forward_pressed = Input.is_action_pressed(GlobalConstants.INPUT_MVT_FORWARD)
+	_current_inputs.jump_pressed = Input.is_action_pressed(GlobalConstants.INPUT_MVT_JUMP)
+	_current_inputs.slide_pressed = Input.is_action_pressed(GlobalConstants.INPUT_MVT_SLIDE)
+
 # Shoots a rocket
 func _shoot(cam_xform: Transform) -> void:
 	set_state_value(states_idx.SHOOTING, true)
@@ -372,7 +401,7 @@ func _process_movement(delta):
 	# Move and slide + update speed
 	var snap = (
 		Vector3.ZERO
-		if Input.is_action_pressed(GlobalConstants.INPUT_MVT_JUMP)
+		if _current_inputs.jump_pressed
 		else -get_floor_normal()
 	)
 	vel = move_and_slide_with_snap(vel, snap, Vector3.UP, true, 4, MAX_SLOPE_ANGLE, false)
@@ -460,7 +489,7 @@ func _init_wall_ride_lock() -> void:
 	_wall_ride_strategy.wall_riding = false
 	onready_paths.timers.wall_ride_jump_lock.start()  # to avoid sticking and accelerating back on the wall after jumping
 	_wall_ride_lock = true
-	if Input.is_action_pressed(GlobalConstants.INPUT_MVT_FORWARD):  # FIXME : probably creates a bug that can make the player wall jump easily to the same wall (but that might make a cool mechanic)
+	if _current_inputs.forward_pressed:  # FIXME : probably creates a bug that can make the player wall jump easily to the same wall (but that might make a cool mechanic)
 		var tween = onready_paths.tweens.wall_jump_mix_mvt
 		if tween.is_active():
 			tween.stop_all()
@@ -498,7 +527,7 @@ func _ground_movement(delta: float) -> void:
 	_accelerate(
 		Vector3(dir.x, 0, dir.z).normalized(), GROUND_TARGET_SPEED, GROUND_ACCELERATION, delta
 	)
-	if Input.is_action_pressed(GlobalConstants.INPUT_MVT_JUMP):
+	if _current_inputs.jump_pressed:
 		_ground_jump()
 
 
@@ -532,7 +561,7 @@ func _apply_friction(delta: float):
 		vel.z = 0
 		return  # no need to compute things further, the player is stopped
 	var control := 0.0
-	if !Input.is_action_pressed(GlobalConstants.INPUT_MVT_JUMP):
+	if !_current_inputs.jump_pressed:
 		var friction := SLIDE_FRICTION if _slide else GROUND_FRICTION
 		control = current_speed
 		drop += control * friction * delta
@@ -576,7 +605,7 @@ func _air_movement(delta: float) -> void:
 		_accelerate(wish_dir, AIR_TARGET_SPEED, AIR_ACCELERATION, delta)
 	vel.y += GRAVITY * delta
 	# allows for a jump shortly after exiting a platform
-	if Input.is_action_pressed(GlobalConstants.INPUT_MVT_JUMP) and _can_jump_on_fall:
+	if _current_inputs.jump_pressed and _can_jump_on_fall:
 		vel.y = 0
 		_ground_jump()
 		_can_jump_on_fall = false
@@ -618,7 +647,7 @@ func _process_states():
 		set_state_value(states_idx.MOVING, true)
 	if (
 		get_state_value(states_idx.SLIDING)
-		and (not Input.is_action_pressed(GlobalConstants.INPUT_MVT_SLIDE))
+		and (not _current_inputs.slide_pressed)
 	):
 		self.rotate_object_local(Vector3(1, 0, 0), PI / 4)
 		rotation_helper.rotate_object_local(Vector3(1, 0, 0), -PI / 4)
@@ -663,7 +692,7 @@ func _on_WallRideJumpLock_timeout():
 
 func _on_FloorDetectArea_body_exited(_body:Node):
 	# Just exited a floor and not jumping
-	if not is_on_floor() and not Input.is_action_pressed(GlobalConstants.INPUT_MVT_JUMP):
+	if not is_on_floor() and not _current_inputs.jump_pressed:
 		_can_jump_on_fall = true
 		onready_paths.timers.fall_timer.start()
 		
