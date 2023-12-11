@@ -14,7 +14,7 @@ EASE_TYPE = 0
 
 [sub_resource type="Resource" id=2]
 script = ExtResource( 2 )
-POSITION = Vector3( 0, 0, -8 )
+POSITION = Vector3( 0, 0, -4 )
 ROTATION_DEGREES = Vector3( 0, 0, 0 )
 TRAVEL_TIME = 4.0
 WAIT_TIME = 0.0
