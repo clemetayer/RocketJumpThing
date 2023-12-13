@@ -80,7 +80,7 @@ func update(song: Song) -> Array:
 	var stop_array := []
 	if _buses_cleared:
 		_init_buses()
-	if ANIMATION != song.ANIMATION:
+	if ANIMATION != song.ANIMATION and get_node(ANIMATION_PLAYER).has_animation(song.ANIMATION):
 		DebugUtils.log_stacktrace(
 			"Song animation player - Updating current from %s to %s" % [ANIMATION, song.ANIMATION], DebugUtils.LOG_LEVEL.debug
 		)

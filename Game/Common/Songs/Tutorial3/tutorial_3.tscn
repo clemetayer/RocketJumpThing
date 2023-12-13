@@ -1128,7 +1128,7 @@ script = ExtResource( 1 )
 ANIMATION_PLAYER = NodePath("AnimationPlayer")
 SONG_SEND_TO = "BGM"
 ALLOW_RECURSIVE_INIT = true
-SLIDE_FX_FILTER_CUTOFF = 842.967
+SLIDE_FX_FILTER_CUTOFF = 1315.02
 
 [node name="Arpeggios" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
