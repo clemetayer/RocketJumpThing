@@ -95,7 +95,7 @@ var _last_floor_velocity := Vector3.ZERO  # Last floor velocity
 var _last_wall_ride_tilt_direction := 0 # Used to avoid cancelling the head tilt animation at each frame
 var _can_jump_on_fall := false # To allow jumping for a short period of time after exiting a platform
 var _wall_ride_strategy : WallRideStrategy # Strategy to use for the wall ride
-var _boost_pad_effect_velocity_lock := false # boolean to tell if we just interacted with a boost pad
+var _velocity_lock := false # boolean to tell if we just interacted with a boost pad
 
 #==== ONREADY ====
 onready var onready_paths := {
@@ -232,8 +232,8 @@ func set_trail_gradient_texture(gradient : GradientTexture) -> void:
 	onready_paths.trails.left.get_surface_material(0).set_shader_param(TRAIL_GRADIENT_SHADER_PARAM, gradient)
 	onready_paths.trails.right.get_surface_material(0).set_shader_param(TRAIL_GRADIENT_SHADER_PARAM, gradient)
 
-func set_boost_pad_velocity_lock(value : bool) -> void:
-	_boost_pad_effect_velocity_lock = value
+func set_velocity_lock(value : bool) -> void:
+	_velocity_lock = value
 
 ##### PROTECTED METHODS #####
 #---- General -----
@@ -354,7 +354,7 @@ func _process_sounds() -> void:
 # process for the movement
 func _process_movement(delta):
 	if dir.x != 0 and dir.y != 0: # if we pressed a direction, disables the boost pad velocity lock
-		_boost_pad_effect_velocity_lock = false
+		_velocity_lock = false
 
 	# _debug_process_movement(delta)
 	vel -= _last_floor_velocity  # removes the floor velocity to not process it in the movement
@@ -578,7 +578,7 @@ func _air_movement(delta: float) -> void:
 		direction_vec.y = vel.y
 		vel = vel.move_toward(direction_vec, delta * _mix_to_direction_amount * AIR_MOVE_TOWARD)
 	elif input_movement_vector == Vector2.ZERO: # not pressing anything, should decelerate slowly
-		if not _boost_pad_effect_velocity_lock: # if we just interacted with a boost pad, and not pressed anything, we don't accelerate or decelerate
+		if not _velocity_lock: # if we just interacted with a boost pad, and not pressed anything, we don't accelerate or decelerate
 			_deccelerate(0,AIR_NO_INPUT_DECELERATION,delta)
 	else:  # accelerate and strafe
 		_accelerate(wish_dir, AIR_TARGET_SPEED, AIR_ACCELERATION, delta)

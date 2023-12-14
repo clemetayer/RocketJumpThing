@@ -85,3 +85,4 @@ func _on_area_entered(area: Node) -> void:
 func use(element: Node) -> void:
 	_portal_sound.play()
 	element.call(FunctionUtils.PORTAL_PROCESS_METHOD_NAME, self)
+	element.set_velocity_lock(true)

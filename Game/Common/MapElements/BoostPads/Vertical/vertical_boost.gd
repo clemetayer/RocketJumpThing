@@ -64,7 +64,7 @@ func _on_body_entered(body: Node) -> void:
 	if FunctionUtils.is_player(body):
 		var vect = (to_global(Vector3.UP) - to_global(Vector3.ZERO)).normalized()  # Up vector converted to the global transform and normalized
 		body.override_velocity_vector(vect * _force * _boost_multiplier)
-		body.set_boost_pad_velocity_lock(true)
+		body.set_velocity_lock(true)
 
 
 func _on_area_entered(area: Node) -> void:
