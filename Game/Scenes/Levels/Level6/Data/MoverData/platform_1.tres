@@ -8,16 +8,16 @@ script = ExtResource( 2 )
 POSITION = Vector3( 0, 0, 0 )
 ROTATION_DEGREES = Vector3( 0, 0, 0 )
 TRAVEL_TIME = 6.0
-WAIT_TIME = 1.5
+WAIT_TIME = 3.0
 TRANSITION_TYPE = 1
 EASE_TYPE = 0
 
 [sub_resource type="Resource" id=2]
 script = ExtResource( 2 )
-POSITION = Vector3( 8, 7, 32 )
+POSITION = Vector3( 11.5, 8, 45.5 )
 ROTATION_DEGREES = Vector3( 0, 0, 0 )
 TRAVEL_TIME = 6.0
-WAIT_TIME = 1.5
+WAIT_TIME = 3.0
 TRANSITION_TYPE = 1
 EASE_TYPE = 0
 
