@@ -3227,8 +3227,7 @@ spread = 0.0
 gravity = Vector3( 0, 0, 0 )
 initial_velocity = 5.0
 initial_velocity_random = 1.0
-scale = 0.25
-scale_random = 0.33
+scale_random = 0.75
 color_ramp = SubResource( 901 )
 
 [sub_resource type="Gradient" id=903]
@@ -3249,8 +3248,7 @@ spread = 0.0
 gravity = Vector3( 0, 0, 0 )
 initial_velocity = 5.0
 initial_velocity_random = 1.0
-scale = 0.25
-scale_random = 0.33
+scale_random = 0.75
 color_ramp = SubResource( 904 )
 
 [sub_resource type="Gradient" id=906]
@@ -3271,8 +3269,7 @@ spread = 0.0
 gravity = Vector3( 0, 0, 0 )
 initial_velocity = 5.0
 initial_velocity_random = 1.0
-scale = 0.25
-scale_random = 0.33
+scale_random = 0.75
 color_ramp = SubResource( 907 )
 
 [sub_resource type="Gradient" id=909]
@@ -3293,8 +3290,7 @@ spread = 0.0
 gravity = Vector3( 0, 0, 0 )
 initial_velocity = 5.0
 initial_velocity_random = 1.0
-scale = 0.25
-scale_random = 0.33
+scale_random = 0.75
 color_ramp = SubResource( 910 )
 
 [sub_resource type="Gradient" id=912]
@@ -3315,8 +3311,7 @@ spread = 0.0
 gravity = Vector3( 0, 0, 0 )
 initial_velocity = 5.0
 initial_velocity_random = 1.0
-scale = 0.25
-scale_random = 0.33
+scale_random = 0.75
 color_ramp = SubResource( 913 )
 
 [sub_resource type="Gradient" id=915]
@@ -3337,8 +3332,7 @@ spread = 0.0
 gravity = Vector3( 0, 0, 0 )
 initial_velocity = 5.0
 initial_velocity_random = 1.0
-scale = 0.25
-scale_random = 0.33
+scale_random = 0.75
 color_ramp = SubResource( 916 )
 
 [sub_resource type="Gradient" id=918]
@@ -3359,8 +3353,7 @@ spread = 0.0
 gravity = Vector3( 0, 0, 0 )
 initial_velocity = 5.0
 initial_velocity_random = 1.0
-scale = 0.25
-scale_random = 0.33
+scale_random = 0.75
 color_ramp = SubResource( 919 )
 
 [sub_resource type="Gradient" id=921]
@@ -3381,8 +3374,7 @@ spread = 0.0
 gravity = Vector3( 0, 0, 0 )
 initial_velocity = 5.0
 initial_velocity_random = 1.0
-scale = 0.25
-scale_random = 0.33
+scale_random = 0.75
 color_ramp = SubResource( 922 )
 
 [sub_resource type="ArrayMesh" id=924]
@@ -3476,8 +3468,7 @@ spread = 0.0
 gravity = Vector3( 0, 0, 0 )
 initial_velocity = 5.0
 initial_velocity_random = 1.0
-scale = 0.25
-scale_random = 0.33
+scale_random = 0.75
 color_ramp = SubResource( 930 )
 
 [sub_resource type="ConvexPolygonShape" id=932]
@@ -3501,8 +3492,7 @@ spread = 0.0
 gravity = Vector3( 0, 0, 0 )
 initial_velocity = 5.0
 initial_velocity_random = 1.0
-scale = 0.25
-scale_random = 0.33
+scale_random = 0.75
 color_ramp = SubResource( 934 )
 
 [sub_resource type="ArrayMesh" id=936]
@@ -3558,8 +3548,7 @@ spread = 0.0
 gravity = Vector3( 0, 0, 0 )
 initial_velocity = 5.0
 initial_velocity_random = 1.0
-scale = 0.25
-scale_random = 0.33
+scale_random = 0.75
 color_ramp = SubResource( 941 )
 
 [sub_resource type="Gradient" id=943]
@@ -3580,8 +3569,7 @@ spread = 0.0
 gravity = Vector3( 0, 0, 0 )
 initial_velocity = 5.0
 initial_velocity_random = 1.0
-scale = 0.25
-scale_random = 0.33
+scale_random = 0.75
 color_ramp = SubResource( 944 )
 
 [sub_resource type="Gradient" id=946]
@@ -3602,8 +3590,7 @@ spread = 0.0
 gravity = Vector3( 0, 0, 0 )
 initial_velocity = 5.0
 initial_velocity_random = 1.0
-scale = 0.25
-scale_random = 0.33
+scale_random = 0.75
 color_ramp = SubResource( 947 )
 
 [sub_resource type="Gradient" id=949]
@@ -3624,8 +3611,7 @@ spread = 0.0
 gravity = Vector3( 0, 0, 0 )
 initial_velocity = 5.0
 initial_velocity_random = 1.0
-scale = 0.25
-scale_random = 0.33
+scale_random = 0.75
 color_ramp = SubResource( 950 )
 
 [sub_resource type="Gradient" id=952]
@@ -3646,8 +3632,7 @@ spread = 0.0
 gravity = Vector3( 0, 0, 0 )
 initial_velocity = 5.0
 initial_velocity_random = 1.0
-scale = 0.25
-scale_random = 0.33
+scale_random = 0.75
 color_ramp = SubResource( 953 )
 
 [sub_resource type="Gradient" id=955]
@@ -3668,8 +3653,7 @@ spread = 0.0
 gravity = Vector3( 0, 0, 0 )
 initial_velocity = 5.0
 initial_velocity_random = 1.0
-scale = 0.25
-scale_random = 0.33
+scale_random = 0.75
 color_ramp = SubResource( 956 )
 
 [sub_resource type="Gradient" id=958]
@@ -3690,8 +3674,7 @@ spread = 0.0
 gravity = Vector3( 0, 0, 0 )
 initial_velocity = 5.0
 initial_velocity_random = 1.0
-scale = 0.25
-scale_random = 0.33
+scale_random = 0.75
 color_ramp = SubResource( 959 )
 
 [sub_resource type="Gradient" id=961]
@@ -3712,8 +3695,7 @@ spread = 0.0
 gravity = Vector3( 0, 0, 0 )
 initial_velocity = 5.0
 initial_velocity_random = 1.0
-scale = 0.25
-scale_random = 0.33
+scale_random = 0.75
 color_ramp = SubResource( 962 )
 
 [sub_resource type="ArrayMesh" id=964]

@@ -16,7 +16,7 @@ const ORIGINAL_VISIBILITY_AABB := AABB(
 	Vector3(-6.645,-1.989,-1.95),
 	Vector3(8.604,3.964,3.888)
 )
-const ORIGINAL_AMOUNT := 10
+const ORIGINAL_AMOUNT := 4
 
 #---- EXPORTS -----
 export(Dictionary) var properties
