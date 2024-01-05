@@ -1,4 +1,4 @@
-[gd_scene load_steps=538 format=2]
+[gd_scene load_steps=587 format=2]
 
 [ext_resource path="res://addons/qodot/src/nodes/qodot_map.gd" type="Script" id=1]
 [ext_resource path="res://trenchbroom/textures/common/material_override/Transparent.tres" type="Material" id=2]
@@ -45,6 +45,7 @@
 [ext_resource path="res://addons/simple_skybox/Skybox.tscn" type="PackedScene" id=43]
 [ext_resource path="res://Game/Common/MapElements/TutorialTrigger/tutorial_interactible.tscn" type="PackedScene" id=44]
 [ext_resource path="res://trenchbroom/textures/scenes/tutorial3_scene/wall_with_windows_2.tres" type="Material" id=45]
+[ext_resource path="res://Game/Common/MapElements/Particles/ParticlesArrows/particles_arrows.tscn" type="PackedScene" id=46]
 [ext_resource path="res://trenchbroom/textures/scenes/tutorial3_scene/pattern_floor.tres" type="Material" id=47]
 
 [sub_resource type="Gradient" id=755]
@@ -3717,6 +3718,387 @@ surfaces/0 = {
 "vertex_count": 18
 }
 
+[sub_resource type="Gradient" id=1238]
+resource_local_to_scene = true
+offsets = PoolRealArray( 0, 0.33, 0.66, 1 )
+colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=1239]
+resource_local_to_scene = true
+gradient = SubResource( 1238 )
+
+[sub_resource type="ParticlesMaterial" id=1240]
+resource_local_to_scene = true
+emission_shape = 2
+emission_box_extents = Vector3( 1, 1, 1 )
+direction = Vector3( -1, 0, 0 )
+spread = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 5.0
+initial_velocity_random = 1.0
+scale_random = 0.75
+color_ramp = SubResource( 1239 )
+
+[sub_resource type="Gradient" id=1241]
+resource_local_to_scene = true
+offsets = PoolRealArray( 0, 0.33, 0.66, 1 )
+colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=1242]
+resource_local_to_scene = true
+gradient = SubResource( 1241 )
+
+[sub_resource type="ParticlesMaterial" id=1243]
+resource_local_to_scene = true
+emission_shape = 2
+emission_box_extents = Vector3( 1, 1, 1 )
+direction = Vector3( -1, 0, 0 )
+spread = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 5.0
+initial_velocity_random = 1.0
+scale_random = 0.75
+color_ramp = SubResource( 1242 )
+
+[sub_resource type="Gradient" id=1244]
+resource_local_to_scene = true
+offsets = PoolRealArray( 0, 0.33, 0.66, 1 )
+colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=1245]
+resource_local_to_scene = true
+gradient = SubResource( 1244 )
+
+[sub_resource type="ParticlesMaterial" id=1246]
+resource_local_to_scene = true
+emission_shape = 2
+emission_box_extents = Vector3( 1, 1, 1 )
+direction = Vector3( -1, 0, 0 )
+spread = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 5.0
+initial_velocity_random = 1.0
+scale_random = 0.75
+color_ramp = SubResource( 1245 )
+
+[sub_resource type="Gradient" id=1247]
+resource_local_to_scene = true
+offsets = PoolRealArray( 0, 0.33, 0.66, 1 )
+colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=1248]
+resource_local_to_scene = true
+gradient = SubResource( 1247 )
+
+[sub_resource type="ParticlesMaterial" id=1249]
+resource_local_to_scene = true
+emission_shape = 2
+emission_box_extents = Vector3( 1, 1, 1 )
+direction = Vector3( -1, 0, 0 )
+spread = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 5.0
+initial_velocity_random = 1.0
+scale_random = 0.75
+color_ramp = SubResource( 1248 )
+
+[sub_resource type="Gradient" id=1250]
+resource_local_to_scene = true
+offsets = PoolRealArray( 0, 0.33, 0.66, 1 )
+colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=1251]
+resource_local_to_scene = true
+gradient = SubResource( 1250 )
+
+[sub_resource type="ParticlesMaterial" id=1252]
+resource_local_to_scene = true
+emission_shape = 2
+emission_box_extents = Vector3( 1, 1, 1 )
+direction = Vector3( -1, 0, 0 )
+spread = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 5.0
+initial_velocity_random = 1.0
+scale_random = 0.75
+color_ramp = SubResource( 1251 )
+
+[sub_resource type="Gradient" id=1253]
+resource_local_to_scene = true
+offsets = PoolRealArray( 0, 0.33, 0.66, 1 )
+colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=1254]
+resource_local_to_scene = true
+gradient = SubResource( 1253 )
+
+[sub_resource type="ParticlesMaterial" id=1255]
+resource_local_to_scene = true
+emission_shape = 2
+emission_box_extents = Vector3( 1, 1, 1 )
+direction = Vector3( -1, 0, 0 )
+spread = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 5.0
+initial_velocity_random = 1.0
+scale_random = 0.75
+color_ramp = SubResource( 1254 )
+
+[sub_resource type="Gradient" id=1256]
+resource_local_to_scene = true
+offsets = PoolRealArray( 0, 0.33, 0.66, 1 )
+colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=1257]
+resource_local_to_scene = true
+gradient = SubResource( 1256 )
+
+[sub_resource type="ParticlesMaterial" id=1258]
+resource_local_to_scene = true
+emission_shape = 2
+emission_box_extents = Vector3( 1, 1, 1 )
+direction = Vector3( -1, 0, 0 )
+spread = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 5.0
+initial_velocity_random = 1.0
+scale_random = 0.75
+color_ramp = SubResource( 1257 )
+
+[sub_resource type="Gradient" id=1259]
+resource_local_to_scene = true
+offsets = PoolRealArray( 0, 0.33, 0.66, 1 )
+colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=1260]
+resource_local_to_scene = true
+gradient = SubResource( 1259 )
+
+[sub_resource type="ParticlesMaterial" id=1261]
+resource_local_to_scene = true
+emission_shape = 2
+emission_box_extents = Vector3( 1, 1, 1 )
+direction = Vector3( -1, 0, 0 )
+spread = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 5.0
+initial_velocity_random = 1.0
+scale_random = 0.75
+color_ramp = SubResource( 1260 )
+
+[sub_resource type="Gradient" id=1262]
+resource_local_to_scene = true
+offsets = PoolRealArray( 0, 0.33, 0.66, 1 )
+colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=1263]
+resource_local_to_scene = true
+gradient = SubResource( 1262 )
+
+[sub_resource type="ParticlesMaterial" id=1264]
+resource_local_to_scene = true
+emission_shape = 2
+emission_box_extents = Vector3( 1, 1, 1 )
+direction = Vector3( -1, 0, 0 )
+spread = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 5.0
+initial_velocity_random = 1.0
+scale_random = 0.75
+color_ramp = SubResource( 1263 )
+
+[sub_resource type="Gradient" id=1265]
+resource_local_to_scene = true
+offsets = PoolRealArray( 0, 0.33, 0.66, 1 )
+colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=1266]
+resource_local_to_scene = true
+gradient = SubResource( 1265 )
+
+[sub_resource type="ParticlesMaterial" id=1267]
+resource_local_to_scene = true
+emission_shape = 2
+emission_box_extents = Vector3( 1, 1, 1 )
+direction = Vector3( -1, 0, 0 )
+spread = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 5.0
+initial_velocity_random = 1.0
+scale_random = 0.75
+color_ramp = SubResource( 1266 )
+
+[sub_resource type="ArrayMesh" id=1268]
+surfaces/0 = {
+"aabb": AABB( -0.75, -0.25, -0.75, 1.5, 0.50001, 1.5 ),
+"array_data": PoolByteArray( 0, 0, 64, 191, 0, 0, 128, 62, 0, 0, 64, 191, 127, 127, 129, 63, 184, 200, 24, 180, 0, 0, 64, 191, 0, 0, 128, 190, 0, 0, 64, 191, 127, 127, 129, 63, 184, 200, 43, 179, 0, 0, 64, 63, 0, 0, 128, 190, 0, 0, 64, 191, 127, 127, 129, 63, 196, 200, 43, 179, 0, 0, 64, 63, 0, 0, 128, 62, 0, 0, 64, 191, 127, 127, 129, 63, 196, 200, 24, 180, 0, 0, 64, 191, 0, 0, 128, 62, 0, 0, 64, 191, 129, 0, 0, 63, 116, 76, 24, 180, 0, 0, 64, 191, 0, 0, 128, 62, 0, 0, 64, 63, 129, 0, 0, 63, 122, 76, 24, 180, 0, 0, 64, 191, 0, 0, 128, 190, 0, 0, 64, 63, 129, 0, 0, 63, 122, 76, 43, 179, 0, 0, 64, 191, 0, 0, 128, 190, 0, 0, 64, 191, 129, 0, 0, 63, 116, 76, 43, 179, 0, 0, 64, 63, 0, 0, 128, 62, 0, 0, 64, 191, 127, 0, 127, 127, 116, 204, 24, 180, 0, 0, 64, 63, 0, 0, 128, 190, 0, 0, 64, 191, 127, 0, 127, 127, 116, 204, 43, 179, 0, 0, 64, 63, 0, 0, 128, 190, 0, 0, 64, 63, 127, 0, 127, 127, 122, 204, 43, 179, 0, 0, 64, 63, 0, 0, 128, 62, 0, 0, 64, 63, 127, 0, 127, 127, 122, 204, 24, 180, 0, 0, 64, 191, 0, 0, 128, 62, 0, 0, 64, 63, 0, 0, 127, 63, 184, 72, 24, 180, 0, 0, 64, 63, 0, 0, 128, 62, 0, 0, 64, 63, 0, 0, 127, 63, 196, 72, 24, 180, 0, 0, 64, 63, 0, 0, 128, 190, 0, 0, 64, 63, 0, 0, 127, 63, 196, 72, 43, 179, 0, 0, 64, 191, 0, 0, 128, 190, 0, 0, 64, 63, 0, 0, 127, 63, 184, 72, 43, 179 ),
+"array_index_data": PoolByteArray( 0, 0, 1, 0, 2, 0, 0, 0, 2, 0, 3, 0, 4, 0, 5, 0, 6, 0, 4, 0, 6, 0, 7, 0, 8, 0, 9, 0, 10, 0, 8, 0, 10, 0, 11, 0, 12, 0, 13, 0, 14, 0, 12, 0, 14, 0, 15, 0 ),
+"blend_shape_data": [  ],
+"format": 2194711,
+"index_count": 24,
+"material": ExtResource( 22 ),
+"primitive": 4,
+"skeleton_aabb": [  ],
+"vertex_count": 16
+}
+surfaces/1 = {
+"aabb": AABB( -0.75, -0.25, -0.75, 1.50001, 0.5, 1.5 ),
+"array_data": PoolByteArray( 0, 0, 64, 63, 0, 0, 128, 190, 0, 0, 64, 191, 0, 129, 127, 127, 116, 204, 196, 200, 0, 0, 64, 191, 0, 0, 128, 190, 0, 0, 64, 191, 0, 129, 127, 127, 116, 204, 184, 200, 0, 0, 64, 191, 0, 0, 128, 190, 0, 0, 64, 63, 0, 129, 127, 127, 122, 204, 184, 200, 0, 0, 64, 63, 0, 0, 128, 190, 0, 0, 64, 63, 0, 129, 127, 127, 122, 204, 196, 200, 0, 0, 64, 63, 0, 0, 128, 62, 0, 0, 64, 191, 0, 127, 0, 63, 116, 76, 196, 200, 0, 0, 64, 63, 0, 0, 128, 62, 0, 0, 64, 63, 0, 127, 0, 63, 122, 76, 196, 200, 0, 0, 64, 191, 0, 0, 128, 62, 0, 0, 64, 63, 0, 127, 0, 63, 122, 76, 184, 200, 0, 0, 64, 191, 0, 0, 128, 62, 0, 0, 64, 191, 0, 127, 0, 63, 116, 76, 184, 200 ),
+"array_index_data": PoolByteArray( 0, 0, 1, 0, 2, 0, 0, 0, 2, 0, 3, 0, 4, 0, 5, 0, 6, 0, 4, 0, 6, 0, 7, 0 ),
+"blend_shape_data": [  ],
+"format": 2194711,
+"index_count": 12,
+"material": ExtResource( 47 ),
+"primitive": 4,
+"skeleton_aabb": [  ],
+"vertex_count": 8
+}
+
+[sub_resource type="ConvexPolygonShape" id=1269]
+points = PoolVector3Array( -0.75, 0.25, -0.75, -0.75, -0.25, -0.75, 0.75, -0.25, -0.75, 0.75, 0.25, -0.75, -0.75, 0.25, 0.75, -0.75, -0.25, 0.75, 0.75, -0.25, 0.75, 0.75, 0.25, 0.75 )
+
+[sub_resource type="ArrayMesh" id=1270]
+surfaces/0 = {
+"aabb": AABB( -0.75, -0.25, -0.75, 1.5, 0.50001, 1.5 ),
+"array_data": PoolByteArray( 0, 0, 64, 191, 0, 0, 128, 62, 0, 0, 64, 191, 127, 127, 129, 63, 143, 200, 24, 184, 0, 0, 64, 191, 0, 0, 128, 190, 0, 0, 64, 191, 127, 127, 129, 63, 143, 200, 174, 183, 0, 0, 64, 63, 0, 0, 128, 190, 0, 0, 64, 191, 127, 127, 129, 63, 155, 200, 174, 183, 0, 0, 64, 63, 0, 0, 128, 62, 0, 0, 64, 191, 127, 127, 129, 63, 155, 200, 24, 184, 0, 0, 64, 191, 0, 0, 128, 62, 0, 0, 64, 191, 129, 0, 0, 63, 116, 76, 24, 184, 0, 0, 64, 191, 0, 0, 128, 62, 0, 0, 64, 63, 129, 0, 0, 63, 122, 76, 24, 184, 0, 0, 64, 191, 0, 0, 128, 190, 0, 0, 64, 63, 129, 0, 0, 63, 122, 76, 174, 183, 0, 0, 64, 191, 0, 0, 128, 190, 0, 0, 64, 191, 129, 0, 0, 63, 116, 76, 174, 183, 0, 0, 64, 63, 0, 0, 128, 62, 0, 0, 64, 191, 127, 0, 127, 127, 116, 204, 24, 184, 0, 0, 64, 63, 0, 0, 128, 190, 0, 0, 64, 191, 127, 0, 127, 127, 116, 204, 174, 183, 0, 0, 64, 63, 0, 0, 128, 190, 0, 0, 64, 63, 127, 0, 127, 127, 122, 204, 174, 183, 0, 0, 64, 63, 0, 0, 128, 62, 0, 0, 64, 63, 127, 0, 127, 127, 122, 204, 24, 184, 0, 0, 64, 191, 0, 0, 128, 62, 0, 0, 64, 63, 0, 0, 127, 63, 143, 72, 24, 184, 0, 0, 64, 63, 0, 0, 128, 62, 0, 0, 64, 63, 0, 0, 127, 63, 155, 72, 24, 184, 0, 0, 64, 63, 0, 0, 128, 190, 0, 0, 64, 63, 0, 0, 127, 63, 155, 72, 174, 183, 0, 0, 64, 191, 0, 0, 128, 190, 0, 0, 64, 63, 0, 0, 127, 63, 143, 72, 174, 183 ),
+"array_index_data": PoolByteArray( 0, 0, 1, 0, 2, 0, 0, 0, 2, 0, 3, 0, 4, 0, 5, 0, 6, 0, 4, 0, 6, 0, 7, 0, 8, 0, 9, 0, 10, 0, 8, 0, 10, 0, 11, 0, 12, 0, 13, 0, 14, 0, 12, 0, 14, 0, 15, 0 ),
+"blend_shape_data": [  ],
+"format": 2194711,
+"index_count": 24,
+"material": ExtResource( 22 ),
+"primitive": 4,
+"skeleton_aabb": [  ],
+"vertex_count": 16
+}
+surfaces/1 = {
+"aabb": AABB( -0.75, -0.25, -0.75, 1.50001, 0.5, 1.5 ),
+"array_data": PoolByteArray( 0, 0, 64, 63, 0, 0, 128, 190, 0, 0, 64, 191, 0, 129, 127, 127, 116, 204, 155, 200, 0, 0, 64, 191, 0, 0, 128, 190, 0, 0, 64, 191, 0, 129, 127, 127, 116, 204, 143, 200, 0, 0, 64, 191, 0, 0, 128, 190, 0, 0, 64, 63, 0, 129, 127, 127, 122, 204, 143, 200, 0, 0, 64, 63, 0, 0, 128, 190, 0, 0, 64, 63, 0, 129, 127, 127, 122, 204, 155, 200, 0, 0, 64, 63, 0, 0, 128, 62, 0, 0, 64, 191, 0, 127, 0, 63, 116, 76, 155, 200, 0, 0, 64, 63, 0, 0, 128, 62, 0, 0, 64, 63, 0, 127, 0, 63, 122, 76, 155, 200, 0, 0, 64, 191, 0, 0, 128, 62, 0, 0, 64, 63, 0, 127, 0, 63, 122, 76, 143, 200, 0, 0, 64, 191, 0, 0, 128, 62, 0, 0, 64, 191, 0, 127, 0, 63, 116, 76, 143, 200 ),
+"array_index_data": PoolByteArray( 0, 0, 1, 0, 2, 0, 0, 0, 2, 0, 3, 0, 4, 0, 5, 0, 6, 0, 4, 0, 6, 0, 7, 0 ),
+"blend_shape_data": [  ],
+"format": 2194711,
+"index_count": 12,
+"material": ExtResource( 47 ),
+"primitive": 4,
+"skeleton_aabb": [  ],
+"vertex_count": 8
+}
+
+[sub_resource type="ConvexPolygonShape" id=1271]
+points = PoolVector3Array( -0.75, 0.25, -0.75, -0.75, -0.25, -0.75, 0.75, -0.25, -0.75, 0.75, 0.25, -0.75, -0.75, 0.25, 0.75, -0.75, -0.25, 0.75, 0.75, -0.25, 0.75, 0.75, 0.25, 0.75 )
+
+[sub_resource type="ArrayMesh" id=1272]
+surfaces/0 = {
+"aabb": AABB( -0.75, -0.25, -0.75, 1.5, 0.50001, 1.5 ),
+"array_data": PoolByteArray( 0, 0, 64, 191, 0, 0, 128, 62, 0, 0, 64, 191, 127, 127, 129, 63, 184, 200, 36, 186, 0, 0, 64, 191, 0, 0, 128, 190, 0, 0, 64, 191, 127, 127, 129, 63, 184, 200, 227, 185, 0, 0, 64, 63, 0, 0, 128, 190, 0, 0, 64, 191, 127, 127, 129, 63, 196, 200, 227, 185, 0, 0, 64, 63, 0, 0, 128, 62, 0, 0, 64, 191, 127, 127, 129, 63, 196, 200, 36, 186, 0, 0, 64, 191, 0, 0, 128, 62, 0, 0, 64, 191, 129, 0, 0, 63, 116, 76, 36, 186, 0, 0, 64, 191, 0, 0, 128, 62, 0, 0, 64, 63, 129, 0, 0, 63, 122, 76, 36, 186, 0, 0, 64, 191, 0, 0, 128, 190, 0, 0, 64, 63, 129, 0, 0, 63, 122, 76, 227, 185, 0, 0, 64, 191, 0, 0, 128, 190, 0, 0, 64, 191, 129, 0, 0, 63, 116, 76, 227, 185, 0, 0, 64, 63, 0, 0, 128, 62, 0, 0, 64, 191, 127, 0, 127, 127, 116, 204, 36, 186, 0, 0, 64, 63, 0, 0, 128, 190, 0, 0, 64, 191, 127, 0, 127, 127, 116, 204, 227, 185, 0, 0, 64, 63, 0, 0, 128, 190, 0, 0, 64, 63, 127, 0, 127, 127, 122, 204, 227, 185, 0, 0, 64, 63, 0, 0, 128, 62, 0, 0, 64, 63, 127, 0, 127, 127, 122, 204, 36, 186, 0, 0, 64, 191, 0, 0, 128, 62, 0, 0, 64, 63, 0, 0, 127, 63, 184, 72, 36, 186, 0, 0, 64, 63, 0, 0, 128, 62, 0, 0, 64, 63, 0, 0, 127, 63, 196, 72, 36, 186, 0, 0, 64, 63, 0, 0, 128, 190, 0, 0, 64, 63, 0, 0, 127, 63, 196, 72, 227, 185, 0, 0, 64, 191, 0, 0, 128, 190, 0, 0, 64, 63, 0, 0, 127, 63, 184, 72, 227, 185 ),
+"array_index_data": PoolByteArray( 0, 0, 1, 0, 2, 0, 0, 0, 2, 0, 3, 0, 4, 0, 5, 0, 6, 0, 4, 0, 6, 0, 7, 0, 8, 0, 9, 0, 10, 0, 8, 0, 10, 0, 11, 0, 12, 0, 13, 0, 14, 0, 12, 0, 14, 0, 15, 0 ),
+"blend_shape_data": [  ],
+"format": 2194711,
+"index_count": 24,
+"material": ExtResource( 22 ),
+"primitive": 4,
+"skeleton_aabb": [  ],
+"vertex_count": 16
+}
+surfaces/1 = {
+"aabb": AABB( -0.75, -0.25, -0.75, 1.50001, 0.5, 1.5 ),
+"array_data": PoolByteArray( 0, 0, 64, 63, 0, 0, 128, 190, 0, 0, 64, 191, 0, 129, 127, 127, 116, 204, 196, 200, 0, 0, 64, 191, 0, 0, 128, 190, 0, 0, 64, 191, 0, 129, 127, 127, 116, 204, 184, 200, 0, 0, 64, 191, 0, 0, 128, 190, 0, 0, 64, 63, 0, 129, 127, 127, 122, 204, 184, 200, 0, 0, 64, 63, 0, 0, 128, 190, 0, 0, 64, 63, 0, 129, 127, 127, 122, 204, 196, 200, 0, 0, 64, 63, 0, 0, 128, 62, 0, 0, 64, 191, 0, 127, 0, 63, 116, 76, 196, 200, 0, 0, 64, 63, 0, 0, 128, 62, 0, 0, 64, 63, 0, 127, 0, 63, 122, 76, 196, 200, 0, 0, 64, 191, 0, 0, 128, 62, 0, 0, 64, 63, 0, 127, 0, 63, 122, 76, 184, 200, 0, 0, 64, 191, 0, 0, 128, 62, 0, 0, 64, 191, 0, 127, 0, 63, 116, 76, 184, 200 ),
+"array_index_data": PoolByteArray( 0, 0, 1, 0, 2, 0, 0, 0, 2, 0, 3, 0, 4, 0, 5, 0, 6, 0, 4, 0, 6, 0, 7, 0 ),
+"blend_shape_data": [  ],
+"format": 2194711,
+"index_count": 12,
+"material": ExtResource( 47 ),
+"primitive": 4,
+"skeleton_aabb": [  ],
+"vertex_count": 8
+}
+
+[sub_resource type="ConvexPolygonShape" id=1273]
+points = PoolVector3Array( -0.75, 0.25, -0.75, -0.75, -0.25, -0.75, 0.75, -0.25, -0.75, 0.75, 0.25, -0.75, -0.75, 0.25, 0.75, -0.75, -0.25, 0.75, 0.75, -0.25, 0.75, 0.75, 0.25, 0.75 )
+
+[sub_resource type="Gradient" id=1274]
+resource_local_to_scene = true
+offsets = PoolRealArray( 0, 0.33, 0.66, 1 )
+colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=1275]
+resource_local_to_scene = true
+gradient = SubResource( 1274 )
+
+[sub_resource type="ParticlesMaterial" id=1276]
+resource_local_to_scene = true
+emission_shape = 2
+emission_box_extents = Vector3( 1, 1, 1 )
+direction = Vector3( -1, 0, 0 )
+spread = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 5.0
+initial_velocity_random = 1.0
+scale_random = 0.75
+color_ramp = SubResource( 1275 )
+
+[sub_resource type="Gradient" id=1277]
+resource_local_to_scene = true
+offsets = PoolRealArray( 0, 0.33, 0.66, 1 )
+colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=1278]
+resource_local_to_scene = true
+gradient = SubResource( 1277 )
+
+[sub_resource type="ParticlesMaterial" id=1279]
+resource_local_to_scene = true
+emission_shape = 2
+emission_box_extents = Vector3( 1, 1, 1 )
+direction = Vector3( -1, 0, 0 )
+spread = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 5.0
+initial_velocity_random = 1.0
+scale_random = 0.75
+color_ramp = SubResource( 1278 )
+
+[sub_resource type="Gradient" id=1280]
+resource_local_to_scene = true
+offsets = PoolRealArray( 0, 0.33, 0.66, 1 )
+colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=1281]
+resource_local_to_scene = true
+gradient = SubResource( 1280 )
+
+[sub_resource type="ParticlesMaterial" id=1282]
+resource_local_to_scene = true
+emission_shape = 2
+emission_box_extents = Vector3( 1, 1, 1 )
+direction = Vector3( -1, 0, 0 )
+spread = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 5.0
+initial_velocity_random = 1.0
+scale_random = 0.75
+color_ramp = SubResource( 1281 )
+
+[sub_resource type="Gradient" id=1283]
+resource_local_to_scene = true
+offsets = PoolRealArray( 0, 0.33, 0.66, 1 )
+colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=1284]
+resource_local_to_scene = true
+gradient = SubResource( 1283 )
+
+[sub_resource type="ParticlesMaterial" id=1285]
+resource_local_to_scene = true
+emission_shape = 2
+emission_box_extents = Vector3( 1, 1, 1 )
+direction = Vector3( -1, 0, 0 )
+spread = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 5.0
+initial_velocity_random = 1.0
+scale_random = 0.75
+color_ramp = SubResource( 1284 )
+
 [node name="Scene4" type="Spatial"]
 script = ExtResource( 9 )
 PATHS = {
@@ -7367,6 +7749,252 @@ properties = {
 "mangle": Vector3( -90, 0, 0 ),
 "origin": "5278 -306 1210",
 "size": Vector3( 3.125, 7, 3.125 )
+}
+
+[node name="entity_217_Particles_Particles_Arrows" parent="QodotMap" instance=ExtResource( 46 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, -1.5, -190.5 )
+process_material = SubResource( 1240 )
+properties = {
+"classname": "Particles_Particles_Arrows",
+"gradient_path": "res://Game/Scenes/Tutorial/Tutorial3/arrows_gradient.tres",
+"mangle": Vector3( 0, 45, 0 ),
+"origin": "-3048 -24 -24",
+"size": Vector3( 4, 1, 1 ),
+"velocity": 1.0
+}
+
+[node name="entity_218_Particles_Particles_Arrows" parent="QodotMap" instance=ExtResource( 46 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 32.5, -3.5, -195.5 )
+process_material = SubResource( 1243 )
+properties = {
+"classname": "Particles_Particles_Arrows",
+"gradient_path": "res://Game/Scenes/Tutorial/Tutorial3/arrows_gradient.tres",
+"mangle": Vector3( 0, -90, -45 ),
+"origin": "-3128 520 -56",
+"size": Vector3( 4, 1, 1 ),
+"velocity": 1.0
+}
+
+[node name="entity_219_Particles_Particles_Arrows" parent="QodotMap" instance=ExtResource( 46 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -39.5, 17.5, -135.5 )
+process_material = SubResource( 1246 )
+properties = {
+"classname": "Particles_Particles_Arrows",
+"gradient_path": "res://Game/Scenes/Tutorial/Tutorial3/arrows_gradient.tres",
+"mangle": Vector3( 0, 45, 20 ),
+"origin": "-2168 -632 280",
+"size": Vector3( 4, 1, 1 ),
+"velocity": 1.0
+}
+
+[node name="entity_220_Particles_Particles_Arrows" parent="QodotMap" instance=ExtResource( 46 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.5, 6.5, -132.5 )
+process_material = SubResource( 1249 )
+properties = {
+"classname": "Particles_Particles_Arrows",
+"gradient_path": "res://Game/Scenes/Tutorial/Tutorial3/arrows_gradient.tres",
+"mangle": Vector3( 0, -220, -30 ),
+"origin": "-2120 -184 104",
+"size": Vector3( 4, 1, 1 ),
+"velocity": 1.0
+}
+
+[node name="entity_221_Particles_Particles_Arrows" parent="QodotMap" instance=ExtResource( 46 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 13.5, -143.5 )
+process_material = SubResource( 1252 )
+properties = {
+"classname": "Particles_Particles_Arrows",
+"gradient_path": "res://Game/Scenes/Tutorial/Tutorial3/arrows_gradient.tres",
+"mangle": Vector3( 0, -135, 200 ),
+"origin": "-2296 -40 216",
+"size": Vector3( 4, 1, 1 ),
+"velocity": 1.0
+}
+
+[node name="entity_222_Particles_Particles_Arrows" parent="QodotMap" instance=ExtResource( 46 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 18.5, -131.5 )
+process_material = SubResource( 1255 )
+properties = {
+"classname": "Particles_Particles_Arrows",
+"gradient_path": "res://Game/Scenes/Tutorial/Tutorial3/arrows_gradient.tres",
+"mangle": Vector3( 0, -240, -10 ),
+"origin": "-2104 72 296",
+"size": Vector3( 4, 1, 1 ),
+"velocity": 1.0
+}
+
+[node name="entity_223_Particles_Particles_Arrows" parent="QodotMap" instance=ExtResource( 46 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, -13.5, 156.5 )
+process_material = SubResource( 1258 )
+properties = {
+"classname": "Particles_Particles_Arrows",
+"gradient_path": "res://Game/Scenes/Tutorial/Tutorial3/arrows_gradient.tres",
+"mangle": Vector3( 0, 0, -45 ),
+"origin": "2504 -56 -216",
+"size": Vector3( 4, 1, 1 ),
+"velocity": 1.0
+}
+
+[node name="entity_224_Particles_Particles_Arrows" parent="QodotMap" instance=ExtResource( 46 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.31694, -9.5, 183.817 )
+process_material = SubResource( 1261 )
+properties = {
+"classname": "Particles_Particles_Arrows",
+"gradient_path": "res://Game/Scenes/Tutorial/Tutorial3/arrows_gradient.tres",
+"mangle": Vector3( 0, -30, -20 ),
+"origin": "2941.07 -133.071 -152",
+"size": Vector3( 16, 1, 1 ),
+"velocity": 1.0
+}
+
+[node name="entity_225_Particles_Particles_Arrows" parent="QodotMap" instance=ExtResource( 46 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 6.5, 234.5 )
+process_material = SubResource( 1264 )
+properties = {
+"classname": "Particles_Particles_Arrows",
+"gradient_path": "res://Game/Scenes/Tutorial/Tutorial3/arrows_gradient.tres",
+"mangle": Vector3( 0, 90, 0 ),
+"origin": "3752 -72 104",
+"size": Vector3( 12, 1, 1 ),
+"velocity": 1.0
+}
+
+[node name="entity_226_Particles_Particles_Arrows" parent="QodotMap" instance=ExtResource( 46 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 143.5, 1.5, 268.5 )
+process_material = SubResource( 1267 )
+properties = {
+"classname": "Particles_Particles_Arrows",
+"gradient_path": "res://Game/Scenes/Tutorial/Tutorial3/arrows_gradient.tres",
+"mangle": Vector3( 0, 0, -45 ),
+"origin": "4296 2296 24",
+"size": Vector3( 8, 1, 1 ),
+"velocity": 1.0
+}
+
+[node name="entity_227_StaticBodyGroup" type="StaticBody" parent="QodotMap"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 148.25, 3.75, 279.25 )
+script = ExtResource( 4 )
+properties = {
+"classname": "StaticBodyGroup"
+}
+
+[node name="entity_227_mesh_instance" type="MeshInstance" parent="QodotMap/entity_227_StaticBodyGroup"]
+mesh = SubResource( 1268 )
+
+[node name="entity_227_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_227_StaticBodyGroup"]
+shape = SubResource( 1269 )
+
+[node name="entity_228_StaticBodyGroup" type="StaticBody" parent="QodotMap"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 143.25, 7.75, 279.25 )
+script = ExtResource( 4 )
+properties = {
+"classname": "StaticBodyGroup"
+}
+
+[node name="entity_228_mesh_instance" type="MeshInstance" parent="QodotMap/entity_228_StaticBodyGroup"]
+mesh = SubResource( 1270 )
+
+[node name="entity_228_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_228_StaticBodyGroup"]
+shape = SubResource( 1271 )
+
+[node name="entity_229_StaticBodyGroup" type="StaticBody" parent="QodotMap"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 148.25, 11.75, 279.25 )
+script = ExtResource( 4 )
+properties = {
+"classname": "StaticBodyGroup"
+}
+
+[node name="entity_229_mesh_instance" type="MeshInstance" parent="QodotMap/entity_229_StaticBodyGroup"]
+mesh = SubResource( 1272 )
+
+[node name="entity_229_brush_0_collision_shape" type="CollisionShape" parent="QodotMap/entity_229_StaticBodyGroup"]
+shape = SubResource( 1273 )
+
+[node name="entity_230_Particles_Particles_Arrows" parent="QodotMap" instance=ExtResource( 46 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 102.5, 15.5, 322 )
+process_material = SubResource( 1276 )
+properties = {
+"classname": "Particles_Particles_Arrows",
+"gradient_path": "res://Game/Scenes/Tutorial/Tutorial3/arrows_gradient.tres",
+"mangle": Vector3( 0, -90, -30 ),
+"origin": "5152 1640 248",
+"size": Vector3( 8, 1, 1 ),
+"velocity": 1.0
+}
+
+[node name="entity_231_Particles_Particles_Arrows" parent="QodotMap" instance=ExtResource( 46 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 61, 28.5, 323 )
+process_material = SubResource( 1279 )
+properties = {
+"classname": "Particles_Particles_Arrows",
+"gradient_path": "res://Game/Scenes/Tutorial/Tutorial3/arrows_gradient.tres",
+"mangle": Vector3( 0, -90, -30 ),
+"origin": "5168 976 456",
+"size": Vector3( 8, 1, 1 ),
+"velocity": 1.0
+}
+
+[node name="entity_232_Particles_Particles_Arrows" parent="QodotMap" instance=ExtResource( 46 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 32.5, 335.5 )
+process_material = SubResource( 1282 )
+properties = {
+"classname": "Particles_Particles_Arrows",
+"gradient_path": "res://Game/Scenes/Tutorial/Tutorial3/arrows_gradient.tres",
+"mangle": Vector3( 0, 90, 225 ),
+"origin": "5368 8 520",
+"size": Vector3( 8, 1, 1 ),
+"velocity": 1.0
+}
+
+[node name="entity_233_Particles_Particles_Arrows" parent="QodotMap" instance=ExtResource( 46 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5, 55, 335.5 )
+process_material = SubResource( 1285 )
+properties = {
+"classname": "Particles_Particles_Arrows",
+"gradient_path": "res://Game/Scenes/Tutorial/Tutorial3/arrows_gradient.tres",
+"mangle": Vector3( 0, 90, 270 ),
+"origin": "5368 -280 880",
+"size": Vector3( 8, 1, 1 ),
+"velocity": 1.0
+}
+
+[node name="entity_234_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 28 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 148.375, 5.875, 278.875 )
+properties = {
+"classname": "Lights_OmniLight",
+"color": Color( 0.0588235, 0.890196, 0.380392, 1 ),
+"energy": 1.0,
+"origin": "4462 2374 94",
+"range": 18.75,
+"shadow_enabled": "0",
+"shadow_mode": 1,
+"specular": 0.5
+}
+
+[node name="entity_235_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 28 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 143.375, 9.375, 278.875 )
+properties = {
+"classname": "Lights_OmniLight",
+"color": Color( 0.0588235, 0.890196, 0.380392, 1 ),
+"energy": 1.0,
+"origin": "4462 2294 150",
+"range": 18.75,
+"shadow_enabled": "0",
+"shadow_mode": 1,
+"specular": 0.5
+}
+
+[node name="entity_236_Lights_OmniLight" parent="QodotMap" instance=ExtResource( 28 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 148.375, 13.375, 278.875 )
+properties = {
+"classname": "Lights_OmniLight",
+"color": Color( 0.0588235, 0.890196, 0.380392, 1 ),
+"energy": 1.0,
+"origin": "4462 2374 214",
+"range": 18.75,
+"shadow_enabled": "0",
+"shadow_mode": 1,
+"specular": 0.5
 }
 
 [connection signal="timeout" from="AdditionalThings/Timers/KickTimer" to="." method="_on_KickTimer_timeout"]

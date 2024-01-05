@@ -6769,3 +6769,201 @@
 "size" "3.125 7 3.125"
 "mangle" "-90 0 0"
 }
+// entity 217
+{
+"classname" "Particles_Particles_Arrows"
+"origin" "-3048 -24 -24"
+"gradient_path" "res://Game/Scenes/Tutorial/Tutorial3/arrows_gradient.tres"
+"mangle" "0 45 0"
+"size" "4 1 1"
+"velocity" "1"
+}
+// entity 218
+{
+"classname" "Particles_Particles_Arrows"
+"origin" "-3128 520 -56"
+"gradient_path" "res://Game/Scenes/Tutorial/Tutorial3/arrows_gradient.tres"
+"mangle" "0 -90 -45"
+"size" "4 1 1"
+"velocity" "1"
+}
+// entity 219
+{
+"classname" "Particles_Particles_Arrows"
+"origin" "-2168 -632 280"
+"gradient_path" "res://Game/Scenes/Tutorial/Tutorial3/arrows_gradient.tres"
+"mangle" "0 45 20"
+"size" "4 1 1"
+"velocity" "1"
+}
+// entity 220
+{
+"classname" "Particles_Particles_Arrows"
+"origin" "-2120 -184 104"
+"gradient_path" "res://Game/Scenes/Tutorial/Tutorial3/arrows_gradient.tres"
+"mangle" "0 -220 -30"
+"size" "4 1 1"
+"velocity" "1"
+}
+// entity 221
+{
+"classname" "Particles_Particles_Arrows"
+"origin" "-2296 -40 216"
+"gradient_path" "res://Game/Scenes/Tutorial/Tutorial3/arrows_gradient.tres"
+"mangle" "0 -135 200"
+"size" "4 1 1"
+"velocity" "1"
+}
+// entity 222
+{
+"classname" "Particles_Particles_Arrows"
+"origin" "-2104 72 296"
+"gradient_path" "res://Game/Scenes/Tutorial/Tutorial3/arrows_gradient.tres"
+"mangle" "0 -240 -10"
+"size" "4 1 1"
+"velocity" "1"
+}
+// entity 223
+{
+"classname" "Particles_Particles_Arrows"
+"origin" "2504 -56 -216"
+"gradient_path" "res://Game/Scenes/Tutorial/Tutorial3/arrows_gradient.tres"
+"mangle" "0 0 -45"
+"size" "4 1 1"
+"velocity" "1"
+}
+// entity 224
+{
+"classname" "Particles_Particles_Arrows"
+"origin" "2941.07 -133.071 -152"
+"gradient_path" "res://Game/Scenes/Tutorial/Tutorial3/arrows_gradient.tres"
+"mangle" "0 -30 -20"
+"size" "16 1 1"
+"velocity" "1"
+}
+// entity 225
+{
+"classname" "Particles_Particles_Arrows"
+"origin" "3752 -72 104"
+"gradient_path" "res://Game/Scenes/Tutorial/Tutorial3/arrows_gradient.tres"
+"mangle" "0 90 0"
+"size" "12 1 1"
+"velocity" "1"
+}
+// entity 226
+{
+"classname" "Particles_Particles_Arrows"
+"origin" "4296 2296 24"
+"gradient_path" "res://Game/Scenes/Tutorial/Tutorial3/arrows_gradient.tres"
+"mangle" "0 0 -45"
+"size" "8 1 1"
+"velocity" "1"
+}
+// entity 227
+{
+"classname" "StaticBodyGroup"
+// brush 0
+{
+( 4456 2368 48 ) ( 4456 2369 48 ) ( 4456 2368 49 ) common/common_textures/base_wall [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 4464 2360 48 ) ( 4464 2360 49 ) ( 4465 2360 48 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 4464 2368 56 ) ( 4465 2368 56 ) ( 4464 2369 56 ) scenes/tutorial3_scene/pattern_floor [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 4480 2384 64 ) ( 4480 2385 64 ) ( 4481 2384 64 ) scenes/tutorial3_scene/pattern_floor [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 4480 2384 64 ) ( 4481 2384 64 ) ( 4480 2384 65 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 4480 2384 64 ) ( 4480 2384 65 ) ( 4480 2385 64 ) common/common_textures/base_wall [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+}
+// entity 228
+{
+"classname" "StaticBodyGroup"
+// brush 0
+{
+( 4456 2296 112 ) ( 4456 2297 112 ) ( 4456 2296 113 ) common/common_textures/base_wall [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 4464 2280 112 ) ( 4464 2280 113 ) ( 4465 2280 112 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 4464 2296 120 ) ( 4465 2296 120 ) ( 4464 2297 120 ) scenes/tutorial3_scene/pattern_floor [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 4480 2312 128 ) ( 4480 2313 128 ) ( 4481 2312 128 ) scenes/tutorial3_scene/pattern_floor [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 4480 2304 128 ) ( 4481 2304 128 ) ( 4480 2304 129 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 4480 2312 128 ) ( 4480 2312 129 ) ( 4480 2313 128 ) common/common_textures/base_wall [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+}
+// entity 229
+{
+"classname" "StaticBodyGroup"
+// brush 0
+{
+( 4456 2368 176 ) ( 4456 2369 176 ) ( 4456 2368 177 ) common/common_textures/base_wall [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 4464 2360 176 ) ( 4464 2360 177 ) ( 4465 2360 176 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 4464 2368 184 ) ( 4465 2368 184 ) ( 4464 2369 184 ) scenes/tutorial3_scene/pattern_floor [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 4480 2384 192 ) ( 4480 2385 192 ) ( 4481 2384 192 ) scenes/tutorial3_scene/pattern_floor [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 4480 2384 192 ) ( 4481 2384 192 ) ( 4480 2384 193 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 4480 2384 192 ) ( 4480 2384 193 ) ( 4480 2385 192 ) common/common_textures/base_wall [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+}
+// entity 230
+{
+"classname" "Particles_Particles_Arrows"
+"origin" "5152 1640 248"
+"gradient_path" "res://Game/Scenes/Tutorial/Tutorial3/arrows_gradient.tres"
+"mangle" "0 -90 -30"
+"size" "8 1 1"
+"velocity" "1"
+}
+// entity 231
+{
+"classname" "Particles_Particles_Arrows"
+"origin" "5168 976 456"
+"gradient_path" "res://Game/Scenes/Tutorial/Tutorial3/arrows_gradient.tres"
+"mangle" "0 -90 -30"
+"size" "8 1 1"
+"velocity" "1"
+}
+// entity 232
+{
+"classname" "Particles_Particles_Arrows"
+"origin" "5368 8 520"
+"gradient_path" "res://Game/Scenes/Tutorial/Tutorial3/arrows_gradient.tres"
+"mangle" "0 90 225"
+"size" "8 1 1"
+"velocity" "1"
+}
+// entity 233
+{
+"classname" "Particles_Particles_Arrows"
+"origin" "5368 -280 880"
+"gradient_path" "res://Game/Scenes/Tutorial/Tutorial3/arrows_gradient.tres"
+"mangle" "0 90 270"
+"size" "8 1 1"
+"velocity" "1"
+}
+// entity 234
+{
+"classname" "Lights_OmniLight"
+"origin" "4462 2374 94"
+"color" "15 227 97"
+"energy" "1"
+"range" "18.75"
+"shadow_mode" "1"
+"shadow_enabled" "0"
+"specular" "0.5"
+}
+// entity 235
+{
+"classname" "Lights_OmniLight"
+"origin" "4462 2294 150"
+"color" "15 227 97"
+"energy" "1"
+"range" "18.75"
+"shadow_mode" "1"
+"shadow_enabled" "0"
+"specular" "0.5"
+}
+// entity 236
+{
+"classname" "Lights_OmniLight"
+"origin" "4462 2374 214"
+"color" "15 227 97"
+"energy" "1"
+"range" "18.75"
+"shadow_mode" "1"
+"shadow_enabled" "0"
+"specular" "0.5"
+}
