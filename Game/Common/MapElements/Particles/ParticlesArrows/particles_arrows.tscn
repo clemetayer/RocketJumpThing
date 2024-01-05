@@ -21,8 +21,7 @@ spread = 0.0
 gravity = Vector3( 0, 0, 0 )
 initial_velocity = 5.0
 initial_velocity_random = 1.0
-scale = 0.25
-scale_random = 0.33
+scale_random = 0.75
 color_ramp = SubResource( 2 )
 
 [sub_resource type="SpatialMaterial" id=4]
@@ -37,7 +36,7 @@ albedo_texture = ExtResource( 1 )
 material = SubResource( 4 )
 
 [node name="ParticlesArrows" type="Particles"]
-amount = 10
+amount = 4
 visibility_aabb = AABB( -6.64541, -1.98862, -1.9501, 8.60445, 3.96378, 3.88785 )
 process_material = SubResource( 3 )
 draw_pass_1 = SubResource( 5 )

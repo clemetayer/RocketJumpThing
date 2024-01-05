@@ -7273,3 +7273,165 @@
 ( 2880 172 1784 ) ( 2880 588 1784 ) ( 2880 588 1768 ) scenes/tutorial2_scene/platform_material_2 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
+// entity 271
+{
+"classname" "Particles_Particles_Arrows"
+"origin" "-7460 -56 24"
+"gradient_path" "res://Game/Scenes/Tutorial/Tutorial2/arrows_gradient.tres"
+"mangle" "0 90 180"
+"size" "4 1 1"
+"velocity" "1"
+}
+// entity 272
+{
+"classname" "Particles_Particles_Arrows"
+"origin" "-7148 1088 176"
+"gradient_path" "res://Game/Scenes/Tutorial/Tutorial2/arrows_gradient.tres"
+"mangle" "0 180 200"
+"size" "10 1 1"
+"velocity" "1"
+}
+// entity 273
+{
+"classname" "Particles_Particles_Arrows"
+"origin" "-7276 224 48"
+"gradient_path" "res://Game/Scenes/Tutorial/Tutorial2/arrows_gradient.tres"
+"mangle" "0 90 -15"
+"size" "4 1 1"
+"velocity" "1"
+}
+// entity 274
+{
+"classname" "Particles_Particles_Arrows"
+"origin" "-7452 -552 40"
+"gradient_path" "res://Game/Scenes/Tutorial/Tutorial2/arrows_gradient.tres"
+"mangle" "0 0 0"
+"size" "2 1 1"
+"velocity" "1"
+}
+// entity 275
+{
+"classname" "Particles_Particles_Arrows"
+"origin" "-6956 168 240"
+"gradient_path" "res://Game/Scenes/Tutorial/Tutorial2/arrows_gradient.tres"
+"mangle" "0 -90 0"
+"size" "4 1 1"
+"velocity" "1"
+}
+// entity 276
+{
+"classname" "Particles_Particles_Arrows"
+"origin" "-5780 -528 64"
+"gradient_path" "res://Game/Scenes/Tutorial/Tutorial2/arrows_gradient.tres"
+"mangle" "0 90 15"
+"size" "4 1 1"
+"velocity" "1"
+}
+// entity 277
+{
+"classname" "Particles_Particles_Arrows"
+"origin" "-6116 -792 160"
+"gradient_path" "res://Game/Scenes/Tutorial/Tutorial2/arrows_gradient.tres"
+"mangle" "0 45 15"
+"size" "4 1 1"
+"velocity" "1"
+}
+// entity 278
+{
+"classname" "Particles_Particles_Arrows"
+"origin" "-468 552 32"
+"gradient_path" "res://Game/Scenes/Tutorial/Tutorial2/arrows_gradient.tres"
+"mangle" "0 150 195"
+"size" "8 1 1"
+"velocity" "1"
+}
+// entity 279
+{
+"classname" "Particles_Particles_Arrows"
+"origin" "3132 1544 56"
+"gradient_path" "res://Game/Scenes/Tutorial/Tutorial2/arrows_gradient.tres"
+"mangle" "0 150 195"
+"size" "8 1 1"
+"velocity" "1"
+}
+// entity 280
+{
+"classname" "Particles_Particles_Arrows"
+"origin" "3996 1632 168"
+"gradient_path" "res://Game/Scenes/Tutorial/Tutorial2/arrows_gradient.tres"
+"mangle" "0 45 -20"
+"size" "4 1 1"
+"velocity" "1"
+}
+// entity 281
+{
+"classname" "Particles_Particles_Arrows"
+"origin" "1492 1280 120"
+"gradient_path" "res://Game/Scenes/Tutorial/Tutorial2/arrows_gradient.tres"
+"mangle" "0 0 0"
+"size" "8 1 1"
+"velocity" "1"
+}
+// entity 282
+{
+"classname" "Particles_Particles_Arrows"
+"origin" "5164 2640 376"
+"gradient_path" "res://Game/Scenes/Tutorial/Tutorial2/arrows_gradient.tres"
+"mangle" "0 135 180"
+"size" "8 1 1"
+"velocity" "1"
+}
+// entity 283
+{
+"classname" "Particles_Particles_Arrows"
+"origin" "4396 -608 568"
+"gradient_path" "res://Game/Scenes/Tutorial/Tutorial2/arrows_gradient.tres"
+"mangle" "180 30 160"
+"size" "6 1 1"
+"velocity" "1"
+}
+// entity 284
+{
+"classname" "Particles_Particles_Arrows"
+"origin" "5132 0 488"
+"gradient_path" "res://Game/Scenes/Tutorial/Tutorial2/arrows_gradient.tres"
+"mangle" "0 -75 -20"
+"size" "4 1 1"
+"velocity" "1"
+}
+// entity 285
+{
+"classname" "Particles_Particles_Arrows"
+"origin" "5388 544 424"
+"gradient_path" "res://Game/Scenes/Tutorial/Tutorial2/arrows_gradient.tres"
+"mangle" "0 45 200"
+"size" "4 1 1"
+"velocity" "1"
+}
+// entity 286
+{
+"classname" "Particles_Particles_Arrows"
+"origin" "3100 -1072 696"
+"gradient_path" "res://Game/Scenes/Tutorial/Tutorial2/arrows_gradient.tres"
+"mangle" "0 0 180"
+"size" "8 1 1"
+"velocity" "1"
+}
+// entity 287
+{
+"classname" "Particles_Particles_Arrows"
+"origin" "1292 -2256 1016"
+"gradient_path" "res://Game/Scenes/Tutorial/Tutorial2/arrows_gradient.tres"
+"mangle" "0 0 215"
+"size" "8 1 1"
+"velocity" "1"
+}
+// entity 288
+{
+"classname" "Particles_Particles_Arrows"
+"origin" "2636 640 1816"
+"gradient_path" "res://Game/Scenes/Tutorial/Tutorial2/arrows_gradient.tres"
+"mangle" "0 -180 180"
+"size" "8 1 1"
+"velocity" "1"
+}
