@@ -17412,7 +17412,7 @@ properties = {
 "collision_mask": 5,
 "mangle": Vector3( 0, 180, 0 ),
 "origin": "5256 8 -1144",
-"scale": 3.0,
+"scale": 12.0,
 "target": "portal_2_exit",
 "targetname": "portal_2_entrance"
 }
@@ -20337,14 +20337,14 @@ properties = {
 shape = SubResource( 4329 )
 
 [node name="entity_406_Portals_Portal" parent="QodotMap" instance=ExtResource( 10 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 173.25, -83.5, 277.5 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 177.25, -83.5, 277.5 )
 properties = {
 "classname": "Portals_Portal",
 "collision_layer": 2,
 "collision_mask": 5,
 "mangle": Vector3( 0, -90, 0 ),
-"origin": "4440 2772 -1336",
-"scale": 2.0,
+"origin": "4440 2836 -1336",
+"scale": 7.0,
 "target": "portal_3_exit",
 "targetname": "portal_3_entrance"
 }

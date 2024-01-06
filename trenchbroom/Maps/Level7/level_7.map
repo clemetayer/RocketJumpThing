@@ -2043,7 +2043,7 @@
 "collision_layer" "2"
 "collision_mask" "5"
 "mangle" "0 180 0"
-"scale" "3"
+"scale" "12"
 "target" "portal_2_exit"
 "targetname" "portal_2_entrance"
 }
@@ -6037,11 +6037,11 @@
 // entity 406
 {
 "classname" "Portals_Portal"
-"origin" "4440 2772 -1336"
+"origin" "4440 2836 -1336"
 "collision_layer" "2"
 "collision_mask" "5"
 "mangle" "0 -90 0"
-"scale" "2"
+"scale" "7"
 "target" "portal_3_exit"
 "targetname" "portal_3_entrance"
 }
