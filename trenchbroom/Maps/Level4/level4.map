@@ -7274,3 +7274,156 @@
 ( -1122 -3392 2416 ) ( -1122 -3392 2417 ) ( -1122 -3391 2416 ) common/common_textures/base_floor_2 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
+// entity 360
+{
+"classname" "Particles_Particles_Arrows"
+"origin" "-56 -1000 568"
+"gradient_path" "res://Game/Scenes/Levels/Level4/arrows_gradient_.tres"
+"mangle" "0 0 0"
+"size" "4 1 1"
+"velocity" "1"
+}
+// entity 361
+{
+"classname" "Particles_Particles_Arrows"
+"origin" "1304 -904 568"
+"gradient_path" "res://Game/Scenes/Levels/Level4/arrows_gradient_.tres"
+"mangle" "0 90 -90"
+"size" "8 1 1"
+"velocity" "1"
+}
+// entity 362
+{
+"classname" "Particles_Particles_Arrows"
+"origin" "1448 -1224 1032"
+"gradient_path" "res://Game/Scenes/Levels/Level4/arrows_gradient_.tres"
+"mangle" "0 -90 0"
+"size" "16 1 1"
+"velocity" "1"
+}
+// entity 363
+{
+"classname" "Particles_Particles_Arrows"
+"origin" "1288 -1000 1032"
+"gradient_path" "res://Game/Scenes/Levels/Level4/arrows_gradient_.tres"
+"mangle" "0 0 0"
+"size" "2 1 1"
+"velocity" "1"
+}
+// entity 364
+{
+"classname" "Particles_Particles_Arrows"
+"origin" "1624 -2248 1000"
+"gradient_path" "res://Game/Scenes/Levels/Level4/arrows_gradient_.tres"
+"mangle" "0 90 225"
+"size" "4 1 1"
+"velocity" "1"
+}
+// entity 365
+{
+"classname" "Particles_Particles_Arrows"
+"origin" "1592 -2584 1192"
+"gradient_path" "res://Game/Scenes/Levels/Level4/arrows_gradient_.tres"
+"mangle" "0 0 225"
+"size" "4 1 1"
+"velocity" "1"
+}
+// entity 366
+{
+"classname" "Particles_Particles_Arrows"
+"origin" "1256 -2552 1384"
+"gradient_path" "res://Game/Scenes/Levels/Level4/arrows_gradient_.tres"
+"mangle" "0 -90 225"
+"size" "4 1 1"
+"velocity" "1"
+}
+// entity 367
+{
+"classname" "Particles_Particles_Arrows"
+"origin" "1272 -2296 1576"
+"gradient_path" "res://Game/Scenes/Levels/Level4/arrows_gradient_.tres"
+"mangle" "0 -90 225"
+"size" "4 1 1"
+"velocity" "1"
+}
+// entity 368
+{
+"classname" "Particles_Particles_Arrows"
+"origin" "1304 -1864 1816"
+"gradient_path" "res://Game/Scenes/Levels/Level4/arrows_gradient_.tres"
+"mangle" "0 -180 0"
+"size" "8 1 1"
+"velocity" "1"
+}
+// entity 369
+{
+"classname" "Particles_Particles_Arrows"
+"origin" "24 -1800 1464"
+"gradient_path" "res://Game/Scenes/Levels/Level4/arrows_gradient_.tres"
+"mangle" "0 -180 0"
+"size" "16 1 1"
+"velocity" "1"
+}
+// entity 370
+{
+"classname" "Particles_Particles_Arrows"
+"origin" "-1032 -3912 1880"
+"gradient_path" "res://Game/Scenes/Levels/Level4/arrows_gradient_.tres"
+"mangle" "0 0 0"
+"size" "8 1 1"
+"velocity" "1"
+}
+// entity 371
+{
+"classname" "Particles_Particles_Arrows"
+"origin" "248 -3788 1792"
+"gradient_path" "res://Game/Scenes/Levels/Level4/arrows_gradient_.tres"
+"mangle" "0 90 90"
+"size" "2 1 1"
+"velocity" "1"
+}
+// entity 372
+{
+"classname" "Particles_Particles_Arrows"
+"origin" "456 -3692 2184"
+"gradient_path" "res://Game/Scenes/Levels/Level4/arrows_gradient_.tres"
+"mangle" "0 -180 -30"
+"size" "8 1 1"
+"velocity" "1"
+}
+// entity 373
+{
+"classname" "Particles_Particles_Arrows"
+"origin" "-184 -3668 2168"
+"gradient_path" "res://Game/Scenes/Levels/Level4/arrows_gradient_.tres"
+"mangle" "0 -180 0"
+"size" "8 1 1"
+"velocity" "1"
+}
+// entity 374
+{
+"classname" "Particles_Particles_Arrows"
+"origin" "-1064 -3180 2144"
+"gradient_path" "res://Game/Scenes/Levels/Level4/arrows_gradient_.tres"
+"mangle" "0 90 -20"
+"size" "8 1 1"
+"velocity" "1"
+}
+// entity 375
+{
+"classname" "Particles_Particles_Arrows"
+"origin" "-1224 -2788 2232"
+"gradient_path" "res://Game/Scenes/Levels/Level4/arrows_gradient_.tres"
+"mangle" "0 -90 -30"
+"size" "8 1 1"
+"velocity" "1"
+}
+// entity 376
+{
+"classname" "Particles_Particles_Arrows"
+"origin" "-1096 -3300 2400"
+"gradient_path" "res://Game/Scenes/Levels/Level4/arrows_gradient_.tres"
+"mangle" "0 90 -30"
+"size" "8 1 1"
+"velocity" "1"
+}
