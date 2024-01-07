@@ -318,7 +318,7 @@ msgid "TUTORIAL_BHOP"
 msgstr "Garder ##movement_jump## appuyé pour accélerer."
 
 msgid "TUTORIAL_STRAFE"
-msgstr "pour accélerer encore plus :\n##movement_wa## + ##mouse_strafe_left##\nou\n##movement_wd## + ##mouse_strafe_right##."
+msgstr "pour accélerer encore plus :\n##movement_jump## + ##movement_wa## + ##mouse_strafe_left##\nou\n##movement_jump## + ##movement_wd## + ##mouse_strafe_right##."
 
 msgid "TUTORIAL_AIR_CONTROL"
 msgstr "##movement_w## + ##mouse_strafe_left_right## en l'air pour controler sa direction."
