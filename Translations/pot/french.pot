@@ -291,6 +291,15 @@ msgstr "Affichera seulement les tutoriels spécifiques au jeu lui-même\n(ne va 
 msgid "SETTINGS_GAMEPLAY_TUTORIAL_LEVEL_NONE_TOOLTIP"
 msgstr "Ne va afficher aucun tutoriel.\nOption recommandée si vous connaissez déjà le jeu\nou si vous souhaitez découvrir comment jouer par vous même."
 
+msgid "SETTINGS_GAMEPLAY_DIFFICULTY"
+msgstr "Difficulté"
+
+msgid "SETTINGS_GAMEPLAY_ADDITIONAL_JUMPS"
+msgstr "Nombre de sauts aériens : "
+
+msgid "SETTINGS_GAMEPLAY_ADDITIONAL_JUMPS_TOOLTIP"
+msgstr "Nombre de sauts en l'air autorisés. Le jeu a été conçu sans sauts additionnels, mais en ajouter peut rendre le jeu plus simple."
+
 #================================ COMMON =================================
 #---------------------------------- UI -----------------------------------
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ PLAYER ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

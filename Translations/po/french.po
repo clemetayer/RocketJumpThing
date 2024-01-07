@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: c.lemetayer@laposte.net\n"
 "POT-Creation-Date: 2021-12-19\n"
-"PO-Revision-Date: 2024-01-07 11:03+0100\n"
+"PO-Revision-Date: 2024-01-07 11:39+0100\n"
 "Last-Translator: Corentin Le Métayer <c.lemetayer@laposte.net>\n"
 "Language: fr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -304,6 +304,17 @@ msgstr ""
 "Ne va afficher aucun tutoriel.\n"
 "Option recommandée si vous connaissez déjà le jeu\n"
 "ou si vous souhaitez découvrir comment jouer par vous même."
+
+msgid "SETTINGS_GAMEPLAY_DIFFICULTY"
+msgstr "Difficulté"
+
+msgid "SETTINGS_GAMEPLAY_ADDITIONAL_JUMPS"
+msgstr "Nombre de sauts aériens : "
+
+msgid "SETTINGS_GAMEPLAY_ADDITIONAL_JUMPS_TOOLTIP"
+msgstr ""
+"Nombre de sauts en l'air autorisés. Le jeu a été conçu sans sauts "
+"additionnels, mais en ajouter peut rendre le jeu plus simple."
 
 # ================================ COMMON =================================
 # ---------------------------------- UI -----------------------------------

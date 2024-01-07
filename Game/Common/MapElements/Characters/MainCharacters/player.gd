@@ -96,6 +96,7 @@ var _last_wall_ride_tilt_direction := 0 # Used to avoid cancelling the head tilt
 var _can_jump_on_fall := false # To allow jumping for a short period of time after exiting a platform
 var _wall_ride_strategy : WallRideStrategy # Strategy to use for the wall ride
 var _velocity_lock := false # boolean to tell if we just interacted with a boost pad
+var _air_jumps_left := 0 # how many jumps left to air jump
 
 #==== ONREADY ====
 onready var onready_paths := {
@@ -145,6 +146,7 @@ func _ready():
 	onready_paths.timers.update_speed.start()
 	onready_paths.camera.fov = SettingsUtils.settings_data.gameplay.fov
 	_choose_wall_ride_strategy()
+	_air_jumps_left = SettingsUtils.settings_data.gameplay.additionnal_jumps
 
 
 func _process(_delta):
@@ -371,6 +373,7 @@ func _process_movement(delta):
 		_set_wall_ride_camera_tilt(0,0)
 		_reset_wallride_raycasts()
 		if is_on_floor():
+			_air_jumps_left = SettingsUtils.settings_data.gameplay.additionnal_jumps
 			_ground_movement(delta)
 		else:
 			_air_movement(delta)
@@ -583,8 +586,9 @@ func _air_movement(delta: float) -> void:
 	else:  # accelerate and strafe
 		_accelerate(wish_dir, AIR_TARGET_SPEED, AIR_ACCELERATION, delta)
 	vel.y += GRAVITY * delta
-	# allows for a jump shortly after exiting a platform
-	if Input.is_action_pressed(GlobalConstants.INPUT_MVT_JUMP) and _can_jump_on_fall:
+	# allows for a jump shortly after exiting a platform or there is at least one air jump left 
+	if Input.is_action_just_pressed(GlobalConstants.INPUT_MVT_JUMP) and (_can_jump_on_fall or _air_jumps_left > 0):
+		_air_jumps_left -= 1
 		vel.y = 0
 		_ground_jump()
 		_can_jump_on_fall = false

@@ -74,6 +74,8 @@ const GAMEPLAY_KEY_FOV := "fov"
 const GAMEPLAY_KEY_SPACE_WALL_RIDE := "space_to_wall_ride"
 const GAMEPLAY_SECTION_TUTORIAL := "tutorial"
 const GAMEPLAY_KEY_LEVEL := "level"
+const GAMEPLAY_SECTION_DIFFICULTY := "difficulty"
+const GAMEPLAY_KEY_ADDITIONNAL_JUMPS := "additional_jumps"
 
 #---- STANDARD -----
 #==== PUBLIC ====
@@ -93,7 +95,12 @@ var settings_data := {
 		"crosshair_color": Color.white,
 		"crosshair_size": 1
 	},
-	"gameplay": {"fov": 90, "space_to_wall_ride": false, "tutorial_level": TUTORIAL_LEVEL.all}
+	"gameplay": {
+		"fov": 90, 
+		"space_to_wall_ride": false, 
+		"tutorial_level": TUTORIAL_LEVEL.all,
+		"additionnal_jumps": 0
+	}
 }  # Misc data for parameters that can't be set directly
 
 
@@ -578,8 +585,12 @@ func load_cfg_gameplay_file(cfg: ConfigFile) -> void:
 			SettingsUtils.settings_data.gameplay.tutorial_level = cfg.get_value(
 				GAMEPLAY_SECTION_TUTORIAL, GAMEPLAY_KEY_LEVEL
 			)
+		if _check_has_value(cfg, GAMEPLAY_SECTION_DIFFICULTY, GAMEPLAY_KEY_ADDITIONNAL_JUMPS):
+			SettingsUtils.settings_data.gameplay.additionnal_jumps = cfg.get_value(
+				GAMEPLAY_SECTION_DIFFICULTY, GAMEPLAY_KEY_ADDITIONNAL_JUMPS
+			)
 	else:
-		DebugUtils.log_stacktrace("No cfg video config", DebugUtils.LOG_LEVEL.warn)
+		DebugUtils.log_stacktrace("No cfg gameplay config", DebugUtils.LOG_LEVEL.warn)
 
 
 func generate_cfg_gameplay_file() -> ConfigFile:
@@ -596,6 +607,11 @@ func generate_cfg_gameplay_file() -> ConfigFile:
 		GAMEPLAY_SECTION_TUTORIAL,
 		GAMEPLAY_KEY_LEVEL,
 		SettingsUtils.settings_data.gameplay.tutorial_level
+	)
+	cfg_file.set_value(
+		GAMEPLAY_SECTION_DIFFICULTY,
+		GAMEPLAY_KEY_ADDITIONNAL_JUMPS,
+		SettingsUtils.settings_data.gameplay.additionnal_jumps
 	)
 	return cfg_file
 

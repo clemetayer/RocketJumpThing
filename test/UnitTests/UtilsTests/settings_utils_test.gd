@@ -391,11 +391,13 @@ func testload_cfg_gameplay_file() -> void:
 	cfg.set_value(SettingsUtils.GAMEPLAY_SECTION_GAMEPLAY, SettingsUtils.GAMEPLAY_KEY_FOV, 91.2)
 	cfg.set_value(SettingsUtils.GAMEPLAY_SECTION_GAMEPLAY, SettingsUtils.GAMEPLAY_KEY_SPACE_WALL_RIDE, true)
 	cfg.set_value(SettingsUtils.GAMEPLAY_SECTION_TUTORIAL, SettingsUtils.GAMEPLAY_KEY_LEVEL, 2)
+	cfg.set_value(SettingsUtils.GAMEPLAY_SECTION_DIFFICULTY, SettingsUtils.GAMEPLAY_KEY_ADDITIONNAL_JUMPS, 4)
 	# test
 	SettingsUtils.load_cfg_gameplay_file(cfg)
 	assert_float(SettingsUtils.settings_data.gameplay.fov).is_equal_approx(91.2, FLOAT_APPROX)
 	assert_bool(SettingsUtils.settings_data.gameplay.space_to_wall_ride).is_true()
 	assert_int(SettingsUtils.settings_data.gameplay.tutorial_level).is_equal(2)
+	assert_int(SettingsUtils.settings_data.gameplay.additionnal_jumps).is_equal(4)
 
 
 func testgenerate_cfg_gameplay_file() -> void:
@@ -403,9 +405,10 @@ func testgenerate_cfg_gameplay_file() -> void:
 	SettingsUtils.settings_data.gameplay.fov = 89.5
 	SettingsUtils.settings_data.gameplay.space_to_wall_ride = false
 	SettingsUtils.settings_data.gameplay.tutorial_level = 0
+	SettingsUtils.settings_data.gameplay.additionnal_jumps = 5
 	# test
 	var cfg := SettingsUtils.generate_cfg_gameplay_file()
 	assert_float(cfg.get_value(SettingsUtils.GAMEPLAY_SECTION_GAMEPLAY, SettingsUtils.GAMEPLAY_KEY_FOV)).is_equal_approx(89.5, FLOAT_APPROX)
 	assert_bool(cfg.get_value(SettingsUtils.GAMEPLAY_SECTION_GAMEPLAY, SettingsUtils.GAMEPLAY_KEY_SPACE_WALL_RIDE)).is_false()
 	assert_int(cfg.get_value(SettingsUtils.GAMEPLAY_SECTION_TUTORIAL, SettingsUtils.GAMEPLAY_KEY_LEVEL)).is_equal(0)
-	
+	assert_int(cfg.get_value(SettingsUtils.GAMEPLAY_SECTION_DIFFICULTY, SettingsUtils.GAMEPLAY_KEY_ADDITIONNAL_JUMPS)).is_equal(5)

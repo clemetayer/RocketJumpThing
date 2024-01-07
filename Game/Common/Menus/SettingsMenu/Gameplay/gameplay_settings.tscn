@@ -106,3 +106,29 @@ text = "SETTINGS_GAMEPLAY_TUTORIAL_LEVEL_ALL"
 items = [ "SETTINGS_GAMEPLAY_TUTORIAL_LEVEL_ALL", null, false, 0, null, "SETTINGS_GAMEPLAY_TUTORIAL_LEVEL_SOME", null, false, 1, null, "SETTINGS_GAMEPLAY_TUTORIAL_LEVEL_NONE", null, false, 2, null ]
 selected = 0
 script = ExtResource( 5 )
+
+[node name="Difficulty" parent="VBoxContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 167.0
+margin_right = 1024.0
+margin_bottom = 600.0
+CATEGORY_NAME = "SETTINGS_GAMEPLAY_DIFFICULTY"
+
+[node name="AdditionnalJumps" type="HBoxContainer" parent="VBoxContainer/Difficulty"]
+margin_top = 18.0
+margin_right = 1024.0
+margin_bottom = 42.0
+
+[node name="Label" type="Label" parent="VBoxContainer/Difficulty/AdditionnalJumps"]
+margin_top = 5.0
+margin_right = 270.0
+margin_bottom = 19.0
+text = "SETTINGS_GAMEPLAY_ADDITIONAL_JUMPS"
+
+[node name="SpinBox" type="SpinBox" parent="VBoxContainer/Difficulty/AdditionnalJumps"]
+margin_left = 274.0
+margin_right = 348.0
+margin_bottom = 24.0
+rounded = true
+allow_greater = true
