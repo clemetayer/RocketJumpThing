@@ -100,5 +100,7 @@ func _on_MenuNavigator_menu_activated(menu_id : int) -> void:
 			_change_cubes_color(MAIN_MENU_PARTICLES_COLOR,MAIN_MENU_GRADIENT)
 		MenuNavigator.MENU.settings:
 			_change_cubes_color(SETTINGS_MENU_PARTICLES_COLOR,SETTINGS_MENU_GRADIENT)
+		MenuNavigator.MENU.initial_settings:
+			_change_cubes_color(SETTINGS_MENU_PARTICLES_COLOR,SETTINGS_MENU_GRADIENT)
 		MenuNavigator.MENU.level_select:
 			_change_cubes_color(LEVEL_SELECT_MENU_PARTICLES_COLOR,LEVEL_SELECT_MENU_GRADIENT)

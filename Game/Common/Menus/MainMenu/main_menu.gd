@@ -19,7 +19,10 @@ onready var onready_paths := {
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	MenuNavigator.toggle_pause_enabled(false)
-	MenuNavigator.show_main_menu()
+	if SettingsUtils.first_start:
+		MenuNavigator.show_initial_settings_menu()
+	else:
+		MenuNavigator.show_main_menu()
 	_load_main_menu_song()
 	_connect_signals()
 	if onready_paths.background != null:

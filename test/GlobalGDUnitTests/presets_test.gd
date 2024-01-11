@@ -44,7 +44,7 @@ func test_connect_signals() -> void:
 	assert_bool(presets.onready_paths.folder_button.is_connected("pressed", presets, "_on_FolderButton_pressed")).is_true()
 	assert_bool(presets.onready_paths.refresh_button.is_connected("pressed", presets, "_on_RefreshButton_pressed")).is_true()
 	assert_bool(presets.onready_paths.options_menu.is_connected("item_selected", presets, "_on_preset_selected")).is_true()
-
+	assert_bool(SignalManager.is_connected(SignalManager.UPDATE_SETTINGS, presets, "_on_SignalManager_update_settings")).is_true()
 
 func test_init_list() -> void:
 	var cfg_list := ["test1.cfg", "test2.cfg"]

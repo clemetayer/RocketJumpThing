@@ -47,6 +47,8 @@ signal update_crosshair(path, color, scale)
 signal update_fov(value)
 #warning-ignore:UNUSED_SIGNAL
 signal update_wall_ride_strategy
+#warning-ignore:UNUSED_SIGNAL
+signal update_settings
 
 #==== MISC =====
 #warning-ignore:UNUSED_SIGNAL
@@ -81,6 +83,7 @@ const ADD_CFG_POPUP := "add_cfg_popup"
 const UPDATE_CROSSHAIR := "update_crosshair"
 const UPDATE_FOV := "update_fov"
 const UPDATE_WALL_RIDE_STRATEGY := "update_wall_ride_strategy"
+const UPDATE_SETTINGS := "update_settings"
 
 #==== MISC =====
 const ENTITY_DESTROYED := "entity_destroyed"
@@ -169,6 +172,8 @@ func emit_update_fov(value: float) -> void:
 func emit_update_wall_ride_strategy() -> void:
 	emit_signal(UPDATE_WALL_RIDE_STRATEGY)
 
+func emit_update_settings() -> void:
+	emit_signal(UPDATE_SETTINGS)
 
 #==== MISC =====
 func emit_entity_destroyed() -> void:

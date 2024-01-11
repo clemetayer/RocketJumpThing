@@ -148,6 +148,12 @@ msgstr "Veuillez confirmer..."
 msgid "MENU_SETTINGS_SAVE_CFG_POPUP_LABEL"
 msgstr "Voulez-vous écraser %s ?"
 
+msgid "SIMPLE_SETTINGS_MESSAGE_1"
+msgstr "Salut !"
+
+msgid "SIMPLE_SETTINGS_MESSAGE_2"
+msgstr "Avant de lancer le jeu, voici quelques paramètres simples.\n(il y en aura d'autres dans le menu d'options)"
+
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ PRESETS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 msgid "PRESET_CATEGORY"
 msgstr "Presets"
@@ -181,6 +187,9 @@ msgid "SETTINGS_GENERAL_LANGUAGE_TOOLTIP"
 msgstr "Langue du jeu"
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ CONTROLS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+msgid "SETTINGS_CONTROLS_KEYBOARD_PRESET"
+msgstr "Configuration clavier : "
+
 msgid "SETTINGS_CONTROLS_GENERAL_CATEGORY"
 msgstr "Géneral"
 

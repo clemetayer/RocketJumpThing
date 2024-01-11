@@ -2,7 +2,7 @@ extends MarginContainer
 # Video settings
 
 ##### ENUMS #####
-enum window_modes { FULL_SCREEN, WINDOWED }
+enum window_modes { WINDOWED, FULL_SCREEN }
 
 ##### VARIABLES #####
 #---- CONSTANTS -----
@@ -26,6 +26,7 @@ func _ready():
 	_init_tr()
 	_connect_signals()
 	_init_options()
+	_select_current_option()
 
 
 ##### PROTECTED METHODS #####
@@ -40,15 +41,20 @@ func _connect_signals() -> void:
 	DebugUtils.log_connect(
 		onready_paths.window_type.options, self, "item_selected", "_on_Options_item_selected"
 	)
+	DebugUtils.log_connect(
+		SignalManager, self, SignalManager.UPDATE_SETTINGS, "_on_SignalManager_update_settings"
+	)
 
 
 func _init_options() -> void:
 	onready_paths.window_type.options.add_item(
-		tr(TranslationKeys.SETTINGS_VIDEO_FULL_SCREEN), window_modes.FULL_SCREEN
-	)
-	onready_paths.window_type.options.add_item(
 		tr(TranslationKeys.SETTINGS_VIDEO_WINDOWED), window_modes.WINDOWED
 	)
+	onready_paths.window_type.options.add_item(
+		tr(TranslationKeys.SETTINGS_VIDEO_FULL_SCREEN), window_modes.FULL_SCREEN
+	)
+
+func _select_current_option() -> void:
 	onready_paths.window_type.options.select(
 		window_modes.FULL_SCREEN if OS.window_fullscreen else window_modes.WINDOWED
 	)
@@ -61,3 +67,6 @@ func _on_Options_item_selected(idx: int) -> void:
 			OS.set_window_fullscreen(true)
 		window_modes.WINDOWED:
 			OS.set_window_fullscreen(false)
+
+func _on_SignalManager_update_settings() -> void:
+	_select_current_option()

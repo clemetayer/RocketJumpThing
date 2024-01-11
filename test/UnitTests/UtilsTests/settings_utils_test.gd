@@ -10,7 +10,7 @@ const FLOAT_APPROX := 0.5  # an approximation for testing float values
 ##### TESTS #####
 #---- TESTS -----
 #==== ACTUAL TESTS =====
-# Actually useless/dangerous to test check_cfg_dir_init because it would require to delete existing preset directories
+# Actually useless/dangerous to test check_cfg_dir_init because it would require to delete existing preset directories. Same with _save_default_keyboard_layouts
 
 
 func test_load_inputs_cfg() -> void:

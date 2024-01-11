@@ -74,6 +74,7 @@ func _connect_signals() -> void:
 	DebugUtils.log_connect(
 		onready_paths.effects.unmute, self, "toggled", "_on_EffectsUnmute_toggled"
 	)
+	DebugUtils.log_connect(SignalManager, self, SignalManager.UPDATE_SETTINGS, "_on_SignalManager_update_settings")
 
 
 func _init_values() -> void:
@@ -183,3 +184,6 @@ func _on_EffectsSlider_value_changed(value: float) -> void:
 func _on_EffectsUnmute_toggled(toggled: bool) -> void:
 	AudioServer.set_bus_mute(AudioServer.get_bus_index(GlobalConstants.EFFECTS_BUS), not toggled)
 	onready_paths.effects.slider.editable = toggled
+
+func _on_SignalManager_update_settings() -> void:
+	_init_values()

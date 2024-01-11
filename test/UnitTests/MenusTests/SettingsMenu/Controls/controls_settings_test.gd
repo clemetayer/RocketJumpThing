@@ -54,6 +54,7 @@ func test_connect_signals() -> void:
 	controls._connect_signals()
 	assert_bool(controls.onready_paths.general.sensitivity.slider.is_connected("value_changed",controls,"_on_SensitivitySlider_value_changed")).is_true()
 	assert_bool(controls.onready_paths.general.sensitivity.line_edit.is_connected("text_changed", controls, "_on_SensitivityLineEdit_text_changed")).is_true()
+	assert_bool(SignalManager.is_connected(SignalManager.UPDATE_SETTINGS, controls, "_on_SignalManager_update_settings")).is_true()
 
 func test_add_key_settings_to_groups() -> void:
 	controls._add_key_settings_to_groups()

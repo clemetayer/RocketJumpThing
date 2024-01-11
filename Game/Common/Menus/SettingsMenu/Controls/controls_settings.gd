@@ -76,6 +76,7 @@ func _connect_signals() -> void:
 		onready_paths.general.sensitivity.slider, self, "value_changed", "_on_SensitivitySlider_value_changed"
 	)
 	DebugUtils.log_connect(onready_paths.general.sensitivity.line_edit, self, "text_changed", "_on_SensitivityLineEdit_text_changed")
+	DebugUtils.log_connect(SignalManager, self, SignalManager.UPDATE_SETTINGS, "_on_SignalManager_update_settings")
 
 func _add_key_settings_to_groups() -> void:
 	_free_categories()
@@ -114,3 +115,7 @@ func _on_SensitivityLineEdit_text_changed(new_text : String) -> void:
 		SettingsUtils.settings_data.controls.mouse_sensitivity = new_text.to_float() / 100.0
 		if(onready_paths.general.sensitivity.slider.value != new_text.to_float()):
 			onready_paths.general.sensitivity.slider.value = new_text.to_float()
+
+func _on_SignalManager_update_settings() -> void:
+	_set_default_values()
+	_add_key_settings_to_groups() 

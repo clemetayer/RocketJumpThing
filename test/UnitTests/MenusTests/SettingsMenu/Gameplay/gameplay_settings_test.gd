@@ -64,6 +64,7 @@ func test_connect_signals() -> void:
 	assert_bool(gameplay.onready_paths.space_to_wallride_check.is_connected("toggled",gameplay,"_on_SpaceToWallrideCheck_toggled")).is_true()
 	assert_bool(gameplay.onready_paths.tutorial.level.is_connected("item_selected",gameplay,"_on_TutorialLevel_item_selected")).is_true()
 	assert_bool(gameplay.onready_paths.difficulty.additionnal_jumps.is_connected("value_changed",gameplay,"_on_AdditionnalJumps_value_changed")).is_true()
+	assert_bool(SignalManager.is_connected(SignalManager.UPDATE_SETTINGS, gameplay, "_on_SignalManager_update_settings")).is_true()
 
 func test_on_FovSlider_value_changed() -> void:
 	var test_fov = 54.86

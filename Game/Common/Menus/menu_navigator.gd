@@ -6,7 +6,7 @@ extends CanvasLayer
 signal menu_activated(menu)
 
 ##### ENUMS #####
-enum MENU { hidden, main, pause, settings, level_select, end_level }
+enum MENU { hidden, main, pause, settings, level_select, end_level, initial_settings }
 
 ##### VARIABLES #####
 #---- CONSTANTS -----
@@ -34,7 +34,8 @@ onready var onready_paths := {
 	"level_select":$"LevelSelectMenu/LevelSelectMenu",
 	"end_level": $"EndLevelMenu/EndLevelMenu",
 	"transition_tween": $"ToggleMenuTransition",
-	"forbidden_menu": $"TheForbiddenMenu"
+	"forbidden_menu": $"TheForbiddenMenu",
+	"initial_settings": $"SimpleSettingsMenu/DefaultSettings"
 }
 
 
@@ -86,6 +87,11 @@ func show_pause_menu() -> void:
 	if _pause_enabled and _state == MENU.hidden:
 		ScenesManager.pause()
 		open_navigation(MENU.pause)
+
+# shows the initial settings menu
+func show_initial_settings_menu() -> void:
+	open_navigation(MENU.initial_settings)
+	_get_menu_by_id(MENU.initial_settings).play_intro_anim()
 
 # shows the main menu
 func show_main_menu() -> void:
@@ -166,6 +172,8 @@ func _get_menu_by_id(id : int) -> CanvasItem:
 			return onready_paths.level_select
 		MENU.end_level:
 			return onready_paths.end_level
+		MENU.initial_settings:
+			return onready_paths.initial_settings
 	DebugUtils.log_stacktrace("Unable to get the menu %d" % id,  DebugUtils.LOG_LEVEL.warn)
 	return onready_paths.forbidden_menu
 

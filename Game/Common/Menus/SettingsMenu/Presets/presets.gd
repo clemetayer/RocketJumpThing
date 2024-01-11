@@ -57,6 +57,7 @@ func _connect_signals() -> void:
 		onready_paths.refresh_button, self, "pressed", "_on_RefreshButton_pressed"
 	)
 	DebugUtils.log_connect(onready_paths.options_menu, self, "item_selected", "_on_preset_selected")
+	DebugUtils.log_connect(SignalManager, self, SignalManager.UPDATE_SETTINGS, "_on_SignalManager_update_settings")
 
 
 func _init_list() -> void:
@@ -118,3 +119,6 @@ func _on_RefreshButton_pressed() -> void:
 
 func _on_preset_selected(_idx: int) -> void:
 	_apply_preset(_get_config_path() + _get_cfg_name())
+
+func _on_SignalManager_update_settings() -> void:
+	_on_RefreshButton_pressed() 

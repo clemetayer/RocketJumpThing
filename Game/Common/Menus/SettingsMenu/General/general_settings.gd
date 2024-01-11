@@ -42,13 +42,22 @@ func _init_options() -> void:
 		if locales[locale_idx] == TranslationServer.get_locale():
 			onready_paths.language.options.select(locale_idx)
 
+func _select_current_locale() -> void:
+	var locales := TranslationServer.get_loaded_locales()
+	for locale_idx in range(locales.size()):
+		if locales[locale_idx] == TranslationServer.get_locale():
+			onready_paths.language.options.select(locale_idx)
 
 func _connect_signals() -> void:
 	DebugUtils.log_connect(
 		onready_paths.language.options, self, "item_selected", "_on_Options_item_selected"
 	)
+	DebugUtils.log_connect(SignalManager, self, SignalManager.UPDATE_SETTINGS, "_on_SignalManager_update_settings")
 
 
 ##### SIGNAL MANAGEMENT #####
 func _on_Options_item_selected(idx: int) -> void:
 	TranslationServer.set_locale(TranslationServer.get_loaded_locales()[idx])  # Refactor : maybe dangerous ?
+
+func _on_SignalManager_update_settings() -> void:
+	_select_current_locale()

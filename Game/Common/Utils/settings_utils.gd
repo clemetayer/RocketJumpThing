@@ -18,6 +18,7 @@ const ROOT_SECTION_AUDIO := "audio"
 const ROOT_SECTION_VIDEO := "video"
 const ROOT_KEY_PRESET := "preset"
 const FOLDER_SEPARATOR := "/"
+const DEFAULT_INPUTS_FOLDER := "res://Misc/DefaultSettings/"
 
 #==== GENERAL =====
 const GENERAL_PRESETS_PATH := ROOT_PRESETS_FOLDER + "general/"
@@ -103,10 +104,12 @@ var settings_data := {
 	}
 }  # Misc data for parameters that can't be set directly
 
+var first_start := false # true if the root config folder is absent (meaning that this is probablty the first launch of the game)
 
 ##### PROCESSING #####
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	check_cfg_dir_init()
 	load_current_settings()
 
 
@@ -116,10 +119,13 @@ func check_cfg_dir_init() -> void:
 	var dir := Directory.new()
 	if not dir.dir_exists(ROOT_PRESETS_FOLDER):
 		DebugUtils.log_create_directory(ROOT_PRESETS_FOLDER)
+		first_start = true
+		save_current_settings()
 	if not dir.dir_exists(GENERAL_PRESETS_PATH):
 		DebugUtils.log_create_directory(GENERAL_PRESETS_PATH)
 	if not dir.dir_exists(INPUT_PRESETS_PATH):
 		DebugUtils.log_create_directory(INPUT_PRESETS_PATH)
+		_save_default_keyboard_layouts()
 	if not dir.dir_exists(AUDIO_PRESETS_PATH):
 		DebugUtils.log_create_directory(AUDIO_PRESETS_PATH)
 	if not dir.dir_exists(VIDEO_PRESETS_PATH):
@@ -416,6 +422,18 @@ func _emit_crosshair_changed() -> void:
 		settings_data.controls.crosshair_size
 	)
 
+func _save_default_keyboard_layouts() -> void:
+	var dir = Directory.new()
+	if dir.open(DEFAULT_INPUTS_FOLDER) == OK:
+		dir.list_dir_begin()
+		var file_name = dir.get_next()
+		while file_name != "":
+			if not dir.current_is_dir(): 
+				dir.copy(DEFAULT_INPUTS_FOLDER + file_name, INPUT_PRESETS_PATH + file_name)
+			file_name = dir.get_next()
+	else:
+		DebugUtils.log_stacktrace("error trying to open the default inputs folder %s" % DEFAULT_INPUTS_FOLDER, DebugUtils.LOG_LEVEL.error)
+	
 
 #---- AUDIO -----
 func load_cfg_audio_file(cfg: ConfigFile) -> void:

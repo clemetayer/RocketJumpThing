@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Game/Common/Menus/MainMenu/main_menu_ui.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Game/Common/Menus/SettingsMenu/settings_menu.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Game/Common/Menus/LevelSelect/level_select.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Game/Common/Menus/menu_navigator.gd" type="Script" id=5]
 [ext_resource path="res://Game/Common/Menus/EndLevel/end_level_menu.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Game/Common/Menus/DefaultSettings/default_settings.tscn" type="PackedScene" id=7]
 
 [node name="MenuNavigator" type="CanvasLayer"]
 pause_mode = 2
@@ -43,6 +44,12 @@ visible = false
 layer = 52
 
 [node name="SettingsMenu" parent="SettingsMenu" instance=ExtResource( 2 )]
+visible = false
+
+[node name="SimpleSettingsMenu" type="CanvasLayer" parent="."]
+layer = 52
+
+[node name="DefaultSettings" parent="SimpleSettingsMenu" instance=ExtResource( 7 )]
 visible = false
 
 [node name="LevelSelectMenu" type="CanvasLayer" parent="."]

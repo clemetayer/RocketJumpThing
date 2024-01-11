@@ -69,6 +69,7 @@ func _connect_signals() -> void:
 	DebugUtils.log_connect(onready_paths.space_to_wallride_check, self, "toggled", "_on_SpaceToWallrideCheck_toggled")
 	DebugUtils.log_connect(onready_paths.tutorial.level, self, "item_selected", "_on_TutorialLevel_item_selected")
 	DebugUtils.log_connect(onready_paths.difficulty.additionnal_jumps, self, "value_changed", "_on_AdditionnalJumps_value_changed")
+	DebugUtils.log_connect(SignalManager,self,SignalManager.UPDATE_SETTINGS,"_on_SignalManager_update_settings")
 
 ##### SIGNAL MANAGEMENT #####
 func _on_FovSlider_value_changed(value : float) -> void:
@@ -90,3 +91,6 @@ func _on_TutorialLevel_item_selected(index : int) -> void:
 
 func _on_AdditionnalJumps_value_changed(value : float) -> void:
 	SettingsUtils.settings_data.gameplay.additionnal_jumps = int(value)
+
+func _on_SignalManager_update_settings() -> void:
+	_set_default_values()

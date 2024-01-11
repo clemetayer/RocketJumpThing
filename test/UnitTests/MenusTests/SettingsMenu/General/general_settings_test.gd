@@ -44,9 +44,14 @@ func test_init_option() -> void:
 	general._init_options()
 	assert_int(general.onready_paths.language.options.get_item_count()).is_equal(locales.size())
 
+func test_select_current_locale() -> void:
+	TranslationServer.set_locale("fr_FR")
+	general._select_current_locale()
+	assert_str(general.onready_paths.language.options.get_item_text(general.onready_paths.language.options.selected)).is_equal("French")
 
 func test_connect_signals() -> void:
 	general._connect_signals()
 	assert_bool(general.onready_paths.language.options.is_connected("item_selected", general, "_on_Options_item_selected")).is_true()
+	assert_bool(SignalManager.is_connected(SignalManager.UPDATE_SETTINGS, general, "_on_SignalManager_update_settings")).is_true()
 
 # Kind of weird to test _on_Options_item_selected because it is directly "linked" to the init_option
