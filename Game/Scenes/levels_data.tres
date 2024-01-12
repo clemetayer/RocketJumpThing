@@ -10,54 +10,61 @@ SCENE_PATH = "res://Game/Scenes/Tutorial/Tutorial1/tutorial_1.tscn"
 PREVIEW_PATH = "res://Game/Scenes/Tutorial/Tutorial1/tutorial_1_preview.png"
 UNLOCKED = true
 BEST_TIME = 0.0
+LAST_TIME = 0.0
 
 [sub_resource type="Resource" id=2]
 script = ExtResource( 2 )
 NAME = "Characters that ßreaks your game"
 SCENE_PATH = "res://Game/Scenes/Tutorial/Tutorial2/tutorial_2.tscn"
-PREVIEW_PATH = "res://Game/Scenes/Tutorial/Tutorial1/tutorial_1_preview.png"
+PREVIEW_PATH = "res://Game/Scenes/Tutorial/Tutorial2/tutorial_2_preview.png"
 UNLOCKED = false
 BEST_TIME = 0.0
+LAST_TIME = 0.0
 
 [sub_resource type="Resource" id=3]
 script = ExtResource( 2 )
 NAME = "git commit -m \"Fixed the level name\""
 SCENE_PATH = "res://Game/Scenes/Tutorial/Tutorial3/tutorial_3.tscn"
-PREVIEW_PATH = "res://Game/Scenes/Tutorial/Tutorial1/tutorial_1_preview.png"
+PREVIEW_PATH = "res://Game/Scenes/Tutorial/Tutorial3/tutorial_3_preview.png"
 UNLOCKED = false
 BEST_TIME = 0.0
+LAST_TIME = 0.0
 
 [sub_resource type="Resource" id=4]
 script = ExtResource( 2 )
 NAME = "_process()"
 SCENE_PATH = "res://Game/Scenes/Levels/Level4/level_4.tscn"
-PREVIEW_PATH = "res://Game/Scenes/Tutorial/Tutorial1/tutorial_1_preview.png"
+PREVIEW_PATH = "res://Game/Scenes/Levels/Level4/level_4_preview.png"
 UNLOCKED = false
 BEST_TIME = 0.0
+LAST_TIME = 0.0
 
 [sub_resource type="Resource" id=5]
 script = ExtResource( 2 )
 NAME = "Segmentation fault (core dumped)"
 SCENE_PATH = "res://Game/Scenes/Levels/Level5/level_5.tscn"
-PREVIEW_PATH = "res://Game/Scenes/Tutorial/Tutorial1/tutorial_1_preview.png"
+PREVIEW_PATH = "res://Game/Scenes/Levels/Level5/level_5_preview.png"
 UNLOCKED = false
 BEST_TIME = 0.0
+LAST_TIME = 0.0
 
 [sub_resource type="Resource" id=6]
 script = ExtResource( 2 )
 NAME = "Memory leaks"
 SCENE_PATH = "res://Game/Scenes/Levels/Level6/level_6.tscn"
-PREVIEW_PATH = "res://Game/Scenes/Tutorial/Tutorial1/tutorial_1_preview.png"
+PREVIEW_PATH = "res://Game/Scenes/Levels/Level6/level_6_preview.png"
 UNLOCKED = false
 BEST_TIME = 0.0
+LAST_TIME = 0.0
 
 [sub_resource type="Resource" id=7]
 script = ExtResource( 2 )
 NAME = "get_tree().free()"
 SCENE_PATH = "res://Game/Scenes/Levels/Level7/level_7.tscn"
-PREVIEW_PATH = "res://Game/Scenes/Tutorial/Tutorial1/tutorial_1_preview.png"
+PREVIEW_PATH = "res://Game/Scenes/Levels/Level7/level_7_preview.png"
 UNLOCKED = false
 BEST_TIME = 0.0
+LAST_TIME = 0.0
 
 [resource]
 script = ExtResource( 1 )
