@@ -73,7 +73,15 @@ background_sky = SubResource( 29 )
 background_color = Color( 0.247059, 0, 0, 1 )
 ss_reflections_enabled = true
 glow_enabled = true
-glow_intensity = 5.0
+glow_levels/2 = true
+glow_levels/4 = true
+glow_strength = 0.5
+glow_bloom = 0.1
+glow_blend_mode = 0
+adjustment_enabled = true
+adjustment_brightness = 1.1
+adjustment_contrast = 1.2
+adjustment_saturation = 1.1
 
 [sub_resource type="Animation" id=2203]
 resource_name = "game_over"

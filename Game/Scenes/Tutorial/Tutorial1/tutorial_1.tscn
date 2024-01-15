@@ -91,14 +91,17 @@ dof_blur_far_distance = 377.49
 dof_blur_far_transition = 785.91
 dof_blur_far_amount = 0.68
 glow_enabled = true
+glow_levels/2 = true
 glow_levels/4 = true
 glow_levels/6 = true
 glow_intensity = 1.0
-glow_strength = 0.67
-glow_bloom = 0.25
+glow_strength = 0.55
+glow_bloom = 0.3
 glow_blend_mode = 0
 adjustment_enabled = true
-adjustment_contrast = 1.1
+adjustment_brightness = 1.1
+adjustment_contrast = 1.25
+adjustment_saturation = 1.2
 
 [sub_resource type="GIProbeData" id=525]
 bounds = AABB( -1500, -500, -3500, 3000, 1000, 7000 )

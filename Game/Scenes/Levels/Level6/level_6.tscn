@@ -74,8 +74,9 @@ glow_intensity = 1.0
 glow_strength = 0.5
 glow_bloom = 0.5
 glow_blend_mode = 0
+adjustment_enabled = true
 adjustment_brightness = 0.9
-adjustment_contrast = 1.25
+adjustment_contrast = 1.2
 adjustment_saturation = 1.1
 
 [sub_resource type="SpatialMaterial" id=1]
