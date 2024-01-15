@@ -25,6 +25,16 @@ func after():
 
 #---- TESTS -----
 #==== ACTUAL TESTS =====
+func test_ready_activate_tutorial() -> void:
+	SettingsUtils.settings_data.gameplay.tutorial_level = SettingsUtils.TUTORIAL_LEVEL.all
+	tutorial_interactible._ready_activate_tutorial()
+	assert_bool(tutorial_interactible.visible).is_false()
+	assert_bool(tutorial_interactible.onready_path.collision_shape.disabled).is_true()
+	SettingsUtils.settings_data.gameplay.tutorial_level = SettingsUtils.TUTORIAL_LEVEL.some
+	tutorial_interactible._ready_activate_tutorial()
+	assert_bool(tutorial_interactible.visible).is_true()
+	assert_bool(tutorial_interactible.onready_path.collision_shape.disabled).is_false()
+
 func test_toggle_active() -> void:
 	tutorial_interactible._toggle_active(true)
 	assert_bool(tutorial_interactible.visible).is_true()
@@ -37,6 +47,7 @@ func test_connect_signals() -> void:
 	tutorial_interactible._connect_signals()
 	assert_bool(tutorial_interactible.is_connected("body_entered",tutorial_interactible,"_on_area_tutorial_trigger_body_entered")).is_true()
 	assert_bool(SignalManager.is_connected(SignalManager.TRIGGER_TUTORIAL,tutorial_interactible,"_on_SignalManager_trigger_tutorial")).is_true()
+	assert_bool(SignalManager.is_connected(SignalManager.UPDATE_SETTINGS,tutorial_interactible,"_on_SignalManager_update_settings")).is_true()
 
 func test_on_SignalManager_trigger_tutorial() -> void:
 	tutorial_interactible._key = "test"
@@ -44,6 +55,11 @@ func test_on_SignalManager_trigger_tutorial() -> void:
 	tutorial_interactible._on_SignalManager_trigger_tutorial("not test",1.0)
 	assert_bool(tutorial_interactible.visible).is_false()
 	assert_bool(tutorial_interactible.onready_path.collision_shape.disabled).is_true()
+	SettingsUtils.settings_data.gameplay.tutorial_level = SettingsUtils.TUTORIAL_LEVEL.none
+	tutorial_interactible._on_SignalManager_trigger_tutorial("test",1.0)
+	assert_bool(tutorial_interactible.visible).is_false()
+	assert_bool(tutorial_interactible.onready_path.collision_shape.disabled).is_true()
+	SettingsUtils.settings_data.gameplay.tutorial_level = SettingsUtils.TUTORIAL_LEVEL.all
 	tutorial_interactible._on_SignalManager_trigger_tutorial("test",1.0)
 	assert_bool(tutorial_interactible.visible).is_true()
 	assert_bool(tutorial_interactible.onready_path.collision_shape.disabled).is_false()

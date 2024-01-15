@@ -37,7 +37,7 @@ func _enable_collisions(enabled: bool) -> void:
 
 ##### SIGNAL MANAGEMENT #####
 func _on_area_tutorial_trigger_body_entered(body):
-	if FunctionUtils.is_player(body):
+	if FunctionUtils.is_player(body) and SettingsUtils.settings_data.gameplay.tutorial_level == SettingsUtils.TUTORIAL_LEVEL.all:
 		SignalManager.emit_trigger_tutorial(_key, _time)
 		_enable_collisions(false)
 

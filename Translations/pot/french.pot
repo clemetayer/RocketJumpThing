@@ -292,10 +292,10 @@ msgid "SETTINGS_GAMEPLAY_TUTORIAL_LEVEL_TOOLTIP"
 msgstr "Quantité d'affichage des tutoriels."
 
 msgid "SETTINGS_GAMEPLAY_TUTORIAL_LEVEL_ALL_TOOLTIP"
-msgstr "Affichera tous les tutoriels, même les plus basiques.\nOption recommandée si vous n'êtes pas familier avec les jeux-vidéo."
+msgstr "Affichera tous les tutoriels au moment où vous en aurez besoin.\nOption recommandée si vous n'êtes pas familier avec les jeux-vidéo."
 
 msgid "SETTINGS_GAMEPLAY_TUTORIAL_LEVEL_SOME_TOOLTIP"
-msgstr "Affichera seulement les tutoriels spécifiques au jeu lui-même\n(ne va donc pas indiquer comment bouger, sauter, etc.).\nOption recommandée si vous êtes familier avec les jeux-vidéo."
+msgstr "Les tutoriels seront disponibles sous forme de bulles optionnelles.\nOption recommandée si vous êtes familier avec les jeux-vidéo."
 
 msgid "SETTINGS_GAMEPLAY_TUTORIAL_LEVEL_NONE_TOOLTIP"
 msgstr "Ne va afficher aucun tutoriel.\nOption recommandée si vous connaissez déjà le jeu\nou si vous souhaitez découvrir comment jouer par vous même."

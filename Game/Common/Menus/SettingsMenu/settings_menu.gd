@@ -44,3 +44,4 @@ func _init_tab_names() -> void:
 func _on_Return_pressed() -> void:
 	SettingsUtils.save_current_settings()
 	emit_signal("return_to_prev_menu")
+	SignalManager.emit_update_settings()
