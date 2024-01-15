@@ -13,7 +13,6 @@ export(Dictionary) var properties
 
 #---- STANDARD -----
 #==== PUBLIC ====
-var song_animation: String  # keeps the song animation name, to change the current song animation when respawning
 
 #==== PRIVATE ====
 var _spawn_position: Vector3
@@ -78,8 +77,3 @@ func _on_Checkpoint_body_entered(body: Node):
 	if FunctionUtils.is_player(body):
 		SignalManager.emit_checkpoint_triggered(self)
 		_play_entered_sound()
-		if (
-			(song_animation == null or song_animation == "")
-			and StandardSongManager.get_current() != null
-		):
-			song_animation = StandardSongManager.get_current().ANIMATION

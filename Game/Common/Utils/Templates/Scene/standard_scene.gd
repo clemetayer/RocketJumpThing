@@ -141,10 +141,6 @@ func _respawn_player_on_last_cp() -> void:
 			player.checkpoint_process(_last_cp.get_spawn_point(), _last_cp.get_spawn_rotation())
 			if FunctionUtils.is_start_point(_last_cp):  # if restart at the beginning of the level, restart the chronometer
 				SignalManager.emit_start_level_chronometer()
-				if null != PATHS.bgm.path and PATHS.bgm.path != "":
-					_change_song_anim(PATHS.bgm.animation)
-			elif null != PATHS.bgm.path and PATHS.bgm.path != "":
-				_change_song_anim(_last_cp.song_animation)
 			SignalManager.emit_player_respawned_on_last_cp()
 		else:
 			DebugUtils.log_stacktrace("Player is null", DebugUtils.LOG_LEVEL.error)

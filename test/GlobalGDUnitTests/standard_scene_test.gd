@@ -98,11 +98,9 @@ func test_restart() -> void:
 
 # tests the respawn on last cp (not start)
 func test_respawn_player_on_last_cp() -> void:
-	StandardSongManager._queue = []
 	var last_cp_test = Checkpoint.new()
 	last_cp_test._spawn_position = Vector3.ONE
 	last_cp_test._mangle = Vector3(45, 90, 0)
-	last_cp_test.song_animation = "test"
 	var player = scene_instance._player
 	player._ready()
 	scene_instance._last_cp = last_cp_test
@@ -114,13 +112,7 @@ func test_respawn_player_on_last_cp() -> void:
 		last_cp_test.get_spawn_rotation().x
 	)
 	assert_vector3(player.vel).is_equal(Vector3.ZERO)
-	if _has_song():
-		assert_array(StandardSongManager._queue).is_not_empty()
 	last_cp_test.free()
-	var song = StandardSongManager._queue.pop_back()
-	if _has_song():
-		song.song.queue_free()
-		song.effect.queue_free()
 
 
 func _has_song() -> bool:

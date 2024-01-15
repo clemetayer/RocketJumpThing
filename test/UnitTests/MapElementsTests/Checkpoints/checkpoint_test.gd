@@ -32,14 +32,9 @@ func test_connect_signals() -> void:
 
 
 func test_on_Checkpoint_body_entered() -> void:
-	var song = SongAnimationPlayer.new()
 	var player = load(GlobalTestUtilities.player_path).instance()
 	player.add_to_group("player")
-	song.ANIMATION = "test"
-	StandardSongManager._current_song = song
 	checkpoint._on_Checkpoint_body_entered(player)
 	assert_signal(SignalManager).is_emitted(SignalManager.CHECKPOINT_TRIGGERED, [checkpoint])
-	assert_str(checkpoint.song_animation).is_equal("test")
 	assert_bool(checkpoint._entered_sound.is_playing()).is_true()
 	player.free()
-	song.free()
