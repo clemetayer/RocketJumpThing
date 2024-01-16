@@ -1,0 +1,490 @@
+# English translation by clemetayer
+# MIT LICENCE
+# Corentin Le Métayer <c.lemetayer@laposte.net>, 2021.
+# Don't remove the two lines below, they're required for gettext to work correctly.
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: c.lemetayer@laposte.net\n"
+"POT-Creation-Date: 2021-12-19\n"
+"PO-Revision-Date: 2024-01-16 22:07+0100\n"
+"Last-Translator: Corentin Le Métayer <c.lemetayer@laposte.net>\n"
+"Language: en\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: PACKAGE VERSION\n"
+"Language-Team: English\n"
+"MIME-Version: 1.0\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+# ================================= MISC ==================================
+# -------------------------------- ACTIONS --------------------------------
+msgid "MOVEMENT_FORWARD"
+msgstr "Forward"
+
+msgid "MOVEMENT_BACKWARD"
+msgstr "Backward"
+
+msgid "MOVEMENT_LEFT"
+msgstr "Left"
+
+msgid "MOVEMENT_RIGHT"
+msgstr "Right"
+
+msgid "MOVEMENT_JUMP"
+msgstr "Jump"
+
+msgid "MOVEMENT_SLIDE"
+msgstr "Slide"
+
+msgid "ACTION_SHOOT"
+msgstr "Shoot"
+
+msgid "RESTART_LAST_CP"
+msgstr "Respawn to checkpoint"
+
+msgid "PAUSE"
+msgstr "Pause"
+
+# ----------------------------- MOUSE INPUTS ------------------------------
+msgid "LEFT_CLICK"
+msgstr "Left click"
+
+msgid "RIGHT_CLICK"
+msgstr "Right click"
+
+msgid "MIDDLE_CLICK"
+msgstr "Mouse wheel click"
+
+msgid "SPECIAL_1"
+msgstr "Mouse special 1"
+
+msgid "SPECIAL_2"
+msgstr "Mouse special 2"
+
+msgid "WHEEL_UP"
+msgstr "Mouse wheel up"
+
+msgid "WHEEL_DOWN"
+msgstr "Mouse wheel down"
+
+msgid "WHEEL_RIGHT"
+msgstr "Mouse wheel right"
+
+msgid "WHEEL_LEFT"
+msgstr "Mouse wheel left"
+
+msgid "LEFT_CLICK_MASK"
+msgstr "Left click (mask)"
+
+msgid "RIGHT_CLICK_MASK"
+msgstr "Right click (mask)"
+
+msgid "MIDDLE_CLICK_MASK"
+msgstr "Mouse wheel click (mask)"
+
+msgid "SPECIAL_1_MASK"
+msgstr "Mouse special 1 (mask)"
+
+msgid "SPECIAL_2_MASK"
+msgstr "Mouse special 2 (mask)"
+
+# ================================= MENUS =================================
+# -------------------------------- COMMON ---------------------------------
+msgid "MAIN_MENU"
+msgstr "Main menu"
+
+msgid "MENU_QUIT"
+msgstr "Quit"
+
+msgid "MENU_SETTINGS"
+msgstr "Settings"
+
+msgid "MENU_RESTART"
+msgstr "Restart"
+
+msgid "MENU_RETURN"
+msgstr "Return"
+
+# ------------------------------- MAIN MENU -------------------------------
+msgid "MENU_PLAY"
+msgstr "Play"
+
+msgid "MENU_LEVEL_SELECTION"
+msgstr "Level selection"
+
+# ----------------------------- END LEVEL MENU -----------------------------
+msgid "MENU_NEXT_LEVEL"
+msgstr "Next level"
+
+# ------------------------------- PAUSE MENU -------------------------------
+msgid "MENU_RESUME"
+msgstr "Resume"
+
+# ----------------------------- SETTINGS MENU -----------------------------
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ GLOBAL ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+msgid "MENU_SETTINGS_TAB_GENERAL"
+msgstr "General"
+
+msgid "MENU_SETTINGS_TAB_CONTROLS"
+msgstr "Controls"
+
+msgid "MENU_SETTINGS_TAB_AUDIO"
+msgstr "Audio"
+
+msgid "MENU_SETTINGS_TAB_VIDEO"
+msgstr "Video"
+
+msgid "MENU_SETTINGS_TAB_GAMEPLAY"
+msgstr "Gameplay"
+
+msgid "MENU_SETTINGS_CHANGE_KEY_POPUP"
+msgstr "Press a key for action %s :"
+
+msgid "MENU_SETTINGS_ADD_CFG_POPUP_TITLE"
+msgstr "Enter a name"
+
+msgid "MENU_SETTINGS_ADD_CFG_POPUP_LABEL"
+msgstr "Enter a preset name :"
+
+msgid "MENU_SETTINGS_SAVE_CFG_POPUP_TITLE"
+msgstr "Please confirm..."
+
+msgid "MENU_SETTINGS_SAVE_CFG_POPUP_LABEL"
+msgstr "Do you want to overwrite %s ?"
+
+msgid "SIMPLE_SETTINGS_MESSAGE_1"
+msgstr "Hi !"
+
+msgid "SIMPLE_SETTINGS_MESSAGE_2"
+msgstr ""
+"Before starting the game, here are a few settings\n"
+"(there is more in the settings menu)"
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ PRESETS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+msgid "PRESET_CATEGORY"
+msgstr "Presets"
+
+msgid "PRESET_LABEL"
+msgstr "Presets :"
+
+msgid "PRESET_OPTION_TOOLTIP"
+msgstr "Preset settings"
+
+msgid "PRESET_SAVE_TOOLTIP"
+msgstr "Save the preset"
+
+msgid "PRESET_ADD_TOOLTIP"
+msgstr "Add a preset"
+
+msgid "PRESET_FOLDER_TOOLTIP"
+msgstr "Open the presets folder"
+
+msgid "PRESET_REFRESH_TOOLTIP"
+msgstr "Refresh the presets"
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ GENERAL ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+msgid "SETTINGS_GENERAL_LANGUAGE_CATEGORY"
+msgstr "Language"
+
+msgid "SETTINGS_GENERAL_LANGUAGE_OPTION"
+msgstr "Language :"
+
+msgid "SETTINGS_GENERAL_LANGUAGE_TOOLTIP"
+msgstr "Game language"
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ CONTROLS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+msgid "SETTINGS_CONTROLS_KEYBOARD_PRESET"
+msgstr "Keyboard configuration : "
+
+msgid "SETTINGS_CONTROLS_GENERAL_CATEGORY"
+msgstr "General"
+
+msgid "SETTINGS_CONTROLS_GENERAL_SENSITIVITY"
+msgstr "Mouse sensitivity : "
+
+msgid "SETTINGS_CONTROLS_GENERAL_CROSSHAIR_LABEL"
+msgstr "Crosshair : "
+
+msgid "SETTINGS_CONTROLS_GENERAL_CROSSHAIR_SIZE"
+msgstr "Size : "
+
+msgid "SETTINGS_CONTROLS_GENERAL_CROSSHAIR_COLOR"
+msgstr "Color : "
+
+msgid "SETTINGS_CONTROLS_GENERAL_CROSSHAIR_OPTION_TOOLTIP"
+msgstr "Crosshair choice"
+
+msgid "SETTINGS_CONTROLS_GENERAL_CROSSHAIR_COLOR_TOOLTIP"
+msgstr "Crosshair color choice"
+
+msgid "SETTINGS_CONTROLS_MOVEMENT_CATEGORY"
+msgstr "Movement"
+
+msgid "SETTINGS_CONTROLS_ACTION_CATEGORY"
+msgstr "Action"
+
+msgid "SETTINGS_CONTROLS_UI_CATEGORY"
+msgstr "UI"
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ AUDIO ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+msgid "SETTINGS_AUDIO_MAIN_CATEGORY"
+msgstr "Main"
+
+msgid "SETTINGS_AUDIO_MAIN_LABEL"
+msgstr "Main :"
+
+msgid "SETTINGS_AUDIO_BGM_CATEGORY"
+msgstr "BGM"
+
+msgid "SETTINGS_AUDIO_BGM_LABEL"
+msgstr "BGM :"
+
+msgid "SETTINGS_AUDIO_EFFECTS_CATEGORY"
+msgstr "Effects"
+
+msgid "SETTINGS_AUDIO_EFFECTS_LABEL"
+msgstr "Effects :"
+
+msgid "SETTINGS_AUDIO_MUTE_TOOLTIP"
+msgstr "Mute"
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ VIDEO ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+msgid "SETTINGS_VIDEO_DISPLAY_CATEGORY"
+msgstr "Display"
+
+msgid "SETTINGS_VIDEO_DISPLAY_MODE"
+msgstr "Display mode :"
+
+msgid "SETTINGS_VIDEO_FULL_SCREEN"
+msgstr "Full screen"
+
+msgid "SETTINGS_VIDEO_WINDOWED"
+msgstr "Windowed"
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ GAMEPLAY ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+msgid "SETTINGS_GAMEPLAY_GAMEPLAY_CATEGORY"
+msgstr "Gameplay"
+
+msgid "SETTINGS_GAMEPLAY_FOV_LABEL"
+msgstr "FOV : "
+
+msgid "SETTINGS_GAMEPLAY_SPACE_TO_WALL_RIDE_LABEL"
+msgstr "Space to wallride :"
+
+msgid "SETTINGS_GAMEPLAY_TUTORIAL_CATEGORY"
+msgstr "Tutorial"
+
+msgid "SETTINGS_GAMEPLAY_TUTORIAL_LEVEL_LABEL"
+msgstr "Tutorial level :"
+
+msgid "SETTINGS_GAMEPLAY_TUTORIAL_LEVEL_ALL"
+msgstr "I'm not a gamer"
+
+msgid "SETTINGS_GAMEPLAY_TUTORIAL_LEVEL_SOME"
+msgstr "I'm a gamer"
+
+msgid "SETTINGS_GAMEPLAY_TUTORIAL_LEVEL_NONE"
+msgstr "I already played the game"
+
+msgid "SETTINGS_GAMEPLAY_FOV_TOOLTIP"
+msgstr "Field Of View"
+
+msgid "SETTINGS_GAMEPLAY_SPACE_TO_WALL_RIDE_TOOLTIP"
+msgstr ""
+"Use the jump key to wallride.\n"
+"If you play a frog DJ in a specific first person shooter, you might want "
+"this turned on."
+
+msgid "SETTINGS_GAMEPLAY_TUTORIAL_LEVEL_TOOLTIP"
+msgstr "Tutorial amount displayed."
+
+msgid "SETTINGS_GAMEPLAY_TUTORIAL_LEVEL_ALL_TOOLTIP"
+msgstr ""
+"Will display the tutorial when needed.\n"
+"Recommanded option if you are not familiar with video-games."
+
+msgid "SETTINGS_GAMEPLAY_TUTORIAL_LEVEL_SOME_TOOLTIP"
+msgstr ""
+"The tutorials will be available in optional tutorial bubbles.\n"
+"Recommanded option if you are familiar with video-games."
+
+msgid "SETTINGS_GAMEPLAY_TUTORIAL_LEVEL_NONE_TOOLTIP"
+msgstr ""
+"Will not display any tutorial.\n"
+"Recommanded option if you already played the game\n"
+"or if you want to discover the game by yourself."
+
+msgid "SETTINGS_GAMEPLAY_DIFFICULTY"
+msgstr "Difficulty"
+
+msgid "SETTINGS_GAMEPLAY_ADDITIONAL_JUMPS"
+msgstr "Aerial jump amount : "
+
+msgid "SETTINGS_GAMEPLAY_ADDITIONAL_JUMPS_TOOLTIP"
+msgstr ""
+"Amount of aerial jumps. The game was designed without additionnal jumps, but "
+"that can make the game easier."
+
+# ================================ COMMON =================================
+# ---------------------------------- UI -----------------------------------
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ PLAYER ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+msgid "PLAYER_UI_CHECKPOINT"
+msgstr "Checkpoint !"
+
+msgid "PLAYER_MESSAGE_SECURITY_STATUS"
+msgstr "Security level : "
+
+msgid "PLAYER_MESSAGE_SECURITY_DISABLED"
+msgstr "Security disabled"
+
+msgid "PLAYER_MESSAGE_ACCESS_TO_ANOMALY_GRANTED"
+msgstr "Portail open"
+
+# =============================== TUTORIALS ===============================
+# ----------------------------- TUTORIAL SCENES ----------------------------
+msgid "TUTORIAL_MOVE"
+msgstr "##movement_wasd## to move around."
+
+msgid "TUTORIAL_JUMP"
+msgstr "##movement_jump## to jump."
+
+msgid "TUTORIAL_BHOP"
+msgstr "Keep ##movement_jump## pressed to accelerate."
+
+msgid "TUTORIAL_STRAFE"
+msgstr ""
+"To accelerate even more:\n"
+"##movement_jump## + ##movement_wa## + ##mouse_strafe_left##\n"
+"ou\n"
+"##movement_jump## + ##movement_wd## + ##mouse_strafe_right##."
+
+msgid "TUTORIAL_AIR_CONTROL"
+msgstr ""
+"##movement_w## + ##mouse_strafe_left_right## in the air to control your "
+"direction."
+
+msgid "TUTORIAL_CHECKPOINT"
+msgstr ""
+"##restart_last_cp## to respawn at the checkpoin.\n"
+"##restart## to restart."
+
+msgid "TUTORIAL_SLIDE_1"
+msgstr "##movement_slide## to slide."
+
+msgid "TUTORIAL_SLIDE_2"
+msgstr "##movement_jump## during a slide to slide jump."
+
+msgid "TUTORIAL_WALL_RIDE"
+msgstr ""
+"##movement_slide## to wallride\n"
+"##movement_jump## while wallriding to jump."
+
+msgid "TUTORIAL_ROCKETS"
+msgstr "##shoot## to ##rocket_icon##."
+
+msgid "TUTORIAL_ROCKET_JUMP"
+msgstr "##rocket_icon## at your feet to ##rocket_jump_icon##."
+
+msgid "TUTORIAL_ROCKET_WALL_JUMP"
+msgstr "##rocket_jump_icon## on the wall to climb."
+
+msgid "TUTORIAL_ROCKET_PADS"
+msgstr "##rocket_icon## + ##boost_pad## for a powerfull boost pad."
+
+# ============================= END GAME ================================
+msgid "END_GAME_SIMULATION_COMPLETED"
+msgstr "Simulation ended"
+
+msgid "END_GAME_TEST_X_PASSED"
+msgstr "Test %d - [color=#00ff00]PASSED[/color] - [color=#00ffff]%s[/color]"
+
+msgid "END_GAME_TOTAL_TIME_SEPARATOR"
+msgstr "--------- RESULTS ---------"
+
+msgid "END_GAME_TESTS_RESULTS"
+msgstr "[color=#00ff00]ALL PASSED[/color] - [color=#00ffff]%s[/color]"
+
+msgid "END_GAME_APPRECIATION_HOW"
+msgstr "[shake rate=30 level=10]... How is this possible ?[/shake]"
+
+msgid "END_GAME_APPRECIATION_WOW"
+msgstr ""
+"[wave amp=50 freq=2][rainbow freq=0.2 sat=10 val=20]Wow ![/rainbow][/wave]"
+
+msgid "END_GAME_APPRECIATION_AMAZING"
+msgstr "[wave amp=50 freq=2]Amazing ![/wave]"
+
+msgid "END_GAME_APPRECIATION_WELL_DONE"
+msgstr "Well done !"
+
+msgid "END_GAME_APPRECIATION_NOT_BAD"
+msgstr "Not bad !"
+
+msgid "END_GAME_EXIT"
+msgstr "You can quit by pressing escape"
+
+msgid "END_GAME_CREDITS_LOADING"
+msgstr "Loading credits"
+
+msgid "END_GAME_GAME_MADE_BY"
+msgstr "A game made by clemetayer"
+
+msgid "END_GAME_WITH_GODOT"
+msgstr "With the Godot engine"
+
+msgid "END_GAME_WITH_LMMS"
+msgstr "Sounds and music made with LMMS"
+
+msgid "END_GAME_WITH_QODOT_TB"
+msgstr "Levels made with Trenchbroom and Qodot"
+
+msgid "END_GAME_WITH_MATERIAL_MAKER"
+msgstr "Textures made with MaterialMaker"
+
+msgid "END_GAME_WITH_SPACESCAPE"
+msgstr "Skyboxes made with Spacescape"
+
+msgid "END_GAME_WITH_KENNEY"
+msgstr "Icons and particles by Kenney : https://kenney.nl/"
+
+msgid "END_GAME_FONTS"
+msgstr "Fonts : Oswald, CourierPrimeCode"
+
+msgid "END_GAME_OTHER_TOOLS"
+msgstr ""
+"Other tools used : GDUnit3 by NullPointer, Godot-Stuff Logger by paulhocker, "
+"DebugDraw by DmitriySalnikov, Simple Skybox by Chaosus."
+
+msgid "END_GAME_ADDITIONAL_CREDITS"
+msgstr ""
+"Additionnal credits : Speedlines by Exuin (godotshaders.com), Screen shakes "
+"(codingkaiju.com)"
+
+msgid "END_GAME_FAMILY_AND_FRIENDS"
+msgstr "Thanks to my family and friends"
+
+msgid "END_GAME_AND_YOU"
+msgstr ""
+"[center][rainbow freq=0.2 sat=10 val=20][wave amp=50 freq=2]And you for "
+"playing the game ![/wave][/rainbow][/center]"
+
+msgid "END_GAME_PRETTY_MUCH_IT"
+msgstr "And, uh, that's pretty much it I think"
+
+msgid "END_GAME_CREDITS_TOO_LONG"
+msgstr "Ok, I admit, I made the musique a bit too long for the credits..."
+
+msgid "END_GAME_WONT_BE_LONG"
+msgstr "But that won't be long, I promise !"
+
+msgid "END_GAME_ANY_SECOND_NOW"
+msgstr "Any second now"
+
+msgid "END_GAME_ANY_SECOND"
+msgstr "Aaaaaaaany second"
+
+msgid "END_GAME_THERE_WE_GO"
+msgstr "Oh, there we go !"
+
+msgid "END_GAME_RESTARTING_SIMULATION"
+msgstr "Restarting the simulation"

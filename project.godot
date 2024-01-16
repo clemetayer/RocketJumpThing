@@ -1569,7 +1569,7 @@ test={
 
 [locale]
 
-translations=PoolStringArray( "res://Translations/po/french.po" )
+translations=PoolStringArray( "res://Translations/po/french.po", "res://Translations/po/english.po" )
 
 [physics]
 
