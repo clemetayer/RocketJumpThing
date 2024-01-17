@@ -25,6 +25,7 @@ func _ready():
 ##### PRIVATE METHODS #####
 func _connect_signals() -> void:
 	DebugUtils.log_connect(onready_paths.return, self, "pressed", "_on_Return_pressed")
+	DebugUtils.log_connect(SignalManager,self,SignalManager.TRANSLATION_UPDATED,"_on_SignalManager_translation_updated")
 
 
 func _init_tr() -> void:
@@ -45,3 +46,6 @@ func _on_Return_pressed() -> void:
 	SettingsUtils.save_current_settings()
 	emit_signal("return_to_prev_menu")
 	SignalManager.emit_update_settings()
+
+func _on_SignalManager_translation_updated() -> void:
+	_init_tr()

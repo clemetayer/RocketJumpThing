@@ -60,6 +60,7 @@ func test_connect_signals() -> void:
 	assert_bool(default_settings.onready_paths.controls.options.is_connected("item_selected",default_settings,"_on_ControlsOptions_item_selected")).is_true()
 	assert_bool(default_settings.onready_paths.gameplay.options.is_connected("item_selected",default_settings,"_on_GameplayOptions_item_selected")).is_true()
 	assert_bool(default_settings.onready_paths.confirm.is_connected("pressed",default_settings,"_on_Ok_pressed")).is_true()
+	assert_bool(SignalManager.is_connected(SignalManager.TRANSLATION_UPDATED,default_settings,"_on_SignalManager_translation_updated")).is_true()
 
 func test_apply_keyboard_layout() -> void:
 	default_settings._apply_keyboard_layout("dvorak.cfg")

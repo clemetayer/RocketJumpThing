@@ -74,6 +74,7 @@ func test_connect_signals() -> void:
 	assert_bool(audio.onready_paths.effects.unmute.is_connected("toggled", audio, "_on_EffectsUnmute_toggled")).is_true()
 	# misc
 	assert_bool(SignalManager.is_connected(SignalManager.UPDATE_SETTINGS, audio, "_on_SignalManager_update_settings")).is_true()
+	assert_bool(SignalManager.is_connected(SignalManager.TRANSLATION_UPDATED,audio,"_on_SignalManager_translation_updated")).is_true()
 
 func test_init_values() -> void:
 	# init

@@ -53,5 +53,6 @@ func test_connect_signals() -> void:
 	general._connect_signals()
 	assert_bool(general.onready_paths.language.options.is_connected("item_selected", general, "_on_Options_item_selected")).is_true()
 	assert_bool(SignalManager.is_connected(SignalManager.UPDATE_SETTINGS, general, "_on_SignalManager_update_settings")).is_true()
+	assert_bool(SignalManager.is_connected(SignalManager.TRANSLATION_UPDATED, general,"_on_SignalManager_translation_updated")).is_true()
 
 # Kind of weird to test _on_Options_item_selected because it is directly "linked" to the init_option

@@ -77,6 +77,7 @@ func _connect_signals() -> void:
 	)
 	DebugUtils.log_connect(onready_paths.general.sensitivity.line_edit, self, "text_changed", "_on_SensitivityLineEdit_text_changed")
 	DebugUtils.log_connect(SignalManager, self, SignalManager.UPDATE_SETTINGS, "_on_SignalManager_update_settings")
+	DebugUtils.log_connect(SignalManager,self,SignalManager.TRANSLATION_UPDATED,"_on_SignalManager_translation_updated")
 
 func _add_key_settings_to_groups() -> void:
 	_free_categories()
@@ -119,3 +120,6 @@ func _on_SensitivityLineEdit_text_changed(new_text : String) -> void:
 func _on_SignalManager_update_settings() -> void:
 	_set_default_values()
 	_add_key_settings_to_groups() 
+
+func _on_SignalManager_translation_updated() -> void:
+	_init_tr()

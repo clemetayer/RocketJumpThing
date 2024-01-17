@@ -38,6 +38,7 @@ func _connect_signals() -> void:
 	DebugUtils.log_connect(onready_paths.restart, self, "pressed", "_on_RestartButton_pressed")
 	DebugUtils.log_connect(onready_paths.options, self, "pressed", "_on_OptionButton_pressed")
 	DebugUtils.log_connect(onready_paths.main_menu, self, "pressed", "_on_MainMenuButton_pressed")
+	DebugUtils.log_connect(SignalManager,self,SignalManager.TRANSLATION_UPDATED,"_on_SignalManager_translation_updated")
 
 ##### SIGNAL MANAGEMENT #####
 func _on_ResumeButton_pressed():
@@ -57,4 +58,6 @@ func _on_MainMenuButton_pressed():
 func _on_OptionButton_pressed():
 	emit_signal("settings_requested")
 
+func _on_SignalManager_translation_updated() -> void:
+	_set_labels()
 

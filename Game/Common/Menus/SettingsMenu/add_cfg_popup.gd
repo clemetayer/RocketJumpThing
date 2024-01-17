@@ -18,6 +18,7 @@ func _init():
 		SignalManager, self, SignalManager.ADD_CFG_POPUP, "_on_SignalManager_add_cfg_popup"
 	)
 	DebugUtils.log_connect(self, self, "confirmed", "_on_popup_confirmed")
+	DebugUtils.log_connect(SignalManager,self,SignalManager.TRANSLATION_UPDATED,"_on_SignalManager_translation_updated")
 
 
 # Called when the node enters the scene tree for the first time.
@@ -51,3 +52,6 @@ func _on_popup_confirmed() -> void:
 # Checks if the input name is valid
 func _on_LineEdit_text_changed(new_text: String) -> void:
 	get_close_button().disabled = !new_text.is_valid_filename()
+
+func _on_SignalManager_translation_updated() -> void:
+	_init_tr()

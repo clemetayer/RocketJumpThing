@@ -49,6 +49,8 @@ signal update_fov(value)
 signal update_wall_ride_strategy
 #warning-ignore:UNUSED_SIGNAL
 signal update_settings
+#warning-ignore:UNUSED_SIGNAL
+signal translation_updated
 
 #==== MISC =====
 #warning-ignore:UNUSED_SIGNAL
@@ -84,6 +86,7 @@ const UPDATE_CROSSHAIR := "update_crosshair"
 const UPDATE_FOV := "update_fov"
 const UPDATE_WALL_RIDE_STRATEGY := "update_wall_ride_strategy"
 const UPDATE_SETTINGS := "update_settings"
+const TRANSLATION_UPDATED := "translation_updated"
 
 #==== MISC =====
 const ENTITY_DESTROYED := "entity_destroyed"
@@ -172,8 +175,14 @@ func emit_update_fov(value: float) -> void:
 func emit_update_wall_ride_strategy() -> void:
 	emit_signal(UPDATE_WALL_RIDE_STRATEGY)
 
+
 func emit_update_settings() -> void:
 	emit_signal(UPDATE_SETTINGS)
+
+
+func emit_translation_updated() -> void:
+	emit_signal(TRANSLATION_UPDATED)
+
 
 #==== MISC =====
 func emit_entity_destroyed() -> void:
@@ -183,5 +192,6 @@ func emit_entity_destroyed() -> void:
 func emit_game_over() -> void:
 	emit_signal(GAME_OVER)
 
-func emit_glitch_audio(part : int) -> void:
+
+func emit_glitch_audio(part: int) -> void:
 	emit_signal(GLITCH_AUDIO, part)

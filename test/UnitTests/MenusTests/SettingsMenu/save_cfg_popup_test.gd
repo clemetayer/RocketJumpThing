@@ -27,6 +27,7 @@ func after():
 func test_connect_signals() -> void:
 	save_cfg_popup._connect_signals()
 	assert_bool(SignalManager.is_connected(SignalManager.SAVE_CFG_POPUP, save_cfg_popup, "_on_SignalManager_save_cfg_popup")).is_true()
+	assert_bool(SignalManager.is_connected(SignalManager.TRANSLATION_UPDATED,save_cfg_popup,"_on_SignalManager_translation_updated")).is_true()
 	assert_bool(save_cfg_popup.is_connected("confirmed", save_cfg_popup, "_on_popup_confirmed"))
 
 

@@ -44,6 +44,7 @@ func _connect_signals() -> void:
 	DebugUtils.log_connect(
 		SignalManager, self, SignalManager.UPDATE_SETTINGS, "_on_SignalManager_update_settings"
 	)
+	DebugUtils.log_connect(SignalManager,self,SignalManager.TRANSLATION_UPDATED,"_on_SignalManager_translation_updated")
 
 
 func _init_options() -> void:
@@ -70,3 +71,6 @@ func _on_Options_item_selected(idx: int) -> void:
 
 func _on_SignalManager_update_settings() -> void:
 	_select_current_option()
+
+func _on_SignalManager_translation_updated() -> void:
+	_init_tr()

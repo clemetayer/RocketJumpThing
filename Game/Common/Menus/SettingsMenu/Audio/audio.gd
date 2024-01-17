@@ -75,6 +75,7 @@ func _connect_signals() -> void:
 		onready_paths.effects.unmute, self, "toggled", "_on_EffectsUnmute_toggled"
 	)
 	DebugUtils.log_connect(SignalManager, self, SignalManager.UPDATE_SETTINGS, "_on_SignalManager_update_settings")
+	DebugUtils.log_connect(SignalManager,self,SignalManager.TRANSLATION_UPDATED,"_on_SignalManager_translation_updated")
 
 
 func _init_values() -> void:
@@ -187,3 +188,6 @@ func _on_EffectsUnmute_toggled(toggled: bool) -> void:
 
 func _on_SignalManager_update_settings() -> void:
 	_init_values()
+
+func _on_SignalManager_translation_updated() -> void:
+	_init_tr()

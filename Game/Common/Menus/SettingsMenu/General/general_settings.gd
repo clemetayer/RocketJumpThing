@@ -53,11 +53,16 @@ func _connect_signals() -> void:
 		onready_paths.language.options, self, "item_selected", "_on_Options_item_selected"
 	)
 	DebugUtils.log_connect(SignalManager, self, SignalManager.UPDATE_SETTINGS, "_on_SignalManager_update_settings")
+	DebugUtils.log_connect(SignalManager, self, SignalManager.TRANSLATION_UPDATED, "_on_SignalManager_translation_updated")
 
 
 ##### SIGNAL MANAGEMENT #####
 func _on_Options_item_selected(idx: int) -> void:
 	TranslationServer.set_locale(TranslationServer.get_loaded_locales()[idx])  # Refactor : maybe dangerous ?
+	SignalManager.emit_translation_updated()
 
 func _on_SignalManager_update_settings() -> void:
 	_select_current_locale()
+
+func _on_SignalManager_translation_updated() -> void:
+	_init_tr()

@@ -58,6 +58,7 @@ func _connect_signals() -> void:
 	)
 	DebugUtils.log_connect(onready_paths.options_menu, self, "item_selected", "_on_preset_selected")
 	DebugUtils.log_connect(SignalManager, self, SignalManager.UPDATE_SETTINGS, "_on_SignalManager_update_settings")
+	DebugUtils.log_connect(SignalManager,self,SignalManager.TRANSLATION_UPDATED,"_on_SignalManager_translation_updated")
 
 
 func _init_list() -> void:
@@ -122,3 +123,6 @@ func _on_preset_selected(_idx: int) -> void:
 
 func _on_SignalManager_update_settings() -> void:
 	_on_RefreshButton_pressed() 
+
+func _on_SignalManager_translation_updated() -> void:
+	_init_tr()

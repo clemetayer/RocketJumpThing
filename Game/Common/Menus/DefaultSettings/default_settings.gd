@@ -108,6 +108,7 @@ func _connect_signals() -> void:
 	DebugUtils.log_connect(onready_paths.controls.options,self,"item_selected","_on_ControlsOptions_item_selected")
 	DebugUtils.log_connect(onready_paths.gameplay.options,self,"item_selected","_on_GameplayOptions_item_selected")
 	DebugUtils.log_connect(onready_paths.confirm,self,"pressed","_on_Ok_pressed")
+	DebugUtils.log_connect(SignalManager,self,SignalManager.TRANSLATION_UPDATED,"_on_SignalManager_translation_updated")
 
 func _apply_keyboard_layout(cfg_name : String) -> void:
 	SettingsUtils.load_inputs_cfg(DebugUtils.log_load_cfg(SettingsUtils.INPUT_PRESETS_PATH + cfg_name))
@@ -117,6 +118,7 @@ func _apply_keyboard_layout(cfg_name : String) -> void:
 ##### SIGNAL MANAGEMENT #####
 func _on_LanguageOptions_item_selected(idx:int) -> void:
 	TranslationServer.set_locale(TranslationServer.get_loaded_locales()[idx])
+	SignalManager.emit_translation_updated()
 
 func _on_VideoOptions_item_selected(idx:int) -> void:
 	match idx:
@@ -146,3 +148,6 @@ func _on_Ok_pressed() -> void:
 	SignalManager.emit_update_settings()
 	MenuNavigator.exit_navigation()
 	MenuNavigator.show_main_menu()
+
+func _on_SignalManager_translation_updated() -> void:
+	_init_tr()

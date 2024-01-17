@@ -32,6 +32,8 @@ func _connect_signals() -> void:
 	DebugUtils.log_connect(onready_paths.level_selection,self,"pressed","_on_LevelSelectButton_pressed")
 	DebugUtils.log_connect(onready_paths.options,self,"pressed","_on_OptionsButton_pressed")
 	DebugUtils.log_connect(onready_paths.quit,self,"pressed","_on_QuitButton_pressed")
+	DebugUtils.log_connect(SignalManager,self,SignalManager.TRANSLATION_UPDATED,"_on_SignalManager_translation_updated")
+
 
 func _load_start_levels() -> void:
 	ScenesManager.load_level(RuntimeUtils.levels_data,0)
@@ -62,3 +64,6 @@ func _on_QuitButton_pressed():
 
 func _on_LevelSelectButton_pressed():
 	emit_signal("level_select_requested")
+
+func _on_SignalManager_translation_updated() -> void:
+	_set_labels()

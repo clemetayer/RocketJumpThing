@@ -36,6 +36,7 @@ func test_connect_signals() -> void:
 	assert_bool(controls_settings_crosshair.onready_paths.color_picker.is_connected("color_changed",controls_settings_crosshair,"_on_Color_color_changed")).is_true()
 	assert_bool(controls_settings_crosshair.onready_paths.size_slider.is_connected("value_changed",controls_settings_crosshair,"_on_SizeSlider_value_changed")).is_true()
 	assert_bool(SignalManager.is_connected(SignalManager.UPDATE_SETTINGS, controls_settings_crosshair, "_on_SignalManager_update_settings")).is_true()
+	assert_bool(SignalManager.is_connected(SignalManager.TRANSLATION_UPDATED, controls_settings_crosshair,"_on_SignalManager_translation_updated")).is_true()
 
 func test_init_crosshair_options() -> void:
 	var test_crosshair_path_1 := "crosshair001.png"

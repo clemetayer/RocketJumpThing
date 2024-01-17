@@ -70,6 +70,7 @@ func _connect_signals() -> void:
 	DebugUtils.log_connect(onready_paths.tutorial.level, self, "item_selected", "_on_TutorialLevel_item_selected")
 	DebugUtils.log_connect(onready_paths.difficulty.additionnal_jumps, self, "value_changed", "_on_AdditionnalJumps_value_changed")
 	DebugUtils.log_connect(SignalManager,self,SignalManager.UPDATE_SETTINGS,"_on_SignalManager_update_settings")
+	DebugUtils.log_connect(SignalManager,self,SignalManager.TRANSLATION_UPDATED,"_on_SignalManager_translation_updated")
 
 ##### SIGNAL MANAGEMENT #####
 func _on_FovSlider_value_changed(value : float) -> void:
@@ -94,3 +95,6 @@ func _on_AdditionnalJumps_value_changed(value : float) -> void:
 
 func _on_SignalManager_update_settings() -> void:
 	_set_default_values()
+
+func _on_SignalManager_translation_updated() -> void:
+	_init_tr()

@@ -45,6 +45,7 @@ func _connect_signals() -> void:
 	DebugUtils.log_connect(onready_paths.color_picker,self,"color_changed", "_on_Color_color_changed")
 	DebugUtils.log_connect(onready_paths.size_slider, self, "value_changed", "_on_SizeSlider_value_changed")
 	DebugUtils.log_connect(SignalManager, self, SignalManager.UPDATE_SETTINGS, "_on_SignalManager_update_settings")
+	DebugUtils.log_connect(SignalManager,self,SignalManager.TRANSLATION_UPDATED,"_on_SignalManager_translation_updated")
 
 func _init_crosshair_options(crosshair_file_name : String, options_idx : int) -> void:
 	var crosshair_name = crosshair_file_name.split(".")[0]
@@ -101,3 +102,6 @@ func _on_SizeSlider_value_changed(value : float) -> void:
 
 func _on_SignalManager_update_settings() -> void:
 	_init_current_crosshair()
+
+func _on_SignalManager_translation_updated() -> void:
+	_init_tr()

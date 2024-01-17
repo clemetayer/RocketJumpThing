@@ -39,6 +39,7 @@ func test_connect_signals() -> void:
 	video._connect_signals()
 	assert_bool(video.onready_paths.window_type.options.is_connected("item_selected", video, "_on_Options_item_selected")).is_true()
 	assert_bool(SignalManager.is_connected(SignalManager.UPDATE_SETTINGS, video, "_on_SignalManager_update_settings")).is_true()
+	assert_bool(SignalManager.is_connected(SignalManager.TRANSLATION_UPDATED, video,"_on_SignalManager_translation_updated")).is_true()
 
 func test_init_options() -> void:
 	var fullscreen := false

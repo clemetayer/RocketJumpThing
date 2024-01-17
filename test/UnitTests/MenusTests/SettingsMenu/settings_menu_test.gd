@@ -32,6 +32,7 @@ func test_connect_signals() -> void:
 			"pressed", settings_menu, "_on_Return_pressed"
 		)
 	)
+	assert_bool(SignalManager.is_connected(SignalManager.TRANSLATION_UPDATED,settings_menu,"_on_SignalManager_translation_updated")).is_true()
 
 
 func test_init_tab_names() -> void:
