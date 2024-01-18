@@ -605,9 +605,9 @@ func _set_wall_ride_camera_tilt(angle : float, wall_ride_dir : int) -> void:
 	if wall_ride_dir != _last_wall_ride_tilt_direction:
 		DebugUtils.log_tween_stop_all(onready_paths.tweens.wall_ride_tilt)
 		DebugUtils.log_tween_interpolate_property(onready_paths.tweens.wall_ride_tilt,
-		rotation_helper,
+		self,
 		"rotation:z",
-		rotation_helper.rotation.z,
+		self.rotation.z,
 		angle,
 		WALL_RIDE_TILT_SPEED)
 		DebugUtils.log_tween_start(onready_paths.tweens.wall_ride_tilt)
