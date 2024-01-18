@@ -13,11 +13,14 @@ export(Dictionary) var properties
 
 #---- STANDARD -----
 #==== PUBLIC ====
+var slide_enabled : bool
+var rockets_enabled : bool
 
 #==== PRIVATE ====
 var _spawn_position: Vector3
 var _mangle: Vector3  # rotation angles, in degrees
 var _entered_sound : AudioStreamPlayer
+var _test_mode := false # a bit hacky, but it helps to avoid trying a non existent current scene and crashing the test
 
 
 ##### PROCESSING #####
@@ -30,6 +33,7 @@ func _init():
 func _ready():
 	_set_TB_params()
 	_init_entered_sound()
+	_init_slide_rockets()
 
 
 ##### PUBLIC METHODS #####
@@ -52,6 +56,12 @@ func get_spawn_rotation() -> Vector3:
 
 
 ##### PROTECTED METHODS #####
+func _init_slide_rockets() -> void:
+	var scene = ScenesManager.get_current()
+	if is_instance_valid(scene) and not _test_mode:
+		slide_enabled = scene.ENABLE_SLIDE
+		rockets_enabled = scene.ENABLE_ROCKETS
+
 func _play_entered_sound() -> void:
 	_entered_sound.play()
 
@@ -77,3 +87,5 @@ func _on_Checkpoint_body_entered(body: Node):
 	if FunctionUtils.is_player(body):
 		SignalManager.emit_checkpoint_triggered(self)
 		_play_entered_sound()
+		slide_enabled = body.SLIDE_ENABLED
+		rockets_enabled = body.ROCKETS_ENABLED

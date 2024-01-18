@@ -117,6 +117,8 @@ func _connect_autoload_signals() -> void:
 
 func _restart() -> void:
 	_last_cp = _start_point
+	get_player().toggle_ability(GlobalConstants.ABILITY_SLIDE,_last_cp.slide_enabled)
+	get_player().toggle_ability(GlobalConstants.ABILITY_ROCKETS,_last_cp.rockets_enabled)
 	_respawn_player_on_last_cp()
 
 
@@ -141,6 +143,8 @@ func _respawn_player_on_last_cp() -> void:
 			player.checkpoint_process(_last_cp.get_spawn_point(), _last_cp.get_spawn_rotation())
 			if FunctionUtils.is_start_point(_last_cp):  # if restart at the beginning of the level, restart the chronometer
 				SignalManager.emit_start_level_chronometer()
+			get_player().toggle_ability(GlobalConstants.ABILITY_SLIDE,_last_cp.slide_enabled)
+			get_player().toggle_ability(GlobalConstants.ABILITY_ROCKETS,_last_cp.rockets_enabled)
 			SignalManager.emit_player_respawned_on_last_cp()
 		else:
 			DebugUtils.log_stacktrace("Player is null", DebugUtils.LOG_LEVEL.error)

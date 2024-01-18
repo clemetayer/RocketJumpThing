@@ -67,6 +67,8 @@ func test_signal_connections() -> void:
 func test_restart() -> void:
 	var last_cp_test = Checkpoint.new()
 	var start_point = scene_instance._start_point
+	start_point.slide_enabled = true
+	start_point.rockets_enabled = false
 	var player = scene_instance._player
 	player._ready()
 	scene_instance._last_cp = last_cp_test
@@ -78,6 +80,8 @@ func test_restart() -> void:
 		start_point.get_spawn_rotation().x
 	)
 	assert_vector3(player.vel).is_equal(Vector3.ZERO)
+	assert_bool(player.SLIDE_ENABLED).is_true()
+	assert_bool(player.ROCKETS_ENABLED).is_false()
 	assert_object(scene_instance._last_cp).is_equal(start_point)
 	last_cp_test.free()
 	var song = StandardSongManager._queue.pop_back()
@@ -101,12 +105,16 @@ func test_respawn_player_on_last_cp() -> void:
 	var last_cp_test = Checkpoint.new()
 	last_cp_test._spawn_position = Vector3.ONE
 	last_cp_test._mangle = Vector3(45, 90, 0)
+	last_cp_test.slide_enabled = false
+	last_cp_test.rockets_enabled = true
 	var player = scene_instance._player
 	player._ready()
 	scene_instance._last_cp = last_cp_test
 	scene_instance._respawn_player_on_last_cp()
 	# assert_signal(SignalManager).is_not_emitted("start_level_chronometer")
 	assert_vector3(player.transform.origin).is_equal(last_cp_test.get_spawn_point())
+	assert_bool(player.SLIDE_ENABLED).is_false()
+	assert_bool(player.ROCKETS_ENABLED).is_true()
 	assert_float(player.rotation_degrees.y).is_equal(last_cp_test.get_spawn_rotation().y)
 	assert_float(player.rotation_helper.rotation_degrees.x).is_equal(
 		last_cp_test.get_spawn_rotation().x
