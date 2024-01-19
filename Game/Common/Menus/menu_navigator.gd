@@ -77,6 +77,8 @@ func exit_navigation() -> void:
 	_menu_stack = []
 	_state = MENU.hidden
 	visible = false
+	if ScenesManager.paused:
+		ScenesManager.unpause(Input.MOUSE_MODE_CAPTURED)
 
 # toggles the pause menu enable
 func toggle_pause_enabled(value : bool) -> void:
@@ -118,15 +120,17 @@ func _connect_signals() -> void:
 	DebugUtils.log_connect(onready_paths.settings,self,"return_to_prev_menu","_on_return")
 
 func _manage_inputs() -> void:
-	if Input.is_action_just_pressed("pause") and _pause_enabled:
-		if _state == MENU.pause:
-			ScenesManager.unpause(Input.MOUSE_MODE_CAPTURED)
-			exit_navigation()
-		else:
-			ScenesManager.pause()
-			open_navigation(MENU.pause)
+	if Input.is_action_just_pressed("pause") and _pause_enabled and not MENU.pause in _menu_stack:
+		ScenesManager.pause()
+		open_navigation(MENU.pause)
+	if Input.is_action_just_pressed("ui_cancel") and not _is_protected_menu(_state):
+		if _state == MENU.settings:
+			SettingsUtils.save_current_settings()
+			SignalManager.emit_update_settings()
+		previous_menu()
 
 func _stack_menu(menu : int) -> void:
+	Logger.debug("stacking %d, menu stack = %s" % [menu,_menu_stack])
 	emit_signal(MENU_ACTIVATED_SIGNAL_NAME,menu)
 	_interpolate_menu_transition_tween(_get_current_menu(),0)
 	DebugUtils.log_tween_start(onready_paths.transition_tween)
@@ -143,20 +147,24 @@ func _stack_menu(menu : int) -> void:
 
 
 func _unstack_menu() -> void:
+	Logger.debug("unstacking, menu stack = %s" % [_menu_stack])
 	if _menu_stack.size() > 0:
 		_menu_stack.pop_back()
 		var prev_menu = _menu_stack.back()
-		emit_signal(MENU_ACTIVATED_SIGNAL_NAME,prev_menu)
-		_interpolate_menu_transition_tween(_get_current_menu(),0)
-		DebugUtils.log_tween_start(onready_paths.transition_tween)
-		yield(onready_paths.transition_tween,"tween_all_completed")
-		_get_current_menu().visible = false
-		_get_menu_by_id(prev_menu).modulate.a = 0
-		_get_menu_by_id(prev_menu).visible = true
-		_interpolate_menu_transition_tween(_get_menu_by_id(prev_menu),1)
-		DebugUtils.log_tween_start(onready_paths.transition_tween)
-		yield(onready_paths.transition_tween,"tween_all_completed")
-		_state = prev_menu
+		if prev_menu != null:
+			_interpolate_menu_transition_tween(_get_current_menu(),0)
+			DebugUtils.log_tween_start(onready_paths.transition_tween)
+			yield(onready_paths.transition_tween,"tween_all_completed")
+			_get_current_menu().visible = false
+			emit_signal(MENU_ACTIVATED_SIGNAL_NAME,prev_menu)
+			_get_menu_by_id(prev_menu).modulate.a = 0
+			_get_menu_by_id(prev_menu).visible = true
+			_interpolate_menu_transition_tween(_get_menu_by_id(prev_menu),1)
+			DebugUtils.log_tween_start(onready_paths.transition_tween)
+			yield(onready_paths.transition_tween,"tween_all_completed")
+			_state = prev_menu
+		else:
+			exit_navigation()
 	else:
 		DebugUtils.log_stacktrace("Can't unstack an empty menu stack", DebugUtils.LOG_LEVEL.warn)
 
@@ -190,6 +198,9 @@ func _interpolate_menu_transition_tween(node : CanvasItem, final_val : int) -> v
 		final_val,
 		TRANSITION_TIME
 	)
+
+func _is_protected_menu(state : int) -> bool:
+	return state == MENU.hidden or state == MENU.main
 
 ##### SIGNAL MANAGEMENT #####
 func _on_MainMenu_LevelSelectRequested() -> void:

@@ -55,4 +55,9 @@ func test_toggle_pause_enabled() -> void:
 	menu_navigator.toggle_pause_enabled(false)
 	assert_bool(menu_navigator._pause_enabled).is_false()
 
+func test_is_protected_menu() -> void:
+	assert_bool(menu_navigator._is_protected_menu(menu_navigator.MENU.hidden)).is_true()
+	assert_bool(menu_navigator._is_protected_menu(menu_navigator.MENU.main)).is_true()
+	assert_bool(menu_navigator._is_protected_menu(menu_navigator.MENU.pause)).is_false()
+
 # TODO : pretty much all the other methods cannot be tested because of the tween
