@@ -52,6 +52,7 @@ func _add_ui_sprite() -> void:
 func _on_breakable_area_rocket_area_entered(area):
 	if FunctionUtils.is_rocket(area):
 		emit_signal("trigger", {"position": area.transform.origin, "speed": area.SPEED})
-		_break_wall_sound.play()
-		yield(_break_wall_sound, "finished")
+		if _break_wall_sound != null:
+			_break_wall_sound.play()
 		self.queue_free()
+		yield(_break_wall_sound, "finished")
