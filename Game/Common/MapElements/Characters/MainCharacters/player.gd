@@ -504,6 +504,7 @@ func _reset_wallride_raycasts() -> void:
 
 # movement management when on the ground
 func _ground_movement(delta: float) -> void:
+	vel.y = 0
 	_apply_friction(delta)
 	_accelerate(
 		Vector3(dir.x, 0, dir.z).normalized(), GROUND_TARGET_SPEED, GROUND_ACCELERATION, delta
