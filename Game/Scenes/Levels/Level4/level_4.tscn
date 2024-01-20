@@ -3435,7 +3435,7 @@ properties = {
 "collision_layer": 2,
 "collision_mask": 5,
 "free_on_open": 1,
-"open_position": Vector3( 0, 10, 0 ),
+"open_position": Vector3( 0, 9, 0 ),
 "open_time": 0.5,
 "targetname": "door_1"
 }
@@ -3454,7 +3454,7 @@ properties = {
 "collision_layer": 2,
 "collision_mask": 5,
 "free_on_open": 1,
-"open_position": Vector3( 0, 0, -12 ),
+"open_position": Vector3( 0, 0, -11 ),
 "open_time": 0.5,
 "targetname": "door_1"
 }
@@ -3473,7 +3473,7 @@ properties = {
 "collision_layer": 2,
 "collision_mask": 5,
 "free_on_open": 1,
-"open_position": Vector3( 0, 0, -10 ),
+"open_position": Vector3( 0, -8, 0 ),
 "open_time": 0.5,
 "targetname": "door_1"
 }
@@ -3492,7 +3492,7 @@ properties = {
 "collision_layer": 2,
 "collision_mask": 5,
 "free_on_open": 1,
-"open_position": Vector3( 0, 0, 12 ),
+"open_position": Vector3( 0, 0, 11 ),
 "open_time": 0.5,
 "targetname": "door_1"
 }
@@ -8242,7 +8242,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -62.5, 35.5, -3.5 )
 process_material = SubResource( 1068 )
 properties = {
 "classname": "Particles_Particles_Arrows",
-"gradient_path": "res://Game/Scenes/Levels/Level4/arrows_gradient_.tres",
+"gradient_path": "res://Game/Scenes/Levels/Level4/arrows_gradient.tres",
 "mangle": Vector3( 0, 0, 0 ),
 "origin": "-56 -1000 568",
 "size": Vector3( 4, 1, 1 ),
@@ -8254,7 +8254,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -56.5, 35.5, 81.5 )
 process_material = SubResource( 1071 )
 properties = {
 "classname": "Particles_Particles_Arrows",
-"gradient_path": "res://Game/Scenes/Levels/Level4/arrows_gradient_.tres",
+"gradient_path": "res://Game/Scenes/Levels/Level4/arrows_gradient.tres",
 "mangle": Vector3( 0, 90, -90 ),
 "origin": "1304 -904 568",
 "size": Vector3( 8, 1, 1 ),
@@ -8266,7 +8266,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -76.5, 64.5, 90.5 )
 process_material = SubResource( 1074 )
 properties = {
 "classname": "Particles_Particles_Arrows",
-"gradient_path": "res://Game/Scenes/Levels/Level4/arrows_gradient_.tres",
+"gradient_path": "res://Game/Scenes/Levels/Level4/arrows_gradient.tres",
 "mangle": Vector3( 0, -90, 0 ),
 "origin": "1448 -1224 1032",
 "size": Vector3( 16, 1, 1 ),
@@ -8278,7 +8278,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -62.5, 64.5, 80.5 )
 process_material = SubResource( 1077 )
 properties = {
 "classname": "Particles_Particles_Arrows",
-"gradient_path": "res://Game/Scenes/Levels/Level4/arrows_gradient_.tres",
+"gradient_path": "res://Game/Scenes/Levels/Level4/arrows_gradient.tres",
 "mangle": Vector3( 0, 0, 0 ),
 "origin": "1288 -1000 1032",
 "size": Vector3( 2, 1, 1 ),
@@ -8290,7 +8290,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -140.5, 62.5, 101.5 )
 process_material = SubResource( 1080 )
 properties = {
 "classname": "Particles_Particles_Arrows",
-"gradient_path": "res://Game/Scenes/Levels/Level4/arrows_gradient_.tres",
+"gradient_path": "res://Game/Scenes/Levels/Level4/arrows_gradient.tres",
 "mangle": Vector3( 0, 90, 225 ),
 "origin": "1624 -2248 1000",
 "size": Vector3( 4, 1, 1 ),
@@ -8302,7 +8302,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -161.5, 74.5, 99.5 )
 process_material = SubResource( 1083 )
 properties = {
 "classname": "Particles_Particles_Arrows",
-"gradient_path": "res://Game/Scenes/Levels/Level4/arrows_gradient_.tres",
+"gradient_path": "res://Game/Scenes/Levels/Level4/arrows_gradient.tres",
 "mangle": Vector3( 0, 0, 225 ),
 "origin": "1592 -2584 1192",
 "size": Vector3( 4, 1, 1 ),
@@ -8314,7 +8314,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -159.5, 86.5, 78.5 )
 process_material = SubResource( 1086 )
 properties = {
 "classname": "Particles_Particles_Arrows",
-"gradient_path": "res://Game/Scenes/Levels/Level4/arrows_gradient_.tres",
+"gradient_path": "res://Game/Scenes/Levels/Level4/arrows_gradient.tres",
 "mangle": Vector3( 0, -90, 225 ),
 "origin": "1256 -2552 1384",
 "size": Vector3( 4, 1, 1 ),
@@ -8326,7 +8326,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -143.5, 98.5, 79.5 )
 process_material = SubResource( 1089 )
 properties = {
 "classname": "Particles_Particles_Arrows",
-"gradient_path": "res://Game/Scenes/Levels/Level4/arrows_gradient_.tres",
+"gradient_path": "res://Game/Scenes/Levels/Level4/arrows_gradient.tres",
 "mangle": Vector3( 0, -90, 225 ),
 "origin": "1272 -2296 1576",
 "size": Vector3( 4, 1, 1 ),
@@ -8338,7 +8338,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -116.5, 113.5, 81.5 )
 process_material = SubResource( 1092 )
 properties = {
 "classname": "Particles_Particles_Arrows",
-"gradient_path": "res://Game/Scenes/Levels/Level4/arrows_gradient_.tres",
+"gradient_path": "res://Game/Scenes/Levels/Level4/arrows_gradient.tres",
 "mangle": Vector3( 0, -180, 0 ),
 "origin": "1304 -1864 1816",
 "size": Vector3( 8, 1, 1 ),
@@ -8350,7 +8350,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -112.5, 91.5, 1.5 )
 process_material = SubResource( 1095 )
 properties = {
 "classname": "Particles_Particles_Arrows",
-"gradient_path": "res://Game/Scenes/Levels/Level4/arrows_gradient_.tres",
+"gradient_path": "res://Game/Scenes/Levels/Level4/arrows_gradient.tres",
 "mangle": Vector3( 0, -180, 0 ),
 "origin": "24 -1800 1464",
 "size": Vector3( 16, 1, 1 ),
@@ -8362,7 +8362,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -244.5, 117.5, -64.5 )
 process_material = SubResource( 1098 )
 properties = {
 "classname": "Particles_Particles_Arrows",
-"gradient_path": "res://Game/Scenes/Levels/Level4/arrows_gradient_.tres",
+"gradient_path": "res://Game/Scenes/Levels/Level4/arrows_gradient.tres",
 "mangle": Vector3( 0, 0, 0 ),
 "origin": "-1032 -3912 1880",
 "size": Vector3( 8, 1, 1 ),
@@ -8374,7 +8374,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -236.75, 112, 15.5 )
 process_material = SubResource( 1101 )
 properties = {
 "classname": "Particles_Particles_Arrows",
-"gradient_path": "res://Game/Scenes/Levels/Level4/arrows_gradient_.tres",
+"gradient_path": "res://Game/Scenes/Levels/Level4/arrows_gradient.tres",
 "mangle": Vector3( 0, 90, 90 ),
 "origin": "248 -3788 1792",
 "size": Vector3( 2, 1, 1 ),
@@ -8386,7 +8386,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -230.75, 136.5, 28.5 )
 process_material = SubResource( 1104 )
 properties = {
 "classname": "Particles_Particles_Arrows",
-"gradient_path": "res://Game/Scenes/Levels/Level4/arrows_gradient_.tres",
+"gradient_path": "res://Game/Scenes/Levels/Level4/arrows_gradient.tres",
 "mangle": Vector3( 0, -180, -30 ),
 "origin": "456 -3692 2184",
 "size": Vector3( 8, 1, 1 ),
@@ -8398,7 +8398,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -229.25, 135.5, -11.5 )
 process_material = SubResource( 1107 )
 properties = {
 "classname": "Particles_Particles_Arrows",
-"gradient_path": "res://Game/Scenes/Levels/Level4/arrows_gradient_.tres",
+"gradient_path": "res://Game/Scenes/Levels/Level4/arrows_gradient.tres",
 "mangle": Vector3( 0, -180, 0 ),
 "origin": "-184 -3668 2168",
 "size": Vector3( 8, 1, 1 ),
@@ -8410,7 +8410,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -198.75, 134, -66.5 )
 process_material = SubResource( 1110 )
 properties = {
 "classname": "Particles_Particles_Arrows",
-"gradient_path": "res://Game/Scenes/Levels/Level4/arrows_gradient_.tres",
+"gradient_path": "res://Game/Scenes/Levels/Level4/arrows_gradient.tres",
 "mangle": Vector3( 0, 90, -20 ),
 "origin": "-1064 -3180 2144",
 "size": Vector3( 8, 1, 1 ),
@@ -8422,7 +8422,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -174.25, 139.5, -76.5 )
 process_material = SubResource( 1113 )
 properties = {
 "classname": "Particles_Particles_Arrows",
-"gradient_path": "res://Game/Scenes/Levels/Level4/arrows_gradient_.tres",
+"gradient_path": "res://Game/Scenes/Levels/Level4/arrows_gradient.tres",
 "mangle": Vector3( 0, -90, -30 ),
 "origin": "-1224 -2788 2232",
 "size": Vector3( 8, 1, 1 ),
@@ -8434,7 +8434,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -206.25, 150, -68.5 )
 process_material = SubResource( 1116 )
 properties = {
 "classname": "Particles_Particles_Arrows",
-"gradient_path": "res://Game/Scenes/Levels/Level4/arrows_gradient_.tres",
+"gradient_path": "res://Game/Scenes/Levels/Level4/arrows_gradient.tres",
 "mangle": Vector3( 0, 90, -30 ),
 "origin": "-1096 -3300 2400",
 "size": Vector3( 8, 1, 1 ),

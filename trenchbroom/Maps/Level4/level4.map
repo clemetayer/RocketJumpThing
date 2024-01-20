@@ -306,7 +306,7 @@
 "collision_mask" "5"
 "free_on_open" "1"
 "open_time" "0.5"
-"open_position" "0 10 0"
+"open_position" "0 9 0"
 "targetname" "door_1"
 // brush 0
 {
@@ -325,7 +325,7 @@
 "collision_mask" "5"
 "free_on_open" "1"
 "open_time" "0.5"
-"open_position" "0 0 -12"
+"open_position" "0 0 -11"
 "targetname" "door_1"
 // brush 0
 {
@@ -344,7 +344,7 @@
 "collision_mask" "5"
 "free_on_open" "1"
 "open_time" "0.5"
-"open_position" "0 0 -10"
+"open_position" "0 -8 0"
 "targetname" "door_1"
 // brush 0
 {
@@ -363,7 +363,7 @@
 "collision_mask" "5"
 "free_on_open" "1"
 "open_time" "0.5"
-"open_position" "0 0 12"
+"open_position" "0 0 11"
 "targetname" "door_1"
 // brush 0
 {
