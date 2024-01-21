@@ -7,7 +7,7 @@ const TEST_CLASS_NAME := "standard"  # for test purposes
 
 #---- STANDARD -----
 #==== PRIVATE ====
-var _wall_ride = true  # indicator that a player can wall ride based on the inputs
+var _wall_ride = false  # indicator that a player can wall ride based on the inputs
 
 
 ##### PUBLIC METHODS #####
