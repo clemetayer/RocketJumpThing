@@ -84,6 +84,7 @@
 {
 "classname" "Checkpoints_Start"
 "origin" "5 3 -1745"
+"mangle" "0 90 0"
 }
 // entity 4
 {

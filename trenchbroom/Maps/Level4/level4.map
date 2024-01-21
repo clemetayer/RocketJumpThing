@@ -127,7 +127,7 @@
 {
 "classname" "Checkpoints_Start"
 "origin" "-1 -1 63"
-"spawn_rotation" "0 90 0"
+"mangle" "0 -90 0"
 }
 // entity 7
 {

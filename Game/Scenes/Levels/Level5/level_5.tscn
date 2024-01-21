@@ -5059,7 +5059,7 @@ wait_time = 0.5
 autostart = true
 
 [node name="Dodecahedron" type="MeshInstance" parent="."]
-transform = Transform( -13.7605, 76.7186, -18.0251, 9.00575, -16.6472, -77.7288, -78.2913, -15.399, -5.77295, 0, 0, 0 )
+transform = Transform( 35.6474, 42.6622, -57.5256, -68.9521, 37.815, -14.6839, 19.361, 56.1245, 53.6208, 0, 0, 0 )
 mesh = ExtResource( 39 )
 script = ExtResource( 40 )
 properties = {
@@ -5166,6 +5166,7 @@ shape = SubResource( 1390 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1875, -109.062, 0.3125 )
 properties = {
 "classname": "Checkpoints_Start",
+"mangle": Vector3( 0, 90, 0 ),
 "origin": "5 3 -1745"
 }
 

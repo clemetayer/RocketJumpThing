@@ -3340,8 +3340,8 @@ shape = SubResource( 616 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0625, 3.9375, -0.0625 )
 properties = {
 "classname": "Checkpoints_Start",
-"origin": "-1 -1 63",
-"spawn_rotation": "0 90 0"
+"mangle": Vector3( 0, -90, 0 ),
+"origin": "-1 -1 63"
 }
 
 [node name="entity_7_StaticBodyGroup" type="StaticBody" parent="QodotMap"]
