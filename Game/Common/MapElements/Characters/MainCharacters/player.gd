@@ -372,7 +372,7 @@ func _process_movement(delta):
 		_find_wall_direction()
 
 	# Movement process
-	if _wall_ride_strategy.can_wall_ride(is_on_floor(), _RC_wall_direction, _wall_ride_lock):
+	if _wall_ride_strategy.can_wall_ride(is_on_floor(), _RC_wall_direction, _wall_ride_lock) and SLIDE_ENABLED:
 		_wall_ride_movement(delta)
 		# rotates the camera
 		_set_wall_ride_camera_tilt(_RC_wall_direction  * WALL_RIDE_TILT_ANGLE, _RC_wall_direction)
@@ -421,8 +421,10 @@ func _wall_ride_movement(delta: float) -> void:
 		var wall_fw = _get_wall_fw_vector(rc)
 		if _wall_ride_strategy.should_wall_jump():
 			_wall_jump(wall_fw)
+			_wall_ride_strategy.wall_riding = false
 		else:
 			_wall_ride_process(rc, wall_fw, delta)
+			_wall_ride_strategy.wall_riding = true
 	else:  # resets the wall ride direction
 		_RC_wall_direction = 0
 
@@ -445,7 +447,6 @@ func _init_wall_riding(rc: RayCast) -> void:
 		+ rc.get_collision_normal() * WALL_RIDE_WALL_DISTANCE
 	)  # keep a small distance from the wall to avoid getting stuck in it
 	set_state_value(states_idx.WALL_RIDING, true)
-	_wall_ride_strategy.wall_riding = true
 
 # returns the vector aligned with the wall, to a forward direction of the player
 func _get_wall_fw_vector(rc: RayCast) -> Vector3:
