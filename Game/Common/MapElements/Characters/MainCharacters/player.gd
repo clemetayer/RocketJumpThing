@@ -210,6 +210,7 @@ func set_state_value(state_idx: int, value: bool) -> void:
 
 
 func checkpoint_process(cp_position: Vector3, cp_rotation: Vector3) -> void:
+	_reset_camera()
 	if cp_position != null:
 		transform.origin = cp_position
 	if cp_rotation != null:
@@ -279,6 +280,12 @@ func _look_at_mangle(mangle: Vector3) -> void:
 		camera_rot.x = clamp(camera_rot.x, -89, 89)
 		rotation_helper.rotation_degrees = camera_rot
 
+# Resets the camera, rotation helper and rotation to its default values
+func _reset_camera() -> void:
+	onready_paths.tweens.wall_ride_tilt.stop_all()
+	rotation = Vector3.ZERO
+	onready_paths.rotation_helper.rotation = Vector3.ZERO
+	onready_paths.camera.rotation = Vector3(0,PI,0)
 
 #---- Process states -----
 # init states

@@ -62,6 +62,9 @@ shape = SubResource( 11 )
 [node name="Body" type="MeshInstance" parent="."]
 visible = false
 mesh = SubResource( 4 )
+__meta__ = {
+"_editor_description_": "Mostly used for debug purposes"
+}
 
 [node name="SlideVisualEffects" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.5 )
