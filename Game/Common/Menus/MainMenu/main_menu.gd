@@ -22,6 +22,8 @@ func _ready():
 	if SettingsUtils.first_start:
 		MenuNavigator.show_initial_settings_menu()
 	else:
+		if LoadingScreen.get_loading_screen_active():
+			yield(LoadingScreen,LoadingScreen.DISAPPEAR_FINISHED_SIGNAL_NAME)
 		MenuNavigator.show_main_menu()
 	_load_main_menu_song()
 	_connect_signals()

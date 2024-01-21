@@ -18,6 +18,10 @@ const DISAPPEAR_ANIM_NAME := "disappear"
 #---- EXPORTS -----
 export(String) var LEVEL_NAME := "You forgot to add the level name, dumdum."
 
+#---- STANDARD -----
+#==== PRIVATE ====
+var _loading_screen_active := false # indicates if the loading screen is showing (pretty much)
+
 #==== ONREADY ====
 onready var onready_paths := {
 	"loading_screen_ui": $"LoadingScreenUI",
@@ -41,6 +45,12 @@ func appear() -> void:
 # makes the loading screen disappear
 func disappear() -> void:
 	onready_paths.animation_player.play(DISAPPEAR_ANIM_NAME)
+
+func set_loading_screen_active(active : bool) -> void:
+	_loading_screen_active = active
+
+func get_loading_screen_active() -> bool:
+	return _loading_screen_active
 
 ##### PROTECTED METHODS #####
 func _hide_loading_screen() -> void:
