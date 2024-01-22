@@ -56,7 +56,7 @@ func test_init_laser() -> void:
 		length / 2.0, FLOAT_APPROX
 	)
 	assert_float(laser.onready_paths.mesh.translation.z).is_equal_approx(length / 2.0, FLOAT_APPROX)
-	assert_float(laser.onready_paths.cube_mesh.translation.z).is_equal_approx(length, FLOAT_APPROX)
+	assert_float(laser.onready_paths.particles.translation.z).is_equal_approx(length, FLOAT_APPROX)
 
 
 func test_update_laser() -> void:
@@ -83,7 +83,7 @@ func test_update_laser() -> void:
 		new_length / 2.0, FLOAT_APPROX
 	)
 	assert_float(laser._last_length).is_equal_approx(new_length,FLOAT_APPROX)
-	assert_float(laser.onready_paths.cube_mesh.translation.z).is_equal_approx(new_length, FLOAT_APPROX)
+	assert_float(laser.onready_paths.particles.translation.z).is_equal_approx(new_length, FLOAT_APPROX)
 
 
 # FIXME : Can't mock things for some reason

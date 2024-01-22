@@ -69,7 +69,7 @@ func _init_laser() -> void:
 	# sets the positions according to the heights
 	onready_paths.collision.translation.z = _max_length / 2.0
 	onready_paths.mesh.translation.z = _max_length / 2.0
-	onready_paths.cube_mesh.translation.z = _max_length
+	onready_paths.particles.translation.z = _max_length
 	onready_paths.sound.translation.z = _max_length / 2.0
 
 
@@ -82,7 +82,7 @@ func _update_laser(length: float) -> void:
 	# position
 	onready_paths.collision.translation.z = length / 2.0
 	onready_paths.mesh.translation.z = length / 2.0
-	onready_paths.cube_mesh.translation.z = length
+	onready_paths.particles.translation.z = length
 	if ScenesManager.get_current() != null and ScenesManager.get_current().has_method("get_player"): # avoids a crash on tests
 		var player = ScenesManager.get_current().get_player()
 		if player != null: # Kind of a trick to make the laser sound even on its length
