@@ -115,27 +115,31 @@ static func create_filter_auto_effect(fade_time: float) -> EffectManager:
 
 #### Body identification #####
 static func is_player(body: Node) -> bool:
-	return body != null && body.is_in_group(GlobalConstants.PLAYER_GROUP)
+	return body != null and body.is_in_group(GlobalConstants.PLAYER_GROUP)
 
 
 static func is_rocket(area: Area) -> bool:
-	return area != null && area.is_in_group("rocket")
+	return area != null and area.is_in_group("rocket")
 
 
 static func is_start_point(checkpoint: Area) -> bool:
-	return checkpoint != null && checkpoint.is_in_group(GlobalConstants.START_POINT_GROUP)
+	return checkpoint != null and checkpoint.is_in_group(GlobalConstants.START_POINT_GROUP)
 
 
 static func is_laser(laser: Area) -> bool:
-	return laser != null && laser.is_in_group(GlobalConstants.LASER_GROUP)
+	return laser != null and laser.is_in_group(GlobalConstants.LASER_GROUP)
+
+
+static func is_laser_enable(laser_area: Area) -> bool:
+	return laser_area != null and laser_area.is_in_group(GlobalConstants.LASER_ENABLE_GROUP)
 
 
 static func is_portal_compatible(element: Node) -> bool:
 	return (
 		element != null
-		&& element is Spatial
-		&& element.has_method(PORTAL_PROCESS_METHOD_NAME)
-		&& element.is_in_group("portal_compatible")
+		and element is Spatial
+		and element.has_method(PORTAL_PROCESS_METHOD_NAME)
+		and element.is_in_group("portal_compatible")
 	)
 
 

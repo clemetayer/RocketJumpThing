@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Game/Common/MapElements/Characters/MainCharacters/player.gd" type="Script" id=1]
 [ext_resource path="res://Game/Common/MapElements/Characters/player_UI.tscn" type="PackedScene" id=2]
@@ -17,8 +17,8 @@
 [ext_resource path="res://Game/Common/MapElements/Characters/MainCharacters/wall_ride_space_to_wall_ride.gd" type="Script" id=16]
 
 [sub_resource type="CylinderShape" id=11]
-height = 0.33
-radius = 0.95
+height = 0.5
+radius = 0.98
 
 [sub_resource type="CylinderMesh" id=4]
 top_radius = 0.6
@@ -40,6 +40,9 @@ size = Vector2( 8, 3 )
 shader = ExtResource( 10 )
 shader_param/front_to_back = false
 shader_param/gradient = ExtResource( 11 )
+
+[sub_resource type="ConvexPolygonShape" id=12]
+points = PoolVector3Array( 0, 0, 0, 2000, 2000, 2000, 2000, -2000, 2000, -2000, 2000, 2000, -2000, -2000, 2000 )
 
 [sub_resource type="CylinderShape" id=5]
 height = 5.0
@@ -93,6 +96,17 @@ collision_mask = 3
 
 [node name="RotationHelper" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0 )
+
+[node name="LaserEnableArea" type="Area" parent="RotationHelper" groups=["laser_enable_area"]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -300 )
+collision_layer = 2
+collision_mask = 8
+__meta__ = {
+"_editor_description_": "To fix some performance issues on the lasers. Only draw and process these if they are fairly close"
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="RotationHelper/LaserEnableArea" groups=["laser_enable_area"]]
+shape = SubResource( 12 )
 
 [node name="RocketLauncherPos" type="Position3D" parent="RotationHelper"]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -1.8, 2 )

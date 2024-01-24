@@ -19,6 +19,7 @@ var _max_length := 1.0  # length of the laser
 var _thickness := 1.0  # thickness of the laser
 var _mangle := Vector3.ZERO  # trenchbroom angle
 var _last_length := 0.0 # keeps the last length to avoid refreshing the particles at each frame
+var _debug := false
 
 #==== ONREADY ====
 onready var onready_paths := {
@@ -38,7 +39,7 @@ func _ready():
 	._ready_func()
 	_init_laser()
 	_connect_signals()
-
+	_toggle_enable(false) # by default, hides all the lasers
 
 ##### PROTECTED METHODS #####
 func _set_TB_params() -> void:
@@ -48,6 +49,8 @@ func _set_TB_params() -> void:
 
 func _connect_signals() -> void:
 	DebugUtils.log_connect(self, self, "body_entered", "_on_body_entered")
+	DebugUtils.log_connect(self,self,"area_entered", "_on_area_entered")
+	DebugUtils.log_connect(self,self,"area_exited", "_on_area_exited")
 	DebugUtils.log_connect(onready_paths.update_timer, self, "timeout", "_on_UpdateTimer_timeout")
 
 
@@ -99,6 +102,14 @@ func _check_raycast() -> void:
 		_update_laser(_max_length)
 		onready_paths.particles.emitting = false
 
+func _toggle_enable(enabled : bool) -> void:
+	visible = enabled
+	onready_paths.sound.playing = enabled
+	onready_paths.raycast.enabled = enabled
+	if enabled:
+		onready_paths.update_timer.start()
+	else:
+		onready_paths.update_timer.stop()
 
 ##### SIGNAL MANAGEMENT #####
 func _on_UpdateTimer_timeout() -> void:
@@ -110,3 +121,10 @@ func _on_body_entered(body: Node) -> void:
 		SignalManager.emit_respawn_player_on_last_cp()
 		RuntimeUtils.play_death_sound()
 		
+func _on_area_entered(area : Node) -> void:
+	if FunctionUtils.is_laser_enable(area):
+		_toggle_enable(true)
+
+func _on_area_exited(area : Node) -> void:
+	if FunctionUtils.is_laser_enable(area):
+		_toggle_enable(false)
