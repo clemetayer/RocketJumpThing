@@ -3,6 +3,7 @@ extends Area
 
 ##### VARIABLES #####
 #---- CONSTANTS -----
+const SPECIAL_ENTITY_ANIMATION := "animation_4" # should keep the area if the entity animation is animation 4, to replay it each time the player enters the cube room. Kind of a dirty way to do this, but since the entity should only be on level 7, that's fine
 const TB_TRIGGER_ENTITY_ANIMATION_MAPPER := [["animation", "_animation"]]  # mapper for TrenchBroom parameters
 
 #---- EXPORTS -----
@@ -39,4 +40,5 @@ func _connect_signals():
 func _on_TriggerEntityAnimation_body_entered(body) -> void:
 	if FunctionUtils.is_player(body):
 		SignalManager.emit_trigger_entity_animation(_animation)
-		queue_free()
+		if _animation != SPECIAL_ENTITY_ANIMATION:
+			queue_free()

@@ -16,6 +16,8 @@ const ENTITY_DESTROYED_ANIMATION := "game_over"
 const MIN_ENTITY_HP_TO_UPDATE_SONG := 3
 const SONG_LAST_PART := "part_5"
 const SONG_ENTITY_DESTROYED_PART := "part_6"
+const ENTITY_ANIMATION_4 := "animation_4"
+const ENTITY_ANIMATION_FIRE_LOOP := "fire_loop"
 
 #---- EXPORTS -----
 # export(int) var EXPORT_NAME # Optionnal comment
@@ -67,6 +69,7 @@ func _connect_signals() -> void:
 		SignalManager, self, SignalManager.ENTITY_DESTROYED, "_on_SignalManager_GameOver"
 	)
 	DebugUtils.log_connect(onready_paths.entity,self,"health_updated","_on_entity_health_updated")
+	DebugUtils.log_connect(SignalManager, self, SignalManager.PLAYER_RESPAWNED_ON_LAST_CP, "_on_SignalManager_player_respawned_on_last_cp")
 
 
 func _connect_breakable_links() -> void:
@@ -117,3 +120,10 @@ func _on_entity_health_updated(health : int) -> void:
 	elif health <= 0:
 		song.ANIMATION = SONG_ENTITY_DESTROYED_PART
 		StandardSongManager.add_to_queue(song,effect)
+
+func _on_SignalManager_player_respawned_on_last_cp() -> void:
+	var current_entity_anim = onready_paths.entity_animation_player.current_animation
+	if current_entity_anim == ENTITY_ANIMATION_4 or current_entity_anim == ENTITY_ANIMATION_FIRE_LOOP:
+		# Reset the entity to a "neutral" animation to avoid spawnkilling the player
+		onready_paths.entity.disappear()
+		onready_paths.entity_animation_player.play("RESET")
