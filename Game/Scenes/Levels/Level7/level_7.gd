@@ -54,7 +54,7 @@ func glitch_audio(part : int) -> void:
 
 func switch_to_credits() -> void:
 	VariableManager.scene_unloading = true
-	SignalManager.emit_game_over()  # TODO : keep all the times for the "Credits scene"
+	SignalManager.emit_game_over()
 
 
 ##### PROTECTED METHODS #####
@@ -108,6 +108,7 @@ func _on_EmitStomp_timeout():
 func _on_SignalManager_GameOver() -> void:
 	onready_paths.scene_animation_player.play(ENTITY_DESTROYED_ANIMATION)
 	yield(onready_paths.scene_animation_player,"animation_finished")
+	switch_to_credits()
 	ScenesManager.load_end()
 
 func _on_entity_health_updated(health : int) -> void:
