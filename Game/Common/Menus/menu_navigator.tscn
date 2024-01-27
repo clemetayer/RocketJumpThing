@@ -13,6 +13,14 @@ pause_mode = 2
 layer = 50
 script = ExtResource( 5 )
 
+[node name="MouseClickLock" type="CanvasLayer" parent="."]
+layer = 99
+
+[node name="MouseClickLock" type="Control" parent="MouseClickLock"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
 [node name="DarkLayer" type="CanvasLayer" parent="."]
 layer = 50
 

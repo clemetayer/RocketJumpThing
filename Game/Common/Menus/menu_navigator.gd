@@ -35,7 +35,8 @@ onready var onready_paths := {
 	"end_level": $"EndLevelMenu/EndLevelMenu",
 	"transition_tween": $"ToggleMenuTransition",
 	"forbidden_menu": $"TheForbiddenMenu",
-	"initial_settings": $"SimpleSettingsMenu/DefaultSettings"
+	"initial_settings": $"SimpleSettingsMenu/DefaultSettings",
+	"mouse_click_lock": $"MouseClickLock/MouseClickLock"
 }
 
 
@@ -61,8 +62,10 @@ func open_navigation(start_menu : int) -> void:
 	onready_paths.background.visible = true
 	_interpolate_menu_transition_tween(onready_paths.background,1)
 	_interpolate_menu_transition_tween(_get_menu_by_id(start_menu),1)
+	_disable_clicks()
 	DebugUtils.log_tween_start(onready_paths.transition_tween)
 	yield(onready_paths.transition_tween,"tween_all_completed")
+	_enable_clicks()
 	_state = start_menu
 	_menu_stack = [start_menu]
 
@@ -71,9 +74,11 @@ func exit_navigation() -> void:
 	emit_signal(MENU_ACTIVATED_SIGNAL_NAME,MENU.hidden)
 	_interpolate_menu_transition_tween(onready_paths.background,0)
 	_interpolate_menu_transition_tween(_get_current_menu(),0)
+	_disable_clicks()
 	DebugUtils.log_tween_start(onready_paths.transition_tween)
 	_get_current_menu().visible = false
 	yield(onready_paths.transition_tween,"tween_all_completed")
+	_enable_clicks()
 	_menu_stack = []
 	_state = MENU.hidden
 	visible = false
@@ -133,6 +138,7 @@ func _stack_menu(menu : int) -> void:
 	Logger.debug("stacking %d, menu stack = %s" % [menu,_menu_stack])
 	emit_signal(MENU_ACTIVATED_SIGNAL_NAME,menu)
 	_interpolate_menu_transition_tween(_get_current_menu(),0)
+	_disable_clicks()
 	DebugUtils.log_tween_start(onready_paths.transition_tween)
 	yield(onready_paths.transition_tween,"tween_all_completed")
 	_get_current_menu().visible = false
@@ -141,6 +147,7 @@ func _stack_menu(menu : int) -> void:
 	_interpolate_menu_transition_tween(_get_menu_by_id(menu),1)
 	DebugUtils.log_tween_start(onready_paths.transition_tween)
 	yield(onready_paths.transition_tween,"tween_all_completed")
+	_enable_clicks()
 	_state = menu
 	_menu_stack.push_back(menu)
 
@@ -153,6 +160,7 @@ func _unstack_menu() -> void:
 		var prev_menu = _menu_stack.back()
 		if prev_menu != null:
 			_interpolate_menu_transition_tween(_get_current_menu(),0)
+			_disable_clicks()
 			DebugUtils.log_tween_start(onready_paths.transition_tween)
 			yield(onready_paths.transition_tween,"tween_all_completed")
 			_get_current_menu().visible = false
@@ -162,6 +170,7 @@ func _unstack_menu() -> void:
 			_interpolate_menu_transition_tween(_get_menu_by_id(prev_menu),1)
 			DebugUtils.log_tween_start(onready_paths.transition_tween)
 			yield(onready_paths.transition_tween,"tween_all_completed")
+			_enable_clicks()
 			_state = prev_menu
 		else:
 			exit_navigation()
@@ -201,6 +210,12 @@ func _interpolate_menu_transition_tween(node : CanvasItem, final_val : int) -> v
 
 func _is_protected_menu(state : int) -> bool:
 	return state == MENU.hidden or state == MENU.main
+
+func _enable_clicks() -> void:
+	onready_paths.mouse_click_lock.mouse_filter = Control.MOUSE_FILTER_IGNORE
+
+func _disable_clicks() -> void:
+	onready_paths.mouse_click_lock.mouse_filter = Control.MOUSE_FILTER_STOP
 
 ##### SIGNAL MANAGEMENT #####
 func _on_MainMenu_LevelSelectRequested() -> void:
