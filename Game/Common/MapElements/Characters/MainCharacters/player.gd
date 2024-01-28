@@ -512,7 +512,8 @@ func _reset_wallride_raycasts() -> void:
 
 # movement management when on the ground
 func _ground_movement(delta: float) -> void:
-	vel.y = 0
+	if not Input.is_action_pressed(GlobalConstants.INPUT_MVT_JUMP): # This line is important to jump on slopes (and still avoiding stacking up velocity by shooting rockets on the ground)
+		vel.y = 0
 	_apply_friction(delta)
 	_accelerate(
 		Vector3(dir.x, 0, dir.z).normalized(), GROUND_TARGET_SPEED, GROUND_ACCELERATION, delta
