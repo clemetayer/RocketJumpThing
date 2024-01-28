@@ -51,6 +51,11 @@ func hurt() -> void:
 	if _hp > 0:
 		_hp -= 1
 		emit_signal("health_updated", _hp)
+		SignalManager.emit_ui_message(
+			TextUtils.BBCode_center_text(
+				tr(TranslationKeys.ANOMALY_HP_LEFT) % [(1.0 - (_hp*1.0/ENTITY_HP))*100]
+			)
+		)
 	Logger.debug("Hp left : %d" % _hp)
 	if _hp <= 0:
 		Logger.debug("game_done")

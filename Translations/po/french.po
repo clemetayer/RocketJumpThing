@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: c.lemetayer@laposte.net\n"
 "POT-Creation-Date: 2021-12-19\n"
-"PO-Revision-Date: 2024-01-15 21:42+0100\n"
+"PO-Revision-Date: 2024-01-28 15:19+0100\n"
 "Last-Translator: Corentin Le Métayer <c.lemetayer@laposte.net>\n"
 "Language: fr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -340,6 +340,9 @@ msgstr "Sécurité désactivée"
 
 msgid "PLAYER_MESSAGE_ACCESS_TO_ANOMALY_GRANTED"
 msgstr "Ouverture du portail"
+
+msgid "ANOMALY_HP_LEFT"
+msgstr "Anomalie supprimée à [color=#9f9f9f]%d%%[/color]"
 
 # =============================== TUTORIALS ===============================
 # ----------------------------- TUTORIAL SCENES ----------------------------
