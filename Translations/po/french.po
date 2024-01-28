@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: c.lemetayer@laposte.net\n"
 "POT-Creation-Date: 2021-12-19\n"
-"PO-Revision-Date: 2024-01-28 15:19+0100\n"
+"PO-Revision-Date: 2024-01-28 18:19+0100\n"
 "Last-Translator: Corentin Le Métayer <c.lemetayer@laposte.net>\n"
 "Language: fr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -387,13 +387,16 @@ msgid "TUTORIAL_ROCKETS"
 msgstr "##shoot## pour ##rocket_icon##."
 
 msgid "TUTORIAL_ROCKET_JUMP"
-msgstr "##rocket_icon## aux pieds pour ##rocket_jump_icon##."
+msgstr ""
+"##movement_jump## + ##rocket_icon## aux pieds pour ##rocket_jump_icon##."
 
 msgid "TUTORIAL_ROCKET_WALL_JUMP"
 msgstr "##rocket_jump_icon## sur le mur pour escalader."
 
 msgid "TUTORIAL_ROCKET_PADS"
-msgstr "##rocket_icon## + ##boost_pad## pour plus de puissance."
+msgstr ""
+"##rocket_icon## sur ##boost_pad## pour augmenter temporairement la puissance "
+"d'éjection'."
 
 # ============================= END GAME ================================
 msgid "END_GAME_SIMULATION_COMPLETED"

@@ -360,13 +360,13 @@ msgid "TUTORIAL_ROCKETS"
 msgstr "##shoot## pour ##rocket_icon##."
 
 msgid "TUTORIAL_ROCKET_JUMP"
-msgstr "##rocket_icon## aux pieds pour ##rocket_jump_icon##."
+msgstr "##movement_jump## + ##rocket_icon## aux pieds pour ##rocket_jump_icon##."
 
 msgid "TUTORIAL_ROCKET_WALL_JUMP"
 msgstr "##rocket_jump_icon## sur le mur pour escalader."
 
 msgid "TUTORIAL_ROCKET_PADS"
-msgstr "##rocket_icon## + ##boost_pad## pour plus de puissance."
+msgstr "##rocket_icon## sur ##boost_pad## pour augmenter temporairement la puissance d'éjection."
  
 #============================= END GAME ================================
 msgid "END_GAME_SIMULATION_COMPLETED"
