@@ -411,6 +411,12 @@ msgstr "With the Godot engine"
 msgid "END_GAME_WITH_LMMS"
 msgstr "Sounds and music made with LMMS"
 
+msgid "END_GAME_ADDITIONNAL_SOUNDS"
+msgstr "Additionnal audio credits : Hammer hitting an anvil (draftcraft),\nImpact leather belt (DWOBoyle) from Freesounds.org."
+
+msgid "END_GAME_ADDITIONNAL_SOUNDS_2"
+msgstr "Additionnal audio plugins : Vital (Matt Tytel), Synth1 (Daichi),\nSpeek (Wavosaur), Audacity (Muse group)"
+
 msgid "END_GAME_WITH_QODOT_TB"
 msgstr "Levels made with Trenchbroom and Qodot"
 
@@ -427,13 +433,13 @@ msgid "END_GAME_FONTS"
 msgstr "Fonts : Oswald, CourierPrimeCode"
 
 msgid "END_GAME_OTHER_TOOLS"
-msgstr "Other tools used : GDUnit3 by NullPointer, Godot-Stuff Logger by paulhocker, DebugDraw by DmitriySalnikov, Simple Skybox by Chaosus."
+msgstr "Other tools used : GDUnit3 by NullPointer, Godot-Stuff Logger by paulhocker,\nDebugDraw by DmitriySalnikov, Simple Skybox by Chaosus."
 
 msgid "END_GAME_ADDITIONAL_CREDITS"
-msgstr "Additionnal credits : Speedlines by Exuin (godotshaders.com), Screen shakes (codingkaiju.com)"
+msgstr "Additionnal credits : Speedlines by Exuin (godotshaders.com), Screen shakes (codingkaiju.com),\nQuake 3 movement Godot (rhulha)"
 
 msgid "END_GAME_FAMILY_AND_FRIENDS"
-msgstr "Thanks to my family and friends"
+msgstr "Thanks to my family and friends (Hi GCC and %s)"
 
 msgid "END_GAME_AND_YOU"
 msgstr "[center][rainbow freq=0.2 sat=10 val=20][wave amp=50 freq=2]And you for playing the game ![/wave][/rainbow][/center]"

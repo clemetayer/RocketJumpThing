@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://Game/Common/Menus/EndGame/ASCII_art_generator.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Game/Common/Menus/EndGame/trenchbroom_logo_resized.png" type="Texture" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://Game/Common/Menus/EndGame/test_time.gd" type="Script" id=10]
 [ext_resource path="res://Game/Common/Menus/EndGame/tests_results.gd" type="Script" id=11]
 [ext_resource path="res://Game/Common/Utils/set_tr_bbcode.gd" type="Script" id=12]
+[ext_resource path="res://Game/Common/Menus/EndGame/family_friends.gd" type="Script" id=13]
 
 [sub_resource type="DynamicFont" id=25]
 use_mipmaps = true
@@ -1187,6 +1188,54 @@ tracks/96/keys = {
 "update": 0,
 "values": [ 1.0 ]
 }
+tracks/97/type = "value"
+tracks/97/path = NodePath("CanvasLayer/VBoxContainer/AdditionnalSounds:visible")
+tracks/97/interp = 1
+tracks/97/loop_wrap = true
+tracks/97/imported = false
+tracks/97/enabled = true
+tracks/97/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/98/type = "value"
+tracks/98/path = NodePath("CanvasLayer/VBoxContainer/AdditionnalSounds:percent_visible")
+tracks/98/interp = 1
+tracks/98/loop_wrap = true
+tracks/98/imported = false
+tracks/98/enabled = true
+tracks/98/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/99/type = "value"
+tracks/99/path = NodePath("CanvasLayer/VBoxContainer/AdditionnalSounds2:visible")
+tracks/99/interp = 1
+tracks/99/loop_wrap = true
+tracks/99/imported = false
+tracks/99/enabled = true
+tracks/99/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/100/type = "value"
+tracks/100/path = NodePath("CanvasLayer/VBoxContainer/AdditionnalSounds2:percent_visible")
+tracks/100/interp = 1
+tracks/100/loop_wrap = true
+tracks/100/imported = false
+tracks/100/enabled = true
+tracks/100/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
 
 [sub_resource type="Animation" id=4]
 resource_name = "credits"
@@ -1838,6 +1887,86 @@ tracks/53/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ false ]
+}
+tracks/54/type = "value"
+tracks/54/path = NodePath("CanvasLayer/VBoxContainer/AdditionnalSounds:visible")
+tracks/54/interp = 1
+tracks/54/loop_wrap = true
+tracks/54/imported = false
+tracks/54/enabled = true
+tracks/54/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/55/type = "value"
+tracks/55/path = NodePath("CanvasLayer/VBoxContainer/AdditionnalSounds2:visible")
+tracks/55/interp = 1
+tracks/55/loop_wrap = true
+tracks/55/imported = false
+tracks/55/enabled = true
+tracks/55/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=37]
+resource_name = "credits_additionnal_sounds"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer/VBoxContainer/AdditionnalSounds:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 2 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CanvasLayer/VBoxContainer/AdditionnalSounds:percent_visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 2, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+
+[sub_resource type="Animation" id=38]
+resource_name = "credits_additionnal_sounds_2"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer/VBoxContainer/AdditionnalSounds2:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 2 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CanvasLayer/VBoxContainer/AdditionnalSounds2:percent_visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 2, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
 }
 
 [sub_resource type="Animation" id=28]
@@ -2698,7 +2827,7 @@ tracks/18/keys = {
 
 [sub_resource type="Animation" id=34]
 resource_name = "credits_too_long"
-length = 43.0
+length = 41.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("CanvasLayer/VBoxContainer/DotDotDot:visible")
 tracks/0/interp = 1
@@ -2802,7 +2931,7 @@ tracks/8/loop_wrap = true
 tracks/8/imported = false
 tracks/8/enabled = true
 tracks/8/keys = {
-"times": PoolRealArray( 22.5 ),
+"times": PoolRealArray( 22 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ true ]
@@ -2814,7 +2943,7 @@ tracks/9/loop_wrap = true
 tracks/9/imported = false
 tracks/9/enabled = true
 tracks/9/keys = {
-"times": PoolRealArray( 22.5, 24.5 ),
+"times": PoolRealArray( 22, 24 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ 0.0, 1.0 ]
@@ -2826,7 +2955,7 @@ tracks/10/loop_wrap = true
 tracks/10/imported = false
 tracks/10/enabled = true
 tracks/10/keys = {
-"times": PoolRealArray( 30 ),
+"times": PoolRealArray( 29 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ true ]
@@ -2838,7 +2967,7 @@ tracks/11/loop_wrap = true
 tracks/11/imported = false
 tracks/11/enabled = true
 tracks/11/keys = {
-"times": PoolRealArray( 30, 31 ),
+"times": PoolRealArray( 29, 30 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ 0.0, 1.0 ]
@@ -2850,7 +2979,7 @@ tracks/12/loop_wrap = true
 tracks/12/imported = false
 tracks/12/enabled = true
 tracks/12/keys = {
-"times": PoolRealArray( 37 ),
+"times": PoolRealArray( 35 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ true ]
@@ -2862,7 +2991,7 @@ tracks/13/loop_wrap = true
 tracks/13/imported = false
 tracks/13/enabled = true
 tracks/13/keys = {
-"times": PoolRealArray( 37, 38 ),
+"times": PoolRealArray( 35, 36 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ 0.0, 1.0 ]
@@ -2874,7 +3003,7 @@ tracks/14/loop_wrap = true
 tracks/14/imported = false
 tracks/14/enabled = true
 tracks/14/keys = {
-"times": PoolRealArray( 42 ),
+"times": PoolRealArray( 40 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ true ]
@@ -2886,7 +3015,7 @@ tracks/15/loop_wrap = true
 tracks/15/imported = false
 tracks/15/enabled = true
 tracks/15/keys = {
-"times": PoolRealArray( 42, 43 ),
+"times": PoolRealArray( 40, 41 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ 0.0, 1.0 ]
@@ -3134,9 +3263,8 @@ text = "END_GAME_SIMULATION_COMPLETED"
 percent_visible = 0.0
 
 [node name="Test1Time" type="RichTextLabel" parent="CanvasLayer/VBoxContainer"]
-margin_top = 22.0
 margin_right = 1024.0
-margin_bottom = 41.0
+margin_bottom = 19.0
 rect_min_size = Vector2( 300, 15 )
 bbcode_enabled = true
 bbcode_text = "Test 1 - [color=#00ff00]PASSED[/color] - [color=#00ffff]00:00.000[/color]"
@@ -3147,9 +3275,9 @@ fit_content_height = true
 script = ExtResource( 10 )
 
 [node name="Test2Time" type="RichTextLabel" parent="CanvasLayer/VBoxContainer"]
-margin_top = 45.0
+margin_top = 23.0
 margin_right = 1024.0
-margin_bottom = 64.0
+margin_bottom = 42.0
 rect_min_size = Vector2( 300, 15 )
 bbcode_enabled = true
 bbcode_text = "Test 2 - [color=#00ff00]PASSED[/color] - [color=#00ffff]00:00.000[/color]"
@@ -3161,9 +3289,9 @@ script = ExtResource( 10 )
 LEVEL_IDX = 1
 
 [node name="Test3Time" type="RichTextLabel" parent="CanvasLayer/VBoxContainer"]
-margin_top = 68.0
+margin_top = 46.0
 margin_right = 1024.0
-margin_bottom = 87.0
+margin_bottom = 65.0
 rect_min_size = Vector2( 300, 15 )
 bbcode_enabled = true
 bbcode_text = "Test 3 - [color=#00ff00]PASSED[/color] - [color=#00ffff]00:00.000[/color]"
@@ -3175,9 +3303,9 @@ script = ExtResource( 10 )
 LEVEL_IDX = 2
 
 [node name="Test4Time" type="RichTextLabel" parent="CanvasLayer/VBoxContainer"]
-margin_top = 91.0
+margin_top = 69.0
 margin_right = 1024.0
-margin_bottom = 110.0
+margin_bottom = 88.0
 rect_min_size = Vector2( 300, 15 )
 bbcode_enabled = true
 bbcode_text = "Test 4 - [color=#00ff00]PASSED[/color] - [color=#00ffff]00:00.000[/color]"
@@ -3189,9 +3317,9 @@ script = ExtResource( 10 )
 LEVEL_IDX = 3
 
 [node name="Test5Time" type="RichTextLabel" parent="CanvasLayer/VBoxContainer"]
-margin_top = 114.0
+margin_top = 92.0
 margin_right = 1024.0
-margin_bottom = 133.0
+margin_bottom = 111.0
 rect_min_size = Vector2( 300, 15 )
 bbcode_enabled = true
 bbcode_text = "Test 5 - [color=#00ff00]PASSED[/color] - [color=#00ffff]00:00.000[/color]"
@@ -3203,9 +3331,9 @@ script = ExtResource( 10 )
 LEVEL_IDX = 4
 
 [node name="Test6Time" type="RichTextLabel" parent="CanvasLayer/VBoxContainer"]
-margin_top = 137.0
+margin_top = 115.0
 margin_right = 1024.0
-margin_bottom = 156.0
+margin_bottom = 134.0
 rect_min_size = Vector2( 300, 15 )
 bbcode_enabled = true
 bbcode_text = "Test 6 - [color=#00ff00]PASSED[/color] - [color=#00ffff]00:00.000[/color]"
@@ -3217,9 +3345,9 @@ script = ExtResource( 10 )
 LEVEL_IDX = 5
 
 [node name="Test7Time" type="RichTextLabel" parent="CanvasLayer/VBoxContainer"]
-margin_top = 160.0
+margin_top = 138.0
 margin_right = 1024.0
-margin_bottom = 179.0
+margin_bottom = 157.0
 rect_min_size = Vector2( 300, 15 )
 bbcode_enabled = true
 bbcode_text = "Test 7 - [color=#00ff00]PASSED[/color] - [color=#00ffff]00:00.000[/color]"
@@ -3231,16 +3359,16 @@ script = ExtResource( 10 )
 LEVEL_IDX = 6
 
 [node name="TotalTimeSeparator" type="Label" parent="CanvasLayer/VBoxContainer"]
-margin_top = 183.0
+margin_top = 161.0
 margin_right = 1024.0
-margin_bottom = 201.0
+margin_bottom = 179.0
 text = "END_GAME_TOTAL_TIME_SEPARATOR"
 percent_visible = 0.0
 
 [node name="TestsResults" type="RichTextLabel" parent="CanvasLayer/VBoxContainer"]
-margin_top = 205.0
+margin_top = 183.0
 margin_right = 1024.0
-margin_bottom = 224.0
+margin_bottom = 202.0
 rect_min_size = Vector2( 300, 15 )
 bbcode_enabled = true
 bbcode_text = "[color=#00ff00]ALL PASSED[/color] - [color=#00ffff]00:00.000[/color]"
@@ -3251,9 +3379,9 @@ fit_content_height = true
 script = ExtResource( 11 )
 
 [node name="Appreciation" type="RichTextLabel" parent="CanvasLayer/VBoxContainer"]
-margin_top = 228.0
+margin_top = 206.0
 margin_right = 1024.0
-margin_bottom = 247.0
+margin_bottom = 225.0
 rect_min_size = Vector2( 300, 15 )
 bbcode_enabled = true
 bbcode_text = "[shake rate=30 level=10]... How did you do that ?[/shake]"
@@ -3272,9 +3400,9 @@ percent_visible = 0.0
 
 [node name="CreditsLoader" type="HBoxContainer" parent="CanvasLayer/VBoxContainer"]
 visible = false
-margin_top = 251.0
+margin_top = 229.0
 margin_right = 1024.0
-margin_bottom = 269.0
+margin_bottom = 247.0
 
 [node name="CreditsLoaderLabel" type="Label" parent="CanvasLayer/VBoxContainer/CreditsLoader"]
 margin_right = 240.0
@@ -3291,21 +3419,22 @@ text = ". . ."
 percent_visible = 0.0
 
 [node name="GameMadeByMe" type="Label" parent="CanvasLayer/VBoxContainer"]
-margin_top = 273.0
+margin_top = 251.0
 margin_right = 1024.0
-margin_bottom = 291.0
+margin_bottom = 269.0
 text = "END_GAME_GAME_MADE_BY"
 align = 1
 
 [node name="GodotEngine" type="CenterContainer" parent="CanvasLayer/VBoxContainer"]
-margin_top = 295.0
+margin_top = 273.0
 margin_right = 1024.0
-margin_bottom = 889.0
+margin_bottom = 867.0
 
 [node name="GodotVBox" type="VBoxContainer" parent="CanvasLayer/VBoxContainer/GodotEngine"]
-margin_left = 212.0
-margin_right = 812.0
-margin_bottom = 594.0
+margin_left = 512.0
+margin_top = 297.0
+margin_right = 512.0
+margin_bottom = 297.0
 
 [node name="GameMadeWith" type="Label" parent="CanvasLayer/VBoxContainer/GodotEngine/GodotVBox"]
 margin_right = 600.0
@@ -3324,14 +3453,15 @@ visible_characters = 0
 percent_visible = 0.0
 
 [node name="LMMS" type="CenterContainer" parent="CanvasLayer/VBoxContainer"]
-margin_top = 893.0
+margin_top = 871.0
 margin_right = 1024.0
-margin_bottom = 1487.0
+margin_bottom = 1465.0
 
 [node name="LMMSVBox" type="VBoxContainer" parent="CanvasLayer/VBoxContainer/LMMS"]
-margin_left = 204.0
-margin_right = 819.0
-margin_bottom = 594.0
+margin_left = 512.0
+margin_top = 297.0
+margin_right = 512.0
+margin_bottom = 297.0
 
 [node name="MusicSoundsWith" type="Label" parent="CanvasLayer/VBoxContainer/LMMS/LMMSVBox"]
 margin_right = 615.0
@@ -3403,17 +3533,29 @@ text = "
 "
 IMAGE = ExtResource( 3 )
 
-[node name="LevelDesignTools" type="CenterContainer" parent="CanvasLayer/VBoxContainer"]
-margin_top = 1491.0
+[node name="AdditionnalSounds" type="Label" parent="CanvasLayer/VBoxContainer"]
 margin_right = 1024.0
-margin_bottom = 1491.0
+margin_bottom = 18.0
+text = "END_GAME_ADDITIONNAL_SOUNDS"
+align = 1
+percent_visible = 0.0
+
+[node name="AdditionnalSounds2" type="Label" parent="CanvasLayer/VBoxContainer"]
+margin_right = 1024.0
+margin_bottom = 18.0
+text = "END_GAME_ADDITIONNAL_SOUNDS_2"
+align = 1
+percent_visible = 0.0
+
+[node name="LevelDesignTools" type="CenterContainer" parent="CanvasLayer/VBoxContainer"]
+margin_top = 1513.0
+margin_right = 1024.0
+margin_bottom = 1513.0
 
 [node name="LevelDesignToolsVBox" type="VBoxContainer" parent="CanvasLayer/VBoxContainer/LevelDesignTools"]
 visible = false
-margin_left = 110.0
-margin_top = -187.0
-margin_right = 914.0
-margin_bottom = 187.0
+margin_left = 512.0
+margin_right = 512.0
 
 [node name="Level design tools" type="Label" parent="CanvasLayer/VBoxContainer/LevelDesignTools/LevelDesignToolsVBox"]
 visible = false
@@ -3709,8 +3851,9 @@ percent_visible = 0.0
 
 [node name="OtherTools" type="Label" parent="CanvasLayer/VBoxContainer"]
 visible = false
+margin_top = 1517.0
 margin_right = 1024.0
-margin_bottom = 39.0
+margin_bottom = 1535.0
 text = "END_GAME_OTHER_TOOLS"
 align = 1
 autowrap = true
@@ -3733,6 +3876,11 @@ margin_bottom = 1578.0
 text = "END_GAME_FAMILY_AND_FRIENDS"
 align = 1
 percent_visible = 0.0
+script = ExtResource( 13 )
+
+[node name="ReplaceTimer" type="Timer" parent="CanvasLayer/VBoxContainer/FamilyFriends"]
+wait_time = 0.5
+autostart = true
 
 [node name="AndYou" type="RichTextLabel" parent="CanvasLayer/VBoxContainer"]
 visible = false
@@ -3750,27 +3898,26 @@ TRANSLATION_KEY = "END_GAME_AND_YOU"
 
 [node name="DotDotDot" type="Label" parent="CanvasLayer/VBoxContainer"]
 visible = false
-margin_top = 44.0
 margin_right = 1024.0
-margin_bottom = 62.0
+margin_bottom = 18.0
 text = "..."
 align = 1
 percent_visible = 0.0
 
 [node name="PrettyMuchIt" type="Label" parent="CanvasLayer/VBoxContainer"]
 visible = false
-margin_top = 66.0
+margin_top = 22.0
 margin_right = 1024.0
-margin_bottom = 84.0
+margin_bottom = 40.0
 text = "END_GAME_PRETTY_MUCH_IT"
 align = 1
 percent_visible = 0.0
 
 [node name="DotDotDot2" type="RichTextLabel" parent="CanvasLayer/VBoxContainer"]
 visible = false
-margin_top = 88.0
+margin_top = 44.0
 margin_right = 1024.0
-margin_bottom = 107.0
+margin_bottom = 63.0
 bbcode_enabled = true
 bbcode_text = "[center][shake rate=15 level=10]...[/shake][/center]"
 visible_characters = 0
@@ -3780,44 +3927,44 @@ fit_content_height = true
 
 [node name="MadeTheSongTooLong" type="Label" parent="CanvasLayer/VBoxContainer"]
 visible = false
-margin_top = 111.0
+margin_top = 67.0
 margin_right = 1024.0
-margin_bottom = 129.0
+margin_bottom = 85.0
 text = "END_GAME_CREDITS_TOO_LONG"
 align = 1
 percent_visible = 0.0
 
 [node name="WontBeThatLong" type="Label" parent="CanvasLayer/VBoxContainer"]
 visible = false
-margin_top = 133.0
+margin_top = 89.0
 margin_right = 1024.0
-margin_bottom = 151.0
+margin_bottom = 107.0
 text = "END_GAME_WONT_BE_LONG"
 align = 1
 percent_visible = 0.0
 
 [node name="AnySecondNow" type="Label" parent="CanvasLayer/VBoxContainer"]
 visible = false
-margin_top = 155.0
+margin_top = 111.0
 margin_right = 1024.0
-margin_bottom = 173.0
+margin_bottom = 129.0
 text = "END_GAME_ANY_SECOND_NOW"
 align = 1
 percent_visible = 0.0
 
 [node name="AnySecond" type="Label" parent="CanvasLayer/VBoxContainer"]
 visible = false
-margin_top = 177.0
+margin_top = 133.0
 margin_right = 1024.0
-margin_bottom = 195.0
+margin_bottom = 151.0
 text = "END_GAME_ANY_SECOND"
 align = 1
 percent_visible = 0.0
 
 [node name="ThereWeGo" type="Label" parent="CanvasLayer/VBoxContainer"]
-margin_top = 1495.0
+margin_top = 155.0
 margin_right = 1024.0
-margin_bottom = 1513.0
+margin_bottom = 173.0
 text = "END_GAME_THERE_WE_GO"
 align = 1
 percent_visible = 0.0
@@ -3846,6 +3993,8 @@ text = ". . ."
 autoplay = "credits"
 anims/RESET = SubResource( 3 )
 anims/credits = SubResource( 4 )
+anims/credits_additionnal_sounds = SubResource( 37 )
+anims/credits_additionnal_sounds_2 = SubResource( 38 )
 anims/credits_and_you = SubResource( 28 )
 anims/credits_appreciation = SubResource( 14 )
 anims/credits_family_friends = SubResource( 33 )
@@ -3866,13 +4015,15 @@ anims/credits_trenchbroom_qodot = SubResource( 23 )
 anims/credits_with_godot_engine = SubResource( 21 )
 anims/credits_you_can_exit_now = SubResource( 35 )
 next/credits = "credits_simulation_completed"
+next/credits_additionnal_sounds = "credits_additionnal_sounds_2"
+next/credits_additionnal_sounds_2 = "credits_trenchbroom_qodot"
 next/credits_and_you = "credits_too_long"
 next/credits_appreciation = "credits_you_can_exit_now"
 next/credits_family_friends = "credits_and_you"
 next/credits_fonts = "credits_other_tools"
 next/credits_game_made_by = "credits_with_godot_engine"
 next/credits_kenney_icons = "credits_fonts"
-next/credits_lmms = "credits_trenchbroom_qodot"
+next/credits_lmms = "credits_additionnal_sounds"
 next/credits_loading = "credits_game_made_by"
 next/credits_material_maker = "credits_spacescape"
 next/credits_other_credits = "credits_family_friends"
