@@ -357,7 +357,7 @@ msgid "TUTORIAL_WALL_RIDE"
 msgstr "##movement_slide## pour wallride\n##movement_jump## en wallride pour sauter."
 
 msgid "TUTORIAL_ROCKETS"
-msgstr "##shoot## pour ##rocket_icon##."
+msgstr "##action_shoot## pour ##rocket_icon##."
 
 msgid "TUTORIAL_ROCKET_JUMP"
 msgstr "##movement_jump## + ##rocket_icon## aux pieds pour ##rocket_jump_icon##."
