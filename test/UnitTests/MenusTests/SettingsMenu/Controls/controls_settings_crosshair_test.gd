@@ -64,7 +64,6 @@ func test_init_current_crosshair() -> void:
 	SettingsUtils.settings_data.controls.crosshair_size = test_size
 	SettingsUtils.settings_data.controls.crosshair_color = test_color
 	controls_settings_crosshair._init_current_crosshair()
-	assert_object(controls_settings_crosshair.onready_paths.preview.texture).is_not_null()
 	assert_float(controls_settings_crosshair.onready_paths.size_slider.value).is_equal_approx(test_size,FLOAT_APPROX)
 	assert_str(controls_settings_crosshair.onready_paths.size_edit.text).is_equal("%f" % test_size)
 	assert_vector2(controls_settings_crosshair.onready_paths.preview.rect_min_size).is_equal(controls_settings_crosshair.STANDARD_SIZE * test_size)

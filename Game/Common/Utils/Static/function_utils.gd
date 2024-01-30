@@ -150,10 +150,10 @@ static func scene_path_valid(scene_path: String) -> bool:
 
 #### Resource loading #####
 # returns an image texture from a path (at a specific size)
-static func get_texture_at_path(file_path: String, size: Vector2) -> ImageTexture:
+static func get_texture_at_path(file_path: String, size: Vector2 = Vector2.ZERO) -> ImageTexture:
 	var texture = ImageTexture.new()
-	var image = Image.new()
-	image.load(file_path)
-	image.resize(size.x, size.y)
+	var image = load(file_path)
+	if size != Vector2.ZERO:
+		image.resize(size.x, size.y)
 	texture.create_from_image(image)
 	return texture

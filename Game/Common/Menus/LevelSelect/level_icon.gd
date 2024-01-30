@@ -31,18 +31,11 @@ func _connect_signals() -> void:
 func _init_level_icon() -> void:
 	if LEVELS_DATA != null:
 		_level_data = LEVELS_DATA.get_level(LEVEL_IDX)
-		onready_paths.button.icon = _load_preview(_level_data.PREVIEW_PATH)
+		onready_paths.button.icon = FunctionUtils.get_texture_at_path(_level_data.PREVIEW_PATH)
 		onready_paths.button.disabled = not _level_data.UNLOCKED
 		onready_paths.level_name.text = _level_data.NAME
 	else:
 		DebugUtils.log_stacktrace("Level data is null", DebugUtils.LOG_LEVEL.error)
-
-func _load_preview(path : String) -> Texture:
-	var image = Image.new()
-	var texture = ImageTexture.new()
-	image.load(path)
-	texture.create_from_image(image)
-	return texture
 
 ##### SIGNAL MANAGEMENT #####
 func _on_button_pressed() -> void:

@@ -58,8 +58,7 @@ func _init_crosshair_options(crosshair_file_name : String, options_idx : int) ->
 func _init_current_crosshair() -> void:
 	# inits the crosshair preview
 	var crosshair_path = SettingsUtils.settings_data.controls.crosshair_path
-	var image = FunctionUtils.get_texture_at_path(crosshair_path, STANDARD_SIZE)
-	onready_paths.preview.texture = image
+	onready_paths.preview.texture = load(crosshair_path)
 	# inits the size slider and value
 	var crosshair_size = SettingsUtils.settings_data.controls.crosshair_size
 	onready_paths.size_slider.value = crosshair_size
