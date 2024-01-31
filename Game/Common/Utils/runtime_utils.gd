@@ -13,16 +13,10 @@ const BUTTON_HOVER_VOLUME := 15.0
 const SLIDER_MOVED_SOUND := "res://Misc/Audio/FX/Menus/slider_moved.wav"
 const SLIDER_MOVED_VOLUME := -2.0
 
-
 #---- STANDARD -----
 #==== PRIVATE ====
 var levels_data: LevelsData = null
-var paths := {
-	"death_sound":"",
-	"button_clicked":"",
-	"button_hover":"",
-	"slider_moved":""
-}
+var paths := {"death_sound": "", "button_clicked": "", "button_hover": "", "slider_moved": ""}
 
 
 #### Display #####
@@ -33,17 +27,22 @@ func _ready() -> void:
 	_init_death_sound()
 	_init_ui_sound()
 
+
 func play_death_sound() -> void:
 	paths.death_sound.play()
+
 
 func play_button_clicked_sound() -> void:
 	paths.button_clicked.play()
 
+
 func play_button_hover_sound() -> void:
 	paths.button_hover.play()
 
+
 func play_slider_moved_sound() -> void:
 	paths.slider_moved.play()
+
 
 # returns a string to display a pretty version of the input
 func display_input_as_string(input: InputEvent) -> String:
@@ -87,11 +86,16 @@ func display_input_as_string(input: InputEvent) -> String:
 func save_level_times(time: float) -> void:
 	var level_data = levels_data.get_level(ScenesManager.get_current_level_idx())
 	if level_data != null:
-		if time < level_data.BEST_TIME:  # if best time, set best time
+		if time < level_data.BEST_TIME or level_data.BEST_TIME == 0.0:  # if best time, set best time
 			level_data.BEST_TIME = time
 		level_data.LAST_TIME = time
-		levels_data.save()
-	DebugUtils.log_stacktrace("Level data is null", DebugUtils.LOG_LEVEL.error)
+		save_levels_data()
+	else:
+		DebugUtils.log_stacktrace("Level data is null", DebugUtils.LOG_LEVEL.error)
+
+
+func save_levels_data() -> void:
+	levels_data.save()
 
 
 #returns the total time (in unix timestamp millis) of the level in the current LevelsData
@@ -100,6 +104,7 @@ func get_levels_total_time() -> int:
 	for level in levels_data.get_levels():
 		time_sum += level.LAST_TIME
 	return time_sum
+
 
 func _translate_mouse_button(key_str: String) -> String:
 	return (
@@ -119,17 +124,20 @@ func _create_default_levels_data() -> void:
 func _load_levels_data() -> void:
 	levels_data = DebugUtils.log_load_resource(LevelsData.SAVE_PATH)
 
+
 func _init_death_sound() -> void:
 	paths.death_sound = AudioStreamPlayer.new()
 	paths.death_sound.stream = load(DEATH_SOUND_PATH)
 	paths.death_sound.bus = GlobalConstants.EFFECTS_BUS
 	add_child(paths.death_sound)
 
+
 # UI sounds are placed in runtime utils to save resources
 func _init_ui_sound() -> void:
 	_init_button_clicked_sound()
 	_init_button_hover_sound()
 	_init_slider_moved_sound()
+
 
 func _init_button_clicked_sound() -> void:
 	paths.button_clicked = AudioStreamPlayer.new()
@@ -138,12 +146,14 @@ func _init_button_clicked_sound() -> void:
 	paths.button_clicked.bus = GlobalConstants.MAIN_BUS
 	add_child(paths.button_clicked)
 
+
 func _init_button_hover_sound() -> void:
 	paths.button_hover = AudioStreamPlayer.new()
 	paths.button_hover.stream = load(BUTTON_HOVERED_SOUND)
 	paths.button_hover.volume_db = BUTTON_HOVER_VOLUME
 	paths.button_hover.bus = GlobalConstants.MAIN_BUS
 	add_child(paths.button_hover)
+
 
 func _init_slider_moved_sound() -> void:
 	paths.slider_moved = AudioStreamPlayer.new()

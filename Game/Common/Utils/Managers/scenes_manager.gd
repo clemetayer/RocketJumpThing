@@ -42,6 +42,7 @@ func has_previous_level() -> bool:
 func enable_next_level() -> void:
 	if _current_level_data != null and _current_level_data.has_next_level(_current_level_idx):
 		_current_level_data.get_level(_current_level_idx + 1).UNLOCKED = true
+		RuntimeUtils.save_levels_data()
 
 
 func load_main_menu() -> void:

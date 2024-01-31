@@ -57,6 +57,8 @@ signal translation_updated
 signal entity_destroyed
 #warning-ignore:UNUSED_SIGNAL
 signal glitch_audio(part)
+#warning-ignore:UNUSED_SIGNAL
+signal levels_data_updated
 
 ##### VARIABLES #####
 #==== PLAYER =====
@@ -92,6 +94,7 @@ const TRANSLATION_UPDATED := "translation_updated"
 const ENTITY_DESTROYED := "entity_destroyed"
 const GAME_OVER := "game_over"
 const GLITCH_AUDIO := "glitch_audio"
+const LEVELS_DATA_UPDATED := "levels_data_updated"
 
 
 ##### PUBLIC METHODS #####
@@ -195,3 +198,7 @@ func emit_game_over() -> void:
 
 func emit_glitch_audio(part: int) -> void:
 	emit_signal(GLITCH_AUDIO, part)
+
+
+func emit_levels_data_updated() -> void:
+	emit_signal(LEVELS_DATA_UPDATED)

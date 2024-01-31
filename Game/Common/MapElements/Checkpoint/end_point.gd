@@ -8,7 +8,8 @@ const ENTERED_SOUND_VOLUME_DB := 13.0
 
 #---- STANDARD -----
 #==== PRIVATE ====
-var _entered_sound : AudioStreamPlayer
+var _entered_sound: AudioStreamPlayer
+
 
 ##### PROCESSING #####
 # Called when the object is initialized.
@@ -16,13 +17,16 @@ func _init():
 	_add_to_end_point_group()
 	_connect_signals()
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	_init_entered_sound()
 
+
 ##### PROTECTED METHODS #####
 func _play_entered_sound() -> void:
 	_entered_sound.play()
+
 
 func _init_entered_sound() -> void:
 	var sound = AudioStreamPlayer.new()
@@ -32,6 +36,7 @@ func _init_entered_sound() -> void:
 	add_child(sound)
 	sound.pause_mode = PAUSE_MODE_PROCESS
 	_entered_sound = sound
+
 
 func _save_level_data() -> void:
 	RuntimeUtils.save_level_times(VariableManager.chronometer.level)
@@ -49,7 +54,9 @@ func _connect_signals() -> void:
 
 func _is_best_time(level_data: LevelData) -> bool:
 	if level_data != null:
-		return VariableManager.chronometer.level < level_data.BEST_TIME
+		return (
+			VariableManager.chronometer.level < level_data.BEST_TIME or level_data.BEST_TIME == 0.0
+		)
 	DebugUtils.log_stacktrace("Level data is null", DebugUtils.LOG_LEVEL.error)
 	return false
 
@@ -60,4 +67,5 @@ func _on_EndPoint_body_entered(body: Node):
 		SignalManager.emit_end_reached()
 		_play_entered_sound()
 		_save_level_data()
+		SignalManager.emit_levels_data_updated()
 		VariableManager.scene_unloading = true

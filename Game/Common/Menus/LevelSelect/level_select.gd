@@ -29,6 +29,7 @@ func _ready():
 ##### PROTECTED METHODS #####
 func _connect_signals() -> void:
 	DebugUtils.log_connect(onready_paths.return,self,"pressed","_on_button_pressed")
+	DebugUtils.log_connect(SignalManager,self,SignalManager.LEVELS_DATA_UPDATED,"_on_SignalManager_levels_data_updated")
 
 func _init_grid() -> void:
 	_clear_grid()
@@ -48,3 +49,6 @@ func _create_level_icon(levels_data : LevelsData, level_idx : int) -> Control:
 ##### SIGNAL MANAGEMENT #####
 func _on_button_pressed() -> void:
 	emit_signal("return_to_prev_menu")
+
+func _on_SignalManager_levels_data_updated() -> void:
+	_init_grid()
