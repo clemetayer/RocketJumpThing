@@ -145,6 +145,7 @@ func _on_GameplayOptions_item_selected(idx:int) -> void:
 	SettingsUtils.settings_data.gameplay.tutorial_level = idx
 
 func _on_Ok_pressed() -> void:
+	SettingsUtils.first_start = false # To avoid going back to this menu after playing for a bit then switching back to the main menu
 	SignalManager.emit_update_settings()
 	MenuNavigator.exit_navigation()
 	MenuNavigator.show_main_menu()

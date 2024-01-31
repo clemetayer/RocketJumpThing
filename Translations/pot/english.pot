@@ -339,7 +339,7 @@ msgid "TUTORIAL_BHOP"
 msgstr "Keep ##movement_jump## pressed to accelerate."
 
 msgid "TUTORIAL_STRAFE"
-msgstr "To accelerate even more:\n##movement_jump## + ##movement_wa## + ##mouse_strafe_left##\nou\n##movement_jump## + ##movement_wd## + ##mouse_strafe_right##."
+msgstr "To accelerate even more:\n##movement_jump## + ##movement_wa## + ##mouse_strafe_left##\nor\n##movement_jump## + ##movement_wd## + ##mouse_strafe_right##."
 
 msgid "TUTORIAL_AIR_CONTROL"
 msgstr "##movement_w## + ##mouse_strafe_left_right## in the air to control your direction."
