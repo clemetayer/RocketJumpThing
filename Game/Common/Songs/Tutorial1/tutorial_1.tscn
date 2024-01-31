@@ -1632,8 +1632,12 @@ tracks/2/keys = {
 "end_offset": 0.0,
 "start_offset": 0.0,
 "stream": ExtResource( 27 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 19 )
 } ],
-"times": PoolRealArray( 0, 8, 16 )
+"times": PoolRealArray( 0, 8, 16, 24 )
 }
 tracks/3/type = "audio"
 tracks/3/path = NodePath("SuperSawP2")
@@ -1854,18 +1858,18 @@ tracks/9/keys = {
 script = ExtResource( 2 )
 ANIMATION_PLAYER = NodePath("AnimationPlayer")
 SONG_SEND_TO = "BGM"
-SLIDE_FX_FILTER_CUTOFF = 600.018
+SLIDE_FX_FILTER_CUTOFF = 600.161
 
 [node name="BellyHigh" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 19 )
+stream = ExtResource( 27 )
 volume_db = 3.0
 
 [node name="BellyLow" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 20 )
+stream = ExtResource( 24 )
 volume_db = 3.0
 
 [node name="Bass" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 
 [node name="Beat" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
@@ -1876,15 +1880,15 @@ stream = ExtResource( 12 )
 volume_db = 1.0
 
 [node name="SuperSawP2" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 25 )
+stream = ExtResource( 6 )
 volume_db = 1.0
 
 [node name="VerySoftPad" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 29 )
+stream = ExtResource( 22 )
 volume_db = 3.0
 
 [node name="StringsPad_HousePiano" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 21 )
+stream = ExtResource( 28 )
 volume_db = 4.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
