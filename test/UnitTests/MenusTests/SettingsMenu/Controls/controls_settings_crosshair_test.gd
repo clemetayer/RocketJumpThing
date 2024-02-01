@@ -39,28 +39,28 @@ func test_connect_signals() -> void:
 	assert_bool(SignalManager.is_connected(SignalManager.TRANSLATION_UPDATED, controls_settings_crosshair,"_on_SignalManager_translation_updated")).is_true()
 
 func test_init_crosshair_options() -> void:
-	var test_crosshair_path_1 := "crosshair001.png"
-	var test_crosshair_path_2 := "crosshair002.png"
-	var test_crosshair_path_3 := "crosshair003.png"
+	var test_crosshair_1 = controls_settings_crosshair.CROSSHAIRS_RESOURCE.CROSSHAIRS[0]
+	var test_crosshair_2 = controls_settings_crosshair.CROSSHAIRS_RESOURCE.CROSSHAIRS[1]
+	var test_crosshair_3 = controls_settings_crosshair.CROSSHAIRS_RESOURCE.CROSSHAIRS[2]
 	controls_settings_crosshair.onready_paths.options.clear()
-	SettingsUtils.settings_data.controls.crosshair_path = "res://Misc/UI/Crosshairs/PNG/WhiteRetina/" + test_crosshair_path_2
-	controls_settings_crosshair._init_crosshair_options(test_crosshair_path_1,0)
-	controls_settings_crosshair._init_crosshair_options(test_crosshair_path_2,1)
-	controls_settings_crosshair._init_crosshair_options(test_crosshair_path_3,2)
+	SettingsUtils.settings_data.controls.crosshair_path = test_crosshair_2.path
+	controls_settings_crosshair._init_crosshair_options(test_crosshair_1,0)
+	controls_settings_crosshair._init_crosshair_options(test_crosshair_2,1)
+	controls_settings_crosshair._init_crosshair_options(test_crosshair_3,2)
 	assert_int(controls_settings_crosshair.onready_paths.options.get_item_count()).is_equal(3)
 	assert_object(controls_settings_crosshair.onready_paths.options.get_item_icon(0)).is_not_null()
-	assert_str(controls_settings_crosshair.onready_paths.options.get_item_text(0)).is_equal(test_crosshair_path_1.split(".")[0])
+	assert_str(controls_settings_crosshair.onready_paths.options.get_item_text(0)).is_equal(test_crosshair_1.name)
 	assert_object(controls_settings_crosshair.onready_paths.options.get_item_icon(1)).is_not_null()
-	assert_str(controls_settings_crosshair.onready_paths.options.get_item_text(1)).is_equal(test_crosshair_path_2.split(".")[0])
+	assert_str(controls_settings_crosshair.onready_paths.options.get_item_text(1)).is_equal(test_crosshair_2.name)
 	assert_object(controls_settings_crosshair.onready_paths.options.get_item_icon(2)).is_not_null()
-	assert_str(controls_settings_crosshair.onready_paths.options.get_item_text(2)).is_equal(test_crosshair_path_3.split(".")[0])
+	assert_str(controls_settings_crosshair.onready_paths.options.get_item_text(2)).is_equal(test_crosshair_3.name)
 	assert_int(controls_settings_crosshair.onready_paths.options.selected).is_equal(1)
 
 func test_init_current_crosshair() -> void:
-	var test_path := "res://Misc/UI/Crosshairs/PNG/WhiteRetina/crosshair009.png"
+	var test_data = controls_settings_crosshair.CROSSHAIRS_RESOURCE.CROSSHAIRS[0]
 	var test_size := 1.5
 	var test_color := Color.aliceblue
-	SettingsUtils.settings_data.controls.crosshair_path = test_path
+	SettingsUtils.settings_data.controls.crosshair_path = test_data.path
 	SettingsUtils.settings_data.controls.crosshair_size = test_size
 	SettingsUtils.settings_data.controls.crosshair_color = test_color
 	controls_settings_crosshair._init_current_crosshair()
@@ -72,16 +72,16 @@ func test_init_current_crosshair() -> void:
 	assert_object(controls_settings_crosshair.onready_paths.preview.modulate).is_equal(test_color)
 	
 func test_on_ToolButton_item_selected() -> void:
-	var test_crosshair_path_1 := "crosshair001.png"
-	var test_crosshair_path_2 := "crosshair002.png"
-	var test_crosshair_path_3 := "crosshair003.png"
+	var test_crosshair_1 = controls_settings_crosshair.CROSSHAIRS_RESOURCE.CROSSHAIRS[0]
+	var test_crosshair_2 = controls_settings_crosshair.CROSSHAIRS_RESOURCE.CROSSHAIRS[1]
+	var test_crosshair_3 = controls_settings_crosshair.CROSSHAIRS_RESOURCE.CROSSHAIRS[2]
 	controls_settings_crosshair.onready_paths.options.clear()
-	controls_settings_crosshair._init_crosshair_options(test_crosshair_path_1,0)
-	controls_settings_crosshair._init_crosshair_options(test_crosshair_path_2,1)
-	controls_settings_crosshair._init_crosshair_options(test_crosshair_path_3,2)
+	controls_settings_crosshair._init_crosshair_options(test_crosshair_1,0)
+	controls_settings_crosshair._init_crosshair_options(test_crosshair_2,1)
+	controls_settings_crosshair._init_crosshair_options(test_crosshair_3,2)
 	controls_settings_crosshair._on_ToolButton_item_selected(1)
 	assert_object(controls_settings_crosshair.onready_paths.preview.texture).is_not_null()
-	assert_str(SettingsUtils.settings_data.controls.crosshair_path).is_equal(controls_settings_crosshair.CROSSHAIR_FOLDER + test_crosshair_path_2)
+	assert_str(SettingsUtils.settings_data.controls.crosshair_path).is_equal(test_crosshair_2.path)
 
 func test_on_SizeEdit_text_changed() -> void:
 	var test_float = "2.5"

@@ -4,12 +4,9 @@ extends VBoxContainer
 ##### VARIABLES #####
 #---- CONSTANTS -----
 const STANDARD_SIZE := Vector2.ONE * GlobalConstants.CROSSHAIR_STANDARD_SIZE # Normal size of the preview (for a scale of 1)
-const CROSSHAIR_FOLDER := "res://Misc/UI/Crosshairs/PNG/WhiteRetina/"
+const CROSSHAIRS_RESOURCE := preload("res://Misc/UI/Crosshairs/crosshairs.tres")
 
 #---- STANDARD -----
-#==== PRIVATE ====
-var _crosshair_paths := {}
-
 #==== ONREADY ====
 onready var onready_paths := {
 	"options":$"CrosshairOptions/ToolButton",
@@ -26,11 +23,9 @@ onready var onready_paths := {
 func _ready():
 	_init_tr()
 	_connect_signals()
-	var crosshair_file_names = FunctionUtils.list_dir_files(CROSSHAIR_FOLDER,SettingsUtils.REGEX_PATTERN_PNG_FILE)
-	crosshair_file_names.sort()
-	var options_idx := 0
-	for file_name in crosshair_file_names:
-		_init_crosshair_options(file_name, options_idx)
+	var options_idx = 0
+	for crosshair_data in CROSSHAIRS_RESOURCE.CROSSHAIRS:
+		_init_crosshair_options(crosshair_data, options_idx)
 		options_idx += 1
 	_init_current_crosshair()
 
@@ -47,12 +42,9 @@ func _connect_signals() -> void:
 	DebugUtils.log_connect(SignalManager, self, SignalManager.UPDATE_SETTINGS, "_on_SignalManager_update_settings")
 	DebugUtils.log_connect(SignalManager,self,SignalManager.TRANSLATION_UPDATED,"_on_SignalManager_translation_updated")
 
-func _init_crosshair_options(crosshair_file_name : String, options_idx : int) -> void:
-	var crosshair_name = crosshair_file_name.split(".")[0]
-	var icon = FunctionUtils.get_texture_at_path(CROSSHAIR_FOLDER + crosshair_file_name, Vector2(20,20))
-	_crosshair_paths[crosshair_name] = CROSSHAIR_FOLDER + crosshair_file_name
-	onready_paths.options.add_icon_item(icon,crosshair_name, options_idx)
-	if(SettingsUtils.settings_data.controls.crosshair_path == CROSSHAIR_FOLDER + crosshair_file_name):
+func _init_crosshair_options(crosshair_data : Dictionary, options_idx : int) -> void:
+	onready_paths.options.add_icon_item(crosshair_data.image,crosshair_data.name, options_idx)
+	if(SettingsUtils.settings_data.controls.crosshair_path == crosshair_data.path):
 		onready_paths.options.select(options_idx)
 
 func _init_current_crosshair() -> void:
@@ -73,11 +65,9 @@ func _init_current_crosshair() -> void:
 
 ##### SIGNAL MANAGEMENT #####
 func _on_ToolButton_item_selected(idx : int) -> void:
-	var crosshair_name = onready_paths.options.get_item_text(idx)
-	var image_path = _crosshair_paths[crosshair_name]
-	var image = FunctionUtils.get_texture_at_path(image_path, STANDARD_SIZE)
-	onready_paths.preview.texture = image
-	SettingsUtils.set_crosshair_path(_crosshair_paths[crosshair_name])
+	var crosshair_data = CROSSHAIRS_RESOURCE.CROSSHAIRS[idx]
+	onready_paths.preview.texture = crosshair_data.image
+	SettingsUtils.set_crosshair_path(crosshair_data.path)
 
 func _on_SizeEdit_text_changed(new_text : String) -> void:
 	if new_text.is_valid_float():

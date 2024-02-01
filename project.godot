@@ -124,6 +124,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/gs_logger/appenders/console_appender.gd"
 }, {
+"base": "Resource",
+"class": "CrosshairList",
+"language": "GDScript",
+"path": "res://Game/Common/Utils/UI/crosshair_list.gd"
+}, {
 "base": "Area",
 "class": "DeathGrid",
 "language": "GDScript",
@@ -1243,6 +1248,7 @@ _global_script_class_icons={
 "CommonSlider": "",
 "Comparator": "",
 "ConsoleAppender": "",
+"CrosshairList": "",
 "DeathGrid": "",
 "DebugUtils": "",
 "DefaultValueProvider": "",
