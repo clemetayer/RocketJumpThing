@@ -152,3 +152,5 @@ func _on_Ok_pressed() -> void:
 
 func _on_SignalManager_translation_updated() -> void:
 	_init_tr()
+	onready_paths.video.options.clear()
+	_init_video_options()

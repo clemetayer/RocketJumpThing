@@ -74,3 +74,5 @@ func _on_SignalManager_update_settings() -> void:
 
 func _on_SignalManager_translation_updated() -> void:
 	_init_tr()
+	onready_paths.window_type.options.clear()
+	_init_options()
