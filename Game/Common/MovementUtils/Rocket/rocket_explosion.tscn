@@ -36,12 +36,9 @@ flags_transparent = true
 flags_unshaded = true
 vertex_color_use_as_albedo = true
 
-[sub_resource type="SphereMesh" id=2]
+[sub_resource type="CubeMesh" id=11]
 material = SubResource( 4 )
-radius = 0.063
-height = 0.125
-radial_segments = 32
-rings = 16
+size = Vector3( 0.1, 0.1, 0.1 )
 
 [sub_resource type="Animation" id=9]
 length = 0.001
@@ -157,11 +154,11 @@ shape = SubResource( 1 )
 mesh = SubResource( 8 )
 
 [node name="ExplosionParticles" type="Particles" parent="."]
-amount = 128
+amount = 25
 one_shot = true
 explosiveness = 1.0
 process_material = SubResource( 3 )
-draw_pass_1 = SubResource( 2 )
+draw_pass_1 = SubResource( 11 )
 
 [node name="ExplosionDecay" type="Timer" parent="."]
 wait_time = 0.15
