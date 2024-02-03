@@ -59,6 +59,7 @@ func load_end() -> void:
 		DebugUtils.log_stacktrace(
 			"Error while changing scene to %s" % CREDITS_PATH, DebugUtils.LOG_LEVEL.error
 		)
+	RuntimeUtils.save_levels_data()
 	MenuNavigator.toggle_pause_enabled(false)
 	_current_level_data = null
 	_current_level_idx = 0

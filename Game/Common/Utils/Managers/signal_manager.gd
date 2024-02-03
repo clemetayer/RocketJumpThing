@@ -56,6 +56,8 @@ signal translation_updated
 #warning-ignore:UNUSED_SIGNAL
 signal entity_destroyed
 #warning-ignore:UNUSED_SIGNAL
+signal game_over
+#warning-ignore:UNUSED_SIGNAL
 signal glitch_audio(part)
 #warning-ignore:UNUSED_SIGNAL
 signal levels_data_updated

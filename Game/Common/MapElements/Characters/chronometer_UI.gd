@@ -33,6 +33,9 @@ func _connect_signals() -> void:
 	DebugUtils.log_connect(
 		SignalManager, self, SignalManager.END_REACHED, "_on_SignalManager_end_reached"
 	)
+	DebugUtils.log_connect(
+		SignalManager, self, SignalManager.GAME_OVER, "_on_SignalManager_game_over"
+	)
 
 
 func _update_timer(delta: float) -> void:
@@ -56,3 +59,7 @@ func _on_SignalManager_start_level_chronometer() -> void:
 func _on_SignalManager_end_reached() -> void:
 	_timer_stopped = true
 	VariableManager.chronometer.level = _last_time
+	RuntimeUtils.save_level_times(VariableManager.chronometer.level)
+
+func _on_SignalManager_game_over() -> void:
+	_on_SignalManager_end_reached()
