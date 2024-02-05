@@ -12,6 +12,11 @@ const BUTTON_HOVERED_SOUND := "res://Misc/Audio/FX/Menus/button_hover.wav"
 const BUTTON_HOVER_VOLUME := 15.0
 const SLIDER_MOVED_SOUND := "res://Misc/Audio/FX/Menus/slider_moved.wav"
 const SLIDER_MOVED_VOLUME := -2.0
+# Rockets
+const ROCKET_EXPLOSION_PATH := "res://Game/Common/MovementUtils/Rocket/rocket_explosion.tscn"
+const ROCKET_TARGET_PATH := "res://Game/Common/MovementUtils/Rocket/rocket_target.tscn"
+const ROCKET_TARGET_SCENE := preload(ROCKET_TARGET_PATH) # preloads the target and the explosion once to improve performances
+const ROCKET_EXPLOSION_SCENE := preload(ROCKET_EXPLOSION_PATH)
 
 #---- STANDARD -----
 #==== PRIVATE ====

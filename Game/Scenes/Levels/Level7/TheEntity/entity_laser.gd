@@ -49,11 +49,6 @@ func _ready():
 	DebugUtils.log_connect(self, self, "body_entered", "_on_body_entered")
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame. Remove the "_" to use it.
-func _physics_process(_delta):
-	_update_laser_length()
-
-
 ##### PUBLIC METHODS #####
 # toggles the update_rotation variable
 func toggle_update_rotation(value: bool) -> void:
@@ -62,6 +57,7 @@ func toggle_update_rotation(value: bool) -> void:
 
 # triggers the fire animation
 func fire() -> void:
+	onready_paths.update_raycast_timer.start()
 	onready_paths.animation_player.play(FIRE_ANIM_NAME)
 
 

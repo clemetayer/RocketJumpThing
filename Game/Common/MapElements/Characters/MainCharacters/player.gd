@@ -97,6 +97,7 @@ var _can_jump_on_fall := false # To allow jumping for a short period of time aft
 var _wall_ride_strategy : WallRideStrategy # Strategy to use for the wall ride
 var _velocity_lock := false # boolean to tell if we just interacted with a boost pad
 var _air_jumps_left := 0 # how many jumps left to air jump
+var _rocket_scene := preload(ROCKET_SCENE_PATH)
 
 #==== ONREADY ====
 onready var onready_paths := {
@@ -344,7 +345,7 @@ func _shoot(cam_xform: Transform) -> void:
 
 
 func _init_rocket(cam_xform: Transform) -> Area:
-	var rocket = load(ROCKET_SCENE_PATH).instance()
+	var rocket = _rocket_scene.instance()
 	rocket.START_POS = onready_paths.rocket_fire_pos.global_transform.origin
 	rocket.DIRECTION = -cam_xform.basis.z
 	rocket.UP_VECTOR = Vector3(0, 1, 0)

@@ -1495,10 +1495,6 @@ GlobalScreenEffects="*res://Game/Common/Shaders/GlobalScreenEffects/global_scree
 LoadingScreen="*res://Game/Common/Menus/LoadingScreen/loading_screen.tscn"
 MenuNavigator="*res://Game/Common/Menus/menu_navigator.tscn"
 
-[debug]
-
-settings/fps/force_fps=240
-
 [editor_plugins]
 
 enabled=PoolStringArray( "res://addons/gdUnit3/plugin.cfg", "res://addons/gs_logger/plugin.cfg", "res://addons/qodot/plugin.cfg" )
@@ -1583,10 +1579,15 @@ print_buses_status={
 test="en"
 translations=PoolStringArray( "res://Translations/po/french.po", "res://Translations/po/english.po" )
 
+[navigation]
+
+3d/fps/force_fps=240
+
 [physics]
 
 common/enable_pause_aware_picking=true
 
 [rendering]
 
+threads/thread_model=2
 environment/default_environment="res://default_env.tres"

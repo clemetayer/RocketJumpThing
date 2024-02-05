@@ -12,9 +12,6 @@ extends Area
 const SPEED := 12.5  # travel speed of the rocket
 const RAYCAST_DISTANCE := 12.5  # maximum distance to detect a floor
 const RAYCAST_PLAN_EXPLODE_DISTANCE := 0.3125  # Distance from a floor where the explosion should be planned (since it's imminent), to be sure that is will explode (high speed makes collision weird)
-const EXPLOSION_SCENE := "res://Game/Common/MovementUtils/Rocket/rocket_explosion.tscn"
-const TARGET_SCENE := "res://Game/Common/MovementUtils/Rocket/rocket_target.tscn"
-
 #---- EXPORTS -----
 export(Vector3) var START_POS = Vector3(0, 0, 0)
 export(Vector3) var DIRECTION = Vector3(0, 0, 0)  # direction (normalized) where the rocket should travel
@@ -32,12 +29,14 @@ var _target  # target sprite to be displayed on the floor/wall/whatever
 onready var onready_paths := {
 	"trail_sound": $"TrailSound",
 	"raycast": $"RayCast",
+	"update_raycast_timer": $"UpdateRaycastTimer"
 }
 
 
 ##### PROCESSING #####
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	_connect_signals()
 	_init_target()
 	_init_rocket()
 	_play_rocket_sound()
@@ -45,7 +44,6 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-	_check_raycast_distance(onready_paths.raycast)
 	if _translate:
 		translate_object_local(Vector3(0, 0, 1) * _speed * delta)
 
@@ -57,8 +55,11 @@ func remove() -> void:
 
 
 ##### PROTECTED METHODS #####
+func _connect_signals() -> void:
+	DebugUtils.log_connect(onready_paths.update_raycast_timer, self, "timeout", "_on_UpdateRaycastTimer_timeout")
+
 func _init_target() -> void:
-	_target = load(TARGET_SCENE).instance()
+	_target = RuntimeUtils.ROCKET_TARGET_SCENE.instance()
 
 
 func _init_rocket() -> void:
@@ -87,12 +88,6 @@ func _check_raycast_distance(raycast: RayCast) -> void:
 	if raycast.is_colliding():
 		var distance = _get_distance_to_collision(raycast)
 		_update_target(raycast, distance)
-		if (
-			not FunctionUtils.is_player(raycast.get_collider())
-			and distance <= RAYCAST_PLAN_EXPLODE_DISTANCE
-			and not _expl_planned
-		):
-			_plan_explosion(distance, raycast)
 	else:
 		_remove_target()
 
@@ -130,23 +125,13 @@ func _remove_target() -> void:
 		_target.queue_free()
 
 
-# plans an explosion, since the rocket is close to the floor (to make sure it explodes)
-func _plan_explosion(distance: float, raycast: RayCast) -> void:
-	if not _expl_planned:
-		_expl_planned = true
-		yield(get_tree().create_timer(distance / _speed), "timeout")
-		_explode(raycast)
-
-
 # Explosion of the rocket
 # FIXME : Not exploding sometimes, the collision probably doesn't operate well...
 func _explode(raycast) -> void:
 	_translate = false
-	var col_point = raycast.get_collision_point()
 	raycast.enabled = false
-	transform.origin = col_point
 	_remove_target()
-	var explosion = load(EXPLOSION_SCENE).instance()
+	var explosion = RuntimeUtils.ROCKET_EXPLOSION_SCENE.instance()
 	explosion.EXPLOSION_POSITION = global_transform.origin
 	ScenesManager.get_current().add_child(explosion)
 	queue_free()
@@ -164,3 +149,6 @@ func _on_Rocket_body_entered(body: Node):
 # Unused for now
 func _on_Rocket_area_entered(_area: Area):
 	pass
+
+func _on_UpdateRaycastTimer_timeout() -> void:
+	_check_raycast_distance(onready_paths.raycast)

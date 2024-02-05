@@ -13,12 +13,14 @@ class_properties = {
 "color": Color( 1, 0, 0, 1 ),
 "mangle": Vector3( 0, 0, 0 ),
 "max_length": 1.0,
+"static_size": 1,
 "thickness": 0.1
 }
 class_property_descriptions = {
 "color": "color of the laser",
 "mangle": "rotation angles",
 "max_length": "Maximum length of the laser",
+"static_size": "True (!= 0) if the laser should have a size computed only once at the start",
 "thickness": "Thickness of the laser"
 }
 meta_properties = {

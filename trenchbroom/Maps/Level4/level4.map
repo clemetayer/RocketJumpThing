@@ -3333,6 +3333,7 @@
 "max_length" "50"
 "thickness" "0.15"
 "scene_path" "res://Game/Common/MapElements/Lasers/laser.tscn"
+"static_size" "0"
 "_tb_group" "5"
 // brush 0
 {
@@ -3385,6 +3386,7 @@
 "max_length" "50"
 "scene_path" "res://Game/Common/MapElements/Lasers/laser.tscn"
 "thickness" "0.15"
+"static_size" "0"
 "_tb_group" "7"
 // brush 0
 {
@@ -3437,6 +3439,7 @@
 "max_length" "50"
 "thickness" "0.15"
 "scene_path" "res://Game/Common/MapElements/Lasers/laser.tscn"
+"static_size" "0"
 "_tb_group" "8"
 // brush 0
 {
@@ -3489,6 +3492,7 @@
 "max_length" "50"
 "scene_path" "res://Game/Common/MapElements/Lasers/laser.tscn"
 "thickness" "0.15"
+"static_size" "0"
 "_tb_group" "10"
 // brush 0
 {
@@ -3541,6 +3545,7 @@
 "max_length" "50"
 "thickness" "0.15"
 "scene_path" "res://Game/Common/MapElements/Lasers/laser.tscn"
+"static_size" "0"
 "_tb_group" "12"
 // brush 0
 {
@@ -3593,6 +3598,7 @@
 "max_length" "50"
 "scene_path" "res://Game/Common/MapElements/Lasers/laser.tscn"
 "thickness" "0.15"
+"static_size" "0"
 "_tb_group" "14"
 // brush 0
 {
@@ -3645,6 +3651,7 @@
 "max_length" "50"
 "thickness" "0.15"
 "scene_path" "res://Game/Common/MapElements/Lasers/laser.tscn"
+"static_size" "0"
 "_tb_group" "16"
 // brush 0
 {
@@ -3697,6 +3704,7 @@
 "max_length" "50"
 "scene_path" "res://Game/Common/MapElements/Lasers/laser.tscn"
 "thickness" "0.15"
+"static_size" "0"
 "_tb_group" "18"
 // brush 0
 {
@@ -3853,6 +3861,7 @@
 "max_length" "30"
 "scene_path" "res://Game/Common/MapElements/Lasers/laser.tscn"
 "thickness" "0.15"
+"static_size" "0"
 "_tb_group" "24"
 // brush 0
 {
@@ -3905,6 +3914,7 @@
 "max_length" "50"
 "scene_path" "res://Game/Common/MapElements/Lasers/laser.tscn"
 "thickness" "0.15"
+"static_size" "0"
 "_tb_group" "26"
 // brush 0
 {
@@ -3957,6 +3967,7 @@
 "max_length" "50"
 "scene_path" "res://Game/Common/MapElements/Lasers/laser.tscn"
 "thickness" "0.15"
+"static_size" "0"
 "_tb_group" "28"
 // brush 0
 {
@@ -4009,6 +4020,7 @@
 "max_length" "50"
 "scene_path" "res://Game/Common/MapElements/Lasers/laser.tscn"
 "thickness" "0.15"
+"static_size" "0"
 "_tb_group" "32"
 // brush 0
 {
@@ -4061,6 +4073,7 @@
 "max_length" "30"
 "scene_path" "res://Game/Common/MapElements/Lasers/laser.tscn"
 "thickness" "0.15"
+"static_size" "0"
 "_tb_group" "34"
 // brush 0
 {

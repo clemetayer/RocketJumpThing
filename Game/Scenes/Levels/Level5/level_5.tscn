@@ -5059,7 +5059,7 @@ wait_time = 0.5
 autostart = true
 
 [node name="Dodecahedron" type="MeshInstance" parent="."]
-transform = Transform( 35.6474, 42.6622, -57.5256, -68.9521, 37.815, -14.6839, 19.361, 56.1245, 53.6208, 0, 0, 0 )
+transform = Transform( -74.3755, 14.2284, -25.8036, 29.3923, 40.7877, -62.229, 2.0881, -67.3343, -43.1477, 0, 0, 0 )
 mesh = ExtResource( 39 )
 script = ExtResource( 40 )
 properties = {
@@ -7486,6 +7486,7 @@ properties = {
 "mangle": Vector3( 0, 90, 0 ),
 "max_length": 30.0,
 "scene_path": "res://Game/Common/MapElements/Lasers/laser.tscn",
+"static_size": 0,
 "thickness": 0.1
 }
 
@@ -7520,6 +7521,7 @@ properties = {
 "mangle": Vector3( 0, 90, 0 ),
 "max_length": 30.0,
 "scene_path": "res://Game/Common/MapElements/Lasers/laser.tscn",
+"static_size": 0,
 "thickness": 0.1
 }
 
@@ -7551,6 +7553,7 @@ properties = {
 "mangle": Vector3( -90, 0, 0 ),
 "max_length": 30.0,
 "scene_path": "res://Game/Common/MapElements/Lasers/laser.tscn",
+"static_size": 0,
 "thickness": 0.1
 }
 
@@ -7582,6 +7585,7 @@ properties = {
 "mangle": Vector3( 0, 180, 0 ),
 "max_length": 30.0,
 "scene_path": "res://Game/Common/MapElements/Lasers/laser.tscn",
+"static_size": 0,
 "thickness": 0.1
 }
 
@@ -7613,6 +7617,7 @@ properties = {
 "mangle": Vector3( 90, 0, 0 ),
 "max_length": 30.0,
 "scene_path": "res://Game/Common/MapElements/Lasers/laser.tscn",
+"static_size": 0,
 "thickness": 0.1
 }
 
@@ -7644,6 +7649,7 @@ properties = {
 "mangle": Vector3( 0, 0, 0 ),
 "max_length": 30.0,
 "scene_path": "res://Game/Common/MapElements/Lasers/laser.tscn",
+"static_size": 0,
 "thickness": 0.1
 }
 
@@ -7675,6 +7681,7 @@ properties = {
 "mangle": Vector3( 0, -90, 0 ),
 "max_length": 30.0,
 "scene_path": "res://Game/Common/MapElements/Lasers/laser.tscn",
+"static_size": 0,
 "thickness": 0.1
 }
 
@@ -7706,6 +7713,7 @@ properties = {
 "mangle": Vector3( -90, 0, 0 ),
 "max_length": 30.0,
 "scene_path": "res://Game/Common/MapElements/Lasers/laser.tscn",
+"static_size": 0,
 "thickness": 0.1
 }
 
@@ -7737,6 +7745,7 @@ properties = {
 "mangle": Vector3( 0, 90, 0 ),
 "max_length": 30.0,
 "scene_path": "res://Game/Common/MapElements/Lasers/laser.tscn",
+"static_size": 0,
 "thickness": 0.1
 }
 
@@ -7768,6 +7777,7 @@ properties = {
 "mangle": Vector3( 90, 0, 0 ),
 "max_length": 30.0,
 "scene_path": "res://Game/Common/MapElements/Lasers/laser.tscn",
+"static_size": 0,
 "thickness": 0.1
 }
 
@@ -7802,6 +7812,7 @@ properties = {
 "mangle": Vector3( 90, 0, 0 ),
 "max_length": 30.0,
 "scene_path": "res://Game/Common/MapElements/Lasers/laser.tscn",
+"static_size": 0,
 "thickness": 0.1
 }
 
@@ -7836,6 +7847,7 @@ properties = {
 "mangle": Vector3( 90, 0, 0 ),
 "max_length": 30.0,
 "scene_path": "res://Game/Common/MapElements/Lasers/laser.tscn",
+"static_size": 0,
 "thickness": 0.1
 }
 
@@ -7870,6 +7882,7 @@ properties = {
 "mangle": Vector3( 90, 0, 0 ),
 "max_length": 30.0,
 "scene_path": "res://Game/Common/MapElements/Lasers/laser.tscn",
+"static_size": 0,
 "thickness": 0.1
 }
 
@@ -7904,6 +7917,7 @@ properties = {
 "mangle": Vector3( 90, 0, 0 ),
 "max_length": 30.0,
 "scene_path": "res://Game/Common/MapElements/Lasers/laser.tscn",
+"static_size": 0,
 "thickness": 0.1
 }
 
@@ -7938,6 +7952,7 @@ properties = {
 "mangle": Vector3( 90, 0, 0 ),
 "max_length": 30.0,
 "scene_path": "res://Game/Common/MapElements/Lasers/laser.tscn",
+"static_size": 0,
 "thickness": 0.1
 }
 
@@ -7972,6 +7987,7 @@ properties = {
 "mangle": Vector3( 0, 0, 0 ),
 "max_length": 100.0,
 "scene_path": "res://Game/Common/MapElements/Lasers/laser.tscn",
+"static_size": 0,
 "thickness": 0.1
 }
 
@@ -8006,6 +8022,7 @@ properties = {
 "mangle": Vector3( 90, 0, 0 ),
 "max_length": 50.0,
 "scene_path": "res://Game/Common/MapElements/Lasers/laser.tscn",
+"static_size": 0,
 "thickness": 0.1
 }
 
@@ -8040,6 +8057,7 @@ properties = {
 "mangle": Vector3( 90, 0, 0 ),
 "max_length": 50.0,
 "scene_path": "res://Game/Common/MapElements/Lasers/laser.tscn",
+"static_size": 0,
 "thickness": 0.1
 }
 
@@ -8195,6 +8213,7 @@ properties = {
 "mangle": Vector3( -90, 0, 0 ),
 "max_length": 30.0,
 "scene_path": "res://Game/Common/MapElements/Lasers/laser.tscn",
+"static_size": 0,
 "thickness": 0.1
 }
 
@@ -8226,6 +8245,7 @@ properties = {
 "mangle": Vector3( 0, -90, 0 ),
 "max_length": 30.0,
 "scene_path": "res://Game/Common/MapElements/Lasers/laser.tscn",
+"static_size": 0,
 "thickness": 0.1
 }
 
@@ -8257,6 +8277,7 @@ properties = {
 "mangle": Vector3( 90, 0, 0 ),
 "max_length": 30.0,
 "scene_path": "res://Game/Common/MapElements/Lasers/laser.tscn",
+"static_size": 0,
 "thickness": 0.1
 }
 
@@ -8288,6 +8309,7 @@ properties = {
 "mangle": Vector3( 0, 90, 0 ),
 "max_length": 30.0,
 "scene_path": "res://Game/Common/MapElements/Lasers/laser.tscn",
+"static_size": 0,
 "thickness": 0.1
 }
 

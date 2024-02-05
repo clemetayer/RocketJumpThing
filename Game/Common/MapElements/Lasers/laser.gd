@@ -20,6 +20,9 @@ var _thickness := 1.0  # thickness of the laser
 var _mangle := Vector3.ZERO  # trenchbroom angle
 var _last_length := 0.0 # keeps the last length to avoid refreshing the particles at each frame
 var _debug := false
+var _static_size := true # if the size should be computed once and never again (improves performances)
+var _init_static_size_done := false # to determine if the initial size has been computed
+var _in_player_fov := false # mostly used for static init, to check if the laser is in the player field of view, so that we can enable or disable the laser after init
 
 #==== ONREADY ====
 onready var onready_paths := {
@@ -39,19 +42,28 @@ func _ready():
 	._ready_func()
 	_init_laser()
 	_connect_signals()
-	_toggle_enable(false) # by default, hides all the lasers
+	if _static_size:
+		onready_paths.update_timer.start() # can't set the size on ready, since the collisions of the environment won't necessarly be ready
+	else:
+		_toggle_enable(false) # by default, hides all the lasers
+	
 
 ##### PROTECTED METHODS #####
 func _set_TB_params() -> void:
 	._set_TB_params()
 	TrenchBroomEntityUtils._map_trenchbroom_properties(self, properties, TB_LASER_MAPPER)
-
+	if properties.has("static_size"):
+		_static_size = properties["static_size"] != 0
+	else:
+		DebugUtils.log_stacktrace(
+				"laser does not have the property static_size", DebugUtils.LOG_LEVEL.warn
+			)
 
 func _connect_signals() -> void:
 	DebugUtils.log_connect(self, self, "body_entered", "_on_body_entered")
+	DebugUtils.log_connect(onready_paths.update_timer, self, "timeout", "_on_UpdateTimer_timeout")
 	DebugUtils.log_connect(self,self,"area_entered", "_on_area_entered")
 	DebugUtils.log_connect(self,self,"area_exited", "_on_area_exited")
-	DebugUtils.log_connect(onready_paths.update_timer, self, "timeout", "_on_UpdateTimer_timeout")
 
 
 
@@ -77,20 +89,21 @@ func _init_laser() -> void:
 
 
 func _update_laser(length: float) -> void:
-	# length
-	onready_paths.collision.shape.height = length
-	onready_paths.mesh.mesh.height = length
-	if not is_equal_approx(length,_last_length):
-		_last_length = length
-	# position
-	onready_paths.collision.translation.z = length / 2.0
-	onready_paths.mesh.translation.z = length / 2.0
-	onready_paths.particles.translation.z = length
-	if ScenesManager.get_current() != null and ScenesManager.get_current().has_method("get_player"): # avoids a crash on tests
-		var player = ScenesManager.get_current().get_player()
-		if player != null: # Kind of a trick to make the laser sound even on its length
-			onready_paths.sound.global_transform.origin = Geometry.get_closest_point_to_segment(player.global_transform.origin, onready_paths.raycast.get_collision_point(), global_transform.origin)
-
+	if not _static_size or not _init_static_size_done:
+		# length
+		onready_paths.collision.shape.height = length
+		onready_paths.mesh.mesh.height = length
+		if not is_equal_approx(length,_last_length):
+			_last_length = length
+		# position
+		onready_paths.collision.translation.z = length / 2.0
+		onready_paths.mesh.translation.z = length / 2.0
+		onready_paths.particles.translation.z = length
+		_init_static_size_done = true
+		if ScenesManager.get_current() != null and ScenesManager.get_current().has_method("get_player"): # avoids a crash on tests
+			var player = ScenesManager.get_current().get_player()
+			if player != null: # Kind of a trick to make the laser sound even on its length
+				onready_paths.sound.global_transform.origin = Geometry.get_closest_point_to_segment(player.global_transform.origin, onready_paths.raycast.get_collision_point(), global_transform.origin)
 
 func _check_raycast() -> void:
 	if onready_paths.raycast.is_colliding():
@@ -105,15 +118,22 @@ func _check_raycast() -> void:
 func _toggle_enable(enabled : bool) -> void:
 	visible = enabled
 	onready_paths.sound.playing = enabled
-	onready_paths.raycast.enabled = enabled
-	if enabled:
-		onready_paths.update_timer.start()
-	else:
-		onready_paths.update_timer.stop()
+	if not _static_size:
+		if enabled:
+			onready_paths.update_timer.start()
+		else:
+			onready_paths.update_timer.stop()
+		onready_paths.raycast.enabled = enabled
 
 ##### SIGNAL MANAGEMENT #####
 func _on_UpdateTimer_timeout() -> void:
-	_check_raycast()
+	if _static_size and not _init_static_size_done: # If the size is static, stop the update timer and disable the raycast to avoid wasting compute time
+		_check_raycast()
+		_toggle_enable(true)
+		onready_paths.raycast.enabled = false
+		onready_paths.update_timer.stop()
+	else:
+		_check_raycast()
 
 
 func _on_body_entered(body: Node) -> void:

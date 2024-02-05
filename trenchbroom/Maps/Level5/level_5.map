@@ -3476,6 +3476,7 @@
 "max_length" "30"
 "thickness" "0.1"
 "scene_path" "res://Game/Common/MapElements/Lasers/laser.tscn"
+"static_size" "0"
 "_tb_group" "99"
 // brush 0
 {
@@ -3528,6 +3529,7 @@
 "max_length" "30"
 "thickness" "0.1"
 "scene_path" "res://Game/Common/MapElements/Lasers/laser.tscn"
+"static_size" "0"
 "_tb_group" "100"
 // brush 0
 {
@@ -3577,6 +3579,7 @@
 "max_length" "30"
 "scene_path" "res://Game/Common/MapElements/Lasers/laser.tscn"
 "thickness" "0.1"
+"static_size" "0"
 "_tb_group" "102"
 // brush 0
 {
@@ -3626,6 +3629,7 @@
 "max_length" "30"
 "scene_path" "res://Game/Common/MapElements/Lasers/laser.tscn"
 "thickness" "0.1"
+"static_size" "0"
 "_tb_group" "104"
 // brush 0
 {
@@ -3675,6 +3679,7 @@
 "max_length" "30"
 "scene_path" "res://Game/Common/MapElements/Lasers/laser.tscn"
 "thickness" "0.1"
+"static_size" "0"
 "_tb_group" "106"
 // brush 0
 {
@@ -3724,6 +3729,7 @@
 "max_length" "30"
 "scene_path" "res://Game/Common/MapElements/Lasers/laser.tscn"
 "thickness" "0.1"
+"static_size" "0"
 "_tb_group" "108"
 // brush 0
 {
@@ -3773,6 +3779,7 @@
 "max_length" "30"
 "scene_path" "res://Game/Common/MapElements/Lasers/laser.tscn"
 "thickness" "0.1"
+"static_size" "0"
 "_tb_group" "110"
 // brush 0
 {
@@ -3822,6 +3829,7 @@
 "max_length" "30"
 "scene_path" "res://Game/Common/MapElements/Lasers/laser.tscn"
 "thickness" "0.1"
+"static_size" "0"
 "_tb_group" "112"
 // brush 0
 {
@@ -3871,6 +3879,7 @@
 "max_length" "30"
 "scene_path" "res://Game/Common/MapElements/Lasers/laser.tscn"
 "thickness" "0.1"
+"static_size" "0"
 "_tb_group" "114"
 // brush 0
 {
@@ -3920,6 +3929,7 @@
 "max_length" "30"
 "scene_path" "res://Game/Common/MapElements/Lasers/laser.tscn"
 "thickness" "0.1"
+"static_size" "0"
 "_tb_group" "116"
 // brush 0
 {
@@ -3972,6 +3982,7 @@
 "max_length" "30"
 "thickness" "0.1"
 "scene_path" "res://Game/Common/MapElements/Lasers/laser.tscn"
+"static_size" "0"
 "_tb_group" "119"
 // brush 0
 {
@@ -4024,6 +4035,7 @@
 "max_length" "30"
 "thickness" "0.1"
 "scene_path" "res://Game/Common/MapElements/Lasers/laser.tscn"
+"static_size" "0"
 "_tb_group" "120"
 // brush 0
 {
@@ -4076,6 +4088,7 @@
 "max_length" "30"
 "thickness" "0.1"
 "scene_path" "res://Game/Common/MapElements/Lasers/laser.tscn"
+"static_size" "0"
 "_tb_group" "122"
 // brush 0
 {
@@ -4128,6 +4141,7 @@
 "max_length" "30"
 "thickness" "0.1"
 "scene_path" "res://Game/Common/MapElements/Lasers/laser.tscn"
+"static_size" "0"
 "_tb_group" "124"
 // brush 0
 {
@@ -4180,6 +4194,7 @@
 "max_length" "30"
 "thickness" "0.1"
 "scene_path" "res://Game/Common/MapElements/Lasers/laser.tscn"
+"static_size" "0"
 "_tb_group" "126"
 // brush 0
 {
@@ -4232,6 +4247,7 @@
 "color" "255 0 0"
 "mangle" "0 0 0"
 "thickness" "0.1"
+"static_size" "0"
 "_tb_group" "129"
 // brush 0
 {
@@ -4284,6 +4300,7 @@
 "color" "255 0 0"
 "mangle" "90 0 0"
 "thickness" "0.1"
+"static_size" "0"
 "_tb_group" "130"
 // brush 0
 {
@@ -4336,6 +4353,7 @@
 "color" "255 0 0"
 "mangle" "90 0 0"
 "thickness" "0.1"
+"static_size" "0"
 "_tb_group" "132"
 // brush 0
 {
@@ -4581,6 +4599,7 @@
 "max_length" "30"
 "scene_path" "res://Game/Common/MapElements/Lasers/laser.tscn"
 "thickness" "0.1"
+"static_size" "0"
 "_tb_group" "154"
 // brush 0
 {
@@ -4630,6 +4649,7 @@
 "max_length" "30"
 "scene_path" "res://Game/Common/MapElements/Lasers/laser.tscn"
 "thickness" "0.1"
+"static_size" "0"
 "_tb_group" "156"
 // brush 0
 {
@@ -4679,6 +4699,7 @@
 "max_length" "30"
 "scene_path" "res://Game/Common/MapElements/Lasers/laser.tscn"
 "thickness" "0.1"
+"static_size" "0"
 "_tb_group" "158"
 // brush 0
 {
@@ -4728,6 +4749,7 @@
 "max_length" "30"
 "scene_path" "res://Game/Common/MapElements/Lasers/laser.tscn"
 "thickness" "0.1"
+"static_size" "0"
 "_tb_group" "160"
 // brush 0
 {

@@ -42,7 +42,7 @@ shader_param/front_to_back = false
 shader_param/gradient = ExtResource( 11 )
 
 [sub_resource type="ConvexPolygonShape" id=12]
-points = PoolVector3Array( 0, 0, 0, 2000, 2000, 2000, 2000, -2000, 2000, -2000, 2000, 2000, -2000, -2000, 2000 )
+points = PoolVector3Array( 0, 0, 0, 1500, 1500, 1500, 1500, -1500, 1500, -1500, 1500, 1500, -1500, -1500, 1500 )
 
 [sub_resource type="CylinderShape" id=5]
 height = 5.0

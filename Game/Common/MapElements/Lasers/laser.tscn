@@ -95,7 +95,7 @@ process_material = SubResource( 6 )
 draw_pass_1 = SubResource( 8 )
 
 [node name="UpdateTimer" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 0.33
 __meta__ = {
 "_editor_description_": "A timer to limit the laser updates, and avoid using physics process and slowing down the game"
 }
