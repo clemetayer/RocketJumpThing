@@ -16,7 +16,6 @@ const RAYCAST_PLAN_EXPLODE_DISTANCE := 0.3125  # Distance from a floor where the
 export(Vector3) var START_POS = Vector3(0, 0, 0)
 export(Vector3) var DIRECTION = Vector3(0, 0, 0)  # direction (normalized) where the rocket should travel
 export(Vector3) var UP_VECTOR = Vector3(0, 1, 0)  # up vector
-export(float) var SPEED_PERCENTAGE = 0.0  # How fast the rocket will travel, between MIN and MAX_SPEED (SPEED_PERCENTAGE between 0.0 and 1.0)
 
 #==== PRIVATE ====
 var _translate := false
@@ -126,10 +125,9 @@ func _remove_target() -> void:
 
 
 # Explosion of the rocket
-# FIXME : Not exploding sometimes, the collision probably doesn't operate well...
-func _explode(raycast) -> void:
+func _explode() -> void:
 	_translate = false
-	raycast.enabled = false
+	onready_paths.raycast.enabled = false
 	_remove_target()
 	var explosion = RuntimeUtils.ROCKET_EXPLOSION_SCENE.instance()
 	explosion.EXPLOSION_POSITION = global_transform.origin
@@ -141,9 +139,7 @@ func _explode(raycast) -> void:
 func _on_Rocket_body_entered(body: Node):
 	if not FunctionUtils.is_player(body):
 		_expl_planned = false
-		onready_paths.raycast.transform.origin.z = -6.25  # steps back the raycast to get the exact collision point
-		if onready_paths.raycast.is_colliding():
-			_explode(onready_paths.raycast)
+		_explode()
 
 
 # Unused for now
