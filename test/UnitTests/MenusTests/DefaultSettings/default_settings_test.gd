@@ -33,7 +33,7 @@ func test_init_tr() -> void:
 	default_settings._init_tr()
 	assert_str(default_settings.onready_paths.language.category.CATEGORY_NAME).is_equal(tr(TranslationKeys.SETTINGS_GENERAL_LANGUAGE_CATEGORY))
 	assert_str(default_settings.onready_paths.video.category.CATEGORY_NAME).is_equal(tr(TranslationKeys.SETTINGS_VIDEO_DISPLAY_CATEGORY))
-	assert_str(default_settings.onready_paths.audio.category.CATEGORY_NAME).is_equal(tr(TranslationKeys.SETTINGS_AUDIO_MAIN_CATEGORY))
+	assert_str(default_settings.onready_paths.audio.category.CATEGORY_NAME).is_equal(tr(TranslationKeys.MENU_SETTINGS_TAB_AUDIO))
 	assert_str(default_settings.onready_paths.controls.category.CATEGORY_NAME).is_equal(tr(TranslationKeys.SETTINGS_CONTROLS_GENERAL_CATEGORY))
 	assert_str(default_settings.onready_paths.gameplay.category.CATEGORY_NAME).is_equal(tr(TranslationKeys.SETTINGS_GAMEPLAY_GAMEPLAY_CATEGORY))
 	assert_str(default_settings.onready_paths.gameplay.label.hint_tooltip).is_equal(tr(TranslationKeys.SETTINGS_GAMEPLAY_TUTORIAL_LEVEL_TOOLTIP))

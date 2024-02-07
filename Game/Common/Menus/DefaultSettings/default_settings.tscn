@@ -261,7 +261,7 @@ margin_top = 13.0
 margin_right = 198.0
 margin_bottom = 27.0
 rect_min_size = Vector2( 80, 0 )
-text = "SETTINGS_AUDIO_MAIN_LABEL"
+text = "MENU_SETTINGS_TAB_AUDIO"
 
 [node name="Slider" type="HSlider" parent="CenterContainer/VBoxContainer/Audio/HBoxContainer"]
 margin_left = 206.0

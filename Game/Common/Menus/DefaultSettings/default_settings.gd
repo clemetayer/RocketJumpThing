@@ -68,7 +68,7 @@ func play_intro_anim() -> void:
 func _init_tr() -> void:
 	onready_paths.language.category.set_category_name(tr(TranslationKeys.SETTINGS_GENERAL_LANGUAGE_CATEGORY))
 	onready_paths.video.category.set_category_name(tr(TranslationKeys.SETTINGS_VIDEO_DISPLAY_CATEGORY))
-	onready_paths.audio.category.set_category_name(tr(TranslationKeys.SETTINGS_AUDIO_MAIN_CATEGORY))
+	onready_paths.audio.category.set_category_name(tr(TranslationKeys.MENU_SETTINGS_TAB_AUDIO))
 	onready_paths.controls.category.set_category_name(tr(TranslationKeys.SETTINGS_CONTROLS_GENERAL_CATEGORY))
 	onready_paths.gameplay.category.set_category_name(tr(TranslationKeys.SETTINGS_GAMEPLAY_GAMEPLAY_CATEGORY))
 	onready_paths.gameplay.label.hint_tooltip = tr(TranslationKeys.SETTINGS_GAMEPLAY_TUTORIAL_LEVEL_TOOLTIP)
