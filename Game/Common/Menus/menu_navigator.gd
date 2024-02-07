@@ -205,7 +205,7 @@ func _interpolate_menu_transition_tween(node : CanvasItem, final_val : int) -> v
 		"modulate:a",
 		node.modulate.a,
 		final_val,
-		TRANSITION_TIME
+		TRANSITION_TIME / (1.0 / Engine.time_scale)  # HACK : when using a slowmotion effect, to avoid having the animation be slowed down too
 	)
 
 func _is_protected_menu(state : int) -> bool:
