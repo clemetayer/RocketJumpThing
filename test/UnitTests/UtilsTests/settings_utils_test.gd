@@ -277,7 +277,7 @@ func testload_cfg_audio_file() -> void:
 			db2linear(
 				AudioServer.get_bus_volume_db(AudioServer.get_bus_index(GlobalConstants.MAIN_BUS))
 			)
-		).is_equal_approx(main_volume, FLOAT_APPROX)
+		).is_equal_approx(0.0, FLOAT_APPROX)
 	)
 	(
 		assert_bool(AudioServer.is_bus_mute(AudioServer.get_bus_index(GlobalConstants.MAIN_BUS))).is_equal(not main_unmute)
@@ -301,7 +301,7 @@ func testload_cfg_audio_file() -> void:
 					AudioServer.get_bus_index(GlobalConstants.EFFECTS_BUS)
 				)
 			)
-		).is_equal_approx(effects_volume, FLOAT_APPROX)
+		).is_equal_approx(0.0, FLOAT_APPROX)
 	)
 	(
 		assert_bool(AudioServer.is_bus_mute(AudioServer.get_bus_index(GlobalConstants.EFFECTS_BUS))).is_equal(not effects_unmute)

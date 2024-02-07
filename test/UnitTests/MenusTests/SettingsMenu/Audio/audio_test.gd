@@ -103,7 +103,7 @@ func test_init_values() -> void:
 	audio._init_values()
 	## main
 	assert_float(audio.onready_paths.main.slider.value).is_equal_approx(
-		db2linear(MAIN_AUDIO_VAL) * audio.onready_paths.main.slider.max_value, FLOAT_APPROX
+		0, FLOAT_APPROX
 	)
 	assert_str(audio.onready_paths.main.volume_label.text).is_equal(
 		audio.VOLUME_TEXT % (db2linear(MAIN_AUDIO_VAL) * audio.onready_paths.main.slider.max_value)
@@ -121,7 +121,7 @@ func test_init_values() -> void:
 	assert_bool(audio.onready_paths.BGM.slider.editable).is_equal(not BGM_AUDIO_MUTE)
 	## effects
 	assert_float(audio.onready_paths.effects.slider.value).is_equal_approx(
-		db2linear(EFFECTS_AUDIO_VAL) * audio.onready_paths.effects.slider.max_value, FLOAT_APPROX
+		0, FLOAT_APPROX
 	)
 	assert_str(audio.onready_paths.effects.volume_label.text).is_equal(
 		(
