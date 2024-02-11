@@ -6684,315 +6684,6 @@
 }
 // entity 316
 {
-"classname" "func_group"
-"_tb_type" "_tb_group"
-"_tb_name" "MovingPlatform1"
-"_tb_id" "173"
-}
-// entity 317
-{
-"classname" "func_group"
-"_tb_type" "_tb_group"
-"_tb_name" "KinematicPlatform1"
-"_tb_id" "172"
-"_tb_group" "173"
-}
-// entity 318
-{
-"classname" "Platforms_KinematicPlatform"
-"_tb_group" "172"
-// brush 0
-{
-( -5676 5916 1276 ) ( -5676 5917 1276 ) ( -5676 5916 1277 ) common/common_textures/base_floor [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -5676 5916 1276 ) ( -5676 5916 1277 ) ( -5675 5916 1276 ) common/common_textures/base_floor [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -5676 5916 1272 ) ( -5675 5916 1272 ) ( -5676 5917 1272 ) common/common_textures/base_floor [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -5556 6036 1280 ) ( -5556 6037 1280 ) ( -5555 6036 1280 ) common/common_textures/base_floor [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -5556 6036 1280 ) ( -5555 6036 1280 ) ( -5556 6036 1281 ) common/common_textures/base_floor [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -5556 6036 1280 ) ( -5556 6036 1281 ) ( -5556 6037 1280 ) common/common_textures/base_floor [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-}
-}
-// entity 319
-{
-"classname" "func_group"
-"_tb_type" "_tb_group"
-"_tb_name" "RythmElement"
-"_tb_id" "171"
-"_tb_group" "172"
-}
-// entity 320
-{
-"classname" "RythmElements_Sequencers_Static"
-"sequencer_data_path" "res://Game/Scenes/Levels/Level5/Data/StepSequencerData/simple_sequencer.tres"
-"active_on_signals" "kick"
-"active_on_steps" "0"
-"collision_layer" "2"
-"collision_mask" "5"
-"init_index" "1"
-"_tb_group" "171"
-// brush 0
-{
-( -5676 5916 1276 ) ( -5676 5917 1276 ) ( -5676 5916 1277 ) scenes/level_5/simple_sequencer [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -5556 6036 1280 ) ( -5556 6036 1281 ) ( -5555 6036 1280 ) scenes/level_5/simple_sequencer [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -5676 5916 1272 ) ( -5675 5916 1272 ) ( -5676 5917 1272 ) scenes/level_5/simple_sequencer [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -5556 6036 1280 ) ( -5556 6037 1280 ) ( -5555 6036 1280 ) scenes/level_5/simple_sequencer [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -5556 6040 1280 ) ( -5555 6040 1280 ) ( -5556 6040 1281 ) scenes/level_5/simple_sequencer [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -5556 6036 1280 ) ( -5556 6036 1281 ) ( -5556 6037 1280 ) scenes/level_5/simple_sequencer [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-}
-// brush 1
-{
-( -5676 5916 1276 ) ( -5676 5917 1276 ) ( -5676 5916 1277 ) scenes/level_5/simple_sequencer [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -5676 5912 1276 ) ( -5676 5912 1277 ) ( -5675 5912 1276 ) scenes/level_5/simple_sequencer [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -5676 5916 1272 ) ( -5675 5916 1272 ) ( -5676 5917 1272 ) scenes/level_5/simple_sequencer [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -5556 6036 1280 ) ( -5556 6037 1280 ) ( -5555 6036 1280 ) scenes/level_5/simple_sequencer [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -5676 5916 1276 ) ( -5675 5916 1276 ) ( -5676 5916 1277 ) scenes/level_5/simple_sequencer [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -5556 6036 1280 ) ( -5556 6036 1281 ) ( -5556 6037 1280 ) scenes/level_5/simple_sequencer [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-}
-// brush 2
-{
-( -5556 5916 1276 ) ( -5556 5917 1276 ) ( -5556 5916 1277 ) scenes/level_5/simple_sequencer [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -5552 5912 1276 ) ( -5552 5912 1277 ) ( -5551 5912 1276 ) scenes/level_5/simple_sequencer [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -5552 5916 1272 ) ( -5551 5916 1272 ) ( -5552 5917 1272 ) scenes/level_5/simple_sequencer [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -5432 6036 1280 ) ( -5432 6037 1280 ) ( -5431 6036 1280 ) scenes/level_5/simple_sequencer [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -5432 6040 1280 ) ( -5431 6040 1280 ) ( -5432 6040 1281 ) scenes/level_5/simple_sequencer [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -5552 5916 1276 ) ( -5552 5916 1277 ) ( -5552 5917 1276 ) scenes/level_5/simple_sequencer [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-}
-// brush 3
-{
-( -5680 5916 1276 ) ( -5680 5917 1276 ) ( -5680 5916 1277 ) scenes/level_5/simple_sequencer [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -5676 5912 1276 ) ( -5676 5912 1277 ) ( -5675 5912 1276 ) scenes/level_5/simple_sequencer [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -5676 5916 1272 ) ( -5675 5916 1272 ) ( -5676 5917 1272 ) scenes/level_5/simple_sequencer [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -5556 6036 1280 ) ( -5556 6037 1280 ) ( -5555 6036 1280 ) scenes/level_5/simple_sequencer [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -5556 6040 1280 ) ( -5555 6040 1280 ) ( -5556 6040 1281 ) scenes/level_5/simple_sequencer [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -5676 5916 1276 ) ( -5676 5916 1277 ) ( -5676 5917 1276 ) scenes/level_5/simple_sequencer [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-}
-}
-// entity 321
-{
-"classname" "Group_Mover"
-"travel_data_path" "res://Game/Scenes/Levels/Level5/Data/MoverData/platform1_1.tres"
-"path_color" "75 0 180"
-"path_alpha" "1"
-"path_emission" "1"
-"reset_on_checkpoint" "1"
-"_tb_group" "173"
-// brush 0
-{
-( -5620 5968 1276 ) ( -5620 5969 1276 ) ( -5620 5968 1277 ) special/clip [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -5620 5972 1276 ) ( -5620 5972 1277 ) ( -5619 5972 1276 ) special/clip [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -5620 5968 1276 ) ( -5619 5968 1276 ) ( -5620 5969 1276 ) special/clip [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -5612 5980 1280 ) ( -5612 5981 1280 ) ( -5611 5980 1280 ) special/clip [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -5612 5980 1280 ) ( -5611 5980 1280 ) ( -5612 5980 1281 ) special/clip [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -5612 5980 1280 ) ( -5612 5980 1281 ) ( -5612 5981 1280 ) special/clip [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-}
-}
-// entity 322
-{
-"classname" "func_group"
-"_tb_type" "_tb_group"
-"_tb_name" "MovingPlatform1"
-"_tb_id" "176"
-}
-// entity 323
-{
-"classname" "func_group"
-"_tb_type" "_tb_group"
-"_tb_name" "KinematicPlatform1"
-"_tb_id" "175"
-"_tb_group" "176"
-}
-// entity 324
-{
-"classname" "Platforms_KinematicPlatform"
-"_tb_group" "175"
-// brush 0
-{
-( -6140 6116 1276 ) ( -6140 6117 1276 ) ( -6140 6116 1277 ) common/common_textures/base_floor [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -6140 6116 1276 ) ( -6140 6116 1277 ) ( -6139 6116 1276 ) common/common_textures/base_floor [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -6140 6116 1272 ) ( -6139 6116 1272 ) ( -6140 6117 1272 ) common/common_textures/base_floor [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -6020 6236 1280 ) ( -6020 6237 1280 ) ( -6019 6236 1280 ) common/common_textures/base_floor [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -6020 6236 1280 ) ( -6019 6236 1280 ) ( -6020 6236 1281 ) common/common_textures/base_floor [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -6020 6236 1280 ) ( -6020 6236 1281 ) ( -6020 6237 1280 ) common/common_textures/base_floor [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-}
-}
-// entity 325
-{
-"classname" "func_group"
-"_tb_type" "_tb_group"
-"_tb_name" "RythmElement"
-"_tb_id" "174"
-"_tb_group" "175"
-}
-// entity 326
-{
-"classname" "RythmElements_Sequencers_Static"
-"sequencer_data_path" "res://Game/Scenes/Levels/Level5/Data/StepSequencerData/simple_sequencer.tres"
-"active_on_signals" "kick"
-"active_on_steps" "0"
-"collision_layer" "2"
-"collision_mask" "5"
-"init_index" "1"
-"_tb_group" "174"
-// brush 0
-{
-( -6140 6116 1276 ) ( -6140 6117 1276 ) ( -6140 6116 1277 ) scenes/level_5/simple_sequencer [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -6020 6236 1280 ) ( -6020 6236 1281 ) ( -6019 6236 1280 ) scenes/level_5/simple_sequencer [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -6140 6116 1272 ) ( -6139 6116 1272 ) ( -6140 6117 1272 ) scenes/level_5/simple_sequencer [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -6020 6236 1280 ) ( -6020 6237 1280 ) ( -6019 6236 1280 ) scenes/level_5/simple_sequencer [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -6020 6240 1280 ) ( -6019 6240 1280 ) ( -6020 6240 1281 ) scenes/level_5/simple_sequencer [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -6020 6236 1280 ) ( -6020 6236 1281 ) ( -6020 6237 1280 ) scenes/level_5/simple_sequencer [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-}
-// brush 1
-{
-( -6140 6116 1276 ) ( -6140 6117 1276 ) ( -6140 6116 1277 ) scenes/level_5/simple_sequencer [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -6140 6112 1276 ) ( -6140 6112 1277 ) ( -6139 6112 1276 ) scenes/level_5/simple_sequencer [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -6140 6116 1272 ) ( -6139 6116 1272 ) ( -6140 6117 1272 ) scenes/level_5/simple_sequencer [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -6020 6236 1280 ) ( -6020 6237 1280 ) ( -6019 6236 1280 ) scenes/level_5/simple_sequencer [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -6140 6116 1276 ) ( -6139 6116 1276 ) ( -6140 6116 1277 ) scenes/level_5/simple_sequencer [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -6020 6236 1280 ) ( -6020 6236 1281 ) ( -6020 6237 1280 ) scenes/level_5/simple_sequencer [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-}
-// brush 2
-{
-( -6020 6116 1276 ) ( -6020 6117 1276 ) ( -6020 6116 1277 ) scenes/level_5/simple_sequencer [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -6016 6112 1276 ) ( -6016 6112 1277 ) ( -6015 6112 1276 ) scenes/level_5/simple_sequencer [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -6016 6116 1272 ) ( -6015 6116 1272 ) ( -6016 6117 1272 ) scenes/level_5/simple_sequencer [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -5896 6236 1280 ) ( -5896 6237 1280 ) ( -5895 6236 1280 ) scenes/level_5/simple_sequencer [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -5896 6240 1280 ) ( -5895 6240 1280 ) ( -5896 6240 1281 ) scenes/level_5/simple_sequencer [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -6016 6116 1276 ) ( -6016 6116 1277 ) ( -6016 6117 1276 ) scenes/level_5/simple_sequencer [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-}
-// brush 3
-{
-( -6144 6116 1276 ) ( -6144 6117 1276 ) ( -6144 6116 1277 ) scenes/level_5/simple_sequencer [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -6140 6112 1276 ) ( -6140 6112 1277 ) ( -6139 6112 1276 ) scenes/level_5/simple_sequencer [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -6140 6116 1272 ) ( -6139 6116 1272 ) ( -6140 6117 1272 ) scenes/level_5/simple_sequencer [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -6020 6236 1280 ) ( -6020 6237 1280 ) ( -6019 6236 1280 ) scenes/level_5/simple_sequencer [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -6020 6240 1280 ) ( -6019 6240 1280 ) ( -6020 6240 1281 ) scenes/level_5/simple_sequencer [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -6140 6116 1276 ) ( -6140 6116 1277 ) ( -6140 6117 1276 ) scenes/level_5/simple_sequencer [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-}
-}
-// entity 327
-{
-"classname" "Group_Mover"
-"travel_data_path" "res://Game/Scenes/Levels/Level5/Data/MoverData/platform1_2.tres"
-"path_color" "75 0 180"
-"path_alpha" "1"
-"path_emission" "1"
-"reset_on_checkpoint" "1"
-"_tb_group" "176"
-// brush 0
-{
-( -6084 6168 1276 ) ( -6084 6169 1276 ) ( -6084 6168 1277 ) special/clip [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -6084 6172 1276 ) ( -6084 6172 1277 ) ( -6083 6172 1276 ) special/clip [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -6084 6168 1276 ) ( -6083 6168 1276 ) ( -6084 6169 1276 ) special/clip [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -6076 6180 1280 ) ( -6076 6181 1280 ) ( -6075 6180 1280 ) special/clip [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -6076 6180 1280 ) ( -6075 6180 1280 ) ( -6076 6180 1281 ) special/clip [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -6076 6180 1280 ) ( -6076 6180 1281 ) ( -6076 6181 1280 ) special/clip [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-}
-}
-// entity 328
-{
-"classname" "func_group"
-"_tb_type" "_tb_group"
-"_tb_name" "MovingPlatform1"
-"_tb_id" "179"
-}
-// entity 329
-{
-"classname" "func_group"
-"_tb_type" "_tb_group"
-"_tb_name" "KinematicPlatform1"
-"_tb_id" "178"
-"_tb_group" "179"
-}
-// entity 330
-{
-"classname" "Platforms_KinematicPlatform"
-"_tb_group" "178"
-// brush 0
-{
-( -5580 6316 1276 ) ( -5580 6317 1276 ) ( -5580 6316 1277 ) common/common_textures/base_floor [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -5580 6316 1276 ) ( -5580 6316 1277 ) ( -5579 6316 1276 ) common/common_textures/base_floor [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -5580 6316 1272 ) ( -5579 6316 1272 ) ( -5580 6317 1272 ) common/common_textures/base_floor [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -5460 6436 1280 ) ( -5460 6437 1280 ) ( -5459 6436 1280 ) common/common_textures/base_floor [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -5460 6436 1280 ) ( -5459 6436 1280 ) ( -5460 6436 1281 ) common/common_textures/base_floor [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -5460 6436 1280 ) ( -5460 6436 1281 ) ( -5460 6437 1280 ) common/common_textures/base_floor [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-}
-}
-// entity 331
-{
-"classname" "func_group"
-"_tb_type" "_tb_group"
-"_tb_name" "RythmElement"
-"_tb_id" "177"
-"_tb_group" "178"
-}
-// entity 332
-{
-"classname" "RythmElements_Sequencers_Static"
-"sequencer_data_path" "res://Game/Scenes/Levels/Level5/Data/StepSequencerData/simple_sequencer.tres"
-"active_on_signals" "kick"
-"active_on_steps" "0"
-"collision_layer" "2"
-"collision_mask" "5"
-"init_index" "1"
-"_tb_group" "177"
-// brush 0
-{
-( -5580 6316 1276 ) ( -5580 6317 1276 ) ( -5580 6316 1277 ) scenes/level_5/simple_sequencer [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -5460 6436 1280 ) ( -5460 6436 1281 ) ( -5459 6436 1280 ) scenes/level_5/simple_sequencer [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -5580 6316 1272 ) ( -5579 6316 1272 ) ( -5580 6317 1272 ) scenes/level_5/simple_sequencer [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -5460 6436 1280 ) ( -5460 6437 1280 ) ( -5459 6436 1280 ) scenes/level_5/simple_sequencer [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -5460 6440 1280 ) ( -5459 6440 1280 ) ( -5460 6440 1281 ) scenes/level_5/simple_sequencer [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -5460 6436 1280 ) ( -5460 6436 1281 ) ( -5460 6437 1280 ) scenes/level_5/simple_sequencer [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-}
-// brush 1
-{
-( -5580 6316 1276 ) ( -5580 6317 1276 ) ( -5580 6316 1277 ) scenes/level_5/simple_sequencer [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -5580 6312 1276 ) ( -5580 6312 1277 ) ( -5579 6312 1276 ) scenes/level_5/simple_sequencer [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -5580 6316 1272 ) ( -5579 6316 1272 ) ( -5580 6317 1272 ) scenes/level_5/simple_sequencer [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -5460 6436 1280 ) ( -5460 6437 1280 ) ( -5459 6436 1280 ) scenes/level_5/simple_sequencer [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -5580 6316 1276 ) ( -5579 6316 1276 ) ( -5580 6316 1277 ) scenes/level_5/simple_sequencer [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -5460 6436 1280 ) ( -5460 6436 1281 ) ( -5460 6437 1280 ) scenes/level_5/simple_sequencer [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-}
-// brush 2
-{
-( -5460 6316 1276 ) ( -5460 6317 1276 ) ( -5460 6316 1277 ) scenes/level_5/simple_sequencer [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -5456 6312 1276 ) ( -5456 6312 1277 ) ( -5455 6312 1276 ) scenes/level_5/simple_sequencer [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -5456 6316 1272 ) ( -5455 6316 1272 ) ( -5456 6317 1272 ) scenes/level_5/simple_sequencer [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -5336 6436 1280 ) ( -5336 6437 1280 ) ( -5335 6436 1280 ) scenes/level_5/simple_sequencer [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -5336 6440 1280 ) ( -5335 6440 1280 ) ( -5336 6440 1281 ) scenes/level_5/simple_sequencer [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -5456 6316 1276 ) ( -5456 6316 1277 ) ( -5456 6317 1276 ) scenes/level_5/simple_sequencer [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-}
-// brush 3
-{
-( -5584 6316 1276 ) ( -5584 6317 1276 ) ( -5584 6316 1277 ) scenes/level_5/simple_sequencer [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -5580 6312 1276 ) ( -5580 6312 1277 ) ( -5579 6312 1276 ) scenes/level_5/simple_sequencer [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -5580 6316 1272 ) ( -5579 6316 1272 ) ( -5580 6317 1272 ) scenes/level_5/simple_sequencer [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -5460 6436 1280 ) ( -5460 6437 1280 ) ( -5459 6436 1280 ) scenes/level_5/simple_sequencer [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -5460 6440 1280 ) ( -5459 6440 1280 ) ( -5460 6440 1281 ) scenes/level_5/simple_sequencer [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -5580 6316 1276 ) ( -5580 6316 1277 ) ( -5580 6317 1276 ) scenes/level_5/simple_sequencer [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-}
-}
-// entity 333
-{
-"classname" "Group_Mover"
-"travel_data_path" "res://Game/Scenes/Levels/Level5/Data/MoverData/platform1_1.tres"
-"path_color" "75 0 180"
-"path_alpha" "1"
-"path_emission" "1"
-"reset_on_checkpoint" "1"
-"_tb_group" "179"
-// brush 0
-{
-( -5524 6368 1276 ) ( -5524 6369 1276 ) ( -5524 6368 1277 ) special/clip [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -5524 6372 1276 ) ( -5524 6372 1277 ) ( -5523 6372 1276 ) special/clip [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -5524 6368 1276 ) ( -5523 6368 1276 ) ( -5524 6369 1276 ) special/clip [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -5516 6380 1280 ) ( -5516 6381 1280 ) ( -5515 6380 1280 ) special/clip [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -5516 6380 1280 ) ( -5515 6380 1280 ) ( -5516 6380 1281 ) special/clip [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -5516 6380 1280 ) ( -5516 6380 1281 ) ( -5516 6381 1280 ) special/clip [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-}
-}
-// entity 334
-{
 "classname" "StaticBodyGroup"
 // brush 0
 {
@@ -7004,7 +6695,7 @@
 ( 700 8688 -2408 ) ( 700 8496 -2424 ) ( 700 8496 -2408 ) common/common_textures/base_floor [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 335
+// entity 317
 {
 "classname" "StaticBodyGroup"
 // brush 0
@@ -7017,7 +6708,7 @@
 ( 836 8688 -2360 ) ( 836 8496 -2376 ) ( 836 8496 -2360 ) common/common_textures/base_floor [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 336
+// entity 318
 {
 "classname" "StaticBodyGroup"
 // brush 0
@@ -7030,7 +6721,7 @@
 ( 964 8688 -2328 ) ( 964 8496 -2344 ) ( 964 8496 -2328 ) common/common_textures/base_floor [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 337
+// entity 319
 {
 "classname" "RythmElements_Sequencers_Static"
 "sequencer_data_path" "res://Game/Scenes/Levels/Level5/Data/StepSequencerData/simple_sequencer.tres"
@@ -7076,7 +6767,7 @@
 ( 5456 5536 976 ) ( 5456 5632 992 ) ( 5456 5632 976 ) scenes/level_5/simple_sequencer [ 2.220446049250313e-16 0 1 0 ] [ 0 -1 0 0 ] 0 1 1
 }
 }
-// entity 338
+// entity 320
 {
 "classname" "RythmElements_Sequencers_Static"
 "sequencer_data_path" "res://Game/Scenes/Levels/Level5/Data/StepSequencerData/simple_sequencer.tres"
@@ -7122,7 +6813,7 @@
 ( 5600 5536 880 ) ( 5600 5632 896 ) ( 5600 5632 880 ) scenes/level_5/simple_sequencer [ 2.220446049250313e-16 0 1 0 ] [ 0 -1 0 0 ] 0 1 1
 }
 }
-// entity 339
+// entity 321
 {
 "classname" "RythmElements_Sequencers_Static"
 "sequencer_data_path" "res://Game/Scenes/Levels/Level5/Data/StepSequencerData/simple_sequencer.tres"
@@ -7168,7 +6859,7 @@
 ( 644 8688 -2408 ) ( 644 8496 -2424 ) ( 644 8496 -2408 ) scenes/level_5/simple_sequencer [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 340
+// entity 322
 {
 "classname" "RythmElements_Sequencers_Static"
 "sequencer_data_path" "res://Game/Scenes/Levels/Level5/Data/StepSequencerData/simple_sequencer.tres"
@@ -7214,7 +6905,7 @@
 ( 840 8688 -2360 ) ( 840 8496 -2376 ) ( 840 8496 -2360 ) scenes/level_5/simple_sequencer [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 341
+// entity 323
 {
 "classname" "RythmElements_Sequencers_Static"
 "sequencer_data_path" "res://Game/Scenes/Levels/Level5/Data/StepSequencerData/simple_sequencer.tres"
@@ -7260,7 +6951,7 @@
 ( 968 8688 -2328 ) ( 968 8496 -2344 ) ( 968 8496 -2328 ) scenes/level_5/simple_sequencer [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 342
+// entity 324
 {
 "classname" "StaticBodyGroup"
 // brush 0
@@ -7273,7 +6964,7 @@
 ( 92 12924 4388 ) ( 92 12924 4389 ) ( 92 12925 4388 ) common/common_textures/base_floor [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 343
+// entity 325
 {
 "classname" "RythmElements_Sequencers_Static"
 "sequencer_data_path" "res://Game/Scenes/Levels/Level5/Data/StepSequencerData/simple_sequencer.tres"
@@ -7319,7 +7010,7 @@
 ( 94 12924 4388 ) ( 94 12924 4389 ) ( 94 12925 4388 ) scenes/level_5/simple_sequencer [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 344
+// entity 326
 {
 "classname" "StaticBodyGroup"
 // brush 0
@@ -7332,7 +7023,7 @@
 ( 92 12888 4416 ) ( 92 12888 4417 ) ( 92 12889 4416 ) common/common_textures/base_floor [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 345
+// entity 327
 {
 "classname" "RythmElements_Sequencers_Static"
 "sequencer_data_path" "res://Game/Scenes/Levels/Level5/Data/StepSequencerData/simple_sequencer.tres"
@@ -7378,7 +7069,7 @@
 ( 94 12888 4416 ) ( 94 12888 4417 ) ( 94 12889 4416 ) scenes/level_5/simple_sequencer [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 346
+// entity 328
 {
 "classname" "RythmElements_Sequencers_Static"
 "sequencer_data_path" "res://Game/Scenes/Levels/Level5/Data/StepSequencerData/simple_sequencer.tres"
@@ -7424,7 +7115,7 @@
 ( 94 12852 4442 ) ( 94 12852 4443 ) ( 94 12853 4442 ) scenes/level_5/simple_sequencer [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 347
+// entity 329
 {
 "classname" "StaticBodyGroup"
 // brush 0
@@ -7437,7 +7128,7 @@
 ( 92 12852 4442 ) ( 92 12852 4443 ) ( 92 12853 4442 ) common/common_textures/base_floor [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 348
+// entity 330
 {
 "classname" "RythmElements_Sequencers_Static"
 "sequencer_data_path" "res://Game/Scenes/Levels/Level5/Data/StepSequencerData/simple_sequencer.tres"
@@ -7483,7 +7174,7 @@
 ( 94 12816 4470 ) ( 94 12816 4471 ) ( 94 12817 4470 ) scenes/level_5/simple_sequencer [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 349
+// entity 331
 {
 "classname" "StaticBodyGroup"
 // brush 0
@@ -7496,7 +7187,7 @@
 ( 92 12816 4470 ) ( 92 12816 4471 ) ( 92 12817 4470 ) common/common_textures/base_floor [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 350
+// entity 332
 {
 "classname" "RythmElements_Sequencers_Static"
 "sequencer_data_path" "res://Game/Scenes/Levels/Level5/Data/StepSequencerData/simple_sequencer.tres"
@@ -7542,7 +7233,7 @@
 ( 94 12780 4496 ) ( 94 12780 4497 ) ( 94 12781 4496 ) scenes/level_5/simple_sequencer [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 351
+// entity 333
 {
 "classname" "StaticBodyGroup"
 // brush 0
@@ -7555,7 +7246,7 @@
 ( 92 12780 4496 ) ( 92 12780 4497 ) ( 92 12781 4496 ) common/common_textures/base_floor [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 352
+// entity 334
 {
 "classname" "Particles_Particles_Arrows"
 "origin" "6360 5016 488"
@@ -7564,7 +7255,7 @@
 "size" "4 1 1"
 "velocity" "1"
 }
-// entity 353
+// entity 335
 {
 "classname" "Particles_Particles_Arrows"
 "origin" "5064 5640 1192"
@@ -7573,294 +7264,294 @@
 "size" "8 1 1"
 "velocity" "1"
 }
+// entity 336
+{
+"classname" "Breakables_Wall"
+"targetname" "wall_2"
+"collision_layer" "2"
+"collision_mask" "5"
+// brush 0
+{
+( 4928 5344 1376 ) ( 4928 5664 1040 ) ( 4928 5664 1376 ) common/common_textures/base_wall [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 4928 5440 960 ) ( 4928 5456 1072 ) ( 5056 5456 1072 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 -0.14142135623730953 -0.9899494936611666 0 ] 0 1 1
+( 4928 5648 1168 ) ( 4928 5536 1232 ) ( 5056 5536 1232 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 -0.8682431421244593 0.49613893835683387 0 ] 0 1 1
+( 4944 5664 1376 ) ( 4928 5344 1376 ) ( 4928 5664 1376 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 4928 5392 1056 ) ( 5056 5472 1152 ) ( 4928 5472 1152 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 -0.6401843996644799 -0.7682212795973759 0 ] 0 1 1
+( 4944 5664 1376 ) ( 4944 5344 1040 ) ( 4944 5344 1376 ) common/common_textures/base_wall [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+}
+// entity 337
+{
+"classname" "Breakables_Wall"
+"targetname" "wall_2"
+"collision_layer" "2"
+"collision_mask" "5"
+// brush 0
+{
+( 4928 5344 1376 ) ( 4928 5664 1040 ) ( 4928 5664 1376 ) common/common_textures/base_wall [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 4928 5440 1360 ) ( 5056 5408 1280 ) ( 4928 5408 1280 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 -0.3713906763541037 -0.9284766908852594 0 ] 0 1 1
+( 4928 5648 1168 ) ( 4928 5536 1232 ) ( 5056 5536 1232 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 -0.8682431421244593 0.49613893835683387 0 ] 0 1 1
+( 4944 5664 1376 ) ( 4928 5344 1376 ) ( 4928 5664 1376 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 4928 5440 960 ) ( 5056 5456 1072 ) ( 4928 5456 1072 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 -0.14142135623730953 -0.9899494936611666 0 ] 0 1 1
+( 4944 5664 1376 ) ( 4944 5344 1040 ) ( 4944 5344 1376 ) common/common_textures/base_wall [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+}
+// entity 338
+{
+"classname" "Breakables_Wall"
+"targetname" "wall_2"
+"collision_mask" "5"
+"collision_layer" "2"
+// brush 0
+{
+( 4928 5344 1376 ) ( 4928 5664 1040 ) ( 4928 5664 1376 ) common/common_textures/base_wall [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 4928 5648 1168 ) ( 4928 5536 1232 ) ( 5056 5536 1232 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 -0.8682431421244593 0.49613893835683387 0 ] 0 1 1
+( 4944 5664 1376 ) ( 4928 5344 1376 ) ( 4928 5664 1376 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 4928 5440 1360 ) ( 4928 5408 1280 ) ( 5056 5408 1280 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 -0.3713906763541037 -0.9284766908852594 0 ] 0 1 1
+( 4944 5664 1376 ) ( 4944 5344 1040 ) ( 4944 5344 1376 ) common/common_textures/base_wall [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+}
+// entity 339
+{
+"classname" "Breakables_Wall"
+"targetname" "wall_2"
+"collision_layer" "2"
+"collision_mask" "5"
+// brush 0
+{
+( 4928 5344 1376 ) ( 4928 5664 1040 ) ( 4928 5664 1376 ) common/common_textures/base_wall [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 4928 5392 1056 ) ( 4928 5472 1152 ) ( 5056 5472 1152 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 -0.6401843996644799 -0.7682212795973759 0 ] 0 1 1
+( 4928 5648 1168 ) ( 4928 5536 1232 ) ( 5056 5536 1232 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 -0.8682431421244593 0.49613893835683387 0 ] 0 1 1
+( 4944 5664 1376 ) ( 4928 5344 1376 ) ( 4928 5664 1376 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 4944 5664 1376 ) ( 4928 5664 1040 ) ( 4944 5664 1040 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 4944 5664 1376 ) ( 4944 5344 1040 ) ( 4944 5344 1376 ) common/common_textures/base_wall [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+}
+// entity 340
+{
+"classname" "Breakables_Wall"
+"targetname" "wall_2"
+"collision_layer" "2"
+"collision_mask" "5"
+// brush 0
+{
+( 4928 5344 1376 ) ( 4928 5664 1040 ) ( 4928 5664 1376 ) common/common_textures/base_wall [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 4928 5440 960 ) ( 4928 5456 1072 ) ( 5056 5456 1072 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 -0.14142135623730953 -0.9899494936611666 0 ] 0 1 1
+( 4928 5648 1168 ) ( 5056 5536 1232 ) ( 4928 5536 1232 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 -0.8682431421244593 0.49613893835683387 0 ] 0 1 1
+( 4928 5392 1056 ) ( 5056 5472 1152 ) ( 4928 5472 1152 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 -0.6401843996644799 -0.7682212795973759 0 ] 0 1 1
+( 4944 5664 1376 ) ( 4944 5344 1040 ) ( 4944 5344 1376 ) common/common_textures/base_wall [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+}
+// entity 341
+{
+"classname" "Breakables_Wall"
+"targetname" "wall_2"
+"collision_layer" "2"
+"collision_mask" "5"
+// brush 0
+{
+( 4928 5344 1376 ) ( 4928 5664 1040 ) ( 4928 5664 1376 ) common/common_textures/base_wall [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 4928 5440 1360 ) ( 5056 5408 1280 ) ( 4928 5408 1280 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 -0.3713906763541037 -0.9284766908852594 0 ] 0 1 1
+( 4928 5472 1120 ) ( 4928 5440 1152 ) ( 5056 5440 1152 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 -0.7071067811865476 0.7071067811865476 0 ] 0 1 1
+( 4928 5648 1168 ) ( 5056 5536 1232 ) ( 4928 5536 1232 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 -0.8682431421244593 0.49613893835683387 0 ] 0 1 1
+( 4928 5392 1056 ) ( 5056 5472 1152 ) ( 4928 5472 1152 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 -0.6401843996644799 -0.7682212795973759 0 ] 0 1 1
+( 4928 5440 960 ) ( 5056 5456 1072 ) ( 4928 5456 1072 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 -0.14142135623730953 -0.9899494936611666 0 ] 0 1 1
+( 4944 5664 1376 ) ( 4944 5344 1040 ) ( 4944 5344 1376 ) common/common_textures/base_wall [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+}
+// entity 342
+{
+"classname" "Breakables_Wall"
+"collision_layer" "2"
+"collision_mask" "5"
+"targetname" "wall_2"
+// brush 0
+{
+( 4928 5344 1376 ) ( 4928 5664 1040 ) ( 4928 5664 1376 ) common/common_textures/base_wall [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 4944 5280 1376 ) ( 4928 5280 1040 ) ( 4928 5280 1376 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 4928 5472 1120 ) ( 4928 5440 1152 ) ( 5056 5440 1152 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 -0.7071067811865476 0.7071067811865476 0 ] 0 1 1
+( 4944 5664 1376 ) ( 4928 5344 1376 ) ( 4928 5664 1376 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 4928 5648 1168 ) ( 5056 5536 1232 ) ( 4928 5536 1232 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 -0.8682431421244593 0.49613893835683387 0 ] 0 1 1
+( 4928 5440 1360 ) ( 4928 5408 1280 ) ( 5056 5408 1280 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 -0.3713906763541037 -0.9284766908852594 0 ] 0 1 1
+( 4944 5664 1376 ) ( 4944 5344 1040 ) ( 4944 5344 1376 ) common/common_textures/base_wall [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+}
+// entity 343
+{
+"classname" "Breakables_Wall"
+"targetname" "wall_2"
+"collision_layer" "2"
+"collision_mask" "5"
+// brush 0
+{
+( 4928 5344 1376 ) ( 4928 5664 1040 ) ( 4928 5664 1376 ) common/common_textures/base_wall [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 4944 5280 1376 ) ( 4928 5280 1040 ) ( 4928 5280 1376 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 4928 5632 1072 ) ( 4928 5328 1040 ) ( 5056 5328 1040 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 -0.9945054529214061 -0.10468478451804275 0 ] 0 1 1
+( 4928 5472 1120 ) ( 5056 5440 1152 ) ( 4928 5440 1152 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 -0.7071067811865476 0.7071067811865476 0 ] 0 1 1
+( 4928 5440 1360 ) ( 4928 5408 1280 ) ( 5056 5408 1280 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 -0.3713906763541037 -0.9284766908852594 0 ] 0 1 1
+( 4944 5664 1376 ) ( 4944 5344 1040 ) ( 4944 5344 1376 ) common/common_textures/base_wall [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+}
+// entity 344
+{
+"classname" "Breakables_Wall"
+"collision_mask" "5"
+"targetname" "wall_2"
+"collision_layer" "2"
+// brush 0
+{
+( 4928 5344 1376 ) ( 4928 5664 1040 ) ( 4928 5664 1376 ) common/common_textures/base_wall [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 4928 5440 960 ) ( 4928 5456 1072 ) ( 5056 5456 1072 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 -0.14142135623730953 -0.9899494936611666 0 ] 0 1 1
+( 4928 5392 1056 ) ( 4928 5472 1152 ) ( 5056 5472 1152 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 -0.6401843996644799 -0.7682212795973759 0 ] 0 1 1
+( 4928 5472 1120 ) ( 4928 5440 1152 ) ( 5056 5440 1152 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 -0.7071067811865476 0.7071067811865476 0 ] 0 1 1
+( 4928 5632 1072 ) ( 4928 5328 1040 ) ( 5056 5328 1040 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 -0.9945054529214061 -0.10468478451804275 0 ] 0 1 1
+( 4928 5648 1168 ) ( 5056 5536 1232 ) ( 4928 5536 1232 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 -0.8682431421244593 0.49613893835683387 0 ] 0 1 1
+( 4944 5664 1376 ) ( 4928 5664 1040 ) ( 4944 5664 1040 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 4944 5664 1376 ) ( 4944 5344 1040 ) ( 4944 5344 1376 ) common/common_textures/base_wall [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+}
+// entity 345
+{
+"classname" "Breakables_Wall"
+"targetname" "wall_2"
+"collision_mask" "5"
+"collision_layer" "2"
+// brush 0
+{
+( 4928 5344 1376 ) ( 4928 5664 1040 ) ( 4928 5664 1376 ) common/common_textures/base_wall [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 4928 5440 1360 ) ( 5056 5408 1280 ) ( 4928 5408 1280 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 -0.3713906763541037 -0.9284766908852594 0 ] 0 1 1
+( 4928 5632 1072 ) ( 4928 5328 1040 ) ( 5056 5328 1040 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 -0.9945054529214061 -0.10468478451804275 0 ] 0 1 1
+( 4928 5472 1120 ) ( 5056 5440 1152 ) ( 4928 5440 1152 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 -0.7071067811865476 0.7071067811865476 0 ] 0 1 1
+( 4928 5392 1056 ) ( 5056 5472 1152 ) ( 4928 5472 1152 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 -0.6401843996644799 -0.7682212795973759 0 ] 0 1 1
+( 4944 5664 1376 ) ( 4944 5344 1040 ) ( 4944 5344 1376 ) common/common_textures/base_wall [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+}
+// entity 346
+{
+"classname" "Breakables_Wall"
+"targetname" "wall_2"
+"collision_layer" "2"
+"collision_mask" "5"
+// brush 0
+{
+( 4928 5344 1376 ) ( 4928 5664 1040 ) ( 4928 5664 1376 ) common/common_textures/base_wall [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 4928 5440 960 ) ( 4928 5456 1072 ) ( 5056 5456 1072 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 -0.14142135623730953 -0.9899494936611666 0 ] 0 1 1
+( 4928 5632 1072 ) ( 4928 5328 1040 ) ( 5056 5328 1040 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 -0.9945054529214061 -0.10468478451804275 0 ] 0 1 1
+( 4928 5472 1120 ) ( 5056 5440 1152 ) ( 4928 5440 1152 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 -0.7071067811865476 0.7071067811865476 0 ] 0 1 1
+( 4944 5664 1376 ) ( 4944 5344 1040 ) ( 4944 5344 1376 ) common/common_textures/base_wall [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+}
+// entity 347
+{
+"classname" "Breakables_Wall"
+"targetname" "wall_2"
+"collision_layer" "2"
+"collision_mask" "5"
+// brush 0
+{
+( 4928 5344 1376 ) ( 4928 5664 1040 ) ( 4928 5664 1376 ) common/common_textures/base_wall [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 4928 5392 1056 ) ( 4928 5472 1152 ) ( 5056 5472 1152 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 -0.6401843996644799 -0.7682212795973759 0 ] 0 1 1
+( 4928 5632 1072 ) ( 4928 5328 1040 ) ( 5056 5328 1040 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 -0.9945054529214061 -0.10468478451804275 0 ] 0 1 1
+( 4928 5472 1120 ) ( 5056 5440 1152 ) ( 4928 5440 1152 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 -0.7071067811865476 0.7071067811865476 0 ] 0 1 1
+( 4928 5440 960 ) ( 5056 5456 1072 ) ( 4928 5456 1072 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 -0.14142135623730953 -0.9899494936611666 0 ] 0 1 1
+( 4944 5664 1376 ) ( 4944 5344 1040 ) ( 4944 5344 1376 ) common/common_textures/base_wall [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+}
+// entity 348
+{
+"classname" "Breakables_Wall"
+"targetname" "wall_2"
+"collision_layer" "2"
+"collision_mask" "5"
+// brush 0
+{
+( 4928 5344 1376 ) ( 4928 5664 1040 ) ( 4928 5664 1376 ) common/common_textures/base_wall [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 4928 5392 1056 ) ( 4928 5472 1152 ) ( 5056 5472 1152 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 -0.6401843996644799 -0.7682212795973759 0 ] 0 1 1
+( 4928 5472 1120 ) ( 4928 5440 1152 ) ( 5056 5440 1152 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 -0.7071067811865476 0.7071067811865476 0 ] 0 1 1
+( 4928 5440 960 ) ( 5056 5456 1072 ) ( 4928 5456 1072 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 -0.14142135623730953 -0.9899494936611666 0 ] 0 1 1
+( 4944 5664 1376 ) ( 4944 5344 1040 ) ( 4944 5344 1376 ) common/common_textures/base_wall [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+}
+// entity 349
+{
+"classname" "Breakables_Wall"
+"targetname" "wall_2"
+"collision_mask" "5"
+"collision_layer" "2"
+// brush 0
+{
+( 4928 5344 1376 ) ( 4928 5664 1040 ) ( 4928 5664 1376 ) common/common_textures/base_wall [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 4928 5472 1120 ) ( 4928 5440 1152 ) ( 5056 5440 1152 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 -0.7071067811865476 0.7071067811865476 0 ] 0 1 1
+( 4928 5632 1072 ) ( 5056 5328 1040 ) ( 4928 5328 1040 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 -0.9945054529214061 -0.10468478451804275 0 ] 0 1 1
+( 4944 5664 1376 ) ( 4928 5664 1040 ) ( 4944 5664 1040 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 4944 5664 1376 ) ( 4944 5344 1040 ) ( 4944 5344 1376 ) common/common_textures/base_wall [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+}
+// entity 350
+{
+"classname" "Breakables_Wall"
+"targetname" "wall_2"
+"collision_layer" "2"
+"collision_mask" "5"
+// brush 0
+{
+( 4928 5344 1376 ) ( 4928 5664 1040 ) ( 4928 5664 1376 ) common/common_textures/base_wall [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 4928 5440 960 ) ( 4928 5456 1072 ) ( 5056 5456 1072 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 -0.14142135623730953 -0.9899494936611666 0 ] 0 1 1
+( 4928 5632 1072 ) ( 5056 5328 1040 ) ( 4928 5328 1040 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 -0.9945054529214061 -0.10468478451804275 0 ] 0 1 1
+( 4944 5664 928 ) ( 4928 5344 928 ) ( 4944 5344 928 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 4928 5472 1120 ) ( 5056 5440 1152 ) ( 4928 5440 1152 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 -0.7071067811865476 0.7071067811865476 0 ] 0 1 1
+( 4944 5664 1376 ) ( 4944 5344 1040 ) ( 4944 5344 1376 ) common/common_textures/base_wall [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+}
+// entity 351
+{
+"classname" "Breakables_Wall"
+"targetname" "wall_2"
+"collision_layer" "2"
+"collision_mask" "5"
+// brush 0
+{
+( 4928 5344 1376 ) ( 4928 5664 1040 ) ( 4928 5664 1376 ) common/common_textures/base_wall [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 4928 5392 1056 ) ( 4928 5472 1152 ) ( 5056 5472 1152 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 -0.6401843996644799 -0.7682212795973759 0 ] 0 1 1
+( 4928 5632 1072 ) ( 5056 5328 1040 ) ( 4928 5328 1040 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 -0.9945054529214061 -0.10468478451804275 0 ] 0 1 1
+( 4944 5664 928 ) ( 4928 5344 928 ) ( 4944 5344 928 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 4928 5440 960 ) ( 5056 5456 1072 ) ( 4928 5456 1072 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 -0.14142135623730953 -0.9899494936611666 0 ] 0 1 1
+( 4944 5664 1376 ) ( 4944 5344 1040 ) ( 4944 5344 1376 ) common/common_textures/base_wall [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+}
+// entity 352
+{
+"classname" "Breakables_Wall"
+"targetname" "wall_2"
+"collision_layer" "2"
+"collision_mask" "5"
+// brush 0
+{
+( 4928 5344 1376 ) ( 4928 5664 1040 ) ( 4928 5664 1376 ) common/common_textures/base_wall [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 4944 5280 1376 ) ( 4928 5280 1040 ) ( 4928 5280 1376 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 4928 5440 1360 ) ( 5056 5408 1280 ) ( 4928 5408 1280 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 -0.3713906763541037 -0.9284766908852594 0 ] 0 1 1
+( 4928 5632 1072 ) ( 5056 5328 1040 ) ( 4928 5328 1040 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 -0.9945054529214061 -0.10468478451804275 0 ] 0 1 1
+( 4944 5664 928 ) ( 4928 5344 928 ) ( 4944 5344 928 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 4928 5392 1056 ) ( 5056 5472 1152 ) ( 4928 5472 1152 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 -0.6401843996644799 -0.7682212795973759 0 ] 0 1 1
+( 4944 5664 1376 ) ( 4944 5344 1040 ) ( 4944 5344 1376 ) common/common_textures/base_wall [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+}
+// entity 353
+{
+"classname" "Breakables_Wall"
+"targetname" "wall_2"
+"collision_layer" "2"
+"collision_mask" "5"
+// brush 0
+{
+( 4928 5344 1376 ) ( 4928 5664 1040 ) ( 4928 5664 1376 ) common/common_textures/base_wall [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 4944 5280 1376 ) ( 4928 5280 1040 ) ( 4928 5280 1376 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 4928 5632 1072 ) ( 5056 5328 1040 ) ( 4928 5328 1040 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 -0.9945054529214061 -0.10468478451804275 0 ] 0 1 1
+( 4928 5440 1360 ) ( 4928 5408 1280 ) ( 5056 5408 1280 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 -0.3713906763541037 -0.9284766908852594 0 ] 0 1 1
+( 4944 5664 1376 ) ( 4944 5344 1040 ) ( 4944 5344 1376 ) common/common_textures/base_wall [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+}
 // entity 354
-{
-"classname" "Breakables_Wall"
-"targetname" "wall_2"
-"collision_layer" "2"
-"collision_mask" "5"
-// brush 0
-{
-( 4928 5344 1376 ) ( 4928 5664 1040 ) ( 4928 5664 1376 ) common/common_textures/base_wall [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 4928 5440 960 ) ( 4928 5456 1072 ) ( 5056 5456 1072 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 -0.14142135623730953 -0.9899494936611666 0 ] 0 1 1
-( 4928 5648 1168 ) ( 4928 5536 1232 ) ( 5056 5536 1232 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 -0.8682431421244593 0.49613893835683387 0 ] 0 1 1
-( 4944 5664 1376 ) ( 4928 5344 1376 ) ( 4928 5664 1376 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( 4928 5392 1056 ) ( 5056 5472 1152 ) ( 4928 5472 1152 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 -0.6401843996644799 -0.7682212795973759 0 ] 0 1 1
-( 4944 5664 1376 ) ( 4944 5344 1040 ) ( 4944 5344 1376 ) common/common_textures/base_wall [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-}
-}
-// entity 355
-{
-"classname" "Breakables_Wall"
-"targetname" "wall_2"
-"collision_layer" "2"
-"collision_mask" "5"
-// brush 0
-{
-( 4928 5344 1376 ) ( 4928 5664 1040 ) ( 4928 5664 1376 ) common/common_textures/base_wall [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 4928 5440 1360 ) ( 5056 5408 1280 ) ( 4928 5408 1280 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 -0.3713906763541037 -0.9284766908852594 0 ] 0 1 1
-( 4928 5648 1168 ) ( 4928 5536 1232 ) ( 5056 5536 1232 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 -0.8682431421244593 0.49613893835683387 0 ] 0 1 1
-( 4944 5664 1376 ) ( 4928 5344 1376 ) ( 4928 5664 1376 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( 4928 5440 960 ) ( 5056 5456 1072 ) ( 4928 5456 1072 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 -0.14142135623730953 -0.9899494936611666 0 ] 0 1 1
-( 4944 5664 1376 ) ( 4944 5344 1040 ) ( 4944 5344 1376 ) common/common_textures/base_wall [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-}
-}
-// entity 356
-{
-"classname" "Breakables_Wall"
-"targetname" "wall_2"
-"collision_mask" "5"
-"collision_layer" "2"
-// brush 0
-{
-( 4928 5344 1376 ) ( 4928 5664 1040 ) ( 4928 5664 1376 ) common/common_textures/base_wall [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 4928 5648 1168 ) ( 4928 5536 1232 ) ( 5056 5536 1232 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 -0.8682431421244593 0.49613893835683387 0 ] 0 1 1
-( 4944 5664 1376 ) ( 4928 5344 1376 ) ( 4928 5664 1376 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( 4928 5440 1360 ) ( 4928 5408 1280 ) ( 5056 5408 1280 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 -0.3713906763541037 -0.9284766908852594 0 ] 0 1 1
-( 4944 5664 1376 ) ( 4944 5344 1040 ) ( 4944 5344 1376 ) common/common_textures/base_wall [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-}
-}
-// entity 357
-{
-"classname" "Breakables_Wall"
-"targetname" "wall_2"
-"collision_layer" "2"
-"collision_mask" "5"
-// brush 0
-{
-( 4928 5344 1376 ) ( 4928 5664 1040 ) ( 4928 5664 1376 ) common/common_textures/base_wall [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 4928 5392 1056 ) ( 4928 5472 1152 ) ( 5056 5472 1152 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 -0.6401843996644799 -0.7682212795973759 0 ] 0 1 1
-( 4928 5648 1168 ) ( 4928 5536 1232 ) ( 5056 5536 1232 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 -0.8682431421244593 0.49613893835683387 0 ] 0 1 1
-( 4944 5664 1376 ) ( 4928 5344 1376 ) ( 4928 5664 1376 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( 4944 5664 1376 ) ( 4928 5664 1040 ) ( 4944 5664 1040 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 4944 5664 1376 ) ( 4944 5344 1040 ) ( 4944 5344 1376 ) common/common_textures/base_wall [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-}
-}
-// entity 358
-{
-"classname" "Breakables_Wall"
-"targetname" "wall_2"
-"collision_layer" "2"
-"collision_mask" "5"
-// brush 0
-{
-( 4928 5344 1376 ) ( 4928 5664 1040 ) ( 4928 5664 1376 ) common/common_textures/base_wall [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 4928 5440 960 ) ( 4928 5456 1072 ) ( 5056 5456 1072 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 -0.14142135623730953 -0.9899494936611666 0 ] 0 1 1
-( 4928 5648 1168 ) ( 5056 5536 1232 ) ( 4928 5536 1232 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 -0.8682431421244593 0.49613893835683387 0 ] 0 1 1
-( 4928 5392 1056 ) ( 5056 5472 1152 ) ( 4928 5472 1152 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 -0.6401843996644799 -0.7682212795973759 0 ] 0 1 1
-( 4944 5664 1376 ) ( 4944 5344 1040 ) ( 4944 5344 1376 ) common/common_textures/base_wall [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-}
-}
-// entity 359
-{
-"classname" "Breakables_Wall"
-"targetname" "wall_2"
-"collision_layer" "2"
-"collision_mask" "5"
-// brush 0
-{
-( 4928 5344 1376 ) ( 4928 5664 1040 ) ( 4928 5664 1376 ) common/common_textures/base_wall [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 4928 5440 1360 ) ( 5056 5408 1280 ) ( 4928 5408 1280 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 -0.3713906763541037 -0.9284766908852594 0 ] 0 1 1
-( 4928 5472 1120 ) ( 4928 5440 1152 ) ( 5056 5440 1152 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 -0.7071067811865476 0.7071067811865476 0 ] 0 1 1
-( 4928 5648 1168 ) ( 5056 5536 1232 ) ( 4928 5536 1232 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 -0.8682431421244593 0.49613893835683387 0 ] 0 1 1
-( 4928 5392 1056 ) ( 5056 5472 1152 ) ( 4928 5472 1152 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 -0.6401843996644799 -0.7682212795973759 0 ] 0 1 1
-( 4928 5440 960 ) ( 5056 5456 1072 ) ( 4928 5456 1072 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 -0.14142135623730953 -0.9899494936611666 0 ] 0 1 1
-( 4944 5664 1376 ) ( 4944 5344 1040 ) ( 4944 5344 1376 ) common/common_textures/base_wall [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-}
-}
-// entity 360
-{
-"classname" "Breakables_Wall"
-"collision_layer" "2"
-"collision_mask" "5"
-"targetname" "wall_2"
-// brush 0
-{
-( 4928 5344 1376 ) ( 4928 5664 1040 ) ( 4928 5664 1376 ) common/common_textures/base_wall [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 4944 5280 1376 ) ( 4928 5280 1040 ) ( 4928 5280 1376 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 4928 5472 1120 ) ( 4928 5440 1152 ) ( 5056 5440 1152 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 -0.7071067811865476 0.7071067811865476 0 ] 0 1 1
-( 4944 5664 1376 ) ( 4928 5344 1376 ) ( 4928 5664 1376 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( 4928 5648 1168 ) ( 5056 5536 1232 ) ( 4928 5536 1232 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 -0.8682431421244593 0.49613893835683387 0 ] 0 1 1
-( 4928 5440 1360 ) ( 4928 5408 1280 ) ( 5056 5408 1280 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 -0.3713906763541037 -0.9284766908852594 0 ] 0 1 1
-( 4944 5664 1376 ) ( 4944 5344 1040 ) ( 4944 5344 1376 ) common/common_textures/base_wall [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-}
-}
-// entity 361
-{
-"classname" "Breakables_Wall"
-"targetname" "wall_2"
-"collision_layer" "2"
-"collision_mask" "5"
-// brush 0
-{
-( 4928 5344 1376 ) ( 4928 5664 1040 ) ( 4928 5664 1376 ) common/common_textures/base_wall [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 4944 5280 1376 ) ( 4928 5280 1040 ) ( 4928 5280 1376 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 4928 5632 1072 ) ( 4928 5328 1040 ) ( 5056 5328 1040 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 -0.9945054529214061 -0.10468478451804275 0 ] 0 1 1
-( 4928 5472 1120 ) ( 5056 5440 1152 ) ( 4928 5440 1152 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 -0.7071067811865476 0.7071067811865476 0 ] 0 1 1
-( 4928 5440 1360 ) ( 4928 5408 1280 ) ( 5056 5408 1280 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 -0.3713906763541037 -0.9284766908852594 0 ] 0 1 1
-( 4944 5664 1376 ) ( 4944 5344 1040 ) ( 4944 5344 1376 ) common/common_textures/base_wall [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-}
-}
-// entity 362
-{
-"classname" "Breakables_Wall"
-"collision_mask" "5"
-"targetname" "wall_2"
-"collision_layer" "2"
-// brush 0
-{
-( 4928 5344 1376 ) ( 4928 5664 1040 ) ( 4928 5664 1376 ) common/common_textures/base_wall [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 4928 5440 960 ) ( 4928 5456 1072 ) ( 5056 5456 1072 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 -0.14142135623730953 -0.9899494936611666 0 ] 0 1 1
-( 4928 5392 1056 ) ( 4928 5472 1152 ) ( 5056 5472 1152 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 -0.6401843996644799 -0.7682212795973759 0 ] 0 1 1
-( 4928 5472 1120 ) ( 4928 5440 1152 ) ( 5056 5440 1152 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 -0.7071067811865476 0.7071067811865476 0 ] 0 1 1
-( 4928 5632 1072 ) ( 4928 5328 1040 ) ( 5056 5328 1040 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 -0.9945054529214061 -0.10468478451804275 0 ] 0 1 1
-( 4928 5648 1168 ) ( 5056 5536 1232 ) ( 4928 5536 1232 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 -0.8682431421244593 0.49613893835683387 0 ] 0 1 1
-( 4944 5664 1376 ) ( 4928 5664 1040 ) ( 4944 5664 1040 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 4944 5664 1376 ) ( 4944 5344 1040 ) ( 4944 5344 1376 ) common/common_textures/base_wall [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-}
-}
-// entity 363
-{
-"classname" "Breakables_Wall"
-"targetname" "wall_2"
-"collision_mask" "5"
-"collision_layer" "2"
-// brush 0
-{
-( 4928 5344 1376 ) ( 4928 5664 1040 ) ( 4928 5664 1376 ) common/common_textures/base_wall [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 4928 5440 1360 ) ( 5056 5408 1280 ) ( 4928 5408 1280 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 -0.3713906763541037 -0.9284766908852594 0 ] 0 1 1
-( 4928 5632 1072 ) ( 4928 5328 1040 ) ( 5056 5328 1040 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 -0.9945054529214061 -0.10468478451804275 0 ] 0 1 1
-( 4928 5472 1120 ) ( 5056 5440 1152 ) ( 4928 5440 1152 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 -0.7071067811865476 0.7071067811865476 0 ] 0 1 1
-( 4928 5392 1056 ) ( 5056 5472 1152 ) ( 4928 5472 1152 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 -0.6401843996644799 -0.7682212795973759 0 ] 0 1 1
-( 4944 5664 1376 ) ( 4944 5344 1040 ) ( 4944 5344 1376 ) common/common_textures/base_wall [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-}
-}
-// entity 364
-{
-"classname" "Breakables_Wall"
-"targetname" "wall_2"
-"collision_layer" "2"
-"collision_mask" "5"
-// brush 0
-{
-( 4928 5344 1376 ) ( 4928 5664 1040 ) ( 4928 5664 1376 ) common/common_textures/base_wall [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 4928 5440 960 ) ( 4928 5456 1072 ) ( 5056 5456 1072 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 -0.14142135623730953 -0.9899494936611666 0 ] 0 1 1
-( 4928 5632 1072 ) ( 4928 5328 1040 ) ( 5056 5328 1040 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 -0.9945054529214061 -0.10468478451804275 0 ] 0 1 1
-( 4928 5472 1120 ) ( 5056 5440 1152 ) ( 4928 5440 1152 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 -0.7071067811865476 0.7071067811865476 0 ] 0 1 1
-( 4944 5664 1376 ) ( 4944 5344 1040 ) ( 4944 5344 1376 ) common/common_textures/base_wall [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-}
-}
-// entity 365
-{
-"classname" "Breakables_Wall"
-"targetname" "wall_2"
-"collision_layer" "2"
-"collision_mask" "5"
-// brush 0
-{
-( 4928 5344 1376 ) ( 4928 5664 1040 ) ( 4928 5664 1376 ) common/common_textures/base_wall [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 4928 5392 1056 ) ( 4928 5472 1152 ) ( 5056 5472 1152 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 -0.6401843996644799 -0.7682212795973759 0 ] 0 1 1
-( 4928 5632 1072 ) ( 4928 5328 1040 ) ( 5056 5328 1040 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 -0.9945054529214061 -0.10468478451804275 0 ] 0 1 1
-( 4928 5472 1120 ) ( 5056 5440 1152 ) ( 4928 5440 1152 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 -0.7071067811865476 0.7071067811865476 0 ] 0 1 1
-( 4928 5440 960 ) ( 5056 5456 1072 ) ( 4928 5456 1072 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 -0.14142135623730953 -0.9899494936611666 0 ] 0 1 1
-( 4944 5664 1376 ) ( 4944 5344 1040 ) ( 4944 5344 1376 ) common/common_textures/base_wall [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-}
-}
-// entity 366
-{
-"classname" "Breakables_Wall"
-"targetname" "wall_2"
-"collision_layer" "2"
-"collision_mask" "5"
-// brush 0
-{
-( 4928 5344 1376 ) ( 4928 5664 1040 ) ( 4928 5664 1376 ) common/common_textures/base_wall [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 4928 5392 1056 ) ( 4928 5472 1152 ) ( 5056 5472 1152 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 -0.6401843996644799 -0.7682212795973759 0 ] 0 1 1
-( 4928 5472 1120 ) ( 4928 5440 1152 ) ( 5056 5440 1152 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 -0.7071067811865476 0.7071067811865476 0 ] 0 1 1
-( 4928 5440 960 ) ( 5056 5456 1072 ) ( 4928 5456 1072 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 -0.14142135623730953 -0.9899494936611666 0 ] 0 1 1
-( 4944 5664 1376 ) ( 4944 5344 1040 ) ( 4944 5344 1376 ) common/common_textures/base_wall [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-}
-}
-// entity 367
-{
-"classname" "Breakables_Wall"
-"targetname" "wall_2"
-"collision_mask" "5"
-"collision_layer" "2"
-// brush 0
-{
-( 4928 5344 1376 ) ( 4928 5664 1040 ) ( 4928 5664 1376 ) common/common_textures/base_wall [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 4928 5472 1120 ) ( 4928 5440 1152 ) ( 5056 5440 1152 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 -0.7071067811865476 0.7071067811865476 0 ] 0 1 1
-( 4928 5632 1072 ) ( 5056 5328 1040 ) ( 4928 5328 1040 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 -0.9945054529214061 -0.10468478451804275 0 ] 0 1 1
-( 4944 5664 1376 ) ( 4928 5664 1040 ) ( 4944 5664 1040 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 4944 5664 1376 ) ( 4944 5344 1040 ) ( 4944 5344 1376 ) common/common_textures/base_wall [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-}
-}
-// entity 368
-{
-"classname" "Breakables_Wall"
-"targetname" "wall_2"
-"collision_layer" "2"
-"collision_mask" "5"
-// brush 0
-{
-( 4928 5344 1376 ) ( 4928 5664 1040 ) ( 4928 5664 1376 ) common/common_textures/base_wall [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 4928 5440 960 ) ( 4928 5456 1072 ) ( 5056 5456 1072 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 -0.14142135623730953 -0.9899494936611666 0 ] 0 1 1
-( 4928 5632 1072 ) ( 5056 5328 1040 ) ( 4928 5328 1040 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 -0.9945054529214061 -0.10468478451804275 0 ] 0 1 1
-( 4944 5664 928 ) ( 4928 5344 928 ) ( 4944 5344 928 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( 4928 5472 1120 ) ( 5056 5440 1152 ) ( 4928 5440 1152 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 -0.7071067811865476 0.7071067811865476 0 ] 0 1 1
-( 4944 5664 1376 ) ( 4944 5344 1040 ) ( 4944 5344 1376 ) common/common_textures/base_wall [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-}
-}
-// entity 369
-{
-"classname" "Breakables_Wall"
-"targetname" "wall_2"
-"collision_layer" "2"
-"collision_mask" "5"
-// brush 0
-{
-( 4928 5344 1376 ) ( 4928 5664 1040 ) ( 4928 5664 1376 ) common/common_textures/base_wall [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 4928 5392 1056 ) ( 4928 5472 1152 ) ( 5056 5472 1152 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 -0.6401843996644799 -0.7682212795973759 0 ] 0 1 1
-( 4928 5632 1072 ) ( 5056 5328 1040 ) ( 4928 5328 1040 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 -0.9945054529214061 -0.10468478451804275 0 ] 0 1 1
-( 4944 5664 928 ) ( 4928 5344 928 ) ( 4944 5344 928 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( 4928 5440 960 ) ( 5056 5456 1072 ) ( 4928 5456 1072 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 -0.14142135623730953 -0.9899494936611666 0 ] 0 1 1
-( 4944 5664 1376 ) ( 4944 5344 1040 ) ( 4944 5344 1376 ) common/common_textures/base_wall [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-}
-}
-// entity 370
-{
-"classname" "Breakables_Wall"
-"targetname" "wall_2"
-"collision_layer" "2"
-"collision_mask" "5"
-// brush 0
-{
-( 4928 5344 1376 ) ( 4928 5664 1040 ) ( 4928 5664 1376 ) common/common_textures/base_wall [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 4944 5280 1376 ) ( 4928 5280 1040 ) ( 4928 5280 1376 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 4928 5440 1360 ) ( 5056 5408 1280 ) ( 4928 5408 1280 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 -0.3713906763541037 -0.9284766908852594 0 ] 0 1 1
-( 4928 5632 1072 ) ( 5056 5328 1040 ) ( 4928 5328 1040 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 -0.9945054529214061 -0.10468478451804275 0 ] 0 1 1
-( 4944 5664 928 ) ( 4928 5344 928 ) ( 4944 5344 928 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( 4928 5392 1056 ) ( 5056 5472 1152 ) ( 4928 5472 1152 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 -0.6401843996644799 -0.7682212795973759 0 ] 0 1 1
-( 4944 5664 1376 ) ( 4944 5344 1040 ) ( 4944 5344 1376 ) common/common_textures/base_wall [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-}
-}
-// entity 371
-{
-"classname" "Breakables_Wall"
-"targetname" "wall_2"
-"collision_layer" "2"
-"collision_mask" "5"
-// brush 0
-{
-( 4928 5344 1376 ) ( 4928 5664 1040 ) ( 4928 5664 1376 ) common/common_textures/base_wall [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 4944 5280 1376 ) ( 4928 5280 1040 ) ( 4928 5280 1376 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 4928 5632 1072 ) ( 5056 5328 1040 ) ( 4928 5328 1040 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 -0.9945054529214061 -0.10468478451804275 0 ] 0 1 1
-( 4928 5440 1360 ) ( 4928 5408 1280 ) ( 5056 5408 1280 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 -0.3713906763541037 -0.9284766908852594 0 ] 0 1 1
-( 4944 5664 1376 ) ( 4944 5344 1040 ) ( 4944 5344 1376 ) common/common_textures/base_wall [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-}
-}
-// entity 372
 {
 "classname" "Particles_Particles_Arrows"
 "origin" "-5656 5944 1400"
@@ -7869,7 +7560,7 @@
 "size" "16 1 1"
 "velocity" "1"
 }
-// entity 373
+// entity 355
 {
 "classname" "Particles_Particles_Arrows"
 "origin" "-7208 5496 1224"
@@ -7878,7 +7569,7 @@
 "size" "16 1 1"
 "velocity" "1"
 }
-// entity 374
+// entity 356
 {
 "classname" "Particles_Particles_Arrows"
 "origin" "-4856 5640 2120"
@@ -7887,7 +7578,7 @@
 "size" "8 1 1"
 "velocity" "1"
 }
-// entity 375
+// entity 357
 {
 "classname" "Particles_Particles_Arrows"
 "origin" "-136 8648 -3048"
@@ -7896,7 +7587,7 @@
 "size" "8 1 1"
 "velocity" "1"
 }
-// entity 376
+// entity 358
 {
 "classname" "Particles_Particles_Arrows"
 "origin" "88 7624 -3080"
@@ -7905,7 +7596,7 @@
 "size" "8 1 1"
 "velocity" "1"
 }
-// entity 377
+// entity 359
 {
 "classname" "Particles_Particles_Arrows"
 "origin" "120 7768 -2520"
@@ -7914,7 +7605,7 @@
 "size" "8 1 1"
 "velocity" "1"
 }
-// entity 378
+// entity 360
 {
 "classname" "Particles_Particles_Arrows"
 "origin" "-56 8488 -2520"
@@ -7923,7 +7614,7 @@
 "size" "8 1 1"
 "velocity" "1"
 }
-// entity 379
+// entity 361
 {
 "classname" "Particles_Particles_Arrows"
 "origin" "712 8232 -2872"
@@ -7932,7 +7623,7 @@
 "size" "12 1 1"
 "velocity" "1"
 }
-// entity 380
+// entity 362
 {
 "classname" "Particles_Particles_Arrows"
 "origin" "-120 13736 4488"
@@ -7941,7 +7632,7 @@
 "size" "8 1 1"
 "velocity" "1"
 }
-// entity 381
+// entity 363
 {
 "classname" "Particles_Particles_Arrows"
 "origin" "-120 12888 4376"
@@ -7950,7 +7641,7 @@
 "size" "12 1 1"
 "velocity" "1"
 }
-// entity 382
+// entity 364
 {
 "classname" "Particles_Particles_Arrows"
 "origin" "136 10646 4904"
@@ -7959,7 +7650,7 @@
 "size" "12 1 1"
 "velocity" "1"
 }
-// entity 383
+// entity 365
 {
 "classname" "Breakables_Wall"
 "targetname" "wall_5"
@@ -7973,229 +7664,412 @@
 ( 432 10416 4944 ) ( 32 10400 4944 ) ( 32 10416 4944 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
 ( 432 10416 4944 ) ( 32 10416 4560 ) ( 432 10416 4560 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
 ( 192 10400 4592 ) ( 160 10400 4720 ) ( 160 10528 4720 ) common/common_textures/base_wall [ 0 1 0 0 ] [ 0.24253562503633297 0 -0.9701425001453319 0 ] 0 1 1
+}
+}
+// entity 366
+{
+"classname" "Breakables_Wall"
+"targetname" "wall_5"
+"collision_layer" "2"
+"collision_mask" "5"
+// brush 0
+{
+( 192 10400 4592 ) ( 160 10528 4720 ) ( 160 10400 4720 ) common/common_textures/base_wall [ 0 -1 0 0 ] [ 0.24253562503633297 0 -0.9701425001453319 0 ] 0 1 1
+( 80 10400 4896 ) ( 176 10400 4864 ) ( 176 10528 4864 ) common/common_textures/base_wall [ -0.9486832980505139 0 0.316227766016838 0 ] [ 0 -1 0 0 ] 0 1 1
+( 432 10400 4944 ) ( 32 10400 4560 ) ( 32 10400 4944 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 432 10416 4944 ) ( 32 10400 4944 ) ( 32 10416 4944 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 432 10416 4944 ) ( 32 10416 4560 ) ( 432 10416 4560 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 64 10400 4800 ) ( 160 10400 4864 ) ( 160 10528 4864 ) common/common_textures/base_wall [ -0.8320502943378437 0 -0.5547001962252291 0 ] [ 0 -1 0 0 ] 0 1 1
+}
+}
+// entity 367
+{
+"classname" "Breakables_Wall"
+"targetname" "wall_5"
+"collision_layer" "2"
+"collision_mask" "5"
+// brush 0
+{
+( 64 10400 4800 ) ( 160 10528 4864 ) ( 160 10400 4864 ) common/common_textures/base_wall [ 0.8320502943378437 0 0.5547001962252291 0 ] [ 0 -1 0 0 ] 0 1 1
+( 80 10400 4896 ) ( 176 10400 4864 ) ( 176 10528 4864 ) common/common_textures/base_wall [ -0.9486832980505139 0 0.316227766016838 0 ] [ 0 -1 0 0 ] 0 1 1
+( 432 10400 4944 ) ( 32 10400 4560 ) ( 32 10400 4944 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 432 10416 4944 ) ( 32 10400 4944 ) ( 32 10416 4944 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 432 10416 4944 ) ( 32 10416 4560 ) ( 432 10416 4560 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 160 10400 4736 ) ( 208 10400 4768 ) ( 208 10528 4768 ) common/common_textures/base_wall [ -0.8320502943378437 0 -0.5547001962252291 0 ] [ 0 -1 0 0 ] 0 1 1
+( 320 10400 4944 ) ( 336 10528 4848 ) ( 336 10400 4848 ) common/common_textures/base_wall [ 0 1 0 0 ] [ 0.1643989873053573 0 -0.9863939238321437 0 ] 0 1 1
+}
+}
+// entity 368
+{
+"classname" "Breakables_Wall"
+"targetname" "wall_5"
+"collision_layer" "2"
+"collision_mask" "5"
+// brush 0
+{
+( 320 10400 4944 ) ( 336 10400 4848 ) ( 336 10528 4848 ) common/common_textures/base_wall [ 0 -1 0 0 ] [ 0.1643989873053573 0 -0.9863939238321437 0 ] 0 1 1
+( 432 10400 4944 ) ( 32 10400 4560 ) ( 32 10400 4944 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 432 10416 4944 ) ( 32 10400 4944 ) ( 32 10416 4944 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 432 10416 4944 ) ( 32 10416 4560 ) ( 432 10416 4560 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 160 10400 4736 ) ( 208 10400 4768 ) ( 208 10528 4768 ) common/common_textures/base_wall [ -0.8320502943378437 0 -0.5547001962252291 0 ] [ 0 -1 0 0 ] 0 1 1
+( 432 10416 4944 ) ( 432 10400 4560 ) ( 432 10400 4944 ) common/common_textures/base_wall [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+}
+// entity 369
+{
+"classname" "Breakables_Wall"
+"targetname" "wall_5"
+"collision_layer" "2"
+"collision_mask" "5"
+// brush 0
+{
+( 32 10400 4944 ) ( 32 10416 4560 ) ( 32 10416 4944 ) common/common_textures/base_wall [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 432 10400 4944 ) ( 32 10400 4560 ) ( 32 10400 4944 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 432 10416 4944 ) ( 32 10416 4560 ) ( 432 10416 4560 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 80 10400 4896 ) ( 176 10528 4864 ) ( 176 10400 4864 ) common/common_textures/base_wall [ 0.9486832980505139 0 -0.316227766016838 0 ] [ 0 -1 0 0 ] 0 1 1
+( 64 10400 4800 ) ( 160 10400 4864 ) ( 160 10528 4864 ) common/common_textures/base_wall [ -0.8320502943378437 0 -0.5547001962252291 0 ] [ 0 -1 0 0 ] 0 1 1
+( 192 10400 4592 ) ( 160 10400 4720 ) ( 160 10528 4720 ) common/common_textures/base_wall [ 0 1 0 0 ] [ 0.24253562503633297 0 -0.9701425001453319 0 ] 0 1 1
+}
+}
+// entity 370
+{
+"classname" "Breakables_Wall"
+"targetname" "wall_5"
+"collision_layer" "2"
+"collision_mask" "5"
+// brush 0
+{
+( 192 10400 4592 ) ( 160 10528 4720 ) ( 160 10400 4720 ) common/common_textures/base_wall [ 0 -1 0 0 ] [ 0.24253562503633297 0 -0.9701425001453319 0 ] 0 1 1
+( 432 10400 4944 ) ( 32 10400 4560 ) ( 32 10400 4944 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 432 10416 4944 ) ( 32 10416 4560 ) ( 432 10416 4560 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 80 10400 4896 ) ( 176 10528 4864 ) ( 176 10400 4864 ) common/common_textures/base_wall [ 0.9486832980505139 0 -0.316227766016838 0 ] [ 0 -1 0 0 ] 0 1 1
+( 64 10400 4800 ) ( 160 10400 4864 ) ( 160 10528 4864 ) common/common_textures/base_wall [ -0.8320502943378437 0 -0.5547001962252291 0 ] [ 0 -1 0 0 ] 0 1 1
+}
+}
+// entity 371
+{
+"classname" "Breakables_Wall"
+"targetname" "wall_5"
+"collision_layer" "2"
+"collision_mask" "5"
+// brush 0
+{
+( 320 10400 4944 ) ( 336 10400 4848 ) ( 336 10528 4848 ) common/common_textures/base_wall [ 0 -1 0 0 ] [ 0.1643989873053573 0 -0.9863939238321437 0 ] 0 1 1
+( 160 10400 4736 ) ( 208 10528 4768 ) ( 208 10400 4768 ) common/common_textures/base_wall [ 0.8320502943378437 0 0.5547001962252291 0 ] [ 0 -1 0 0 ] 0 1 1
+( 80 10400 4896 ) ( 176 10400 4864 ) ( 176 10528 4864 ) common/common_textures/base_wall [ -0.9486832980505139 0 0.316227766016838 0 ] [ 0 -1 0 0 ] 0 1 1
+( 432 10400 4944 ) ( 32 10400 4560 ) ( 32 10400 4944 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 432 10416 4944 ) ( 32 10416 4560 ) ( 432 10416 4560 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 432 10416 4944 ) ( 432 10400 4560 ) ( 432 10400 4944 ) common/common_textures/base_wall [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+}
+// entity 372
+{
+"classname" "Breakables_Wall"
+"targetname" "wall_5"
+"collision_layer" "2"
+"collision_mask" "5"
+// brush 0
+{
+( 160 10400 4736 ) ( 208 10528 4768 ) ( 208 10400 4768 ) common/common_textures/base_wall [ 0.8320502943378437 0 0.5547001962252291 0 ] [ 0 -1 0 0 ] 0 1 1
+( 80 10400 4896 ) ( 176 10400 4864 ) ( 176 10528 4864 ) common/common_textures/base_wall [ -0.9486832980505139 0 0.316227766016838 0 ] [ 0 -1 0 0 ] 0 1 1
+( 432 10400 4944 ) ( 32 10400 4560 ) ( 32 10400 4944 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 432 10416 4944 ) ( 32 10416 4560 ) ( 432 10416 4560 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 320 10400 4944 ) ( 336 10528 4848 ) ( 336 10400 4848 ) common/common_textures/base_wall [ 0 1 0 0 ] [ 0.1643989873053573 0 -0.9863939238321437 0 ] 0 1 1
+}
+}
+// entity 373
+{
+"classname" "Breakables_Wall"
+"targetname" "wall_5"
+"collision_layer" "2"
+"collision_mask" "5"
+// brush 0
+{
+( 192 10400 4592 ) ( 160 10528 4720 ) ( 160 10400 4720 ) common/common_textures/base_wall [ 0 -1 0 0 ] [ 0.24253562503633297 0 -0.9701425001453319 0 ] 0 1 1
+( 64 10400 4800 ) ( 160 10528 4864 ) ( 160 10400 4864 ) common/common_textures/base_wall [ 0.8320502943378437 0 0.5547001962252291 0 ] [ 0 -1 0 0 ] 0 1 1
+( 432 10400 4944 ) ( 32 10400 4560 ) ( 32 10400 4944 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 432 10416 4944 ) ( 32 10416 4560 ) ( 432 10416 4560 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 80 10400 4896 ) ( 176 10528 4864 ) ( 176 10400 4864 ) common/common_textures/base_wall [ 0.9486832980505139 0 -0.316227766016838 0 ] [ 0 -1 0 0 ] 0 1 1
+( 160 10400 4736 ) ( 208 10400 4768 ) ( 208 10528 4768 ) common/common_textures/base_wall [ -0.8320502943378437 0 -0.5547001962252291 0 ] [ 0 -1 0 0 ] 0 1 1
+}
+}
+// entity 374
+{
+"classname" "Breakables_Wall"
+"targetname" "wall_5"
+"collision_layer" "2"
+"collision_mask" "5"
+// brush 0
+{
+( 32 10400 4944 ) ( 32 10416 4560 ) ( 32 10416 4944 ) common/common_textures/base_wall [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 64 10400 4800 ) ( 160 10528 4864 ) ( 160 10400 4864 ) common/common_textures/base_wall [ 0.8320502943378437 0 0.5547001962252291 0 ] [ 0 -1 0 0 ] 0 1 1
+( 432 10400 4944 ) ( 32 10400 4560 ) ( 32 10400 4944 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 432 10416 4944 ) ( 32 10416 4560 ) ( 432 10416 4560 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 160 10400 4736 ) ( 208 10400 4768 ) ( 208 10528 4768 ) common/common_textures/base_wall [ -0.8320502943378437 0 -0.5547001962252291 0 ] [ 0 -1 0 0 ] 0 1 1
+( 192 10400 4592 ) ( 160 10400 4720 ) ( 160 10528 4720 ) common/common_textures/base_wall [ 0 1 0 0 ] [ 0.24253562503633297 0 -0.9701425001453319 0 ] 0 1 1
+}
+}
+// entity 375
+{
+"classname" "Breakables_Wall"
+"targetname" "wall_5"
+"collision_layer" "2"
+"collision_mask" "5"
+// brush 0
+{
+( 192 10400 4592 ) ( 160 10528 4720 ) ( 160 10400 4720 ) common/common_textures/base_wall [ 0 -1 0 0 ] [ 0.24253562503633297 0 -0.9701425001453319 0 ] 0 1 1
+( 160 10400 4736 ) ( 208 10528 4768 ) ( 208 10400 4768 ) common/common_textures/base_wall [ 0.8320502943378437 0 0.5547001962252291 0 ] [ 0 -1 0 0 ] 0 1 1
+( 432 10400 4944 ) ( 32 10400 4560 ) ( 32 10400 4944 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 432 10416 4560 ) ( 32 10400 4560 ) ( 432 10400 4560 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 432 10416 4944 ) ( 32 10416 4560 ) ( 432 10416 4560 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 80 10400 4896 ) ( 176 10528 4864 ) ( 176 10400 4864 ) common/common_textures/base_wall [ 0.9486832980505139 0 -0.316227766016838 0 ] [ 0 -1 0 0 ] 0 1 1
+( 416 10400 4736 ) ( 368 10528 4688 ) ( 368 10400 4688 ) common/common_textures/base_wall [ -0.7071067811865476 0 -0.7071067811865476 0 ] [ 0 -1 0 0 ] 0 1 1
+( 320 10400 4944 ) ( 336 10528 4848 ) ( 336 10400 4848 ) common/common_textures/base_wall [ 0 1 0 0 ] [ 0.1643989873053573 0 -0.9863939238321437 0 ] 0 1 1
+}
+}
+// entity 376
+{
+"classname" "Breakables_Wall"
+"targetname" "wall_5"
+"collision_layer" "2"
+"collision_mask" "5"
+// brush 0
+{
+( 320 10400 4944 ) ( 336 10400 4848 ) ( 336 10528 4848 ) common/common_textures/base_wall [ 0 -1 0 0 ] [ 0.1643989873053573 0 -0.9863939238321437 0 ] 0 1 1
+( 432 10400 4944 ) ( 32 10400 4560 ) ( 32 10400 4944 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 432 10416 4944 ) ( 32 10416 4560 ) ( 432 10416 4560 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 80 10400 4896 ) ( 176 10528 4864 ) ( 176 10400 4864 ) common/common_textures/base_wall [ 0.9486832980505139 0 -0.316227766016838 0 ] [ 0 -1 0 0 ] 0 1 1
+( 416 10400 4736 ) ( 368 10528 4688 ) ( 368 10400 4688 ) common/common_textures/base_wall [ -0.7071067811865476 0 -0.7071067811865476 0 ] [ 0 -1 0 0 ] 0 1 1
+( 432 10416 4944 ) ( 432 10400 4560 ) ( 432 10400 4944 ) common/common_textures/base_wall [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+}
+// entity 377
+{
+"classname" "Breakables_Wall"
+"collision_mask" "5"
+"targetname" "wall_5"
+"collision_layer" "2"
+// brush 0
+{
+( 32 10400 4944 ) ( 32 10416 4560 ) ( 32 10416 4944 ) common/common_textures/base_wall [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 160 10400 4736 ) ( 208 10528 4768 ) ( 208 10400 4768 ) common/common_textures/base_wall [ 0.8320502943378437 0 0.5547001962252291 0 ] [ 0 -1 0 0 ] 0 1 1
+( 432 10400 4944 ) ( 32 10400 4560 ) ( 32 10400 4944 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 432 10416 4560 ) ( 32 10400 4560 ) ( 432 10400 4560 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 432 10416 4944 ) ( 32 10416 4560 ) ( 432 10416 4560 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 192 10400 4592 ) ( 160 10400 4720 ) ( 160 10528 4720 ) common/common_textures/base_wall [ 0 1 0 0 ] [ 0.24253562503633297 0 -0.9701425001453319 0 ] 0 1 1
+}
+}
+// entity 378
+{
+"classname" "Breakables_Wall"
+"targetname" "wall_5"
+"collision_layer" "2"
+"collision_mask" "5"
+// brush 0
+{
+( 416 10400 4736 ) ( 368 10400 4688 ) ( 368 10528 4688 ) common/common_textures/base_wall [ 0.7071067811865476 0 0.7071067811865476 0 ] [ 0 -1 0 0 ] 0 1 1
+( 432 10400 4944 ) ( 32 10400 4560 ) ( 32 10400 4944 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 432 10416 4560 ) ( 32 10400 4560 ) ( 432 10400 4560 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 432 10416 4944 ) ( 32 10416 4560 ) ( 432 10416 4560 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 320 10400 4944 ) ( 336 10528 4848 ) ( 336 10400 4848 ) common/common_textures/base_wall [ 0 1 0 0 ] [ 0.1643989873053573 0 -0.9863939238321437 0 ] 0 1 1
+}
+}
+// entity 379
+{
+"classname" "Breakables_Wall"
+"targetname" "wall_5"
+"collision_layer" "2"
+"collision_mask" "5"
+// brush 0
+{
+( 320 10400 4944 ) ( 336 10400 4848 ) ( 336 10528 4848 ) common/common_textures/base_wall [ 0 -1 0 0 ] [ 0.1643989873053573 0 -0.9863939238321437 0 ] 0 1 1
+( 416 10400 4736 ) ( 368 10400 4688 ) ( 368 10528 4688 ) common/common_textures/base_wall [ 0.7071067811865476 0 0.7071067811865476 0 ] [ 0 -1 0 0 ] 0 1 1
+( 432 10400 4944 ) ( 32 10400 4560 ) ( 32 10400 4944 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 432 10416 4560 ) ( 32 10400 4560 ) ( 432 10400 4560 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 432 10416 4944 ) ( 32 10416 4560 ) ( 432 10416 4560 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 432 10416 4944 ) ( 432 10400 4560 ) ( 432 10400 4944 ) common/common_textures/base_wall [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+}
+// entity 380
+{
+"classname" "StaticBodyGroup"
+"collision_layer" "2"
+"collision_mask" "5"
+// brush 0
+{
+( -5836 5916 1276 ) ( -5836 5917 1276 ) ( -5836 5916 1277 ) common/common_textures/base_floor [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -5836 5916 1276 ) ( -5836 5916 1277 ) ( -5835 5916 1276 ) common/common_textures/base_floor [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -5836 5916 1272 ) ( -5835 5916 1272 ) ( -5836 5917 1272 ) common/common_textures/base_floor [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -5716 6036 1280 ) ( -5716 6037 1280 ) ( -5715 6036 1280 ) common/common_textures/base_floor [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -5716 6036 1280 ) ( -5715 6036 1280 ) ( -5716 6036 1281 ) common/common_textures/base_floor [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -5716 6036 1280 ) ( -5716 6036 1281 ) ( -5716 6037 1280 ) common/common_textures/base_floor [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+}
+// entity 381
+{
+"classname" "RythmElements_Sequencers_Static"
+"sequencer_data_path" "res://Game/Scenes/Levels/Level5/Data/StepSequencerData/simple_sequencer.tres"
+"active_on_signals" "kick"
+"active_on_steps" "0"
+"collision_layer" "2"
+"collision_mask" "5"
+"init_index" "1"
+// brush 0
+{
+( -5836 5916 1276 ) ( -5836 5917 1276 ) ( -5836 5916 1277 ) scenes/level_5/simple_sequencer [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -5716 6036 1280 ) ( -5716 6036 1281 ) ( -5715 6036 1280 ) scenes/level_5/simple_sequencer [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -5836 5916 1272 ) ( -5835 5916 1272 ) ( -5836 5917 1272 ) scenes/level_5/simple_sequencer [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -5716 6036 1280 ) ( -5716 6037 1280 ) ( -5715 6036 1280 ) scenes/level_5/simple_sequencer [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -5716 6040 1280 ) ( -5715 6040 1280 ) ( -5716 6040 1281 ) scenes/level_5/simple_sequencer [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -5716 6036 1280 ) ( -5716 6036 1281 ) ( -5716 6037 1280 ) scenes/level_5/simple_sequencer [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+// brush 1
+{
+( -5836 5916 1276 ) ( -5836 5917 1276 ) ( -5836 5916 1277 ) scenes/level_5/simple_sequencer [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -5836 5912 1276 ) ( -5836 5912 1277 ) ( -5835 5912 1276 ) scenes/level_5/simple_sequencer [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -5836 5916 1272 ) ( -5835 5916 1272 ) ( -5836 5917 1272 ) scenes/level_5/simple_sequencer [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -5716 6036 1280 ) ( -5716 6037 1280 ) ( -5715 6036 1280 ) scenes/level_5/simple_sequencer [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -5836 5916 1276 ) ( -5835 5916 1276 ) ( -5836 5916 1277 ) scenes/level_5/simple_sequencer [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -5716 6036 1280 ) ( -5716 6036 1281 ) ( -5716 6037 1280 ) scenes/level_5/simple_sequencer [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+// brush 2
+{
+( -5716 5916 1276 ) ( -5716 5917 1276 ) ( -5716 5916 1277 ) scenes/level_5/simple_sequencer [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -5712 5912 1276 ) ( -5712 5912 1277 ) ( -5711 5912 1276 ) scenes/level_5/simple_sequencer [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -5712 5916 1272 ) ( -5711 5916 1272 ) ( -5712 5917 1272 ) scenes/level_5/simple_sequencer [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -5592 6036 1280 ) ( -5592 6037 1280 ) ( -5591 6036 1280 ) scenes/level_5/simple_sequencer [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -5592 6040 1280 ) ( -5591 6040 1280 ) ( -5592 6040 1281 ) scenes/level_5/simple_sequencer [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -5712 5916 1276 ) ( -5712 5916 1277 ) ( -5712 5917 1276 ) scenes/level_5/simple_sequencer [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+// brush 3
+{
+( -5840 5916 1276 ) ( -5840 5917 1276 ) ( -5840 5916 1277 ) scenes/level_5/simple_sequencer [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -5836 5912 1276 ) ( -5836 5912 1277 ) ( -5835 5912 1276 ) scenes/level_5/simple_sequencer [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -5836 5916 1272 ) ( -5835 5916 1272 ) ( -5836 5917 1272 ) scenes/level_5/simple_sequencer [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -5716 6036 1280 ) ( -5716 6037 1280 ) ( -5715 6036 1280 ) scenes/level_5/simple_sequencer [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -5716 6040 1280 ) ( -5715 6040 1280 ) ( -5716 6040 1281 ) scenes/level_5/simple_sequencer [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -5836 5916 1276 ) ( -5836 5916 1277 ) ( -5836 5917 1276 ) scenes/level_5/simple_sequencer [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+}
+// entity 382
+{
+"classname" "RythmElements_Sequencers_Static"
+"sequencer_data_path" "res://Game/Scenes/Levels/Level5/Data/StepSequencerData/simple_sequencer.tres"
+"active_on_signals" "kick"
+"active_on_steps" "0"
+"collision_layer" "2"
+"collision_mask" "5"
+"init_index" "1"
+// brush 0
+{
+( -5964 6180 1276 ) ( -5964 6181 1276 ) ( -5964 6180 1277 ) scenes/level_5/simple_sequencer [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -5844 6300 1280 ) ( -5844 6300 1281 ) ( -5843 6300 1280 ) scenes/level_5/simple_sequencer [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -5964 6180 1272 ) ( -5963 6180 1272 ) ( -5964 6181 1272 ) scenes/level_5/simple_sequencer [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -5844 6300 1280 ) ( -5844 6301 1280 ) ( -5843 6300 1280 ) scenes/level_5/simple_sequencer [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -5844 6304 1280 ) ( -5843 6304 1280 ) ( -5844 6304 1281 ) scenes/level_5/simple_sequencer [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -5844 6300 1280 ) ( -5844 6300 1281 ) ( -5844 6301 1280 ) scenes/level_5/simple_sequencer [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+// brush 1
+{
+( -5964 6180 1276 ) ( -5964 6181 1276 ) ( -5964 6180 1277 ) scenes/level_5/simple_sequencer [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -5964 6176 1276 ) ( -5964 6176 1277 ) ( -5963 6176 1276 ) scenes/level_5/simple_sequencer [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -5964 6180 1272 ) ( -5963 6180 1272 ) ( -5964 6181 1272 ) scenes/level_5/simple_sequencer [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -5844 6300 1280 ) ( -5844 6301 1280 ) ( -5843 6300 1280 ) scenes/level_5/simple_sequencer [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -5964 6180 1276 ) ( -5963 6180 1276 ) ( -5964 6180 1277 ) scenes/level_5/simple_sequencer [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -5844 6300 1280 ) ( -5844 6300 1281 ) ( -5844 6301 1280 ) scenes/level_5/simple_sequencer [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+// brush 2
+{
+( -5844 6180 1276 ) ( -5844 6181 1276 ) ( -5844 6180 1277 ) scenes/level_5/simple_sequencer [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -5840 6176 1276 ) ( -5840 6176 1277 ) ( -5839 6176 1276 ) scenes/level_5/simple_sequencer [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -5840 6180 1272 ) ( -5839 6180 1272 ) ( -5840 6181 1272 ) scenes/level_5/simple_sequencer [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -5720 6300 1280 ) ( -5720 6301 1280 ) ( -5719 6300 1280 ) scenes/level_5/simple_sequencer [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -5720 6304 1280 ) ( -5719 6304 1280 ) ( -5720 6304 1281 ) scenes/level_5/simple_sequencer [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -5840 6180 1276 ) ( -5840 6180 1277 ) ( -5840 6181 1276 ) scenes/level_5/simple_sequencer [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+// brush 3
+{
+( -5968 6180 1276 ) ( -5968 6181 1276 ) ( -5968 6180 1277 ) scenes/level_5/simple_sequencer [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -5964 6176 1276 ) ( -5964 6176 1277 ) ( -5963 6176 1276 ) scenes/level_5/simple_sequencer [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -5964 6180 1272 ) ( -5963 6180 1272 ) ( -5964 6181 1272 ) scenes/level_5/simple_sequencer [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -5844 6300 1280 ) ( -5844 6301 1280 ) ( -5843 6300 1280 ) scenes/level_5/simple_sequencer [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -5844 6304 1280 ) ( -5843 6304 1280 ) ( -5844 6304 1281 ) scenes/level_5/simple_sequencer [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -5964 6180 1276 ) ( -5964 6180 1277 ) ( -5964 6181 1276 ) scenes/level_5/simple_sequencer [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+}
+// entity 383
+{
+"classname" "StaticBodyGroup"
+"collision_layer" "2"
+"collision_mask" "5"
+// brush 0
+{
+( -5964 6180 1276 ) ( -5964 6181 1276 ) ( -5964 6180 1277 ) common/common_textures/base_floor [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -5964 6180 1276 ) ( -5964 6180 1277 ) ( -5963 6180 1276 ) common/common_textures/base_floor [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -5964 6180 1272 ) ( -5963 6180 1272 ) ( -5964 6181 1272 ) common/common_textures/base_floor [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -5844 6300 1280 ) ( -5844 6301 1280 ) ( -5843 6300 1280 ) common/common_textures/base_floor [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -5844 6300 1280 ) ( -5843 6300 1280 ) ( -5844 6300 1281 ) common/common_textures/base_floor [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -5844 6300 1280 ) ( -5844 6300 1281 ) ( -5844 6301 1280 ) common/common_textures/base_floor [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
 // entity 384
 {
-"classname" "Breakables_Wall"
-"targetname" "wall_5"
+"classname" "RythmElements_Sequencers_Static"
+"sequencer_data_path" "res://Game/Scenes/Levels/Level5/Data/StepSequencerData/simple_sequencer.tres"
+"active_on_signals" "kick"
+"active_on_steps" "0"
 "collision_layer" "2"
 "collision_mask" "5"
+"init_index" "1"
 // brush 0
 {
-( 192 10400 4592 ) ( 160 10528 4720 ) ( 160 10400 4720 ) common/common_textures/base_wall [ 0 -1 0 0 ] [ 0.24253562503633297 0 -0.9701425001453319 0 ] 0 1 1
-( 80 10400 4896 ) ( 176 10400 4864 ) ( 176 10528 4864 ) common/common_textures/base_wall [ -0.9486832980505139 0 0.316227766016838 0 ] [ 0 -1 0 0 ] 0 1 1
-( 432 10400 4944 ) ( 32 10400 4560 ) ( 32 10400 4944 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 432 10416 4944 ) ( 32 10400 4944 ) ( 32 10416 4944 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( 432 10416 4944 ) ( 32 10416 4560 ) ( 432 10416 4560 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 64 10400 4800 ) ( 160 10400 4864 ) ( 160 10528 4864 ) common/common_textures/base_wall [ -0.8320502943378437 0 -0.5547001962252291 0 ] [ 0 -1 0 0 ] 0 1 1
+( -5692 6348 1276 ) ( -5692 6349 1276 ) ( -5692 6348 1277 ) scenes/level_5/simple_sequencer [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -5572 6468 1280 ) ( -5572 6468 1281 ) ( -5571 6468 1280 ) scenes/level_5/simple_sequencer [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -5692 6348 1272 ) ( -5691 6348 1272 ) ( -5692 6349 1272 ) scenes/level_5/simple_sequencer [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -5572 6468 1280 ) ( -5572 6469 1280 ) ( -5571 6468 1280 ) scenes/level_5/simple_sequencer [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -5572 6472 1280 ) ( -5571 6472 1280 ) ( -5572 6472 1281 ) scenes/level_5/simple_sequencer [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -5572 6468 1280 ) ( -5572 6468 1281 ) ( -5572 6469 1280 ) scenes/level_5/simple_sequencer [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+// brush 1
+{
+( -5692 6348 1276 ) ( -5692 6349 1276 ) ( -5692 6348 1277 ) scenes/level_5/simple_sequencer [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -5692 6344 1276 ) ( -5692 6344 1277 ) ( -5691 6344 1276 ) scenes/level_5/simple_sequencer [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -5692 6348 1272 ) ( -5691 6348 1272 ) ( -5692 6349 1272 ) scenes/level_5/simple_sequencer [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -5572 6468 1280 ) ( -5572 6469 1280 ) ( -5571 6468 1280 ) scenes/level_5/simple_sequencer [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -5692 6348 1276 ) ( -5691 6348 1276 ) ( -5692 6348 1277 ) scenes/level_5/simple_sequencer [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -5572 6468 1280 ) ( -5572 6468 1281 ) ( -5572 6469 1280 ) scenes/level_5/simple_sequencer [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+// brush 2
+{
+( -5572 6348 1276 ) ( -5572 6349 1276 ) ( -5572 6348 1277 ) scenes/level_5/simple_sequencer [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -5568 6344 1276 ) ( -5568 6344 1277 ) ( -5567 6344 1276 ) scenes/level_5/simple_sequencer [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -5568 6348 1272 ) ( -5567 6348 1272 ) ( -5568 6349 1272 ) scenes/level_5/simple_sequencer [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -5448 6468 1280 ) ( -5448 6469 1280 ) ( -5447 6468 1280 ) scenes/level_5/simple_sequencer [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -5448 6472 1280 ) ( -5447 6472 1280 ) ( -5448 6472 1281 ) scenes/level_5/simple_sequencer [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -5568 6348 1276 ) ( -5568 6348 1277 ) ( -5568 6349 1276 ) scenes/level_5/simple_sequencer [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+// brush 3
+{
+( -5696 6348 1276 ) ( -5696 6349 1276 ) ( -5696 6348 1277 ) scenes/level_5/simple_sequencer [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -5692 6344 1276 ) ( -5692 6344 1277 ) ( -5691 6344 1276 ) scenes/level_5/simple_sequencer [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -5692 6348 1272 ) ( -5691 6348 1272 ) ( -5692 6349 1272 ) scenes/level_5/simple_sequencer [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -5572 6468 1280 ) ( -5572 6469 1280 ) ( -5571 6468 1280 ) scenes/level_5/simple_sequencer [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -5572 6472 1280 ) ( -5571 6472 1280 ) ( -5572 6472 1281 ) scenes/level_5/simple_sequencer [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -5692 6348 1276 ) ( -5692 6348 1277 ) ( -5692 6349 1276 ) scenes/level_5/simple_sequencer [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
 // entity 385
 {
-"classname" "Breakables_Wall"
-"targetname" "wall_5"
+"classname" "StaticBodyGroup"
 "collision_layer" "2"
 "collision_mask" "5"
 // brush 0
 {
-( 64 10400 4800 ) ( 160 10528 4864 ) ( 160 10400 4864 ) common/common_textures/base_wall [ 0.8320502943378437 0 0.5547001962252291 0 ] [ 0 -1 0 0 ] 0 1 1
-( 80 10400 4896 ) ( 176 10400 4864 ) ( 176 10528 4864 ) common/common_textures/base_wall [ -0.9486832980505139 0 0.316227766016838 0 ] [ 0 -1 0 0 ] 0 1 1
-( 432 10400 4944 ) ( 32 10400 4560 ) ( 32 10400 4944 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 432 10416 4944 ) ( 32 10400 4944 ) ( 32 10416 4944 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( 432 10416 4944 ) ( 32 10416 4560 ) ( 432 10416 4560 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 160 10400 4736 ) ( 208 10400 4768 ) ( 208 10528 4768 ) common/common_textures/base_wall [ -0.8320502943378437 0 -0.5547001962252291 0 ] [ 0 -1 0 0 ] 0 1 1
-( 320 10400 4944 ) ( 336 10528 4848 ) ( 336 10400 4848 ) common/common_textures/base_wall [ 0 1 0 0 ] [ 0.1643989873053573 0 -0.9863939238321437 0 ] 0 1 1
-}
-}
-// entity 386
-{
-"classname" "Breakables_Wall"
-"targetname" "wall_5"
-"collision_layer" "2"
-"collision_mask" "5"
-// brush 0
-{
-( 320 10400 4944 ) ( 336 10400 4848 ) ( 336 10528 4848 ) common/common_textures/base_wall [ 0 -1 0 0 ] [ 0.1643989873053573 0 -0.9863939238321437 0 ] 0 1 1
-( 432 10400 4944 ) ( 32 10400 4560 ) ( 32 10400 4944 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 432 10416 4944 ) ( 32 10400 4944 ) ( 32 10416 4944 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( 432 10416 4944 ) ( 32 10416 4560 ) ( 432 10416 4560 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 160 10400 4736 ) ( 208 10400 4768 ) ( 208 10528 4768 ) common/common_textures/base_wall [ -0.8320502943378437 0 -0.5547001962252291 0 ] [ 0 -1 0 0 ] 0 1 1
-( 432 10416 4944 ) ( 432 10400 4560 ) ( 432 10400 4944 ) common/common_textures/base_wall [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-}
-}
-// entity 387
-{
-"classname" "Breakables_Wall"
-"targetname" "wall_5"
-"collision_layer" "2"
-"collision_mask" "5"
-// brush 0
-{
-( 32 10400 4944 ) ( 32 10416 4560 ) ( 32 10416 4944 ) common/common_textures/base_wall [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 432 10400 4944 ) ( 32 10400 4560 ) ( 32 10400 4944 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 432 10416 4944 ) ( 32 10416 4560 ) ( 432 10416 4560 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 80 10400 4896 ) ( 176 10528 4864 ) ( 176 10400 4864 ) common/common_textures/base_wall [ 0.9486832980505139 0 -0.316227766016838 0 ] [ 0 -1 0 0 ] 0 1 1
-( 64 10400 4800 ) ( 160 10400 4864 ) ( 160 10528 4864 ) common/common_textures/base_wall [ -0.8320502943378437 0 -0.5547001962252291 0 ] [ 0 -1 0 0 ] 0 1 1
-( 192 10400 4592 ) ( 160 10400 4720 ) ( 160 10528 4720 ) common/common_textures/base_wall [ 0 1 0 0 ] [ 0.24253562503633297 0 -0.9701425001453319 0 ] 0 1 1
-}
-}
-// entity 388
-{
-"classname" "Breakables_Wall"
-"targetname" "wall_5"
-"collision_layer" "2"
-"collision_mask" "5"
-// brush 0
-{
-( 192 10400 4592 ) ( 160 10528 4720 ) ( 160 10400 4720 ) common/common_textures/base_wall [ 0 -1 0 0 ] [ 0.24253562503633297 0 -0.9701425001453319 0 ] 0 1 1
-( 432 10400 4944 ) ( 32 10400 4560 ) ( 32 10400 4944 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 432 10416 4944 ) ( 32 10416 4560 ) ( 432 10416 4560 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 80 10400 4896 ) ( 176 10528 4864 ) ( 176 10400 4864 ) common/common_textures/base_wall [ 0.9486832980505139 0 -0.316227766016838 0 ] [ 0 -1 0 0 ] 0 1 1
-( 64 10400 4800 ) ( 160 10400 4864 ) ( 160 10528 4864 ) common/common_textures/base_wall [ -0.8320502943378437 0 -0.5547001962252291 0 ] [ 0 -1 0 0 ] 0 1 1
-}
-}
-// entity 389
-{
-"classname" "Breakables_Wall"
-"targetname" "wall_5"
-"collision_layer" "2"
-"collision_mask" "5"
-// brush 0
-{
-( 320 10400 4944 ) ( 336 10400 4848 ) ( 336 10528 4848 ) common/common_textures/base_wall [ 0 -1 0 0 ] [ 0.1643989873053573 0 -0.9863939238321437 0 ] 0 1 1
-( 160 10400 4736 ) ( 208 10528 4768 ) ( 208 10400 4768 ) common/common_textures/base_wall [ 0.8320502943378437 0 0.5547001962252291 0 ] [ 0 -1 0 0 ] 0 1 1
-( 80 10400 4896 ) ( 176 10400 4864 ) ( 176 10528 4864 ) common/common_textures/base_wall [ -0.9486832980505139 0 0.316227766016838 0 ] [ 0 -1 0 0 ] 0 1 1
-( 432 10400 4944 ) ( 32 10400 4560 ) ( 32 10400 4944 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 432 10416 4944 ) ( 32 10416 4560 ) ( 432 10416 4560 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 432 10416 4944 ) ( 432 10400 4560 ) ( 432 10400 4944 ) common/common_textures/base_wall [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-}
-}
-// entity 390
-{
-"classname" "Breakables_Wall"
-"targetname" "wall_5"
-"collision_layer" "2"
-"collision_mask" "5"
-// brush 0
-{
-( 160 10400 4736 ) ( 208 10528 4768 ) ( 208 10400 4768 ) common/common_textures/base_wall [ 0.8320502943378437 0 0.5547001962252291 0 ] [ 0 -1 0 0 ] 0 1 1
-( 80 10400 4896 ) ( 176 10400 4864 ) ( 176 10528 4864 ) common/common_textures/base_wall [ -0.9486832980505139 0 0.316227766016838 0 ] [ 0 -1 0 0 ] 0 1 1
-( 432 10400 4944 ) ( 32 10400 4560 ) ( 32 10400 4944 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 432 10416 4944 ) ( 32 10416 4560 ) ( 432 10416 4560 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 320 10400 4944 ) ( 336 10528 4848 ) ( 336 10400 4848 ) common/common_textures/base_wall [ 0 1 0 0 ] [ 0.1643989873053573 0 -0.9863939238321437 0 ] 0 1 1
-}
-}
-// entity 391
-{
-"classname" "Breakables_Wall"
-"targetname" "wall_5"
-"collision_layer" "2"
-"collision_mask" "5"
-// brush 0
-{
-( 192 10400 4592 ) ( 160 10528 4720 ) ( 160 10400 4720 ) common/common_textures/base_wall [ 0 -1 0 0 ] [ 0.24253562503633297 0 -0.9701425001453319 0 ] 0 1 1
-( 64 10400 4800 ) ( 160 10528 4864 ) ( 160 10400 4864 ) common/common_textures/base_wall [ 0.8320502943378437 0 0.5547001962252291 0 ] [ 0 -1 0 0 ] 0 1 1
-( 432 10400 4944 ) ( 32 10400 4560 ) ( 32 10400 4944 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 432 10416 4944 ) ( 32 10416 4560 ) ( 432 10416 4560 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 80 10400 4896 ) ( 176 10528 4864 ) ( 176 10400 4864 ) common/common_textures/base_wall [ 0.9486832980505139 0 -0.316227766016838 0 ] [ 0 -1 0 0 ] 0 1 1
-( 160 10400 4736 ) ( 208 10400 4768 ) ( 208 10528 4768 ) common/common_textures/base_wall [ -0.8320502943378437 0 -0.5547001962252291 0 ] [ 0 -1 0 0 ] 0 1 1
-}
-}
-// entity 392
-{
-"classname" "Breakables_Wall"
-"targetname" "wall_5"
-"collision_layer" "2"
-"collision_mask" "5"
-// brush 0
-{
-( 32 10400 4944 ) ( 32 10416 4560 ) ( 32 10416 4944 ) common/common_textures/base_wall [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 64 10400 4800 ) ( 160 10528 4864 ) ( 160 10400 4864 ) common/common_textures/base_wall [ 0.8320502943378437 0 0.5547001962252291 0 ] [ 0 -1 0 0 ] 0 1 1
-( 432 10400 4944 ) ( 32 10400 4560 ) ( 32 10400 4944 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 432 10416 4944 ) ( 32 10416 4560 ) ( 432 10416 4560 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 160 10400 4736 ) ( 208 10400 4768 ) ( 208 10528 4768 ) common/common_textures/base_wall [ -0.8320502943378437 0 -0.5547001962252291 0 ] [ 0 -1 0 0 ] 0 1 1
-( 192 10400 4592 ) ( 160 10400 4720 ) ( 160 10528 4720 ) common/common_textures/base_wall [ 0 1 0 0 ] [ 0.24253562503633297 0 -0.9701425001453319 0 ] 0 1 1
-}
-}
-// entity 393
-{
-"classname" "Breakables_Wall"
-"targetname" "wall_5"
-"collision_layer" "2"
-"collision_mask" "5"
-// brush 0
-{
-( 192 10400 4592 ) ( 160 10528 4720 ) ( 160 10400 4720 ) common/common_textures/base_wall [ 0 -1 0 0 ] [ 0.24253562503633297 0 -0.9701425001453319 0 ] 0 1 1
-( 160 10400 4736 ) ( 208 10528 4768 ) ( 208 10400 4768 ) common/common_textures/base_wall [ 0.8320502943378437 0 0.5547001962252291 0 ] [ 0 -1 0 0 ] 0 1 1
-( 432 10400 4944 ) ( 32 10400 4560 ) ( 32 10400 4944 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 432 10416 4560 ) ( 32 10400 4560 ) ( 432 10400 4560 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( 432 10416 4944 ) ( 32 10416 4560 ) ( 432 10416 4560 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 80 10400 4896 ) ( 176 10528 4864 ) ( 176 10400 4864 ) common/common_textures/base_wall [ 0.9486832980505139 0 -0.316227766016838 0 ] [ 0 -1 0 0 ] 0 1 1
-( 416 10400 4736 ) ( 368 10528 4688 ) ( 368 10400 4688 ) common/common_textures/base_wall [ -0.7071067811865476 0 -0.7071067811865476 0 ] [ 0 -1 0 0 ] 0 1 1
-( 320 10400 4944 ) ( 336 10528 4848 ) ( 336 10400 4848 ) common/common_textures/base_wall [ 0 1 0 0 ] [ 0.1643989873053573 0 -0.9863939238321437 0 ] 0 1 1
-}
-}
-// entity 394
-{
-"classname" "Breakables_Wall"
-"targetname" "wall_5"
-"collision_layer" "2"
-"collision_mask" "5"
-// brush 0
-{
-( 320 10400 4944 ) ( 336 10400 4848 ) ( 336 10528 4848 ) common/common_textures/base_wall [ 0 -1 0 0 ] [ 0.1643989873053573 0 -0.9863939238321437 0 ] 0 1 1
-( 432 10400 4944 ) ( 32 10400 4560 ) ( 32 10400 4944 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 432 10416 4944 ) ( 32 10416 4560 ) ( 432 10416 4560 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 80 10400 4896 ) ( 176 10528 4864 ) ( 176 10400 4864 ) common/common_textures/base_wall [ 0.9486832980505139 0 -0.316227766016838 0 ] [ 0 -1 0 0 ] 0 1 1
-( 416 10400 4736 ) ( 368 10528 4688 ) ( 368 10400 4688 ) common/common_textures/base_wall [ -0.7071067811865476 0 -0.7071067811865476 0 ] [ 0 -1 0 0 ] 0 1 1
-( 432 10416 4944 ) ( 432 10400 4560 ) ( 432 10400 4944 ) common/common_textures/base_wall [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-}
-}
-// entity 395
-{
-"classname" "Breakables_Wall"
-"collision_mask" "5"
-"targetname" "wall_5"
-"collision_layer" "2"
-// brush 0
-{
-( 32 10400 4944 ) ( 32 10416 4560 ) ( 32 10416 4944 ) common/common_textures/base_wall [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 160 10400 4736 ) ( 208 10528 4768 ) ( 208 10400 4768 ) common/common_textures/base_wall [ 0.8320502943378437 0 0.5547001962252291 0 ] [ 0 -1 0 0 ] 0 1 1
-( 432 10400 4944 ) ( 32 10400 4560 ) ( 32 10400 4944 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 432 10416 4560 ) ( 32 10400 4560 ) ( 432 10400 4560 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( 432 10416 4944 ) ( 32 10416 4560 ) ( 432 10416 4560 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 192 10400 4592 ) ( 160 10400 4720 ) ( 160 10528 4720 ) common/common_textures/base_wall [ 0 1 0 0 ] [ 0.24253562503633297 0 -0.9701425001453319 0 ] 0 1 1
-}
-}
-// entity 396
-{
-"classname" "Breakables_Wall"
-"targetname" "wall_5"
-"collision_layer" "2"
-"collision_mask" "5"
-// brush 0
-{
-( 416 10400 4736 ) ( 368 10400 4688 ) ( 368 10528 4688 ) common/common_textures/base_wall [ 0.7071067811865476 0 0.7071067811865476 0 ] [ 0 -1 0 0 ] 0 1 1
-( 432 10400 4944 ) ( 32 10400 4560 ) ( 32 10400 4944 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 432 10416 4560 ) ( 32 10400 4560 ) ( 432 10400 4560 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( 432 10416 4944 ) ( 32 10416 4560 ) ( 432 10416 4560 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 320 10400 4944 ) ( 336 10528 4848 ) ( 336 10400 4848 ) common/common_textures/base_wall [ 0 1 0 0 ] [ 0.1643989873053573 0 -0.9863939238321437 0 ] 0 1 1
-}
-}
-// entity 397
-{
-"classname" "Breakables_Wall"
-"targetname" "wall_5"
-"collision_layer" "2"
-"collision_mask" "5"
-// brush 0
-{
-( 320 10400 4944 ) ( 336 10400 4848 ) ( 336 10528 4848 ) common/common_textures/base_wall [ 0 -1 0 0 ] [ 0.1643989873053573 0 -0.9863939238321437 0 ] 0 1 1
-( 416 10400 4736 ) ( 368 10400 4688 ) ( 368 10528 4688 ) common/common_textures/base_wall [ 0.7071067811865476 0 0.7071067811865476 0 ] [ 0 -1 0 0 ] 0 1 1
-( 432 10400 4944 ) ( 32 10400 4560 ) ( 32 10400 4944 ) common/common_textures/base_wall [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 432 10416 4560 ) ( 32 10400 4560 ) ( 432 10400 4560 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( 432 10416 4944 ) ( 32 10416 4560 ) ( 432 10416 4560 ) common/common_textures/base_wall [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 432 10416 4944 ) ( 432 10400 4560 ) ( 432 10400 4944 ) common/common_textures/base_wall [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -5692 6348 1276 ) ( -5692 6349 1276 ) ( -5692 6348 1277 ) common/common_textures/base_floor [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -5692 6348 1276 ) ( -5692 6348 1277 ) ( -5691 6348 1276 ) common/common_textures/base_floor [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -5692 6348 1272 ) ( -5691 6348 1272 ) ( -5692 6349 1272 ) common/common_textures/base_floor [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -5572 6468 1280 ) ( -5572 6469 1280 ) ( -5571 6468 1280 ) common/common_textures/base_floor [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -5572 6468 1280 ) ( -5571 6468 1280 ) ( -5572 6468 1281 ) common/common_textures/base_floor [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -5572 6468 1280 ) ( -5572 6468 1281 ) ( -5572 6469 1280 ) common/common_textures/base_floor [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
