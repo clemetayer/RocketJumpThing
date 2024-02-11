@@ -25,6 +25,11 @@ onready var onready_paths := {
 	"difficulty":{
 		"additionnal_jumps_label":$"VBoxContainer/Difficulty/AdditionnalJumps/Label",
 		"additionnal_jumps":$"VBoxContainer/Difficulty/AdditionnalJumps/SpinBox"
+	},
+	"movement":{
+		"category":$"VBoxContainer/Movement",
+		"air_maneuverability_label":$"VBoxContainer/Movement/AirStrafeType/Label",
+		"air_maneuverability_slider":$"VBoxContainer/Movement/AirStrafeType/HSlider"
 	}
 }
 
@@ -40,6 +45,7 @@ func _init_tr() -> void:
 	onready_paths.gameplay_category.set_category_name(tr(TranslationKeys.SETTINGS_GAMEPLAY_GAMEPLAY_CATEGORY))
 	onready_paths.tutorial_category.set_category_name(tr(TranslationKeys.SETTINGS_GAMEPLAY_TUTORIAL_CATEGORY))
 	onready_paths.difficulty_category.set_category_name(tr(TranslationKeys.SETTINGS_GAMEPLAY_DIFFICULTY))
+	onready_paths.movement.category.set_category_name(tr(TranslationKeys.SETTINGS_GAMEPLAY_AIR_STRAFE_MANEUVERABILITY_LABEL))
 	onready_paths.fov.label.hint_tooltip = tr(TranslationKeys.SETTINGS_GAMEPLAY_FOV_TOOLTIP)
 	onready_paths.fov.slider.hint_tooltip = tr(TranslationKeys.SETTINGS_GAMEPLAY_FOV_TOOLTIP)
 	onready_paths.fov.edit.hint_tooltip = tr(TranslationKeys.SETTINGS_GAMEPLAY_FOV_TOOLTIP)
@@ -55,6 +61,7 @@ func _init_tr() -> void:
 	onready_paths.tutorial.level.set_item_tooltip(2,tr(TranslationKeys.SETTINGS_GAMEPLAY_TUTORIAL_LEVEL_NONE_TOOLTIP))
 	onready_paths.difficulty.additionnal_jumps_label.hint_tooltip = tr(TranslationKeys.SETTINGS_GAMEPLAY_ADDITIONAL_JUMPS_TOOLTIP)
 	onready_paths.difficulty.additionnal_jumps.hint_tooltip = tr(TranslationKeys.SETTINGS_GAMEPLAY_ADDITIONAL_JUMPS_TOOLTIP)
+	onready_paths.movement.air_maneuverability_label.hint_tooltip = tr(TranslationKeys.SETTINGS_GAMEPLAY_AIR_STRAFE_MANEUVERABILITY_TOOLTIP)
 
 func _set_default_values():
 	onready_paths.fov.edit.text = "%f" % SettingsUtils.settings_data.gameplay.fov
@@ -62,6 +69,7 @@ func _set_default_values():
 	onready_paths.space_to_wallride_check.pressed = SettingsUtils.settings_data.gameplay.space_to_wall_ride
 	onready_paths.tutorial.level.select(SettingsUtils.settings_data.gameplay.tutorial_level)
 	onready_paths.difficulty.additionnal_jumps.value = SettingsUtils.settings_data.gameplay.additionnal_jumps
+	onready_paths.movement.air_maneuverability_slider.value = SettingsUtils.settings_data.gameplay.air_strafe_maneuverability
 
 func _connect_signals() -> void:
 	DebugUtils.log_connect(onready_paths.fov.slider, self, "value_changed", "_on_FovSlider_value_changed")
@@ -69,6 +77,7 @@ func _connect_signals() -> void:
 	DebugUtils.log_connect(onready_paths.space_to_wallride_check, self, "toggled", "_on_SpaceToWallrideCheck_toggled")
 	DebugUtils.log_connect(onready_paths.tutorial.level, self, "item_selected", "_on_TutorialLevel_item_selected")
 	DebugUtils.log_connect(onready_paths.difficulty.additionnal_jumps, self, "value_changed", "_on_AdditionnalJumps_value_changed")
+	DebugUtils.log_connect(onready_paths.movement.air_maneuverability_slider,self,"value_changed", "_on_AirManeuverabilitySlider_value_changed")
 	DebugUtils.log_connect(SignalManager,self,SignalManager.UPDATE_SETTINGS,"_on_SignalManager_update_settings")
 	DebugUtils.log_connect(SignalManager,self,SignalManager.TRANSLATION_UPDATED,"_on_SignalManager_translation_updated")
 
@@ -92,6 +101,9 @@ func _on_TutorialLevel_item_selected(index : int) -> void:
 
 func _on_AdditionnalJumps_value_changed(value : float) -> void:
 	SettingsUtils.settings_data.gameplay.additionnal_jumps = int(value)
+
+func _on_AirManeuverabilitySlider_value_changed(value : float) -> void:
+	SettingsUtils.settings_data.gameplay.air_strafe_maneuverability = value 
 
 func _on_SignalManager_update_settings() -> void:
 	_set_default_values()

@@ -44,6 +44,9 @@ func test_init_tr() -> void:
 	assert_str(default_settings.onready_paths.gameplay.options.get_item_tooltip(1)).is_equal(tr(TranslationKeys.SETTINGS_GAMEPLAY_TUTORIAL_LEVEL_SOME_TOOLTIP))
 	assert_str(default_settings.onready_paths.gameplay.options.get_item_text(2)).is_equal(tr(TranslationKeys.SETTINGS_GAMEPLAY_TUTORIAL_LEVEL_NONE))
 	assert_str(default_settings.onready_paths.gameplay.options.get_item_tooltip(2)).is_equal(tr(TranslationKeys.SETTINGS_GAMEPLAY_TUTORIAL_LEVEL_NONE_TOOLTIP))
+	assert_str(default_settings.onready_paths.gameplay.space_to_wallride_label.hint_tooltip).is_equal(tr(TranslationKeys.SETTINGS_GAMEPLAY_SPACE_TO_WALL_RIDE_TOOLTIP))
+	assert_str(default_settings.onready_paths.gameplay.space_to_wallride_check.hint_tooltip).is_equal(tr(TranslationKeys.SETTINGS_GAMEPLAY_SPACE_TO_WALL_RIDE_TOOLTIP))
+	assert_str(default_settings.onready_paths.gameplay.air_maneuverability_label.hint_tooltip).is_equal(tr(TranslationKeys.SETTINGS_GAMEPLAY_AIR_STRAFE_MANEUVERABILITY_TOOLTIP))
 
 func test_init_options() -> void:
 	default_settings.onready_paths.language.options.clear()
@@ -60,6 +63,8 @@ func test_connect_signals() -> void:
 	assert_bool(default_settings.onready_paths.controls.options.is_connected("item_selected",default_settings,"_on_ControlsOptions_item_selected")).is_true()
 	assert_bool(default_settings.onready_paths.gameplay.options.is_connected("item_selected",default_settings,"_on_GameplayOptions_item_selected")).is_true()
 	assert_bool(default_settings.onready_paths.confirm.is_connected("pressed",default_settings,"_on_Ok_pressed")).is_true()
+	assert_bool(default_settings.onready_paths.gameplay.space_to_wallride_check.is_connected("toggled",default_settings,"_on_SpaceToWallrideCheck_toggled")).is_true()
+	assert_bool(default_settings.onready_paths.gameplay.air_maneuverability_slider.is_connected("value_changed", default_settings,"_on_AirManeuverabilitySlider_value_changed")).is_true()
 	assert_bool(SignalManager.is_connected(SignalManager.TRANSLATION_UPDATED,default_settings,"_on_SignalManager_translation_updated")).is_true()
 
 func test_apply_keyboard_layout() -> void:
@@ -94,3 +99,13 @@ func test_on_AudioMute_toggled() -> void:
 func test_on_GameplayOptions_item_selected() -> void:
 	default_settings._on_GameplayOptions_item_selected(2)
 	assert_int(SettingsUtils.settings_data.gameplay.tutorial_level).is_equal(2)
+
+func test_on_SpaceToWallrideCheck_toggled() -> void:
+	default_settings._on_SpaceToWallrideCheck_toggled(true)
+	assert_bool(SettingsUtils.settings_data.gameplay.space_to_wall_ride).is_true()
+	default_settings._on_SpaceToWallrideCheck_toggled(false)
+	assert_bool(SettingsUtils.settings_data.gameplay.space_to_wall_ride).is_false()
+
+func test_on_AirManeuverabilitySlider_value_changed() -> void:
+	default_settings._on_AirManeuverabilitySlider_value_changed(5.1)
+	assert_float(SettingsUtils.settings_data.gameplay.air_strafe_maneuverability).is_equal_approx(5.1, FLOAT_APPROX)

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: c.lemetayer@laposte.net\n"
 "POT-Creation-Date: 2021-12-19\n"
-"PO-Revision-Date: 2024-01-29 22:02+0100\n"
+"PO-Revision-Date: 2024-02-09 08:33+0100\n"
 "Last-Translator: Corentin Le Métayer <c.lemetayer@laposte.net>\n"
 "Language: fr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -325,6 +325,17 @@ msgid "SETTINGS_GAMEPLAY_ADDITIONAL_JUMPS_TOOLTIP"
 msgstr ""
 "Nombre de sauts en l'air autorisés. Le jeu a été conçu sans sauts "
 "additionnels, mais en ajouter peut rendre le jeu plus simple."
+
+msgid "SETTINGS_GAMEPLAY_MOVEMENT_CATEGORY"
+msgstr "Mouvement"
+
+msgid "SETTINGS_GAMEPLAY_AIR_STRAFE_MANEUVERABILITY_LABEL"
+msgstr "Maniabilité aérienne :"
+
+msgid "SETTINGS_GAMEPLAY_AIR_STRAFE_MANEUVERABILITY_TOOLTIP"
+msgstr ""
+"Une valeur basse priviligiera la vitesse.\n"
+"Une valeur haute priviligiera la maniabilité aérienne."
 
 # ================================ COMMON =================================
 # ---------------------------------- UI -----------------------------------

@@ -309,6 +309,15 @@ msgstr "Aerial jump amount : "
 msgid "SETTINGS_GAMEPLAY_ADDITIONAL_JUMPS_TOOLTIP"
 msgstr "Amount of aerial jumps. The game was designed without additionnal jumps, but that can make the game easier."
 
+msgid "SETTINGS_GAMEPLAY_MOVEMENT_CATEGORY"
+msgstr "Movement"
+
+msgid "SETTINGS_GAMEPLAY_AIR_STRAFE_MANEUVERABILITY_LABEL"
+msgstr "Air maneuverability :"
+
+msgid "SETTINGS_GAMEPLAY_AIR_STRAFE_MANEUVERABILITY_TOOLTIP"
+msgstr "A lower value will favor speed.\nAn higher value will favor air maneuverability."
+
 #================================ COMMON =================================
 #---------------------------------- UI -----------------------------------
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ PLAYER ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

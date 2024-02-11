@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: c.lemetayer@laposte.net\n"
 "POT-Creation-Date: 2021-12-19\n"
-"PO-Revision-Date: 2024-01-31 21:41+0100\n"
+"PO-Revision-Date: 2024-02-09 08:33+0100\n"
 "Last-Translator: Corentin Le Métayer <c.lemetayer@laposte.net>\n"
 "Language: en\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -324,6 +324,17 @@ msgid "SETTINGS_GAMEPLAY_ADDITIONAL_JUMPS_TOOLTIP"
 msgstr ""
 "Amount of aerial jumps. The game was designed without additionnal jumps, but "
 "that can make the game easier."
+
+msgid "SETTINGS_GAMEPLAY_MOVEMENT_CATEGORY"
+msgstr "Movement"
+
+msgid "SETTINGS_GAMEPLAY_AIR_STRAFE_MANEUVERABILITY_LABEL"
+msgstr "Air maneuverability :"
+
+msgid "SETTINGS_GAMEPLAY_AIR_STRAFE_MANEUVERABILITY_TOOLTIP"
+msgstr ""
+"A lower value will favor speed.\n"
+"An higher value will favor air maneuverability."
 
 # ================================ COMMON =================================
 # ---------------------------------- UI -----------------------------------

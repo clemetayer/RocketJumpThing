@@ -186,9 +186,9 @@ align = 1
 visible = false
 modulate = Color( 1, 1, 1, 0 )
 margin_left = 215.0
-margin_top = 120.0
+margin_top = 76.0
 margin_right = 809.0
-margin_bottom = 480.0
+margin_bottom = 524.0
 mouse_filter = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -341,6 +341,45 @@ text = "SETTINGS_GAMEPLAY_TUTORIAL_LEVEL_ALL"
 items = [ "SETTINGS_GAMEPLAY_TUTORIAL_LEVEL_ALL", null, false, 0, null, "SETTINGS_GAMEPLAY_TUTORIAL_LEVEL_SOME", null, false, 1, null, "SETTINGS_GAMEPLAY_TUTORIAL_LEVEL_NONE", null, false, 2, null ]
 selected = 0
 script = ExtResource( 3 )
+
+[node name="SpaceToWallRide" type="HBoxContainer" parent="CenterContainer/VBoxContainer/Gameplay"]
+margin_top = 46.0
+margin_right = 1024.0
+margin_bottom = 86.0
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/Gameplay/SpaceToWallRide"]
+margin_top = 13.0
+margin_right = 327.0
+margin_bottom = 27.0
+text = "SETTINGS_GAMEPLAY_SPACE_TO_WALL_RIDE_LABEL"
+
+[node name="CheckButton" type="CheckButton" parent="CenterContainer/VBoxContainer/Gameplay/SpaceToWallRide"]
+margin_left = 331.0
+margin_right = 407.0
+margin_bottom = 40.0
+script = ExtResource( 3 )
+
+[node name="AirStrafeType" type="HBoxContainer" parent="CenterContainer/VBoxContainer/Gameplay"]
+margin_top = 18.0
+margin_right = 1024.0
+margin_bottom = 34.0
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/Gameplay/AirStrafeType"]
+margin_top = 1.0
+margin_right = 385.0
+margin_bottom = 15.0
+text = "SETTINGS_GAMEPLAY_AIR_STRAFE_MANEUVERABILITY_LABEL"
+
+[node name="HSlider" type="HSlider" parent="CenterContainer/VBoxContainer/Gameplay/AirStrafeType"]
+margin_left = 389.0
+margin_right = 1024.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+max_value = 9.0
+step = 0.01
+allow_greater = true
+ticks_on_borders = true
+script = ExtResource( 4 )
 
 [node name="Ok" type="Button" parent="CenterContainer/VBoxContainer"]
 margin_left = 286.0

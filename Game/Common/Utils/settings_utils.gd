@@ -78,6 +78,8 @@ const GAMEPLAY_SECTION_TUTORIAL := "tutorial"
 const GAMEPLAY_KEY_LEVEL := "level"
 const GAMEPLAY_SECTION_DIFFICULTY := "difficulty"
 const GAMEPLAY_KEY_ADDITIONNAL_JUMPS := "additional_jumps"
+const GAMEPLAY_SECTION_MOVEMENT := "movement"
+const GAMEPLAY_KEY_AIR_STRAFE_MANEUVERABILITY := "air_strafe_maneuverability"
 
 #---- STANDARD -----
 #==== PUBLIC ====
@@ -102,7 +104,8 @@ var settings_data := {
 		"fov": 90,
 		"space_to_wall_ride": false,
 		"tutorial_level": TUTORIAL_LEVEL.all,
-		"additionnal_jumps": 0
+		"additionnal_jumps": 0,
+		"air_strafe_maneuverability":4
 	}
 }  # Misc data for parameters that can't be set directly
 
@@ -626,6 +629,10 @@ func load_cfg_gameplay_file(cfg: ConfigFile) -> void:
 			SettingsUtils.settings_data.gameplay.additionnal_jumps = cfg.get_value(
 				GAMEPLAY_SECTION_DIFFICULTY, GAMEPLAY_KEY_ADDITIONNAL_JUMPS
 			)
+		if _check_has_value(cfg, GAMEPLAY_SECTION_MOVEMENT, GAMEPLAY_KEY_AIR_STRAFE_MANEUVERABILITY):
+			SettingsUtils.settings_data.gameplay.air_strafe_maneuverability = cfg.get_value(
+				GAMEPLAY_SECTION_MOVEMENT, GAMEPLAY_KEY_AIR_STRAFE_MANEUVERABILITY
+			)
 	else:
 		DebugUtils.log_stacktrace("No cfg gameplay config", DebugUtils.LOG_LEVEL.warn)
 
@@ -649,6 +656,11 @@ func generate_cfg_gameplay_file() -> ConfigFile:
 		GAMEPLAY_SECTION_DIFFICULTY,
 		GAMEPLAY_KEY_ADDITIONNAL_JUMPS,
 		SettingsUtils.settings_data.gameplay.additionnal_jumps
+	)
+	cfg_file.set_value(
+		GAMEPLAY_SECTION_MOVEMENT,
+		GAMEPLAY_KEY_AIR_STRAFE_MANEUVERABILITY,
+		SettingsUtils.settings_data.gameplay.air_strafe_maneuverability
 	)
 	return cfg_file
 

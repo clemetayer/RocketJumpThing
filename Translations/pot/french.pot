@@ -309,6 +309,15 @@ msgstr "Nombre de sauts aériens : "
 msgid "SETTINGS_GAMEPLAY_ADDITIONAL_JUMPS_TOOLTIP"
 msgstr "Nombre de sauts en l'air autorisés. Le jeu a été conçu sans sauts additionnels, mais en ajouter peut rendre le jeu plus simple."
 
+msgid "SETTINGS_GAMEPLAY_MOVEMENT_CATEGORY"
+msgstr "Mouvement"
+
+msgid "SETTINGS_GAMEPLAY_AIR_STRAFE_MANEUVERABILITY_LABEL"
+msgstr "Maniabilité aérienne :"
+
+msgid "SETTINGS_GAMEPLAY_AIR_STRAFE_MANEUVERABILITY_TOOLTIP"
+msgstr "Une valeur basse priviligiera la vitesse.\nUne valeur haute priviligiera la maniabilité aérienne."
+
 #================================ COMMON =================================
 #---------------------------------- UI -----------------------------------
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ PLAYER ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

@@ -46,7 +46,11 @@ onready var onready_paths := {
 	"gameplay":{
 		"category":$"CenterContainer/VBoxContainer/Gameplay",
 		"label":$"CenterContainer/VBoxContainer/Gameplay/TutorialLevel/Label",
-		"options":$"CenterContainer/VBoxContainer/Gameplay/TutorialLevel/OptionButton"
+		"options":$"CenterContainer/VBoxContainer/Gameplay/TutorialLevel/OptionButton",
+		"space_to_wallride_label":$"CenterContainer/VBoxContainer/Gameplay/SpaceToWallRide/Label",
+		"space_to_wallride_check":$"CenterContainer/VBoxContainer/Gameplay/SpaceToWallRide/CheckButton",
+		"air_maneuverability_label":$"CenterContainer/VBoxContainer/Gameplay/AirStrafeType/Label",
+		"air_maneuverability_slider":$"CenterContainer/VBoxContainer/Gameplay/AirStrafeType/HSlider"
 	},
 	"animation_player":$"AnimationPlayer",
 	"confirm":$"CenterContainer/VBoxContainer/Ok"
@@ -79,6 +83,9 @@ func _init_tr() -> void:
 	onready_paths.gameplay.options.set_item_tooltip(1,tr(TranslationKeys.SETTINGS_GAMEPLAY_TUTORIAL_LEVEL_SOME_TOOLTIP))
 	onready_paths.gameplay.options.set_item_text(2,tr(TranslationKeys.SETTINGS_GAMEPLAY_TUTORIAL_LEVEL_NONE))
 	onready_paths.gameplay.options.set_item_tooltip(2,tr(TranslationKeys.SETTINGS_GAMEPLAY_TUTORIAL_LEVEL_NONE_TOOLTIP))
+	onready_paths.gameplay.space_to_wallride_label.hint_tooltip = tr(TranslationKeys.SETTINGS_GAMEPLAY_SPACE_TO_WALL_RIDE_TOOLTIP)
+	onready_paths.gameplay.space_to_wallride_check.hint_tooltip = tr(TranslationKeys.SETTINGS_GAMEPLAY_SPACE_TO_WALL_RIDE_TOOLTIP)
+	onready_paths.gameplay.air_maneuverability_label.hint_tooltip = tr(TranslationKeys.SETTINGS_GAMEPLAY_AIR_STRAFE_MANEUVERABILITY_TOOLTIP)
 
 func _init_options() -> void:
 	_init_language_options()
@@ -108,6 +115,8 @@ func _connect_signals() -> void:
 	DebugUtils.log_connect(onready_paths.controls.options,self,"item_selected","_on_ControlsOptions_item_selected")
 	DebugUtils.log_connect(onready_paths.gameplay.options,self,"item_selected","_on_GameplayOptions_item_selected")
 	DebugUtils.log_connect(onready_paths.confirm,self,"pressed","_on_Ok_pressed")
+	DebugUtils.log_connect(onready_paths.gameplay.space_to_wallride_check, self, "toggled", "_on_SpaceToWallrideCheck_toggled")
+	DebugUtils.log_connect(onready_paths.gameplay.air_maneuverability_slider, self, "value_changed", "_on_AirManeuverabilitySlider_value_changed")
 	DebugUtils.log_connect(SignalManager,self,SignalManager.TRANSLATION_UPDATED,"_on_SignalManager_translation_updated")
 
 func _apply_keyboard_layout(cfg_name : String) -> void:
@@ -154,3 +163,9 @@ func _on_SignalManager_translation_updated() -> void:
 	_init_tr()
 	onready_paths.video.options.clear()
 	_init_video_options()
+
+func _on_SpaceToWallrideCheck_toggled(pressed : bool) -> void:
+	SettingsUtils.set_space_to_wall_ride(pressed)
+
+func _on_AirManeuverabilitySlider_value_changed(value : float) -> void:
+	SettingsUtils.settings_data.gameplay.air_strafe_maneuverability = value 

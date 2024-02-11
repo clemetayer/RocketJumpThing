@@ -112,7 +112,8 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 167.0
 margin_right = 1024.0
-margin_bottom = 600.0
+margin_bottom = 209.0
+size_flags_vertical = 1
 CATEGORY_NAME = "SETTINGS_GAMEPLAY_DIFFICULTY"
 
 [node name="AdditionnalJumps" type="HBoxContainer" parent="VBoxContainer/Difficulty"]
@@ -132,3 +133,33 @@ margin_right = 348.0
 margin_bottom = 24.0
 rounded = true
 allow_greater = true
+
+[node name="Movement" parent="VBoxContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 213.0
+margin_right = 1024.0
+margin_bottom = 600.0
+CATEGORY_NAME = "Movement"
+
+[node name="AirStrafeType" type="HBoxContainer" parent="VBoxContainer/Movement"]
+margin_top = 18.0
+margin_right = 1024.0
+margin_bottom = 34.0
+
+[node name="Label" type="Label" parent="VBoxContainer/Movement/AirStrafeType"]
+margin_top = 1.0
+margin_right = 385.0
+margin_bottom = 15.0
+text = "SETTINGS_GAMEPLAY_AIR_STRAFE_MANEUVERABILITY_LABEL"
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer/Movement/AirStrafeType"]
+margin_left = 389.0
+margin_right = 1024.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+max_value = 9.0
+step = 0.01
+allow_greater = true
+ticks_on_borders = true
+script = ExtResource( 6 )

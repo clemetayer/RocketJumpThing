@@ -1,11 +1,6 @@
 extends KinematicBody
 # Script for the player
 
-"""
-- TODO : Use a rigid body instead ? Meh actually, it tends to go through floors, and there is a respawn possibility if you're stuck in a wall
-- TODO : Explode the rockets on right click ? charge rocket on right click ?
-	- Do this in the player subclasses if needed (or add resources to the player to make a 'custom' version)
-"""
 ##### ENUMS #####
 enum states_idx {
 	MOVING,
@@ -596,6 +591,11 @@ func _air_movement(delta: float) -> void:
 			_deccelerate(0,AIR_NO_INPUT_DECELERATION,delta)
 	else:  # accelerate and strafe
 		_accelerate(wish_dir, AIR_TARGET_SPEED, AIR_ACCELERATION, delta)
+		# The following line are kind of a hack, to make the air strafing a bit easier for players that are not used with this mechanic
+		var linear_speed := Vector3(vel.x, 0, vel.z).length()  # keep the current speed
+		var direction_vec := wish_dir * linear_speed  # direction and speed of the velocity on a linear axis
+		direction_vec.y = vel.y
+		vel = vel.move_toward(direction_vec, delta * _mix_to_direction_amount * SettingsUtils.settings_data.gameplay.air_strafe_maneuverability)
 	vel.y += GRAVITY * delta
 	# allows for a jump shortly after exiting a platform or there is at least one air jump left 
 	if Input.is_action_just_pressed(GlobalConstants.INPUT_MVT_JUMP) and (_can_jump_on_fall or _air_jumps_left > 0):

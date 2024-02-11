@@ -31,6 +31,7 @@ func test_init_tr() -> void:
 	assert_str(gameplay.onready_paths.gameplay_category.CATEGORY_NAME).is_equal(tr(TranslationKeys.SETTINGS_GAMEPLAY_GAMEPLAY_CATEGORY))
 	assert_str(gameplay.onready_paths.tutorial_category.CATEGORY_NAME).is_equal(tr(TranslationKeys.SETTINGS_GAMEPLAY_TUTORIAL_CATEGORY))
 	assert_str(gameplay.onready_paths.difficulty_category.CATEGORY_NAME).is_equal(tr(TranslationKeys.SETTINGS_GAMEPLAY_DIFFICULTY))
+	assert_str(gameplay.onready_paths.movement.category.CATEGORY_NAME).is_equal(tr(TranslationKeys.SETTINGS_GAMEPLAY_AIR_STRAFE_MANEUVERABILITY_LABEL))
 	assert_str(gameplay.onready_paths.fov.label.hint_tooltip).is_equal(tr(TranslationKeys.SETTINGS_GAMEPLAY_FOV_TOOLTIP))
 	assert_str(gameplay.onready_paths.fov.slider.hint_tooltip).is_equal(tr(TranslationKeys.SETTINGS_GAMEPLAY_FOV_TOOLTIP))
 	assert_str(gameplay.onready_paths.fov.edit.hint_tooltip).is_equal(tr(TranslationKeys.SETTINGS_GAMEPLAY_FOV_TOOLTIP))
@@ -46,6 +47,7 @@ func test_init_tr() -> void:
 	assert_str(gameplay.onready_paths.tutorial.level.get_item_tooltip(2)).is_equal(tr(TranslationKeys.SETTINGS_GAMEPLAY_TUTORIAL_LEVEL_NONE_TOOLTIP))
 	assert_str(gameplay.onready_paths.difficulty.additionnal_jumps.hint_tooltip).is_equal(tr(TranslationKeys.SETTINGS_GAMEPLAY_ADDITIONAL_JUMPS_TOOLTIP))
 	assert_str(gameplay.onready_paths.difficulty.additionnal_jumps_label.hint_tooltip).is_equal(tr(TranslationKeys.SETTINGS_GAMEPLAY_ADDITIONAL_JUMPS_TOOLTIP))
+	assert_str(gameplay.onready_paths.movement.air_maneuverability_label.hint_tooltip).is_equal(tr(TranslationKeys.SETTINGS_GAMEPLAY_AIR_STRAFE_MANEUVERABILITY_TOOLTIP))
 
 func test_set_default_values() -> void:
 	SettingsUtils.settings_data.gameplay.fov = 78.95
@@ -56,6 +58,7 @@ func test_set_default_values() -> void:
 	assert_float(gameplay.onready_paths.fov.slider.value).is_equal_approx(SettingsUtils.settings_data.gameplay.fov, FLOAT_APPROX)
 	assert_bool(gameplay.onready_paths.space_to_wallride_check.pressed).is_true()
 	assert_int(gameplay.onready_paths.tutorial.level.selected).is_equal(1)
+	assert_float(gameplay.onready_paths.movement.air_maneuverability_slider.value).is_equal_approx(SettingsUtils.settings_data.gameplay.air_strafe_maneuverability, FLOAT_APPROX)
 
 func test_connect_signals() -> void:
 	gameplay._connect_signals()
@@ -64,6 +67,7 @@ func test_connect_signals() -> void:
 	assert_bool(gameplay.onready_paths.space_to_wallride_check.is_connected("toggled",gameplay,"_on_SpaceToWallrideCheck_toggled")).is_true()
 	assert_bool(gameplay.onready_paths.tutorial.level.is_connected("item_selected",gameplay,"_on_TutorialLevel_item_selected")).is_true()
 	assert_bool(gameplay.onready_paths.difficulty.additionnal_jumps.is_connected("value_changed",gameplay,"_on_AdditionnalJumps_value_changed")).is_true()
+	assert_bool(gameplay.onready_paths.movement.air_maneuverability_slider.is_connected("value_changed",gameplay,"_on_AirManeuverabilitySlider_value_changed")).is_true()
 	assert_bool(SignalManager.is_connected(SignalManager.UPDATE_SETTINGS, gameplay, "_on_SignalManager_update_settings")).is_true()
 	assert_bool(SignalManager.is_connected(SignalManager.TRANSLATION_UPDATED, gameplay,"_on_SignalManager_translation_updated")).is_true()
 
@@ -93,3 +97,7 @@ func test_on_TutorialLevel_item_selected() -> void:
 func test_on_AdditionnalJumps_value_changed() -> void:
 	gameplay._on_AdditionnalJumps_value_changed(5)
 	assert_int(SettingsUtils.settings_data.gameplay.additionnal_jumps).is_equal(5)
+
+func test_on_AirManeuverabilitySlider_value_changed() -> void:
+	gameplay._on_AirManeuverabilitySlider_value_changed(2.5)
+	assert_float(SettingsUtils.settings_data.gameplay.air_strafe_maneuverability).is_equal_approx(2.5, FLOAT_APPROX)
