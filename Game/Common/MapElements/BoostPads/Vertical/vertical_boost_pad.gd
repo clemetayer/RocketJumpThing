@@ -17,9 +17,9 @@ onready var onready_paths := {
 	"triangle_particles": $"TriangleParticles",
 	"square_particles": $"UpSquares",
 	"mesh": $"LightBumperMesh",
-	"boost_sound": $"BoostSound"
+	"boost_sound": $"BoostSound",
+	"gradient_tween": $"GradientTween"
 }
-onready var onready_gradient_tween := Tween.new()
 
 
 ##### PROTECTED METHODS #####
@@ -31,7 +31,7 @@ func _ready() -> void:
 
 func _connect_signals() -> void:
 	._connect_signals()
-	DebugUtils.log_connect(onready_gradient_tween, self, "tween_step", "_on_gradient_tween_step")
+	DebugUtils.log_connect(onready_paths.gradient_tween, self, "tween_step", "_on_gradient_tween_step")
 
 
 func _set_TB_params() -> void:
@@ -74,7 +74,7 @@ func _set_colors() -> void:
 func _set_rocket_tween_properties() -> void:
 	._set_rocket_tween_properties()
 	DebugUtils.log_tween_interpolate_property(
-		onready_gradient_tween,
+		onready_paths.gradient_tween,
 		self,
 		"_gradient_color",
 		ROCKET_BOOST_COLOR,
@@ -107,10 +107,10 @@ func _on_body_entered(body: Node) -> void:
 
 
 func _on_area_entered(area: Node) -> void:
-	DebugUtils.log_tween_stop_all(onready_gradient_tween)
+	DebugUtils.log_tween_stop_all(onready_paths.gradient_tween)
 	._on_area_entered(area)
 	if FunctionUtils.is_rocket(area):
-		DebugUtils.log_tween_start(onready_gradient_tween)
+		DebugUtils.log_tween_start(onready_paths.gradient_tween)
 
 
 func _on_gradient_tween_step(

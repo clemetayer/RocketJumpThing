@@ -120,3 +120,5 @@ mesh = SubResource( 27 )
 stream = ExtResource( 3 )
 unit_size = 5.0
 bus = "FX"
+
+[node name="GradientTween" type="Tween" parent="."]
