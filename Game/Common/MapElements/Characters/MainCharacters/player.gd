@@ -43,6 +43,7 @@ const WALL_RIDE_ASCEND_AMOUNT := 8.0  # How much the player ascend during a wall
 const WALL_RIDE_WALL_DISTANCE := 0.03  # distance from the wall normal, to avoid possibly getting stuck in it on some cases
 const WALL_RIDE_TILT_ANGLE := PI/10.0 # Camera tilt angle during a wall ride 
 const WALL_RIDE_TILT_SPEED := 0.075 # speed to tilt the camera when wall riding (in seconds)
+const WALL_RIDE_TILT_DELAY := 0.1 # delay to avoid a camera shake when wall jumping immediately after wall riding
 const WALL_JUMP_BOOST := AIR_TARGET_SPEED * 1.0 / 3.0  # How much speed is given to the player when jumping while wall riding
 const WALL_JUMP_UP_BOOST := JUMP_POWER * 1.5  # The up vector that is added when jumping off a wall
 const WALL_JUMP_ANGLE := PI / 4  # Angle from the wall forward vector when wall jumping
@@ -620,7 +621,10 @@ func _set_wall_ride_camera_tilt(angle : float, wall_ride_dir : int) -> void:
 		"rotation:z",
 		self.rotation.z,
 		angle,
-		WALL_RIDE_TILT_SPEED)
+		WALL_RIDE_TILT_SPEED,
+		0,
+		0,
+		WALL_RIDE_TILT_DELAY)
 		DebugUtils.log_tween_start(onready_paths.tweens.wall_ride_tilt)
 		_last_wall_ride_tilt_direction = wall_ride_dir
 
