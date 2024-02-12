@@ -506,7 +506,7 @@
 "collision_mask" "5"
 "color" "0 41 204"
 "force" "17"
-"size" "1 1 1"
+"size" "2 2 2"
 "mangle" "-90 0 0"
 }
 // entity 19
@@ -530,7 +530,7 @@
 "collision_mask" "5"
 "color" "0 41 204"
 "force" "17"
-"size" "1 1 1"
+"size" "2 2 2"
 "mangle" "-90 0 0"
 }
 // entity 21
@@ -567,7 +567,7 @@
 "collision_mask" "5"
 "color" "0 41 204"
 "force" "17"
-"size" "1 1 1"
+"size" "2 2 2"
 "mangle" "-90 0 0"
 }
 // entity 24
@@ -1342,7 +1342,7 @@
 "collision_mask" "5"
 "color" "0 41 204"
 "force" "17.5"
-"size" "1 1 1"
+"size" "2 2 2"
 "mangle" "-60 -90 0"
 }
 // entity 46
@@ -1484,7 +1484,7 @@
 "collision_mask" "5"
 "color" "0 41 204"
 "force" "22"
-"size" "1 1 1"
+"size" "2 2 2"
 "mangle" "-60 90 0"
 }
 // entity 50
@@ -5073,7 +5073,7 @@
 "collision_mask" "5"
 "color" "0 41 204"
 "force" "17"
-"size" "1 1 1"
+"size" "2 2 2"
 "mangle" "-90 0 0"
 }
 // entity 296

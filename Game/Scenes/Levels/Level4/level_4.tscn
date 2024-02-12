@@ -3594,7 +3594,7 @@ properties = {
 "force": 17.0,
 "mangle": Vector3( -90, 0, 0 ),
 "origin": "1570 -2274 1010",
-"size": Vector3( 1, 1, 1 )
+"size": Vector3( 2, 2, 2 )
 }
 
 [node name="entity_19_StaticBodyGroup" type="StaticBody" parent="QodotMap"]
@@ -3620,7 +3620,7 @@ properties = {
 "force": 17.0,
 "mangle": Vector3( -90, 0, 0 ),
 "origin": "1570 -2530 1202",
-"size": Vector3( 1, 1, 1 )
+"size": Vector3( 2, 2, 2 )
 }
 
 [node name="entity_21_StaticBodyGroup" type="StaticBody" parent="QodotMap"]
@@ -3659,7 +3659,7 @@ properties = {
 "force": 17.0,
 "mangle": Vector3( -90, 0, 0 ),
 "origin": "1314 -2274 1586",
-"size": Vector3( 1, 1, 1 )
+"size": Vector3( 2, 2, 2 )
 }
 
 [node name="entity_24_StaticBodyGroup" type="StaticBody" parent="QodotMap"]
@@ -4146,7 +4146,7 @@ properties = {
 "force": 17.5,
 "mangle": Vector3( -60, -90, 0 ),
 "origin": "-1158 -2798 2214",
-"size": Vector3( 1, 1, 1 )
+"size": Vector3( 2, 2, 2 )
 }
 
 [node name="entity_46_Stompers_StomperStepSequencer" type="Area" parent="QodotMap"]
@@ -4242,7 +4242,7 @@ properties = {
 "force": 22.0,
 "mangle": Vector3( -60, 90, 0 ),
 "origin": "-1162 -3298 2390",
-"size": Vector3( 1, 1, 1 )
+"size": Vector3( 2, 2, 2 )
 }
 
 [node name="entity_50_Portals_Portal" parent="QodotMap" instance=ExtResource( 22 )]
@@ -6894,7 +6894,7 @@ properties = {
 "force": 17.0,
 "mangle": Vector3( -90, 0, 0 ),
 "origin": "1314 -2530 1394",
-"size": Vector3( 1, 1, 1 )
+"size": Vector3( 2, 2, 2 )
 }
 
 [node name="entity_296_RythmElements_Sequencers_Spatial" type="Spatial" parent="QodotMap"]
