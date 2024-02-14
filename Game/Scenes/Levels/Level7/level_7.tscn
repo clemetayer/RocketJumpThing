@@ -1867,7 +1867,7 @@ points = PoolVector3Array( -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0
 points = PoolVector3Array( -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5 )
 
 [sub_resource type="ConvexPolygonShape" id=4291]
-points = PoolVector3Array( -0.25, 2, -2, -0.25, -2, -2, 0.25, -2, -2, 0.25, 2, -2, -0.25, 2, 2, -0.25, -2, 2, 0.25, -2, 2, 0.25, 2, 2 )
+points = PoolVector3Array( -0.625, 2, -2, -0.625, -2, -2, 0.625, -2, -2, 0.625, 2, -2, -0.625, 2, 2, -0.625, -2, 2, 0.625, -2, 2, 0.625, 2, 2 )
 
 [sub_resource type="ArrayMesh" id=4292]
 surfaces/0 = {
@@ -19923,7 +19923,7 @@ properties = {
 }
 
 [node name="entity_329_Breakables_Area_Speed" type="Area" parent="QodotMap"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 162, -80, 277 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 161.625, -80, 277 )
 script = ExtResource( 18 )
 properties = {
 "classname": "Breakables_Area_Speed",
@@ -20212,7 +20212,7 @@ properties = {
 "force": 15.0,
 "mangle": Vector3( -90, 0, 0 ),
 "origin": "3486 1374 -1318",
-"size": Vector3( 1, 1, 1 )
+"size": Vector3( 1.5, 1.5, 1.5 )
 }
 
 [node name="entity_347_StaticBodyGroup" type="StaticBody" parent="QodotMap"]
@@ -27945,7 +27945,7 @@ properties = {
 "force": 15.0,
 "mangle": Vector3( -90, 0, 0 ),
 "origin": "3104 3192 -1296",
-"size": Vector3( 1, 1, 1 )
+"size": Vector3( 2, 2, 2 )
 }
 
 [node name="entity_810_Platforms_RigidBodyTriggerPlatform" type="RigidBody" parent="QodotMap"]
