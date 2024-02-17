@@ -3284,7 +3284,7 @@
 // entity 154
 {
 "classname" "Portals_Portal"
-"origin" "-168 -1336 2104"
+"origin" "-136 -1336 2104"
 "collision_layer" "2"
 "collision_mask" "5"
 "mangle" "-45 180 0"

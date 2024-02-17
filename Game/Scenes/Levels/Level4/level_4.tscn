@@ -5731,13 +5731,13 @@ properties = {
 shape = SubResource( 833 )
 
 [node name="entity_154_Portals_Portal" parent="QodotMap" instance=ExtResource( 22 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -83.5, 131.5, -10.5 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -83.5, 131.5, -8.5 )
 properties = {
 "classname": "Portals_Portal",
 "collision_layer": 2,
 "collision_mask": 5,
 "mangle": Vector3( -45, 180, 0 ),
-"origin": "-168 -1336 2104",
+"origin": "-136 -1336 2104",
 "scale": 4.0,
 "target": "tp_4_exit",
 "targetname": "tp_4_entrance"
