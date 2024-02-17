@@ -1,4 +1,4 @@
-[gd_scene load_steps=874 format=2]
+[gd_scene load_steps=875 format=2]
 
 [ext_resource path="res://addons/qodot/src/nodes/qodot_map.gd" type="Script" id=1]
 [ext_resource path="res://Game/Scenes/Tutorial/Tutorial2/geometric_shape_emitter.tscn" type="PackedScene" id=2]
@@ -37,6 +37,7 @@
 [ext_resource path="res://Misc/Particles/kenney_particle_pack/PNG (Transparent)/star_07.png" type="Texture" id=35]
 [ext_resource path="res://Game/Scenes/Tutorial/Tutorial2/tutorial_2_env.tres" type="Environment" id=36]
 [ext_resource path="res://addons/simple_skybox/Skybox.tscn" type="PackedScene" id=37]
+[ext_resource path="res://Game/Common/MapElements/common_world_environment.gd" type="Script" id=38]
 [ext_resource path="res://Game/Scenes/Tutorial/Tutorial2/skybox/tutorial_2_left.png" type="Texture" id=40]
 [ext_resource path="res://Game/Scenes/Tutorial/Tutorial2/skybox/tutorial_2_down.png" type="Texture" id=41]
 [ext_resource path="res://Game/Scenes/Tutorial/Tutorial2/skybox/tutorial_2_back.png" type="Texture" id=42]
@@ -6382,6 +6383,7 @@ NEXT_SCENE_PATH = "res://Game/Scenes/Tutorial/Tutorial3/tutorial_3.tscn"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource( 36 )
+script = ExtResource( 38 )
 
 [node name="AdditionalThings" type="Spatial" parent="."]
 

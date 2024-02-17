@@ -33,17 +33,24 @@ func test_init_tr() -> void:
 	assert_str(video.onready_paths.window_type.label.text).is_equal(
 		tr(TranslationKeys.SETTINGS_VIDEO_DISPLAY_MODE)
 	)
+	assert_str(video.onready_paths.quality.category.CATEGORY_NAME).is_equal(
+		tr(TranslationKeys.SETTINGS_VIDEO_QUALITY_CATEGORY)
+	)
 
 
 func test_connect_signals() -> void:
 	video._connect_signals()
 	assert_bool(video.onready_paths.window_type.options.is_connected("item_selected", video, "_on_Options_item_selected")).is_true()
+	assert_bool(video.onready_paths.quality.glow.is_connected("toggled",video,"_on_Glow_toggled"))
+	assert_bool(video.onready_paths.quality.reflections.is_connected("toggled",video,"_on_Reflections_toggled"))
 	assert_bool(SignalManager.is_connected(SignalManager.UPDATE_SETTINGS, video, "_on_SignalManager_update_settings")).is_true()
 	assert_bool(SignalManager.is_connected(SignalManager.TRANSLATION_UPDATED, video,"_on_SignalManager_translation_updated")).is_true()
 
 func test_init_options() -> void:
 	var fullscreen := false
 	OS.window_fullscreen = fullscreen
+	SettingsUtils.settings_data.graphics.glow = true
+	SettingsUtils.settings_data.graphics.reflections = false
 	video.onready_paths.window_type.options.clear()
 	video._init_options()
 	assert_int(video.onready_paths.window_type.options.get_item_count()).is_equal(2)
@@ -53,6 +60,8 @@ func test_init_options() -> void:
 	assert_str(video.onready_paths.window_type.options.get_item_text(video.window_modes.WINDOWED)).is_equal(
 		tr(TranslationKeys.SETTINGS_VIDEO_WINDOWED)
 	)
+	assert_bool(video.onready_paths.quality.glow.pressed).is_true()
+	assert_bool(video.onready_paths.quality.reflections.pressed).is_false()
 
 func test_select_current_option() -> void:
 	var fullscreen := false
@@ -70,3 +79,11 @@ func test_on_Options_item_selected() -> void:
 	# windowed
 	video._on_Options_item_selected(video.window_modes.WINDOWED)
 	assert_bool(OS.window_fullscreen).is_false()
+
+func test_on_Glow_toggled() -> void:
+	video._on_Glow_toggled(false)
+	assert_bool(SettingsUtils.settings_data.graphics.glow).is_false()
+
+func test_on_Reflections_toggled() -> void:
+	video._on_Reflections_toggled(true)
+	assert_bool(SettingsUtils.settings_data.graphics.reflections).is_true()

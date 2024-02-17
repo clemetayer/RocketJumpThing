@@ -1,4 +1,4 @@
-[gd_scene load_steps=1431 format=2]
+[gd_scene load_steps=1432 format=2]
 
 [ext_resource path="res://addons/qodot/src/nodes/qodot_map.gd" type="Script" id=1]
 [ext_resource path="res://trenchbroom/Entities/Scenes/Level7/level_7_fgd.tres" type="Resource" id=2]
@@ -53,6 +53,7 @@
 [ext_resource path="res://trenchbroom/textures/common/material_override/death_grid.tres" type="Material" id=51]
 [ext_resource path="res://Game/Common/MapElements/DoubleRocketIndicator/double_rocket_indicator.gd" type="Script" id=52]
 [ext_resource path="res://Game/Common/MapElements/Utils/area_trigger_song_animation_change.gd" type="Script" id=53]
+[ext_resource path="res://Game/Common/MapElements/common_world_environment.gd" type="Script" id=54]
 
 [sub_resource type="Gradient" id=4061]
 colors = PoolColorArray( 1, 0.172549, 0.172549, 1, 0.623529, 0.623529, 0.623529, 1 )
@@ -15717,6 +15718,7 @@ PLAYER_SLIDE_TEXTURE = SubResource( 4062 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="AdditionalThings"]
 environment = SubResource( 30 )
+script = ExtResource( 54 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="AdditionalThings"]
 anims/game_over = SubResource( 2203 )

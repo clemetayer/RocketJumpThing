@@ -257,6 +257,15 @@ msgstr "Plein écran"
 msgid "SETTINGS_VIDEO_WINDOWED"
 msgstr "Fenêtré"
 
+msgid "SETTINGS_VIDEO_QUALITY_CATEGORY"
+msgstr "Qualité"
+
+msgid "SETTINGS_VIDEO_GLOW"
+msgstr "Lueur (glow) :"
+
+msgid "SETTINGS_VIDEO_REFLECTIONS"
+msgstr "Réflections :"
+
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ GAMEPLAY ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 msgid "SETTINGS_GAMEPLAY_GAMEPLAY_CATEGORY"
 msgstr "Jouabilité"

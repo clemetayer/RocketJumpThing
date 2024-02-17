@@ -371,18 +371,26 @@ func testload_cfg_video_file() -> void:
 	# init
 	var cfg := ConfigFile.new()
 	cfg.set_value(SettingsUtils.VIDEO_SECTION_MODE, SettingsUtils.VIDEO_KEY_MODE, fullscreen)
+	cfg.set_value(SettingsUtils.VIDEO_SECTION_QUALITY, SettingsUtils.VIDEO_KEY_GLOW, true)
+	cfg.set_value(SettingsUtils.VIDEO_SECTION_QUALITY, SettingsUtils.VIDEO_KEY_REFLECTIONS, false)
 	# test
 	SettingsUtils.load_cfg_video_file(cfg)
 	assert_bool(OS.window_fullscreen).is_equal(fullscreen)
+	assert_bool(SettingsUtils.settings_data.graphics.glow).is_true()
+	assert_bool(SettingsUtils.settings_data.graphics.reflections).is_false()
 
 
 func testgenerate_cfg_video_file() -> void:
 	var fullscreen := false
 	# init
 	OS.window_fullscreen = fullscreen
+	SettingsUtils.settings_data.graphics.glow = false
+	SettingsUtils.settings_data.graphics.reflections = true
 	# test
 	var cfg := SettingsUtils.generate_cfg_video_file()
 	assert_bool(cfg.get_value(SettingsUtils.VIDEO_SECTION_MODE, SettingsUtils.VIDEO_KEY_MODE)).is_equal(fullscreen)
+	assert_bool(cfg.get_value(SettingsUtils.VIDEO_SECTION_QUALITY, SettingsUtils.VIDEO_KEY_GLOW)).is_false()
+	assert_bool(cfg.get_value(SettingsUtils.VIDEO_SECTION_QUALITY, SettingsUtils.VIDEO_KEY_REFLECTIONS)).is_true()
 
 
 func testload_cfg_gameplay_file() -> void:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=569 format=2]
+[gd_scene load_steps=570 format=2]
 
 [ext_resource path="res://Game/Scenes/Levels/Level6/level_6.gd" type="Script" id=1]
 [ext_resource path="res://addons/qodot/src/nodes/qodot_map.gd" type="Script" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://Game/Common/MapElements/Breakables/Walls/breakable_area_speed.gd" type="Script" id=14]
 [ext_resource path="res://trenchbroom/textures/entities/checkpoint/end_level.tres" type="Material" id=15]
 [ext_resource path="res://Game/Common/MapElements/Portal/portal.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Game/Common/MapElements/common_world_environment.gd" type="Script" id=17]
 [ext_resource path="res://trenchbroom/textures/entities/DeathMesh/death_mesh.tres" type="Material" id=19]
 [ext_resource path="res://Game/Common/MapElements/DeathArea/death_area.gd" type="Script" id=20]
 [ext_resource path="res://Game/Common/MapElements/BoostPads/Vertical/vertical_boost_area.tscn" type="PackedScene" id=21]
@@ -3982,6 +3983,7 @@ autostart = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 10 )
+script = ExtResource( 17 )
 
 [node name="DirectionalLights" type="Node" parent="."]
 

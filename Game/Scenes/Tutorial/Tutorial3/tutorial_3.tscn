@@ -1,4 +1,4 @@
-[gd_scene load_steps=621 format=2]
+[gd_scene load_steps=622 format=2]
 
 [ext_resource path="res://addons/qodot/src/nodes/qodot_map.gd" type="Script" id=1]
 [ext_resource path="res://trenchbroom/textures/common/material_override/Transparent.tres" type="Material" id=2]
@@ -47,6 +47,7 @@
 [ext_resource path="res://trenchbroom/textures/scenes/tutorial3_scene/wall_with_windows_2.tres" type="Material" id=45]
 [ext_resource path="res://Game/Common/MapElements/Particles/ParticlesArrows/particles_arrows.tscn" type="PackedScene" id=46]
 [ext_resource path="res://trenchbroom/textures/scenes/tutorial3_scene/pattern_floor.tres" type="Material" id=47]
+[ext_resource path="res://Game/Common/MapElements/common_world_environment.gd" type="Script" id=48]
 
 [sub_resource type="Gradient" id=755]
 colors = PoolColorArray( 0.027451, 0.443137, 0.439216, 1, 0.0588235, 0.890196, 0.380392, 1 )
@@ -4313,6 +4314,7 @@ PLAYER_SLIDE_TEXTURE = SubResource( 756 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource( 5 )
+script = ExtResource( 48 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="WorldEnvironment"]
 transform = Transform( 1, 0, 0, 0, 0.835462, 0.549548, 0, -0.549548, 0.835462, 0, 0, 0 )

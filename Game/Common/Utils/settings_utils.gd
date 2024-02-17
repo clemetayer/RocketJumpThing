@@ -68,6 +68,9 @@ const AUDIO_SECTION_EFFECTS := "effects"
 const VIDEO_PRESETS_PATH := ROOT_PRESETS_FOLDER + "video/"
 const VIDEO_SECTION_MODE := "mode"
 const VIDEO_KEY_MODE := "mode"
+const VIDEO_SECTION_QUALITY := "quality"
+const VIDEO_KEY_GLOW := "glow"
+const VIDEO_KEY_REFLECTIONS := "reflections"
 
 #==== GAMEPLAY =====
 const GAMEPLAY_PRESETS_PATH := ROOT_PRESETS_FOLDER + "gameplay/"
@@ -106,6 +109,10 @@ var settings_data := {
 		"tutorial_level": TUTORIAL_LEVEL.all,
 		"additionnal_jumps": 0,
 		"air_strafe_maneuverability":4
+	},
+	"graphics":{
+		"reflections":true,
+		"glow":true
 	}
 }  # Misc data for parameters that can't be set directly
 
@@ -590,16 +597,12 @@ func generate_cfg_audio_file() -> ConfigFile:
 #---- VIDEO -----
 func load_cfg_video_file(cfg: ConfigFile) -> void:
 	if cfg != null:
-		if (
-			cfg.has_section(VIDEO_SECTION_MODE)
-			and cfg.get_value(VIDEO_SECTION_MODE, VIDEO_KEY_MODE) != null
-		):
+		if _check_has_value(cfg, VIDEO_SECTION_MODE, VIDEO_KEY_MODE):
 			OS.window_fullscreen = cfg.get_value(VIDEO_SECTION_MODE, VIDEO_KEY_MODE)
-		else:
-			DebugUtils.log_stacktrace(
-				"No section %s or key %s in cfg root" % [VIDEO_SECTION_MODE, VIDEO_KEY_MODE],
-				DebugUtils.LOG_LEVEL.warn
-			)
+		if _check_has_value(cfg, VIDEO_SECTION_QUALITY, VIDEO_KEY_GLOW):
+			settings_data.graphics.glow = cfg.get_value(VIDEO_SECTION_QUALITY, VIDEO_KEY_GLOW)
+		if _check_has_value(cfg, VIDEO_SECTION_QUALITY, VIDEO_KEY_REFLECTIONS):
+			settings_data.graphics.reflections = cfg.get_value(VIDEO_SECTION_QUALITY, VIDEO_KEY_REFLECTIONS)
 	else:
 		DebugUtils.log_stacktrace("No cfg video config", DebugUtils.LOG_LEVEL.warn)
 
@@ -607,6 +610,8 @@ func load_cfg_video_file(cfg: ConfigFile) -> void:
 func generate_cfg_video_file() -> ConfigFile:
 	var cfg_file := ConfigFile.new()
 	cfg_file.set_value(VIDEO_SECTION_MODE, VIDEO_KEY_MODE, OS.window_fullscreen)
+	cfg_file.set_value(VIDEO_SECTION_QUALITY, VIDEO_KEY_GLOW, settings_data.graphics.glow)
+	cfg_file.set_value(VIDEO_SECTION_QUALITY, VIDEO_KEY_REFLECTIONS, settings_data.graphics.reflections)
 	return cfg_file
 
 

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: c.lemetayer@laposte.net\n"
 "POT-Creation-Date: 2021-12-19\n"
-"PO-Revision-Date: 2024-02-09 08:33+0100\n"
+"PO-Revision-Date: 2024-02-16 08:30+0100\n"
 "Last-Translator: Corentin Le Métayer <c.lemetayer@laposte.net>\n"
 "Language: en\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -260,6 +260,15 @@ msgstr "Full screen"
 
 msgid "SETTINGS_VIDEO_WINDOWED"
 msgstr "Windowed"
+
+msgid "SETTINGS_VIDEO_QUALITY_CATEGORY"
+msgstr "Quality"
+
+msgid "SETTINGS_VIDEO_GLOW"
+msgstr "Glow :"
+
+msgid "SETTINGS_VIDEO_REFLECTIONS"
+msgstr "Reflections :"
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ GAMEPLAY ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 msgid "SETTINGS_GAMEPLAY_GAMEPLAY_CATEGORY"

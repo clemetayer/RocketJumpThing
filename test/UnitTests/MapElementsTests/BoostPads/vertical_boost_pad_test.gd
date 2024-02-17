@@ -14,7 +14,7 @@ func before():
 
 func test_connect_signals_pad() -> void:
 	.test_connect_signals()
-	assert_bool(vertical_boost.onready_gradient_tween.is_connected("tween_step", vertical_boost, "_on_gradient_tween_step")).is_true()
+	assert_bool(vertical_boost.onready_paths.gradient_tween.is_connected("tween_step", vertical_boost, "_on_gradient_tween_step")).is_true()
 
 func test_on_body_entered_pad() -> void:
 	.test_on_body_entered()

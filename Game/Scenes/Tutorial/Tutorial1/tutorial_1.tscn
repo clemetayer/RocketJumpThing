@@ -1,4 +1,4 @@
-[gd_scene load_steps=952 format=2]
+[gd_scene load_steps=953 format=2]
 
 [ext_resource path="res://Game/Scenes/Tutorial/Tutorial1/tutorial_1.gd" type="Script" id=1]
 [ext_resource path="res://addons/qodot/src/nodes/qodot_map.gd" type="Script" id=2]
@@ -49,6 +49,7 @@
 [ext_resource path="res://Game/Scenes/Tutorial/Tutorial1/skybox/tutorial_1_front.png" type="Texture" id=47]
 [ext_resource path="res://Game/Scenes/Tutorial/Tutorial1/skybox/tutorial_1_right.png" type="Texture" id=48]
 [ext_resource path="res://Game/Common/MapElements/Particles/ParticlesArrows/particles_arrows.tscn" type="PackedScene" id=49]
+[ext_resource path="res://Game/Common/MapElements/common_world_environment.gd" type="Script" id=50]
 
 [sub_resource type="Gradient" id=3564]
 colors = PoolColorArray( 0, 0.160784, 0.498039, 1, 0, 0.921569, 1, 1 )
@@ -82,7 +83,6 @@ fog_height_enabled = true
 fog_height_min = 109.6
 fog_height_max = -763.4
 auto_exposure_scale = 0.2
-ss_reflections_enabled = true
 ss_reflections_max_steps = 32
 ssao_radius = 128.0
 ssao_intensity = 128.0
@@ -90,7 +90,6 @@ ssao_color = Color( 1, 1, 1, 1 )
 dof_blur_far_distance = 377.49
 dof_blur_far_transition = 785.91
 dof_blur_far_amount = 0.68
-glow_enabled = true
 glow_levels/2 = true
 glow_levels/4 = true
 glow_levels/6 = true
@@ -6392,6 +6391,7 @@ TextureRight = ExtResource( 48 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 2 )
+script = ExtResource( 50 )
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.5

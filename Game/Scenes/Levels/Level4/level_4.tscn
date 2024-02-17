@@ -1,4 +1,4 @@
-[gd_scene load_steps=553 format=2]
+[gd_scene load_steps=554 format=2]
 
 [ext_resource path="res://Game/Scenes/Levels/Level4/level_4.gd" type="Script" id=1]
 [ext_resource path="res://addons/qodot/src/nodes/qodot_map.gd" type="Script" id=2]
@@ -38,6 +38,7 @@
 [ext_resource path="res://trenchbroom/textures/entities/DeathMesh/death_mesh.tres" type="Material" id=36]
 [ext_resource path="res://trenchbroom/textures/common/common_textures/base_floor.tres" type="Material" id=37]
 [ext_resource path="res://Game/Common/MapElements/Particles/ParticlesArrows/particles_arrows.tscn" type="PackedScene" id=38]
+[ext_resource path="res://Game/Common/MapElements/common_world_environment.gd" type="Script" id=39]
 
 [sub_resource type="Gradient" id=606]
 colors = PoolColorArray( 0.160784, 0.8, 0, 1, 0, 0.0784314, 0.4, 1 )
@@ -3219,6 +3220,7 @@ PLAYER_SLIDE_TEXTURE = SubResource( 607 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource( 20 )
+script = ExtResource( 39 )
 
 [node name="Timers" type="Node" parent="."]
 
