@@ -56,7 +56,7 @@ func _set_TB_params() -> void:
 		_static_size = properties["static_size"] != 0
 	else:
 		DebugUtils.log_stacktrace(
-				"laser does not have the property static_size", DebugUtils.LOG_LEVEL.warn
+				"laser does not have the property static_size", DebugUtils.LOG_LEVEL.debug
 			)
 
 func _connect_signals() -> void:

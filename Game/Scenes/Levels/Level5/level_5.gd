@@ -59,9 +59,10 @@ func _ready_func():
 
 
 func _connect_signals() -> void:
-	DebugUtils.log_connect(
-		SignalManager, self, SignalManager.WALL_BROKEN, "_on_signal_manager_wall_broken"
-	)
+	if not SignalManager.is_connected(SignalManager.WALL_BROKEN, self, "_on_signal_manager_wall_broken"):
+		DebugUtils.log_connect(
+			SignalManager, self, SignalManager.WALL_BROKEN, "_on_signal_manager_wall_broken"
+		)
 
 
 func _init_onready_paths() -> void:

@@ -104,15 +104,17 @@ func _init_player_slide_texture() -> void:
 
 # Connects the autoload signals on init
 func _connect_autoload_signals() -> void:
-	DebugUtils.log_connect(
-		SignalManager, self, SignalManager.CHECKPOINT_TRIGGERED, "_on_checkpoint_triggered"
-	)
-	DebugUtils.log_connect(
-		SignalManager,
-		self,
-		SignalManager.RESPAWN_PLAYER_ON_LAST_CP,
-		"_respawn_player_on_last_cp"
-	)
+	if not SignalManager.is_connected(SignalManager.CHECKPOINT_TRIGGERED, self, "_on_checkpoint_triggered"):
+		DebugUtils.log_connect(
+			SignalManager, self, SignalManager.CHECKPOINT_TRIGGERED, "_on_checkpoint_triggered"
+		)
+	if not SignalManager.is_connected(SignalManager.RESPAWN_PLAYER_ON_LAST_CP, self, "_respawn_player_on_last_cp"):
+		DebugUtils.log_connect(
+			SignalManager,
+			self,
+			SignalManager.RESPAWN_PLAYER_ON_LAST_CP,
+			"_respawn_player_on_last_cp"
+		)
 
 
 func _restart() -> void:

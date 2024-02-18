@@ -27,6 +27,7 @@ var paths := {"death_sound": "", "button_clicked": "", "button_hover": "", "slid
 #### Display #####
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Logger.set_logger_level(Logger.LOG_LEVEL_WARN)
 	_create_default_levels_data()
 	_load_levels_data()
 	_init_death_sound()
@@ -96,7 +97,7 @@ func save_level_times(time: float) -> void:
 		level_data.LAST_TIME = time
 		save_levels_data()
 	else:
-		DebugUtils.log_stacktrace("Level data is null", DebugUtils.LOG_LEVEL.error)
+		DebugUtils.log_stacktrace("Level data is null", DebugUtils.LOG_LEVEL.warn)
 
 
 func save_levels_data() -> void:

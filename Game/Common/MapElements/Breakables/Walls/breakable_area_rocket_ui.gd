@@ -22,8 +22,11 @@ func _init_texture_rect() -> void:
 		size = onready_paths.texture_rect.rect_size
 		onready_paths.texture_rect.modulate = COLOR_NOK
 
-
 ##### PUBLIC METHODS #####
 # UNUSED for the moment ?
 func set_sprite_rocket_ok() -> void:
 	onready_paths.texture_rect.modulate = COLOR_OK
+
+func hide() -> void:
+	onready_paths.texture_rect.hide()
+

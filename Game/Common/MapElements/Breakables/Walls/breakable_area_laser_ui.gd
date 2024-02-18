@@ -27,3 +27,6 @@ func _init_texture_rect() -> void:
 # UNUSED for the moment ?
 func set_sprite_laser_ok() -> void:
 	onready_paths.texture_rect.modulate = COLOR_OK
+
+func hide() -> void:
+	onready_paths.texture_rect.hide()

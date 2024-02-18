@@ -14,6 +14,7 @@ var _treshold := 100.0  # treshold speed for the wall to break (greater or equal
 var _ui_load := preload(UI_PATH)
 var _mangle: Vector3
 var _sprite_scale: Vector3
+var _ui
 
 
 ##### PROCESSING #####
@@ -39,15 +40,15 @@ func _connect_signals() -> void:
 
 
 func _add_ui_sprite() -> void:
-	var ui := _ui_load.instance()
-	ui.SPEED = _treshold
-	add_child(ui)
+	_ui = _ui_load.instance()
+	_ui.SPEED = _treshold
+	add_child(_ui)
 	var sprite := Sprite3D.new()
 	sprite.rotation_degrees = _mangle
 	sprite.scale = Vector3(8, 8, 1)
 	add_child(sprite)
 	sprite.scale = _sprite_scale
-	sprite.texture = ui.get_texture()
+	sprite.texture = _ui.get_texture()
 	sprite.texture.flags = Texture.FLAG_FILTER
 	sprite.flip_v = true
 
@@ -62,5 +63,6 @@ func _on_breakable_area_speed_body_entered(body):
 		)
 		if _break_wall_sound != null:
 			_break_wall_sound.play()
-		self.queue_free()
+		_ui.hide()
 		yield(_break_wall_sound, "finished")
+		self.queue_free()

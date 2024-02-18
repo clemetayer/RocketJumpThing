@@ -218,7 +218,10 @@ func _init_buses():
 # clear the buses used in this song
 func _clear_buses():
 	for track in _tracks.keys():
-		AudioServer.remove_bus(AudioServer.get_bus_index(_tracks[track].bus))
+		if AudioServer.get_bus_index(_tracks[track].bus) != -1:
+			AudioServer.remove_bus(AudioServer.get_bus_index(_tracks[track].bus))
+		else:
+			DebugUtils.log_stacktrace("Bus not found : %s" % _tracks[track].bus, DebugUtils.LOG_LEVEL.debug)
 	_buses_cleared = true
 
 
@@ -404,7 +407,7 @@ func _on_parent_effect_done() -> void:
 			)
 			var anim_player := get_node(ANIMATION_PLAYER)
 			# new animation time = old animation time modulo total new animation time
-			if anim_player.get_animation(_update_track_infos.animation) != null:
+			if anim_player.has_animation(_update_track_infos.animation):
 				animation_time = fmod(
 					anim_player.current_animation_position,
 					anim_player.get_animation(_update_track_infos.animation).length

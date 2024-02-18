@@ -43,13 +43,13 @@ static func _map_trenchbroom_property(
 			else:
 				DebugUtils.log_stacktrace(
 					"One of the property of the mapper %s is either not in self or _properties" % [mapper],
-					DebugUtils.LOG_LEVEL.error
+					DebugUtils.LOG_LEVEL.debug
 				)
 		else:
 			DebugUtils.log_stacktrace(
-				"One of the mapper %s element is not a String" % [mapper], DebugUtils.LOG_LEVEL.error
+				"One of the mapper %s element is not a String" % [mapper], DebugUtils.LOG_LEVEL.debug
 			)
 	else:
 		DebugUtils.log_stacktrace(
-			"Mapper %s does not have exactly 2 elements" % [mapper], DebugUtils.LOG_LEVEL.error
+			"Mapper %s does not have exactly 2 elements" % [mapper], DebugUtils.LOG_LEVEL.debug
 		)

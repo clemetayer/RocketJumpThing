@@ -57,7 +57,7 @@ func _is_best_time(level_data: LevelData) -> bool:
 		return (
 			VariableManager.chronometer.level < level_data.BEST_TIME or level_data.BEST_TIME == 0.0
 		)
-	DebugUtils.log_stacktrace("Level data is null", DebugUtils.LOG_LEVEL.error)
+	DebugUtils.log_stacktrace("Level data is null", DebugUtils.LOG_LEVEL.warn)
 	return false
 
 

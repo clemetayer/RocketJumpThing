@@ -35,7 +35,7 @@ func _init_level_icon() -> void:
 		onready_paths.button.disabled = not _level_data.UNLOCKED
 		onready_paths.level_name.text = _level_data.NAME
 	else:
-		DebugUtils.log_stacktrace("Level data is null", DebugUtils.LOG_LEVEL.error)
+		DebugUtils.log_stacktrace("Level data is null", DebugUtils.LOG_LEVEL.debug)
 
 ##### SIGNAL MANAGEMENT #####
 func _on_button_pressed() -> void:

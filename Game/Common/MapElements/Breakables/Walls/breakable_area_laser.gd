@@ -12,6 +12,7 @@ const BREAK_SPEED := 10  # default value to make the wall break
 var _ui_load := preload(UI_PATH)
 var _sprite_scale: Vector3
 var _mangle: Vector3
+var _ui
 
 
 ##### PROCESSING #####
@@ -37,14 +38,14 @@ func _connect_signals() -> void:
 
 
 func _add_ui_sprite() -> void:
-	var ui := _ui_load.instance()
-	add_child(ui)
+	_ui = _ui_load.instance()
+	add_child(_ui)
 	var sprite := Sprite3D.new()
 	sprite.rotation_degrees = _mangle
 	sprite.scale = Vector3(8, 8, 1)
 	add_child(sprite)
 	sprite.scale = _sprite_scale
-	sprite.texture = ui.get_texture()
+	sprite.texture = _ui.get_texture()
 	sprite.texture.flags = Texture.FLAG_FILTER
 	sprite.flip_v = true
 
@@ -55,5 +56,6 @@ func _on_breakable_area_laser_area_entered(area):
 		emit_signal("trigger", {"position": area.transform.origin, "speed": BREAK_SPEED})
 		if _break_wall_sound != null:
 			_break_wall_sound.play()
-		self.queue_free()
+		_ui.hide()
 		yield(_break_wall_sound, "finished")
+		self.queue_free()

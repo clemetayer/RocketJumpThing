@@ -19,6 +19,10 @@ func _ready():
 	_connect_signals()
 	_init_label()
 
+##### PUBLIC METHODS #####
+func hide() -> void:
+	onready_paths.label.hide()
+
 
 ##### PROTECTED METHODS #####
 func _connect_signals() -> void:

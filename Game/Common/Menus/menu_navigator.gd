@@ -157,8 +157,8 @@ func _unstack_menu() -> void:
 	Logger.debug("unstacking, menu stack = %s" % [_menu_stack])
 	if _menu_stack.size() > 0:
 		_menu_stack.pop_back()
-		var prev_menu = _menu_stack.back()
-		if prev_menu != null:
+		if _menu_stack.size() > 0:
+			var prev_menu = _menu_stack.back()
 			_interpolate_menu_transition_tween(_get_current_menu(),0)
 			_disable_clicks()
 			DebugUtils.log_tween_start(onready_paths.transition_tween)
