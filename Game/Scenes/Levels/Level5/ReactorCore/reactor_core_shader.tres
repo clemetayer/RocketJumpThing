@@ -44,4 +44,4 @@ void fragment(){
 [resource]
 shader = SubResource( 2 )
 shader_param/COL_1 = Color( 0.247059, 0.247059, 0.74902, 1 )
-shader_param/COL_2 = Color( 0, 0, 0.498039, 1 )
+shader_param/COL_2 = Color( 0, 0, 1, 1 )

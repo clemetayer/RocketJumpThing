@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/entity_shockwave.wav-e8cb9bc31db96c61be28fc9b15adc582.sample"
+
+[deps]
+
+source_file="res://Misc/Audio/FX/Entity/entity_shockwave.wav"
+dest_files=[ "res://.import/entity_shockwave.wav-e8cb9bc31db96c61be28fc9b15adc582.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

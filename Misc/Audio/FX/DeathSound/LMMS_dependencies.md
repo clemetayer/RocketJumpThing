@@ -1,0 +1,2 @@
+- LMMS 1.3.0-alpha.1
+- [Speek plugin](https://www.kvraudio.com/product/vst-speek-by-wavosaur)

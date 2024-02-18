@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/bass_1.wav-27f53aa9295c6d8a7a73eaf681df06e8.sample"
+
+[deps]
+
+source_file="res://Misc/Audio/BGM/Level5/bass_1.wav"
+dest_files=[ "res://.import/bass_1.wav-27f53aa9295c6d8a7a73eaf681df06e8.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

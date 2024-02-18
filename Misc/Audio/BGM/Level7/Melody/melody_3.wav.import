@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/melody_3.wav-67d7a384290f2656149de51aa0392b0b.sample"
+
+[deps]
+
+source_file="res://Misc/Audio/BGM/Level7/Melody/melody_3.wav"
+dest_files=[ "res://.import/melody_3.wav-67d7a384290f2656149de51aa0392b0b.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

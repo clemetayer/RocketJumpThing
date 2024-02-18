@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/belly_low_2.wav-79d66c73f127b2508e5e52cee776b67e.sample"
+
+[deps]
+
+source_file="res://Misc/Audio/BGM/Tutorial1/BellyLow/belly_low_2.wav"
+dest_files=[ "res://.import/belly_low_2.wav-79d66c73f127b2508e5e52cee776b67e.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

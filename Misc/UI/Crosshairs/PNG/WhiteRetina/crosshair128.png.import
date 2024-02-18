@@ -1,0 +1,13 @@
+[remap]
+
+importer="image"
+type="Image"
+path="res://.import/crosshair128.png-b0879b44e0a45029229deeecd57a05e1.image"
+
+[deps]
+
+source_file="res://Misc/UI/Crosshairs/PNG/WhiteRetina/crosshair128.png"
+dest_files=[ "res://.import/crosshair128.png-b0879b44e0a45029229deeecd57a05e1.image" ]
+
+[params]
+

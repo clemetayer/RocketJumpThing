@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/heavy_guitar_p3.wav-6aa2da2e276464776f2b7ca91b97c023.sample"
+
+[deps]
+
+source_file="res://Misc/Audio/BGM/Level7/heavy_guitar_p3.wav"
+dest_files=[ "res://.import/heavy_guitar_p3.wav-6aa2da2e276464776f2b7ca91b97c023.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

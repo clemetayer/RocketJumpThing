@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/strings_pad_house_piano_2.wav-704aee03f36549a1ac2c29a8ee6d5774.sample"
+
+[deps]
+
+source_file="res://Misc/Audio/BGM/Tutorial1/StringsPad_HousePiano/strings_pad_house_piano_2.wav"
+dest_files=[ "res://.import/strings_pad_house_piano_2.wav-704aee03f36549a1ac2c29a8ee6d5774.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

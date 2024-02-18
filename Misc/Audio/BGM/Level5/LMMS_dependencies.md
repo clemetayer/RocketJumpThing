@@ -1,0 +1,2 @@
+- LMMS 1.3.0-alpha.1
+- [Vital plugin](https://vital.audio/)

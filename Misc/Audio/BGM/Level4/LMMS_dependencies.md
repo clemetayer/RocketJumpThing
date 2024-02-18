@@ -1,0 +1,3 @@
+- LMMS 1.3.0-alpha.1
+- [Synth1 plugin](https://www.kvraudio.com/product/synth1-by-daichi-laboratory-ichiro-toda)
+- You can ignore Signalizer
