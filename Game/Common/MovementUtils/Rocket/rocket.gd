@@ -9,7 +9,7 @@ extends Area
 
 ##### VARIABLES #####
 #---- CONSTANTS -----
-const SPEED := 12.5  # travel speed of the rocket
+const SPEED := 13.5  # travel speed of the rocket
 const RAYCAST_DISTANCE := 12.5  # maximum distance to detect a floor
 const RAYCAST_PLAN_EXPLODE_DISTANCE := 0.3125  # Distance from a floor where the explosion should be planned (since it's imminent), to be sure that is will explode (high speed makes collision weird)
 #---- EXPORTS -----
