@@ -19,7 +19,6 @@ const ROOT_SECTION_VIDEO := "video"
 const ROOT_KEY_PRESET := "preset"
 const FOLDER_SEPARATOR := "/"
 const DEFAULT_INPUTS_FOLDER := "res://Misc/DefaultSettings/"
-const MUTE_VOLUME_DB := -79.9
 
 #==== GENERAL =====
 const GENERAL_PRESETS_PATH := ROOT_PRESETS_FOLDER + "general/"
@@ -102,10 +101,9 @@ var settings_data := {
 		"crosshair_color": Color.white,
 		"crosshair_size": 1
 	},
-	"gameplay":
-	{
-		"fov": 90,
-		"space_to_wall_ride": false,
+	"gameplay": {
+		"fov": 90, 
+		"space_to_wall_ride": false, 
 		"tutorial_level": TUTORIAL_LEVEL.all,
 		"additionnal_jumps": 0,
 		"air_strafe_maneuverability":4
@@ -116,8 +114,7 @@ var settings_data := {
 	}
 }  # Misc data for parameters that can't be set directly
 
-var first_start := false  # true if the root config folder is absent (meaning that this is probablty the first launch of the game)
-
+var first_start := false # true if the root config folder is absent (meaning that this is probablty the first launch of the game)
 
 ##### PROCESSING #####
 # Called when the node enters the scene tree for the first time.
@@ -435,22 +432,18 @@ func _emit_crosshair_changed() -> void:
 		settings_data.controls.crosshair_size
 	)
 
-
 func _save_default_keyboard_layouts() -> void:
 	var dir = Directory.new()
 	if dir.open(DEFAULT_INPUTS_FOLDER) == OK:
 		dir.list_dir_begin()
 		var file_name = dir.get_next()
 		while file_name != "":
-			if not dir.current_is_dir():
+			if not dir.current_is_dir(): 
 				dir.copy(DEFAULT_INPUTS_FOLDER + file_name, INPUT_PRESETS_PATH + file_name)
 			file_name = dir.get_next()
 	else:
-		DebugUtils.log_stacktrace(
-			"error trying to open the default inputs folder %s" % DEFAULT_INPUTS_FOLDER,
-			DebugUtils.LOG_LEVEL.error
-		)
-
+		DebugUtils.log_stacktrace("error trying to open the default inputs folder %s" % DEFAULT_INPUTS_FOLDER, DebugUtils.LOG_LEVEL.error)
+	
 
 #---- AUDIO -----
 func load_cfg_audio_file(cfg: ConfigFile) -> void:
@@ -477,10 +470,6 @@ func load_cfg_audio_file(cfg: ConfigFile) -> void:
 				AudioServer.get_bus_index(GlobalConstants.MAIN_BUS),
 				not cfg.get_value(AUDIO_SECTION_MAIN, AUDIO_KEY_UNMUTED)
 			)
-			if not cfg.get_value(AUDIO_SECTION_MAIN, AUDIO_KEY_UNMUTED):
-				AudioServer.set_bus_volume_db(
-					AudioServer.get_bus_index(GlobalConstants.MAIN_BUS), MUTE_VOLUME_DB
-				)
 		else:
 			DebugUtils.log_stacktrace(
 				"No section %s or key %s in cfg root" % [AUDIO_SECTION_MAIN, AUDIO_KEY_UNMUTED],
@@ -508,10 +497,6 @@ func load_cfg_audio_file(cfg: ConfigFile) -> void:
 				AudioServer.get_bus_index(GlobalConstants.BGM_BUS),
 				not cfg.get_value(AUDIO_SECTION_BGM, AUDIO_KEY_UNMUTED)
 			)
-			if not cfg.get_value(AUDIO_SECTION_BGM, AUDIO_KEY_UNMUTED):
-				AudioServer.set_bus_volume_db(
-					AudioServer.get_bus_index(GlobalConstants.BGM_BUS), MUTE_VOLUME_DB
-				)
 		else:
 			DebugUtils.log_stacktrace(
 				"No section %s or key %s in cfg root" % [AUDIO_SECTION_BGM, AUDIO_KEY_UNMUTED],
@@ -539,10 +524,6 @@ func load_cfg_audio_file(cfg: ConfigFile) -> void:
 				AudioServer.get_bus_index(GlobalConstants.EFFECTS_BUS),
 				not cfg.get_value(AUDIO_SECTION_EFFECTS, AUDIO_KEY_UNMUTED)
 			)
-			if not cfg.get_value(AUDIO_SECTION_EFFECTS, AUDIO_KEY_UNMUTED):
-				AudioServer.set_bus_volume_db(
-					AudioServer.get_bus_index(GlobalConstants.EFFECTS_BUS), MUTE_VOLUME_DB
-				)
 		else:
 			DebugUtils.log_stacktrace(
 				"No section %s or key %s in cfg root" % [AUDIO_SECTION_EFFECTS, AUDIO_KEY_UNMUTED],
