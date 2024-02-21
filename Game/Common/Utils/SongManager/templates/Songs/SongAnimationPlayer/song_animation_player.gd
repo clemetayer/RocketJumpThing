@@ -48,8 +48,9 @@ func _ready():
 # COMMENT IF YOU DON'T CHANGE Engine.time_scale
 func _process(_delta):
 	if Input.is_action_just_pressed("print_buses_status"):
-		Logger.debug("printing buses")
+		Logger.debug("============= printing buses =============")
 		_print_buses()
+		_print_track_infos()
 	var anim_player = get_node(ANIMATION_PLAYER)
 	if anim_player.is_playing():
 		anim_player.playback_speed = 1.0 / Engine.time_scale  # HACK : when using a slowmotion effect, to avoid having the animation be slowed down too
@@ -443,7 +444,16 @@ func _print_buses():
 	for bus_idx in AudioServer.bus_count:
 		var bus_effects = []
 		for effect_idx in AudioServer.get_bus_effect_count(bus_idx):
-			bus_effects.append(AudioServer.get_bus_effect(bus_idx, effect_idx))
+			var effect = AudioServer.get_bus_effect(bus_idx, effect_idx)
+			if effect is AudioEffectFilter:
+				bus_effects.append({"effect":"filter","cutoff_hz":effect.cutoff_hz})
+			elif effect is AudioEffectCompressor:
+				bus_effects.append({"effect":"compressor", "threshold":effect.threshold, "ratio":effect.ratio, "gain": effect.gain})
+			elif effect is AudioEffectDelay:
+				bus_effects.append({"effect":"delay"})
+			elif effect is AudioEffectReverb:
+				bus_effects.append({"effect":"reverb", "room_size":effect.room_size})
+
 		DebugUtils.log_stacktrace(
 			"bus N°%d : %s, has effects : %s and sends to %s. Volume is %d db. is mute = %s" % [
 				bus_idx,

@@ -1,9 +1,18 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Game/Common/MapElements/Lasers/laser.gd" type="Script" id=1]
 [ext_resource path="res://Misc/Particles/kenney_particle_pack/PNG (Transparent)/trace_05.png" type="Texture" id=2]
 [ext_resource path="res://trenchbroom/textures/common/common_textures/base_wall/base_wall.tres" type="Material" id=3]
 [ext_resource path="res://Misc/Audio/FX/Laser/laser_sound.wav" type="AudioStream" id=4]
+
+[sub_resource type="SpatialMaterial" id=11]
+flags_unshaded = true
+albedo_color = Color( 0, 1, 0.8, 1 )
+
+[sub_resource type="SphereMesh" id=10]
+material = SubResource( 11 )
+radius = 2.0
+height = 4.0
 
 [sub_resource type="CubeMesh" id=9]
 
@@ -62,13 +71,17 @@ script = ExtResource( 1 )
 
 [node name="LaserSound" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource( 4 )
-unit_db = 2.0
-unit_size = 7.0
-max_db = 1.0
-max_distance = 7.0
+unit_size = 4.0
+max_distance = 4.0
 out_of_range_mode = 1
 bus = "LaserFX"
-attenuation_filter_cutoff_hz = 200.0
+
+[node name="DebugSoundRangeMesh" type="MeshInstance" parent="LaserSound"]
+visible = false
+mesh = SubResource( 10 )
+__meta__ = {
+"_editor_description_": "Only used in debug, to visualise the laser sound area"
+}
 
 [node name="CubeMesh" type="MeshInstance" parent="."]
 mesh = SubResource( 9 )
@@ -99,3 +112,6 @@ wait_time = 0.33
 __meta__ = {
 "_editor_description_": "A timer to limit the laser updates, and avoid using physics process and slowing down the game"
 }
+
+[node name="UpdateSoundPosTimer" type="Timer" parent="."]
+wait_time = 0.33

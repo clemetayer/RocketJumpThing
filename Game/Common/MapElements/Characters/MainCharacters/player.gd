@@ -327,6 +327,10 @@ func _process_input(_delta):
 		_slide = false
 	if SLIDE_ENABLED: # slide also unlocks wall ride
 		_wall_ride_strategy.process_input()
+	
+	#Debug
+	if Input.is_action_just_pressed("print_position"):
+		Logger.debug("PLayer is at pos %s" % global_transform.origin)
 
 # Shoots a rocket
 func _shoot(cam_xform: Transform) -> void:

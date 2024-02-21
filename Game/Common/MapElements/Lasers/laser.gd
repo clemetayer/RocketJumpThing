@@ -23,6 +23,8 @@ var _debug := false
 var _static_size := true # if the size should be computed once and never again (improves performances)
 var _init_static_size_done := false # to determine if the initial size has been computed
 var _in_player_fov := false # mostly used for static init, to check if the laser is in the player field of view, so that we can enable or disable the laser after init
+var _player # Instance of the player kept for optimization purposes
+var _collision_point := Vector3.ZERO # Collision point of the laser. Usefull to update the audio stream player 3D position
 
 #==== ONREADY ====
 onready var onready_paths := {
@@ -30,6 +32,7 @@ onready var onready_paths := {
 	"collision": $"LaserCollision",
 	"raycast": $"RayCast",
 	"update_timer": $"UpdateTimer",
+	"update_sound_pos_timer": $"UpdateSoundPosTimer",
 	"particles": $"Particles",
 	"cube_mesh": $"CubeMesh",
 	"sound": $"LaserSound"
@@ -44,9 +47,9 @@ func _ready():
 	_connect_signals()
 	if _static_size:
 		onready_paths.update_timer.start() # can't set the size on ready, since the collisions of the environment won't necessarly be ready
+		onready_paths.update_sound_pos_timer.start()
 	else:
 		_toggle_enable(false) # by default, hides all the lasers
-	
 
 ##### PROTECTED METHODS #####
 func _set_TB_params() -> void:
@@ -64,6 +67,7 @@ func _connect_signals() -> void:
 	DebugUtils.log_connect(onready_paths.update_timer, self, "timeout", "_on_UpdateTimer_timeout")
 	DebugUtils.log_connect(self,self,"area_entered", "_on_area_entered")
 	DebugUtils.log_connect(self,self,"area_exited", "_on_area_exited")
+	DebugUtils.log_connect(onready_paths.update_sound_pos_timer, self, "timeout", "_on_UpdateSoundPosTimer_timeout")
 
 
 
@@ -100,29 +104,27 @@ func _update_laser(length: float) -> void:
 		onready_paths.mesh.translation.z = length / 2.0
 		onready_paths.particles.translation.z = length
 		_init_static_size_done = true
-		if ScenesManager.get_current() != null and ScenesManager.get_current().has_method("get_player"): # avoids a crash on tests
-			var player = ScenesManager.get_current().get_player()
-			if player != null: # Kind of a trick to make the laser sound even on its length
-				onready_paths.sound.global_transform.origin = Geometry.get_closest_point_to_segment(player.global_transform.origin, onready_paths.raycast.get_collision_point(), global_transform.origin)
+	if _player == null and ScenesManager.get_current() != null and ScenesManager.get_current().has_method("get_player"): # avoids a crash on tests
+		_player = ScenesManager.get_current().get_player()
 
 func _check_raycast() -> void:
 	if onready_paths.raycast.is_colliding():
 		_update_laser(
 			self.global_transform.origin.distance_to(onready_paths.raycast.get_collision_point())
 		)
+		_collision_point = onready_paths.raycast.get_collision_point()
 		onready_paths.particles.emitting = true
 	else:
 		_update_laser(_max_length)
+		_collision_point = to_global(self.transform.origin + (Vector3(0,0,_max_length)))
 		onready_paths.particles.emitting = false
 
 func _toggle_enable(enabled : bool) -> void:
 	visible = enabled
 	onready_paths.sound.playing = enabled
+	onready_paths.update_sound_pos_timer.start() if enabled else onready_paths.update_sound_pos_timer.stop()
 	if not _static_size:
-		if enabled:
-			onready_paths.update_timer.start()
-		else:
-			onready_paths.update_timer.stop()
+		onready_paths.update_timer.start() if enabled else onready_paths.update_timer.stop()
 		onready_paths.raycast.enabled = enabled
 
 ##### SIGNAL MANAGEMENT #####
@@ -148,3 +150,7 @@ func _on_area_entered(area : Node) -> void:
 func _on_area_exited(area : Node) -> void:
 	if FunctionUtils.is_laser_enable(area):
 		_toggle_enable(false)
+
+func _on_UpdateSoundPosTimer_timeout() -> void:
+	if _player != null: # Kind of a trick to make the laser sound even on its length
+		onready_paths.sound.global_transform.origin = Geometry.get_closest_point_to_segment(_player.global_transform.origin, _collision_point, global_transform.origin)
