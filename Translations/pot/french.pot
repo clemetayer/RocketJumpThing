@@ -386,6 +386,9 @@ msgstr "##rocket_jump_icon## sur le mur pour escalader."
 msgid "TUTORIAL_ROCKET_PADS"
 msgstr "##rocket_icon## sur ##boost_pad## pour augmenter temporairement la puissance d'éjection."
  
+msgid "TUTORIAL_ESCAPE_TO_SKIP"
+msgstr "Echap pour passer" 
+
 #============================= END GAME ================================
 msgid "END_GAME_SIMULATION_COMPLETED"
 msgstr "Simulation terminée"

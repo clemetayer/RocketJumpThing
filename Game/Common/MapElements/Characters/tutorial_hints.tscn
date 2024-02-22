@@ -1,8 +1,13 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Misc/Fonts/Oswald/static/Oswald-Medium.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Game/Common/MapElements/Characters/tutorial_hints.gd" type="Script" id=2]
 [ext_resource path="res://Game/Common/Themes/TutorialUI/tutorial_UI_theme.tres" type="Theme" id=3]
+[ext_resource path="res://Misc/Fonts/Oswald/Oswald-VariableFont_wght.ttf" type="DynamicFontData" id=4]
+
+[sub_resource type="DynamicFont" id=2]
+size = 22
+font_data = ExtResource( 4 )
 
 [sub_resource type="DynamicFont" id=1]
 size = 30
@@ -15,14 +20,18 @@ script = ExtResource( 2 )
 [node name="Screen" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+theme = ExtResource( 3 )
 
 [node name="ColorRect" type="ColorRect" parent="Screen"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0, 0, 0, 0.686275 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+
+[node name="Label" type="Label" parent="Screen"]
+margin_right = 174.0
+margin_bottom = 14.0
+custom_fonts/font = SubResource( 2 )
+text = "TUTORIAL_ESCAPE_TO_SKIP"
 
 [node name="CenterContainer" type="CenterContainer" parent="Screen"]
 anchor_right = 1.0
@@ -47,3 +56,7 @@ size_flags_vertical = 3
 custom_colors/font_color = Color( 0, 0.772549, 0.635294, 1 )
 custom_fonts/font = SubResource( 1 )
 text = "aaaaaaaaaaaaaa"
+
+[node name="ColorTween" type="Tween" parent="Screen"]
+
+[node name="EngineTimeScaleTween" type="Tween" parent="Screen"]

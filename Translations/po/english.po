@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: c.lemetayer@laposte.net\n"
 "POT-Creation-Date: 2021-12-19\n"
-"PO-Revision-Date: 2024-02-16 08:30+0100\n"
+"PO-Revision-Date: 2024-02-22 08:27+0100\n"
 "Last-Translator: Corentin Le Métayer <c.lemetayer@laposte.net>\n"
 "Language: en\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -415,6 +415,9 @@ msgstr "##rocket_jump_icon## on the wall to climb."
 msgid "TUTORIAL_ROCKET_PADS"
 msgstr ""
 "##rocket_icon## on ##boost_pad## to temporarily increase the launch power."
+
+msgid "TUTORIAL_ESCAPE_TO_SKIP"
+msgstr "Escape to skip"
 
 # ============================= END GAME ================================
 msgid "END_GAME_SIMULATION_COMPLETED"

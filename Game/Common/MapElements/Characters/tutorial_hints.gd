@@ -13,8 +13,19 @@ const ROCKET_JUMP_ICON_PATH := "res://Misc/UI/Icons/Kenney/rocket_jump.png"
 const ENGINE_SLOW_DOWN_AMOUNT = 0.125  # How much the engine will slow down to display the tutorial
 const ENGINE_TUTORIAL_SHOW_TIME = 0.25  # Time to show and slow down the engine to display the tutotial (Note : it is an approximation since the tween will be affected by the engine slowdown as well)
 #---- STANDARD -----
+#==== PRIVATE ====
+var _tutorial_displaying := false # to avoid triggering the tutorial exit twice after pressing escape
+
 #==== ONREADY ====
-onready var onready_paths := {"screen_root": $"Screen", "label": $"Screen/CenterContainer/Label"}
+onready var onready_paths := {
+	"screen_root": $"Screen", 
+	"label": $"Screen/CenterContainer/Label",
+	"escape_to_skip": $"Screen/Label",
+	"tweens": {
+		"color": $"Screen/ColorTween",
+		"engine_time_scale": $"Screen/EngineTimeScaleTween"
+	}
+}
 
 
 ##### PROCESSING #####
@@ -23,17 +34,26 @@ func _ready():
 	DebugUtils.log_connect(
 		SignalManager, self, SignalManager.TRIGGER_TUTORIAL, "_on_SignalManager_trigger_tutorial"
 	)
+	DebugUtils.log_connect(
+		SignalManager, self, SignalManager.TRANSLATION_UPDATED, "_on_SignalManager_translation_updated"
+	)
 	onready_paths.screen_root.modulate.a = 0.0
 	onready_paths.label.set_text("")
 
+# Called every frame. 'delta' is the elapsed time since the previous frame. Remove the "_" to use it.
+func _process(_delta):
+	if Input.is_action_just_pressed("ui_cancel") and _tutorial_displaying:
+		_exit_tutorial()
 
 ##### PUBLIC METHODS ######
 # Displays the text of a tutorial key for a given time (in seconds)
 func display_tutorial(key: String, time: float) -> void:
-	var color_tween := Tween.new()  # color of the canvas
-	var engine_time_scale_tween := Tween.new()  # time scale for slow motion
+	_tutorial_displaying = true
+	MenuNavigator.toggle_pause_enabled(false)
+	onready_paths.tweens.color.stop_all()
+	onready_paths.tweens.engine_time_scale.stop_all()
 	DebugUtils.log_tween_interpolate_property(
-		color_tween,
+		onready_paths.tweens.color,
 		onready_paths.screen_root,
 		"modulate",
 		Color(1, 1, 1, 0.0),
@@ -41,48 +61,49 @@ func display_tutorial(key: String, time: float) -> void:
 		ENGINE_TUTORIAL_SHOW_TIME
 	)
 	DebugUtils.log_tween_interpolate_method(
-		engine_time_scale_tween,
+		onready_paths.tweens.engine_time_scale,
 		Engine,
 		"set_time_scale",
 		1.0,
 		ENGINE_SLOW_DOWN_AMOUNT,
 		ENGINE_TUTORIAL_SHOW_TIME
 	)
-	add_child(color_tween)
-	add_child(engine_time_scale_tween)
-	DebugUtils.log_tween_start(color_tween)
-	DebugUtils.log_tween_start(engine_time_scale_tween)
+	DebugUtils.log_tween_start(onready_paths.tweens.color)
+	DebugUtils.log_tween_start(onready_paths.tweens.engine_time_scale)
 	onready_paths.screen_root.show()
 	_set_tutorial_text(key)
-	# onready_paths.label.set_text(TextUtils.replace_elements(tr(key), _keys_dict))
-	yield(color_tween, "tween_all_completed")
+	yield(onready_paths.tweens.color, "tween_all_completed")
 	yield(get_tree().create_timer(time), "timeout")
-	DebugUtils.log_tween_interpolate_property(
-		color_tween,
-		onready_paths.screen_root,
-		"modulate",
-		Color(1, 1, 1, 1.0),
-		Color(1, 1, 1, 0.0),
-		ENGINE_TUTORIAL_SHOW_TIME
-	)
-	DebugUtils.log_tween_interpolate_method(
-		engine_time_scale_tween,
-		Engine,
-		"set_time_scale",
-		ENGINE_SLOW_DOWN_AMOUNT,
-		1.0,
-		ENGINE_TUTORIAL_SHOW_TIME
-	)
-	DebugUtils.log_tween_start(color_tween)
-	DebugUtils.log_tween_start(engine_time_scale_tween)
-	yield(color_tween, "tween_all_completed")
-	color_tween.queue_free()
-	engine_time_scale_tween.queue_free()
-	onready_paths.screen_root.hide()
-	onready_paths.label.set_text("")
+	if _tutorial_displaying:
+		_exit_tutorial()
 
 
 ##### PROTECTED METHODS #####
+func _exit_tutorial() -> void:
+	_tutorial_displaying = false
+	DebugUtils.log_tween_interpolate_property(
+		onready_paths.tweens.color,
+		onready_paths.screen_root,
+		"modulate",
+		Color(1, 1, 1, 1.0),
+		Color(1, 1, 1, 0.0),
+		ENGINE_TUTORIAL_SHOW_TIME
+	)
+	DebugUtils.log_tween_interpolate_method(
+		onready_paths.tweens.engine_time_scale,
+		Engine,
+		"set_time_scale",
+		ENGINE_SLOW_DOWN_AMOUNT,
+		1.0,
+		ENGINE_TUTORIAL_SHOW_TIME
+	)
+	DebugUtils.log_tween_start(onready_paths.tweens.color)
+	DebugUtils.log_tween_start(onready_paths.tweens.engine_time_scale)
+	yield(onready_paths.tweens.color, "tween_all_completed")
+	onready_paths.screen_root.hide()
+	onready_paths.label.set_text("")
+	MenuNavigator.toggle_pause_enabled(true)
+
 func _replace_boost_pad(enhanced: bool) -> Control:
 	var boost_pad_scene = load(BOOST_PAD_SCENE).instance()
 	boost_pad_scene.enhanced = enhanced
@@ -241,3 +262,6 @@ func _create_texture_rect_from_path(path: String) -> TextureRect:
 ##### SIGNAL MANAGEMENT #####
 func _on_SignalManager_trigger_tutorial(key: String, time: float) -> void:
 	display_tutorial(key, time)
+
+func _on_SignalManager_translation_updated() -> void:
+	onready_paths.escape_to_skip.text = tr(TranslationKeys.TUTORIAL_ESCAPE_TO_SKIP)
