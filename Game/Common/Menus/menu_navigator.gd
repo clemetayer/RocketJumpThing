@@ -6,7 +6,7 @@ extends CanvasLayer
 signal menu_activated(menu)
 
 ##### ENUMS #####
-enum MENU { hidden, main, pause, settings, level_select, end_level, initial_settings }
+enum MENU { hidden, main, pause, settings, level_select, end_level, initial_settings, video_tutorial }
 
 ##### VARIABLES #####
 #---- CONSTANTS -----
@@ -33,6 +33,7 @@ onready var onready_paths := {
 	"settings":$"SettingsMenu/SettingsMenu",
 	"level_select":$"LevelSelectMenu/LevelSelectMenu",
 	"end_level": $"EndLevelMenu/EndLevelMenu",
+	"video_tutorial": $"VideoTutorial/VideoTutorial",
 	"transition_tween": $"ToggleMenuTransition",
 	"forbidden_menu": $"TheForbiddenMenu",
 	"initial_settings": $"SimpleSettingsMenu/DefaultSettings",
@@ -108,6 +109,11 @@ func show_main_menu() -> void:
 func previous_menu() -> void:
 	_unstack_menu()
 
+func show_video_tutorial(video_path : String) -> void:
+	onready_paths.video_tutorial.play_video(video_path)
+	ScenesManager.pause()
+	open_navigation(MENU.video_tutorial)
+
 ##### PROTECTED METHODS #####
 func _init_visible() -> void:
 	self.visible = false
@@ -125,13 +131,15 @@ func _connect_signals() -> void:
 	DebugUtils.log_connect(onready_paths.settings,self,"return_to_prev_menu","_on_return")
 
 func _manage_inputs() -> void:
-	if Input.is_action_just_pressed("pause") and _pause_enabled and not MENU.pause in _menu_stack:
+	if Input.is_action_just_pressed("pause") and _pause_enabled and not MENU.pause in _menu_stack and not MENU.video_tutorial in _menu_stack:
 		ScenesManager.pause()
 		open_navigation(MENU.pause)
 	if Input.is_action_just_pressed("ui_cancel") and not _is_protected_menu(_state):
 		if _state == MENU.settings:
 			SettingsUtils.save_current_settings()
 			SignalManager.emit_update_settings()
+		elif _state == MENU.video_tutorial:
+			onready_paths.video_tutorial.stop_video()
 		previous_menu()
 
 func _stack_menu(menu : int) -> void:
@@ -191,6 +199,8 @@ func _get_menu_by_id(id : int) -> CanvasItem:
 			return onready_paths.end_level
 		MENU.initial_settings:
 			return onready_paths.initial_settings
+		MENU.video_tutorial:
+			return onready_paths.video_tutorial
 	DebugUtils.log_stacktrace("Unable to get the menu %d" % id,  DebugUtils.LOG_LEVEL.warn)
 	return onready_paths.forbidden_menu
 
@@ -208,6 +218,7 @@ func _interpolate_menu_transition_tween(node : CanvasItem, final_val : int) -> v
 		TRANSITION_TIME / (1.0 / Engine.time_scale)  # HACK : when using a slowmotion effect, to avoid having the animation be slowed down too
 	)
 
+# To manage root menus that should not be unstacked (like the main menu)
 func _is_protected_menu(state : int) -> bool:
 	return state == MENU.hidden or state == MENU.main
 

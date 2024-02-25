@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Game/Common/MapElements/Characters/MainCharacters/player.gd" type="Script" id=1]
 [ext_resource path="res://Game/Common/MapElements/Characters/player_UI.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Game/Common/MapElements/Characters/chronometer_UI.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Misc/Audio/FX/JumpSound/jump_sound.wav" type="AudioStream" id=6]
 [ext_resource path="res://Misc/Audio/FX/DeathSound/death.wav" type="AudioStream" id=7]
+[ext_resource path="res://Game/Common/MapElements/Characters/input_display.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Misc/Audio/FX/Slide/slide_noise.wav" type="AudioStream" id=9]
 [ext_resource path="res://Game/Common/Shaders/Misc/slide_effect.tres" type="Shader" id=10]
 [ext_resource path="res://Game/Common/MapElements/Characters/MainCharacters/slide_effect_gradient.tres" type="Texture" id=11]
@@ -146,6 +147,9 @@ shape = SubResource( 3 )
 
 [node name="PlayerUI" parent="." instance=ExtResource( 2 )]
 follow_viewport_enable = true
+
+[node name="InputDisplay" parent="." instance=ExtResource( 8 )]
+visible = false
 
 [node name="CheckpointUI" parent="." instance=ExtResource( 4 )]
 layer = 2

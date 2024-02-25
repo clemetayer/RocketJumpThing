@@ -7798,3 +7798,11 @@
 "size" "1 1 1"
 "color" "255 0 0"
 }
+// entity 377
+{
+"classname" "VideoTutorialInteractible"
+"origin" "440 8272 -2584"
+"collision_layer" "2"
+"collision_mask" "5"
+"video_path" "res://Misc/GameplayVideos/sync_jump.webm"
+}

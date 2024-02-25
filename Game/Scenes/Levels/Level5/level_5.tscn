@@ -1,4 +1,4 @@
-[gd_scene load_steps=683 format=2]
+[gd_scene load_steps=684 format=2]
 
 [ext_resource path="res://addons/qodot/src/nodes/qodot_map.gd" type="Script" id=1]
 [ext_resource path="res://trenchbroom/Entities/Scenes/Level5/level_5_fgd.tres" type="Resource" id=2]
@@ -46,6 +46,7 @@
 [ext_resource path="res://Game/Common/Utils/StepSequencer/Static/static_body_step_sequencer.gd" type="Script" id=44]
 [ext_resource path="res://Game/Common/MapElements/DoubleRocketIndicator/double_rocket_indicator.gd" type="Script" id=45]
 [ext_resource path="res://Game/Common/MapElements/Particles/ParticlesArrows/particles_arrows.tscn" type="PackedScene" id=46]
+[ext_resource path="res://Game/Common/MapElements/TutorialTrigger/video_tutorial_interactible.tscn" type="PackedScene" id=47]
 
 [sub_resource type="Gradient" id=1380]
 colors = PoolColorArray( 0, 0, 1, 1, 0.498039, 0, 0, 1 )
@@ -4847,7 +4848,7 @@ wait_time = 0.5
 autostart = true
 
 [node name="Dodecahedron" type="MeshInstance" parent="."]
-transform = Transform( 51.6991, -25.0275, 55.6851, 26.0087, -56.9871, -49.7596, 55.2336, 50.2602, -28.6906, 0, 0, 0 )
+transform = Transform( 34.1159, -30.2944, -65.7141, -30.7805, 59.6753, -43.4904, 65.4879, 43.8303, 13.7925, 0, 0, 0 )
 mesh = ExtResource( 39 )
 script = ExtResource( 40 )
 properties = {
@@ -10147,6 +10148,16 @@ properties = {
 "mangle": Vector3( -75, -90, 0 ),
 "origin": "70 13118 4370",
 "size": Vector3( 1, 1, 1 )
+}
+
+[node name="entity_377_VideoTutorialInteractible" parent="QodotMap" instance=ExtResource( 47 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 517, -161.5, 27.5 )
+properties = {
+"classname": "VideoTutorialInteractible",
+"collision_layer": 2,
+"collision_mask": 5,
+"origin": "440 8272 -2584",
+"video_path": "res://Misc/GameplayVideos/sync_jump.webm"
 }
 
 [connection signal="timeout" from="Timers/Kick" to="." method="_on_Kick_timeout"]

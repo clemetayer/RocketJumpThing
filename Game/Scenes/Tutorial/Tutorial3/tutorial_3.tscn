@@ -1,4 +1,4 @@
-[gd_scene load_steps=640 format=2]
+[gd_scene load_steps=641 format=2]
 
 [ext_resource path="res://addons/qodot/src/nodes/qodot_map.gd" type="Script" id=1]
 [ext_resource path="res://trenchbroom/textures/common/material_override/Transparent.tres" type="Material" id=2]
@@ -48,6 +48,7 @@
 [ext_resource path="res://Game/Common/MapElements/Particles/ParticlesArrows/particles_arrows.tscn" type="PackedScene" id=46]
 [ext_resource path="res://trenchbroom/textures/scenes/tutorial3_scene/pattern_floor.tres" type="Material" id=47]
 [ext_resource path="res://Game/Common/MapElements/common_world_environment.gd" type="Script" id=48]
+[ext_resource path="res://Game/Common/MapElements/TutorialTrigger/video_tutorial_interactible.tscn" type="PackedScene" id=49]
 
 [sub_resource type="Gradient" id=755]
 colors = PoolColorArray( 0.027451, 0.443137, 0.439216, 1, 0.0588235, 0.890196, 0.380392, 1 )
@@ -8924,6 +8925,36 @@ properties = {
 
 [node name="entity_263_mesh_instance" type="MeshInstance" parent="QodotMap/entity_263_RythmElements_Sequencers_Spatial"]
 mesh = SubResource( 1337 )
+
+[node name="entity_264_VideoTutorialInteractible" parent="QodotMap" instance=ExtResource( 49 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -3.5, -13.5, 159 )
+properties = {
+"classname": "VideoTutorialInteractible",
+"collision_layer": 2,
+"collision_mask": 5,
+"origin": "2544 -56 -216",
+"video_path": "res://Misc/GameplayVideos/rocket_jump.webm"
+}
+
+[node name="entity_265_VideoTutorialInteractible" parent="QodotMap" instance=ExtResource( 49 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 143, 1.5, 277 )
+properties = {
+"classname": "VideoTutorialInteractible",
+"collision_layer": 2,
+"collision_mask": 5,
+"origin": "4432 2288 24",
+"video_path": "res://Misc/GameplayVideos/rocket_wall_jump.webm"
+}
+
+[node name="entity_266_VideoTutorialInteractible" parent="QodotMap" instance=ExtResource( 49 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 113.5, 14.5, 324.5 )
+properties = {
+"classname": "VideoTutorialInteractible",
+"collision_layer": 2,
+"collision_mask": 5,
+"origin": "5192 1816 232",
+"video_path": "res://Misc/GameplayVideos/bumper_boost.webm"
+}
 
 [connection signal="timeout" from="AdditionalThings/Timers/KickTimer" to="." method="_on_KickTimer_timeout"]
 [connection signal="trigger" from="QodotMap/entity_131_Breakables_Area_Rocket" to="QodotMap/entity_119_Breakables_Wall" method="use"]

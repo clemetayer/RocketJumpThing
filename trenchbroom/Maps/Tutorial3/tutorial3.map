@@ -7658,3 +7658,27 @@
 ( 4480 2304.3725830019503 187 ) ( 4480 2331 213.6274169979593 ) ( 4480 2331.0208152801624 209.60660171778363 ) scenes/tutorial3_scene/gradient_sequencer [ -2.220446049250313e-16 0 -1 0 ] [ 2.7755575615628914e-16 1 -6.162975822039155e-32 0 ] 0 1 1
 }
 }
+// entity 264
+{
+"classname" "VideoTutorialInteractible"
+"origin" "2544 -56 -216"
+"collision_layer" "2"
+"collision_mask" "5"
+"video_path" "res://Misc/GameplayVideos/rocket_jump.webm"
+}
+// entity 265
+{
+"classname" "VideoTutorialInteractible"
+"origin" "4432 2288 24"
+"collision_layer" "2"
+"collision_mask" "5"
+"video_path" "res://Misc/GameplayVideos/rocket_wall_jump.webm"
+}
+// entity 266
+{
+"classname" "VideoTutorialInteractible"
+"origin" "5192 1816 232"
+"collision_layer" "2"
+"collision_mask" "5"
+"video_path" "res://Misc/GameplayVideos/bumper_boost.webm"
+}

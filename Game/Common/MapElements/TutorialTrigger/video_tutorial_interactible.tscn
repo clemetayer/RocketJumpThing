@@ -1,0 +1,64 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Misc/UI/Icons/Kenney/movie.png" type="Texture" id=1]
+[ext_resource path="res://Game/Common/MapElements/TutorialTrigger/video_tutorial_interactible.gd" type="Script" id=2]
+
+[sub_resource type="Shader" id=7]
+code = "// Kind of a mix between https://godotshaders.com/shader/simple-energy-shield/ and https://godotshaders.com/shader/distortion/
+// With some snippets from https://godotshaders.com/snippet/
+// And with additional things
+shader_type spatial;
+
+const float OFFSET = 0.1;
+const float EMISSION_VALUE = 5.0;
+const float RIM_VALUE = 0.9;
+const vec3 RIM_COLOR = vec3(1.0,0.33,0.33);
+
+float random (vec2 uv) {
+    return fract(sin(dot(uv.xy,
+        vec2(12.9898,78.233))) * 43758.5453123);
+}
+
+void fragment(){
+	// Portal's inside
+	float PI = 3.14159265359;
+	float ndv = dot(NORMAL, VIEW);
+	float rim = pow(1.0 - ndv, RIM_VALUE);
+	vec4 red = texture(SCREEN_TEXTURE,vec2(rim) + vec2(OFFSET));
+	vec4 green = texture(SCREEN_TEXTURE,vec2(rim));
+	vec4 blue = texture(SCREEN_TEXTURE,vec2(rim) - vec2(OFFSET));
+	ALBEDO = vec3(red.r,green.g,blue.b);
+	ALBEDO = mix(ALBEDO,RIM_COLOR,rim/PI);
+	ALPHA = rim / PI;
+	EMISSION = ALBEDO * EMISSION_VALUE;
+}"
+
+[sub_resource type="ShaderMaterial" id=5]
+shader = SubResource( 7 )
+
+[sub_resource type="SphereMesh" id=1]
+material = SubResource( 5 )
+
+[sub_resource type="SpatialMaterial" id=8]
+flags_transparent = true
+flags_unshaded = true
+params_billboard_mode = 1
+albedo_texture = ExtResource( 1 )
+
+[sub_resource type="QuadMesh" id=3]
+material = SubResource( 8 )
+
+[sub_resource type="SphereShape" id=6]
+
+[node name="VideoTutorialInteractible" type="Area"]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0 )
+script = ExtResource( 2 )
+
+[node name="Globe" type="MeshInstance" parent="."]
+mesh = SubResource( 1 )
+
+[node name="QuestionMark" type="MeshInstance" parent="."]
+mesh = SubResource( 3 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+shape = SubResource( 6 )

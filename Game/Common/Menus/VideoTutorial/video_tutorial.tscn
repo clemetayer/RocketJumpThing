@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Game/Common/Themes/TutorialUI/tutorial_UI_theme.tres" type="Theme" id=1]
+[ext_resource path="res://Game/Common/Menus/VideoTutorial/video_tutorial.gd" type="Script" id=2]
+
+[node name="VideoTutorial" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="VideoPlayer" type="VideoPlayer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Label" type="Label" parent="."]
+margin_right = 40.0
+margin_bottom = 49.0
+text = "TUTORIAL_ESCAPE_TO_SKIP"

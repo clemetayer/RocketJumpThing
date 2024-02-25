@@ -4427,7 +4427,7 @@
 ( 854 -1568 260 ) ( 854 -1446 260 ) ( 852 -1446 260 ) entities/checkpoint/checkpoint_1 [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
 ( 852 -1446 320 ) ( 854 -1446 320 ) ( 854 -1568 320 ) entities/checkpoint/checkpoint_1 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
 ( 854 -1446 260 ) ( 854 -1446 320 ) ( 852 -1446 320 ) entities/checkpoint/checkpoint_1 [ 1.0000000000000002 0 0 -31.117188 ] [ 0 0 -1.0000000000000002 0 ] 0 1 1
-( 854 -1568 320 ) ( 854 -1446 320 ) ( 854 -1446 260 ) entities/checkpoint/checkpoint_1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 860 -1568 320 ) ( 860 -1446 320 ) ( 860 -1446 260 ) entities/checkpoint/checkpoint_1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
 // entity 48
@@ -10482,4 +10482,28 @@
 ( 9136 -1164 -88 ) ( 9148 -1152 -96 ) ( 9148 -1165 -88 ) scenes/tutorial_scene/speedlines [ 1 0 0 0 ] [ 0 1 -2.7755575615628914e-16 98.36328 ] 0 1 1
 ( 9148 -1165 -88 ) ( 9148 -1152 -96 ) ( 9148 -1152 -106 ) scenes/tutorial_scene/speedlines [ 2.220446049250313e-16 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
+}
+// entity 287
+{
+"classname" "VideoTutorialInteractible"
+"origin" "-840 1664 268"
+"collision_layer" "2"
+"collision_mask" "5"
+"video_path" "res://Misc/GameplayVideos/bhop.webm"
+}
+// entity 288
+{
+"classname" "VideoTutorialInteractible"
+"origin" "-860 -392 268"
+"collision_layer" "2"
+"collision_mask" "5"
+"video_path" "res://Misc/GameplayVideos/air_strafe.webm"
+}
+// entity 289
+{
+"classname" "VideoTutorialInteractible"
+"origin" "880 -1560 268"
+"collision_layer" "2"
+"collision_mask" "5"
+"video_path" "res://Misc/GameplayVideos/air_control.webm"
 }

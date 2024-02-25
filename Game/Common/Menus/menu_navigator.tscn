@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Game/Common/Menus/MainMenu/main_menu_ui.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Game/Common/Menus/SettingsMenu/settings_menu.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Game/Common/Menus/menu_navigator.gd" type="Script" id=5]
 [ext_resource path="res://Game/Common/Menus/EndLevel/end_level_menu.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Game/Common/Menus/DefaultSettings/default_settings.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Game/Common/Menus/VideoTutorial/video_tutorial.tscn" type="PackedScene" id=8]
 
 [node name="MenuNavigator" type="CanvasLayer"]
 pause_mode = 2
@@ -29,6 +30,12 @@ visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0, 0, 0, 0.392157 )
+
+[node name="VideoTutorial" type="CanvasLayer" parent="."]
+layer = 51
+
+[node name="VideoTutorial" parent="VideoTutorial" instance=ExtResource( 8 )]
+visible = false
 
 [node name="MainMenu" type="CanvasLayer" parent="."]
 layer = 51
