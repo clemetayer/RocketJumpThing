@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: c.lemetayer@laposte.net\n"
 "POT-Creation-Date: 2021-12-19\n"
-"PO-Revision-Date: 2024-02-22 08:27+0100\n"
+"PO-Revision-Date: 2024-02-26 21:21+0100\n"
 "Last-Translator: Corentin Le Métayer <c.lemetayer@laposte.net>\n"
 "Language: fr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -119,6 +119,13 @@ msgstr "Niveau suivant"
 # ------------------------------- PAUSE MENU -------------------------------
 msgid "MENU_RESUME"
 msgstr "Continuer"
+
+# ---------------------------- LEVEL SELECT MENU ---------------------------
+msgid "MENU_LEVEL_SELECT_LAST_TIME"
+msgstr "Dernier temps : %s"
+
+msgid "MENU_LEVEL_SELECT_BEST_TIME"
+msgstr "Meilleur temps : %s"
 
 # ----------------------------- SETTINGS MENU -----------------------------
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ GLOBAL ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

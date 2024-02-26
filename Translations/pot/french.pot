@@ -116,6 +116,13 @@ msgstr "Niveau suivant"
 msgid "MENU_RESUME"
 msgstr "Continuer"
 
+#---------------------------- LEVEL SELECT MENU ---------------------------
+msgid "MENU_LEVEL_SELECT_LAST_TIME"
+msgstr "Dernier temps : %s"
+
+msgid "MENU_LEVEL_SELECT_BEST_TIME"
+msgstr "Meilleur temps : %s"
+
 #----------------------------- SETTINGS MENU -----------------------------
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ GLOBAL ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 msgid "MENU_SETTINGS_TAB_GENERAL"

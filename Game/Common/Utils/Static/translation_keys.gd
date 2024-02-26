@@ -54,6 +54,10 @@ const MENU_NEXT_LEVEL := "MENU_NEXT_LEVEL"
 #------------------------------- PAUSE MENU -------------------------------
 const MENU_RESUME := "MENU_RESUME"
 
+#---------------------------- LEVEL SELECT MENU ---------------------------
+const MENU_LEVEL_SELECT_LAST_TIME := "MENU_LEVEL_SELECT_LAST_TIME"
+const MENU_LEVEL_SELECT_BEST_TIME := "MENU_LEVEL_SELECT_BEST_TIME"
+
 #------------------------------ SETTINGS MENU -----------------------------
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ GLOBAL ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 const MENU_SETTINGS_TAB_GENERAL := "MENU_SETTINGS_TAB_GENERAL"

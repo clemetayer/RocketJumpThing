@@ -28,11 +28,14 @@ func after():
 func test_connect_signals() -> void:
 	level_icon._connect_signals()
 	assert_bool(level_icon.onready_paths.button.is_connected("pressed",level_icon,"_on_button_pressed"))
+	assert_bool(SignalManager.is_connected(SignalManager.TRANSLATION_UPDATED, level_icon, "_on_SignalManager_translation_updated")).is_true()
 
 func test_init_level_icon() -> void:
 	var levels := LevelsData.new()
 	var level := LevelData.new()
 	level.NAME = "test"
+	level.BEST_TIME = 86197.7
+	level.LAST_TIME = 91224.1
 	level.PREVIEW_PATH = PREVIEW_ICON_PATH
 	level.UNLOCKED = true
 	levels.LEVELS = [level]
@@ -42,6 +45,8 @@ func test_init_level_icon() -> void:
 	assert_object(level_icon.onready_paths.button.icon).is_not_null()
 	assert_bool(level_icon.onready_paths.button.disabled).is_false()
 	assert_str(level_icon.onready_paths.level_name.text).is_equal("test")
+	assert_str(level_icon.onready_paths.last_time.text).is_equal(tr(TranslationKeys.MENU_LEVEL_SELECT_LAST_TIME) % "01:31:224")
+	assert_str(level_icon.onready_paths.best_time.text).is_equal(tr(TranslationKeys.MENU_LEVEL_SELECT_BEST_TIME) % "01:26:197")
 
 func test_on_button_pressed() -> void:
 	var scenes_manager_mock = mock(scenes_manager_path)
