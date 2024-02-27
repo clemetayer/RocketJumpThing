@@ -1,4 +1,4 @@
-[gd_scene load_steps=552 format=2]
+[gd_scene load_steps=553 format=2]
 
 [ext_resource path="res://Game/Scenes/Levels/Level4/level_4.gd" type="Script" id=1]
 [ext_resource path="res://addons/qodot/src/nodes/qodot_map.gd" type="Script" id=2]
@@ -39,6 +39,7 @@
 [ext_resource path="res://trenchbroom/textures/common/common_textures/base_floor.tres" type="Material" id=37]
 [ext_resource path="res://Game/Common/MapElements/Particles/ParticlesArrows/particles_arrows.tscn" type="PackedScene" id=38]
 [ext_resource path="res://Game/Common/MapElements/common_world_environment.gd" type="Script" id=39]
+[ext_resource path="res://trenchbroom/textures/scenes/level_4/arrows.tres" type="Material" id=40]
 
 [sub_resource type="Gradient" id=606]
 colors = PoolColorArray( 0.160784, 0.8, 0, 1, 0, 0.0784314, 0.4, 1 )
@@ -3195,7 +3196,7 @@ surfaces/0 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 864,
-"material": ExtResource( 31 ),
+"material": ExtResource( 40 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 576
@@ -8437,18 +8438,10 @@ properties = {
 "velocity": 1.0
 }
 
-[node name="entity_376_RythmElements_Sequencers_Spatial" type="Spatial" parent="QodotMap"]
+[node name="entity_376_SpatialSolidEntity" type="Spatial" parent="QodotMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -56, 47.2031, 82.4688 )
-script = ExtResource( 10 )
-properties = {
-"active_on_signals": "",
-"active_on_steps": "",
-"classname": "RythmElements_Sequencers_Spatial",
-"init_index": 0,
-"sequencer_data_path": "res://Game/Scenes/Levels/Level4/Data/StepSequencerData/light_path.tres"
-}
 
-[node name="entity_376_mesh_instance" type="MeshInstance" parent="QodotMap/entity_376_RythmElements_Sequencers_Spatial"]
+[node name="entity_376_mesh_instance" type="MeshInstance" parent="QodotMap/entity_376_SpatialSolidEntity"]
 mesh = SubResource( 1114 )
 
 [connection signal="timeout" from="Timers/StompTimer" to="." method="_on_StompTimer_timeout"]
