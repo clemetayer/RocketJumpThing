@@ -1,7 +1,6 @@
 extends Resource
 class_name SequencerInitParam
 # Init data to set default parameters for the sequencer
-# TODO : add some securities (if the step sequencer has the variable, etc.)
 
 ##### VARIABLES #####
 #---- EXPORTS -----

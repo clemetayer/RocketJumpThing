@@ -2,7 +2,6 @@ tool
 extends Resource
 class_name SequencerStepDataItem
 # Base class for step sequencer items
-# TODO : Add some securities (check beforehand if the variable exists in the step sequencer, if VALUES has key, etc.)
 
 ##### VARIABLES #####
 #---- CONSTANTS -----

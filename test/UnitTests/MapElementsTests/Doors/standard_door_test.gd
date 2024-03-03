@@ -24,4 +24,3 @@ func after():
 
 #---- TESTS -----
 #==== ACTUAL TESTS =====
-# TODO : hard to test because of the tweens

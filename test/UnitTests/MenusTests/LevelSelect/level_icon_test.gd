@@ -53,4 +53,4 @@ func test_on_button_pressed() -> void:
 	do_return(null).on(scenes_manager_mock).load_level(level_icon.LEVELS_DATA, level_icon.LEVEL_IDX) 
 	level_icon._scenes_manager = scenes_manager_mock
 	level_icon._on_button_pressed()
-	verify(scenes_manager_mock, 2).load_level(level_icon.LEVELS_DATA, level_icon.LEVEL_IDX) # FIXME : for some reason it is called one more time somewhere...
+	verify(scenes_manager_mock, 2).load_level(level_icon.LEVELS_DATA, level_icon.LEVEL_IDX)

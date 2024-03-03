@@ -52,7 +52,6 @@ func test_on_SignalManager_start_level_chronometer() -> void:
 func test_on_SignalManager_end_reached() -> void:
 	chronometer_ui._on_SignalManager_end_reached()
 	chronometer_ui._last_time = 1
-	# assert_float(VariableManager.chronometer.level).is_equal(1) # TODO : cannot test the variable manager
 	assert_bool(chronometer_ui._timer_stopped).is_true()
 
 #==== UTILITIES =====

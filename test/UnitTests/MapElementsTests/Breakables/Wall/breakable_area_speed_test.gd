@@ -48,6 +48,3 @@ func test_add_sprite_ui() -> void:
 func test_connect_signals() -> void:
 	breakable_area._connect_signals()
 	assert_bool(breakable_area.is_connected("body_entered", breakable_area, "_on_breakable_area_speed_body_entered")).is_true()
-
-# TODO : can't test _add_break_wall_sound because of the get_parent thing
-# TODO : can't really test _on_breakable_area_speed_body_entered either

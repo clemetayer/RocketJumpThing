@@ -43,7 +43,6 @@ func test_connect_signals() -> void:
 func test_on_SignalManager_change_key_popup() -> void:
 	change_key_popup._on_SignalManager_change_key_popup(GlobalTestUtilities.TEST_ACTION)
 	assert_str(change_key_popup.ACTION).is_equal(GlobalTestUtilities.TEST_ACTION)
-	# assert_bool(change_key_popup.visible).is_true() # FIXME : popup centered not setting the node as visible
 
 
 func test_set_popup_text() -> void:

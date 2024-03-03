@@ -92,19 +92,8 @@ func test_no_input() -> void:
 func test_replace_move_direction() -> void:
 	var control = tutorial_hints._replace_move_direction(true, true, true, true)
 	assert_str(control.name).is_equal(DIRECTION_SCENE_NAME)
-# FIXME : onready_paths has issues with tests
-#	assert_bool(control.onready_paths.forward.pressed).is_true()
-#	assert_bool(control.onready_paths.backward.pressed).is_true()
-#	assert_bool(control.onready_paths.left.pressed).is_true()
-#	assert_bool(control.onready_paths.right.pressed).is_true()
 	control = tutorial_hints._replace_move_direction(false, false, false, false)
 	assert_str(control.name).is_equal(DIRECTION_SCENE_NAME)
-
-
-#	assert_bool(control.onready_paths.forward.pressed).is_false()
-#	assert_bool(control.onready_paths.backward.pressed).is_false()
-#	assert_bool(control.onready_paths.left.pressed).is_false()
-#	assert_bool(control.onready_paths.right.pressed).is_false()
 
 
 func test_handle_keyboard_input() -> void:
@@ -129,17 +118,10 @@ func test_handle_mouse_input() -> void:
 	input.button_index = BUTTON_LEFT
 	var control = tutorial_hints._handle_mouse_input(input)
 	assert_str(control.name).is_equal(MOUSE_SCENE_NAME)
-# FIXME : onready_paths has issues with tests
-#	assert_bool(control.onready_paths.mouse.lclick.visible).is_true()
-#	assert_bool(control.onready_paths.mouse.rclick.visible).is_false()
 	# Test right click
 	input.button_index = BUTTON_RIGHT
 	control = tutorial_hints._handle_mouse_input(input)
 	assert_str(control.name).is_equal(MOUSE_SCENE_NAME)
-
-
-#	assert_bool(control.onready_paths.mouse.lclick.visible).is_false()
-#	assert_bool(control.onready_paths.mouse.rclick.visible).is_true()
 
 
 func test_handle_joypad_input() -> void:
@@ -151,64 +133,9 @@ func test_replace_strafe() -> void:
 	# All arrows
 	var control = tutorial_hints._replace_strafe(true, true, true, true)
 	assert_str(control.name).is_equal(MOUSE_SCENE_NAME)
-	# FIXME : onready_paths has issues with tests
-#	assert_bool(control.onready_paths.up_arrow.visible).is_true()
-#	assert_bool(control.onready_paths.down_arrow.visible).is_true()
-#	assert_bool(control.onready_paths.left_arrow.visible).is_true()
-#	assert_bool(control.onready_paths.right.visible).is_true()
 	# No arrows
 	control = tutorial_hints._replace_strafe(false, false, false, false)
 	assert_str(control.name).is_equal(MOUSE_SCENE_NAME)
-
-
-#	assert_bool(control.onready_paths.up_arrow.visible).is_false()
-#	assert_bool(control.onready_paths.down_arrow.visible).is_false()
-#	assert_bool(control.onready_paths.left_arrow.visible).is_false()
-#	assert_bool(control.onready_paths.right.visible).is_false()
-
-# FIXME : issues on tests with add_child
-#func test_set_tutorial_text() -> void:
-#	var tutorial_hints_mock = mock(tutorial_hints_path)
-#	do_return(VBoxContainer.new()).on(tutorial_hints_mock)._call_replace_method("test1")
-#	do_return(CenterContainer.new()).on(tutorial_hints_mock)._call_replace_method("test2")
-#	do_return("Test string with ##test1## and\n##test2## as arguments").on(tutorial_hints_mock).tr(
-#		"test"
-#	)
-#	assert_int(tutorial_hints_mock.get_node("Screen/CenterContainer/VBoxContainer").get_child_count()).is_equal(
-#		2
-#	)
-#	assert_int(
-#		tutorial_hints_mock.get_node("Screen/CenterContainer/VBoxContainer").get_child(0).get_child_count(
-#			3
-#		)
-#	)
-#	assert_int(
-#		tutorial_hints_mock.get_node("Screen/CenterContainer/VBoxContainer").get_child(1).get_child_count(
-#			2
-#		)
-#	)
-#	assert_object(tutorial_hints_mock.get_node("Screen/CenterContainer/VBoxContainer").get_child(0)).is_instanceof(
-#		HBoxContainer
-#	)
-#	assert_object(tutorial_hints_mock.get_node("Screen/CenterContainer/VBoxContainer").get_child(1)).is_instanceof(
-#		HBoxContainer
-#	)
-#	assert_object(tutorial_hints_mock.get_node("Screen/CenterContainer/VBoxContainer").get_child(0).get_child(0)).is_instanceof(
-#		Label
-#	)
-#	assert_object(tutorial_hints_mock.get_node("Screen/CenterContainer/VBoxContainer").get_child(0).get_child(1)).is_instanceof(
-#		VBoxContainer
-#	)
-#	assert_object(tutorial_hints_mock.get_node("Screen/CenterContainer/VBoxContainer").get_child(0).get_child(2)).is_instanceof(
-#		Label
-#	)
-#	assert_object(tutorial_hints_mock.get_node("Screen/CenterContainer/VBoxContainer").get_child(1).get_child(0)).is_instanceof(
-#		CenterContainer
-#	)
-#	assert_object(tutorial_hints_mock.get_node("Screen/CenterContainer/VBoxContainer").get_child(1).get_child(1)).is_instanceof(
-#		Label
-#	)
-
 
 func test_create_texture_rect_from_path():
 	assert_object(tutorial_hints._create_texture_rect_from_path("res://icon.png")).is_instanceof(

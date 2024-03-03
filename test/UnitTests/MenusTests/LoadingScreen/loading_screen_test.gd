@@ -41,9 +41,3 @@ func test_disappear() -> void:
 	assert_bool(loading_screen.onready_paths.animation_player.is_playing()).is_true()
 	assert_str(loading_screen.onready_paths.animation_player.current_animation).is_equal(loading_screen.DISAPPEAR_ANIM_NAME)
 
-# FIXME : Works on its own, but for some reason, makes the other test fail
-#func test_on_AnimationPlayer_animation_finished() -> void:
-#	loading_screen._on_AnimationPlayer_animation_finished(loading_screen.APPEAR_ANIM_NAME)
-#	assert_signal(loading_screen).is_emitted(loading_screen.APPEAR_FINISHED_SIGNAL_NAME)
-#	loading_screen._on_AnimationPlayer_animation_finished(loading_screen.DISAPPEAR_ANIM_NAME)
-#	assert_signal(loading_screen).is_emitted(loading_screen.DISAPPEAR_FINISHED_SIGNAL_NAME)

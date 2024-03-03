@@ -12,4 +12,3 @@ func before():
 	.before()
 
 #---- TESTS -----
-# TODO : How to test that the "use" of the parent of CntStandardDoor has been called ?

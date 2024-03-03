@@ -39,7 +39,7 @@ func _connect_signals() -> void:
 func _on_SignalManager_end_reached() -> void:
 	MenuNavigator.toggle_pause_enabled(false)
 	ScenesManager.pause()
-	yield(get_tree().create_timer(0.1), "timeout")  # waits a little before pausing, to at least update the time in VariableManager. # OPTIMIZATION : this is pretty dirty, create a special signal to tell when the time was updated instead ?
+	yield(get_tree().create_timer(0.1), "timeout")  # waits a little before pausing, to at least update the time in VariableManager. 
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	onready_paths.next_scene_button.disabled = not ScenesManager.has_next_level()
 	var millis = fmod(VariableManager.chronometer.level, 1000)

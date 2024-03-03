@@ -36,7 +36,6 @@ func test_explode() -> void:
 	# rocket_explosion.EXPLOSION_POSITION = Vector3.ONE
 	rocket_explosion._explode()
 	assert_bool(rocket_explosion.onready_paths.explosion_audio.playing).is_true()
-	# assert_vector3(rocket_explosion.global_transform.origin).is_equal(Vector3.ONE) # TODO : exports not working well
 	assert_str(rocket_explosion.onready_paths.animation.current_animation).is_equal(
 		rocket_explosion.ANIMATIONS.explode
 	)

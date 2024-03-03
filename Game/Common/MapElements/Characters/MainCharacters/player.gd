@@ -452,7 +452,6 @@ func _init_wall_riding(rc: RayCast) -> void:
 # returns the vector aligned with the wall, to a forward direction of the player
 func _get_wall_fw_vector(rc: RayCast) -> Vector3:
 	var wall_normal = rc.get_collision_normal().normalized()  # normal of the wall, should be the aligned with the player x axis
-	# FIXME : probably an issue if the player tries to wall_ride backwards
 	return (wall_normal.cross(Vector3.UP) * -_RC_wall_direction).normalized()  # Forward direction, where the player should translate to (perpendicular to wall_normal and wall_up)
 
 
@@ -479,7 +478,7 @@ func _init_wall_ride_lock() -> void:
 	_wall_ride_strategy.wall_riding = false
 	onready_paths.timers.wall_ride_jump_lock.start()  # to avoid sticking and accelerating back on the wall after jumping
 	_wall_ride_lock = true
-	if Input.is_action_pressed(GlobalConstants.INPUT_MVT_FORWARD):  # FIXME : probably creates a bug that can make the player wall jump easily to the same wall (but that might make a cool mechanic)
+	if Input.is_action_pressed(GlobalConstants.INPUT_MVT_FORWARD): 
 		var tween = onready_paths.tweens.wall_jump_mix_mvt
 		if tween.is_active():
 			tween.stop_all()
@@ -525,7 +524,7 @@ func _ground_movement(delta: float) -> void:
 
 # when jumping and on the ground
 func _ground_jump() -> void:
-	vel.y += JUMP_POWER  # FIXME : delta not used here ?
+	vel.y += JUMP_POWER 
 	if get_state_value(states_idx.SLIDING):
 		_slide_jump()
 	onready_paths.jump_sound.play()
@@ -665,7 +664,6 @@ func _manage_slide_wallride_visual_effect() -> void:
 	var look_at_vect = self.global_transform.origin - Vector3(vel.x,0.0,vel.z)
 	var visual_effect_slide_offset = Vector3(0.0,0.0,-1.0)
 	var visual_effect_wall_ride_offset = Vector3(1.0 * _RC_wall_direction,2.0,-1.0)
-	# Refactor : make a method to check if a vector can be looked at (used a fair amount of times)
 	if(onready_paths.slide_visual_effects.global_transform.origin != look_at_vect and look_at_vect != Vector3.ZERO and look_at_vect != Vector3.UP and look_at_vect != Vector3.DOWN):
 		onready_paths.slide_visual_effects.look_at(look_at_vect, Vector3.UP)
 	if get_state_value(states_idx.SLIDING):

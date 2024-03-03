@@ -1,12 +1,9 @@
 extends RigidBody
 # A wall that is breakable depending on the signal that is given on trigger-use
 
-# FIXME : Actual advantage of using a rigisbody for character controler, as it provides better collision support
-# OPTIMIZATION : Split the wall procedurally at runtime for general memory optimization
-
 ##### VARIABLES #####
 #---- CONSTANTS -----
-const SPEED_DIVIDER := .055  # Speed divider to prevent the wall from exploding too much, or not enough # TODO : Why.
+const SPEED_DIVIDER := .055  # Speed divider to prevent the wall from exploding too much, or not enough
 const TIME_TO_DISAPPEAR := 5.0  # Time it takes for the wall to disappear after breaking
 const TB_BREAKABLE_WALL_MAPPER := [
 	["collision_layer", "collision_layer"], ["collision_layer", "collision_mask"]

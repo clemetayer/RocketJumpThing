@@ -16,4 +16,3 @@ func before():
 
 #---- TESTS -----
 #==== ACTUAL TESTS =====
-# TODO : hard to test the camera_utils because it is mainly tweens

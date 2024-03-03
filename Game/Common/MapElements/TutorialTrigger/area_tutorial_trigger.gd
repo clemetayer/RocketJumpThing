@@ -1,8 +1,6 @@
 extends Collidable
 # An area that triggers a tutorial on player entered
 
-# TODO : maybe for hints that are before the checkpoint, free these ? (so if the player goes back, he/she doesn't trigger the tutorial anymore)
-
 ##### VARIABLES #####
 #---- CONSTANTS -----
 const TB_AREA_TUTORIAL_MAPPER := [["key", "_key"], ["time", "_time"]]  # mapper for TrenchBroom parameters

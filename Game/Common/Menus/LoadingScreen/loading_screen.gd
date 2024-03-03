@@ -1,6 +1,5 @@
 extends CanvasLayer
 # The loading screen
-# TODO : lock the player, level and chronometer process until the loading screen disappear
 
 ##### SIGNALS #####
 #warning-ignore:UNUSED_SIGNAL

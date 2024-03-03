@@ -2,7 +2,6 @@ tool
 extends SequencerStepDataItem
 class_name SequencerStepDataItemCallMethod
 # A step sequencer that simply calls a method on the step sequencer
-# TODO : add some securities (check beforehand if the method exists in the step sequencer, if VALUES has key, etc.)
 
 ##### VARIABLES #####
 #---- CONSTANTS -----

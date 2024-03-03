@@ -22,5 +22,3 @@ func after():
 
 #---- TESTS -----
 #==== ACTUAL TESTS =====
-# TODO : Scene runner and inputs/method calls does not work really well
-# that means we can't test much here sadly :/

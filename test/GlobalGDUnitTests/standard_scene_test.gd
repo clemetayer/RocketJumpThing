@@ -90,16 +90,6 @@ func test_restart() -> void:
 		song.effect.queue_free()
 
 
-# tests the input
-# TODO : causes performance issues on tests, removed it for the moment
-# func test_inputs() -> void:
-# 	var runner := scene_runner(scene_path)
-# 	runner.simulate_key_pressed(InputMap.get_action_list("restart_last_cp")[0].scancode)
-# 	assert_signal(SignalManager).is_emitted("respawn_player_on_last_cp")
-# 	runner.simulate_key_pressed(InputMap.get_action_list("restart")[0].scancode)
-# 	assert_signal(SignalManager).is_emitted("respawn_player_on_last_cp")
-
-
 # tests the respawn on last cp (not start)
 func test_respawn_player_on_last_cp() -> void:
 	var last_cp_test = Checkpoint.new()

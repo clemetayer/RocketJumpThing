@@ -2,14 +2,6 @@ extends Song
 class_name SongAnimationPlayer
 # A song implementation using the AnimationPlayer
 
-"""
----- NOTES ----
-- Evil ugly way to modify the volume of tracks/songs. By first interpolating the tracks you want, then calling a function that updates ALL tracks
-	- Because Tween.interpolate_method only takes ONE parameter that can't be an array. Probably a better way will be available with Godot 4.0 and lambda expressions
-- The songs should be imported with a correct loop value, and in the editor, the play value of the tracks should be set clearly (i.e, when you want a track to stop after playing, put a stop value at the end, otherwise, it will loop) 
-- REFACTOR : Might be better to use the animation player animation variable instead of "ANIMATION"
-"""
-
 ##### SIGNALS #####
 # Node signals
 
@@ -21,7 +13,7 @@ enum bus_effects { filter }  # effect indexes in a bus
 export(NodePath) var ANIMATION_PLAYER
 export(String) var SONG_SEND_TO = "Master"  # where the song bus should send
 export(String) var ANIMATION  # Animation that should play
-export(bool) var ALLOW_RECURSIVE_INIT = false  # If it should enable the search for AudioStream in recursive children nodes on init (can be usefull for organisation purposes) # OPTIMIZATION : make this option true by default ?
+export(bool) var ALLOW_RECURSIVE_INIT = false  # If it should enable the search for AudioStream in recursive children nodes on init (can be usefull for organisation purposes)
 export(Dictionary) var TRACK_CUSTOM_EFFECTS = {}  # Custom buses for tracks. Should be like {"track_name":[AudioEffect]}. Usefull to handle loops with reverbs or delay
 export(float) var SLIDE_FX_FILTER_CUTOFF # Lowpass frequency filter for the slide bus
 
@@ -209,7 +201,7 @@ func _init_buses():
 	# inits the track buses
 	for track_name in _tracks.keys():
 		if track_name != name:  # not root of the song
-			_create_bus("%s:%s" % [name, track_name], name)  # TODO : make 2 parameters, one for song and one for track ?
+			_create_bus("%s:%s" % [name, track_name], name)
 			_tracks[track_name].bus = "%s:%s" % [name, track_name]
 			get_node(_tracks[track_name].path).bus = "%s:%s" % [name, track_name]
 	_buses_cleared = false
@@ -232,7 +224,6 @@ func _create_bus(name: String, send_to: String):
 	_create_default_bus(name, send_to)
 	var track_name := name.split(":")[name.split(":").size() - 1]  # track name is the last element of the bus name splitted by ':' (<song>:<track>)
 	# Adds the custom track effects
-	# REFACTOR : create a specific method ?
 	if TRACK_CUSTOM_EFFECTS.has(track_name):
 		for effect_idx in range(TRACK_CUSTOM_EFFECTS[track_name].size()):
 			AudioServer.add_bus_effect(
@@ -303,7 +294,6 @@ func _get_same_track(new_animation: String):
 
 
 # returns the animation time where the track matches the play_time
-# TODO : hard to unit test, since track_get_key_time returns bad values on test execution
 func _get_animation_time_from_track_time(animation: String, track: String) -> float:
 	var anim: Animation = get_node(ANIMATION_PLAYER).get_animation(animation)
 	for track_idx in range(anim.get_track_count()):
@@ -328,7 +318,8 @@ func _get_animation_time_from_track_time(animation: String, track: String) -> fl
 					anim.track_get_key_time(track_idx, key_idx)
 					+ get_node(_tracks[track].path).get_playback_position()
 				)  # usually, the animation length is at least the length of the track (otherwise, just use modulo, but that would probably give weird results)
-	return 0.0  # standard case that should not happen (TODO : put a log here ?)
+	DebugUtils.log_stacktrace("No animation time that matches the play_time found", DebugUtils.LOG_LEVEL.debug)
+	return 0.0 
 
 
 # returns the play times of each track, depending on the position of the animation

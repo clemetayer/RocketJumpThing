@@ -50,7 +50,6 @@ func test_on_SignalManager_add_cfg_popup() -> void:
 	add_cfg_popup._on_SignalManager_add_cfg_popup(TEST_PATH, ConfigFile.new())
 	assert_object(add_cfg_popup._cfg).is_not_null()
 	assert_str(add_cfg_popup._path).is_equal(TEST_PATH)
-	# assert_bool(add_cfg_popup.visible).is_true() # FIXME : in test mode, it does not show as visible
 
 
 func test_on_LineEdit_text_changed() -> void:

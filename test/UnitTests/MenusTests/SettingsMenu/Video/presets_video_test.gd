@@ -23,5 +23,3 @@ func test_generate_cfg_file() -> void:
 
 func test_get_config_path() -> void:
 	assert_str(presets._get_config_path()).is_equal(SettingsUtils.VIDEO_PRESETS_PATH)
-
-# FIXME :fairly hard to test _apply_preset in this case (maybe by mocking log_load_cfg ?)

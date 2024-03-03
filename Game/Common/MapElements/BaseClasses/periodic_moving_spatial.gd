@@ -97,7 +97,6 @@ func _create_show_path_mesh(start_point: Vector3, end_point: Vector3) -> MeshIns
 	if normalized_vect == Vector3.UP or normalized_vect == -Vector3.UP:  # aligned with up vector, do not use look_at
 		mesh_instance.rotation.x = PI / 2.0
 	else:
-		# FIXME : Creates an error stating that the mesh instance is not in the tree, but since it hard to fix and is not blocking anything, it should be fine
 		mesh_instance.look_at(end_point - start_point, Vector3.UP)
 	mesh_instance.set_surface_material(0, _create_path_material())
 	return mesh_instance

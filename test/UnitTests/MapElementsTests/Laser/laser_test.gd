@@ -85,35 +85,6 @@ func test_update_laser() -> void:
 	assert_float(laser._last_length).is_equal_approx(new_length,FLOAT_APPROX)
 	assert_float(laser.onready_paths.particles.translation.z).is_equal_approx(new_length, FLOAT_APPROX)
 
-
-# FIXME : Can't mock things for some reason
-# func test_check_raycast() -> void:
-# 	var max_length := 10.5
-# 	var mid_length := 5.0
-# 	var mock = mock(laser_path)
-# 	mock._ready()
-# 	do_return(null).on(mock)._update_laser(max_length)
-# 	do_return(mid_length).on(mock.onready_paths.global_transform.origin).distance_to()
-# 	do_return(null).on(mock)._update_laser(mid_length)
-# 	# case colliding
-# 	do_return(true).on(mock.onready_paths.raycast).is_colliding()
-# 	mock._check_raycast()
-# 	verify(mock, 1)._update_laser(max_length)
-# 	verify(mock, 0)._update_laser(mid_length)
-# 	# case not colliding
-# 	## reset the mock
-# 	mock = mock(laser_path)
-# 	mock._ready()
-# 	do_return(null).on(mock)._update_laser(max_length)
-# 	do_return(mid_length).on(mock.onready_paths.global_transform.origin).distance_to()
-# 	do_return(null).on(mock)._update_laser(mid_length)
-# 	## test
-# 	do_return(false).on(mock.onready_paths.raycast).is_colliding()
-# 	mock._check_raycast()
-# 	verify(mock, 0)._update_laser(max_length)
-# 	verify(mock, 1)._update_laser(mid_length)
-
-
 func test_on_body_entered() -> void:
 	var player := KinematicBody.new()
 	player.add_to_group("player")

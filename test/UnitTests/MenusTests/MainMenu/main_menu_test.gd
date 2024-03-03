@@ -26,5 +26,3 @@ func after():
 func test_connect_signals() -> void:
 	main_menu._connect_signals()
 	assert_bool(SignalManager.is_connected(SignalManager.SEQUENCER_STEP,main_menu,"_on_SignalManager_sequencer_step")).is_true()
-
-#TODO : faire mieux avec des mocks

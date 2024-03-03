@@ -21,5 +21,4 @@ func _init(p_object = null, p_property = "", p_original_value = null):
 ##### PUBLIC METHODS #####
 # returns true if this ShakeVariable can be used safely
 func is_valid() -> bool:
-	# TODO : find a way to add property in object with subresources paths
 	return object != null

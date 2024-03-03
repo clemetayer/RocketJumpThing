@@ -4,7 +4,6 @@
 extends GdUnitTestSuite
 class_name GlobalTests
 # Global tests for ALL scenes. Mostly to check that it is at least not crashing
-# TODO : find a way to test with Autoload objects
 
 ##### VARIABLES #####
 var element_path: String  # Element to test

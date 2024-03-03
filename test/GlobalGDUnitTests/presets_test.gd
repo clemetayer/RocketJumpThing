@@ -50,7 +50,6 @@ func test_connect_signals() -> void:
 func test_init_list() -> void:
 	var cfg_list := ["test1.cfg", "test2.cfg"]
 	presets._cfg_files_list = cfg_list
-	# assert_int(presets.onready_paths.options_menu.get_item_count()).is_equal(cfg_list.size()) # FIXME : somehow get_item_count returns 0 even though the tests further shows that it has items ?
 	for _cfg_idx in range(cfg_list.size()):
 		pass
 		# FIXME : This tests SHOWS that it works, but somehow is considered an error by gdunit
@@ -69,7 +68,5 @@ func test_get_cfg_name() -> void:
 	assert_str(presets._get_cfg_name()).is_equal("test2.cfg")
 
 # _get_init_selected_cfg, _generate_cfg_file, _get_config_path and _apply_preset to test in children classes
-
-# FIXME : test signal emission not working for _on_SaveButton_pressed and _on_AddPresetButton_pressed
 
 # Not really usefull to test _on_FolderButton_pressed, _on_RefreshButton_pressed (same as ready thing) and _on_preset_selected (samme as _apply preset)

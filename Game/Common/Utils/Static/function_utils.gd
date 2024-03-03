@@ -48,7 +48,6 @@ static func parse_json_string_to_objects(json_str: String) -> Dictionary:
 	return dict
 
 
-# TODO : Case if an array contains another array
 static func _json_data_to_objects(dict: Dictionary) -> Dictionary:
 	for key in dict:
 		if dict[key] is Dictionary and not dict[key] is Array:

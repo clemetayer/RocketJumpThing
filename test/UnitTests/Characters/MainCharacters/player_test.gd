@@ -30,29 +30,6 @@ func after_test():
 
 #---- TESTS -----
 #==== ACTUAL TESTS =====
-# FIXME : Issues when testing
-# func test_portal_process() -> void:
-# 	# test values
-# 	var origin_pos := Vector3(0.0, 1.0, 2.0)
-# 	var port_rotation := Vector3(PI / 4.0, PI / 3.0, 0.0)
-# 	var player_vel = Vector3.ONE * 5.0
-# 	# init
-# 	var portal = load(portal_path).instance()
-# 	add_child(portal)
-# 	portal.global_rotation = port_rotation
-# 	portal.global_transform.origin = origin_pos
-# 	player.vel = Vector3.ONE * 5.0
-# 	player.portal_process(portal)
-# 	# test
-# 	assert_vector3(player.vel).is_equal(
-# 		player_vel.length() * Vector3.ONE.rotated(port_rotation, 1.0)
-# 	)
-# 	assert_vector3(player.global_transform.origin).is_equal(origin_pos)
-# 	assert_float(player.rotation.y).is_equal_approx(port_rotation.y, FLOAT_APPROX)
-# 	assert_float(player.rotation_helper.rotation.x).is_equal_approx(port_rotation.x, FLOAT_APPROX)
-# 	# free
-# 	portal.free()
-
 func test_connect_signals() -> void:
 	player._connect_signals()
 	assert_bool(SignalManager.is_connected(SignalManager.UPDATE_FOV, player, "_on_SignalManager_update_fov")).is_true()
@@ -123,15 +100,6 @@ func test_look_at_mangle() -> void:
 	assert_vector3(player.onready_paths.rotation_helper.rotation_degrees).is_equal(
 		Vector3(cp_rot.x, 0, 0)
 	)
-
-
-# TODO : Scene runner and inputs/method calls does not work really well
-# func test_process_input() -> void:
-# 	var runner := scene_runner(player_path)
-# 	runner.simulate_key_press(InputMap.get_action_list("movement_forward")[0].scancode)
-# 	runner.invoke("_process_input")
-# 	assert_vector2(runner.get_property("input_movement_vector")).is_equal(Vector2(0, 1))
-
 
 func test_init_rocket() -> void:
 	var transform := Transform.looking_at(Vector3.FORWARD, Vector3.UP)

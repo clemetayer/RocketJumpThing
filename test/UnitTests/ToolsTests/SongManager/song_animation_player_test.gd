@@ -119,7 +119,6 @@ func test_update_different_tracks() -> void:
 
 
 # test of the update method for animations that have at least one track in common, and other tracks fading in
-# TODO : Cannot test play time since _get_animation_time_from_track_time is returning weird values due to the test execution
 func test_update_common_tracks_fade_in() -> void:
 	s_a_p._init_tracks()
 	s_a_p._init_buses()
@@ -140,7 +139,6 @@ func test_update_common_tracks_fade_in() -> void:
 
 
 # test of the update method for animations that have at least one track in common, and other tracks fading out
-# TODO : Cannot test play time since _get_animation_time_from_track_time is returning weird values due to the test execution
 func test_update_common_tracks_fade_out() -> void:
 	s_a_p.ANIMATION = "anim_3"
 	s_a_p._init_tracks()
@@ -243,14 +241,6 @@ func test_get_same_track() -> void:
 	s_a_p.get_node(PATHS.animation_player).play("anim_1")
 	assert_str(s_a_p._get_same_track("anim_3")).is_equal(TRACK_1)
 
-
-# TODO : hard to test
-# func test_get_animation_time_from_track_time() -> void:
-# 	s_a_p.get_node(PATHS.animation_player).play("anim_1")
-# 	s_a_p.get_node(PATHS.animation_player).seek(0.1)
-# 	assert_float(s_a_p._get_animation_time_from_track_time("anim_3", TRACK_1)).is_equal(0.2)
-
-
 func test_get_track_play_times() -> void:
 	s_a_p.get_node(PATHS.track_1).playing = true
 	s_a_p.get_node(PATHS.track_2).playing = true
@@ -278,7 +268,6 @@ func test_reset_bus() -> void:
 	AudioServer.remove_bus(AudioServer.get_bus_index("test"))
 
 
-# TODO : Cannot test play time since _get_animation_time_from_track_time is returning weird values due to the test execution
 func test_signal_on_parent_effect_done() -> void:
 	s_a_p._update_track_infos = {"animation": "anim_3", "fade_out": []}
 	s_a_p._init_tracks()

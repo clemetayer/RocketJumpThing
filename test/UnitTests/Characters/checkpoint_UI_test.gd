@@ -35,6 +35,4 @@ func test_connect_signals() -> void:
 	checkpoint_ui._connect_signals()
 	assert_bool(SignalManager.is_connected(SignalManager.CHECKPOINT_TRIGGERED, checkpoint_ui, "_on_SignalManager_checkpoint_triggered")).is_true()
 
-# TODO : complex to test the tweens for _displa_effect
-
 # useless to test _on_SignalManager_checkpoint_triggered

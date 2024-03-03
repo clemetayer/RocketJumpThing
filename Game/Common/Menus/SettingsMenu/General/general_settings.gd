@@ -58,7 +58,7 @@ func _connect_signals() -> void:
 
 ##### SIGNAL MANAGEMENT #####
 func _on_Options_item_selected(idx: int) -> void:
-	TranslationServer.set_locale(TranslationServer.get_loaded_locales()[idx])  # Refactor : maybe dangerous ?
+	TranslationServer.set_locale(TranslationServer.get_loaded_locales()[idx])
 	SignalManager.emit_translation_updated()
 
 func _on_SignalManager_update_settings() -> void:

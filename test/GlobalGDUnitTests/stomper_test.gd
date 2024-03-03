@@ -25,9 +25,6 @@ func after():
 
 #---- TESTS -----
 #==== ACTUAL TESTS =====
-# TODO : _stomp is hard to test because of the tweens
-
-
 func test_connect_signals() -> void:
 	stomper._connect_signals()
 	assert_bool(stomper.is_connected("body_entered", stomper, "_on_body_entered")).is_true()

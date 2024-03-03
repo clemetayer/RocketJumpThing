@@ -1,6 +1,5 @@
 extends Node
 # kind of like function_utils.gd but for everything that cannot be static
-# TODO : Actually translate all the mouse inputs
 
 ##### VARIABLES #####
 #---- CONSTANTS -----
@@ -86,7 +85,7 @@ func display_input_as_string(input: InputEvent) -> String:
 				return _translate_mouse_button(GlobalConstants.MOUSE_MASK_SPECIAL_2)
 	elif input is InputEventJoypadButton:
 		return Input.get_joy_button_string(input.button_index)
-	return ""  # TODO : put a better string for unrecognized inputs ?
+	return ""
 
 
 func save_level_times(time: float) -> void:
